@@ -1,1 +1,3 @@
 include: ['_all-skins.min.css']
+exclude: ['.vs']
+incremental: true

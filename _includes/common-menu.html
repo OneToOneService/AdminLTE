@@ -33,31 +33,31 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/pages/colors.html">
                     <i class="fa fa-adjust"></i>
                     <span>Colors</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/pages/nav.html">
                     <i class="fa fa-navicon"></i>
                     <span>Main & Sub Navigation</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/pages/tabs.html">
                     <i class="fa fa-list"></i>
                     <span>Tabs</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/pages/buttons.html">
                     <i class="fa fa-square"></i>
                     <span>Buttons</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/pages/icons.html">
                     <i class="fa fa-image"></i>
                     <span>Icons</span>
                 </a>
@@ -117,7 +117,7 @@
 <script>
     Array.prototype.forEach.call(document.querySelectorAll("aside.main-sidebar a"), function (a)
     {
-        if(a.getAttribute("href").indexOf(location.pathname) >= 0)
+        if(a.getAttribute("href") == location.pathname)
             a.parentElement.classList.add("active");
         else
             a.parentElement.classList.remove("active");
