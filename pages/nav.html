@@ -2,7 +2,7 @@
 title: Main and sub navigation
 ---
 <!DOCTYPE html>
-<html>
+<html ng-app="iService">
 <head>
     {% include common-head.html %}
     <style>
@@ -41,7 +41,7 @@ title: Main and sub navigation
                                 <h3 class="box-title">Main navigation</h3>
                             </div>
                             <div class="box-body pad table-responsive">
-                                <ul class="sidebar-menu main-sidebar" data-widget="tree">
+                                <ul class="sidebar-menu main-sidebar" admin-lte-tree>
                                     <li class="treeview">
                                         <a href="#">
                                             <i class="fa fa-dashboard"></i> <span>Level 1</span>
@@ -368,16 +368,7 @@ title: Main and sub navigation
         <div class="control-sidebar-bg"></div>
     </div>
     <!-- ./wrapper -->
-    <!-- jQuery 3.1.1 -->
-    <script src="../plugins/jQuery/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="../plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../dist/js/adminlte.min.js"></script>
+    {% include common-javascript.html %}
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
 </body>

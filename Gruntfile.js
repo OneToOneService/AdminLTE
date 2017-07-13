@@ -16,6 +16,11 @@ module.exports = function (grunt) { // jshint ignore:line
         files: ['build/js/*.js', 'dist/js/app.js'],
         tasks: ['js']
       },
+      iServiceJs: {
+        // Compile iService Agnular directives files upon saving
+        files: ['build/iservice/js/iService.directive.js', 'dist/iservice/js/iService.directive.js'],
+        tasks: ['iServiceJs']
+      },
       skins: {
         // Compile any skin less files upon saving
         files: ['build/less/skins/*.less'],
@@ -142,6 +147,16 @@ module.exports = function (grunt) { // jshint ignore:line
           'build/js/DirectChat.js'
         ],
         dest: 'dist/js/adminlte.js'
+      },
+      iService: {
+        options: {
+          separator: '\n\n',
+          banner: ''
+        },
+        src: [
+          'build/iservice/js/iService.directive.js'
+        ],
+        dest: 'dist/iservice/js/iService.directive.js'
       }
     },
 
@@ -261,6 +276,7 @@ module.exports = function (grunt) { // jshint ignore:line
   grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']);
   // JS task
   grunt.registerTask('js', ['concat', 'uglify']);
+  grunt.registerTask('iServiceJs', ['concat:iService']);
 
   // The default task (running 'grunt' in console) is 'watch'
   grunt.registerTask('default', ['watch']);
