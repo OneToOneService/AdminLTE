@@ -141,7 +141,45 @@ title: Tables
 				  </div>
 				</div>
 			  </div>
+               
+			     <div class="row">
+				<div class="col-md-6">
+				  <div class="box box-default">
+					<div class="box-header with-border">
+					  <i class="fa fa-warning"></i>
+				      <h3 class="box-title">Tooltips</h3>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+					  <div class="demo-tooltip">
+						<button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" data-original-title="Tooltip on left">Tooltip on left</button>
+						<button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Tooltip on top">Tooltip on top</button>
+						<button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom">Tooltip on bottom</button>
+						<button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="right" data-original-title="Tooltip on right">Tooltip on right</button>
+					  </div>
+					  <br>
+					  <div class="demo-popover1">
+					    <button type="button" class="btn btn-block btn-warning"  data-toggle="popover" id="toggle" data-trigger="hover" data-placement="top" title="Popover Title" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Toggle popover</button>
+						 <br> <br>
+						<button type="button" id="popover-title" class="btn btn-block btn-warning" data-trigger="click" data-placement="top" title="Popover Title" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Popover With Title</button>
+					  </div>
+					  <br> 
+					  <div class="demo-popover2">
+						<button type="button" class="btn btn-default btn-sm" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">Popover on left</button>
+						<button type="button" class="btn btn-default btn-sm" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">Popover on top</button>
+						<button type="button" class="btn btn-default btn-sm" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" >Popover on bottom</button>
+						<button type="button" class="btn btn-default btn-sm" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" >Popover on right</button>
+					  </div>
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+				</div>
+				<!-- /.col -->
 
+			
+			  </div>
+			  <!-- /.row -->
 				<div class="modal fade" id="modal-default">
 				  <div class="modal-dialog">
 					<div class="modal-content">
@@ -474,7 +512,7 @@ title: Tables
     </div>
     <!-- ./wrapper -->
     <!-- jQuery 3.1.1 -->
-    <script src="../plugins/jQuery/jquery-3.1.1.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <!-- DataTables -->
@@ -488,6 +526,23 @@ title: Tables
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
-
+    <script>
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();  
+		$('[data-toggle="popover"]').popover(); 		
+		
+	});
+	
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('#toggle').popover({
+					html: true,
+					trigger: 'hover',
+			});
+			$('#popover-title').popover();			
+		});
+</script>
+	
 </body>
 </html>

@@ -1,0 +1,62 @@
+/*
+ * Core: General Layout Style
+ * -------------------------
+ */
+ 
+.login-bg{background: #d2d6de no-repeat; background-size:100%;} 
+.login-box, .register-box { border-radius: 5px;}
+.login-box-msg, .register-box-msg {
+    margin: 0;
+    text-align: center;
+    padding: 15px 20px 15px 20px;
+    margin-bottom: 16px;
+}
+.login-box-body, .register-box-body {
+    padding-top: 0px;
+	border: 1px solid #ccc;
+	border-radius:5px;
+}
+
+p.login-box-msg {
+    background: #666;
+    margin-left: -21px!important;
+    margin-right: -21px;
+    color: #fff;
+    border-radius: 5px 5px 0px 0px;
+    font-size: 20px;
+}
+.copy-text{text-align:center;margin-top: 25px;color: #666666;}
+.copy-text span{color:#3c8dbc;}
+.sidebar-menu>li>a {
+    display: inline-block;
+    width: 100%;
+}
+.btn-table-search{ 
+    border-radius: 0;
+    color: #444;
+    float: right;
+    height: 30px;
+    margin-left: -1px;
+    position: relative;
+    z-index: 9999;
+	padding: 3px 12px;
+}
+
+.sidebar-menu>li>a>span{
+    padding-left: 2px;
+    width: 90%;
+    float: right;
+    line-height: 15px;
+}
+.sidebar-menu, .main-sidebar .user-panel, .sidebar-menu>li.header {
+    white-space: normal;
+}
+.search-table-btn{
+  float:right;
+  margin-left:-1px;
+  position:relative;
+  z-index:999;
+  height:30px;
+  padding-top: 4px;
+  border-radius:0px;
+}
