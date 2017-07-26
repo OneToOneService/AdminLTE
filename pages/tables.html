@@ -33,7 +33,19 @@ title: Tables
                       <h3 class="box-title">Data Table With Full Features</h3>
                     </div>
                     <!-- /.box-header -->
+					<div class="row">
+						<div class="container">
+							<div class="dt-buttons btn-group">
+								<a class="btn btn-default buttons-copy buttons-html5" tabindex="0"  href="#"><span>Copy</span></a>
+								<a class="btn btn-default buttons-excel buttons-html5" tabindex="0" href="#"><span>Excel</span></a>
+								<a class="btn btn-default buttons-pdf buttons-html5" tabindex="0"  href="#"><span>PDF</span></a>
+								<a class="btn btn-default buttons-collection buttons-colvis" tabindex="0"  href="#"><span>Column visibility</span></a>
+							</div>
+						</div>
+					</div>	
+					<br>
                     <div class="box-body table-responsive ">
+					  
                       <table id="example1" class="table table-bordered table-striped table-hover ">
                         <thead>
                         <tr>
@@ -881,7 +893,7 @@ title: Tables
 		   search:'<button type="submit" class="btn btn-default search-table-btn"><i class="fa fa-search"></i></button>'
 		 }
 		});
-		
+		$('.dataTables_filter input').attr("placeholder", "Search");
 	  });
 	</script>
 </body>
