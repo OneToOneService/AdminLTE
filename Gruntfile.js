@@ -21,6 +21,10 @@ module.exports = function (grunt) { // jshint ignore:line
         files: ['build/iservice/js/iService.directive.js', 'dist/iservice/js/iService.directive.js'],
         tasks: ['iServiceJs']
       },
+      iServiceCss: {
+        files: ['build/iservice/less/webapp.less'],
+        tasks: ['less:iServiceCss', 'less:iServiceCssMinified']
+      },
       skins: {
         // Compile any skin less files upon saving
         files: ['build/less/skins/*.less'],
@@ -57,6 +61,19 @@ module.exports = function (grunt) { // jshint ignore:line
           'dist/css/alt/AdminLTE-select2.min.css'         : 'build/less/select2.less',
           'dist/css/alt/AdminLTE-fullcalendar.min.css'    : 'build/less/fullcalendar.less',
           'dist/css/alt/AdminLTE-bootstrap-social.min.css': 'build/less/bootstrap-social.less'
+        }
+      },
+      iServiceCss: {
+        files: {
+          'dist/iservice/css/webapp.css': 'build/iservice/less/webapp.less'
+        }
+      },
+      iServiceCssMinified: {
+        options: {
+          compress: true
+        },
+        files: {
+          'dist/iservice/css/webapp.min.css': 'build/iservice/less/webapp.less'
         }
       },
       // Non minified skin files
