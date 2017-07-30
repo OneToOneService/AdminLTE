@@ -2,10 +2,13 @@
  * Core: General Layout Style
  * -------------------------
  */
-
+ 
+@gray-lte: #d2d6de;
+@gray-border: #ccc;
+@white:#fff;
 .login-bg
 {
-  background: #d2d6de no-repeat;
+  background: @gray-lte no-repeat;
   background-size: 100%;
 }
 
@@ -26,7 +29,7 @@
 .login-box-body, .register-box-body
 {
   padding-top: 0px;
-  border: 1px solid #ccc;
+  border: 1px solid @gray-border;
   border-radius: 5px;
 }
 
@@ -100,7 +103,7 @@ p.login-box-msg
 {
   position: relative;
   margin-bottom: 20px;
-  border: 1px solid #d2d6de;
+  border: 1px solid @gray-lte;
   height: 47px;
 }
 
@@ -308,6 +311,14 @@ p.login-box-msg
 .blink
 {
     animation: 1s linear infinite blink_effect;
+}
+.svg-class svg, .svglogo {
+    fill: red; // whichever color you want
+}
+.user-panel a.btn{color:@white;}
+.sidebar-mini.sidebar-collapse {
+	.user-panel a span,.sidebar-mini.sidebar-collapse .user-panel button span {display:none;}
+    .user-panel a.btn{padding:0;background:none;border:none;}
 }
 
 @keyframes blink_effect

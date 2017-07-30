@@ -21,7 +21,7 @@
 .login-box-body,
 .register-box-body {
   padding-top: 0px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 5px;
 }
 p.login-box-msg {
@@ -244,6 +244,22 @@ p.login-box-msg {
 }
 .blink {
   animation: 1s linear infinite blink_effect;
+}
+.svg-class svg,
+.svglogo {
+  fill: red;
+}
+.user-panel a.btn {
+  color: #ffffff;
+}
+.sidebar-mini.sidebar-collapse .user-panel a span,
+.sidebar-mini.sidebar-collapse .sidebar-mini.sidebar-collapse .user-panel button span {
+  display: none;
+}
+.sidebar-mini.sidebar-collapse .user-panel a.btn {
+  padding: 0;
+  background: none;
+  border: none;
 }
 @keyframes blink_effect {
   0% {
