@@ -312,13 +312,26 @@ p.login-box-msg
 {
     animation: 1s linear infinite blink_effect;
 }
-.svg-class svg, .svglogo {
-    fill: red; // whichever color you want
-}
+
 .user-panel a.btn{color:@white;}
 .sidebar-mini.sidebar-collapse {
 	.user-panel a span,.sidebar-mini.sidebar-collapse .user-panel button span {display:none;}
     .user-panel a.btn{padding:0;background:none;border:none;}
+}
+.logo-lg svg, .logo-mini svg{width:25px; height:40px;}
+.logo-lg .logosvg, .logo-mini .logosvg {fill:@white;}
+.logo-lg .logotext{   
+    position: relative;
+    left: -5px;
+    font-size: 30px;
+    top: -4px;
+}
+.login-logo svg{width:25px; height:40px;}
+.logo-logo .logotext{   
+    position: relative;
+    left: -5px;
+    font-size: 30px;
+    top: -4px;
 }
 
 @keyframes blink_effect

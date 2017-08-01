@@ -245,10 +245,6 @@ p.login-box-msg {
 .blink {
   animation: 1s linear infinite blink_effect;
 }
-.svg-class svg,
-.svglogo {
-  fill: red;
-}
 .user-panel a.btn {
   color: #ffffff;
 }
@@ -260,6 +256,31 @@ p.login-box-msg {
   padding: 0;
   background: none;
   border: none;
+}
+.logo-lg svg,
+.logo-mini svg {
+  width: 25px;
+  height: 40px;
+}
+.logo-lg .logosvg,
+.logo-mini .logosvg {
+  fill: #ffffff;
+}
+.logo-lg .logotext {
+  position: relative;
+  left: -5px;
+  font-size: 30px;
+  top: -4px;
+}
+.login-logo svg {
+  width: 25px;
+  height: 40px;
+}
+.logo-logo .logotext {
+  position: relative;
+  left: -5px;
+  font-size: 30px;
+  top: -4px;
 }
 @keyframes blink_effect {
   0% {
