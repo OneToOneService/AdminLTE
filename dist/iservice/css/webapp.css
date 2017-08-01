@@ -273,14 +273,21 @@ p.login-box-msg {
   top: -4px;
 }
 .login-logo svg {
-  width: 25px;
-  height: 40px;
+  width: 38px;
+  height: 37px;
 }
-.logo-logo .logotext {
-  position: relative;
-  left: -5px;
-  font-size: 30px;
-  top: -4px;
+.login-logo .logosvg {
+  fill: #3c8dbc;
+}
+.login-logo .logotext {
+  font-size: 41px;
+  color: #3c8dbc;
+  margin-left: -11px;
+  font-weight: 900;
+}
+.login-logo,
+.register-logo {
+  margin-bottom: 12px;
 }
 @keyframes blink_effect {
   0% {
