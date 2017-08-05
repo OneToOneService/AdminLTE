@@ -286,39 +286,62 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					    <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                         <span class="hidden-xs">Alexander Pierce</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
+						     <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                Alexander Pierce
+                                <small>alexander.pierce@test.com</small>
+								<small>Auto logout in 12.00</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
+                                    <a href="#">Profile</a>
                                 </div>
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
+                                    <a href="#">Subscription</a>
                                 </div>
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
+                                    <a href="#">Stock Responses</a>
                                 </div>
                             </div>
                             <!-- /.row -->
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            <div class="pull-left dropdown">
+                                <a href="#" class="btn btn-default btn-flat" data-toggle="collapse" data-target="#forget-password">Change Password</a>
+								
                             </div>
                             <div class="pull-right">
                                 <a href="#" class="btn btn-default btn-flat">Sign out</a>
                             </div>
+							<div class="clearfix"></div>
+							<div class="change-password collapse">
+							   <br>
+							   <div class="form-group has-feedback">
+								<input type="password" class="form-control" placeholder="Old Password">
+								<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+							   </div>
+							   <div class="form-group has-feedback">
+								<input type="password" class="form-control" placeholder="New Password">
+								<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+							   </div>
+							   <div class="form-group has-feedback">
+								<input type="password" class="form-control" placeholder="Confirm Password">
+								<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+							   </div>
+							   <div class="col-xs-12">
+								  <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+								</div>
+							</div>
                         </li>
                     </ul>
                 </li>

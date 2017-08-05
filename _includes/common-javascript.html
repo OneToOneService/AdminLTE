@@ -20,3 +20,10 @@
 <script>
   angular.module('iService', ['iService.directive']);
 </script>
+<script>
+	$('.user-menu a[data-toggle="collapse"]').click(function (e)
+	{   
+        $('.user-menu #forget-password').toggle();	
+		e.stopPropagation();
+	});
+</script>
