@@ -292,6 +292,72 @@ p.login-box-msg {
   margin-bottom: 0px;
   border-radius: 0px;
 }
+.treeview .tree,
+.treeview .tree ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.treeview .tree ul {
+  margin-left: 1em;
+  position: relative;
+}
+.treeview .tree ul ul {
+  margin-left: 0.5em;
+}
+.treeview .tree ul:before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid;
+}
+.treeview .tree li {
+  margin: 0;
+  padding: 0 1em;
+  line-height: 2em;
+  color: #336699;
+  font-weight: 700;
+  position: relative;
+}
+.treeview .tree ul li:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 0;
+  border-top: 1px solid;
+  margin-top: -1px;
+  position: absolute;
+  top: 1em;
+  left: 0;
+}
+.treeview .tree ul li:last-child:before {
+  background: #ffffff;
+  height: auto;
+  top: 1em;
+  bottom: 0;
+}
+.treeview .indicator {
+  margin-right: 5px;
+}
+.treeview .tree li a {
+  text-decoration: none;
+  color: #336699;
+}
+.treeview .tree li button,
+.treeview .tree li button:active,
+.treeview .tree li button:focus {
+  text-decoration: none;
+  color: #336699;
+  border: none;
+  background: transparent;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  outline: 0;
+}
 @keyframes blink_effect {
   0% {
     visibility: hidden;
