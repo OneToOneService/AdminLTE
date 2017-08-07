@@ -358,6 +358,11 @@ p.login-box-msg {
   padding: 0px 0px 0px 0px;
   outline: 0;
 }
+.left-copyright {
+  padding: 15px;
+  border-top: 1px solid #b8c7ce;
+  color: #b8c7ce;
+}
 @keyframes blink_effect {
   0% {
     visibility: hidden;
