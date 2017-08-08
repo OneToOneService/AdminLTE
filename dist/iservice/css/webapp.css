@@ -362,6 +362,7 @@ p.login-box-msg {
   padding: 15px;
   border-top: 1px solid #b8c7ce;
   color: #b8c7ce;
+  display: block;
 }
 @keyframes blink_effect {
   0% {
