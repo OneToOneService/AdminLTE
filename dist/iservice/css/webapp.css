@@ -372,6 +372,17 @@ pre {
   color: #b8c7ce;
   display: block;
 }
+.copyrightbottom {
+  font-size: 12px;
+}
+.copyrightbottom span {
+  display: block;
+}
+@media only screen and (max-width: 480px) {
+  .pull-xm-left {
+    float: left;
+  }
+}
 @keyframes blink_effect {
   0% {
     visibility: hidden;
