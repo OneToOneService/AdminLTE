@@ -371,6 +371,7 @@ pre {
   border-top: 1px solid #b8c7ce;
   color: #b8c7ce;
   display: block;
+  font-size: 12px;
 }
 .copyrightbottom {
   font-size: 12px;
@@ -378,9 +379,12 @@ pre {
 .copyrightbottom span {
   display: block;
 }
+.logos img {
+  max-width: 300px;
+}
 @media only screen and (max-width: 480px) {
   .pull-xm-left {
-    float: left;
+    float: left !important;
   }
 }
 @keyframes blink_effect {
