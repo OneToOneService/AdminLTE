@@ -383,3 +383,19 @@ pre {
     visibility: visible;
   }
 }
+.chat-topic .select2-container,
+.chat-topic .ui-select-container {
+  width: 200px;
+  display: inline-block;
+}
+.chat-panel .chat {
+  padding: 10px;
+}
+.chat-panel .actions {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.chat-panel .actions > * {
+  margin: 0 3px;
+}
