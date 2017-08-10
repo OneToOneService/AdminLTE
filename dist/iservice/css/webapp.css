@@ -267,7 +267,7 @@ pre {
 .logo-lg svg,
 .logo-mini svg {
   width: 25px;
-  height: 40px;
+  height: 30px;
 }
 .logo-lg .logosvg,
 .logo-mini .logosvg {
@@ -277,7 +277,7 @@ pre {
   position: relative;
   left: -5px;
   font-size: 30px;
-  top: -4px;
+  top: 0px;
 }
 .login-logo svg {
   width: 38px;
@@ -365,6 +365,12 @@ pre {
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   outline: 0;
+}
+.left-copyright {
+  padding: 15px;
+  border-top: 1px solid #b8c7ce;
+  color: #b8c7ce;
+  display: block;
 }
 .left-copyright {
   padding: 15px;
