@@ -388,6 +388,36 @@ pre {
 .logos img {
   max-width: 300px;
 }
+.stack-icon {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  left: 18px;
+  line-height: 30px;
+  position: absolute;
+}
+ul.timeline span.stack-icon .fa-envelope {
+  font-size: 17px;
+}
+ul.timeline span.stack-icon .fa-file-text-o {
+  font-size: 16px;
+}
+ul.timeline span.stack-icon .icon-agent-reply {
+  font-size: 10px;
+  top: 5px;
+  right: -5px;
+}
+ul.timeline span.stack-icon .icon-secure-lock,
+ul.timeline span.stack-icon .icon-agent-email {
+  font-size: 13px;
+  top: 3px;
+  right: -8px;
+  color: #f00;
+}
+ul.timeline span.stack-icon .aqua {
+  color: #00c0ef;
+}
 @media only screen and (max-width: 480px) {
   .pull-xm-left {
     float: left !important;
