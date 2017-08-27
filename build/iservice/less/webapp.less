@@ -5,12 +5,12 @@
 
 @gray-lte: #d2d6de;
 @gray-border: #ccc;
-@white: #fff;
-@logo-blue: #3c8dbc;
-@treeview-color: #369;
-@avatar-bg: #fafafa;
-@f12: 12px;
-
+@white:#fff;
+@logo-blue:#3c8dbc;
+@treeview-color:#369;
+@avatar-bg :#fafafa;
+@f12:12px;
+@aqua: #00c0ef;
 .login-bg
 {
     background: @gray-lte no-repeat;
@@ -487,30 +487,37 @@ pre
     border-top: 1px solid #b8c7ce;
     color: #b8c7ce;
     display: block;
-    font-size: @f12;
+}
+.left-copyright{padding:15px; border-top:1px solid #b8c7ce; color:#b8c7ce; display:block;font-size:@f12;}
+.copyrightbottom{font-size:@f12;}
+.copyrightbottom span{display:block;}
+.logos img{max-width:300px;}
+.stack-icon{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    left: 18px;
+    line-height: 30px;
+	position:absolute;
+}
+ul.timeline span.stack-icon{
+    .fa-envelope{font-size:17px;} 
+	.fa-file-text-o{font-size:16px;}
+	.icon-agent-reply{font-size: 10px;
+		top: 5px;
+		right: -5px;
+	}
+	.icon-secure-lock,.icon-agent-email{font-size: 13px;
+		top: 3px;
+		right: -8px;
+		color: #f00;}
+	.aqua{color: @aqua;}
 }
 
-.copyrightbottom
-{
-    font-size: @f12;
-}
-
-    .copyrightbottom span
-    {
-        display: block;
-    }
-
-.logos img
-{
-    max-width: 300px;
-}
-
-@media only screen and (max-width : 480px)
-{
-    .pull-xm-left
-    {
-        float: left !important;
-    }
+	
+@media only screen and (max-width : 480px) {
+   .pull-xm-left{float:left !important;}
 }
 
 @keyframes blink_effect

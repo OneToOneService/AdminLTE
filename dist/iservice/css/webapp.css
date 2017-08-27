@@ -266,26 +266,31 @@ pre {
 }
 .logo-lg svg,
 .logo-mini svg {
-  height: 27px;
-  width: 22px;
-  display: inline-block;
+  width: 25px;
+  height: 30px;
+}
+.logo-lg .logosvg,
+.logo-mini .logosvg {
   fill: #ffffff;
 }
-.logo-lg b,
-.logo-mini b {
-  margin-left: -5px;
+.logo-lg .logotext {
+  position: relative;
+  left: -5px;
   font-size: 30px;
+  top: 0px;
 }
 .login-logo svg {
-  width: 30px;
+  width: 38px;
   height: 37px;
-  display: inline-block;
+}
+.login-logo .logosvg {
   fill: #3c8dbc;
 }
-.login-logo b {
-  font-size: 46px;
+.login-logo .logotext {
+  font-size: 41px;
   color: #3c8dbc;
-  margin-left: -7px;
+  margin-left: -11px;
+  font-weight: 900;
 }
 .login-logo,
 .register-logo {
@@ -366,6 +371,12 @@ pre {
   border-top: 1px solid #b8c7ce;
   color: #b8c7ce;
   display: block;
+}
+.left-copyright {
+  padding: 15px;
+  border-top: 1px solid #b8c7ce;
+  color: #b8c7ce;
+  display: block;
   font-size: 12px;
 }
 .copyrightbottom {
@@ -376,6 +387,36 @@ pre {
 }
 .logos img {
   max-width: 300px;
+}
+.stack-icon {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  left: 18px;
+  line-height: 30px;
+  position: absolute;
+}
+ul.timeline span.stack-icon .fa-envelope {
+  font-size: 17px;
+}
+ul.timeline span.stack-icon .fa-file-text-o {
+  font-size: 16px;
+}
+ul.timeline span.stack-icon .icon-agent-reply {
+  font-size: 10px;
+  top: 5px;
+  right: -5px;
+}
+ul.timeline span.stack-icon .icon-secure-lock,
+ul.timeline span.stack-icon .icon-agent-email {
+  font-size: 13px;
+  top: 3px;
+  right: -8px;
+  color: #f00;
+}
+ul.timeline span.stack-icon .aqua {
+  color: #00c0ef;
 }
 @media only screen and (max-width: 480px) {
   .pull-xm-left {
@@ -408,20 +449,4 @@ pre {
 }
 .chat-panel .actions > * {
   margin: 0 3px;
-}
-.chat-panel .chat-box {
-  overflow: auto;
-}
-.chat-panel .customer-info .list-group {
-  margin-bottom: 0;
-}
-.chat-panel .customer-info .list-group-item {
-  padding: 3px 15px;
-}
-.chat-panel .stock-responses .list-group {
-  overflow: auto;
-  max-height: 100px;
-}
-[contenteditable]:empty:not(:focus)::before {
-  content: attr(placeholder);
 }
