@@ -18,13 +18,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
 <script src="/dist/iservice/js/iService.directive.js"></script>
 <script src="/dist/js/letteravatar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js"></script>
 <script>
   angular.module('iService', ['iService.directive']);
-</script>
-<script>
+  
 	$('.user-menu a[data-toggle="collapse"]').click(function (e)
 	{   
         $('.user-menu .change-password').toggle();	
 		e.stopPropagation();
-	});
+  });
+
+  svg4everybody();
 </script>

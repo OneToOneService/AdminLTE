@@ -610,10 +610,12 @@ a:focus {
     width: 50px;
   }
   .sidebar-mini.sidebar-collapse .main-header .logo > .logo-mini {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: -15px;
     margin-right: -15px;
-    font-size: 18px;
+    height: 100%;
   }
   .sidebar-mini.sidebar-collapse .main-header .logo > .logo-lg {
     display: none;

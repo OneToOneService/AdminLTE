@@ -266,31 +266,26 @@ pre {
 }
 .logo-lg svg,
 .logo-mini svg {
-  width: 25px;
-  height: 40px;
-}
-.logo-lg .logosvg,
-.logo-mini .logosvg {
+  height: 27px;
+  width: 22px;
+  display: inline-block;
   fill: #ffffff;
 }
-.logo-lg .logotext {
-  position: relative;
-  left: -5px;
+.logo-lg b,
+.logo-mini b {
+  margin-left: -5px;
   font-size: 30px;
-  top: -4px;
 }
 .login-logo svg {
-  width: 38px;
+  width: 30px;
   height: 37px;
-}
-.login-logo .logosvg {
+  display: inline-block;
   fill: #3c8dbc;
 }
-.login-logo .logotext {
-  font-size: 41px;
+.login-logo b {
+  font-size: 46px;
   color: #3c8dbc;
-  margin-left: -11px;
-  font-weight: 900;
+  margin-left: -7px;
 }
 .login-logo,
 .register-logo {
@@ -413,4 +408,20 @@ pre {
 }
 .chat-panel .actions > * {
   margin: 0 3px;
+}
+.chat-panel .chat-box {
+  overflow: auto;
+}
+.chat-panel .customer-info .list-group {
+  margin-bottom: 0;
+}
+.chat-panel .customer-info .list-group-item {
+  padding: 3px 15px;
+}
+.chat-panel .stock-responses .list-group {
+  overflow: auto;
+  max-height: 100px;
+}
+[contenteditable]:empty:not(:focus)::before {
+  content: attr(placeholder);
 }

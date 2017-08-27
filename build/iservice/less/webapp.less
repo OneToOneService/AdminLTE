@@ -5,11 +5,12 @@
 
 @gray-lte: #d2d6de;
 @gray-border: #ccc;
-@white:#fff;
-@logo-blue:#3c8dbc;
-@treeview-color:#369;
-@avatar-bg :#fafafa;
-@f12:12px;
+@white: #fff;
+@logo-blue: #3c8dbc;
+@treeview-color: #369;
+@avatar-bg: #fafafa;
+@f12: 12px;
+
 .login-bg
 {
     background: @gray-lte no-repeat;
@@ -348,42 +349,39 @@ pre
     }
 }
 
-.logo-lg svg, .logo-mini svg
+.logo-lg, .logo-mini
 {
-    width: 25px;
-    height: 40px;
+    svg
+    {
+        height: 27px;
+        width: 22px;
+        display: inline-block;
+        fill: @white;
+    }
+
+    b
+    {
+        margin-left: -5px;
+        font-size: 30px;
+    }
 }
 
-.logo-lg .logosvg, .logo-mini .logosvg
+.login-logo
 {
-    fill: @white;
-}
+    svg
+    {
+        width: 30px;
+        height: 37px;
+        display: inline-block;
+        fill: @logo-blue;
+    }
 
-.logo-lg .logotext
-{
-    position: relative;
-    left: -5px;
-    font-size: 30px;
-    top: -4px;
-}
-
-.login-logo svg
-{
-    width: 38px;
-    height: 37px;
-}
-
-.login-logo .logosvg
-{
-    fill: @logo-blue;
-}
-
-.login-logo .logotext
-{
-    font-size: 41px;
-    color: @logo-blue;
-    margin-left: -11px;
-    font-weight: 900;
+    b
+    {
+        font-size: 46px;
+        color: @logo-blue;
+        margin-left: -7px;
+    }
 }
 
 .login-logo, .register-logo
@@ -489,14 +487,32 @@ pre
     border-top: 1px solid #b8c7ce;
     color: #b8c7ce;
     display: block;
+    font-size: @f12;
 }
-.left-copyright{padding:15px; border-top:1px solid #b8c7ce; color:#b8c7ce; display:block;font-size:@f12;}
-.copyrightbottom{font-size:@f12;}
-.copyrightbottom span{display:block;}
-.logos img{max-width:300px;}
-@media only screen and (max-width : 480px) {
-   .pull-xm-left{float:left !important;}
+
+.copyrightbottom
+{
+    font-size: @f12;
 }
+
+    .copyrightbottom span
+    {
+        display: block;
+    }
+
+.logos img
+{
+    max-width: 300px;
+}
+
+@media only screen and (max-width : 480px)
+{
+    .pull-xm-left
+    {
+        float: left !important;
+    }
+}
+
 @keyframes blink_effect
 {
     0%
@@ -543,4 +559,36 @@ pre
             margin: 0 3px;
         }
     }
+
+    .chat-box
+    {
+        overflow: auto;
+    }
+
+    .customer-info
+    {
+        .list-group
+        {
+            margin-bottom: 0;
+        }
+
+        .list-group-item
+        {
+            padding: 3px 15px;
+        }
+    }
+
+    .stock-responses
+    {
+        .list-group
+        {
+            overflow: auto;
+            max-height: 100px;
+        }
+    }
+}
+
+[contenteditable]:empty:not(:focus)::before
+{
+    content: attr(placeholder);
 }
