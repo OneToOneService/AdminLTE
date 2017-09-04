@@ -256,10 +256,10 @@ pre {
   color: #ffffff;
 }
 .sidebar-mini.sidebar-collapse .user-panel a span,
-.sidebar-mini.sidebar-collapse .sidebar-mini.sidebar-collapse .user-panel button span {
+.sidebar-mini.sidebar-collapse .user-panel button span {
   display: none;
 }
-.sidebar-mini.sidebar-collapse .user-panel a.btn {
+.sidebar-mini.sidebar-collapse .user-panel .btn {
   padding: 0;
   background: none;
   border: none;
@@ -442,15 +442,9 @@ ul.timeline span.stack-icon .aqua {
 .chat-panel .chat-box {
   overflow: auto;
 }
-.chat-panel .customer-info .list-group {
-  margin-bottom: 0;
-}
-.chat-panel .customer-info .list-group-item {
-  padding: 3px 15px;
-}
 .chat-panel .stock-responses .list-group {
   overflow: auto;
-  max-height: 100px;
+  max-height: 315px;
 }
 [contenteditable]:empty:not(:focus)::before {
   content: attr(placeholder);
