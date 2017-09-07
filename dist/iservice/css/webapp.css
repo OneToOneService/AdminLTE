@@ -2,6 +2,14 @@
  * Core: General Layout Style
  * -------------------------
  */
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .login-bg {
   background: #d2d6de no-repeat;
   background-size: 100%;
@@ -176,6 +184,18 @@ pre {
 }
 .round {
   border-radius: 50%;
+}
+.user-initials {
+  height: 90px;
+  width: 90px;
+  border: 3px solid;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+  font-size: 40px;
+  line-height: 84px;
+  font-family: Arial;
+  margin: auto;
+  cursor: default;
 }
 @-moz-keyframes inputHighlighter {
   from {
