@@ -23,9 +23,14 @@
   overflow: auto;
 }
 
-.direct-chat-msg,
-.direct-chat-text {
-  display: block;
+.direct-chat-text
+{
+    display: inline-block;
+}
+
+.direct-chat-msg
+{
+    display: block;
 }
 
 .direct-chat-msg {
@@ -44,17 +49,17 @@
   padding: 5px 10px;
   background: @direct-chat-default-msg-bg;
   border: 1px solid @direct-chat-default-msg-border-color;
-  margin: 5px 0 0 50px;
+  margin: 5px 10px 0 0;
   color: @direct-chat-default-font-color;
 
   //Create the arrow
   &:after,
   &:before {
     position: absolute;
-    right: 100%;
+    left: 100%;
     top: 15px;
     border: solid transparent;
-    border-right-color: @direct-chat-default-msg-border-color;
+    border-left-color: @direct-chat-default-msg-border-color;
     content: ' ';
     height: 0;
     width: 0;
@@ -69,26 +74,26 @@
     border-width: 6px;
     margin-top: -6px;
   }
-  .right & {
-    margin-right: 50px;
-    margin-left: 0;
+  .left & {
+    margin-left: 10px;
+    margin-right: 0;
     &:after,
     &:before {
-      right: auto;
-      left: 100%;
-      border-right-color: transparent;
-      border-left-color: @direct-chat-default-msg-border-color;
+      left: auto;
+      right: 100%;
+      border-left-color: transparent;
+      border-right-color: @direct-chat-default-msg-border-color;
     }
   }
 }
 
 .direct-chat-img {
   .border-radius(50%);
-  float: left;
+  float: right;
   width: 40px;
   height: 40px;
-  .right & {
-    float: right;
+  .left & {
+    float: left;
   }
 }
 

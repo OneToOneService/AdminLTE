@@ -57,13 +57,13 @@
 
 //Direct Chat Variant
 .direct-chat-variant(@bg-color; @color: #fff) {
-  .right > .direct-chat-text {
+  .left > .direct-chat-text {
     background: @bg-color;
     border-color: @bg-color;
     color: @color;
     &:after,
     &:before {
-      border-left-color: @bg-color;
+      border-right-color: @bg-color;
     }
   }
 }
