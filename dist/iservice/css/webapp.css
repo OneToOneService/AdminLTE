@@ -197,6 +197,14 @@ pre {
   margin: auto;
   cursor: default;
 }
+.chat .user-initials {
+  height: 40px;
+  width: 40px;
+  border: none;
+  font-size: 17px;
+  line-height: 40px;
+  text-align: center;
+}
 @-moz-keyframes inputHighlighter {
   from {
     background: #5264AE;
@@ -447,6 +455,9 @@ ul.timeline span.stack-icon .aqua {
 .chat-topic .ui-select-container {
   width: 200px;
   display: inline-block;
+}
+.chat-panel {
+  padding: 15px;
 }
 .chat-panel .chat {
   padding: 10px;
