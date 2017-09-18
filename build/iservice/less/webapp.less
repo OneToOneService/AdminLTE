@@ -2,6 +2,9 @@
  * Core: General Layout Style
  * -------------------------
  */
+@import (reference) "../../less/variables.less";
+@import (reference) "../../bootstrap-less/variables.less";
+
 
 @gray-lte: #d2d6de;
 @gray-border: #ccc;
@@ -20,6 +23,22 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.truncate
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.horizontal-separator
+{
+    border: 1px solid @box-border-color;
+    height: 100%;
+    width: 1px;
+    display: inline;
+    margin: 0 3px;
 }
 
 .login-bg
@@ -620,10 +639,20 @@ ul.timeline span.stack-icon
     .select2-container,
     .ui-select-container
     {
-        width: 200px;
+        width: 100%;
         display: inline-block;
     }
+
+    @media (min-width: @screen-md-min)
+    {
+        .select2-container,
+        .ui-select-container
+        {
+            width: 200px;
+        }
+    }
 }
+
 
 .chat-panel
 {
@@ -634,15 +663,23 @@ ul.timeline span.stack-icon
         padding: 10px;
     }
 
-    .actions
+    .box-title.truncate
     {
-        padding: 5px;
-        display: flex;
-        align-items: center;
+        width: calc(100% - 22px);
+    }
 
-        & > *
+    @media (min-width: @screen-md-min)
+    {
+        .actions
         {
-            margin: 0 3px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+
+            & > *
+            {
+                margin: 0 3px;
+            }
         }
     }
 
@@ -656,7 +693,17 @@ ul.timeline span.stack-icon
         .list-group
         {
             overflow: auto;
-            max-height: 315px;
+            max-height: 274px;
+
+            h5
+            {
+                font-weight: 600;
+            }
+        }
+
+        .list-unstyled > li
+        {
+            cursor: pointer;
         }
     }
 }
