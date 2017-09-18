@@ -2,6 +2,14 @@
  * Core: General Layout Style
  * -------------------------
  */
+.bg-light-red-c {
+  background-color: #dd6e60 !important;
+  color: #fff !important;
+}
+.bg-light-orange {
+  background-color: #fa8e8e !important;
+  color: #fff !important;
+}
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
