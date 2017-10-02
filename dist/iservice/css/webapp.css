@@ -434,6 +434,16 @@ pre {
   line-height: 30px;
   position: absolute;
 }
+.box-background {
+  background: #eaeaea;
+}
+.box-background .box-footer {
+  background: #eaeaea;
+  border-top: 1px solid #ddd;
+}
+.box-background .box-header.with-border {
+  border-bottom: 1px solid #ddd;
+}
 ul.timeline span.stack-icon .fa-envelope {
   font-size: 17px;
 }
