@@ -481,16 +481,25 @@ ul.timeline span.stack-icon .aqua {
     visibility: visible;
   }
 }
-.chat-topic .select2-container,
-.chat-topic .ui-select-container {
+.chat-select-menu .select2-container,
+.chat-select-menu .ui-select-container {
   width: 100%;
   display: inline-block;
 }
+.chat-select-menu .ui-select-dropdown {
+  position: static !important;
+}
 @media (min-width: 992px) {
-  .chat-topic .select2-container,
-  .chat-topic .ui-select-container {
+  .chat-select-menu .select2-container,
+  .chat-select-menu .ui-select-container {
     width: 200px;
   }
+}
+.direct-chat-timestamp {
+  margin: 0 50px 0 0;
+}
+.left .direct-chat-timestamp {
+  margin: 0 0 0 50px;
 }
 .chat-panel {
   padding: 15px;

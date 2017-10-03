@@ -644,13 +644,18 @@ ul.timeline span.stack-icon
     }
 }
 
-.chat-topic
+.chat-select-menu
 {
     .select2-container,
     .ui-select-container
     {
         width: 100%;
         display: inline-block;
+    }
+
+    .ui-select-dropdown
+    {
+        position: static !important;
     }
 
     @media (min-width: @screen-md-min)
@@ -663,6 +668,15 @@ ul.timeline span.stack-icon
     }
 }
 
+.direct-chat-timestamp
+{
+    margin: 0 50px 0 0;
+
+    .left &
+    {
+        margin: 0 0 0 50px;
+    }
+}
 
 .chat-panel
 {

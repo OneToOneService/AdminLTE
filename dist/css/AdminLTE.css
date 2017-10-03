@@ -2878,49 +2878,49 @@ table.text-center th {
 .contacts-list-msg {
   color: #999;
 }
-.direct-chat-danger .left > .direct-chat-text {
+.direct-chat-danger .left .direct-chat-text {
   background: #dd4b39;
   border-color: #dd4b39;
   color: #ffffff;
 }
-.direct-chat-danger .left > .direct-chat-text:after,
-.direct-chat-danger .left > .direct-chat-text:before {
+.direct-chat-danger .left .direct-chat-text:after,
+.direct-chat-danger .left .direct-chat-text:before {
   border-right-color: #dd4b39;
 }
-.direct-chat-primary .left > .direct-chat-text {
+.direct-chat-primary .left .direct-chat-text {
   background: #3c8dbc;
   border-color: #3c8dbc;
   color: #ffffff;
 }
-.direct-chat-primary .left > .direct-chat-text:after,
-.direct-chat-primary .left > .direct-chat-text:before {
+.direct-chat-primary .left .direct-chat-text:after,
+.direct-chat-primary .left .direct-chat-text:before {
   border-right-color: #3c8dbc;
 }
-.direct-chat-warning .left > .direct-chat-text {
+.direct-chat-warning .left .direct-chat-text {
   background: #f39c12;
   border-color: #f39c12;
   color: #ffffff;
 }
-.direct-chat-warning .left > .direct-chat-text:after,
-.direct-chat-warning .left > .direct-chat-text:before {
+.direct-chat-warning .left .direct-chat-text:after,
+.direct-chat-warning .left .direct-chat-text:before {
   border-right-color: #f39c12;
 }
-.direct-chat-info .left > .direct-chat-text {
+.direct-chat-info .left .direct-chat-text {
   background: #00c0ef;
   border-color: #00c0ef;
   color: #ffffff;
 }
-.direct-chat-info .left > .direct-chat-text:after,
-.direct-chat-info .left > .direct-chat-text:before {
+.direct-chat-info .left .direct-chat-text:after,
+.direct-chat-info .left .direct-chat-text:before {
   border-right-color: #00c0ef;
 }
-.direct-chat-success .left > .direct-chat-text {
+.direct-chat-success .left .direct-chat-text {
   background: #00a65a;
   border-color: #00a65a;
   color: #ffffff;
 }
-.direct-chat-success .left > .direct-chat-text:after,
-.direct-chat-success .left > .direct-chat-text:before {
+.direct-chat-success .left .direct-chat-text:after,
+.direct-chat-success .left .direct-chat-text:before {
   border-right-color: #00a65a;
 }
 /*
