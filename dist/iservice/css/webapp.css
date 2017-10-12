@@ -2,6 +2,14 @@
  * Core: General Layout Style
  * -------------------------
  */
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
 .bg-light-red-c {
   background-color: #dd6e60 !important;
   color: #fff !important;
@@ -206,24 +214,41 @@ pre {
   border-radius: 50%;
 }
 .user-initials {
-  height: 90px;
-  width: 90px;
-  border: 3px solid;
+  height: 25px;
+  width: 25px;
+  font-size: 12px;
+  line-height: 26px;
   color: white;
-  border-color: rgba(255, 255, 255, 0.2);
-  font-size: 40px;
-  line-height: 84px;
+  text-align: center;
   font-family: Arial;
   margin: auto;
   cursor: default;
 }
+.small.user-initials {
+  float: left;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+@media (max-width: 767px) {
+  .small.user-initials {
+    float: none;
+    margin-right: 0;
+    margin-top: -8px;
+  }
+}
+.user-header .user-initials {
+  height: 90px;
+  width: 90px;
+  font-size: 40px;
+  line-height: 84px;
+  border: 3px solid;
+  border-color: rgba(255, 255, 255, 0.2);
+}
 .chat .user-initials {
   height: 40px;
   width: 40px;
-  border: none;
   font-size: 17px;
   line-height: 40px;
-  text-align: center;
 }
 @-moz-keyframes inputHighlighter {
   from {

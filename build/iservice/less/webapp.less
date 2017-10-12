@@ -16,6 +16,11 @@
 @light-red:#dd6e60;
 @light-orange-c:#fa8e8e;
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+{
+    display: none !important;
+}
+
 .bg-light-red-c{background-color:@light-red !important; color:#fff !important;}
 .bg-light-orange{background-color:@light-orange-c !important; color:#fff !important;}
 .no-select
@@ -259,30 +264,53 @@ pre
     border-radius: 50%;
 }
 
+.user-initials-commons(@dimension; @font-size; @line-height)
+{
+    height: @dimension;
+    width: @dimension;
+    font-size: @font-size;
+    line-height: @line-height;
+}
+
 .user-initials
 {
-    height: 90px;
-    width: 90px;
-    border: 3px solid;
+    .user-initials-commons(25px; 12px; 26px);
     color: white;
-    border-color: rgba(255,255,255,0.2);
-    font-size: 40px;
-    line-height: 84px;
+    text-align: center;
     font-family: Arial;
     margin: auto;
     cursor: default;
+}
+
+.small.user-initials
+{
+    float: left;
+    margin-right: 10px;
+    margin-top: -2px;
+
+    @media (max-width: @screen-xs-max)
+    {
+        float: none;
+        margin-right: 0;
+        margin-top: -8px;
+    }
+}
+
+.user-header
+{
+    .user-initials
+    {
+        .user-initials-commons(90px; 40px; 84px);
+        border: 3px solid;
+        border-color: rgba(255,255,255,0.2);
+    }
 }
 
 .chat
 {
     .user-initials
     {
-        height: 40px;
-        width: 40px;
-        border: none;
-        font-size: 17px;
-        line-height: 40px;
-        text-align: center;
+        .user-initials-commons(40px; 17px; 40px);
     }
 }
 
