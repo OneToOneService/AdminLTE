@@ -700,6 +700,10 @@ ul.timeline span.stack-icon
     }
 }
 
+.floating-select:focus ~ label, .floating-select:not([value=""]):valid ~ label {
+    top: -2px ;
+}
+
 [contenteditable]:empty:not(:focus)::before
 {
     content: attr(placeholder);

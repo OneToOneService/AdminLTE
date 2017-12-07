@@ -491,6 +491,10 @@ ul.timeline span.stack-icon .aqua {
 .chat-panel .stock-responses .list-unstyled > li {
   cursor: pointer;
 }
+.floating-select:focus ~ label,
+.floating-select:not([value=""]):valid ~ label {
+  top: -2px;
+}
 [contenteditable]:empty:not(:focus)::before {
   content: attr(placeholder);
 }
