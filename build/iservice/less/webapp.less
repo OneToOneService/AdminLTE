@@ -3,34 +3,43 @@
  * -------------------------
  */
 @import (reference) "../../less/variables.less";
+@import (reference) "../../less/mixins.less";
 @import (reference) "../../bootstrap-less/variables.less";
+@import (reference) "../../bootstrap-less/mixins.less";
 
-@gray-lte: #d2d6de;
-@gray-border: #ccc;
-@white: #fff;
 @logo-blue: #3c8dbc;
 @treeview-color: #369;
 @avatar-bg: #fafafa;
 @f12: 12px;
 @aqua: #00c0ef;
-@light-red:#dd6e60;
-@light-orange-c:#fa8e8e;
+@light-red: #dd6e60;
+@light-orange-c: #fa8e8e;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
     display: none !important;
 }
 
-.bg-light-red-c{background-color:@light-red !important; color:#fff !important;}
-.bg-light-orange{background-color:@light-orange-c !important; color:#fff !important;}
+.bg-white
+{
+    background-color: #fff
+}
+
+.bg-light-red-c
+{
+    background-color: @light-red !important;
+    color: #fff !important;
+}
+
+.bg-light-orange
+{
+    background-color: @light-orange-c !important;
+    color: #fff !important;
+}
+
 .no-select
 {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    .user-select(none);
 }
 
 .truncate
@@ -69,10 +78,11 @@
     margin-bottom: 16px;
 }
 
-.login-box-body, .register-box-body
+.login-box-body,
+.register-box-body
 {
     padding-top: 0px;
-    border: 1px solid @gray-border;
+    border: 1px solid @input-border;
     border-radius: 5px;
 }
 
@@ -141,73 +151,87 @@ p.login-box-msg
 
 /*floating form label*/
 /****  floating-Lable style start ****/
+
+
 .floating-label
 {
     position: relative;
-    margin-bottom: 20px;
     border: 1px solid @gray-lte;
     height: 47px;
-}
 
-.floating-input, .floating-select
-{
-    font-size: 14px;
-    padding: 4px 4px;
-    display: block;
-    width: 100%;
-    height: 30px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #757575;
-    margin-top: 16px;
-}
-
-    .floating-input:focus, .floating-select:focus
+    label
     {
-        outline: none;
-        border-bottom: 2px solid #5264AE;
+        color: #999;
+        font-size: 14px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 13px;
+        .transition(all linear .2s);
     }
 
-.floating-label label
-{
-    color: #999;
-    font-size: 14px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 5px;
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
-    top: 13px;
+    input,
+    select
+    {
+        font-size: 14px;
+        padding: 4px 4px;
+        display: block;
+        width: 100%;
+        height: 30px;
+        border: none;
+        border-bottom: 1px solid @input-border;
+        margin-top: 16px;
+        .transition(all linear .2s);
+    }
+
+        input:focus + label,
+        input.ng-not-empty + label,
+        select + label
+        {
+            top: -2px;
+            font-size: 14px;
+            color: @input-border-focus;
+        }
+
+        input:focus,
+        select:focus
+        {
+            outline: none;
+            border-bottom: 2px solid @input-border-focus;
+        }
+
+    .float-btn-group
+    {
+        width: ~"calc(100% - 25px)";
+    }
+
+    .button-add-row
+    {
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+        width: 18px;
+        color: #3c8dbc;
+        border: none;
+        background: none;
+        font-size: 18px;
+    }
 }
 
-.floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label
+.float-btn-group
 {
-    top: -2px;
-    font-size: 14px;
-    color: #5264AE;
-}
+    label
+    {
+        left: 30px;
+    }
 
-.floating-select:focus ~ label, .floating-select:not([value=""]):valid ~ label
-{
-    top: -12px;
-    font-size: 14px;
-    color: #5264AE;
-}
-
-/* active state */
-.floating-input:focus ~ .bar:before, .floating-input:focus ~ .bar:after, .floating-select:focus ~ .bar:before, .floating-select:focus ~ .bar:after
-{
-    width: 50%;
-}
-
-*, *:before, *:after
-{
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    input,
+    select
+    {
+        width: ~"calc(100% - 35px)";
+        display: inline-block;
+    }
 }
 
 .floating-textarea
@@ -216,47 +240,6 @@ p.login-box-msg
     max-height: 260px;
     overflow: hidden;
     overflow-x: hidden;
-}
-
-/* highlighter */
-.highlight
-{
-    height: 50%;
-    width: 100%;
-    top: 15%;
-    left: 0;
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-/* active state */
-.floating-input:focus ~ .highlight, .floating-select:focus ~ .highlight
-{
-    -webkit-animation: inputHighlighter 0.3s ease;
-    -moz-animation: inputHighlighter 0.3s ease;
-    animation: inputHighlighter 0.3s ease;
-}
-
-/* animation */
-@-webkit-keyframes inputHighlighter
-{
-    from
-    {
-        background: #5264AE;
-    }
-
-    to
-    {
-        width: 0;
-        background: transparent;
-    }
-}
-
-pre
-{
-    margin: 20px 0;
-    padding: 20px;
-    background: #fafafa;
 }
 
 .round
@@ -313,34 +296,6 @@ pre
         .user-initials-commons(40px; 17px; 40px);
     }
 }
-
-@-moz-keyframes inputHighlighter
-{
-    from
-    {
-        background: #5264AE;
-    }
-
-    to
-    {
-        width: 0;
-        background: transparent;
-    }
-}
-
-@keyframes inputHighlighter
-{
-    from
-    {
-        background: #5264AE;
-    }
-
-    to
-    {
-        width: 0;
-        background: transparent;
-    }
-}
 /****  floating-Lable style end ****/
 .floating-credit
 {
@@ -384,34 +339,6 @@ pre
     margin-right: 5px;
 }
 
-.float-btn-group .floating-input, .floating-select
-{
-    width: calc(100% - 35px);
-    display: inline-block;
-}
-
-.float-btn-group label
-{
-    left: 30px;
-}
-
-.floating-label .float-btn-group
-{
-    width: calc(100% - 25px);
-}
-
-.floating-label .button-add-row
-{
-    position: absolute;
-    bottom: 0;
-    right: 5px;
-    width: 18px;
-    color: #3c8dbc;
-    border: none;
-    background: none;
-    font-size: 18px;
-}
-
 .blink
 {
     animation: 1s linear infinite blink_effect;
@@ -419,7 +346,7 @@ pre
 
 .user-panel a.btn
 {
-    color: @white;
+    color: #fff;
 }
 
 .sidebar-mini.sidebar-collapse
@@ -445,7 +372,7 @@ pre
         height: 27px;
         width: 22px;
         display: inline-block;
-        fill: @white;
+        fill: #fff;
     }
 
     b
@@ -541,7 +468,7 @@ pre
 
         .tree ul li:last-child:before
         {
-            background: @white;
+            background: #fff;
             height: auto;
             top: 1em;
             bottom: 0
@@ -604,12 +531,25 @@ pre
     line-height: 30px;
     position: absolute;
 }
-.box-background{ background: #eaeaea;}
-.box-background{
-  
-   .box-footer{background:#eaeaea;border-top: 1px solid #ddd;}
-   .box-header.with-border {border-bottom: 1px solid #ddd;}
 
+.box-background
+{
+    background: #eaeaea;
+}
+
+.box-background
+{
+
+    .box-footer
+    {
+        background: #eaeaea;
+        border-top: 1px solid #ddd;
+    }
+
+    .box-header.with-border
+    {
+        border-bottom: 1px solid #ddd;
+    }
 }
 
 ul.timeline span.stack-icon
