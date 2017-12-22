@@ -42,6 +42,16 @@
     .user-select(none);
 }
 
+.full-width
+{
+    width: 100%;
+}
+
+.full-height
+{
+    height: 100%;
+}
+
 .truncate
 {
     white-space: nowrap;
@@ -700,11 +710,12 @@ ul.timeline span.stack-icon
     }
 }
 
-.floating-select:focus ~ label, .floating-select:not([value=""]):valid ~ label {
-    top: -2px ;
-}
-
 [contenteditable]:empty:not(:focus)::before
 {
     content: attr(placeholder);
+}
+
+.overlay-wrapper
+{
+    position: relative;
 }

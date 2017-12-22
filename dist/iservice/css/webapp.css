@@ -27,6 +27,12 @@
   -ms-user-select: none;
   user-select: none;
 }
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}
 .truncate {
   white-space: nowrap;
   overflow: hidden;
@@ -491,10 +497,9 @@ ul.timeline span.stack-icon .aqua {
 .chat-panel .stock-responses .list-unstyled > li {
   cursor: pointer;
 }
-.floating-select:focus ~ label,
-.floating-select:not([value=""]):valid ~ label {
-  top: -2px;
-}
 [contenteditable]:empty:not(:focus)::before {
   content: attr(placeholder);
+}
+.overlay-wrapper {
+  position: relative;
 }
