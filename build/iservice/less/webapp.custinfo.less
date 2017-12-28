@@ -1,0 +1,101 @@
+@import (reference) "../../less/variables.less";
+@import (reference) "../../less/mixins.less";
+@import (reference) "../../bootstrap-less/variables.less";
+@import (reference) "../../bootstrap-less/mixins.less";
+
+.search-parameters
+{
+    .floating-label
+    {
+        margin: 5px -10px;
+    }
+
+    .panel
+    {
+        margin-bottom: 0;
+    }
+}
+
+.search-field
+{
+    position: relative;
+
+    .floating-label
+    {
+        width: calc(100% - 3px);
+        display: inline-block;
+    }
+
+    .btn-lg
+    {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -10px;
+    }
+}
+
+.dataTables_wrapper
+{
+    width: 100%;
+    overflow-x: auto;
+
+    .dt-buttons
+    {
+        margin-bottom: 10px;
+    }
+}
+
+.dataTables_filter
+{
+    float: right;
+}
+
+.dataTables_length
+{
+    float: left;
+    margin-left: 10px;
+}
+
+@media (max-width: @screen-xs-max), (max-width: @screen-sm-max)
+{
+    .dataTable
+    {
+        width: 200%;
+    }
+}
+
+@media (max-width: @screen-xs-max)
+{
+    .dataTables_filter
+    {
+        float: left;
+    }
+
+    .dataTables_length
+    {
+        margin-left: 0;
+    }
+}
+
+.dataTable
+{
+    tr
+    {
+        .overlay-wrapper
+        {
+            &.ng-enter
+            {
+                transition: .2s linear all;
+                opacity: 0;
+                height: 0;
+            }
+
+            &.ng-enter-active
+            {
+                opacity: 1;
+                height: 45px;
+            }
+        }
+    }
+}
