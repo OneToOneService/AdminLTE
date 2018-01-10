@@ -116,71 +116,83 @@ p.login-box-msg {
   padding-top: 4px;
   border-radius: 0px;
 }
-/*floating form label*/
-/****  floating-Lable style start ****/
+/*#region floating-label */
 .floating-label {
   position: relative;
   border: 1px solid #d2d6de;
-  height: 47px;
+}
+.floating-label.multiple {
+  height: auto;
 }
 .floating-label label {
-  color: #999;
-  font-size: 14px;
-  font-weight: normal;
+  color: #777777;
+  font-size: larger;
   position: absolute;
   pointer-events: none;
-  left: 5px;
-  top: 13px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: .6;
   -webkit-transition: all linear 0.2s;
   -o-transition: all linear 0.2s;
   transition: all linear 0.2s;
 }
+.floating-label.multiple label,
+.floating-label input:focus + label,
+.floating-label textarea:focus + label,
+.floating-label input.ng-not-empty + label,
+.floating-label select + label {
+  opacity: 1;
+  font-weight: normal;
+  top: -2px;
+  transform: none;
+  font-size: unset;
+  color: #66afe9;
+}
 .floating-label input,
-.floating-label select {
-  font-size: 14px;
-  padding: 4px 4px;
+.floating-label select,
+.floating-label textarea {
+  box-sizing: content-box;
+  padding: 4px;
   display: block;
-  width: 100%;
-  height: 30px;
+  width: calc(100% - 8px );
   border: none;
   border-bottom: 1px solid #cccccc;
   margin-top: 16px;
-  -webkit-transition: all linear 0.2s;
-  -o-transition: all linear 0.2s;
-  transition: all linear 0.2s;
-}
-.floating-label input:focus + label,
-.floating-label input.ng-not-empty + label,
-.floating-label select + label {
-  top: -2px;
-  font-size: 14px;
-  color: #66afe9;
+  position: relative;
+  bottom: -1px;
 }
 .floating-label input:focus,
-.floating-label select:focus {
+.floating-label select:focus,
+.floating-label textarea:focus {
   outline: none;
+  margin-top: 15px;
   border-bottom: 2px solid #66afe9;
 }
 .floating-label .float-btn-group {
   width: calc(100% - 25px);
+  display: flex;
+  align-items: center;
 }
 .floating-label .button-add-row {
   position: absolute;
   bottom: 0;
-  right: 5px;
+  right: 6px;
   width: 18px;
   color: #3c8dbc;
   border: none;
   background: none;
   font-size: 18px;
 }
-.float-btn-group label {
-  left: 30px;
-}
-.float-btn-group input,
-.float-btn-group select {
-  width: calc(100% - 35px);
-  display: inline-block;
+.button-delete {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  color: #f00;
+  font-size: 18px;
+  margin-right: 6px;
 }
 .floating-textarea {
   min-height: 30px;
@@ -188,6 +200,7 @@ p.login-box-msg {
   overflow: hidden;
   overflow-x: hidden;
 }
+/*#endregion */
 .round {
   border-radius: 50%;
 }
@@ -250,16 +263,6 @@ p.login-box-msg {
   color: #aaa;
   font-size: 20px;
   font-family: arial, sans-serif;
-}
-.button-delete {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  width: 18px;
-  height: 18px;
-  color: #f00;
-  font-size: 18px;
-  margin-right: 5px;
 }
 .blink {
   animation: 1s linear infinite blink_effect;

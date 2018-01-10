@@ -159,68 +159,82 @@ p.login-box-msg
     border-radius: 0px;
 }
 
-/*floating form label*/
-/****  floating-Lable style start ****/
-
-
+/*#region floating-label */
 .floating-label
 {
+    @floating-input-padding: 4px;
+
     position: relative;
     border: 1px solid @gray-lte;
-    height: 47px;
+
+    &.multiple
+    {
+        height: auto;
+    }
 
     label
     {
-        color: #999;
-        font-size: 14px;
-        font-weight: normal;
+        color: @gray-light;
+        font-size: larger;
         position: absolute;
         pointer-events: none;
-        left: 5px;
-        top: 13px;
+        left: @floating-input-padding;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: .6;
         .transition(all linear .2s);
+    }
+
+    &.multiple label,
+    input:focus + label,
+    textarea:focus + label,
+    input.ng-not-empty + label,
+    select + label
+    {
+        opacity: 1;
+        font-weight: normal;
+        top: -2px;
+        transform: none;
+        font-size: unset;
+        color: @input-border-focus;
     }
 
     input,
-    select
+    select,
+    textarea
     {
-        font-size: 14px;
-        padding: 4px 4px;
+        box-sizing: content-box;
+        padding: @floating-input-padding;
         display: block;
-        width: 100%;
-        height: 30px;
+        width: ~"calc(100% -" @floating-input-padding * 2 ~")";
         border: none;
         border-bottom: 1px solid @input-border;
         margin-top: 16px;
-        .transition(all linear .2s);
+        position: relative;
+        bottom: -1px;
     }
 
-        input:focus + label,
-        input.ng-not-empty + label,
-        select + label
-        {
-            top: -2px;
-            font-size: 14px;
-            color: @input-border-focus;
-        }
-
         input:focus,
-        select:focus
+        select:focus,
+        textarea:focus
         {
             outline: none;
+            margin-top: 15px;
             border-bottom: 2px solid @input-border-focus;
         }
 
     .float-btn-group
     {
         width: ~"calc(100% - 25px)";
+        display: flex;
+        align-items: center;
     }
 
     .button-add-row
     {
         position: absolute;
         bottom: 0;
-        right: 5px;
+        right: 6px;
         width: 18px;
         color: #3c8dbc;
         border: none;
@@ -229,19 +243,16 @@ p.login-box-msg
     }
 }
 
-.float-btn-group
+.button-delete
 {
-    label
-    {
-        left: 30px;
-    }
-
-    input,
-    select
-    {
-        width: ~"calc(100% - 35px)";
-        display: inline-block;
-    }
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    color: #f00;
+    font-size: 18px;
+    margin-right: 6px;
 }
 
 .floating-textarea
@@ -251,6 +262,7 @@ p.login-box-msg
     overflow: hidden;
     overflow-x: hidden;
 }
+/*#endregion */
 
 .round
 {
@@ -335,18 +347,6 @@ p.login-box-msg
     color: #aaa;
     font-size: 20px;
     font-family: arial,sans-serif;
-}
-
-.button-delete
-{
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    width: 18px;
-    height: 18px;
-    color: #f00;
-    font-size: 18px;
-    margin-right: 5px;
 }
 
 .blink
