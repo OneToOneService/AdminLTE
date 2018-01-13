@@ -125,7 +125,7 @@ p.login-box-msg {
   height: auto;
 }
 .floating-label label {
-  color: #777777;
+  color: #66afe9;
   font-size: larger;
   position: absolute;
   pointer-events: none;
@@ -136,6 +136,8 @@ p.login-box-msg {
   -webkit-transition: all linear 0.2s;
   -o-transition: all linear 0.2s;
   transition: all linear 0.2s;
+  font-weight: normal;
+  font-size: 14px;
 }
 .floating-label.multiple label,
 .floating-label input:focus + label,

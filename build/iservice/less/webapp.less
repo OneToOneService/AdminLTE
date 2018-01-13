@@ -14,6 +14,7 @@
 @aqua: #00c0ef;
 @light-red: #dd6e60;
 @light-orange-c: #fa8e8e;
+@light-blue-lable:#66afe9;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -174,7 +175,7 @@ p.login-box-msg
 
     label
     {
-        color: @gray-light;
+        color: @light-blue-lable;
         font-size: larger;
         position: absolute;
         pointer-events: none;
@@ -183,6 +184,8 @@ p.login-box-msg
         transform: translateY(-50%);
         opacity: .6;
         .transition(all linear .2s);
+		font-weight:normal;
+		font-size:14px;
     }
 
     &.multiple label,
