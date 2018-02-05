@@ -14,16 +14,15 @@
 @aqua: #00c0ef;
 @light-red: #dd6e60;
 @light-orange-c: #fa8e8e;
-@light-blue-lable:#66afe9;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
     display: none !important;
 }
 
-.bg-white
+.margin-5
 {
-    background-color: #fff
+    margin: 5px;
 }
 
 .bg-light-red-c
@@ -175,7 +174,7 @@ p.login-box-msg
 
     label
     {
-        color: @light-blue-lable;
+        color: @light-blue;
         font-size: larger;
         position: absolute;
         pointer-events: none;
@@ -184,8 +183,8 @@ p.login-box-msg
         transform: translateY(-50%);
         opacity: .6;
         .transition(all linear .2s);
-		font-weight:normal;
-		font-size:14px;
+        font-weight: normal;
+        font-size: 14px;
     }
 
     &.multiple label,
@@ -211,6 +210,7 @@ p.login-box-msg
         display: block;
         width: ~"calc(100% -" @floating-input-padding * 2 ~")";
         border: none;
+        background: none;
         border-bottom: 1px solid @input-border;
         margin-top: 16px;
         position: relative;
@@ -228,34 +228,34 @@ p.login-box-msg
 
     .float-btn-group
     {
-        width: ~"calc(100% - 25px)";
+        width: ~"calc(100% - 30px)";
         display: flex;
-        align-items: center;
+        align-items: flex-end;
     }
 
     .button-add-row
     {
         position: absolute;
         bottom: 0;
-        right: 6px;
-        width: 18px;
-        color: #3c8dbc;
-        border: none;
-        background: none;
-        font-size: 18px;
+        right: 0;
+        color: @light-blue;
     }
+}
+
+.icon-button
+{
+    background: none;
+    width: 18px;
+    height: 18px;
+    border: none;
+    padding: 0;
+    line-height: 1;
+    font-size: 18px;
 }
 
 .button-delete
 {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    width: 18px;
-    height: 18px;
-    color: #f00;
-    font-size: 18px;
-    margin-right: 6px;
+    color: @red;
 }
 
 .floating-textarea
@@ -264,6 +264,45 @@ p.login-box-msg
     max-height: 260px;
     overflow: hidden;
     overflow-x: hidden;
+}
+/*#endregion */
+
+/*#region Customer details */
+.property-address1,
+.property-address2,
+.property-city,
+.property-state,
+.property-postal-code,
+.property-country
+{
+    background-color: #ecf0f5;
+}
+
+.property-address1,
+.property-address2,
+.property-city,
+.property-state,
+.property-postal-code
+{
+    margin-bottom: -1px;
+}
+
+.property-address1,
+.property-address2,
+.property-city,
+.property-state,
+.property-postal-code
+{
+    border-bottom: 1px solid transparent;
+}
+
+.property-address2,
+.property-city,
+.property-state,
+.property-postal-code,
+.property-country
+{
+    border-top: 1px solid transparent;
 }
 /*#endregion */
 
@@ -712,6 +751,8 @@ ul.timeline span.stack-icon
         }
     }
 }
+
+@import "customer-details";
 
 [contenteditable]:empty:not(:focus)::before
 {

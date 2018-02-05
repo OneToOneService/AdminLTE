@@ -1,0 +1,22 @@
+@import (reference) "../../less/variables.less";
+@import (reference) "../../less/mixins.less";
+@import (reference) "../../bootstrap-less/variables.less";
+@import (reference) "../../bootstrap-less/mixins.less";
+
+.customer-details
+{
+    .box-header
+    {
+        cursor: pointer;
+    }
+
+    .glyphicon-chevron-right
+    {
+        transition: all @transition-fn @transition-speed;
+    }
+
+        .glyphicon-chevron-right.expanded
+        {
+            transform: rotate(90deg);
+        }
+}
