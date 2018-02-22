@@ -193,7 +193,7 @@ p.login-box-msg {
   font-size: 18px;
 }
 .button-delete {
-  color: #dd4b39;
+  color: #f36a5a;
 }
 .floating-textarea {
   min-height: 30px;
@@ -531,6 +531,92 @@ ul.timeline span.stack-icon .aqua {
 }
 .chat-panel .stock-responses .list-unstyled > li {
   cursor: pointer;
+}
+.color-tab-icon ul li i {
+  padding: 7px 9px;
+  color: #fff;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.color-tab-icon li i.orange {
+  background: #fc9309;
+}
+.color-tab-icon li i.blue {
+  background: #30a5ff;
+}
+.color-tab-icon li i.red {
+  background: #f36a5a;
+}
+.color-tab-icon li i.green {
+  background: #1abc9c;
+}
+.contact-summary .user-detail {
+  background: #ecf0f5;
+  font-size: 14px;
+  border: 1px solid #d7d7d7;
+  color: #333333;
+  padding: 20px;
+  border-radius: 3px;
+  margin: 5px 5px 20px 5px;
+}
+.contact-summary .user-detail .user-name {
+  margin-top: 44px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.contact-summary .user-detail .user-initials {
+  width: 105px;
+  height: 105px;
+  font-size: 24px;
+  background: #76c0fa;
+  border: 3px solid #04c1ef;
+  line-height: 105px;
+  margin-bottom: 15px;
+}
+.contact-summary .user-detail label.control-label {
+  padding-left: 63px;
+}
+.contact-summary .user-detail .datarow {
+  margin-bottom: 20px;
+}
+.contact-summary .report-counts h3 {
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+}
+.contact-summary .right-container {
+  margin-top: 26px;
+}
+.contact-summary .report-counts span {
+  font-size: 20px;
+  color: #585858;
+}
+.contact-summary .right-container nav a {
+  display: inline-block;
+  text-align: center;
+  margin-right: 52px;
+  color: #333;
+}
+.contact-summary .right-container nav a i {
+  width: 56px;
+  height: 56px;
+  font-size: 22px;
+  line-height: 56px;
+  text-align: center;
+  color: #fff;
+  display: block;
+  border-radius: 28px;
+  margin-bottom: 5px;
+}
+.contact-summary .right-container a i.orange2 {
+  background: #fb8f04;
+}
+.contact-summary .right-container a i.red2 {
+  background: #e7403c;
+}
+.contact-summary .right-container a i.green2 {
+  background: #5eb562;
 }
 .customer-details .box-header {
   cursor: pointer;

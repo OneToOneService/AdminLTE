@@ -1,0 +1,379 @@
+---
+title: Tabs
+---
+<!DOCTYPE html>
+<html>
+<head>
+    {% include common-head.html %}
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        {% include common-header.html %}
+        {% include common-menu.html %}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    {{ page.title }}
+                </h1>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <!-- START CUSTOM TABS -->
+                <h2 class="page-header">AdminLTE Custom Tabs</h2>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Custom Tabs -->
+                        <div class="nav-tabs-custom color-tab-icon">
+							  <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-navicon orange"></i> <span>Summary</span></a></li>
+                                <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-ellipsis-h blue"></i> <span>Details</span></a></li>
+                                <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-feed red"></i> <span>Subscriptions</span></a> </a></li>
+								<li><a href="#tab_4" data-toggle="tab"><i class="fa fa-history green"></i> <span>History</span></a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane contact-summary active" id="tab_1">
+								   <div class="row">
+                                    <div class="col-md-6 contact-bg left-container ">
+									    <div class="user-detail">
+										  <div class="row">
+										     <div class="col-sm-4">
+										       <div class="user-initials round no-select">SW</div>
+											 </div> 
+                                             <div class="col-sm-8 user-name">Scott Whitshitt</div>											 
+										  </div>
+										  <div class="datarow row">
+											<label class="col-sm-4 control-label">Name</label>
+											<span class="text ng-binding col-sm-8">Landlord Administrator</span>
+										  </div>
+										  <div class="datarow row">
+											<label class="col-sm-4  control-label">Job Title</label>
+											<span class="text ng-binding col-sm-8">VP</span>
+										  </div>
+										  <div class="datarow row">
+											<label class="col-sm-4  control-label">Company</label>
+											<span class="text ng-binding col-sm-8">1to1service</span>
+										  </div>
+										  <div class="datarow row">
+											<label class="col-sm-4  control-label">Email</label>
+											<span class="text ng-binding col-sm-8">landlord@mail02.1to1service.com</span>
+										  </div>
+										  <div class="datarow row">
+											<label class="col-sm-4  control-label">Phone</label>
+											<span class="text ng-binding col-sm-8">+78-465464646</span>
+										  </div>
+										</div>
+									</div>
+									
+									 <div class="col-md-6 contact-bg   right-container">
+									   <nav>
+										<a class="m20" ng-href="#/contact/1/summary/agent-email" href="#/contact/1/summary/agent-email">
+										  <i class="fa fa-envelope-o orange2"></i>
+										  Agent Email
+										</a>
+										<a class="m20" ng-href="#/contact/1/summary/note" href="#/contact/1/summary/note">
+										  <i class="fa fa-sticky-note-o red2"></i>
+										  Note
+										</a>
+										<a class=" m20" ng-href="#/contact/1/summary/ticket" href="#/contact/1/summary/ticket">
+										  <i class="fa fa-ticket green2"></i>
+										  Ticket
+										</a>
+									  </nav>
+									  <h3>Last update</h3>
+									  <ul class="empty-list">
+										<!-- ngRepeat: row in lastUpdates --><li ng-repeat="row in lastUpdates" class="ng-scope" style="">
+										  <span class="ng-binding">Oct 28, 2016 1:23 AM</span>
+										  <span class="ng-binding">Agent Email</span>
+										  <span>
+											<a href="messagequeue#/search?w1=entire&amp;f1=ID&amp;t1=25628" target="_blank" class="ng-binding">The answer</a>
+										  </span>
+										</li><!-- end ngRepeat: row in lastUpdates -->
+										<!-- ngIf: !lastUpdates.length -->
+									  </ul>
+									  <h3>Unresolved Questions</h3>
+									  <ul ng-class="{ 'empty-list': !lastUpdates.length }" class="" style="">
+										<!-- ngRepeat: row in unresolvedQuestions --><li ng-repeat="row in unresolvedQuestions" class="ng-scope" style="">
+										  <span class="ng-binding">Aug 17, 2016 10:55 PM</span>
+										  <span>
+											<a href="messagequeue#/search?w1=entire&amp;f1=ID&amp;t1=25609" target="_blank" class="ng-binding">[ref#: 25609-25609] subject line</a>
+										  </span>
+										</li><!-- end ngRepeat: row in unresolvedQuestions -->
+										<!-- ngIf: !unresolvedQuestions.length -->
+									  </ul>
+									  <!-- ngIf: moreUnresolvedQuestionsCount > 0 -->
+									 </div>
+									</div>
+									<div class="row">
+									    <div class="col-md-4 text-center report-counts"><h3>05</h3><span>SUBSCRIPTION</span></div>
+										<div class="col-md-4 text-center report-counts"><h3>12</h3><span>INTERACTION</span></div>
+										<div class="col-md-4 text-center report-counts"><h3>07</h3><span>RESPONSE</span></div>
+									</div>
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_2">
+                                    The European languages are members of the same family. Their separate existence is a myth.
+                                    For science, music, sport, etc, Europe uses thel same vocabulary. The languages only differ
+                                    in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                                    new common language would be desirable: one could refuse to pay expensive translators. To
+                                    achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                                    words. If several languages coalesce, the grammar of the resulting language is more simple
+                                    and regular than that of the individual languages.
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_3">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                                    like Aldus PageMaker including versions of Lorem Ipsum.
+                                </div>
+								 <div class="tab-pane" id="tab_4">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                                    like Aldus PageMaker including versions of Lorem Ipsum.
+                                </div>
+                                <!-- /.tab-pane -->
+                            </div>
+                            <!-- /.tab-content -->
+                        </div>
+                        <!-- nav-tabs-custom -->
+                    </div>
+                    <!-- /.col -->
+
+                
+                </div>
+                <!-- /.row -->
+
+                
+        </div>
+        <!-- /.content-wrapper -->
+        {% include common-footer.html %}
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">Recent Activity</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-user bg-yellow"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                                    <p>New phone +1(800)555-1234</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                                    <p>nora@example.com</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                    <p>Execution time 5 seconds</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Custom Template Design
+                                    <span class="label label-danger pull-right">70%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Update Resume
+                                    <span class="label label-success pull-right">95%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Laravel Integration
+                                    <span class="label label-warning pull-right">50%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Back End Framework
+                                    <span class="label label-primary pull-right">68%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">General Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Allow mail redirect
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Other sets of options are available
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Expose author name in posts
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Allow the user to show his name in blog posts
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Show me as online
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Turn off notifications
+                                <input type="checkbox" class="pull-right">
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Delete chat history
+                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery 3.1.1 -->
+    <script src="../plugins/jQuery/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="../plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../dist/js/demo.js"></script>
+    <script>
+	function toggleIcon(e) {
+    $(e.target)
+        .prev('.panel-heading')
+        .find(".more-less")
+        .toggleClass('glyphicon-plus glyphicon-minus');
+}
+$('.panel-group').on('hidden.bs.collapse', toggleIcon);
+$('.panel-group').on('shown.bs.collapse', toggleIcon);
+	</script>
+</body>
+</html>

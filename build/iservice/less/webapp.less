@@ -16,6 +16,15 @@
 @light-red: #dd6e60;
 @light-orange-c: #fa8e8e;
 
+@orange : #fc9309;
+@blue : #30a5ff;
+@red : #f36a5a;
+@green : #1abc9c;
+@orange2 :#fb8f04; 
+@red2 : #e7403c;
+@green2 : #5eb562;
+
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
     display: none !important;
@@ -752,6 +761,31 @@ ul.timeline span.stack-icon
         }
     }
 }
+
+.color-tab-icon{
+   ul li i {padding:7px 9px; color:#fff; border-radius:3px; margin-right:5px;}
+   li i.orange{background:@orange;}
+   li i.blue{background:@blue;}
+   li i.red{background:@red;}
+   li i.green{background:@green;}
+}
+
+.contact-summary{
+   .user-detail{background:#ecf0f5; font-size:14px; border:1px solid #d7d7d7;color:#333333; padding:20px; border-radius:3px; margin: 5px 5px 20px 5px;} 
+   .user-detail .user-name{margin-top:44px; font-size:16px; font-weight:bold;}
+   .user-detail .user-initials{width:105px; height:105px; font-size:24px; background:#76c0fa; border:3px solid #04c1ef; line-height:105px; margin-bottom:15px;}
+   .user-detail label.control-label{padding-left:63px;}
+   .user-detail .datarow{margin-bottom:20px;} 
+   .report-counts h3{ font-size:32px; font-weight:bold; padding-bottom:5px; margin-bottom:0px;}
+   .right-container{margin-top:26px;}
+   .report-counts span{font-size:20px; color:#585858;}
+   .right-container nav a{display:inline-block; text-align:center; margin-right:52px; color:#333;}
+   .right-container nav a i{width:56px; height:56px;     font-size: 22px; line-height:56px; text-align:center; color:#fff; display:block; border-radius:28px;margin-bottom:5px;}
+   .right-container a i.orange2{ background:@orange2;}
+   .right-container a i.red2{ background:@red2}
+   .right-container a i.green2{background:@green2}
+}
+
 
 @import "customer-details";
 
