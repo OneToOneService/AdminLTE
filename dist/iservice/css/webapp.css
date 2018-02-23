@@ -587,6 +587,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .contact-summary .right-container {
   margin-top: 26px;
+  padding-left: 30px;
 }
 .contact-summary .report-counts span {
   font-size: 20px;
@@ -621,14 +622,96 @@ ul.timeline span.stack-icon .aqua {
 .contact-summary .right-container h3 {
   font-size: 20px;
 }
+.contact-summary .right-container ul {
+  padding: 0;
+  margin: 0;
+  padding-left: 5px;
+}
 .contact-summary .right-container ul li {
   list-style: none;
 }
 .contact-summary .right-container ul.last-update li:before {
   content: "\f096";
-  /* FontAwesome Unicode */
   font-family: FontAwesome;
   display: inline-block;
+  width: 24px;
+  color: #797979;
+  font-weight: bold;
+}
+.message-item {
+  margin-bottom: 15px;
+  margin-left: 40px;
+  position: relative;
+}
+.message-item .message-inner {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px;
+  position: relative;
+  font-weight: normal;
+}
+.message-item .message-inner:before {
+  border-right: 10px solid #ddd;
+  border-style: solid;
+  border-width: 10px;
+  color: rgba(0, 0, 0, 0);
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 0;
+}
+.message-item .message-inner:after {
+  border-right: 10px solid #fff;
+  border-style: solid;
+  border-width: 10px;
+  color: rgba(0, 0, 0, 0);
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+  left: -18px;
+  top: 6px;
+  width: 0;
+}
+.message-item:before {
+  background: #fff;
+  border-radius: 2px;
+  bottom: -25px;
+  border: 0.5px solid #ddd;
+  content: "";
+  height: 100%;
+  left: -30px;
+  position: absolute;
+}
+.message-item:after {
+  border-radius: 50%;
+  content: "\f017";
+  color: #797979;
+  font-family: "FontAwesome";
+  height: 20px;
+  font-size: 20px;
+  left: -38px;
+  position: absolute;
+  top: 3px;
+  width: 20px;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.message-time {
+  text-align: right;
+  font-weight: normal;
+  color: #797979;
+  font-size: 13px;
+}
+.qa-message-list:last-child .message-item:before {
+  border: none;
 }
 .customer-details .box-header {
   cursor: pointer;
@@ -644,4 +727,20 @@ ul.timeline span.stack-icon .aqua {
 }
 .overlay-wrapper {
   position: relative;
+}
+@media only screen and (max-width: 480px) {
+  .contact-summary .right-container nav a {
+    margin-right: 41px;
+  }
+  .color-tab-icon ul.nav-tabs li a span {
+    display: none;
+  }
+  .contact-summary .user-detail .user-name {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  .contact-summary .right-container {
+    padding-left: 24px;
+  }
 }

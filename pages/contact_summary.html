@@ -40,30 +40,30 @@ title: Tabs
                                     <div class="col-md-6 contact-bg left-container ">
 									    <div class="user-detail">
 										  <div class="row">
-										     <div class="col-sm-4">
+										     <div class=" col-md-4">
 										       <div class="user-initials round no-select">SW</div>
 											 </div> 
-                                             <div class="col-sm-8 user-name">Scott Whitsitt</div>											 
+                                             <div class="col-md-8  user-name">Scott Whitsitt</div>											 
 										  </div>
 										  <div class="datarow row">
-											<label class="col-sm-4 control-label">Name</label>
-											<span class="text ng-binding col-sm-8">Landlord Administrator</span>
+											<label class="col-md-4  col-xm-12 control-label">Name</label>
+											<span class="text ng-binding col-xm-12 col-md-8">Landlord Administrator</span>
 										  </div>
 										  <div class="datarow row">
-											<label class="col-sm-4  control-label">Job Title</label>
-											<span class="text ng-binding col-sm-8">VP</span>
+											<label class="col-md-4 col-sm-12 control-label">Job Title</label>
+											<span class="text ng-binding col-xm-12 col-md-8">VP</span>
 										  </div>
 										  <div class="datarow row">
-											<label class="col-sm-4  control-label">Company</label>
-											<span class="text ng-binding col-sm-8">1to1service</span>
+											<label class="col-md-4 col-xm-12 control-label">Company</label>
+											<span class="text ng-binding col-xm-12 col-md-8">1to1service</span>
 										  </div>
 										  <div class="datarow row">
-											<label class="col-sm-4  control-label">Email</label>
-											<span class="text ng-binding col-sm-8">landlord@mail02.1to1service.com</span>
+											<label class="col-md-4 col-xm-12 control-label">Email</label>
+											<span class="text ng-binding  col-xm-12 col-md-8">landlord@mail02.1to1service.com</span>
 										  </div>
 										  <div class="datarow row">
-											<label class="col-sm-4  control-label">Phone</label>
-											<span class="text ng-binding col-sm-8">+78-465464646</span>
+											<label class="col-md-4 col-xm-12 control-label">Phone</label>
+											<span class="text ng-binding col-xm-12 col-md-8">+78-465464646</span>
 										  </div>
 										</div>
 									</div>
@@ -83,28 +83,38 @@ title: Tabs
 										  Ticket
 										</a>
 									  </nav>
-									  <h3>Last update</h3>
+									  <h3>Unresolved Questions </h3>
 									  <ul class="empty-list last-update">
-										<!-- ngRepeat: row in lastUpdates --><li ng-repeat="row in lastUpdates" class="ng-scope" style="">
-										  <span class="ng-binding">Oct 28, 2016 1:23 AM</span>
-										  <span class="ng-binding">Agent Email</span>
-										  <span>
+										<!-- ngRepeat: row in lastUpdates -->
+										   <li ng-repeat="row in lastUpdates" class="ng-scope" style="">
+										    <span>
 											<a href="messagequeue#/search?w1=entire&amp;f1=ID&amp;t1=25628" target="_blank" class="ng-binding">The answer</a>
 										  </span>
 										</li><!-- end ngRepeat: row in lastUpdates -->
 										<!-- ngIf: !lastUpdates.length -->
 									  </ul>
-									  <h3>Unresolved Questions</h3>
-									  <ul ng-class="{ 'empty-list': !lastUpdates.length }" class="" style="">
-										<!-- ngRepeat: row in unresolvedQuestions --><li ng-repeat="row in unresolvedQuestions" class="ng-scope" style="">
-										  <span class="ng-binding">Aug 17, 2016 10:55 PM</span>
-										  <span>
-											<a href="messagequeue#/search?w1=entire&amp;f1=ID&amp;t1=25609" target="_blank" class="ng-binding">[ref#: 25609-25609] subject line</a>
-										  </span>
-										</li><!-- end ngRepeat: row in unresolvedQuestions -->
-										<!-- ngIf: !unresolvedQuestions.length -->
-									  </ul>
-									  <!-- ngIf: moreUnresolvedQuestionsCount > 0 -->
+									  <h3>Last update</h3>
+									  <div>
+										 <div class="qa-message-list" id="wallmessages">
+											<div class="message-item" id="m16">
+												<div class="message-inner">
+												  The European <a href=""> The languages only differ
+												   in their grammar, their pronunciation and their</a>
+												</div>
+											 	<div class="message-time">Just Now</div>
+											</div>
+										</div>	
+										<div class="qa-message-list" id="wallmessages">
+											<div class="message-item" id="m16">
+												<div class="message-inner">
+												  The European <a href=""> The languages only differ
+												   in their grammar, their pronunciation and their</a>
+											     </div>
+												 <div class="message-time">2 Days Ago</div>
+											</div>
+											
+										</div>	
+									  </div>
 									 </div>
 									</div>
 									<div class="row">
