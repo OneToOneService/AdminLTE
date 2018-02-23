@@ -618,6 +618,9 @@ ul.timeline span.stack-icon .aqua {
 .contact-summary .right-container a i.green2 {
   background: #5eb562;
 }
+.contact-summary .right-container h3 {
+  font-size: 16px;
+}
 .customer-details .box-header {
   cursor: pointer;
 }
