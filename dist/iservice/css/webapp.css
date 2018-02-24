@@ -532,6 +532,7 @@ ul.timeline span.stack-icon .aqua {
 .chat-panel .stock-responses .list-unstyled > li {
   cursor: pointer;
 }
+/*Added for contact summary start*/
 .color-tab-icon ul li i {
   padding: 7px 9px;
   color: #fff;
@@ -575,6 +576,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .contact-summary .user-detail label.control-label {
   padding-left: 63px;
+  text-align: left;
 }
 .contact-summary .user-detail .datarow {
   margin-bottom: 20px;
@@ -713,6 +715,7 @@ ul.timeline span.stack-icon .aqua {
 .qa-message-list:last-child .message-item:before {
   border: none;
 }
+/*Added for contact summary end*/
 .customer-details .box-header {
   cursor: pointer;
 }
@@ -728,9 +731,13 @@ ul.timeline span.stack-icon .aqua {
 .overlay-wrapper {
   position: relative;
 }
+/*Added for contact summary start*/
 @media only screen and (max-width: 480px) {
+  .user-detail label.control-label {
+    padding-left: 15px !important;
+  }
   .contact-summary .right-container nav a {
-    margin-right: 41px;
+    margin-right: 24px;
   }
   .color-tab-icon ul.nav-tabs li a span {
     display: none;
@@ -743,4 +750,8 @@ ul.timeline span.stack-icon .aqua {
   .contact-summary .right-container {
     padding-left: 24px;
   }
+  .contact-summary .report-counts span {
+    font-size: 14px;
+  }
 }
+/*Added for contact summary end*/

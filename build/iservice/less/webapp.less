@@ -761,7 +761,7 @@ ul.timeline span.stack-icon
         }
     }
 }
-
+/*Added for contact summary start*/
 .color-tab-icon{
    ul li i {padding:7px 9px; color:#fff; border-radius:3px; margin-right:5px;}
    li i.orange{background:@orange;}
@@ -774,7 +774,7 @@ ul.timeline span.stack-icon
    .user-detail{background:#ecf0f5; font-size:14px; border:1px solid #d7d7d7;color:#333333; padding:20px; border-radius:3px; margin: 5px 5px 20px 5px;} 
    .user-detail .user-name{margin-top:44px; font-size:16px; font-weight:bold;}
    .user-detail .user-initials{width:105px; height:105px; font-size:24px; background:#76c0fa; border:3px solid #04c1ef; line-height:105px; margin-bottom:15px;}
-   .user-detail label.control-label{padding-left:63px;}
+   .user-detail label.control-label{padding-left:63px; text-align:left;}
    .user-detail .datarow{margin-bottom:20px;} 
    .report-counts h3{ font-size:32px; font-weight:bold; padding-bottom:5px; margin-bottom:0px;}
    .right-container{margin-top:26px;padding-left: 30px;}
@@ -802,6 +802,8 @@ ul.timeline span.stack-icon
 .message-time{text-align:right;font-weight:normal; color:#797979; font-size:13px;}
 .qa-message-list:last-child .message-item:before{border:none;}			
 
+/*Added for contact summary end*/
+
 @import "customer-details";
 
 [contenteditable]:empty:not(:focus)::before
@@ -813,7 +815,7 @@ ul.timeline span.stack-icon
 {
     position: relative;
 }
-
+/*Added for contact summary start*/
 @media only screen and (max-width: 767px)
 {
 	
@@ -821,8 +823,11 @@ ul.timeline span.stack-icon
 
 @media only screen and (max-width: 480px)
 {
-	.contact-summary .right-container nav a{margin-right:41px;}
+    .user-detail label.control-label{padding-left:15px !important;}
+	.contact-summary .right-container nav a{margin-right:24px;}
 	.color-tab-icon  ul.nav-tabs li a span{display:none;}
     .contact-summary .user-detail .user-name{margin-top:0px; margin-bottom:15px; text-align:center;}
 	.contact-summary .right-container {padding-left: 24px;}
+	.contact-summary .report-counts span{font-size:14px;}
 }
+/*Added for contact summary end*/
