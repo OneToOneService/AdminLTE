@@ -755,3 +755,9 @@ ul.timeline span.stack-icon .aqua {
   }
 }
 /*Added for contact summary end*/
+.wrapper {
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
