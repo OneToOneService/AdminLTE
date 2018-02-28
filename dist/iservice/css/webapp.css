@@ -553,7 +553,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .contact-summary .user-detail {
   background: #ecf0f5;
-  font-size: 14px;
+  font-size: 16px;
   border: 1px solid #d7d7d7;
   color: #333333;
   padding: 20px;
@@ -576,6 +576,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .contact-summary .user-detail label.control-label {
   padding-left: 63px;
+  padding-top: 0px;
   text-align: left;
 }
 .contact-summary .user-detail .datarow {
@@ -643,6 +644,7 @@ ul.timeline span.stack-icon .aqua {
 .message-item {
   margin-bottom: 15px;
   margin-left: 40px;
+  margin-top: -12px;
   position: relative;
 }
 .message-item .message-inner {
@@ -682,24 +684,23 @@ ul.timeline span.stack-icon .aqua {
 .message-item:before {
   background: #fff;
   border-radius: 2px;
-  bottom: -25px;
+  bottom: -32px;
   border: 0.5px solid #ddd;
   content: "";
   height: 100%;
   left: -30px;
   position: absolute;
 }
-.message-item:after {
+.qa-message-list i {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  content: "\f017";
-  color: #797979;
-  font-family: "FontAwesome";
-  height: 20px;
-  font-size: 20px;
-  left: -38px;
-  position: absolute;
-  top: 3px;
-  width: 20px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  position: relative;
+  top: 18px;
+  left: -4px;
 }
 .clearfix:before,
 .clearfix:after {
@@ -731,7 +732,32 @@ ul.timeline span.stack-icon .aqua {
 .overlay-wrapper {
   position: relative;
 }
-/*Added for contact summary start*/
+.contact-detail-group {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  margin-bottom: -1px;
+  background-color: #ecf0f5;
+}
+.group-bg {
+  background-color: #ecf0f5;
+}
+.detail-g-borderbottom {
+  margin-bottom: -1px;
+  border-bottom: 1px solid transparent;
+}
+.detail-g-bordertop {
+  border-top: 1px solid transparent;
+}
+.contact-detail .box-header > .fa,
+.contact-detail .box-header > .glyphicon,
+.contact-detail .box-header > .ion {
+  font-size: 14px;
+}
+.contact-detail .segment label {
+  font-size: 16px;
+  font-weight: normal;
+}
+/*Added for contact summary end*/
 @media only screen and (max-width: 480px) {
   .user-detail label.control-label {
     padding-left: 15px !important;
