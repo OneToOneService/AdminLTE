@@ -651,7 +651,7 @@ ul.timeline span.stack-icon .aqua {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 3px;
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
   position: relative;
   font-weight: normal;
 }
@@ -701,6 +701,15 @@ ul.timeline span.stack-icon .aqua {
   position: relative;
   top: 18px;
   left: -4px;
+}
+.qa-message-list .message-header {
+  margin: 0px -10px 5px -10px;
+  color: #3c8dbc;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.1;
 }
 .clearfix:before,
 .clearfix:after {
