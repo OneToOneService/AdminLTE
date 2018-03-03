@@ -6,15 +6,15 @@ title: Tabs
 <head>
 <!--1 to 1 include start-->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.min.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/blue.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.min.css" />
+<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.min.css" /> 
   <link rel="stylesheet" href="https://outdev1.1to1vpn.ddns.net:9015/css/AdminLTE.min.css">
   <link rel="stylesheet" href="https://outdev1.1to1vpn.ddns.net:9015/css/AdminLTE_all-skins.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
   <link rel="stylesheet" href="https://outdev1.1to1vpn.ddns.net:9015/css/webapp.min.css" />
 <!--1 to 1 include end-->  
     {% include common-head.html %}
@@ -162,30 +162,30 @@ title: Tabs
                                 <!-- /.tab-pane -->
                                 <div class="tab-pane contact-detail" id="tab_2">
                                   <div class="row">
-									<div class="col-xs-12 col-sm-9">
-									 <div class="box box-default"style="">
-										<div class="box-header with-border">
+									<div class="col-xs-12 col-sm-9 panel-group">
+									  <div class="box box-default" style="" >
+										<div class="box-header with-border" data-toggle="collapse" data-target="#contactinfo">
 										  <h3 class="box-title">Contact Information</h3>
 										  <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ></span>
 										</div>
-										<div class="box-body in collapse">
+										<div class="box-body in collapse " id="contactinfo">
 										  <div class="row">
 												<div class="col-xs-12 col-sm-6">
 												  <div>
 													<div class="form-group floating-label">
-													  <input value="">
+													  <input type="text" value="">
 													  <label >First Name</label>
 													</div>
 												  </div>
 												  <div> 
 													<div class="form-group floating-label">
-													  <input value="">
+													  <input value=""  type="text" >
 													  <label class="">Middle Initial</label>
 													</div>
 												  </div>
 												  <div>
 													<div class="form-group floating-label" >
-													  <input value="">
+													  <input  type="text"  value="">
 													  <label>Last Name</label>
 													</div>
 												  </div>
@@ -233,7 +233,7 @@ title: Tabs
 												 </div>
 											  <div class="">
 												<div class="form-group floating-label">
-												  <input value="">
+												  <input type="text"  value="">
 												  <label class="">Company</label>
 												</div>
 											  </div>
@@ -296,7 +296,7 @@ title: Tabs
 													  <option value=""></option>
 													</select>
 													<span class="ng-binding ng-hide">Email</span>
-													<input value="" >
+													<input type="text"  value="" >
 												  </div>
 												  <div class="float-btn-group " >
 													<button class="margin-5 icon-button button-delete" type="button" >
@@ -307,8 +307,7 @@ title: Tabs
 													  <option value="Bounced">Bounced</option>
 													  <option value=""></option>
 													</select>
-													<span>Email</span>
-													<input value="" >
+													<input type="text" value="" >
 												  </div>
 												  <button class="margin-5 icon-button button-add-row" type="button">
 													<i class="fa fa-plus-circle"></i>
@@ -321,16 +320,16 @@ title: Tabs
 										</button>
 									  </div>
 									  <div class="box box-default " >
-										<div class="box-header with-border" >
+										<div class="box-header with-border" data-toggle="collapse" data-target="#segment">
 										  <h3 class="box-title ng-binding">Automated Test Segment</h3>
 										  <span class="glyphicon pull-right glyphicon-chevron-right expanded" style=""></span>
 										</div>
-										<div class="box-body in collapse" style="" >
+										<div class="box-body in collapse" style="" id="segment">
 										  <div class="row">
 											<div class="col-xs-12 col-sm-6">
 											  <div    class="">
 												<div class="form-group floating-label  property-contact-property-1"  >
-												  <input value="">
+												  <input type="text"  value="">
 												  <label class="">Contact Property 1</label>
 												</div>
 											  </div>
@@ -352,25 +351,27 @@ title: Tabs
 										<button type="button" class="btn btn-default btn-xs margin-5 ng-hide"  ng-show="isCollapsed(segment.name)" style="">
 										  <strong>…</strong>
 										</button>
-									  </div><div class="box box-default " >
-										<div class="box-header with-border" >
+									  </div>
+									  <div class="box box-default " >
+										<div class="box-header with-border" data-toggle="collapse" data-target="#segment1">
 										  <h3 class="box-title ng-binding">Segment1</h3>
 										  <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{ 'expanded': !isCollapsed(segment.name) }" style=""></span>
 										</div>
-										<div class="box-body in collapse" uib-collapse="isCollapsed(segment.name)" style="" aria-expanded="true" aria-hidden="false">
+										<div class="box-body in collapse" id="segment1">
 										  <div class="row">
 											<div class="col-xs-12 col-sm-6">
 											  <!-- ngRepeat: property in segment.leftProperties --><div    class="">
 									<div class="form-group floating-label  property-text"  >
-									  <input value="">
+									  <input type="text"  value="">
 									  <label class="">Text</label>
 									</div>
 								  </div><div    class="">
 									<div class="form-group floating-label  property-date"  >
-									  <input ng-model="value.valueDate" ui-date="dateOptions"  class="ng-pristine ng-untouched ng-valid  ng-empty hasDatepicker" id="dp1519751637044">
+									  <input  type="text" value="">
 									  <label class="">Date</label>
 									</div>
-								  </div><div    class="">
+								  </div>
+								  <div  class="">
 									<div class="form-group floating-label  property-additional-detail"  >
 									  <select  ng-options="choice.value as choice.name for choice in property.valueChoices"  class="ng-pristine ng-untouched ng-valid  ng-empty"><option label="detail1a" value="string:detail1a">detail1a</option><option label="detail1b" value="string:detail1b">detail1b</option><option label="detail1c" value="string:detail1c">detail1c</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
 									  <label class="">Additional Detail</label>
@@ -404,17 +405,18 @@ title: Tabs
 										<button type="button" class="btn btn-default btn-xs margin-5 ng-hide"  ng-show="isCollapsed(segment.name)" style="">
 										  <strong>…</strong>
 										</button>
-									  </div><div class="box box-default " >
-										<div class="box-header with-border" >
+									  </div>
+									  <div class="box box-default " >
+										<div class="box-header with-border" data-toggle="collapse" data-target="#segment2">
 										  <h3 class="box-title ng-binding">Segment2</h3>
-										  <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{ 'expanded': !isCollapsed(segment.name) }" style=""></span>
+										  <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
 										</div>
-										<div class="box-body in collapse" uib-collapse="isCollapsed(segment.name)" style="" aria-expanded="true" aria-hidden="false">
+										<div class="box-body in collapse" id="segment2">
 										  <div class="row">
 											<div class="col-xs-12 col-sm-6">
 											  <div class="">
 												<div class="form-group floating-label  property-s2only"  >
-												  <input value="">
+												  <input  type="text"  value="">
 												  <label class="">s2only</label>
 												</div>
 											  </div>
@@ -722,9 +724,9 @@ title: Tabs
         .prev('.panel-heading')
         .find(".more-less")
         .toggleClass('glyphicon-plus glyphicon-minus');
-}
-$('.panel-group').on('hidden.bs.collapse', toggleIcon);
-$('.panel-group').on('shown.bs.collapse', toggleIcon);
+	}
+	$('.panel-group').on('hidden.bs.collapse', toggleIcon);
+	$('.panel-group').on('shown.bs.collapse', toggleIcon);
 	</script>
 	
 	<!--1 to 1 js include-->
@@ -734,7 +736,7 @@ $('.panel-group').on('shown.bs.collapse', toggleIcon);
   <script>
     svg4everybody();
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+  <!--qa<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.3/ckeditor.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
@@ -744,6 +746,7 @@ $('.panel-group').on('shown.bs.collapse', toggleIcon);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
@@ -752,7 +755,7 @@ $('.panel-group').on('shown.bs.collapse', toggleIcon);
   <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.util.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
   <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.ng.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
   <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.directive.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/adminlte.min.js"></script>	
+ <!-- <script src="https://outdev1.1to1vpn.ddns.net:9015/js/adminlte.min.js"></script>	-->
   <script>
     $(function ()
     {
@@ -764,5 +767,6 @@ $('.panel-group').on('shown.bs.collapse', toggleIcon);
 	
 	});
   </script>   
+  
 </body>
 </html>
