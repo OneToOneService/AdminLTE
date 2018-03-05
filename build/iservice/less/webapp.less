@@ -2,11 +2,11 @@
  * Core: General Layout Style
  * -------------------------
  */
-@import (reference) "../../less/variables.less";
+
 @import (reference) "../../less/mixins.less";
 @import (reference) "../../bootstrap-less/variables.less";
 @import (reference) "../../bootstrap-less/mixins.less";
-
+@import (reference) "../../less/variables.less";
 
 @logo-blue: #3c8dbc;
 @treeview-color: #369;
@@ -15,14 +15,8 @@
 @aqua: #00c0ef;
 @light-red: #dd6e60;
 @light-orange-c: #fa8e8e;
-
-@orange : #fc9309;
 @blue : #30a5ff;
-@red : #f36a5a;
-@green : #1abc9c;
-@orange2 :#fb8f04; 
-@red2 : #e7403c;
-@green2 : #5eb562;
+@white :#ffffff;
 
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
@@ -125,7 +119,7 @@ p.login-box-msg
 
     .copy-text span
     {
-        color: #3c8dbc;
+        color: @light-blue;
     }
 
 .sidebar-menu > li > a
@@ -285,7 +279,7 @@ p.login-box-msg
 .property-postal-code,
 .property-country
 {
-    background-color: #ecf0f5;
+    background-color: @body-bg;
 }
 
 .property-address1,
@@ -763,7 +757,7 @@ ul.timeline span.stack-icon
 }
 /*Added for contact summary start*/
 .color-tab-icon{
-   ul li i {padding:7px 9px; color:#fff; border-radius:3px; margin-right:5px;}
+   ul li i {padding:7px 9px; color:@white; border-radius:3px; margin-right:5px;}
    li i.orange{background:@orange;}
    li i.blue{background:@blue;}
    li i.red{background:@red;}
@@ -771,42 +765,40 @@ ul.timeline span.stack-icon
 }
 
 .contact-summary{
-   .user-detail{background:#ecf0f5; font-size:16px; border:1px solid #d7d7d7;color:#333333; padding:20px; border-radius:3px; margin: 5px 5px 20px 5px;} 
+   .user-detail{background:@body-bg; font-size:16px; border:1px solid @gray-lte; padding:20px; border-radius:3px; margin: 5px 5px 20px 5px;} 
    .user-detail .user-name{margin-top:44px; font-size:16px; font-weight:bold;}
-   .user-detail .user-initials{width:105px; height:105px; font-size:24px; background:#76c0fa; border:3px solid #04c1ef; line-height:105px; margin-bottom:15px;}
+   .user-detail .user-initials{width:105px; height:105px; font-size:24px; background:@aqua; border:3px solid @blue; line-height:105px; margin-bottom:15px;}
    .user-detail label.control-label{padding-left:63px;padding-top: 0px; text-align:left;}
    .user-detail .datarow{margin-bottom:20px;} 
    .report-counts h3{ font-size:28px; font-weight:bold; padding-bottom:5px; margin-bottom:0px; line-height:22px;}
    .right-container{margin-top:26px;padding-left: 30px;}
-   .report-counts span{font-size:20px; color:#585858;}
-   .right-container nav a{display:inline-block; text-align:center; margin-right:52px; color:#333;}
-   .right-container nav a i{width:56px; height:56px;     font-size: 22px; line-height:56px; text-align:center; color:#fff; display:block; border-radius:28px;margin-bottom:5px;}
-   .right-container a i.orange2{ background:@orange2;}
-   .right-container a i.red2{ background:@red2}
-   .right-container a i.green2{background:@green2}
+   .report-counts span{font-size:20px;}
+   .right-container nav a{display:inline-block; text-align:center; margin-right:52px;}
+   .right-container nav a i{width:56px; height:56px;     font-size: 22px; line-height:56px; text-align:center; color:@white; display:block; border-radius:28px;margin-bottom:5px;}
+   .right-container a i.orange2{ background:@orange;}
+   .right-container a i.red2{ background:@red; }
+   .right-container a i.green2{background:@green;}
    .right-container h3{font-size:20px;}
    .right-container ul{padding:0;margin:0;padding-left: 15px;list-style: none}
    .right-container ul li{list-style:none;}
-   .right-container ul.last-update li:before{ content: "\f096";  font-family: FontAwesome; display: inline-block; width:24px;color: #797979; font-weight:bold; }
-   .right-container ul li::before {content: "\f096"; font-family: FontAwesome;color: #666;    display: inline-block; width: 1em; margin-left: -1em}
+   .right-container ul.last-update li:before{ content: "\f096";  font-family: FontAwesome; display: inline-block; width:24px;color:@black; opacity:0.6; font-weight:bold; }
+   .right-container ul li::before {content: "\f096"; font-family: FontAwesome;  display: inline-block; width: 1em; margin-left: -1em}
    
 }
 .qa-message-list i{width: 30px;    height: 30px;    border-radius: 50%;    text-align: center;    vertical-align: middle;    display: table-cell;    position: relative;    top: 18px;    left: -4px;}
-.qa-message-list .message-header {margin: 0px -10px 5px -10px;    color: #3c8dbc;    border-bottom: 1px solid #f4f4f4;    padding: 10px;    font-size: 14px;    font-weight: 700;  line-height: 1.1;} 
+.qa-message-list .message-header {margin: 0px -10px 5px -10px;    color: @light-blue ;    border-bottom: 1px solid @gray-lte;    padding: 10px;    font-size: 14px;    font-weight: 700;  line-height: 1.1;} 
 .clearfix:before, .clearfix:after {content: " ";display: table;}
-.message-time{text-align:right;font-weight:normal; color:#797979; font-size:13px;}
+.message-time{text-align:right;font-weight:normal; color:@black; font-size:13px; opacity:0.6;}
 .message-item {margin-bottom: 15px;margin-left: 40px; margin-top: -12px;position: relative;}
 .message-item{
     i {display: inline-block;    top: 4px;    vertical-align: top;    height: auto;    width: auto;}
-    .time{color: #999;    float: right;    padding: 10px;    font-size: 12px;} 
-    .message-inner {background: #fff;border: 1px solid #ddd;border-radius: 3px;padding: 0px 10px 10px 10px;position: relative;font-weight: normal;}
-	.message-inner:before {	border-right: 10px solid #ddd;	border-style: solid;border-width: 10px;	color: rgba(0,0,0,0);content: "";display: block;height: 0;position: absolute;left: -20px;top: 6px;width: 0;	}
-    .message-inner:after {border-right: 10px solid #fff;border-style: solid;border-width: 10px;color: rgba(0,0,0,0);content: "";display: block;height: 0;position: absolute;left: -18px;top: 6px;width: 0;}
+    .time{float: right;    padding: 10px;    font-size: 12px; opacity:.7} 
+    .message-inner {background:@white;border: 1px solid @gray-lte;border-radius: 3px;padding: 0px 10px 10px 10px;position: relative;font-weight: normal;}
+	.message-inner:before {	border-right: 10px solid @gray-lte;	border-style: solid;border-width: 10px;	color: rgba(0,0,0,0);content: "";display: block;height: 0;position: absolute;left: -20px;top: 6px;width: 0;	}
+    .message-inner:after {border-right: 10px solid @white;border-style: solid;border-width: 10px;color: rgba(0,0,0,0);content: "";display: block;height: 0;position: absolute;left: -18px;top: 6px;width: 0;}
     .timeline-footer{padding-top:10px;}
 }		
-.message-item:before {background: #fff;border-radius: 2px;bottom: -32px;border:0.5px solid #ddd;content: "";height: 100%;left: -30px;position: absolute;}
-//.message-item:after {border-radius: 50%;content: "\f017";color: #797979;font-family:"FontAwesome";height: 20px;font-size:20px;left: -38px;position: absolute;top: 3px;width: 20px;}
-
+.message-item:before {background: @white;border-radius: 2px;bottom: -32px;border:0.5px solid @gray-lte;content: "";height: 100%;left: -30px;position: absolute;}
 .qa-message-list:last-child .message-item:before{border:none;}			
 
 .glyphicon-chevron-right.expanded{transform: rotate(90deg);transition-duration: 0.5s;}
@@ -826,9 +818,9 @@ ul.timeline span.stack-icon
     position: relative;
 }
 
-.contact-detail-group{border-bottom: 1px solid transparent; border-top: 1px solid transparent;    margin-bottom: -1px;background-color: #ecf0f5;}
+.contact-detail-group{border-bottom: 1px solid transparent; border-top: 1px solid transparent;    margin-bottom: -1px;background-color:@body-bg;}
 .group-bg{
-    background-color:#ecf0f5
+    background-color:@body-bg;
 }
 .detail-g-borderbottom{
     margin-bottom:-1px;border-bottom:1px solid transparent;
@@ -842,13 +834,8 @@ ul.timeline span.stack-icon
 }
 
 /*Added for contact summary end*/
-@media only screen and (max-width: 767px)
-{
-	
-}
 
-@media only screen and (max-width: 480px)
-{
+@media (max-width: @screen-xs-max) { 
     .user-detail label.control-label{padding-left:15px !important;}
 	.contact-summary .right-container nav a{margin-right:24px;}
 	.color-tab-icon  ul.nav-tabs li a span{display:none;}
@@ -856,6 +843,12 @@ ul.timeline span.stack-icon
 	.contact-summary .right-container {padding-left: 24px;}
 	.contact-summary .report-counts span{font-size:14px;}
 }
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
+    .user-detail label.control-label{padding-left:15px !important;}
+	.contact-summary .user-detail .user-name{margin-top:0px; margin-bottom:15px; text-align:center;}
+}
+	
 /*Added for contact summary end*/
 
 .wrapper{height:100%;position:relative;overflow-x:hidden;overflow-y:hidden}
