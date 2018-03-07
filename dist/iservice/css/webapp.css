@@ -552,17 +552,18 @@ ul.timeline span.stack-icon .aqua {
   background: #00a65a;
 }
 .contact-summary .user-detail {
-  background: #ecf0f5;
   font-size: 16px;
-  border: 1px solid #d2d6de;
-  padding: 20px;
   border-radius: 3px;
-  margin: 5px 5px 20px 5px;
+  margin: 5px 5px 5px 5px;
 }
 .contact-summary .user-detail .user-name {
   margin-top: 44px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
+}
+.contact-summary .form-group .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .contact-summary .user-detail .user-initials {
   width: 105px;
@@ -574,12 +575,15 @@ ul.timeline span.stack-icon .aqua {
   margin-bottom: 15px;
 }
 .contact-summary .user-detail label.control-label {
-  padding-left: 63px;
+  padding-left: 54px;
   padding-top: 0px;
   text-align: left;
 }
 .contact-summary .user-detail .datarow {
   margin-bottom: 20px;
+}
+.contact-summary .right-container h3 {
+  font-size: 20px;
 }
 .contact-summary .report-counts h3 {
   font-size: 28px;
@@ -593,14 +597,14 @@ ul.timeline span.stack-icon .aqua {
   padding-left: 30px;
 }
 .contact-summary .report-counts span {
-  font-size: 20px;
+  font-size: 18px;
+  color: #111111;
+  opacity: 0.7;
 }
-.contact-summary .right-container nav a {
-  display: inline-block;
+.contact-summary nav a {
   text-align: center;
-  margin-right: 52px;
 }
-.contact-summary .right-container nav a i {
+.contact-summary nav a i {
   width: 56px;
   height: 56px;
   font-size: 22px;
@@ -609,19 +613,17 @@ ul.timeline span.stack-icon .aqua {
   color: #ffffff;
   display: block;
   border-radius: 28px;
+  margin: 0 auto;
   margin-bottom: 5px;
 }
-.contact-summary .right-container a i.orange2 {
+.contact-summary a i.orange2 {
   background: #ff851b;
 }
-.contact-summary .right-container a i.red2 {
+.contact-summary a i.red2 {
   background: #dd4b39;
 }
-.contact-summary .right-container a i.green2 {
+.contact-summary a i.green2 {
   background: #00a65a;
-}
-.contact-summary .right-container h3 {
-  font-size: 20px;
 }
 .contact-summary .right-container ul {
   padding: 0;
