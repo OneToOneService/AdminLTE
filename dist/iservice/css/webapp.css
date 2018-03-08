@@ -650,6 +650,9 @@ ul.timeline span.stack-icon .aqua {
   width: 1em;
   margin-left: -1em;
 }
+.contact-summary .view-more {
+  padding-top: 20px;
+}
 .qa-message-list i {
   width: 30px;
   height: 30px;
