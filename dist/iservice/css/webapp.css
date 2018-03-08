@@ -551,6 +551,9 @@ ul.timeline span.stack-icon .aqua {
 .color-tab-icon li i.green {
   background: #00a65a;
 }
+.new-contact-btn {
+  margin: 18px 0px 10px 0px;
+}
 .contact-summary .user-detail {
   font-size: 16px;
   border-radius: 3px;
@@ -824,6 +827,9 @@ ul.timeline span.stack-icon .aqua {
   }
   .contact-summary .report-counts span {
     font-size: 14px;
+  }
+  .new-contact-btn {
+    margin: 0px 0px 10px 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {

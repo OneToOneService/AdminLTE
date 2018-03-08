@@ -764,6 +764,8 @@ ul.timeline span.stack-icon
    li i.green{background:@green;}
 }
 
+		
+.new-contact-btn{margin:18px 0px 10px 0px;}
 .contact-summary{
    .user-detail{font-size:16px;border-radius:3px; margin: 5px 5px 5px 5px;} 
    .user-detail .user-name{margin-top:44px; font-size:20px; font-weight:bold;}
@@ -786,7 +788,7 @@ ul.timeline span.stack-icon
    .right-container ul.last-update li:before{ content: "\f096";  font-family: FontAwesome; display: inline-block; width:24px;color:@black; opacity:0.6; font-weight:bold; }
    .right-container ul li::before {content: "\f096"; font-family: FontAwesome;  display: inline-block; width: 1em; margin-left: -1em}
    .view-more{padding-top:20px;}
-   
+
 }
 .qa-message-list i{width: 30px;    height: 30px;    border-radius: 50%;    text-align: center;    vertical-align: middle;    display: table-cell;    position: relative;    top: 18px;    left: -4px;}
 .qa-message-list .message-header {margin: 0px -10px 5px -10px;    color: @light-blue ;    border-bottom: 1px solid @gray-lte;    padding: 10px;    font-size: 14px;    font-weight: 700;  line-height: 1.1;} 
@@ -802,8 +804,7 @@ ul.timeline span.stack-icon
     .timeline-footer{padding-top:10px;}
 }		
 .message-item:before {background: @white;border-radius: 2px;bottom: -32px;border:0.5px solid @gray-lte;content: "";height: 100%;left: -30px;position: absolute;}
-.qa-message-list:last-child .message-item:before{border:none;}			
-
+.qa-message-list:last-child .message-item:before{border:none;}	
 .glyphicon-chevron-right.expanded{transform: rotate(90deg);transition-duration: 0.5s;}
 .collapsed .glyphicon-chevron-right.expanded{transform: rotate(0deg);transition-duration: 0.5s;}
 
@@ -845,11 +846,13 @@ ul.timeline span.stack-icon
     .contact-summary .user-detail .user-name{margin-top:0px; margin-bottom:15px; text-align:center;}
 	.contact-summary .right-container {padding-left: 24px;}
 	.contact-summary .report-counts span{font-size:14px;}
+	.new-contact-btn { margin: 0px 0px 10px 0px;}
 }
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
     .user-detail label.control-label{padding-left:15px !important;}
 	.contact-summary .user-detail .user-name{margin-top:0px; margin-bottom:15px; text-align:center;}
+	
 }
 	
 /*Added for contact summary end*/
