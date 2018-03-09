@@ -810,6 +810,26 @@ ul.timeline span.stack-icon
 
 /*Added for contact summary end*/
 
+/*agent email start*/
+
+.btn-bs-file{
+    position:relative;
+}
+.btn-bs-file input[type="file"]{
+    position: absolute;
+    top: -9999999;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    width:0;
+    height:0;
+    outline: none;
+    cursor: inherit;
+}
+.attach-file{display: block; margin-top: 8px;  margin-bottom: 10px;}
+.attach-file label{color:@aqua;}
+.list-search{min-height:120px;}
+/*agent email end*/
+
 @import "customer-details";
 
 [contenteditable]:empty:not(:focus)::before
