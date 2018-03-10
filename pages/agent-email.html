@@ -2,22 +2,10 @@
 title: Agent Email Form
 ---
 <!DOCTYPE html>
-<html>
+<html ng-app="iService">
 <head>
-<!--1 to 1 include start-->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.min.css" />
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/blue.css" rel="stylesheet" />
-<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.min.css" /> 
-  <link rel="stylesheet" href="https://outdev1.1to1vpn.ddns.net:9015/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="https://outdev1.1to1vpn.ddns.net:9015/css/AdminLTE_all-skins.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
-  <link rel="stylesheet" href="https://outdev1.1to1vpn.ddns.net:9015/css/webapp.min.css" />
-<!--1 to 1 include end-->  
     {% include common-head.html %}
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -31,8 +19,7 @@ title: Agent Email Form
                     {{ page.title }}
                 </h1>
             </section>
-
-            <!-- Main content -->
+  <!-- Main content -->
             <section class="content">
                 <!-- START CUSTOM TABS -->
                
@@ -46,7 +33,7 @@ title: Agent Email Form
 						  <div class="col-md-12">
                             <div class="box box-info">
 								<div class="box-header with-border">
-								  <h3 class="box-title">Horizontal Form</h3>
+								  <h3 class="box-title">Quick Email</h3>
 								</div>
 								<!-- /.box-header -->
 								<!-- form start -->
@@ -57,7 +44,7 @@ title: Agent Email Form
 										<div class="form-group">
 										  <label for="inputEmail3" class="col-sm-2 control-label">To</label>
 										  <div class="col-sm-10">
-											<input type="email" class="form-control" placeholder="Email">
+											<input type="email" class="form-control" placeholder="">
 										  </div>
 										</div>
 										<div class="form-group">
@@ -88,7 +75,7 @@ title: Agent Email Form
 										<div class="form-group">
 										  <label for="inputPassword3" class="col-sm-2 control-label">Body</label>
 										  <div class="col-sm-10">
-											<textarea class="form-control" rows="5" placeholder=""></textarea>
+											<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
 										  </div>
 										</div>
 										<div class="form-group">
@@ -112,7 +99,7 @@ title: Agent Email Form
 										
 										<div class="form-group">
 										  <div class="col-sm-offset-2 col-sm-10">
-											<button type="button" class="pull-right btn btn-info " id="sendEmail">Send
+											<button type="button" class="pull-left btn btn-info " id="sendEmail">Send
 												<i class="fa fa-arrow-circle-right"></i></button>
 										  </div>
 										</div>
@@ -122,47 +109,84 @@ title: Agent Email Form
 									  <div class="box box-solid bg-gray list-search box-body">
 									     <div class="form-group">
 										  <div class="col-sm-12 no-padding">
-											<input type="email" class="form-control" placeholder="Email">
+											<input type="email" class="form-control" placeholder="List Search">
 										  </div>
 										</div>
 									  </div>
 									  
 									  <div class="nav-tabs-custom">
 											<ul class="nav nav-tabs">
-												<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-edit"></i> <span>Variables</span></a></li>
-												<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Stock Responses</span></a></li>
+												<li class="active"><a href="#tab_1" data-toggle="tab"><span>Variables</span></a></li>
+												<li><a href="#tab_2" data-toggle="tab"><span>Stock Responses</span></a></li>
 											</ul>
 											<div class="tab-content">
 												<div class="tab-pane active" id="tab_1">
-													<div class="row">
+													<div class="row " id="variable-box">
 														<div class="col-xs-12">
-															<ul class="list-group">
-																<li class="list-group-item">One</li>
-																<li class="list-group-item">Two
-																	<ul class="list-group inner">
-																		<li class="list-group-item">Item 2a</li>
-																		<li class="list-group-item">Item 2b</li>
-																	</ul>
+															<ul class="list-unstyled segment-variable-list">
+																<li class="section-label">Contact
+																  <ul class="segment-variables">
+																	<li class="section-var-link">Name</li>
+																	<li class="segment-lable">Global
+																	    <ul>
+																		   <li class="section-var-link">Address1</li>
+																		   <li class="section-var-link">Address2</li>
+																		   <li class="section-var-link">City</li>
+																		   <li class="section-var-link">Country</li>
+																		   <li class="section-var-link">Company</li>
+																		</ul>
+																	</li>
+																	<li class="segment-lable">JC Segment
+																	    <ul>
+																		   <li class="section-var-link">Contact View Only Property</li>
+																		   <li class="section-var-link">Contact Viewable and Editable Property</li>
+																		   <li class="section-var-link">Multi value No Descr</li>
+																		   <li class="section-var-link">Shared Property from JC - cust can't see</li>
+																		</ul>
+																	</li>
+																  </ul>
 																</li>
-																<li class="list-group-item">Three
-																	<ul class="list-group inner">
-																		<li class="list-group-item">Item 3a</li>
-																		<li class="list-group-item">Item 3b</li>
-																	</ul>
+															 </ul>
+															 <ul class="list-unstyled segment-variable-list">
+																<li class="section-label">Answer
+																  <ul class="segment-variables">
+																	<li class="section-var-link">Email</li>
+																	<li class="section-var-link">Reference Number</li>
+																	<li class="section-var-link">Original Date</li>
+																	<li class="section-var-link">Original Time</li>
+																	<li class="section-var-link">Subject</li>
+																	<li class="section-var-link">Original Body</li>
+																	<li class="section-var-link">Quoted Question</li>
+																  </ul>
 																</li>
-															</ul>
+															 </ul>
 														</div>
 													</div>
 												</div>
 												<!-- /.tab-pane -->
 												<div class="tab-pane" id="tab_2">
-													The European languages are members of the same family. Their separate existence is a myth.
-													For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-													in their grammar, their pronunciation and their most common words. Everyone realizes why a
-													new common language would be desirable: one could refuse to pay expensive translators. To
-													achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-													words. If several languages coalesce, the grammar of the resulting language is more simple
-													and regular than that of the individual languages.
+													<div class="row " id="stock-responses">
+														<div class="col-xs-12">
+															<ul class="list-unstyled segment-variable-list">
+																<li class="section-label">Segment Responses
+																  <ul class="segment-variables">
+																	<li class="section-var-link">Chat Closing</li>
+																	<li class="section-var-link">Chat Opening</li>
+																	<li class="section-var-link">Chat Wait</li>
+																	<li class="section-var-link">iService Website</li>
+																  </ul>
+																</li>
+															 </ul>
+															 <ul class="list-unstyled segment-variable-list">
+																<li class="section-label">Agent Response
+																  <ul class="segment-variables">
+																	<li class="section-var-link">Test</li>
+																	
+																  </ul>
+																</li>
+															 </ul>
+														</div>
+													</div>
 												</div>
 												
 											</div>
@@ -186,7 +210,7 @@ title: Agent Email Form
     <!-- END ACCORDION & CAROUSEL-->
 	
             </section>
-                
+         
         </div>
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
@@ -385,67 +409,20 @@ title: Agent Email Form
         <div class="control-sidebar-bg"></div>
     </div>
     <!-- ./wrapper -->
-    <!-- jQuery 3.1.1 -->
-    <script src="../plugins/jQuery/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="../plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
-    <script>
-	function toggleIcon(e) {
-    $(e.target)
-        .prev('.panel-heading')
-        .find(".more-less")
-        .toggleClass('glyphicon-plus glyphicon-minus');
-	}
-	$('.panel-group').on('hidden.bs.collapse', toggleIcon);
-	$('.panel-group').on('shown.bs.collapse', toggleIcon);
+    {% include common-javascript.html %}
+   
+	<script>
+	   $(function ()
+       {
+	       // SLIMSCROLL FOR CHAT WIDGET
+			  $('#variable-box').slimScroll({
+				height: '250px'
+			  });
+			  $('#stock-responses').slimScroll({
+				height: '250px'
+			  });
+              CKEDITOR.replace('editor1')
+       });
 	</script>
-	
-	<!--1 to 1 js include-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script>
-    svg4everybody();
-  </script>
-  <!--qa<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.3/ckeditor.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-sanitize.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/jquery.cookie.js"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/angular-ui-date.js"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.util.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.ng.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.directive.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
- <!-- <script src="https://outdev1.1to1vpn.ddns.net:9015/js/adminlte.min.js"></script>	-->
-  <script>
-    $(function ()
-    {
-	//iCheck for checkbox and radio inputs
-      $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-        checkboxClass: 'icheckbox_minimal-blue',
-        radioClass: 'iradio_minimal-blue'
-      });
-	
-	});
-  </script>   
-  
 </body>
 </html>
