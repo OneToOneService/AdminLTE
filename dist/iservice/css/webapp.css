@@ -787,6 +787,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .attach-file label {
   color: #00c0ef;
+  font-weight: normal;
 }
 .list-search {
   min-height: 120px;
