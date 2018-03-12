@@ -828,6 +828,9 @@ ul.timeline span.stack-icon .aqua {
   padding-left: 8px;
   list-style: none;
 }
+.btn-margin {
+  margin-bottom: 10px;
+}
 /*agent email end*/
 .customer-details .box-header {
   cursor: pointer;
