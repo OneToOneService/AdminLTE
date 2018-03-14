@@ -12,6 +12,14 @@
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/plugins/fastclick/fastclick.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="/plugins/iCheck/icheck.js"></script>
+<!-- Select2 -->
+<script src="/plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.min.js"></script>
 <script src="/plugins/ckeditor/ckeditor.js"></script>
@@ -19,36 +27,25 @@
 <script src="/dist/iservice/js/iService.directive.js"></script>
 <script src="/dist/js/letteravatar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<!-- date-range-picker -->
+<script src="/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
 <script>
   angular.module('iService', ['iService.directive']);
-  
-	$('.user-menu a[data-toggle="collapse"]').click(function (e)
-	{   
-        $('.user-menu .change-password').toggle();	
-		e.stopPropagation();
+
+  $('.user-menu a[data-toggle="collapse"]').click(function (e)
+  {
+    $('.user-menu .change-password').toggle();
+    e.stopPropagation();
   });
 
   svg4everybody();
 </script>
-
-
-<!--1 to 1 javascript start-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.3/ckeditor.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-sanitize.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/jquery.cookie.js"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/angular-ui-date.js"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.util.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.ng.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
-  <script src="https://outdev1.1to1vpn.ddns.net:9015/js/iService.directive.js?v=8.0.050+-+2018.02.05+-+17%3a15%3a52"></script>
-<!-- 1 to 1 javascript end-->
