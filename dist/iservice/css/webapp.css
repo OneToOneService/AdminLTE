@@ -754,8 +754,9 @@ ul.timeline span.stack-icon .aqua {
   left: -30px;
   position: absolute;
 }
-.qa-message-list:last-child .message-item:before {
+.qa-message-list:nth-last-child(1) .message-item:before {
   border: none;
+  background: #f00;
 }
 .glyphicon-chevron-right.expanded {
   transform: rotate(90deg);
