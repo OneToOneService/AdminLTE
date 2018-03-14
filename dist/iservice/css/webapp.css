@@ -264,8 +264,7 @@ p.login-box-msg {
   width: 90px;
   font-size: 40px;
   line-height: 84px;
-  border: 3px solid;
-  border-color: rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.2);
 }
 .chat .user-initials {
   height: 40px;
@@ -569,12 +568,11 @@ ul.timeline span.stack-icon .aqua {
   text-overflow: ellipsis;
 }
 .contact-summary .user-detail .user-initials {
-  width: 105px;
   height: 105px;
+  width: 105px;
   font-size: 24px;
-  background: #00c0ef;
-  border: 3px solid #30a5ff;
   line-height: 105px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 15px;
 }
 .contact-summary .user-detail label.control-label {
@@ -744,7 +742,7 @@ ul.timeline span.stack-icon .aqua {
 .message-item .timeline-footer {
   padding-top: 10px;
 }
-.message-item:before {
+.message-item::before {
   background: #ffffff;
   border-radius: 2px;
   bottom: -32px;
@@ -754,7 +752,7 @@ ul.timeline span.stack-icon .aqua {
   left: -30px;
   position: absolute;
 }
-.qa-message-list:last-child .message-item:before {
+.qa-message-list:nth-last-of-type(2) .message-item::before {
   border: none;
 }
 .glyphicon-chevron-right.expanded {
@@ -772,7 +770,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .btn-bs-file input[type="file"] {
   position: absolute;
-  top: -9999999;
+  top: -9999999px;
   filter: alpha(opacity=0);
   opacity: 0;
   width: 0;

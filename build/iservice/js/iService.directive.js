@@ -306,4 +306,31 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
         element.tree();
       }
     };
-  }]);
+  }]).directive('input', function ($timeout)
+  {
+    var checkBoxOptions = {
+      checkboxClass: 'icheckbox_square-blue'
+    },
+      radioOptions = {
+        radioClass: 'iradio_square-blue'
+      };
+
+    return {
+      restrict: 'E',
+      link: function ($scope, elem, attr)
+      {
+        switch(attr.type)
+        {
+          case 'checkbox':
+            elem.iCheck(checkBoxOptions);
+
+            break;
+
+          case 'radio':
+            elem.iCheck(radioOptions);
+
+            break;
+        }
+      }
+    };
+  });
