@@ -752,8 +752,11 @@ ul.timeline span.stack-icon .aqua {
   left: -30px;
   position: absolute;
 }
-.qa-message-list:nth-last-of-type(2) .message-item::before {
+.qa-message-list:nth-last-of-type(1) .message-item::before {
   border: none;
+}
+.qa-message-list span i {
+  top: 0;
 }
 .glyphicon-chevron-right.expanded {
   transform: rotate(90deg);
@@ -830,6 +833,15 @@ ul.timeline span.stack-icon .aqua {
   margin-bottom: 10px;
 }
 /*agent email end*/
+.new-account-icon {
+  width: 20px;
+}
+.new-account-icon .icon-plus {
+  position: absolute;
+  right: 0;
+  top: 13px;
+  font-size: 10px;
+}
 .customer-details .box-header {
   cursor: pointer;
 }

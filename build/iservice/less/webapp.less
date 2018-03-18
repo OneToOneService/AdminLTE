@@ -1057,10 +1057,12 @@ ul.timeline span.stack-icon
         position: absolute;
     }
 
-.qa-message-list:nth-last-of-type(2) .message-item::before
+.qa-message-list:nth-last-of-type(1) .message-item::before
 {
     border: none;
 }
+
+.qa-message-list span i{top:0;}
 
 .glyphicon-chevron-right.expanded
 {
@@ -1175,6 +1177,10 @@ ul.timeline span.stack-icon
 }
 /*agent email end*/
 
+.new-account-icon{width:20px;}
+.new-account-icon{
+  .icon-plus{position:absolute; right:0; top:13px;font-size:10px;}
+}
 @import "customer-details";
 
 
