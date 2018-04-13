@@ -38,51 +38,94 @@ title: Customer Info - Contact History
 								</div>
 								<!-- /.box-header -->
 								<!-- form start -->
-							 
 								  <div class="box-body">
-								   <div class="col-md-10"> 
-								   
-									  <div>
-										 <div class="qa-message-list" >
-										    <i class="fa fa-envelope bg-blue"></i>
-											<div class="message-item" >
-												<div class="message-inner">
-												  <span class="time"><i class="fa fa-clock-o"></i> Just Now</span>
-												  <div class="message-header">Agent Email</div>
-												  The European <a href=""> The languages only differ
-												   in their grammar, their pronunciation and their</a>
-												</div>
-											</div>
-										</div>	
-										<div class="qa-message-list" >
-										    <i class="fa fa-ticket bg-orange"></i>
-											<div class="message-item" >
-												<div class="message-inner">
-												  <span class="time"><i class="fa fa-clock-o"></i> 2 Days ago</span>
-												  <div class="message-header">Ticket</div>
-												  <a href=""> Etsy doostang zoodles disqus groupon greplin oooj voxy zoodle</a>
-											     </div>
-											</div>
-											
-										</div>	
-										<div class="qa-message-list">
-										    <i class="fa  fa-question bg-teal-active"></i>
-											<div class="message-item">
-												<div class="message-inner">
-												  <span class="time"><i class="fa fa-clock-o"></i> 15 Days ago</span>
-												  <div class="message-header">Questions</div>
-												  The European <a href=""> The languages only differ
-												   in their grammar, their pronunciation and their</a>
-											     </div>
-											</div>
-											
-										</div>	
-										
-									  </div>
 									 
-								   </div>
+									  <table id="example1" class="table  table-striped table-hover ">
+										 <thead>
+										  <tr>
+											<th style="width: 16px" class="sorting_disabled" name="name"></th>
+											<th class="text-capitalize">
+											 Subject
+											</th>
+											<th class="text-capitalize" data-no-col-vis>
+											  Type
+											</th>
+											<th class="text-capitalize">
+											 Date
+											</th>
+
+										  </tr>
+										</thead>  
+										<tbody>
+										  <tr >
+											<td style="width: 16px" name="name">
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+											  </button>
+											</td>
+											<td class="">
+											 [ref#: 326-326] System access request for Test2 Test2
+											</td>
+											<td class="">
+											  <small class="label bg-light-blue">Agent Email</small>
+											</td>
+											<td class="">
+											 2 Days ago
+											</td>
+										  </tr>
+										   <tr >
+											<td style="width: 16px" name="name">
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+											  </button>
+											</td>
+											<td class="">
+											 [ref#: 326-326] System access request for Test2 Test2
+											</td>
+											<td class="">
+											   <small class="label bg-light-blue">Agent Email</small>
+											</td>
+											<td class="">
+											 2 Days ago
+											</td>
+										  </tr>
+										   <tr >
+											<td style="width: 16px" name="name">
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+											  </button>
+											</td>
+											<td class="">
+											 [ref#: 326-326] System access request for Test2 Test2
+											</td>
+											<td class="">
+											   <small class="label bg-teal-active">Asq Question</small>
+											</td>
+											<td class="">
+											 2 Days ago
+											</td>
+										  </tr>
+										   <tr >
+											<td style="width: 16px" name="name">
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+											  </button>
+											</td>
+											<td class="">
+											 [ref#: 326-326] System access request for Test2 Test2
+											</td>
+											<td class="">
+											  <small class="label bg-light-blue">Agent Email</small>
+											</td>
+											<td class="">
+											 2 Days ago
+											</td>
+										  </tr>
+										  
+										</tbody>
+									  </table>
+                   
 								  </div>
-								 
 							  </div> 
 						  </div>
 						  <div class="col-md-4">
@@ -298,19 +341,18 @@ title: Customer Info - Contact History
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-   
+       <!-- DataTables -->
+	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	<script>
-	   $(function ()
-       {
-	       // SLIMSCROLL FOR CHAT WIDGET
-			  $('#variable-box').slimScroll({
-				height: '250px'
-			  });
-			  $('#stock-responses').slimScroll({
-				height: '250px'
-			  });
-              CKEDITOR.replace('editor1')
-       });
+	  $(function () {
+		$("#example1").DataTable({
+		  columnDefs: [
+			  { targets: 'no-sort', orderable: false }
+			]
+		});
+		
+	  });
 	</script>
 </body>
 </html>
