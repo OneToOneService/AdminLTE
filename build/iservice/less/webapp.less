@@ -24,6 +24,32 @@
     display: none !important;
 }
 
+[ng-form] .ng-invalid,
+form .ng-invalid
+{
+    animation: error-blink .3s step-end 0s 3 normal forwards;
+}
+
+@keyframes error-blink
+{
+    50%
+    {
+        background-color: unset;
+        border: unset;
+    }
+
+    from, to
+    {
+        background-color: @red;
+        border: 1px solid darken(@red, 15%);
+    }
+}
+
+.ui-pnotify-icon
+{
+    margin-top: 3px;
+}
+
 .margin-5
 {
     margin: 5px;
@@ -1061,7 +1087,10 @@ ul.timeline span.stack-icon
     border: none;
 }
 
-.qa-message-list span i{top:0;}
+.qa-message-list span i
+{
+    top: 0;
+}
 
 .glyphicon-chevron-right.expanded
 {
@@ -1176,10 +1205,22 @@ ul.timeline span.stack-icon
 }
 /*agent email end*/
 
-.new-account-icon{width:20px;}
-.new-account-icon{
-  .icon-plus{position:absolute; right:0; top:13px;font-size:10px;}
+.new-account-icon
+{
+    width: 20px;
 }
+
+.new-account-icon
+{
+    .icon-plus
+    {
+        position: absolute;
+        right: 0;
+        top: 13px;
+        font-size: 10px;
+    }
+}
+
 @import "customer-details";
 
 
@@ -1230,8 +1271,17 @@ ul.timeline span.stack-icon
         font-weight: normal;
     }
 }
-.border{border:none;}
-.border input, .border select, .border textarea{border:1px solid @gray-lte; padding:6px 12px;}
+
+.border
+{
+    border: none;
+}
+
+    .border input, .border select, .border textarea
+    {
+        border: 1px solid @gray-lte;
+        padding: 6px 12px;
+    }
 
 /*Added for contact summary end*/
 

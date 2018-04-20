@@ -10,6 +10,24 @@
 .x-ng-cloak {
   display: none !important;
 }
+[ng-form] .ng-invalid,
+form .ng-invalid {
+  animation: error-blink 0.3s step-end 0s 3 normal forwards;
+}
+@keyframes error-blink {
+  50% {
+    background-color: unset;
+    border: unset;
+  }
+  from,
+  to {
+    background-color: #dd4b39;
+    border: 1px solid #ac2d1e;
+  }
+}
+.ui-pnotify-icon {
+  margin-top: 3px;
+}
 .margin-5 {
   margin: 5px;
 }
