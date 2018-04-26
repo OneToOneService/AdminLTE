@@ -951,3 +951,41 @@ ul.timeline span.stack-icon .aqua {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+.btn-purple {
+  color: #ffffff;
+  background-color: #9467bd;
+  border-color: #712daf;
+}
+.message-box {
+  width: 100%;
+  float: left;
+  margin-top: 15px;
+  border: 1px solid #d2d6de;
+  display: block;
+}
+.message-box-header {
+  background: #ecf0f5;
+  border-bottom: 1px solid #d2d6de;
+  padding: 10px;
+  display: table;
+  width: 100%;
+}
+.message-box-body {
+  padding: 10px;
+}
+.message-box-header .user {
+  float: left;
+  width: 50px;
+  margin-right: 10px;
+  text-align: center;
+}
+.message-box-header .user img {
+  background: #ffffff;
+  border: 1px solid #d2d6de;
+}
+.message-box-header .message-info {
+  float: left;
+}
+.message-box-header .status {
+  margin: 10px 10px;
+}

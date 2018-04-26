@@ -17,6 +17,8 @@
 @light-orange-c: #fa8e8e;
 @blue: #30a5ff;
 @white: #ffffff;
+@purple: #9467bd;
+@purple-border:#712daf;
 
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
@@ -1348,4 +1350,14 @@ ul.timeline span.stack-icon
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden
+}
+.btn-purple{color:@white;background-color:@purple; border-color: @purple-border;}
+.message-box{width:100%; float:left;margin-top:15px;border:1px solid @gray-lte; display:block;}	
+.message-box-header{background:@body-bg; border-bottom:1px solid @gray-lte; padding:10px; display:table; width:100%;}
+.message-box-body{padding:10px;}
+.message-box-header{
+  .user{float:left; margin-right:10px;width:50px; margin-right:10px; text-align:center;}
+  .user img {background:@white;border:1px solid @gray-lte;}
+  .message-info{float:left;} 
+  .status{margin:10px 10px; }   
 }
