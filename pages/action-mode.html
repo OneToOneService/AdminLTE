@@ -1,5 +1,5 @@
 ---
-title: View Mode
+title: Action Mode
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -51,98 +51,228 @@ title: View Mode
 									   </table>
 									 </div>
 									 <div class="row form-group padding-collapse"> 
-                                       <div class="col-md-8">
-									        <button class="btn btn-primary bg-aqua-active btn-info margin-r-5 ">
-												<i class="fa fa-envelope"></i>
-												Agent email
-											</button>
-											<button class="btn  btn-success margin-r-5 ">
-												<i class="fa fa-pencil-square-o"></i>
-												Note
-											</button>
-											<button class="btn  btn-warning margin-r-5 ">
-												<i class="fa fa-ticket"></i>
-												Ticket
-											</button>
-											<button class="btn  btn-purple margin-r-5 ">
-												<i class="fa fa-mail-forward"></i>
-												Forward Copy
-											</button>
-											
-									    </div>
-										
-										<div class="col-md-4">
-										  <div class="row">  
-										    <div class="col-md-4">
-												<button class="btn bg-info btn-info margin-r-5 ">
-													<i class="fa fa-sign-in"></i>
-													Get This
+                                        <div class="col-md-8 form-horizontal"> 
+                                       <div class="form-group">
+											<div class="btn-group dropdown margin-r-5"  style="">
+												<button  class="btn btn-primary" type="button">
+												  <i class="fa fa-send"></i>
+												  Send
 												</button>
-											</div>	
-											<div class="col-md-8">
-												<select class="form-control">
-												  <option>Print</option>
-												  <option>Display Plain Text / HTML</option>
-												  <option>Status Audit</option>
-												  <option>Full Case History</option>
-												  <option selected>Interaction Detail</option>
-												</select>
-											</div>
-										  </div> 	
-									    </div>
-                                      </div>
-									  <div class="box box-default">
-									    <div class="box-header with-border">
-										  <h3 class="box-title">Interaction Detail</h3>
-										  <div class="box-tools pull-right">
-											<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+												<button type="button" class="btn btn-primary dropdown-toggle">
+												  <span class="caret"></span>
+												  <span class="sr-only">Send split button</span>
+												</button>
+											   
+											  </div>
+											<button class="btn btn-primary margin-r-5" title="Forward">
+											  <i class="fa fa-share"></i>
+											  forward
 											</button>
-											<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+											<div class="btn-group dropdown margin-r-5"  style="">
+												<button  class="btn btn-primary" type="button">
+												  <i class="fa fa-save"></i>
+												  Save
+												</button>
+												<button type="button" class="btn btn-primary dropdown-toggle">
+												  <span class="caret"></span>
+												  <span class="sr-only">Send split button</span>
+												</button>
+											   
+											</div>
+											<button class="btn btn-primary margin-r-5" title="Change Topic">
+											  <i class="fa fa-arrows-alt"></i>
+											  Change Topic
+											</button>
+											<button class="btn btn-primary" title="Spam">
+											  <i class="fa fa-ban"></i>
+											  Spam
+											</button>
+											<a class="btn btn-link ng-scope"   href="#">Cancel</a>
+									   </div>
+									   <div class="form-group">
+										<label class="col-sm-2 control-label">From</label>
+										<div class="col-sm-10">
+										  <input class="form-control " type="text" style="">
+										</div>
+									   </div>
+									    <div class="form-group">
+											<label class="col-sm-2 control-label">To</label>
+											<div class="col-sm-10">
+											  <input class="form-control " type="text" style="">
+											</div>
+									    </div>
+									   <div class="form-group">
+											<label class="col-sm-2 control-label">CC</label>
+											<div class="col-sm-10">
+											  <input class="form-control " type="text" style="">
+											</div>
+									    </div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label">BCC</label>
+											<div class="col-sm-10">
+											  <input class="form-control " type="text" style="">
+											</div>
+									    </div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label">Subject</label>
+											<div class="col-sm-4">
+											  <input class="form-control " type="text" style="" disabled>
+											</div>
+											<div class="col-sm-6">
+											  <input class="form-control " type="text" style="">
+											</div>
+									   </div>
+									   <div class="form-group">
+									      <div class="col-md-2">
 										  </div>
+									      <div class="col-md-8">
+											 <p class="attach-file"> <label class="btn-bs-file ">
+													Attach files		
+													<input type="file" />
+											  </label></span> (Maximum 10 MB upload at one time.)</p>
+										  </div>
+										  
+										</div>  
+									    <div class="margin-bottom">
+										  <button type="button" class="btn btn-primary btn-sm margin-r-5">Draft Body</button>
+										  <button type="button" class="btn btn-primary btn-sm margin-r-5">Final Plain HTML</button>
+										  <button type="button" class="btn btn-primary btn-sm margin-r-5">Final HTML</button>
+										</div>
+										
+										<div class="form-group text-editor-container">
+										  <div class="col-sm-12">
+											<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
+										  </div>
+										</div>
+										 <div class="col-sm-12">
+											<div class="panel panel-default form-group">
+												<div class="panel-heading">
+												  <i class="fa fa-fw fa-pencil-square-o"></i>
+												  Private Comments
+												</div>
+												<div class="panel-body">
+												  <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note" style=""></textarea>
+												</div>
+											</div>	
+										</div>
+									</div> 
+									<div class="col-md-4">
+									  <div class="box box-warning stock-responses ng-scope">
+										<div class="box-header with-border">
+										  <h3 class="box-title">
+											<i class="fa fa-fw fa-envelope"></i>
+											Message Properties
+										  </h3>
 										</div>
 										<div class="box-body">
-										  <div class="col-md-6">
-										    <div class="row">
-												<div><b> Interaction Id:</b>4646464</div>
-												<div><b> Type:</b>4646464</div>
-												<div><b> To:</b>Scott@1to1service.com</div>
-												<div><b> From:</b>jasawant.chouhan@gmail.com</div>
-											</div> 	
+										  <div class="form-group ng-binding">
+											<!--<label>Segment Name:</label>-->
+											--
 										  </div>
-										  <div class="col-md-6">
-										    
-										  </div>
+										<!--  <div>
+										   <div class="form-group">
+											  <label >Authorization Type</label>
+											  <input type="text" class="form-control"  placeholder="">
+										    </div>
+											<div class="form-group">
+											  <label >Task1</label>
+											  <select class="form-control"><option>--Select Value--</option></select>
+										    </div>
+											<div class="form-group">
+											  <label >Task2</label>
+											  <select class="form-control"><option>--Select Value--</option></select>
+										    </div>
+										  </div> -->
+										  
 										</div>
 									  </div>
-									   <div class="col-md-12"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
-
-									   <div class="message-box">
-									      <div class="message-box-header">
-											  <span class="user">
-											    <img src="/dist/img/agent.png">
-												<b>Agent</b>
-											  </span>
-											  <div class="message-info">
-												  <b>From:</b> jasawant.chouhan@gmail.com<br>
-												  <b>To:</b> Scott@1to1service.com<br>
-										      </div>		  
-											<span class="label label-success status pull-right">Sent</span>
-										  </div>
-										  <div class="message-box-body"> 
-										    Ryan, <br>
-
-											We're going to close this out for now and can do a full review of your situation when we get a call arranged. <br>
+									  
+									  <div class="nav-tabs-custom">
+											<ul class="nav nav-tabs">
+												<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+												<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+											</ul>
+											<div class="tab-content">
+												<div class="tab-pane active" id="tab_1">
+													<div class="row" id="variable-box">
+														<div class="col-xs-12 variable-responses">
+															<ul class="list-unstyled segment-variable-list">
+																<li class="section-label">Contact
+																  <ul class="segment-variables">
+																	<li class="section-var-link">Name</li>
+																	<li class="segment-lable">Global
+																	    <ul>
+																		   <li class="section-var-link">Address1</li>
+																		   <li class="section-var-link">Address2</li>
+																		   <li class="section-var-link">City</li>
+																		   <li class="section-var-link">Country</li>
+																		   <li class="section-var-link">Company</li>
+																		</ul>
+																	</li>
+																	<li class="segment-lable">JC Segment
+																	    <ul>
+																		   <li class="section-var-link">Contact View Only Property</li>
+																		   <li class="section-var-link">Contact Viewable and Editable Property</li>
+																		   <li class="section-var-link">Multi value No Descr</li>
+																		   <li class="section-var-link">Shared Property from JC - cust can't see</li>
+																		</ul>
+																	</li>
+																  </ul>
+																</li>
+															 </ul>
+															 <ul class="list-unstyled segment-variable-list">
+																<li class="section-label">Answer
+																  <ul class="segment-variables">
+																	<li class="section-var-link">Email</li>
+																	<li class="section-var-link">Reference Number</li>
+																	<li class="section-var-link">Original Date</li>
+																	<li class="section-var-link">Original Time</li>
+																	<li class="section-var-link">Subject</li>
+																	<li class="section-var-link">Original Body</li>
+																	<li class="section-var-link">Quoted Question</li>
+																  </ul>
+																</li>
+															 </ul>
+														</div>
+													</div>
+												</div>
+												<!-- /.tab-pane -->
+												<div class="tab-pane" id="tab_2">
+													<div class="row " id="stock-responses">
+														<div class="col-xs-12 stock-responses">
+														    <div>
+															  <input type="text" class="form-control" placeholder="Keyword Search">
+															</div>
+															<ul class="list-unstyled segment-variable-list">
+																<li class="section-label">Segment Responses
+																  <ul class="segment-variables">
+																	<li class="section-var-link">Chat Closing</li>
+																	<li class="section-var-link">Chat Opening</li>
+																	<li class="section-var-link">Chat Wait</li>
+																	<li class="section-var-link">iService Website</li>
+																  </ul>
+																</li>
+															 </ul>
+															 <ul class="list-unstyled segment-variable-list">
+																<li class="section-label">Agent Response
+																  <ul class="segment-variables">
+																	<li class="section-var-link">Test</li>
+																	
+																  </ul>
+																</li>
+															 </ul>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+											<!-- /.tab-content -->
 											
-											Cheers, <br>
-											
-											Scott Whitsitt <br>
-											Founder & CEO  <br>
-											One-to-One Service.com, Inc. | PO Box 2231 | Champaign, IL 61825  <br>
-											Direct: 217.903.4458 | Mobile: 217.766.4121 | Fax: 815.366.8167 <br>
-											<a href="">http://www.1to1service.com</a>
-										  </div>
-									   </div>
-											
+										</div>
+									</div>
+								  
+                                      </div>
+									 	
 									  </div>
 									</div> 
 									</div>

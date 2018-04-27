@@ -993,3 +993,6 @@ ul.timeline span.stack-icon .aqua {
   width: 42px;
   padding: 2px !important;
 }
+.padding-collapse {
+  padding-left: 52px;
+}
