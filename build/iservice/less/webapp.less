@@ -1352,8 +1352,8 @@ ul.timeline span.stack-icon
     overflow-y: hidden
 }
 .btn-purple{color:@white;background-color:@purple; border-color: @purple-border;}
-.message-box{width:100%; float:left;margin-top:15px;border:1px solid @gray-lte; display:block;}	
-.message-box-header{background:@body-bg; border-bottom:1px solid @gray-lte; padding:10px; display:table; width:100%;}
+.message-box{width:100%; float:left;margin-top:15px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); display:block;}	
+.message-box-header{background:@body-bg; border-bottom:1px solid @box-border-color; padding:10px; display:table; width:100%;}
 .message-box-body{padding:10px;}
 .message-box-header{
   .user{float:left; margin-right:10px;width:50px; margin-right:10px; text-align:center;}
@@ -1361,3 +1361,4 @@ ul.timeline span.stack-icon
   .message-info{float:left;} 
   .status{margin:10px 10px; }   
 }
+.btn-collapse{width:42px; padding:2px !important;}

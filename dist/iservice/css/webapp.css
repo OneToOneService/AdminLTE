@@ -960,12 +960,12 @@ ul.timeline span.stack-icon .aqua {
   width: 100%;
   float: left;
   margin-top: 15px;
-  border: 1px solid #d2d6de;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   display: block;
 }
 .message-box-header {
   background: #ecf0f5;
-  border-bottom: 1px solid #d2d6de;
+  border-bottom: 1px solid #f4f4f4;
   padding: 10px;
   display: table;
   width: 100%;
@@ -988,4 +988,8 @@ ul.timeline span.stack-icon .aqua {
 }
 .message-box-header .status {
   margin: 10px 10px;
+}
+.btn-collapse {
+  width: 42px;
+  padding: 2px !important;
 }
