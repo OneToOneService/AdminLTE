@@ -996,3 +996,6 @@ ul.timeline span.stack-icon .aqua {
 .padding-collapse {
   padding-left: 52px;
 }
+.widthauto {
+  width: auto !important;
+}
