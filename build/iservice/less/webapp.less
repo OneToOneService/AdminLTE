@@ -19,6 +19,10 @@
 @white: #ffffff;
 @purple: #9467bd;
 @purple-border:#712daf;
+@purple-hover:#8449bb;
+@status-red : #fdf1f1;
+@status-green:#ecf2e1;
+@status-yellow: #fefde5;
 
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
@@ -1352,15 +1356,25 @@ ul.timeline span.stack-icon
     overflow-y: hidden
 }
 .btn-purple{color:@white;background-color:@purple; border-color: @purple-border;}
+.btn-warning:hover, .btn-warning:active, .btn-warning.hover {
+    color:@white;
+    background-color: @purple-hover;
+}
 .message-box{width:100%; float:left;margin-top:15px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); display:block;}	
 .message-box-header{background:@body-bg; border-bottom:1px solid @box-border-color; padding:10px; display:table; width:100%;}
 .message-box-body{padding:10px;}
 .message-box-header{
-  .user{float:left; margin-right:10px;width:50px; margin-right:10px; text-align:center;}
-  .user img {background:@white;border:1px solid @gray-lte;}
+  .user{float:left; margin-right:10px;width:75px; color:@gray; margin-right:10px; text-align:center;background:@white;border:1px solid @gray-lte;}
+  .user img {}
   .message-info{float:left;} 
   .status{margin:10px 10px; }   
 }
 .btn-collapse{width:42px; padding:2px !important;}
 .padding-collapse{padding-left:52px;}
 .widthauto{width:auto !important;}
+.nested-panel-heading{padding:0px 15px 15px 15px; width:auto;}
+.nested-panel-heading h3{border-bottom:3px solid @aqua; padding:0px;  margin:0px; padding-bottom:3px; font-size:16px; font-weight:400; display:inline-block; }
+.statusbg-red{background:@status-red;}
+.statusbg-yellow{background:@status-yellow; }
+.statusbg-green{background:@status-green;}
+.mtop-15{margin-top:15px;}

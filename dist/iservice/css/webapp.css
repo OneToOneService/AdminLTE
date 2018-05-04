@@ -956,6 +956,12 @@ ul.timeline span.stack-icon .aqua {
   background-color: #9467bd;
   border-color: #712daf;
 }
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.hover {
+  color: #ffffff;
+  background-color: #8449bb;
+}
 .message-box {
   width: 100%;
   float: left;
@@ -975,11 +981,10 @@ ul.timeline span.stack-icon .aqua {
 }
 .message-box-header .user {
   float: left;
-  width: 50px;
+  width: 75px;
+  color: #555555;
   margin-right: 10px;
   text-align: center;
-}
-.message-box-header .user img {
   background: #ffffff;
   border: 1px solid #d2d6de;
 }
@@ -998,4 +1003,29 @@ ul.timeline span.stack-icon .aqua {
 }
 .widthauto {
   width: auto !important;
+}
+.nested-panel-heading {
+  padding: 0px 15px 15px 15px;
+  width: auto;
+}
+.nested-panel-heading h3 {
+  border-bottom: 3px solid #00c0ef;
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 3px;
+  font-size: 16px;
+  font-weight: 400;
+  display: inline-block;
+}
+.statusbg-red {
+  background: #fdf1f1;
+}
+.statusbg-yellow {
+  background: #fefde5;
+}
+.statusbg-green {
+  background: #ecf2e1;
+}
+.mtop-15 {
+  margin-top: 15px;
 }
