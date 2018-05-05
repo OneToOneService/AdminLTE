@@ -29,7 +29,7 @@ title: Action Mode
 						
                         <div class="row">
 						  <div class="col-md-12">
-                            <div class="box box-solid">
+                            <div class="box-container">
 								<div class="box-body">
 								    <div class="col-md-12 form-horizontal"> 
 									 <div class="row">
@@ -53,96 +53,123 @@ title: Action Mode
 									 <div class="row form-group padding-collapse"> 
                                         <div class="col-md-8 form-horizontal"> 
                                        <div class="form-group">
-											<div class="btn-group dropdown margin-r-5"  style="">
-												<button  class="btn btn-primary" type="button">
-												  <i class="fa fa-send"></i>
-												  Send
+											
+											  <div class="btn-group dropdown margin-r-5">
+												  <button type="button" class="btn btn-primary "> <i class="fa fa-send"></i>
+												  Send</button>										 
+												  <div class="btn-group">
+													<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+													<span class="caret"></span></button>
+													<ul class="dropdown-menu" role="menu">
+													  <li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
+													  <li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
+													</ul>
+												  </div>
+												</div>
+											  <button  class="btn btn-primary" type="button">
+												  <i class="fa  fa-check"></i>
+												  Resolve
 												</button>
-												<button type="button" class="btn btn-primary dropdown-toggle">
-												  <span class="caret"></span>
-												  <span class="sr-only">Send split button</span>
-												</button>
-											   
-											  </div>
 											<button class="btn btn-primary margin-r-5" title="Forward">
 											  <i class="fa fa-share"></i>
 											  forward
 											</button>
-											<div class="btn-group dropdown margin-r-5"  style="">
-												<button  class="btn btn-primary" type="button">
-												  <i class="fa fa-save"></i>
-												  Save
-												</button>
-												<button type="button" class="btn btn-primary dropdown-toggle">
-												  <span class="caret"></span>
-												  <span class="sr-only">Send split button</span>
-												</button>
-											   
+											<div class="btn-group dropdown margin-r-5">
+												  <button type="button" class="btn btn-primary "> <i class="fa fa-save"></i>
+												  Save</button>										 
+												  <div class="btn-group">
+													<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+													<span class="caret"></span></button>
+													<ul class="dropdown-menu" role="menu">
+													  <li><a href="#">Private Note</a></li>
+													  <li><a href="#">Public Note</a></li>
+													</ul>
+												  </div>
 											</div>
-											<button class="btn btn-primary margin-r-5" title="Change Topic">
-											  <i class="fa fa-arrows-alt"></i>
-											  Change Topic
-											</button>
+											
 											<button class="btn btn-primary" title="Spam">
 											  <i class="fa fa-ban"></i>
 											  Spam
 											</button>
 											<a class="btn btn-link ng-scope"   href="#">Cancel</a>
 									   </div>
-									   <div class="form-group">
-										<label class="col-sm-2 control-label">From</label>
-										<div class="col-sm-10">
-										  <input class="form-control " type="text" style="">
+									   <div class="row">
+									   <div class="box">
+                                         <div class="box-header with-border">
+											  <h3 class="box-title">&nbsp;</h3>
+											  <div class="box-tools pull-right">
+												<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+												</button>							
+											  </div>
+											</div>	
+                                        <div class="box-body"> 											
+										   <div class="form-group">
+											<label class="col-sm-2 control-label">From</label>
+											<div class="col-sm-10">
+											  <input class="form-control " type="text" style="">
+											</div>
+										   </div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">To</label>
+												<div class="col-sm-10">
+												  <input class="form-control " type="text" style="">
+												</div>
+											</div>
+										   <div class="form-group">
+												<label class="col-sm-2 control-label">CC</label>
+												<div class="col-sm-10">
+												  <input class="form-control " type="text" style="">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">BCC</label>
+												<div class="col-sm-10">
+												  <input class="form-control " type="text" style="">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Subject</label>
+												<div class="col-sm-4">
+												  <input class="form-control " type="text" style="" disabled>
+												</div>
+												<div class="col-sm-6">
+												  <input class="form-control " type="text" style="">
+												</div>
+										   </div>
+										   <div class="form-group">
+											  <div class="col-md-2">
+											  </div>
+											  <div class="col-md-8">
+												 <p class="attach-file"> <label class="btn-bs-file ">
+														Attach files		
+														<input type="file" />
+												  </label></span> (Maximum 10 MB upload at one time.)</p>
+											  </div>
+											  
+											</div> 
+										  </div>	 
+				                        </div>		
 										</div>
-									   </div>
-									    <div class="form-group">
-											<label class="col-sm-2 control-label">To</label>
-											<div class="col-sm-10">
-											  <input class="form-control " type="text" style="">
+									  <div class="row"> 
+										<div class="nav-tabs-custom">
+										    <ul class="nav nav-tabs">
+											  <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+											  <li class=""><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+											  
+											</ul>
+											<div class="tab-content">
+											  <div class="tab-pane active" id="draftbody">
+											      <div class="form-group text-editor-container">
+													  <div class="col-sm-12">
+														<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
+													  </div>
+													</div>
+											   </div>
+                                               <div class="tab-pane" id="plainhtml">	
+											     &nbsp;<br><br><br>
+                                               </div>				
+                                               										   
 											</div>
-									    </div>
-									   <div class="form-group">
-											<label class="col-sm-2 control-label">CC</label>
-											<div class="col-sm-10">
-											  <input class="form-control " type="text" style="">
-											</div>
-									    </div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label">BCC</label>
-											<div class="col-sm-10">
-											  <input class="form-control " type="text" style="">
-											</div>
-									    </div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label">Subject</label>
-											<div class="col-sm-4">
-											  <input class="form-control " type="text" style="" disabled>
-											</div>
-											<div class="col-sm-6">
-											  <input class="form-control " type="text" style="">
-											</div>
-									   </div>
-									   <div class="form-group">
-									      <div class="col-md-2">
-										  </div>
-									      <div class="col-md-8">
-											 <p class="attach-file"> <label class="btn-bs-file ">
-													Attach files		
-													<input type="file" />
-											  </label></span> (Maximum 10 MB upload at one time.)</p>
-										  </div>
-										  
-										</div>  
-									    <div class="margin-bottom">
-										  <button type="button" class="btn btn-primary btn-sm margin-r-5">Draft Body</button>
-										  <button type="button" class="btn btn-primary btn-sm margin-r-5">Final Plain HTML</button>
-										  <button type="button" class="btn btn-primary btn-sm margin-r-5">Final HTML</button>
-										</div>
-										
-										<div class="form-group text-editor-container">
-										  <div class="col-sm-12">
-											<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
-										  </div>
 										</div>
 										 <div class="col-sm-12">
 											<div class="panel panel-default form-group">
@@ -154,7 +181,8 @@ title: Action Mode
 												  <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note" style=""></textarea>
 												</div>
 											</div>	
-										</div>
+										  </div>
+									  </div>
 									</div> 
 									<div class="col-md-4">
 									  <div class="box box-warning stock-responses ng-scope">
@@ -165,9 +193,15 @@ title: Action Mode
 										  </h3>
 										</div>
 										<div class="box-body">
-										  <div class="form-group ng-binding">
-											<!--<label>Segment Name:</label>-->
-											--
+										  <div>
+										    <select class="form-control">
+											  <option>Change Topic</option>
+											</select>
+										  </div>
+										  <hr></hr>
+										  <div class="">
+											<label>Segment Name:</label> QA <br>
+											<label>Topic:</label> All Topic
 										  </div>
 										<!--  <div>
 										   <div class="form-group">
