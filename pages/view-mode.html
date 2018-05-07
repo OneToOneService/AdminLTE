@@ -83,35 +83,41 @@ title: View Mode
 										     </div>
                                        </div>								
 									 
-									   <div class="col-md-12 mtop-15"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
-
 									   <div class="message-box">
 									      <div class="message-box-header">
+										    <div class="col-md-12">
 											  <span class="user">
 											    <img src="/dist/img/agent.png">
 												<b>Agent</b>
 											  </span>
-											  <div class="message-info">
-												  <b>From:</b> jasawant.chouhan@gmail.com<br>
-												  <b>To:</b> scott@1to1service.com<br>
-												  <b>CC:</b> steve@1to1service.com<br>
-												  <b>BCC:</b> adam@1to1service.com<br>
-										      </div>	
-                                            <div class="pull-right">		
-                                            <b> Interaction ID : 4645646</b>
-                                             <br>  											
-											<span class="label label-success status pull-right">Sent</span>
-											</div>
-										  </div>
-										  <div class="message-box-body"> 
-										    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+											 
+												  <div class="message-info">
+													  <b>From:</b> jasawant.chouhan@gmail.com<br>
+													  <b>To:</b> scott@1to1service.com<br>
+													  <b>CC:</b> steve@1to1service.com<br>
+													  <b>BCC:</b> adam@1to1service.com<br>
+												  </div>	
+												  <div class="clear"></div>
+													  
+												<div class="pull-right">		
+												<b> Interaction ID : 4645646</b>
+												 <br>  											
+												<span class="label label-success status pull-right">Sent</span>
+												</div>
+										     </div>
+											 
+									         <div class="col-md-12 mtop-15"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
+
+											  <div class="col-md-12 ">
+												   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 												<div class="panel panel-default">
 													<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
 														<h4 class="panel-title">
 															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-																<i class="more-less glyphicon glyphicon-plus"></i>
+																
 																 Interaction Properties and Details
+																 <i class="more-less glyphicon glyphicon-chevron-right"></i>
 															</a>
 														</h4>
 													</div>
@@ -185,6 +191,10 @@ title: View Mode
 													</div>
 												</div>
 											</div>	
+											    </div>
+										  </div>
+										  <div class="message-box-body"> 
+										   
 										   <div class="clear"></div>
                                            <div>										   
 										    Ryan, <br>
@@ -442,7 +452,7 @@ title: View Mode
     $(e.target)
         .prev('.panel-heading')
         .find(".more-less")
-        .toggleClass('glyphicon-plus glyphicon-minus');
+        .toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
 	}
 	$('.panel-group').on('hidden.bs.collapse', toggleIcon);
 	$('.panel-group').on('shown.bs.collapse', toggleIcon);
