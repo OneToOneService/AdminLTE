@@ -1056,3 +1056,8 @@ ul.timeline span.stack-icon .aqua {
 .message-box-header .panel-group {
   margin-bottom: 0px;
 }
+.message-box-header .panel-heading a:hover,
+.message-box-header a:active,
+.message-box-header a:focus {
+  color: #555555;
+}
