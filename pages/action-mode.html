@@ -33,7 +33,7 @@ title: Action Mode
 								<div class="box-body">
 								    <div class="col-md-12 form-horizontal"> 
 									 <div class="row">
-									   <table class="table">
+									   <table class="table statusbg-red">
 									     <tr>
 										   <td class="btn-collapse">
 										     <button class="btn btn-link text-primary">
@@ -96,7 +96,7 @@ title: Action Mode
 									   <div class="row">
 									   <div class="box">
                                          <div class="box-header with-border">
-											  <h3 class="box-title">&nbsp;</h3>
+											  <h3 class="box-title">Email Addresses And Subject Line</h3>
 											  <div class="box-tools pull-right">
 												<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 												</button>							
@@ -139,23 +139,23 @@ title: Action Mode
 										   <div class="form-group">
 											  <div class="col-md-2">
 											  </div>
-											  <div class="col-md-8">
-												 <p class="attach-file"> <label class="btn-bs-file ">
-														Attach files		
-														<input type="file" />
-												  </label></span> (Maximum 10 MB upload at one time.)</p>
-											  </div>
-											  
+											 
 											</div> 
 										  </div>	 
 				                        </div>		
 										</div>
 									  <div class="row"> 
+									    
 										<div class="nav-tabs-custom">
 										    <ul class="nav nav-tabs">
 											  <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
 											  <li class=""><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-											  
+                                              <li class="pull-right"> 
+											     <p class="attach-file"> <label class="btn-bs-file ">
+													Attach files		
+													<input type="file" />
+											      </label></span> (Maximum 10 MB upload at one time.)</p>
+											  </li>
 											</ul>
 											<div class="tab-content">
 											  <div class="tab-pane active" id="draftbody">
@@ -193,15 +193,10 @@ title: Action Mode
 										  </h3>
 										</div>
 										<div class="box-body">
-										  <div>
-										    <select class="form-control">
-											  <option>Change Topic</option>
-											</select>
-										  </div>
-										  <hr></hr>
+										
 										  <div class="">
-											<label>Segment Name:</label> QA <br>
-											<label>Topic:</label> All Topic
+											<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
+											<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
 										  </div>
 										<!--  <div>
 										   <div class="form-group">
@@ -230,6 +225,9 @@ title: Action Mode
 												<div class="tab-pane active" id="tab_1">
 													<div class="row" id="variable-box">
 														<div class="col-xs-12 variable-responses">
+														    <div>
+															  <input type="text" class="form-control" placeholder="Keyword Search">
+															</div>
 															<ul class="list-unstyled segment-variable-list">
 																<li class="section-label">Contact
 																  <ul class="segment-variables">

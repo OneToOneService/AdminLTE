@@ -1061,3 +1061,7 @@ ul.timeline span.stack-icon .aqua {
 .message-box-header a:focus {
   color: #555555;
 }
+.inline-edit {
+  font-size: 12px;
+  padding-left: 10px;
+}
