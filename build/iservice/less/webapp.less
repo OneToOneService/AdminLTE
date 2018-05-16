@@ -1329,6 +1329,11 @@ ul.timeline span.stack-icon
     {
         margin: 0px 0px 10px 0px;
     }
+	.table-responsive{
+	  tr td, tr th{text-align:left;}
+	  thead tr th{vertical-align:bottom !important;}
+	}
+	.dataTables_filter,dataTables_length{text-align:left;}
 }
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max)
@@ -1393,4 +1398,5 @@ ul.timeline span.stack-icon
 .datatable-input{max-width:100px;}
 .btn-expand{font-size:16px;}
 .table>thead>tr>th{vertical-align:top !important;}
+.table>thead>tr>th input, .table>thead>tr>th select{margin-top:8px; min-width:100px;}
 .head-title-padding{padding-top:8px;}
