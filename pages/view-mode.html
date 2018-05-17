@@ -22,13 +22,12 @@ title: View Mode
   <!-- Main content -->
             <section class="content">
                 <!-- START CUSTOM TABS -->
-               
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
                         <div class="row">
 						  <div class="col-md-12">
-                            <div class="box box-solid">
+                            <div class="box-container">
 								<div class="box-body">
 								    <div class="col-md-12"> 
 									 <div class="row">
@@ -69,9 +68,9 @@ title: View Mode
 													Forward Copy
 												</button>
 											  
-												<select class="form-control pull-right widthauto">
-												      <option>More Actions</option>
-													  <option>Show Status Audit</option>
+												<select class="form-control pull-right widthauto moreaction">
+												      <option value="">More Actions</option>
+													  <option value="statusaudit">Show Status Audit</option>
 													  <option>Show Full Case</option>
 													  <option>Print</option>
 													  <option>Display Plain Text/HTML</option>
@@ -80,6 +79,65 @@ title: View Mode
 													<i class="fa fa-sign-in"></i>
 													Get This
 												</button>
+										     </div>
+											 
+											 <div class="col-md-12 mtop-15">
+											   <div class="box status-box" style="display:none">
+											     <div class="box-header with-border">
+												   <h3 class="box-title">Status Audit</h3>
+												   <div class="box-tools pull-right">
+												     <button type="button" class="btn btn-box-tool cancel-widget" ><i class="fa fa-times"></i></button>
+												  </div>
+												 </div>
+												 <div class="box-body table-responsive">
+												   <table id="example1" class="table  table-striped table-hover ">
+													 <thead>
+													  <tr>
+														<th class="text-capitalize">
+														 Time 
+														</th>
+														<th class="text-capitalize" >
+														  Modifier
+														</th>
+														<th class="text-capitalize" >
+														  Status
+														</th>
+														<th class="text-capitalize">
+														  Action
+														</th>
+														<th class="text-capitalize">
+														 Assigned To
+														</th>
+														<th class="text-capitalize">
+														 Topic
+														</th>
+													  </tr>
+													</thead>  
+													<tbody>
+													  <tr >
+														<td >
+													     11/11/2017 12:19:20PM
+														</td>
+														<td class="">
+														 Jaswantchouhan
+														</td>
+														<td class="">
+														  <small class="label label-success">Resolved</small>
+														</td>
+														<td class="">
+														  Contact 181 -> [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+														</td>
+														<td class="">
+														Jaswantchouhan
+														</td>
+														<td class="">
+														 JC - Segment- All Topic - To- Quote - Open Quotes
+														</td>
+													  </tr>
+													</tbody>
+												  </table>  
+												 </div>
+											   </div>
 										     </div>
                                        </div>								
 									 
@@ -432,7 +490,8 @@ title: View Mode
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-   
+   	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	<script>
 	   $(function ()
        {
@@ -448,14 +507,38 @@ title: View Mode
 
 	</script>
 	 <script>
-	function toggleIcon(e) {
-    $(e.target)
-        .prev('.panel-heading')
-        .find(".more-less")
-        .toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
-	}
-	$('.panel-group').on('hidden.bs.collapse', toggleIcon);
-	$('.panel-group').on('shown.bs.collapse', toggleIcon);
-	</script>
+		function toggleIcon(e) {
+		$(e.target)
+			.prev('.panel-heading')
+			.find(".more-less")
+			.toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
+		}
+		$('.panel-group').on('hidden.bs.collapse', toggleIcon);
+		$('.panel-group').on('shown.bs.collapse', toggleIcon);
+	 </script>
+	 <script>
+	   $(document).ready(function() {
+		// DataTable
+		var table = $('#example1').DataTable( {
+			"order": [],
+			"columnDefs": [ {
+			  "targets"  : 'no-sort',
+			  "orderable": false,
+			}
+			]
+		}
+		);
+      });
+	  
+	  $('.cancel-widget').click(function (){
+	     $('.status-box').slideUp();
+	  });
+	   $('.moreaction').change(function (){
+	     if($('.moreaction').val() == 'statusaudit')
+		 {
+		  $('.status-box').slideDown();
+		 }
+	  });
+	 </script>
 </body>
 </html>
