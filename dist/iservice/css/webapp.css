@@ -1093,3 +1093,11 @@ ul.timeline span.stack-icon .aqua {
 .head-title-padding {
   padding-top: 8px;
 }
+.open-message {
+  padding: 0px 0px 0px 5px;
+  font-size: 14px;
+  color: #f39c12;
+}
+.open-message:hover {
+  color: #f39c12;
+}
