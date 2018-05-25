@@ -1402,3 +1402,82 @@ ul.timeline span.stack-icon
 .head-title-padding{padding-top:8px;}
 .open-message{padding:0px 0px 0px 5px; font-size:14px; color:@yellow;}
 .open-message:hover{color:@yellow;}
+.direct-chat-img {
+    border-radius: 50%;
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+.direct-chat-text {
+    border-radius: 5px;
+    position: relative;
+    padding: 5px 10px;
+    background: @gray-lte;
+    border: 1px solid @gray-lte;
+    margin: 5px 0 0 10px;
+    color: @direct-chat-default-font-color;
+
+}
+
+.direct-chat-text:after, .direct-chat-text:before {
+    position: absolute;
+    right: 100%;
+	left:-13px;
+    top: 15px;
+    border: solid transparent;
+    border-right-color: @box-default-border-top-color;
+    content: ' ';
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+.direct-chat-text:before {
+    border-width: 6px;
+    margin-top: -6px;
+}
+.direct-chat-text:after {
+    border-width: 5px;
+    margin-top: -5px;
+}
+.right .direct-chat-img {
+    float: right;
+}
+.direct-chat-warning .right>.direct-chat-text {
+    background: @yellow;
+    border-color: @yellow;
+    color: @component-active-color;
+}
+.right .direct-chat-text {
+    margin-right: 10px;
+    margin-left: 0;
+    float: right;
+}
+.direct-chat-warning .right>.direct-chat-text:after, .direct-chat-warning .right>.direct-chat-text:before {
+    border-left-color: @yellow;
+}
+.right .direct-chat-text:after, .right .direct-chat-text:before {
+    right: auto;
+    left: 100%;
+    border-right-color: transparent;
+    border-left-color: @box-default-border-top-color;
+}
+.online-chat-list{
+  .contacts-list-info{color:@logo-blue;}
+  ul.contacts-list li.selected{background:@tooltip-bg; }
+  li.selected .contacts-list-info{color:@component-active-color;}
+}
+.chat-box{height:312px;}
+.chat-close-icon,.forward-chat-icon{margin-right:5px; height:16px; line-height:16px; width:20px;}
+.chat-close-icon{
+  .fa-comments{font-size:14px;width:16px;}
+  .fa-ban{left: 10px;
+    position: absolute;
+    color: @brand-danger;}
+}
+.forward-chat-icon{
+  .fa-comments{font-size:14px;width:16px; top:4px;} 
+  .fa-mail-forward{left: 10px;
+    position: absolute;
+    color: @brand-success;}
+}
+
