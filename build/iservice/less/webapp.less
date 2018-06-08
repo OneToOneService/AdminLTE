@@ -23,7 +23,7 @@
 @status-red : #fdf1f1;
 @status-green:#ecf2e1;
 @status-yellow: #fefde5;
-
+@red : #f00;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -1480,4 +1480,13 @@ ul.timeline span.stack-icon
     position: absolute;
     color: @brand-success;}
 }
+.icon-col{width:54px;}
+.icon-col button:first-child{padding-right:0px;}
+.inline-icon>.fa{width: 22px;    height: 22px;    font-size: 15px;    line-height: 22px;color: #666;background: #d2d6de;border-radius: 50%;text-align: center;}
+.inline-icon {
+	.stack-icon{position:relative; width:22px; height:22px; line-height:22px;}
+	.stack-icon .fa:first-child{font-size:13px;}
+	.stack-icon .fa:last-child{font-size:11px; color:@red; bottom:-2px; right:-5px;}
+}
+
 

@@ -1,5 +1,5 @@
 ---
-title: Customer Info - Contact History
+title: Interaction Status Labels
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -26,19 +26,13 @@ title: Customer Info - Contact History
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
-						<div class="row">
-							<h2 class="col-xs-12 col-sm-8 col-md-10 ">Contact History</h2>
-						</div>
                         <div class="row">
 						  <div class="col-md-12">
                             <div class="box box-info">
 								<div class="box-header with-border">
 								  <i class="fa fa-history"></i>
-								  <h3 class="box-title head-title-padding">History</h3>
-								<div class="btn-group pull-right" id="realtime" data-toggle="btn-toggle">
-								  <a class="btn btn-default" data-toggle="on" href="/pages/chronological-view.html">Chronological View</a>
-								  <a class="btn btn-primary active" data-toggle="off" href="/pages/case-view.html">Case View</a>
-								</div>
+								  <h3 class="box-title head-title-padding">Interaction Status Labels</h3>
+							
 								</div>
 								<!-- /.box-header -->
 								<!-- form start -->
@@ -48,149 +42,69 @@ title: Customer Info - Contact History
 										 <thead>
 										  <tr>
 											<th class="no-sort" ></th>
-											<th class="text-capitalize">
-											 Subject <br>
-											 <input type="text"  id="subject" class="form-control" onclick="stopPropagation(event);">
-											</th>
 											<th class="text-capitalize" >
-											  Case Topic
-											  <select id="selectTopic" class="form-control"  onclick="stopPropagation(event);"><option></option></select>
-											</th>
-											<th class="text-capitalize" >
-											  Case Status
-											  <select id="selectStatus" class="form-control"  onclick="stopPropagation(event);"><option></option></select>
-											</th>
-											<th class="text-capitalize">
-											  Case Properties <br>
-											  <input type="text" id="properties" class="form-control datatable-input" onclick="stopPropagation(event);">
-											</th>
-											<th class="text-capitalize">
-											 Date <br>
+											  Interaction Status
 											</th>
 										  </tr>
 										</thead>  
 										<tbody>
 										  <tr >
-											<td >
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-											 [ref#: 326-326] System access request for Test2 Test2
-											</td>
-											<td class="">
-											 Manual
+											<td>
+											 &nbsp;
 											</td>
 											<td class="">
 											  <small class="label label-success">Sent</small>
 											</td>
 											
-											<td class="">
-											--
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
 										  </tr>
 										  <tr >
 											<td>
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
-											</td>
-											<td class="">
-											 [ref#: 326-326] access request for test1 
-											</td>
-											<td class="">
-											 Manual
+											 &nbsp;
 											</td>
 											<td class="">
 											  <small class="label label-danger">Unsent</small>
 											</td>
 											
-											<td class="">
-											--
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
 										  </tr>
-										  
 										  <tr >
-											<td class="icon-col">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
-											   <button class="btn btn-xs btn-link text-default open-message" title="Open message inside">
-												 <i class="fa fa-envelope-open"></i>
-											  </button>
-											 
-											</td>
-											<td class="">
-											 [ref#: 326-326]  test1 question 
-											</td>
-											<td class="">
-											 Desert School
+											<td>
+											 &nbsp;
 											</td>
 											<td class="">
 											  <small class="label label-warning">Unassigned</small>
 											</td>
 											
-											<td class="">
-											--
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
 											</td>
 											<td class="">
-											 3 Days ago
+											  <small class="label label-info">Assigned</small>
 											</td>
 										  </tr>
 										  <tr >
 											<td>
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ></i>
-											  </button>
-											   <button class="btn btn-xs btn-link text-default open-message" title="Open message inside">
-												 <i class="fa fa-envelope-open"></i>
-											  </button>
-											 
-											</td>
-											<td class="">
-											 [ref#: 326-326] System access request
-											</td>
-											<td class="">
-											 All topic
+											 &nbsp;
 											</td>
 											<td class="">
 											  <small class="label label-info">Queued</small>
 											</td>
-											
-											<td class="">
-											--
+										  </tr>
+										   <tr >
+											<td>
+											 &nbsp;
 											</td>
 											<td class="">
-											 4 Days ago
+											  <small class="label label-danger">Private Note</small>
 											</td>
 										  </tr>
 										  <tr >
 											<td>
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
+											 &nbsp;
 											</td>
 											<td class="">
-											 [ref#: 326-326] Test agent email
-											</td>
-											<td class="">
-											 All topic
-											</td>
-											<td class="">
-											  <small class="label label-success">Sent</small>
-											</td>
-											<td class="">
-											--
-											</td>
-											<td class="">
-											 5 Days ago
+											  <small class="label label-info">Public Note</small>
 											</td>
 										  </tr>
 										</tbody>
