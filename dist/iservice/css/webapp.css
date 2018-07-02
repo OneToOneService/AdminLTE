@@ -1230,3 +1230,25 @@ ul.timeline span.stack-icon .aqua {
   bottom: -2px;
   right: -5px;
 }
+.search-parameters .floating-label {
+  margin: 5px -10px;
+}
+.search-parameters .filter-label {
+  font-weight: normal;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.search-parameters label {
+  font-weight: 600;
+}
+.search-field .floating-label {
+  width: calc(97%);
+  display: inline-block;
+}
+.search-field .btn-lg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -10px;
+}
