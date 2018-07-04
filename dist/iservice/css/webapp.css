@@ -1252,3 +1252,9 @@ ul.timeline span.stack-icon .aqua {
   transform: translateY(-50%);
   right: -10px;
 }
+.dataTables_wrapper .dataTables_length {
+  float: left;
+}
+.dataTables_wrapper .dt-buttons {
+  margin-right: 15px;
+}

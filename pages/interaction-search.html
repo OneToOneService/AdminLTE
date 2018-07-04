@@ -5,7 +5,9 @@ title: Customer Info - Contact History
 <html ng-app="iService">
 <head>
     {% include common-head.html %}
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -51,9 +53,9 @@ title: Customer Info - Contact History
 										</div>
 									
 									  </div>
-									  <div class="col-xs-12 col-md-4">
+									  <div class="col-xs-12 col-md-3">
 										<div class="floating-label bg-white">
-										  <select>
+										  <select class="infield">
 											<option value="all">-- All --</option>
 											<option value="ID">-- ID --</option>
 											<option value="login" selected="selected">-- Login --</option>
@@ -81,13 +83,27 @@ title: Customer Info - Contact History
 											<option value="36">State</option>
 											<option value="32">Svc Level 5 Min</option>
 											<option value="25">Text</option>
+											<option value="Date">Date</option>
 										  </select>
 										  <label>In field</label>
 										</div>
 									  </div>
-									  <div class="col-xs-12 col-md-6 search-field">
+									   <div class="col-xs-12 col-md-3">
 										<div class="floating-label bg-white">
-										  <input type="text" class="">
+										  <select>
+										    <option value="Contain">Contains</option>
+											<option value="Does Not Contain">Does Not Contain</option>
+											<option value="Is Greater Than">Is Greater Than</option>
+											<option value="Is Equal To">Is Equal To</option>
+											<option value="Is Less Than">Is Less Than</option>
+										  </select>
+										  <label>Search options</label>
+										</div>
+										
+									  </div>
+									  <div class="col-xs-12 col-md-4 search-field">
+										<div class="floating-label bg-white">
+										  <input type="text" class="search">
 										  <label>Search for</label>
 										</div>
 										<button class="btn btn-lg btn-link" type="button" title="Remove Field" style="">
@@ -104,9 +120,15 @@ title: Customer Info - Contact History
 								  </button>
 								</div>
 								<div class="row">
-								 <i class="fa fa-calendar filter-label"></i><label>Limit By Date</label>
+								 <i class="fa fa-calendar filter-label"></i><label>Limit by date interaction was</label>
 								 <div class="row">
 									 <div class="col-md-8">
+									   <div class="form-group col-md-4">
+									     <select class="form-control">
+										   <option value="">Created</option>
+										   <option value="">Resolved</option>
+										 </select>
+									   </div>
 									   <div class="form-group col-md-4">
 										   <input type="text" class="form-control" placeholder="On Or After:" id="datepickerafter">
 									   </div>
@@ -133,7 +155,7 @@ title: Customer Info - Contact History
 									  <table id="example1" class="table  table-striped table-hover ">
 										 <thead>
 										  <tr>
-											<th class="no-sort"  name="name"></th>
+											<th class="no-sort"  name="name" width="30"></th>
 											<th class="text-capitalize">
 											 Subject <br>
 											 <input type="text"  id="subject" class="form-control" onclick="stopPropagation(event);">
@@ -474,22 +496,29 @@ title: Customer Info - Contact History
 	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
 
-  
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+	
 	<script>
 	$(document).ready(function() {
     // DataTable
     var table = $('#example1').DataTable( {
+	    dom: 'Blfrtip',
         "order": [],
+		 buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
 		"columnDefs": [ {
 		  "targets"  : 'no-sort',
 		  "orderable": false,
-		  "width":"30px"
-		},
-	]
-}
-);
+		}]
+	});
  
    	$('#subject').on( 'keyup', function () {
     table
@@ -538,6 +567,15 @@ function stopPropagation(evt) {
 }
  $('#datepickerafter,#datepickerbefore').datepicker({
         autoclose: true
+ });
+ 
+ $('.infield').change(function(){
+   
+   if($('option:selected',this).text()=='Date'){ 
+      $('.search').datepicker();
+   }else{
+      $('.search').off();
+   }
  });
 </script>
 </body>
