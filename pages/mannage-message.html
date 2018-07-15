@@ -8,8 +8,6 @@ title: Interaction Search
 <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -92,24 +90,21 @@ title: Interaction Search
 									  </div>
 									   <div class="col-xs-12 col-md-3">
 										<div class="floating-label bg-white">
-										  <select id="searchOption">
+										  <select>
 										    <option value="Contain">Contains</option>
 											<option value="Does Not Contain">Does Not Contain</option>
 											<option value="Is Greater Than">Is Greater Than</option>
 											<option value="Is Equal To">Is Equal To</option>
 											<option value="Is Less Than">Is Less Than</option>
-											<option value="Tag">Tag</option>
 										  </select>
-										 
 										  <label>Search options</label>
 										</div>
 										
 									  </div>
 									  <div class="col-xs-12 col-md-4 search-field">
 										<div class="floating-label bg-white">
-										  <input type="text" class="searchtag search" data-role="tagsinput" style="display:none;">
-										  <input type="text" for="search" class="searchnormal search" required>
-										  <label id="search" class="floatlabel">Search for</label>
+										  <input type="text" class="search">
+										  <label>Search for</label>
 										</div>
 										<button class="btn btn-lg btn-link" type="button" title="Remove Field" style="">
 										  <i class="fa fa-times-circle text-red"></i>
@@ -543,28 +538,9 @@ title: Interaction Search
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+	
 	<script>
 	$(document).ready(function() {
-	
-	$(".bootstrap-tagsinput input").focus(function(){
-        $('.floatlabel').addClass("float-label");
-    });
-    $(".bootstrap-tagsinput input").blur(function(){
-	   if($( ".bootstrap-tagsinput span" ).hasClass( "tag" )){
-        
-		}else{$('.floatlabel').removeClass("float-label");}
-	   });
-	$('#searchOption').change(function(){
-	   if($('option:selected',this).text()=='Tag'){ 
-		  $('.bootstrap-tagsinput').show();
-		  $('.searchnormal').hide();
-	   }else{
-		  $('.bootstrap-tagsinput').hide();
-		  $('.searchnormal').show();
-		  $('.floatlabel').removeClass("float-label");
-	   }
-	});   
     // DataTable
     var table = $('#example1').DataTable( {
 	    dom: 'Blfrtip',

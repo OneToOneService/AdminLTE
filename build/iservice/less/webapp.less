@@ -227,7 +227,9 @@ p.login-box-msg
     input:focus + label,
     textarea:focus + label,
     input.ng-not-empty + label,
-    select + label
+    select + label,
+	input:valid + label,
+	.focus + input + label
     {
         opacity: 1;
         font-weight: normal;
@@ -255,7 +257,8 @@ p.login-box-msg
 
         input:focus,
         select:focus,
-        textarea:focus
+        textarea:focus,
+		
         {
             outline: none;
             margin-top: 15px;
@@ -276,6 +279,23 @@ p.login-box-msg
         right: 0;
         color: @light-blue;
     }
+	.bootstrap-tagsinput {
+		width: 100%;
+		background: none;
+		border: none;
+		box-shadow: none;
+	}
+	.bootstrap-tagsinput input{display:inline-block;margin-top: 15px;}
+	.bootstrap-tagsinput{display:none;}
+}
+
+.floating-label .float-label{
+    opacity: 1;
+	font-weight: normal;
+	top: -2px;
+	transform: none;
+	font-size: unset;
+	color: @input-border-focus;
 }
 
 .icon-button
