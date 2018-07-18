@@ -62,6 +62,7 @@ title: Interaction Search
 											<option value="ID">-- ID --</option>
 											<option value="login" selected="selected">-- Login --</option>
 											<option value="loginbounced">-- Login (Bounced) --</option>
+											<option value="Tags">-- Tags --</option>
 											<option value="segment">-- Segment Membership --</option>
 											<option value="30">Additional Detail</option>
 											<option value="5">Address</option>
@@ -98,7 +99,7 @@ title: Interaction Search
 											<option value="Is Greater Than">Is Greater Than</option>
 											<option value="Is Equal To">Is Equal To</option>
 											<option value="Is Less Than">Is Less Than</option>
-											<option value="Tag">Tag</option>
+											
 										  </select>
 										 
 										  <label>Search options</label>
@@ -555,8 +556,8 @@ title: Interaction Search
         
 		}else{$('.floatlabel').removeClass("float-label");}
 	   });
-	$('#searchOption').change(function(){
-	   if($('option:selected',this).text()=='Tag'){ 
+	$('.infield').change(function(){
+	   if($('option:selected',this).val()=='Tags'){ 
 		  $('.bootstrap-tagsinput').show();
 		  $('.searchnormal').hide();
 	   }else{
