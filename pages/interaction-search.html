@@ -580,15 +580,20 @@ title:  Search Interactions
         .search( this.value )
         .draw();
 	} );
-	$('#contactEmail').on( 'keyup', function () {
+	$('#username').on( 'keyup', function () {
     table
-        .columns(3)
+        .columns(5)
         .search( this.value )
         .draw();
 	} );
-		
-	$("#selectName").each( function (i) {
-        var select = $('#selectName')
+	$('#properties').on( 'keyup', function () {
+    table
+        .columns(6)
+        .search( this.value )
+        .draw();
+	} );
+	$("#selectTopic").each( function (i) {
+        var select = $('#selectTopic')
             .on( 'change', function () {
                 table.column(2)
                     .search($(this).val())
@@ -598,8 +603,20 @@ title:  Search Interactions
             select.append( "<option value='"+d+"'>"+d+"</option>" )
         } );
     } );
-	$("#selectOperator").each( function (i) {
-        var select = $('#selectOperator')
+		
+	$("#selectStatus").each( function (i) {
+        var select = $('#selectStatus')
+            .on( 'change', function () {
+                table.column(3)
+                    .search($(this).val())
+                    .draw();
+            } );
+        table.column(3).data().unique().sort().each( function ( d, j ) {
+            select.append( "<option value='"+d+"'>"+d+"</option>" )
+        } );
+    } );
+	$("#selectType").each( function (i) {
+        var select = $('#selectType')
             .on( 'change', function () {
                 table.column(4)
                     .search($(this).val())
