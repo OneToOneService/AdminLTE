@@ -551,13 +551,194 @@ title: Customer Info - Contact
                 like Aldus PageMaker including versions of Lorem Ipsum.
               </div>
               <div class="tab-pane" id="tab_4">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Custom Tabs -->
+                        <div class="row">
+						  <div class="col-md-12">
+                            <div class="box box-info">
+								<div class="box-header with-border">
+								  <i class="fa fa-history"></i>
+								  <h3 class="box-title head-title-padding">Contact History</h3>
+								<div class="btn-group pull-right" id="realtime" data-toggle="btn-toggle">
+								  <a class="btn btn-primary active" data-toggle="on" href="/pages/chronological-view.html">Chronological View</a>
+								  <a class="btn btn-default " data-toggle="off" href="/pages/case-view.html">Case View</a>
+								</div>
+								</div>
+								<!-- /.box-header -->
+								<!-- form start -->
+								  <div class="box-body table-responsive ">
+									 
+									  <table id="example1" class="table  table-striped table-hover ">
+										 <thead>
+										  <tr>
+											<th class="no-sort"  name="name" style="padding:35px"></th>
+											<th class="text-capitalize">
+											 Subject <br>
+											 <input type="text"  id="subject" class="form-control" onclick="stopPropagation(event);">
+											</th>
+											<th class="text-capitalize" >
+											  Topic
+											  <select id="selectTopic" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
+											</th>
+											<th class="text-capitalize" >
+											  Status
+											  <select id="selectStatus" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
+											</th>
+											<th class="text-capitalize" >
+											  Type
+											  <select id="selectType" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
+											</th>
+											<th class="text-capitalize">
+											  Username
+											  <input type="text" id="username" class="form-control datatable-input" onclick="stopPropagation(event);">
+											</th>
+											<th class="text-capitalize">
+											  Properties
+											  <input type="text" id="properties" class="form-control datatable-input" onclick="stopPropagation(event);">
+											</th>
+											<th class="text-capitalize">
+											 Date
+											</th>
+										  </tr>
+										</thead>  
+										<tbody>
+										  <tr >
+											<td  name="name">
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+												<i class="fa fa-plus-circle" ></i>
+											  </button>
+											</td>
+											<td class="">
+											 [ref#: 326-326] System access request for Test2 Test2
+											</td>
+											<td class="">
+											 Manual
+											</td>
+											<td class="">
+											  <small class="label bg-green">Sent</small>
+											</td>
+											<td class="">
+											  <small class="label bg-teal">Ask Question</small>
+											</td>
+											<td class="">
+											 Steve
+											</td>
+											<td class="">
+											--
+											</td>
+											<td class="">
+											 2 Days ago
+											</td>
+										  </tr>
+										  <tr >
+											<td name="name">
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+											  </button>
+											</td>
+											<td class="">
+											 [ref#: 326-326] access request for test1 
+											</td>
+											<td class="">
+											 Manual
+											</td>
+											<td class="">
+											  <small class="label bg-red">Unsent</small>
+											</td>
+											<td class="">
+											  <small class="label bg-light-blue">Agent Email</small>
+											</td>
+											<td class="">
+											 Steve
+											</td>
+											<td class="">
+											--
+											</td>
+											<td class="">
+											 2 Days ago
+											</td>
+										  </tr>
+										  <tr >
+											<td  name="name" >
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
+												<i class="fa fa-plus-circle"></i>
+											  </button>
+											  <button class="btn btn-xs btn-link text-default open-message" title="Open message inside">
+												 <i class="fa fa-envelope-open"></i>
+											  </button>
+											 
+											</td>
+											<td class="">
+											 [ref#: 326-326] asq question email testing
+											</td>
+											<td class="">
+											 Games code
+											</td>
+											<td class="">
+											  <small class="label bg-yellow">Unassigned</small>
+											</td>
+											<td class="">
+											  <small class="label bg-teal">Ask Question</small>
+											</td>
+											<td class="">
+											 Adam 
+											</td>
+											<td class="">
+											--
+											</td>
+											<td class="">
+											 4 Days ago
+											</td>
+										  </tr>
+										   <tr >
+											<td  name="name">
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
+												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+											  </button>
+											  <button class="btn btn-xs btn-link text-default open-message" title="Open message inside">
+												 <i class="fa fa-envelope-open"></i>
+											  </button>
+											</td>
+											<td class="">
+											 [ref#: 326-326] asq question email testing
+											</td>
+											<td class="">
+											 Games code
+											</td>
+											<td class="">
+											  <small class="label label-info">Queued</small>
+											</td>
+											<td class="">
+											  <small class="label bg-light-blue">Agent Email</small>
+											</td>
+											<td class="">
+											 Adam 
+											</td>
+											<td class="">
+											--
+											</td>
+											<td class="">
+											 5 Days ago
+											</td>
+										  </tr>
+										</tbody>
+									  </table>
+                   
+								  </div>
+							  </div> 
+						  </div>
+						  <div class="col-md-4">
+
+						  </div>
+                        </div>                         
+                    </div>
+                    <!-- /.col -->
+
+                
+                </div>
+                <!-- /.row -->
               </div>
               <!-- /.tab-pane -->
             </div>
@@ -770,5 +951,78 @@ title: Customer Info - Contact
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
+  
+  <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+
+  
+	<script>
+	$(document).ready(function() {
+    // DataTable
+    var table = $('#example1').DataTable( {
+        "order": [],
+		"columnDefs": [ {
+		  "targets"  : 'no-sort',
+		  "orderable": false,
+		  "width":"30px"
+		},
+	]
+}
+);
+ 
+   	$('#subject').on( 'keyup', function () {
+    table
+        .columns(1)
+        .search( this.value )
+        .draw();
+	} );
+	
+	$("#selectTopic").each( function (i) {
+        var select = $('#selectTopic')
+            .on( 'change', function () {
+                table.column(2)
+                    .search($(this).val())
+                    .draw();
+            } );
+        table.column(2).data().unique().sort().each( function ( d, j ) {
+            select.append( "<option value='"+d+"'>"+d+"</option>" )
+        } );
+    } );
+	$("#selectStatus").each( function (i) {
+        var select = $('#selectStatus')
+            .on( 'change', function () {
+                table.column(3)
+                    .search($(this).val())
+                    .draw();
+            } );
+        table.column(3).data().unique().sort().each( function ( d, j ) {
+            select.append( "<option value='"+$(d).text()+"'>"+$(d).text()+"</option>" )
+        } );
+    } );
+	$("#selectType").each( function (i) {
+        var select = $('#selectType')
+            .on( 'change', function () {
+                table.column(4)
+                    .search($(this).val())
+                    .draw();
+            } );
+        table.column(4).data().unique().sort().each( function ( d, j ) {
+            select.append( "<option value='"+$(d).text()+"'>"+$(d).text()+"</option>" )
+        } );
+    } );
+	
+	
+} );
+
+function stopPropagation(evt) {
+	if (evt.stopPropagation !== undefined) {
+	evt.stopPropagation();
+	} else {
+	evt.cancelBubble = true;
+	}
+}
+	</script>
 </body>
 </html>
