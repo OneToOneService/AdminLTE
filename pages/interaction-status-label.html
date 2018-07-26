@@ -1,5 +1,5 @@
 ---
-title: Interaction Status Labels
+title: Interaction Type and Status Icons
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -31,56 +31,223 @@ title: Interaction Status Labels
                             <div class="box box-info">
 								<div class="box-header with-border">
 								  <i class="fa fa-history"></i>
-								  <h3 class="box-title head-title-padding">Interaction Status Labels</h3>
+								  <h3 class="box-title head-title-padding">Interaction Type and Status Icons</h3>
 							
 								</div>
 								<!-- /.box-header -->
 								<!-- form start -->
 								  <div class="box-body table-responsive">
 									 
-									  <table id="example1" class="table  table-striped table-hover ">
+									  <table id="" class="table  table-striped table-hover ">
 										 <thead>
 										  <tr>
-											<th class="no-sort" ></th>
+											<th class="no-sort" > Interaction Status</th>
 											<th class="text-capitalize" >
-											  Interaction Status
+											  Interaction Type
+											</th>
+											<th class="text-capitalize" >
+											  &nbsp;
 											</th>
 										  </tr>
 										</thead>  
 										<tbody>
+										<tr>
+											<th class="no-sort" ><small class="label label-success">ChatInProgress</small> </th>
+											<th>
+											 <small class="label label-primary"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-envelope"></i>
+												  <i class="fa fa-user "></i> 
+												</span>Agent Email
+											 </small>
+											</th>
+											<th>
+												<span class="fa-stack stack-icon fa-lg icon-label bg-light-blue"  data-toggle="tooltip" data-placement="bottom" data-original-title="Agent Email">
+												   <i class="fa fa-envelope fa-stack-1x"></i>
+												   <i class="fa fa-user icon-agent-email red fa-stack"></i>
+												</span>
+											</th>
+										  </tr>
 										  <tr >
 											<td>
-											 &nbsp;
+											<small class="label label-warning">ChatWaiting</small>
 											</td>
 											<td class="">
-											  <small class="label label-success">Sent</small>
+											  <small class="label label-primary"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-user"></i>
+												  <i class="fa fa-bell agent-notification"></i> 
+												</span> Agent Notification
+											 </small>
 											</td>
+											<td>
+											  <span class="fa-stack stack-icon fa-lg icon-label bg-light-blue" data-toggle="tooltip" data-placement="bottom" data-original-title="Agent Notification">
+												   <i class="fa fa-user fa-stack-1x"></i>
+												   <i class="fa fa-bell icon-agent-email red fa-stack"></i>
+											   </span>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											<small class="label label-danger">Ignored</small>
+											</td>
+											<td class="">
+											 <small class="label label-info"> 
+											  <span class="fa-stack stack-icon-label">
+												<i class="fa fa-user"></i>
+												<i class="fa fa-reply agent-response aqua"></i> 
+											  </span> Agent Response
+											  </small>
+											</td>
+											<td>
+											  <span class="fa-stack stack-icon fa-lg icon-label bg-aqua" data-toggle="tooltip" data-placement="bottom" data-original-title="Agent Response">
+												<i class="fa fa-user fa-stack-1x"></i>
+												<i class="fa fa-reply icon-agent-reply aqua fa-stack"></i>
+											  </span>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 <small class="label label-warning">Pending</small>
+											</td>
+											<td class="">
+											 <small class="label bg-light-red-c label-with-icon">
+											 <i class="fa fa-exclamation-triangle"></i>
+											 Alert</small>
+											</td>
+											<td>
+											  <i class="fa fa-exclamation-triangle fa-icon-label bg-light-red-c" data-toggle="tooltip" data-placement="bottom" data-original-title="Alert"></i>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 <small class="label label-info">PrivateNote</small>
+											</td>
+											<td class="">
+											 <small class="label bg-teal-active label-with-icon">
+											 <i class="fa fa-question"></i>
+											 Ask A Question</small>
+											</td>
+											<td>
+											   <i class="fa fa-question fa-icon-label bg-teal-active" data-toggle="tooltip" data-placement="bottom" data-original-title="Ask A Question"></i>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											<small class="label label-info">PublicNote</small>
+											</td>
+											<td class="">
+											  
+											 <small class="label bg-red label-with-icon">
+											 <i class="fa fa-reply "></i>
+											 Auto Response</small>
+											</td>
+											<td>
+											 <i class="fa fa-reply fa-icon-label bg-red" data-toggle="tooltip" data-placement="bottom" data-original-title="Auto Response"></i>
+											</td>
+										  </tr>
+										   <tr >
+											<td>
+											<small class="label label-warning">Queued</small>
+											</td>
+											<td class="">
+											 <small class="label bg-yellow label-with-icon">
+											 <i class="fa fa-comments"></i>
+											 Chat</small>
+											</td>
+											<td>
+											 <i class="fa fa-comments fa-icon-label bg-yellow" data-toggle="tooltip" data-placement="bottom" data-original-title="Chat"></i>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 <small class="label label-success">Resolved</small> 
+											</td>
+											<td class="">
+											   <small class="label bg-aqua-active label-with-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Alert">
+												 <i class="fa fa-address-book-o "></i>
+												 Contact Creation</small>
+											</td>
+											<td>
+											   <i class="fa fa-address-book-o fa-icon-label label-success" data-toggle="tooltip" data-placement="bottom" data-original-title="Contact Creation"></i>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 <small class="label label-success">Sent</small> 
+											</td>
+											<td class="">
+											<small class="label bg-blue label-with-icon">
+											 <i class="fa fa-envelope"></i>
+											  Customer Email</small>
 											
+											</td>
+											<td>
+											  <i class="fa fa-envelope fa-icon-label bg-blue" data-toggle="tooltip" data-placement="bottom" data-original-title="Customer Email"></i>
+											</td>
+										  </tr>
+										   <tr >
+											<td>
+											 <small class="label label-warning">SentWaitingReply</small>
+											</td>
+											<td class="">
+											  <small class="label label-primary bg-aqua"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-external-link"></i>
+												  <i class="fa fa-bell"></i> 
+												</span> External Agent Notification
+											 </small>
+											</td>
+											<td>
+											  <span class="fa-stack stack-icon fa-lg icon-label label-primary" data-toggle="tooltip" data-placement="bottom" data-original-title="External Agent Notification" >
+												<i class="fa fa-external-link fa-stack-1x"></i>
+												<i class="fa fa-bell icon-agent-reply fa-stack"></i>
+											  </span>
+											</td>
+										  </tr>
+										   <tr >
+											<td>
+											 <small class="label label-warning">Unassigned</small>
+											</td>
+											<td class="">
+											<small class="label bg-light-orange label-with-icon">
+											 <i class="fa fa-search"></i>
+											  Find Answer</small>
+											</td>
+											<td>
+											   <i class="fa fa-search fa-icon-label bg-light-orange" data-toggle="tooltip" data-placement="bottom" data-original-title="Find Answer"></i>
+											</td>
+										  </tr>
+										   <tr >
+											<td>
+											 <small class="label label-warning">Unsent</small>
+											</td>
+											<td class="">
+											<small class="label bg-light-blue label-with-icon">
+											 <i class="fa fa-envelope "></i>
+											  Mass Mailing</small>
+											</td>
+											<td>
+											  <i class="fa fa-envelope fa-icon-label bg-light-blue" data-toggle="tooltip" data-placement="bottom" data-original-title="Mass Mailing"></i>
+											</td>
 										  </tr>
 										  <tr >
 											<td>
 											 &nbsp;
 											</td>
 											<td class="">
-											  <small class="label label-danger">Unsent</small>
+											 <small class="label label-primary"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-envelope"></i>
+												  <i class="fa fa-refresh "></i> 
+												</span> Mass Mailing Article Update
+											 </small>
 											</td>
-											
-										  </tr>
-										  <tr >
 											<td>
-											 &nbsp;
-											</td>
-											<td class="">
-											  <small class="label label-warning">Unassigned</small>
-											</td>
-											
-										  </tr>
-										  <tr >
-											<td>
-											 &nbsp;
-											</td>
-											<td class="">
-											  <small class="label label-info">Assigned</small>
+											  <span class="fa-stack stack-icon fa-lg icon-label label-primary" data-toggle="tooltip" data-placement="bottom" data-original-title="Mass Mailing Article Update">
+												<i class="fa fa-envelope fa-stack-1x"></i>
+												<i class="fa fa-refresh fa-stack"></i>
+											  </span>
 											</td>
 										  </tr>
 										  <tr >
@@ -88,7 +255,76 @@ title: Interaction Status Labels
 											 &nbsp;
 											</td>
 											<td class="">
-											  <small class="label label-info">Queued</small>
+											 <small class="label bg-teal label-with-icon">
+											 <i class="fa fa-file-text "></i>
+											  Note</small>
+											</td>
+											<td>
+											  <i class="fa fa-file-text fa-icon-label bg-teal" data-toggle="tooltip" data-placement="bottom" data-original-title="Note"></i>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
+											</td>
+											<td class="">
+											<small class="label bg-light-red-c label-with-icon">
+											 <i class="fa fa-bell"></i>
+											  Notification</small>
+											</td>
+											<td>
+											   <i class="fa fa-bell fa-icon-label bg-light-red-c" data-toggle="tooltip" data-placement="bottom" data-original-title="Notification"></i>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
+											</td>
+											<td class="">
+											<small class="label bg-light-red-c label-with-icon">
+											 <i class="fa fa-key"></i>
+											  Password Reset</small>
+											</td>
+											<td>
+											   <i class="fa fa-key fa-icon-label bg-light-red-c" data-toggle="tooltip" data-placement="bottom" data-original-title="Password Reset"></i>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
+											</td>
+											<td class="">
+											 <small class="label bg-blue"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-envelope"></i>
+												  <i class="fa fa-lock "></i> 
+												</span>  Private Email
+											 </small>
+											</td>
+											<td>
+											 <span class="fa-stack stack-icon fa-lg icon-label bg-blue" data-toggle="tooltip" data-placement="bottom" data-original-title="Private Email">
+												<i class="fa fa-envelope fa-stack-1x"></i>
+												<i class="fa fa-lock  fa-stack"></i>
+											  </span>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
+											</td>
+											<td class="">
+											 <small class="label bg-teal"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-file-text-o"></i>
+												  <i class="fa fa-lock "></i> 
+												</span>  Private Note
+											 </small>
+											</td>
+											<td>
+											  <span class="fa-stack stack-icon fa-lg icon-label bg-teal" data-toggle="tooltip" data-placement="bottom" data-original-title=" Private Note">
+												<i class="fa fa-file-text-o fa-stack-1x"></i>
+												<i class="fa fa-lock  fa-stack"></i>
+											  </span>
 											</td>
 										  </tr>
 										   <tr >
@@ -96,7 +332,18 @@ title: Interaction Status Labels
 											 &nbsp;
 											</td>
 											<td class="">
-											  <small class="label label-danger">Private Note</small>
+											 <small class="label bg-teal"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-file-text-o"></i>
+												  <i class="fa fa-unlock "></i> 
+												</span>  Public Note
+											 </small>
+											</td>
+											<td>
+											  <span class="fa-stack stack-icon fa-lg icon-label bg-teal" data-toggle="tooltip" data-placement="bottom" data-original-title="Public Note">
+												<i class="fa fa-file-text-o fa-stack-1x"></i>
+												<i class="fa fa-unlock  fa-stack"></i>
+											  </span>
 											</td>
 										  </tr>
 										  <tr >
@@ -104,12 +351,92 @@ title: Interaction Status Labels
 											 &nbsp;
 											</td>
 											<td class="">
-											  <small class="label label-info">Public Note</small>
+											 <small class="label bg-teal"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-file-text-o"></i>
+												  <i class="fa fa-check "></i> 
+												</span>  Resolve Note
+											 </small>
+											</td>
+											<td>
+											   <span class="fa-stack stack-icon fa-lg icon-label bg-teal" data-toggle="tooltip" data-placement="bottom" data-original-title="Resolve Note">
+												<i class="fa fa-file-text-o fa-stack-1x"></i>
+												<i class="fa fa-check  fa-stack"></i>
+											  </span>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
+											</td>
+											<td class="">
+											  <small class="label bg-light-blue"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-envelope"></i>
+												  <i class="fa fa-lock "></i> 
+												</span> Secure Email
+											  </small>
+											</td>
+											<td>
+											  <span class="fa-stack stack-icon fa-lg icon-label bg-light-blue" data-toggle="tooltip" data-placement="bottom" data-original-title="Secure Email">
+												<i class="fa fa-envelope fa-stack-1x"></i>
+												<i class="fa fa-lock  fa-stack"></i>
+											  </span>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
+											</td>
+											<td class="">
+											  <small class="label bg-red"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-reply"></i>
+												  <i class="fa fa-lock "></i> 
+												</span> Secure Response
+											  </small>
+											</td>
+											<td>
+											  <span class="fa-stack stack-icon fa-lg icon-label bg-red" data-toggle="tooltip" data-placement="bottom" data-original-title="Secure Response">
+												<i class="fa fa-reply fa-stack-1x"></i>
+												<i class="fa fa-lock fa-stack"></i>
+											  </span>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
+											</td>
+											<td class="">
+											<small class="label bg-orange label-with-icon">
+											 <i class="fa fa-ticket"></i>
+											  Ticket</small>
+											</td>
+											<td>
+											 <i class="fa fa-ticket fa-icon-label bg-orange" data-toggle="tooltip" data-placement="bottom" data-original-title="Ticket"></i>
+											</td>
+										  </tr>
+										  <tr >
+											<td>
+											 &nbsp;
+											</td>
+											<td class="">
+											   <small class="label bg-red"> 
+											    <span class="fa-stack stack-icon-label">
+												  <i class="fa fa-reply"></i>
+												  <i class="fa fa-times-circle-o"></i> 
+												</span>  Unsent Response
+											  </small>
+											</td>
+											<td>
+											  <span class="fa-stack stack-icon fa-lg icon-label bg-red" data-toggle="tooltip" data-placement="bottom" data-original-title="Unsent Response">
+												<i class="fa fa-reply fa-stack-1x"></i>
+												<i class="fa fa-times-circle-o  fa-stack"></i>
+											  </span>
 											</td>
 										  </tr>
 										</tbody>
 									  </table>
-                   
 								  </div>
 							  </div> 
 						  </div>
