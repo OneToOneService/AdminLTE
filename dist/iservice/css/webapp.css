@@ -1063,6 +1063,18 @@ ul.timeline span.stack-icon .aqua {
 .mtop-15 {
   margin-top: 15px;
 }
+.mtop-15 {
+  margin-top: 15px;
+}
+.mbottom-15 {
+  margin-bottom: 15px;
+}
+.mright-15 {
+  margin-right: 15px;
+}
+.mleft-15 {
+  margin-left: 15px;
+}
 .box-container {
   position: relative;
   border-radius: 3px;
@@ -1073,6 +1085,9 @@ ul.timeline span.stack-icon .aqua {
 }
 .dropdown-menu .icheckbox_square-blue {
   margin-right: 5px;
+}
+.text-left {
+  text-align: left !important;
 }
 .message-box-header .panel {
   background: none;
