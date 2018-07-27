@@ -26,9 +26,6 @@ title: Customer Info - Contact History
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
-						<div class="row">
-							<h2 class="col-xs-12 col-sm-8 col-md-10 ">Contact History</h2>
-						</div>
                         <div class="row">
 						  <div class="col-md-12">
                             <div class="box box-info">
@@ -65,8 +62,8 @@ title: Customer Info - Contact History
 											  <select id="selectType" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
 											</th>
 											<th class="text-capitalize">
-											  Username
-											  <input type="text" id="username" class="form-control datatable-input" onclick="stopPropagation(event);">
+											  Agent
+											  <input type="text" id="agent" class="form-control datatable-input" onclick="stopPropagation(event);">
 											</th>
 											<th class="text-capitalize">
 											  Properties
@@ -94,7 +91,7 @@ title: Customer Info - Contact History
 											  <small class="label bg-green">Sent</small>
 											</td>
 											<td class="">
-											  <small class="label bg-teal">Ask Question</small>
+											  <small class="label bg-orange">Customer Ticket</small>
 											</td>
 											<td class="">
 											 Steve
@@ -139,7 +136,7 @@ title: Customer Info - Contact History
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle"></i>
 											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message" title="Open message inside">
+											  <button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="right" data-original-title="Case includes unresolved questions">
 												 <i class="fa fa-envelope-open"></i>
 											  </button>
 											 
@@ -154,7 +151,7 @@ title: Customer Info - Contact History
 											  <small class="label bg-yellow">Unassigned</small>
 											</td>
 											<td class="">
-											  <small class="label bg-teal">Ask Question</small>
+											  <small class="label bg-orange">Customer Ticket</small>
 											</td>
 											<td class="">
 											 Adam 
@@ -171,7 +168,7 @@ title: Customer Info - Contact History
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
 											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message" title="Open message inside">
+											  <button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="right" data-original-title="Case includes unresolved questions">
 												 <i class="fa fa-envelope-open"></i>
 											  </button>
 											</td>
@@ -423,19 +420,21 @@ title: Customer Info - Contact History
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
 
   
-	<script>
-	$(document).ready(function() {
+<script>
+$(document).ready(function() {
     // DataTable
     var table = $('#example1').DataTable( {
+	    "language" : {
+			"search": "Filter history"
+		  },
         "order": [],
 		"columnDefs": [ {
 		  "targets"  : 'no-sort',
 		  "orderable": false,
 		  "width":"30px"
 		},
-	]
-}
-);
+		
+	]});
  
    	$('#subject').on( 'keyup', function () {
     table
@@ -488,6 +487,6 @@ function stopPropagation(evt) {
 	evt.cancelBubble = true;
 	}
 }
-	</script>
+</script>
 </body>
 </html>

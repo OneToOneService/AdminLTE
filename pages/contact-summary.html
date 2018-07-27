@@ -620,7 +620,7 @@ title: Customer Info - Contact
 											  <small class="label bg-green">Sent</small>
 											</td>
 											<td class="">
-											  <small class="label bg-teal">Ask Question</small>
+											  <small class="label bg-orange">Customer Ticket</small>
 											</td>
 											<td class="">
 											 Steve
@@ -665,7 +665,7 @@ title: Customer Info - Contact
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle"></i>
 											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message" title="Open message inside">
+											  <button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="right" data-original-title="Case includes unresolved questions">
 												 <i class="fa fa-envelope-open"></i>
 											  </button>
 											 
@@ -680,7 +680,7 @@ title: Customer Info - Contact
 											  <small class="label bg-yellow">Unassigned</small>
 											</td>
 											<td class="">
-											  <small class="label bg-teal">Ask Question</small>
+											  <small class="label bg-orange">Customer Ticket</small>
 											</td>
 											<td class="">
 											 Adam 
@@ -697,7 +697,7 @@ title: Customer Info - Contact
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
 											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message" title="Open message inside">
+											  <button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="right" data-original-title="Case includes unresolved questions">
 												 <i class="fa fa-envelope-open"></i>
 											  </button>
 											</td>
@@ -962,6 +962,9 @@ title: Customer Info - Contact
 	$(document).ready(function() {
     // DataTable
     var table = $('#example1').DataTable( {
+	    "language" : {
+			"search": "Filter history"
+		  },
         "order": [],
 		"columnDefs": [ {
 		  "targets"  : 'no-sort',
