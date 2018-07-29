@@ -99,3 +99,37 @@
         }
     }
 }
+
+.filter-button
+{
+    display: inline-flex;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.header-filter-input,
+.header-filter-toggle
+{
+    transition: all @transition-fn @transition-speed;
+
+    &.inactive
+    {
+        opacity: 0;
+        height: 0;
+        border-width: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        line-height: 0;
+    }
+}
+
+.header-text
+{
+    transition: all @transition-fn @transition-speed;
+
+    &.inactive
+    {
+        font-size: 65%;
+    }
+}
