@@ -1403,8 +1403,13 @@ ul.timeline span.stack-icon
 .statusbg-yellow{background:@status-yellow; }
 .statusbg-green{background:@status-green;}
 .mtop-15{margin-top:15px;}
+.mtop-15{margin-top:15px;}
+.mbottom-15{margin-bottom:15px;}
+.mright-15{margin-right:15px;}
+.mleft-15{margin-left:15px;}
 .box-container {    position: relative;    border-radius: 3px;    background: @white;    margin-bottom: 20px;    width: 100%;    box-shadow: 0 1px 1px rgba(0,0,0,0.1);}
 .dropdown-menu .icheckbox_square-blue{margin-right:5px;}
+.text-left{text-align:left !important;}
 
 .message-box-header {
   .panel{background:none; border:none; box-shadow:none;-webkit-box-shadow:none;}
@@ -1532,3 +1537,35 @@ ul.timeline span.stack-icon
   .dataTables_length{float:left;}
   .dt-buttons{margin-right: 15px;}
 }
+.stack-icon-label{
+    width: auto;
+	margin-right:8px;
+	i{font-size:12px;}
+	i:last-child{ position:absolute;right:-3px;bottom:4px;font-size:10px;color:@red;}
+	.aqua{color: @aqua !important;}
+	.agent-response{right:-4px !important;bottom:3px !important;}
+	.agent-notification{font-size:9px !important;} 
+}
+.label-with-icon i{line-height:2em; vertical-align:middle;margin-right:5px;font-size:12px;}
+.icon-label{
+   left:auto;
+   .icon-agent-reply{font-size:10px !important;}
+   .aqua{color:@aqua !important;}
+   i:first-child{font-size:17px !important;}
+   i:last-child{font-size:13px; color:@red;bottom:-4px; right:-6px;}
+}
+.fa-icon-label {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    position: absolute;
+    color: #666;
+    background: #d2d6de;
+    border-radius: 50%;
+    text-align: center;
+}
+
+
+
+

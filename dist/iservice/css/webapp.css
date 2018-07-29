@@ -1063,6 +1063,18 @@ ul.timeline span.stack-icon .aqua {
 .mtop-15 {
   margin-top: 15px;
 }
+.mtop-15 {
+  margin-top: 15px;
+}
+.mbottom-15 {
+  margin-bottom: 15px;
+}
+.mright-15 {
+  margin-right: 15px;
+}
+.mleft-15 {
+  margin-left: 15px;
+}
 .box-container {
   position: relative;
   border-radius: 3px;
@@ -1073,6 +1085,9 @@ ul.timeline span.stack-icon .aqua {
 }
 .dropdown-menu .icheckbox_square-blue {
   margin-right: 5px;
+}
+.text-left {
+  text-align: left !important;
 }
 .message-box-header .panel {
   background: none;
@@ -1277,4 +1292,63 @@ ul.timeline span.stack-icon .aqua {
 }
 .dataTables_wrapper .dt-buttons {
   margin-right: 15px;
+}
+.stack-icon-label {
+  width: auto;
+  margin-right: 8px;
+}
+.stack-icon-label i {
+  font-size: 12px;
+}
+.stack-icon-label i:last-child {
+  position: absolute;
+  right: -3px;
+  bottom: 4px;
+  font-size: 10px;
+  color: #ff0000;
+}
+.stack-icon-label .aqua {
+  color: #00c0ef !important;
+}
+.stack-icon-label .agent-response {
+  right: -4px !important;
+  bottom: 3px !important;
+}
+.stack-icon-label .agent-notification {
+  font-size: 9px !important;
+}
+.label-with-icon i {
+  line-height: 2em;
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 12px;
+}
+.icon-label {
+  left: auto;
+}
+.icon-label .icon-agent-reply {
+  font-size: 10px !important;
+}
+.icon-label .aqua {
+  color: #00c0ef !important;
+}
+.icon-label i:first-child {
+  font-size: 17px !important;
+}
+.icon-label i:last-child {
+  font-size: 13px;
+  color: #ff0000;
+  bottom: -4px;
+  right: -6px;
+}
+.fa-icon-label {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 30px;
+  position: absolute;
+  color: #666;
+  background: #d2d6de;
+  border-radius: 50%;
+  text-align: center;
 }
