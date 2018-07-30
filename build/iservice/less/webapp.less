@@ -24,6 +24,7 @@
 @status-green:#ecf2e1;
 @status-yellow: #fefde5;
 @red : #f00;
+@link : #337ab7;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -1536,7 +1537,7 @@ ul.timeline span.stack-icon
 
 .dataTables_wrapper{
   .dataTables_length{float:left;}
-  .dt-buttons{margin-right: 15px;}
+  .dt-buttons{margin-right: 15px;float:left;}
 }
 .stack-icon-label{
     width: auto;
@@ -1566,7 +1567,16 @@ ul.timeline span.stack-icon
     border-radius: 50%;
     text-align: center;
 }
+.search-criteria {
+  .checkbox label{padding-left:0px;}
+  .treeview .indicator{color:@link;}
+  .treeview .tree li a,.treeview .tree li {color:@list-group-link-heading-color; font-weight:600;}
 
-
+}
+.tree > .branch{padding-left:0px !important;}
+.p-l-0{padding-left:0}
+.table .icon-col{width:54px;}
+.table > thead > tr > th:first-child{padding-right:0px !important;}
+.dropdown-menu .dropdown-header{font-size:14px;}
 
 

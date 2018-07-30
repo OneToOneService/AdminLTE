@@ -1295,6 +1295,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .dataTables_wrapper .dt-buttons {
   margin-right: 15px;
+  float: left;
 }
 .stack-icon-label {
   width: auto;
@@ -1354,4 +1355,30 @@ ul.timeline span.stack-icon .aqua {
   background: #d2d6de;
   border-radius: 50%;
   text-align: center;
+}
+.search-criteria .checkbox label {
+  padding-left: 0px;
+}
+.search-criteria .treeview .indicator {
+  color: #337ab7;
+}
+.search-criteria .treeview .tree li a,
+.search-criteria .treeview .tree li {
+  color: #333333;
+  font-weight: 600;
+}
+.tree > .branch {
+  padding-left: 0px !important;
+}
+.p-l-0 {
+  padding-left: 0;
+}
+.table .icon-col {
+  width: 54px;
+}
+.table > thead > tr > th:first-child {
+  padding-right: 0px !important;
+}
+.dropdown-menu .dropdown-header {
+  font-size: 14px;
 }
