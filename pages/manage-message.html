@@ -29,8 +29,8 @@ title: Manage Message - List View
                 <div class=""> 
 				 <div class="col-md-12">
 				  <div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
-					  <a class="btn btn-primary active" data-toggle="off" href="/pages/chronological-view.html">List View</a>
-					  <a class="btn btn-default " data-toggle="on" href="/pages/case-view.html">Tree View</a>
+					  <a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message.html">List View</a>
+					  <a class="btn btn-default " data-toggle="on" href="/pages/manage-message-treeview.html">Tree View</a>
 				  </div>
 				 </div>
 				</div>
@@ -40,7 +40,7 @@ title: Manage Message - List View
 						<div class="box box-primary">
 						  <div class="box-header with-border">
 							<i class="fa fa-search"></i>
-							<h3 class="box-title text-right">Search Criteria</h3>
+							<h3 class="box-title text-right">Message List Criteria</h3>
 						  </div>
 						  <div class="box-body">
 						     <section class="container-fluid search-parameters">
@@ -67,9 +67,12 @@ title: Manage Message - List View
 									  </div>
 								   </div>
 									<div class="col-md-6">
-									   <div class="checkbox">
-										 <label class="mright-15"> Include Sub Topic </label> <input type="checkbox">
-									  </div>
+									   <div class="checkbox d-inline">
+										 <label class="mright-15 "> Include Sub Topics </label> <input type="checkbox">
+									    </div>
+										<div class="checkbox d-inline">
+										 <label class="mright-15 "> Show All Messages</label> <input type="checkbox">
+									    </div>
 								   </div>
 							   </div>
 							 </section>
@@ -325,7 +328,7 @@ title: Manage Message - List View
                             <div class="box box-info">
 								<div class="box-header with-border">
 								  <i class="fa  fa-list-alt"></i>
-								  <h3 class="box-title head-title-padding">Search Result</h3>
+								  <h3 class="box-title head-title-padding">Message List</h3>
 								</div>
 								<!-- /.box-header -->
 								<!-- form start -->
@@ -334,35 +337,32 @@ title: Manage Message - List View
 									  <table id="example1" class="table  table-striped table-hover ">
 										 <thead>
 										  <tr>
-											<th class="no-sort"  name="name"><div class="icon-col"></div></th>
+											<th class="no-sort"  name="name"></th>
 											<th class="text-capitalize">
-											 Subject <br>
-											 <input type="text"  id="subject" class="form-control" onclick="stopPropagation(event);">
+											 Subject 
 											</th>
 											<th class="text-capitalize" >
 											  Contact Name
-											  <select id="contactName" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
+											
 											</th>
 											<th class="text-capitalize" >
 											  Contact Email
-											  <select id="contactEmail" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
 											</th>
 											<th class="text-capitalize">
 											 Date
 											</th>
 											<th class="text-capitalize" >
 											  Assigned To
-											  <select id="assignedTo" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
 											</th>
 											<th class="text-capitalize">
-											 Interaction Type
-											 <select id="interactionType" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
+											 Topic
 											</th>
 										  </tr>
 										</thead>  
 										<tbody>
 										  <tr >
-											<td  name="name" width="30">
+											<td  name="name" width="30" class="icon-col">
+											  <input type="checkbox" value="">
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle" ></i>
 											  </button>
@@ -383,11 +383,12 @@ title: Manage Message - List View
 											  jaswant
 											</td>
 											<td class="">
-											  <small class="label bg-green">Sent</small>
+											  _Undeliverable
 											</td>
 										  </tr>
 										  <tr >
-											<td name="name" width="30">
+											<td name="name" width="30" class="icon-col">
+											  <input type="checkbox" value="">
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
 											  </button>
@@ -408,17 +409,15 @@ title: Manage Message - List View
 											 jaswant
 											</td>
 											<td class="">
-											  <small class="label bg-light-blue">Agent Email</small>
+											 Follow
 											</td>
 										  </tr>
 										  <tr >
 											<td  name="name" class="icon-col">
+											  <input type="checkbox" value="">
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle"></i>
-											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message">
-												 <i class="fa fa-envelope-open" data-toggle="tooltip" data-placement="right" data-original-title="Case includes unresolved questions"></i>
-											  </button>							 
+											  </button>			 
 											</td>
 											<td class="">
 											 [ref#: 326-326] asq question email testing
@@ -436,16 +435,14 @@ title: Manage Message - List View
 											  Adam
 											</td>
 											<td class="">
-											  <small class="label bg-teal">Ask Question</small>
+											  Paynet
 											</td>
 										  </tr>
 										   <tr >
 											<td  name="name" class="icon-col">
+											  <input type="checkbox" value="">
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="bottom" ata-original-title="Case includes unresolved questions">
-												 <i class="fa fa-envelope-open" data-toggle="tooltip" data-placement="right" data-original-title="Case includes unresolved questions"></i>
 											  </button>
 											</td>
 											<td class="">
@@ -464,7 +461,7 @@ title: Manage Message - List View
 											   Steve
 											</td>
 											<td class="">
-											  <small class="label bg-light-blue">Agent Email</small>
+											  Game Codes
 											</td>
 										  </tr>
 										</tbody>
@@ -683,119 +680,38 @@ title: Manage Message - List View
     <!-- ./wrapper -->
     {% include common-javascript.html %}
        <!-- DataTables -->
-	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
-
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-	
-	
-	
 	
 	<script>
 	$(document).ready(function() {
     // DataTable
     var table = $('#example1').DataTable( {
 	    "language" : {
-			"search": "Filter history"
+			"search": "Filter Message"
 		  },
 	    dom: 'Blfrtip',
         "order": [],
-		 buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
+		 buttons: ['colvis' ],
 		"columnDefs": [ {
 		  "targets"  : 'no-sort',
 		  "orderable": false,
 		}]
+	  });
+    } );
+
+	$('.selectpicker').selectpicker('refresh');
+	  //iCheck for checkbox and radio inputs
+	  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+		checkboxClass: 'icheckbox_minimal-blue',
+		radioClass: 'iradio_minimal-blue'
 	});
- 
-   	$('#subject').on( 'keyup', function () {
-    table
-        .columns(1)
-        .search( this.value )
-        .draw();
-	} );
-	
-	$("#contactName").each( function (i) {
-        var select = $('#contactName')
-            .on( 'change', function () {
-                table.column(2)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(2).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
-        } );
-    } );
-	$("#contactEmail").each( function (i) {
-        var select = $('#contactEmail')
-            .on( 'change', function () {
-                table.column(3)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(3).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
-        } );
-    } );
-	$("#assignedTo").each( function (i) {
-        var select = $('#assignedTo')
-            .on( 'change', function () {
-                table.column(5)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(5).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
-        } );
-    } );
-	$("#interactionType").each( function (i) {
-        var select = $('#interactionType')
-            .on( 'change', function () {
-                table.column(6)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(6).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
-        } );
-    } );
-
-} );
-
-function stopPropagation(evt) {
-	if (evt.stopPropagation !== undefined) {
-	evt.stopPropagation();
-	} else {
-	evt.cancelBubble = true;
-	}
-}
- $('#datepickerafter,#datepickerbefore').datepicker({
-        autoclose: true
- });
- 
- $('.infield').change(function(){
-   
-   if($('option:selected',this).text()=='Date'){ 
-      $('.search').datepicker();
-   }else{
-      $('.search').off();
-   }
- });
- $('.selectpicker').selectpicker('refresh');
-  //iCheck for checkbox and radio inputs
-  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-	checkboxClass: 'icheckbox_minimal-blue',
-	radioClass: 'iradio_minimal-blue'
-  });
 </script>
 </body>
 </html>

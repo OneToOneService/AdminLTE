@@ -1380,3 +1380,6 @@ ul.timeline span.stack-icon .aqua {
 .dataTable thead > tr > th > select {
   width: 100% !important;
 }
+.d-inline {
+  display: inline;
+}
