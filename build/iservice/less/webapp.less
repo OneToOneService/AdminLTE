@@ -26,6 +26,15 @@
 @red : #f00;
 @link : #337ab7;
 
+@bg-green-disabled:#5ac594;
+@bg-blue-disabled:#81b5d4;
+@bg-purple-disabled:#9896c7;
+@bg-gray-disabled:#b5bbc8;
+@bg-red-disabled:#e98b7f;
+@bg-teal-disabled:#7fdede;
+@bg-orange-disabled:#ffb06b;
+@bg-yellow-disabled:#f7bf66;
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
     display: none !important;
@@ -1579,5 +1588,18 @@ ul.timeline span.stack-icon
 .dropdown-menu .dropdown-header{font-size:14px;}
 .dataTable thead > tr > th > input, .dataTable thead > tr > th > select{width:100% !important;}
 .d-inline{display:inline;}
+[class^="bg-"].disabled {
+    opacity: .65;
+    filter: alpha(opacity=65);
+}
+.bg-green-disabled{background:@bg-green-disabled; color:@white;}
+.bg-blue-disabled{background:@bg-blue-disabled; color:@white;}
+.bg-purple-disabled{background:@bg-purple-disabled; color:@white;}
+.bg-red-disabled{background:@bg-red-disabled; color:@white;}
+.bg-orange-disabled{background:@bg-orange-disabled; color:@white;}
+.bg-yellow-disabled{background:@bg-yellow-disabled;color:@white;}
+.bg-gray-disabled{background:@bg-gray-disabled;color:@white;}
+.bg-teal-disabled{background:@bg-teal-disabled;color:@white;}
+
 
 

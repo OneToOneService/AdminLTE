@@ -1383,3 +1383,39 @@ ul.timeline span.stack-icon .aqua {
 .d-inline {
   display: inline;
 }
+[class^="bg-"].disabled {
+  opacity: .65;
+  filter: alpha(opacity=65);
+}
+.bg-green-disabled {
+  background: #5ac594;
+  color: #ffffff;
+}
+.bg-blue-disabled {
+  background: #81b5d4;
+  color: #ffffff;
+}
+.bg-purple-disabled {
+  background: #9896c7;
+  color: #ffffff;
+}
+.bg-red-disabled {
+  background: #e98b7f;
+  color: #ffffff;
+}
+.bg-orange-disabled {
+  background: #ffb06b;
+  color: #ffffff;
+}
+.bg-yellow-disabled {
+  background: #f7bf66;
+  color: #ffffff;
+}
+.bg-gray-disabled {
+  background: #b5bbc8;
+  color: #ffffff;
+}
+.bg-teal-disabled {
+  background: #7fdede;
+  color: #ffffff;
+}
