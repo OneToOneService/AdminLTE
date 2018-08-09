@@ -800,6 +800,7 @@ ul.timeline span.stack-icon .aqua {
 .glyphicon-chevron-right.expanded {
   transform: rotate(90deg);
   transition-duration: 0.5s;
+  font-size: 12px;
 }
 .collapsed .glyphicon-chevron-right.expanded {
   transform: rotate(0deg);
