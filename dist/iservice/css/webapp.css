@@ -471,7 +471,6 @@ p.login-box-msg {
   text-align: center;
   left: 18px;
   line-height: 30px;
-  position: absolute;
 }
 .box-background {
   background: #eaeaea;
@@ -1347,7 +1346,6 @@ ul.timeline span.stack-icon .aqua {
   height: 30px;
   font-size: 15px;
   line-height: 30px;
-  position: absolute;
   color: #666;
   background: #d2d6de;
   border-radius: 50%;
