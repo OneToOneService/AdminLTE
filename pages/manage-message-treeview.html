@@ -98,15 +98,19 @@ title: Manage Messages - Tree View
 				</div>
 	            <div class="col-md-9 p-l-0">
 				 <div class="row ">
-
 						  <div class="col-md-12">
 							  <div class="box box-primary">
-								  <div class="box-header with-border collapsed" data-toggle="collapse" data-target="#messageList">
-									<h3 class="box-title"><i class="fa fa-fw fa-edit"></i>  Mass Update</h3> 
-									<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
-								  </div>
-								  <div class="box-body collapse " id="messageList">
+								 <div class="box-header with-border">
+									  <h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
+									  <div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#massupdate" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
+										</button>
+									  </div>
+								  </div> 
+								  <div class="box-body p0 manage-message in" id="massupdate">
+								    <div class="mtop-15">
 									   <div class="col-md-8 form-horizontal"> 
+									   <div class="col-md-12">
                                        <div class="form-group">
 											  <div class="btn-group dropdown margin-r-5">
 												  <button type="button" class="btn btn-primary "> <i class="fa fa-send"></i>
@@ -151,9 +155,14 @@ title: Manage Messages - Tree View
 									   <div class="box">
                                          <div class="box-header with-border">
 											  <h3 class="box-title">Email Addresses And Subject Line</h3>
-											</div>	
-                                        <div class="box-body"> 											
-										   <div class="form-group">
+											  <div class="box-tools pull-right">
+												<button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#emailbox" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
+												</button>							
+											  </div>
+										 </div>	
+                                        <div class="box-body collapse p0 in" id="emailbox"> 	
+                                           <div class="p10"> 										
+										    <div class="form-group">
 											<label class="col-sm-2 control-label">From</label>
 											<div class="col-sm-10">
 											  <input class="form-control " type="text" style="">
@@ -165,7 +174,7 @@ title: Manage Messages - Tree View
 												  <input class="form-control " type="text" style="">
 												</div>
 											</div>
-										   <div class="form-group">
+										    <div class="form-group">
 												<label class="col-sm-2 control-label">CC</label>
 												<div class="col-sm-10">
 												  <input class="form-control " type="text" style="">
@@ -186,11 +195,7 @@ title: Manage Messages - Tree View
 												  <input class="form-control " type="text" style="">
 												</div>
 										   </div>
-										   <div class="form-group">
-											  <div class="col-md-2">
-											  </div>
-											 
-											</div> 
+										   </div>  
 										  </div>	 
 				                        </div>		
 										</div>
@@ -211,7 +216,7 @@ title: Manage Messages - Tree View
 											  <div class="tab-pane active" id="draftbody">
 											      <div class="form-group text-editor-container">
 													  <div class="col-sm-12">
-														<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
+														<textarea class="form-control" style="height:500px;" rows="10" placeholder="" id="editor1" name="editor1"></textarea>
 													  </div>
 													</div>
 											   </div>
@@ -233,6 +238,8 @@ title: Manage Messages - Tree View
 											</div>	
 										  </div>
 									  </div>
+									  </div>
+									  
 									</div> 
 									<div class="col-md-4">
 									  <div class="box box-warning stock-responses ng-scope">
@@ -334,6 +341,7 @@ title: Manage Messages - Tree View
 											<!-- /.tab-content -->
 										</div>
 									</div>
+								   </div>
 								  </div>
 								
 							  </div>
@@ -787,7 +795,23 @@ title: Manage Messages - Tree View
 	$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
 		checkboxClass: 'icheckbox_minimal-blue',
 		radioClass: 'iradio_minimal-blue'
-	  });	
+	});
+   $(function ()
+   {
+	   // SLIMSCROLL FOR CHAT WIDGET
+		  $('#variable-box').slimScroll({
+			height: '250px'
+		  });
+		  $('#stock-responses').slimScroll({
+			height: '250px'
+		  });
+		  CKEDITOR.replace('editor1',
+			{
+				 height: 400
+			});
+		 
+   });
+   
 });	  
 </script>
 </body>

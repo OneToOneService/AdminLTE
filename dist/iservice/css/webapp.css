@@ -1418,3 +1418,18 @@ ul.timeline span.stack-icon .aqua {
   background: #7fdede;
   color: #ffffff;
 }
+.p0 {
+  padding: 0px;
+}
+.p10 {
+  padding: 10px;
+}
+.collapsed .glyphicon-chevron-down {
+  transform: rotate(-90deg);
+  transition-duration: 0.5s;
+}
+.manage-message .nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 8px;
+}
