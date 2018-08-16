@@ -229,7 +229,7 @@ title: Customer Info - Contact
               <div class="tab-pane contact-detail" id="tab_2">
                 <div class="row">
                   <div class="col-xs-12 col-sm-9 panel-group">
-                    <div class="box box-default">
+                    <div class="box box-info">
                       <div class="box-header with-border" data-toggle="collapse" data-target="#contactinfo">
                         <h3 class="box-title">Contact Information</h3>
                         <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
@@ -385,7 +385,7 @@ title: Customer Info - Contact
                         <strong>…</strong>
                       </button>
                     </div>
-                    <div class="box box-default ">
+                    <div class="box box-warning ">
                       <div class="box-header with-border" data-toggle="collapse" data-target="#segment">
                         <h3 class="box-title ng-binding">Automated Test Segment</h3>
                         <span class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
@@ -414,19 +414,19 @@ title: Customer Info - Contact
                           </div>
                         </div>
                       </div>
-                      <button type="button" class="btn btn-default btn-xs margin-5 ng-hide" ng-show="isCollapsed(segment.name)">
+                      <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
                         <strong>…</strong>
                       </button>
                     </div>
-                    <div class="box box-default ">
+                    <div class="box box-success ">
                       <div class="box-header with-border" data-toggle="collapse" data-target="#segment1">
                         <h3 class="box-title ng-binding">Segment1</h3>
-                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{ 'expanded': !isCollapsed(segment.name) }"></span>
+                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ></span>
                       </div>
                       <div class="box-body in collapse" id="segment1">
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
-                            <!-- ngRepeat: property in segment.leftProperties --><div class="">
+                           <div class="">
                               <div class="form-group floating-label property-text">
                                 <input type="text" value="">
                                 <label class="">Text</label>
@@ -472,7 +472,7 @@ title: Customer Info - Contact
                         <strong>…</strong>
                       </button>
                     </div>
-                    <div class="box box-default ">
+                    <div class="box box-danger ">
                       <div class="box-header with-border" data-toggle="collapse" data-target="#segment2">
                         <h3 class="box-title ng-binding">Segment2</h3>
                         <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
@@ -778,7 +778,11 @@ title: Customer Info - Contact
 											 Steve
 											</td>
 											<td class="">
-											 <small class="label label-default" data-toggle="tooltip" data-placement="left" data-html="true" data-original-title="Description Value: true,<br/>Description Value:65">View Properties</small>
+											 description: <br>
+                                             value: Earth Venus Mars Saturn<br>
+											 <button type="button" class="btn btn-default btn-xs margin-5">
+												  <strong>…</strong>
+											 </button>
 											</td>
 											<td class="">
 											2016-07-18 9:36:26 AM
@@ -806,7 +810,9 @@ title: Customer Info - Contact
 											 Steve
 											</td>
 											<td class="">
-											<small class="label label-default" data-toggle="tooltip" data-placement="left" data-html="true" data-original-title="Description Value: true,<br/>Description Value:65">View Properties</small>
+											description: <br>
+                                            value: bar
+											
 											</td>
 											<td class="">
 											 2016-07-18 9:36:26 AM
@@ -835,7 +841,11 @@ title: Customer Info - Contact
 											 Adam 
 											</td>
 											<td class="">
-											<small class="label label-default" data-toggle="tooltip" data-placement="left" data-html="true" data-original-title="Description Value: true,<br/>Description Value:65">View Properties</small>
+											 description: <br>
+                                             value: Windows OS X Linux FreeBSD Open BSD<br>
+											 <button type="button" class="btn btn-default btn-xs margin-5">
+												  <strong>…</strong>
+											 </button>
 											</td>
 											<td class="">
 											 2016-07-18 9:36:26 AM
@@ -864,7 +874,13 @@ title: Customer Info - Contact
 											 Adam 
 											</td>
 											<td class="">
-											<small class="label label-default" data-toggle="tooltip" data-placement="left" data-html="true" data-original-title="Description Value: true,<br/>Description Value:65">View Properties</small>
+											description: 
+											value: Earth
+											description: 
+											value: <br>
+											<button type="button" class="btn btn-default btn-xs margin-5">
+												  <strong>…</strong>
+											 </button>
 											</td>
 											<td class="">
 											2016-07-18 9:36:26 AM

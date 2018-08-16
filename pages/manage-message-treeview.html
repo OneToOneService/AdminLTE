@@ -103,11 +103,11 @@ title: Manage Messages - Tree View
 								 <div class="box-header with-border">
 									  <h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
 									  <div class="box-tools pull-right">
-										<button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#massupdate" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
+										<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
 										</button>
 									  </div>
 								  </div> 
-								  <div class="box-body p0 manage-message in" id="massupdate">
+								  <div class="box-body p0 manage-message collapse" id="massupdate" >
 								    <div class="mtop-15">
 									   <div class="col-md-8 form-horizontal"> 
 									   <div class="col-md-12">
@@ -152,15 +152,15 @@ title: Manage Messages - Tree View
 											<a class="btn btn-link ng-scope"   href="#">Cancel</a>
 									   </div>
 									   <div class="row">
-									   <div class="box">
+									   <div class="box box-success">
                                          <div class="box-header with-border">
 											  <h3 class="box-title">Email Addresses And Subject Line</h3>
 											  <div class="box-tools pull-right">
-												<button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#emailbox" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
+												<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
 												</button>							
 											  </div>
 										 </div>	
-                                        <div class="box-body collapse p0 in" id="emailbox"> 	
+                                        <div class="box-body p0 collapse" id="emailbox"> 	
                                            <div class="p10"> 										
 										    <div class="form-group">
 											<label class="col-sm-2 control-label">From</label>
@@ -807,7 +807,7 @@ title: Manage Messages - Tree View
 		  });
 		  CKEDITOR.replace('editor1',
 			{
-				 height: 400
+				 height: 300
 			});
 		 
    });
