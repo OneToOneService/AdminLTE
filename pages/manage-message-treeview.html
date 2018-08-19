@@ -395,16 +395,16 @@ title: Manage Messages - Tree View
 											 [ref#: 326-326] System access request for Test2 Test2
 											</td>
 											<td class="">
-											 Scott
+											 Norman
 											</td>
 											<td class="">
-											 scott@gmail.com
+											 norman@gmail.com
 											</td>
 											<td class="">
 											 2 Days ago
 											</td>
 											<td class="">
-											  jaswant
+											  Sarah
 											</td>
 											<td class="">
 											  _Undeliverable
@@ -421,16 +421,16 @@ title: Manage Messages - Tree View
 											 [ref#: 326-326] access request for test1 
 											</td>
 											<td class="">
-											 Steve
+											 Sarah
 											</td>
 											<td class="">
-											  steve@1to1.com
+											  sarah@1to1.com
 											</td>
 											<td class="">
 											 2 Days ago
 											</td>
 											<td class="">
-											 jaswant
+											 Norman
 											</td>
 											<td class="">
 											 Follow
@@ -447,19 +447,19 @@ title: Manage Messages - Tree View
 											 [ref#: 326-326] asq question email testing
 											</td>
 											<td class="">
-											 Adam
+											 Nora
 											</td>
 											<td class="">
-											  Adam@gmail.com
+											  nora@gmail.com
 											</td>
 											<td class="">
 											 4 Days ago
 											</td>
 											<td class="">
-											  Adam
+											  Alexander
 											</td>
 											<td class="">
-											   Paynet
+											   _spam
 											</td>
 										  </tr>
 										   <tr >
@@ -473,16 +473,16 @@ title: Manage Messages - Tree View
 											 [ref#: 326-326] asq question email testing
 											</td>
 											<td class="">
-											 Adam
+											 Alexander
 											</td>
 											<td class="">
-											 adam@gmail.com
+											 alexander@gmail.com
 											</td>
 											<td class="">
 											 5 Days ago
 											</td>
 											<td class="">
-											   Steve
+											   Norman
 											</td>
 											<td class="">
 											  _Undeliverable
@@ -700,7 +700,7 @@ title: Manage Messages - Tree View
     <!-- ./wrapper -->
     {% include common-javascript.html %}
    
-	 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
@@ -727,11 +727,6 @@ title: Manage Messages - Tree View
 	});
  
 	 $('.selectpicker').selectpicker('refresh');
-	  //iCheck for checkbox and radio inputs
-	  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-		checkboxClass: 'icheckbox_minimal-blue',
-		radioClass: 'iradio_minimal-blue'
-	  });
 
 	$.fn.extend({
 		treed: function (o) {
@@ -792,10 +787,7 @@ title: Manage Messages - Tree View
 		icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
 		$(this).children().children().toggle();
 	});	
-	$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-		checkboxClass: 'icheckbox_minimal-blue',
-		radioClass: 'iradio_minimal-blue'
-	});
+	
    $(function ()
    {
 	   // SLIMSCROLL FOR CHAT WIDGET

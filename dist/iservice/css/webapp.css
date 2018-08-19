@@ -791,9 +791,6 @@ ul.timeline span.stack-icon .aqua {
   left: -30px;
   position: absolute;
 }
-.qa-message-list:nth-last-of-type(1) .message-item::before {
-  border: none;
-}
 .qa-message-list span i {
   top: 0;
 }
@@ -1074,6 +1071,12 @@ ul.timeline span.stack-icon .aqua {
 }
 .mleft-15 {
   margin-left: 15px;
+}
+.mright-5 {
+  margin-right: 5px;
+}
+.mleft-5 {
+  margin-left: 5px;
 }
 .box-container {
   position: relative;
