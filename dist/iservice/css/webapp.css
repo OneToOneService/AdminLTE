@@ -407,7 +407,7 @@ p.login-box-msg {
 }
 .treeview .tree li {
   margin: 0;
-  padding: 0 1em;
+  padding: 0 0em 0px 1em;
   line-height: 2em;
   color: #336699;
   font-weight: 700;
