@@ -1452,3 +1452,9 @@ ul.timeline span.stack-icon .aqua {
   float: right;
   text-align: center;
 }
+.inline-check {
+  padding-top: 8px;
+}
+.inline-check .icheckbox_square-blue {
+  margin-right: 5px;
+}
