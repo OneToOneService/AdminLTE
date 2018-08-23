@@ -437,6 +437,9 @@ p.login-box-msg {
   text-decoration: none;
   color: #336699;
 }
+.treeview .tree li a.selected {
+  color: #336699 !important;
+}
 .treeview .tree li button,
 .treeview .tree li button:active,
 .treeview .tree li button:focus {
