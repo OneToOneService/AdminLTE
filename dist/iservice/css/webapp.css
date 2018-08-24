@@ -407,7 +407,7 @@ p.login-box-msg {
 }
 .treeview .tree li {
   margin: 0;
-  padding: 0 1em;
+  padding: 0 0em 0px 1em;
   line-height: 2em;
   color: #336699;
   font-weight: 700;
@@ -436,6 +436,9 @@ p.login-box-msg {
 .treeview .tree li a {
   text-decoration: none;
   color: #336699;
+}
+.treeview .tree li a.selected {
+  color: #336699 !important;
 }
 .treeview .tree li button,
 .treeview .tree li button:active,
@@ -791,9 +794,6 @@ ul.timeline span.stack-icon .aqua {
   left: -30px;
   position: absolute;
 }
-.qa-message-list:nth-last-of-type(1) .message-item::before {
-  border: none;
-}
 .qa-message-list span i {
   top: 0;
 }
@@ -884,6 +884,12 @@ ul.timeline span.stack-icon .aqua {
 }
 .customer-details .box-header {
   cursor: pointer;
+}
+.customer-details .glyphicon-chevron-right {
+  transition: all ease-in-out 0.3s;
+}
+.customer-details .glyphicon-chevron-right.expanded {
+  transform: rotate(90deg);
 }
 [contenteditable]:empty:not(:focus)::before {
   content: attr(placeholder);
@@ -1068,6 +1074,12 @@ ul.timeline span.stack-icon .aqua {
 }
 .mleft-15 {
   margin-left: 15px;
+}
+.mright-5 {
+  margin-right: 5px;
+}
+.mleft-5 {
+  margin-left: 5px;
 }
 .box-container {
   position: relative;
@@ -1427,9 +1439,25 @@ ul.timeline span.stack-icon .aqua {
   display: block;
   padding: 10px 8px;
 }
-.chevron-expand-indicator {
-  transition: all ease-in-out 0.3s;
+.graph-assigned {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
 }
-.chevron-expand-indicator_expanded {
-  transform: rotate(90deg);
+.chat-agents-img,
+.chat-agents-img img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+.chat-col {
+  width: 35px;
+  float: right;
+  text-align: center;
+}
+.inline-check {
+  padding-top: 8px;
+}
+.inline-check .icheckbox_square-blue {
+  margin-right: 5px;
 }

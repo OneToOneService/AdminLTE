@@ -1,5 +1,5 @@
 ---
-title: Manage Messages - List View
+title: Manage Messages - Tree View
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -9,7 +9,6 @@ title: Manage Messages - List View
 <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -25,79 +24,108 @@ title: Manage Messages - List View
             </section>
   <!-- Main content -->
             <section class="content">
-                <!-- START CUSTOM TABS -->
-                <div class=""> 
+			   <div class="row"> 
 				 <div class="col-md-12">
 				  <div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
-					  <a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message.html">List View</a>
-					  <a class="btn btn-default " data-toggle="on" href="/pages/manage-message-treeview.html">Tree View</a>
+					  <a class="btn btn-default " data-toggle="on" href="/pages/manage-message.html">List View</a>
+					  <a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message-treeview.html">Tree View</a>
 				  </div>
 				 </div>
 				</div>
-                <div class="row p-l-0">
-                    <div class="col-md-12">
-                        <!-- Custom Tabs -->
-						<div class="box box-primary">
-						  <div class="box-header with-border">
-							<i class="fa fa-search"></i>
-							<h3 class="box-title text-right">Message List Criteria</h3>
-						  </div>
-						  <div class="box-body">
-						     <section class="container-fluid search-parameters">
-							  <div class="form-horizontal">
-								   <div class="col-md-6">
-									 <div class="form-group">
-										<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
-										<div class="col-sm-8">
-										  <select class="selectpicker form-control" multiple>
-											<option>e-shop -- All Topics(0)</option>
-											<option>.._Feedback (2)</option>
-											<option>.._Newsletter Subscription (0)</option>
-											<option>.._Spam (0)</option>
-											<option>.._Undeliverable (0)</option>
-											<option>..Account Questions (0)</option>
-											<option>....Orders (0)</option>
-											<option>....Refunds (0)</option>
-											<option>....Returns (0)</option>
-											<option>..Products(0)</option>
-											<option>....Audio-Video (0)</option>
-											<option>....Cameras (0)</option>
-											<option>....Cell Phones (0)</option>
-											<option>....Computers (0)</option>
-											<option>....Televisions(0)</option>
-											<option>..Shipping (0)</option>
-											<option>..Technical Support (0)</option>
-											<option>....Open Quotes (1)</option>
-										  </select>
-										</div>
-									  </div>
-								   </div>
-									<div class="col-md-6">
-									   <div class="checkbox d-inline">
-										 <label class="mright-15 "> Include Sub Topics </label> <input type="checkbox">
-									    </div>
-										<div class="checkbox d-inline">
-										 <label class="mright-15 "> Show All Messages</label> <input type="checkbox">
-									    </div>
-								   </div>
-							   </div>
-							 </section>
-						  </div>
-						</div>
-						<div class="row">
+              <div class="row"> 
+			    <div class="col-md-4">
+				  <!-- Profile Image -->
+				  <div class="box box-primary">
+				    <div class="box-header with-border">
+					  <i class="fa fa-search"></i>
+					  <h3 class="box-title text-right">Message List Criteria</h3>
+					</div>
+					<div class="box-body search-criteria">
+					  <div class="checkbox">
+						 <label class="mright-15"> <input type="checkbox"> Include Sub Topics </label> 
+					  </div>
+					  <div class="checkbox">
+						 <label class="mright-15"><input type="checkbox"> Show All Messages</label> 
+					  </div>
+					  <div class="treeview">
+					   <ul id="tree1" class="tree">
+							<li><a href="#">1to1Service -- All Topic (2)</a>
+							    <span class="chat-col">1</span>
+								<span class="chat-col">-</span>
+								<span class="chat-col">-</span>
+								<ul>
+									<li>_Spam (2) 
+									<span class="chat-col">1</span>
+								    <span class="chat-col">-</span>
+								    <span class="chat-col">-</span>
+									</li>
+									<li>_Undeliverable (0)
+										<ul>
+											<li>Sales Protecting (0)
+											<span class="chat-col">1</span>
+								            <span class="chat-col">-</span>
+								            <span class="chat-col">-</span>
+												<ul>
+													<li>Follow Ups(0)
+													 <span class="chat-col">1</span>
+								                     <span class="chat-col">-</span>
+								                     <span class="chat-col">-</span>
+													</li>
+													<li>Follow (0)
+													 <span class="chat-col">1</span>
+								                     <span class="chat-col">-</span>
+								                     <span class="chat-col">-</span></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>QA -- All Topic (2)
+								<ul>
+									<li>_Spam (2)</li>
+									<li>Test topic (2)</li>
+									<li>_Undeliverable (0)
+										<ul>
+											<li>Change Request (0)
+												<ul>
+													<li>Paynet(0)								  
+													</li>
+													<li>Paynet Sub(0)</li>
+												</ul>
+											</li>
+											<li>Desert Schools</li>
+											<li>Game Codes</li>
+											<li>Manuals</li>
+											<li>Ops</li>
+										</ul>
+									</li>
+									
+								</ul>
+							</li>
+						</ul>
+					
+					</div>
+					</div>
+					<!-- /.box-body -->
+				  </div>
+				  <!-- /.box -->
+                  
+				</div>
+	            <div class="col-md-8 p-l-0">
+				 <div class="row ">
 						  <div class="col-md-12">
 							  <div class="box box-primary">
-								  <div class="box-header with-border">
-									<h3 class="box-title"><i class="fa fa-fw fa-edit"></i>  Mass Update</h3> 
-									<div class="box-tools pull-right">
-										<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
+								 <div class="box-header with-border">
+									  <h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
+									  <div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#massupdate" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
 										</button>
-									</div>
-								  </div>
-								  <div class="box-body p0 manage-message collapse" id="massupdate">
-								    <div class="mtop-15">
-									<div class="col-md-8 form-horizontal"> 
-									  <div class="col-md-12">
+									  </div>
+								  </div> 
+								  <div class="box-body p0 in" id="massupdate">
+								    <div class="p15">
+									   <div class="col-md-8 form-horizontal"> 
                                        <div class="form-group">
 											  <div class="btn-group dropdown margin-r-5">
 												  <button type="button" class="btn btn-primary "> <i class="fa fa-send"></i>
@@ -139,16 +167,16 @@ title: Manage Messages - List View
 											<a class="btn btn-link ng-scope"   href="#">Cancel</a>
 									   </div>
 									   <div class="row">
-									   <div class="box box-success">
+									   <div class="box">
                                          <div class="box-header with-border">
 											  <h3 class="box-title">Email Addresses And Subject Line</h3>
 											  <div class="box-tools pull-right">
-												<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
+												<button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#emailbox" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
 												</button>							
 											  </div>
-										 </div>	
-                                        <div class="box-body p0 collapse" id="emailbox"> 	
-                                          <div class="p10"> 										
+											</div>	
+                                        <div class="box-body collapse p0 in" id="emailbox"> 	
+                                           <div class="p15"> 										
 										    <div class="form-group">
 											<label class="col-sm-2 control-label">From</label>
 											<div class="col-sm-10">
@@ -182,12 +210,7 @@ title: Manage Messages - List View
 												  <input class="form-control " type="text" style="">
 												</div>
 										   </div>
-										    <div class="form-group">
-											  <div class="col-md-2">
-											  </div>
-											 
-											</div> 
-										   </div>
+										   </div>  
 										  </div>	 
 				                        </div>		
 										</div>
@@ -230,7 +253,6 @@ title: Manage Messages - List View
 											</div>	
 										  </div>
 									  </div>
-									 </div> 
 									</div> 
 									<div class="col-md-4">
 									  <div class="box box-warning stock-responses ng-scope">
@@ -245,7 +267,7 @@ title: Manage Messages - List View
 											<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
 											<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
 										  </div>
-										</div>
+										</div>	
 									  </div>
 									  <div class="nav-tabs-custom">
 											<ul class="nav nav-tabs">
@@ -337,8 +359,8 @@ title: Manage Messages - List View
 								
 							  </div>
 						  </div>	  
-						</div>
-						<div class="row">
+						
+                       
 						  <div class="col-md-12">
                             <div class="box box-info">
 								<div class="box-header with-border">
@@ -383,22 +405,22 @@ title: Manage Messages - List View
 											  </button>
 											</td>
 											<td class="">
-											 Feedback provided
+											 [ref#: 326-326] System access request for Test2 Test2
 											</td>
 											<td class="">
-											 Feedback Account
+											 Scott
 											</td>
 											<td class="">
-											 feedback@gmail.com
+											 scott@gmail.com
 											</td>
 											<td class="">
 											 2 Days ago
 											</td>
 											<td class="">
-											  Jacob Smith
+											  jaswant
 											</td>
 											<td class="">
-											  _Feedback
+											  _Undeliverable
 											</td>
 										  </tr>
 										  <tr >
@@ -409,22 +431,22 @@ title: Manage Messages - List View
 											  </button>
 											</td>
 											<td class="">
-											 I need a good small camera
+											 [ref#: 326-326] access request for test1 
 											</td>
 											<td class="">
-											 James Williams
+											 Steve
 											</td>
 											<td class="">
-											 customer2@1to1service.com
+											  steve@1to1.com
 											</td>
 											<td class="">
 											 2 Days ago
 											</td>
 											<td class="">
-											 Jonie Hewlett
+											 jaswant
 											</td>
 											<td class="">
-											 Cameras
+											 Follow
 											</td>
 										  </tr>
 										  <tr >
@@ -435,22 +457,22 @@ title: Manage Messages - List View
 											  </button>
 											</td>
 											<td class="">
-											Can't find it
+											 [ref#: 326-326] asq question email testing
 											</td>
 											<td class="">
-											James Williams
+											 Adam
 											</td>
 											<td class="">
-											 customer2@1to1service.com
+											  Adam@gmail.com
 											</td>
 											<td class="">
 											 4 Days ago
 											</td>
 											<td class="">
-											 Jacob Smith
+											  Adam
 											</td>
 											<td class="">
-											   Televisions
+											   Paynet
 											</td>
 										  </tr>
 										   <tr >
@@ -461,40 +483,34 @@ title: Manage Messages - List View
 											  </button>
 											</td>
 											<td class="">
-											 	
-                                             Best price on LG Plasma
+											 [ref#: 326-326] asq question email testing
 											</td>
 											<td class="">
-											 	
-												John Doe
+											 Adam
 											</td>
 											<td class="">
-											 customer1@1to1service.com
+											 adam@gmail.com
 											</td>
 											<td class="">
 											 5 Days ago
 											</td>
 											<td class="">
-											  Jonie Hewlett
+											   Steve
 											</td>
 											<td class="">
-											  Televisions
+											  _Undeliverable
 											</td>
 										  </tr>
 										</tbody>
-									  
-										</table>
+									  </table>
+                   
 								  </div>
 							</div> 
-                        </div>                         
-                    </div>
-                    <!-- /.col -->
-                  </div> 
-                
-                </div>
-                <!-- /.row -->
-    <!-- END ACCORDION & CAROUSEL-->
-	
+						  </div>
+                                              
+                        </div>
+				    </div>		
+                </div> 
             </section>
          
         </div>
@@ -696,8 +712,8 @@ title: Manage Messages - List View
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-       <!-- DataTables -->
-    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+   
+	 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
@@ -706,7 +722,8 @@ title: Manage Messages - List View
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 	
-	<script>
+	
+<script>
 	$(document).ready(function() {
     // DataTable
     var table = $('#example1').DataTable( {
@@ -720,31 +737,95 @@ title: Manage Messages - List View
 		  "targets"  : 'no-sort',
 		  "orderable": false,
 		}]
-	  });
-	  
-	   // SLIMSCROLL FOR CHAT WIDGET
-	  $('#variable-box').slimScroll({
-		height: '250px'
-	  });
-	  $('#stock-responses').slimScroll({
-		height: '250px'
-	  });
-	  CKEDITOR.replace('editor1',
-		{
-			 height: 250
-		});
-			 
-	  
-    } );
-
-	$('.selectpicker').selectpicker('refresh');
+	});
+ 
+	 $('.selectpicker').selectpicker('refresh');
 	  //iCheck for checkbox and radio inputs
 	  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
 		checkboxClass: 'icheckbox_minimal-blue',
 		radioClass: 'iradio_minimal-blue'
+	  });
+
+	$.fn.extend({
+		treed: function (o) {
+		  
+		  var openedClass = 'glyphicon-minus-sign';
+		  var closedClass = 'glyphicon-plus-sign';
+		  
+		  if (typeof o != 'undefined'){
+			if (typeof o.openedClass != 'undefined'){
+			openedClass = o.openedClass;
+			}
+			if (typeof o.closedClass != 'undefined'){
+			closedClass = o.closedClass;
+			}
+		  };
+		  
+			//initialize each of the top levels
+			var tree = $(this);
+			tree.addClass("tree");
+			tree.find('li').has("ul").each(function () {
+				var branch = $(this); //li with children ul
+				branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+				branch.addClass('branch');
+				branch.on('click', function (e) {
+					if (this == e.target) {
+						var icon = $(this).children('i:first');
+						icon.toggleClass(openedClass + " " + closedClass);
+						$(this).children().children().toggle();
+					}
+				})
+				branch.children().children().toggle();
+			});
+			//fire event from the dynamically added icon
+		  tree.find('.branch .indicator').each(function(){
+			$(this).on('click', function () {
+				$(this).closest('li').click();
+			});
+		  });
+			//fire event to open branch if the li contains an anchor instead of text
+			tree.find('.branch>a').each(function () {
+				$(this).on('click', function (e) {
+					$(this).closest('li').click();
+					e.preventDefault();
+				});
+			});
+			//fire event to open branch if the li contains a button instead of text
+			tree.find('.branch>button').each(function () {
+				$(this).on('click', function (e) {
+					$(this).closest('li').click();
+					e.preventDefault();
+				});
+			});
+		}
 	});
-	
-  
+    $('#tree1').treed();	
+	$('#tree1 .branch').each(function(){
+		var icon = $(this).children('i:first');
+		icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
+		$(this).children().children().toggle();
+	});	
+	$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+		checkboxClass: 'icheckbox_minimal-blue',
+		radioClass: 'iradio_minimal-blue'
+	});
+   $(function ()
+   {
+	   // SLIMSCROLL FOR CHAT WIDGET
+		  $('#variable-box').slimScroll({
+			height: '250px'
+		  });
+		  $('#stock-responses').slimScroll({
+			height: '250px'
+		  });
+		  CKEDITOR.replace('editor1')
+   });
+   
+   $('#mybox').boxWidget({
+	  animationSpeed: 500,
+	  collapseTrigger: '#mybutton',
+	});
+});	  
 </script>
 </body>
 </html>
