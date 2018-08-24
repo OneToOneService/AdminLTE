@@ -885,12 +885,6 @@ ul.timeline span.stack-icon .aqua {
 .customer-details .box-header {
   cursor: pointer;
 }
-.customer-details .glyphicon-chevron-right {
-  transition: all ease-in-out 0.3s;
-}
-.customer-details .glyphicon-chevron-right.expanded {
-  transform: rotate(90deg);
-}
 [contenteditable]:empty:not(:focus)::before {
   content: attr(placeholder);
 }
@@ -1432,4 +1426,10 @@ ul.timeline span.stack-icon .aqua {
   position: relative;
   display: block;
   padding: 10px 8px;
+}
+.chevron-expand-indicator {
+  transition: all ease-in-out 0.3s;
+}
+.chevron-expand-indicator_expanded {
+  transform: rotate(90deg);
 }
