@@ -699,27 +699,21 @@ title: Customer Info - Contact
 											<th class="no-sort"  name="name" ></th>
 											<th class="text-capitalize">
 											 Subject <br>
-											 <input type="text"  id="subject" class="form-control" onclick="stopPropagation(event);">
 											</th>
 											<th class="text-capitalize" >
 											  Topic
-											  <select id="selectTopic" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
 											</th>
 											<th class="text-capitalize" >
 											  Status
-											  <select id="selectStatus" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
 											</th>
 											<th class="text-capitalize" >
 											  Type
-											  <select id="selectType" class="form-control datatable-input"  onclick="stopPropagation(event);"><option></option></select>
 											</th>
 											<th class="text-capitalize">
 											  Username
-											  <input type="text" id="username" class="form-control datatable-input" onclick="stopPropagation(event);">
 											</th>
 											<th class="text-capitalize">
 											  Properties
-											  <input type="text" id="properties" class="form-control datatable-input" onclick="stopPropagation(event);">
 											</th>
 											<th class="text-capitalize">
 											 Date
@@ -750,8 +744,7 @@ title: Customer Info - Contact
 											 Jacob Smith
 											</td>
 											<td class="">
-											  <strong>Description:</strong> Urgency Level <br>
-											  <strong>Value:</strong>  High <br>
+											  Urgency Level : High <br>
 											  <a href="javascript:void(0)">View All Properties</a>
 											</td>
 											<td class="">
@@ -783,8 +776,7 @@ title: Customer Info - Contact
 											  Jacob Smith
 											</td>
 											<td class="">
-											  <strong> Description:</strong>  Urgency Level <br>
-											  <strong> Value:</strong>  High <br>
+											   Urgency Level : High <br>
 											  <a href="javascript:void(0)">View All Properties</a>
 											</td>
 											<td class="">
@@ -817,8 +809,8 @@ title: Customer Info - Contact
 											 Alek Packard
 											</td>
 											<td class="">
-											</strong> Description:</strong>  Urgency Level <br>
-											</strong> Value:</strong>  High
+											 Urgency Level : High <br>
+											  <a href="javascript:void(0)">View All Properties</a>
 											</td>
 											<td class="">
 											 2016-07-18 9:36:26 AM
@@ -852,8 +844,7 @@ title: Customer Info - Contact
 											 Alek Packard
 											</td>
 											<td class="">
-											  Description: Urgency Level <br>
-											  Value: High <br>
+											 Urgency Level : High <br>
 											  <a href="javascript:void(0)">View All Properties</a>
 											</td>
 											<td class="">
@@ -901,20 +892,16 @@ title: Customer Info - Contact
 										  <tr>
 											<th class="no-sort"><div class="icon-col"></div></th>
 											<th class="text-capitalize">
-											 Subject <br>
-											 <input type="text"  id="casesubject" class="form-control" onclick="stopPropagation(event);">
+											 Subject 
 											</th>
 											<th class="text-capitalize" >
 											  Case Topic
-											  <select id="selectTopic" class="form-control"  onclick="stopPropagation(event);"><option></option></select>
 											</th>
 											<th class="text-capitalize" >
 											  Case Status
-											  <select id="selectStatus" class="form-control"  onclick="stopPropagation(event);"><option></option></select>
 											</th>
 											<th class="text-capitalize">
-											  Case Properties <br>
-											  <input type="text" id="caseproperties" class="form-control datatable-input" onclick="stopPropagation(event);">
+											  Case Properties
 											</th>
 											<th class="text-capitalize">
 											 Date <br>
@@ -1257,84 +1244,41 @@ title: Customer Info - Contact
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
 
   
-	<script>
+<script>
 	$(document).ready(function() {
-    // DataTable
-    var table = $('#example1').DataTable( {
-	    "language" : {
-			"search": "Filter History"
-		  },
-        "order": [],
-		"columnDefs": [ {
-		  "targets"  : 'no-sort',
-		  "orderable": false,
-		  "width":"30px"
-		},
-	]
-}
-);
+		// DataTable
+		var table = $('#example1').DataTable( {
+			"language" : {
+				"search": "Filter History"
+			  },
+			"order": [],
+			"columnDefs": [ {
+			  "targets"  : 'no-sort',
+			  "orderable": false,
+			  "width":"30px"
+			},
+		]}
+		);
  
-   	$('#subject').on( 'keyup', function () {
-    table
-        .columns(1)
-        .search( this.value )
-        .draw();
 	} );
-	
-	$("#selectTopic").each( function (i) {
-        var select = $('#selectTopic')
-            .on( 'change', function () {
-                table.column(2)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(2).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
-        } );
-    } );
-	$("#selectStatus").each( function (i) {
-        var select = $('#selectStatus')
-            .on( 'change', function () {
-                table.column(3)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(3).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+$(d).text()+"'>"+$(d).text()+"</option>" )
-        } );
-    } );
-	$("#selectType").each( function (i) {
-        var select = $('#selectType')
-            .on( 'change', function () {
-                table.column(4)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(4).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+$(d).text()+"'>"+$(d).text()+"</option>" )
-        } );
-    } );
-	
-	
-} );
 
-function stopPropagation(evt) {
-	if (evt.stopPropagation !== undefined) {
-	evt.stopPropagation();
-	} else {
-	evt.cancelBubble = true;
+	function stopPropagation(evt) {
+		if (evt.stopPropagation !== undefined) {
+		evt.stopPropagation();
+		} else {
+		evt.cancelBubble = true;
+		}
 	}
-}
 
-function showchronological(){
-  $('#case-view').hide();
-  $('#chrono-view').show();
-}
+	function showchronological(){
+	  $('#case-view').hide();
+	  $('#chrono-view').show();
+	}
 
-function showcase(){
-  $('#case-view').show();
-  $('#chrono-view').hide();
-}
+	function showcase(){
+	  $('#case-view').show();
+	  $('#chrono-view').hide();
+	}
 
 
 /*script for case view*/
@@ -1353,56 +1297,6 @@ function showcase(){
 		
 		]
     });
- 
-   	$('#case-view #casesubject').on( 'keyup', function () {
-    table
-        .columns(1)
-        .search( this.value )
-        .draw();
-	} );
-	
-	$("#case-view #selectTopic").each( function (i) {
-        var select = $('#case-view #selectTopic')
-            .on( 'change', function () {
-                table.column(2)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(2).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
-        } );
-    } );
-	$("#case-view #selectStatus").each( function (i) {
-        var select = $('#case-view #selectStatus')
-            .on( 'change', function () {
-                table.column(3)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(3).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+$(d).text()+"'>"+$(d).text()+"</option>" )
-        } );
-    } );
-	$("#case-view #selectType").each( function (i) {
-        var select = $('#case-view #selectType')
-            .on( 'change', function () {
-                table.column(4)
-                    .search($(this).val())
-                    .draw();
-            } );
-        table.column(4).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+$(d).text()+"'>"+$(d).text()+"</option>" )
-        } );
-    } );
-
-
-	function stopPropagation(evt) {
-		if (evt.stopPropagation !== undefined) {
-		evt.stopPropagation();
-		} else {
-		evt.cancelBubble = true;
-		}
-	}
 
 </script>
 </body>
