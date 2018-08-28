@@ -1462,3 +1462,17 @@ ul.timeline span.stack-icon .aqua {
 .chevron-expand-indicator_expanded {
   transform: rotate(90deg);
 }
+.chat-head .stack-icon-label i,
+.chat-head i {
+  font-size: 18px;
+}
+.chat-head .stack-icon-label i:last-child {
+  top: 5px;
+  font-size: 14px;
+}
+.count-block {
+  padding: 0px 3px 0px 3px;
+  width: 25px;
+  text-align: center;
+  font-weight: 500;
+}
