@@ -1,5 +1,5 @@
 ---
-title: Manage Messages - Tree View
+title: Manage Active Chats
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -9,6 +9,7 @@ title: Manage Messages - Tree View
 <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -24,14 +25,7 @@ title: Manage Messages - Tree View
             </section>
   <!-- Main content -->
             <section class="content">
-			   <div class="row"> 
-				 <div class="col-md-12">
-				  <div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
-					  <a class="btn btn-default " data-toggle="on" href="/pages/manage-message.html">List View</a>
-					  <a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message-treeview.html">Tree View</a>
-				  </div>
-				 </div>
-				</div>
+			  
               <div class="row"> 
 			    <div class="col-md-4">
 				  <!-- Profile Image -->
@@ -42,10 +36,10 @@ title: Manage Messages - Tree View
 					</div>
 					<div class="box-body search-criteria">
 					  <div class="checkbox">
-						 <label class="mright-15"> <input type="checkbox"> Include Sub Topics </label> 
+						 <label class="mright-15"> <input type="checkbox" class="icheck"> Include Sub Topics </label> 
 					  </div>
 					  <div class="checkbox">
-						 <label class="mright-15"><input type="checkbox"> Show All Messages</label> 
+						 <label class="mright-15"><input type="checkbox" class="icheck"> Show All Messages</label> 
 					  </div>
 					  <div class="row">
 						   <div class="col-md-12 chat-head">
@@ -71,7 +65,7 @@ title: Manage Messages - Tree View
 					   <ul id="tree1" class="tree">
 							<li><a href="#" >e-shop -- All Topics <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></a>
 								<ul>
-									<li>_Feedback (2) <input type="checkbox" class="minimal" checked><div class="pull-right count-block ">1</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li> 
+									<li>_Feedback (0) <input type="checkbox" class="minimal" ><div class="pull-right count-block ">1</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li> 
 									<li>_Newsletter Subscription (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
 									<li>_Spam (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
 									<li>_Undeliverable (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
@@ -79,13 +73,13 @@ title: Manage Messages - Tree View
 										<ul>
 											<li>Orders (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
 											<li>Refunds (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-											<li class="selected">Returns (1) <input type="checkbox" class="minimal" checked><div class="pull-right count-block ">1</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">3</div></li>
+											<li class="selected">Returns (1) <input type="checkbox" class="minimal" checked><div class="pull-right count-block ">2</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
 										</ul>
 									</li>
 									<li>Products(0)<input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
 										<ul>
 											<li>Audio-Video (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-											<li>Cameras (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+											<li>Cameras (2) <input type="checkbox" class="minimal" checked><div class="pull-right count-block ">1</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
 											<li>Cell Phones (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
 											<li>Computers (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
 											<li>Televisions(0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
@@ -361,10 +355,10 @@ title: Manage Messages - Tree View
 						
                        
 						  <div class="col-md-12">
-                            <div class="box box-info">
+                            <div class="box box-info" ng-controller="myCtrl">
 								<div class="box-header with-border">
-								  <i class="fa  fa-list-alt"></i>
-								  <h3 class="box-title head-title-padding">Message List</h3>
+								  <i class="fa fa-comments"></i>
+								  <h3 class="box-title head-title-padding">Active Chat</h3>
 								</div>
 								<!-- /.box-header -->
 								<!-- form start -->
@@ -373,22 +367,22 @@ title: Manage Messages - Tree View
 									  <table id="example1" class="table  table-striped table-hover ">
 										 <thead>
 										  <tr>
-											<th class="no-sort"  name="name">
+											<th class="no-sort"  name="name">&nbsp;
 											</th>
 											<th class="text-capitalize">
 											 Subject 
 											</th>
 											<th class="text-capitalize" >
-											  Contact Name
+											  Visitors Name
 											</th>
 											<th class="text-capitalize" >
-											  Contact Email
+											  Operator
 											 </th>
 											<th class="text-capitalize">
-											 Date
+											 Time In Chat
 											</th>
 											<th class="text-capitalize" >
-											  Assigned To
+											  Wait Time
 											</th>
 											<th class="text-capitalize">
 											 Topic
@@ -396,61 +390,36 @@ title: Manage Messages - Tree View
 										  </tr>
 										</thead>  
 										<tbody>
+										 
 										  <tr >
-											<td  name="name" class="icon-col">
-											  <input type="checkbox" value="">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ></i>
-											  </button>
-											</td>
-											<td class="">
-											 Feedback provided
-											</td>
-											<td class="">
-											 Feedback Account
-											</td>
-											<td class="">
-											 feedback@gmail.com
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-											<td class="">
-											  Jacob Smith
-											</td>
-											<td class="">
-											  _Feedback
-											</td>
-										  </tr>
-										  <tr >
-											<td name="name" class="icon-col">
-											  <input type="checkbox" value="">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+											<td name="name" class="">
+											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow()">
+												<i class="fa fa-plus-circle" ng-show="!expanded"></i>
+												<i class="fa fa-minus-circle ng-hide" ng-show="expanded" style=""></i>
 											  </button>
 											</td>
 											<td class="">
 											 I need a good small camera
 											</td>
-											<td class="">
+											<td class="" ng-show="!expanded">
 											 James Williams
 											</td>
-											<td class="">
-											 customer2@1to1service.com
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-											<td class="">
+											<td class="" ng-show="!expanded">
 											 Jonie Hewlett
 											</td>
-											<td class="">
+											<td class="" ng-show="!expanded">
+											 01.42
+											</td>
+											<td class="" ng-show="!expanded">
+										    00.42
+											</td>
+											<td class="" ng-show="!expanded">
 											 Cameras
 											</td>
 										  </tr>
+										 
 										  <tr >
 											<td  name="name">
-											  <input type="checkbox" value="">
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle"></i>
 											  </button>
@@ -459,47 +428,44 @@ title: Manage Messages - Tree View
 											Can't find it
 											</td>
 											<td class="">
-											James Williams
+											Julie Persuavia
 											</td>
 											<td class="">
-											 customer2@1to1service.com
+											 Robert Williams
 											</td>
 											<td class="">
-											 4 Days ago
+											 01.33
 											</td>
 											<td class="">
-											 Jacob Smith
+											  01.00
 											</td>
 											<td class="">
-											   Televisions
+											   Return
 											</td>
 										  </tr>
 										   <tr >
 											<td  name="name">
-											  <input type="checkbox" value="">
 											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
 												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
 											  </button>
 											</td>
 											<td class="">
-											 	
                                              Best price on LG Plasma
 											</td>
 											<td class="">
-											 	
 												John Doe
 											</td>
 											<td class="">
-											 customer1@1to1service.com
+											 Jacob Smith
 											</td>
 											<td class="">
-											 5 Days ago
+											 00.22
 											</td>
 											<td class="">
-											   Jonie Hewlett
+											   00.10
 											</td>
 											<td class="">
-											  Televisions
+											  Return
 											</td>
 										  </tr>
 										</tbody>
@@ -729,7 +695,7 @@ title: Manage Messages - Tree View
     // DataTable
     var table = $('#example1').DataTable( {
 	    "language" : {
-			"search": "Filter Messages"
+			"search": "Filter"
 		  },
 	    dom: 'Blfrtip',
         "order": [],
@@ -821,9 +787,25 @@ title: Manage Messages - Tree View
 			checkboxClass: 'icheckbox_minimal-blue blue2',
 			radioClass: 'iradio_minimal-blue'
 		  });
+		  $('input[type="checkbox"].icheck').iCheck({
+			checkboxClass: 'icheckbox_square-blue'
+		  });
    });
    
 });	  
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+	var app = angular.module('iService', []);
+		app.controller('myCtrl', function($scope) {
+		    $scope.expanded = false;
+			$scope.toggleRow = function ()
+			{
+			   
+				if(!$scope.expanded){ $scope.expanded = true;} else{$scope.expanded = false;}
+			};
+
+	});
 </script>
 </body>
 </html>
