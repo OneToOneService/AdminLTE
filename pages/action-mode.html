@@ -5,7 +5,6 @@ title: Action Mode
 <html ng-app="iService">
 <head>
     {% include common-head.html %}
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -19,310 +18,269 @@ title: Action Mode
                     {{ page.title }}
                 </h1>
             </section>
-  <!-- Main content -->
-            <section class="content">
+           <!-- Main content -->
+            <section class="content" ng-controller="action-mode">
                 <!-- START CUSTOM TABS -->
-               
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
-						
                         <div class="row">
 						  <div class="col-md-12">
                             <div class="box-container">
 								<div class="box-body">
 								    <div class="col-md-12 form-horizontal"> 
-									 <div class="row">
-									   <table class="table statusbg-red">
-									     <tr>
-										   <td class="btn-collapse">
-										     <button class="btn btn-link text-primary">
-												<i class="fa fa-minus-circle" style=""></i>
-											  </button>
-										   </td>
-										   <th> [ref#: 1006-1009] Looking for low cost TV</th>
-										   <th>All Topic</th>
-										   <th>&nbsp;</th>
-										   <th>Ask Question</th>
-										   <th>&nbsp;</th>
-										   <th>Jhon Doe</th>
-										   <th>April 2, 2018 8:55:23AM</th>
-										 </tr>
-									   </table>
-									 </div>
-									 <div class="row form-group padding-collapse"> 
-                                        <div class="col-md-8 form-horizontal"> 
-                                       <div class="form-group">
-											
-											  <div class="btn-group dropdown margin-r-5">
-												  <button type="button" class="btn btn-primary "> <i class="fa fa-send"></i>
-												  Send</button>										 
-												  <div class="btn-group">
-													<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-													<span class="caret"></span></button>
-													<ul class="dropdown-menu" role="menu">
-													  <li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
-													  <li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
-													</ul>
-												  </div>
+										<div class="row">
+											<table class="table statusbg-red">
+												<tr>
+												<td class="btn-collapse">
+													<button class="btn btn-link text-primary">
+														<i class="fa fa-minus-circle"></i>
+													</button>
+												</td>
+												<th> [ref#: 1006-1009] Looking for low cost TV</th>
+												<th>All Topic</th>
+												<th>&nbsp;</th>
+												<th>Ask Question</th>
+												<th>&nbsp;</th>
+												<th>Jhon Doe</th>
+												<th>April 2, 2018 8:55:23AM</th>
+												</tr>
+											</table>
+										</div>
+										<div class="row form-group padding-collapse"> 
+											<div class="col-md-8 form-horizontal"> 
+												<div class="form-group">
+													<div class="btn-group dropdown margin-r-5">
+														<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
+														Send</button>										 
+														<div class="btn-group">
+															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+															<span class="caret"></span></button>
+															<ul class="dropdown-menu" role="menu">
+																<li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
+																<li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
+															</ul>
+														</div>
+													</div>
+													<button class="btn btn-primary" type="button">
+														<i class="fa  fa-check"></i>
+														Resolve
+													</button>
+													<button class="btn btn-primary margin-r-5" title="Forward">
+													<i class="fa fa-share"></i>
+													forward
+													</button>
+													<div class="btn-group dropdown margin-r-5">
+														<button type="button" class="btn btn-primary"><i class="fa fa-save"></i>Save</button>										 
+														<div class="btn-group">
+															<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+															<span class="caret"></span></button>
+															<ul class="dropdown-menu" role="menu">
+																<li><a href="#">Private Note</a></li>
+																<li><a href="#">Public Note</a></li>
+															</ul>
+														</div>
+													</div>
+													<button class="btn btn-primary" title="Spam">
+													<i class="fa fa-ban"></i>
+													Spam
+													</button>
+													<a class="btn btn-link ng-scope" href="#">Cancel</a>
 												</div>
-											  <button  class="btn btn-primary" type="button">
-												  <i class="fa  fa-check"></i>
-												  Resolve
-												</button>
-											<button class="btn btn-primary margin-r-5" title="Forward">
-											  <i class="fa fa-share"></i>
-											  forward
-											</button>
-											<div class="btn-group dropdown margin-r-5">
-												  <button type="button" class="btn btn-primary "> <i class="fa fa-save"></i>
-												  Save</button>										 
-												  <div class="btn-group">
-													<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-													<span class="caret"></span></button>
-													<ul class="dropdown-menu" role="menu">
-													  <li><a href="#">Private Note</a></li>
-													  <li><a href="#">Public Note</a></li>
-													</ul>
-												  </div>
-											</div>
-											
-											<button class="btn btn-primary" title="Spam">
-											  <i class="fa fa-ban"></i>
-											  Spam
-											</button>
-											<a class="btn btn-link ng-scope"   href="#">Cancel</a>
-									   </div>
-									   <div class="row">
-									   <div class="box">
-           								 <div class="box-header with-border collapsed" data-toggle="collapse" data-target="#subjectline">
-											<h3 class="box-title">Email Addresses And Subject Line</h3> 
-											<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
-										 </div>
-                                        <div class="box-body collapse " id="subjectline">									
-										   <div class="form-group">
-											<label class="col-sm-2 control-label">From</label>
-											<div class="col-sm-10">
-											  <input class="form-control " type="text" style="">
-											</div>
-										   </div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">To</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
+												<div class="row">
+													<div class="box">
+														<div class="box-header with-border" ng-click="isCollapsed = !isCollapsed">
+															<h3 class="box-title">Email Addresses And Subject Line</h3> 
+															<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></span>
+														</div>
+														<div class="box-body" uib-collapse="isCollapsed" >									
+															<div class="form-group">
+																<label class="col-sm-2 control-label">From</label>
+																<div class="col-sm-10">
+																<input class="form-control" type="text" >
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-2 control-label">To</label>
+																<div class="col-sm-10">
+																<input class="form-control" type="text" >
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-2 control-label">CC</label>
+																<div class="col-sm-10">
+																	<input class="form-control" type="text" >
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-2 control-label">BCC</label>
+																<div class="col-sm-10">
+																	<input class="form-control" type="text" >
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-2 control-label">Subject</label>
+																<div class="col-sm-4">
+																	<input class="form-control" type="text"  disabled>
+																</div>
+																<div class="col-sm-6">
+																	<input class="form-control" type="text">
+																</div>
+															</div>
+															<div class="form-group">
+																<div class="col-md-2">
+																</div>
+															</div> 
+													</div>	 
+													</div>		
 												</div>
-											</div>
-										   <div class="form-group">
-												<label class="col-sm-2 control-label">CC</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
+												<div class="row"> 
+													<div class="nav-tabs-custom">
+														<ul class="nav nav-tabs">
+															<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+															<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+															<li class="pull-right"> 
+																<p class="attach-file"> <label class="btn-bs-file">
+																	Attach files		
+																	<input type="file" />
+																</label> (Maximum 10 MB upload at one time.)</p>
+															</li>
+														</ul>
+														<div class="tab-content">
+														<div class="tab-pane active" id="draftbody">
+															<div class="form-group text-editor-container">
+																<div class="col-sm-12">
+																	<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
+																</div>
+																</div>
+														</div>
+														<div class="tab-pane" id="plainhtml">	
+														</div>										   
+														</div>
+													</div>
+													<div class="col-sm-12">
+														<div class="panel panel-default form-group">
+															<div class="panel-heading">
+															<i class="fa fa-fw fa-pencil-square-o"></i>
+															Private Comments
+															</div>
+															<div class="panel-body">
+																<textarea class="full-width full-height private-comment-box"></textarea>
+															</div>
+														</div>	
+													</div>
 												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">BCC</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Subject</label>
-												<div class="col-sm-4">
-												  <input class="form-control " type="text" style="" disabled>
-												</div>
-												<div class="col-sm-6">
-												  <input class="form-control " type="text" style="">
-												</div>
-										   </div>
-										   <div class="form-group">
-											  <div class="col-md-2">
-											  </div>
-											 
 											</div> 
-										  </div>	 
-				                        </div>		
-										</div>
-									  <div class="row"> 
-									    
-										<div class="nav-tabs-custom">
-										    <ul class="nav nav-tabs">
-											  <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-											  <li class=""><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-                                              <li class="pull-right"> 
-											     <p class="attach-file"> <label class="btn-bs-file ">
-													Attach files		
-													<input type="file" />
-											      </label></span> (Maximum 10 MB upload at one time.)</p>
-											  </li>
-											</ul>
-											<div class="tab-content">
-											  <div class="tab-pane active" id="draftbody">
-											      <div class="form-group text-editor-container">
-													  <div class="col-sm-12">
-														<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
-													  </div>
+											<div class="col-md-4">
+												<div class="box box-warning stock-responses ng-scope">
+													<div class="box-header with-border">
+													<h3 class="box-title">
+														<i class="fa fa-fw fa-envelope"></i>
+														Message Properties
+													</h3>
 													</div>
-											   </div>
-                                               <div class="tab-pane" id="plainhtml">	
-											     &nbsp;<br><br><br>
-                                               </div>				
-                                               										   
-											</div>
-										</div>
-										 <div class="col-sm-12">
-											<div class="panel panel-default form-group">
-												<div class="panel-heading">
-												  <i class="fa fa-fw fa-pencil-square-o"></i>
-												  Private Comments
-												</div>
-												<div class="panel-body">
-												  <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note" style=""></textarea>
-												</div>
-											</div>	
-										  </div>
-									  </div>
-									</div> 
-									<div class="col-md-4">
-									  <div class="box box-warning stock-responses ng-scope">
-										<div class="box-header with-border">
-										  <h3 class="box-title">
-											<i class="fa fa-fw fa-envelope"></i>
-											Message Properties
-										  </h3>
-										</div>
-										<div class="box-body">
-										
-										  <div class="">
-											<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
-											<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
-										  </div>
-										<!--  <div>
-										   <div class="form-group">
-											  <label >Authorization Type</label>
-											  <input type="text" class="form-control"  placeholder="">
-										    </div>
-											<div class="form-group">
-											  <label >Task1</label>
-											  <select class="form-control"><option>--Select Value--</option></select>
-										    </div>
-											<div class="form-group">
-											  <label >Task2</label>
-											  <select class="form-control"><option>--Select Value--</option></select>
-										    </div>
-										  </div> -->
-										  
-										</div>
-									  </div>
-									  
-									  <div class="nav-tabs-custom">
-											<ul class="nav nav-tabs">
-												<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-												<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-											</ul>
-											<div class="tab-content">
-												<div class="tab-pane active" id="tab_1">
-													<div class="row" id="variable-box">
-														<div class="col-xs-12 variable-responses">
-														    <div>
-															  <input type="text" class="form-control" placeholder="Keyword Search">
-															</div>
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Contact
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Name</li>
-																	<li class="segment-lable">Global
-																	    <ul>
-																		   <li class="section-var-link">Address1</li>
-																		   <li class="section-var-link">Address2</li>
-																		   <li class="section-var-link">City</li>
-																		   <li class="section-var-link">Country</li>
-																		   <li class="section-var-link">Company</li>
-																		</ul>
-																	</li>
-																	<li class="segment-lable">JC Segment
-																	    <ul>
-																		   <li class="section-var-link">Contact View Only Property</li>
-																		   <li class="section-var-link">Contact Viewable and Editable Property</li>
-																		   <li class="section-var-link">Multi value No Descr</li>
-																		   <li class="section-var-link">Shared Property from JC - cust can't see</li>
-																		</ul>
-																	</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Answer
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Email</li>
-																	<li class="section-var-link">Reference Number</li>
-																	<li class="section-var-link">Original Date</li>
-																	<li class="section-var-link">Original Time</li>
-																	<li class="section-var-link">Subject</li>
-																	<li class="section-var-link">Original Body</li>
-																	<li class="section-var-link">Quoted Question</li>
-																  </ul>
-																</li>
-															 </ul>
+													<div class="box-body">
+														<div>
+															<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
+															<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
 														</div>
 													</div>
 												</div>
-												<!-- /.tab-pane -->
-												<div class="tab-pane" id="tab_2">
-													<div class="row " id="stock-responses">
-														<div class="col-xs-12 stock-responses">
-														    <div>
-															  <input type="text" class="form-control" placeholder="Keyword Search">
+												<div class="nav-tabs-custom">
+													<ul class="nav nav-tabs">
+														<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+														<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+													</ul>
+													<div class="tab-content">
+														<div class="tab-pane active" id="tab_1">
+															<div class="row" id="variable-box">
+																<div class="col-xs-12 variable-responses">
+																	<div>
+																		<input type="text" class="form-control" placeholder="Keyword Search">
+																	</div>
+																	<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">Contact
+																		<ul class="segment-variables">
+																			<li class="section-var-link">Name</li>
+																			<li class="segment-lable">Global
+																				<ul>
+																				<li class="section-var-link">Address1</li>
+																				<li class="section-var-link">Address2</li>
+																				<li class="section-var-link">City</li>
+																				<li class="section-var-link">Country</li>
+																				<li class="section-var-link">Company</li>
+																				</ul>
+																			</li>
+																			<li class="segment-lable">JC Segment
+																				<ul>
+																				<li class="section-var-link">Contact View Only Property</li>
+																				<li class="section-var-link">Contact Viewable and Editable Property</li>
+																				<li class="section-var-link">Multi value No Descr</li>
+																				<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																				</ul>
+																			</li>
+																		</ul>
+																		</li>
+																	</ul>
+																	<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">Answer
+																			<ul class="segment-variables">
+																				<li class="section-var-link">Email</li>
+																				<li class="section-var-link">Reference Number</li>
+																				<li class="section-var-link">Original Date</li>
+																				<li class="section-var-link">Original Time</li>
+																				<li class="section-var-link">Subject</li>
+																				<li class="section-var-link">Original Body</li>
+																				<li class="section-var-link">Quoted Question</li>
+																			</ul>
+																		</li>
+																	</ul>
+																</div>
 															</div>
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Segment Responses
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Chat Closing</li>
-																	<li class="section-var-link">Chat Opening</li>
-																	<li class="section-var-link">Chat Wait</li>
-																	<li class="section-var-link">iService Website</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Agent Response
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Test</li>
-																	
-																  </ul>
-																</li>
-															 </ul>
+														</div>
+														<!-- /.tab-pane -->
+														<div class="tab-pane" id="tab_2">
+															<div class="row" id="stock-responses">
+																<div class="col-xs-12 stock-responses">
+																	<div>
+																		<input type="text" class="form-control" placeholder="Keyword Search">
+																	</div>
+																	<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">Segment Responses
+																		<ul class="segment-variables">
+																			<li class="section-var-link">Chat Closing</li>
+																			<li class="section-var-link">Chat Opening</li>
+																			<li class="section-var-link">Chat Wait</li>
+																			<li class="section-var-link">iService Website</li>
+																		</ul>
+																		</li>
+																	</ul>
+																	<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">Agent Response
+																			<ul class="segment-variables">
+																				<li class="section-var-link">Test</li>
+																				
+																			</ul>
+																		</li>
+																	</ul>
+																</div>
+															</div>
 														</div>
 													</div>
+													<!-- /.tab-content -->
 												</div>
-												
 											</div>
-											<!-- /.tab-content -->
-											
 										</div>
 									</div>
-								  
-                                      </div>
-									 	
-									  </div>
-									</div> 
-									</div>
-								  </div>
-								 
-							  </div> 
-						  </div>
-						  <div class="col-md-4">
-
-						  </div>
-                        </div>                         
-                    </div>
-                    <!-- /.col -->
-
-                
-                </div>
-                <!-- /.row -->
+								</div> 
+							</div>
+						</div>
+					</div> 
+				</div>
+				<div class="col-md-4"> </div>
+				</div>                         
     <!-- END ACCORDION & CAROUSEL-->
-	
             </section>
-         
         </div>
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
@@ -345,7 +303,6 @@ title: Action Mode
 
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
                                     <p>Will be 23 on April 24th</p>
                                 </div>
                             </a>
@@ -353,10 +310,8 @@ title: Action Mode
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-user bg-yellow"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
                                     <p>New phone +1(800)555-1234</p>
                                 </div>
                             </a>
@@ -364,10 +319,8 @@ title: Action Mode
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
                                     <p>nora@example.com</p>
                                 </div>
                             </a>
@@ -375,10 +328,8 @@ title: Action Mode
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
                                     <p>Execution time 5 seconds</p>
                                 </div>
                             </a>
@@ -394,7 +345,6 @@ title: Action Mode
                                     Custom Template Design
                                     <span class="label label-danger pull-right">70%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
                                 </div>
@@ -406,7 +356,6 @@ title: Action Mode
                                     Update Resume
                                     <span class="label label-success pull-right">95%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-success" style="width: 95%"></div>
                                 </div>
@@ -418,7 +367,6 @@ title: Action Mode
                                     Laravel Integration
                                     <span class="label label-warning pull-right">50%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
                                 </div>
@@ -430,7 +378,6 @@ title: Action Mode
                                     Back End Framework
                                     <span class="label label-primary pull-right">68%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
                                 </div>
@@ -438,7 +385,6 @@ title: Action Mode
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                 </div>
                 <!-- /.tab-pane -->
                 <!-- Stats tab content -->
@@ -448,13 +394,11 @@ title: Action Mode
                 <div class="tab-pane" id="control-sidebar-settings-tab">
                     <form method="post">
                         <h3 class="control-sidebar-heading">General Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Report panel usage
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Some information about this general settings option
                             </p>
@@ -466,27 +410,22 @@ title: Action Mode
                                 Allow mail redirect
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Other sets of options are available
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Expose author name in posts
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Allow the user to show his name in blog posts
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <h3 class="control-sidebar-heading">Chat Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Show me as online
@@ -502,7 +441,6 @@ title: Action Mode
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Delete chat history
@@ -522,8 +460,7 @@ title: Action Mode
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-   
-	<script>
+ 	<script>
 	   $(function ()
        {
 	       // SLIMSCROLL FOR CHAT WIDGET
@@ -533,8 +470,13 @@ title: Action Mode
 			  $('#stock-responses').slimScroll({
 				height: '250px'
 			  });
-              CKEDITOR.replace('editor1')
+              CKEDITOR.replace('editor1');
        });
 	</script>
+	<script>
+		angular.module('iService').controller('action-mode', function ($scope) {
+			$scope.isCollapsed = true;
+		});
+	</script>	
 </body>
 </html>

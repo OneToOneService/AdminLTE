@@ -797,13 +797,13 @@ ul.timeline span.stack-icon .aqua {
 .qa-message-list span i {
   top: 0;
 }
-.glyphicon-chevron-right.expanded {
-  transform: rotate(90deg);
+.glyphicon-chevron-right {
+  transform: rotate(0deg);
   transition-duration: 0.5s;
   font-size: 12px;
 }
-.collapsed .glyphicon-chevron-right.expanded {
-  transform: rotate(0deg);
+.glyphicon-chevron-right__expanded {
+  transform: rotate(90deg);
   transition-duration: 0.5s;
 }
 /*Added for contact summary end*/
@@ -1484,4 +1484,7 @@ ul.timeline span.stack-icon .aqua {
   width: 40px;
   font-size: 17px;
   line-height: 40px;
+}
+.private-comment-box {
+  height: 150px;
 }
