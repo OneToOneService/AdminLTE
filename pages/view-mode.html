@@ -173,13 +173,13 @@ title: View Mode
 																<div class="panel panel-default">
 																	<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
 																		<h4 class="panel-title">
-																			<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="text-capitalize">
+																			<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
 																				interaction properties and details
-																				<i class="glyphicon glyphicon-chevron-right"></i>
+																				<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></i>
 																			</a>
 																		</h4>
 																	</div>
-																	<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+																	<div class="panel-collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" uib-collapse="isCollapsed">
 																		<div class="panel-body">
 																			<div class="row">
 																				<div class="col-md-12">
@@ -455,9 +455,8 @@ title: View Mode
 			  });
               CKEDITOR.replace('editor1');
        });
-
 	</script>
-	 <script>
+	<script>
 		function toggleIcon(e) {
 		$(e.target)
 			.prev('.panel-heading')
@@ -466,8 +465,8 @@ title: View Mode
 		}
 		$('.panel-group').on('hidden.bs.collapse', toggleIcon);
 		$('.panel-group').on('shown.bs.collapse', toggleIcon);
-	 </script>
-	 <script>
+	</script>
+	<script>
 		$(document).ready(function() {
 			// DataTable
 			var table = $('#example1').DataTable( {
@@ -488,6 +487,11 @@ title: View Mode
 				$('.status-box').slideDown();
 			}
 		});
-	 </script>
+	</script>
+    <script>
+			angular.module('iService').controller('action-mode', function ($scope) {
+				$scope.isCollapsed = true;
+			});
+	</script>
 </body>
 </html>
