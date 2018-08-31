@@ -58,8 +58,6 @@ form .ng-invalid {
 }
 .horizontal-separator {
   border: 1px solid #f4f4f4;
-  height: 100%;
-  width: 1px;
   display: inline;
   margin: 0 3px;
 }
@@ -984,9 +982,9 @@ ul.timeline span.stack-icon .aqua {
   background-color: #9467bd;
   border-color: #712daf;
 }
-.btn-warning:hover,
-.btn-warning:active,
-.btn-warning.hover {
+.btn-purple:hover,
+.btn-purple:active,
+.btn-purple.hover {
   color: #ffffff;
   background-color: #8449bb;
 }

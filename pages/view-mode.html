@@ -36,7 +36,7 @@ title: View Mode
 															<button class="btn btn-link text-primary">
 																<i class="fa fa-minus-circle"></i>
 															</button>
-															<button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="bottom" data-original-title="Case includes unresolved questions">
+															<button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="bottom">
 																<i class="fa fa-envelope-open"></i>
 															</button>
 														</th>
@@ -44,7 +44,7 @@ title: View Mode
 														<th>All Topic</th>
 														<th>&nbsp;</th>
 														<th class="inline-icon">
-															<span class="fa-stack stack-icon fa-lg icon-label bg-blue" data-toggle="tooltip" data-placement="bottom" data-original-title="Customer Ticket">
+															<span class="fa-stack stack-icon fa-lg icon-label bg-blue" uib-tooltip="Customer Ticket" tooltip-placement="bottom">
 																<i class="fa fa-user fa-stack-1x"></i>
 																<i class="fa fa-ticket  fa-stack"></i>
 															</span>
@@ -58,19 +58,19 @@ title: View Mode
 											 <div class="row padding-collapse"> 
  								       			<div class="row">
 										  			 <div class="col-md-12">
-														<button class="btn btn-primary bg-aqua-active btn-info margin-r-5"  data-toggle="tooltip" data-placement="bottom" data-original-title="Send agent email as reply to this interaction">
+														<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom" >
 															<i class="fa fa-envelope"></i>
 															Agent email
 														</button>
-														<button class="btn  btn-success margin-r-5"  data-toggle="tooltip" data-placement="bottom" data-original-title="Add note to case">
+														<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom">
 															<i class="fa fa-pencil-square-o"></i>
 															Note
 														</button>
-														<button class="btn  btn-warning margin-r-5"  data-toggle="tooltip" data-placement="bottom" data-original-title="Create ticket in reply to this interaction">
+														<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom">
 															<i class="fa fa-ticket"></i>
 															Ticket
 														</button>
-														<button class="btn  btn-purple margin-r-5"  data-toggle="tooltip" data-placement="bottom" data-original-title="Forward a copy of this via email">
+														<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom">
 															<i class="fa fa-mail-forward"></i>
 															Forward Copy
 														</button>
@@ -81,7 +81,7 @@ title: View Mode
 															<option>Print</option>
 															<option>Display Plain Text/HTML</option>
 														</select>
-														<button class="btn bg-info btn-info margin-r-5 pull-right"  data-toggle="tooltip" data-placement="bottom" data-original-title="Assign this interaction to yourself">
+														<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom">
 															<i class="fa fa-sign-in"></i>
 															Get This
 														</button>
@@ -490,7 +490,7 @@ title: View Mode
 	</script>
     <script>
 			angular.module('iService').controller('action-mode', function ($scope) {
-				$scope.isCollapsed = true;
+				$scope.isCollapsed = false;
 			});
 	</script>
 </body>
