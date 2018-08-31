@@ -5,7 +5,6 @@ title: Customer Info - Create Ticket
 <html ng-app="iService">
 <head>
     {% include common-head.html %}
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -19,222 +18,188 @@ title: Customer Info - Create Ticket
                     {{ page.title }}
                 </h1>
             </section>
-  <!-- Main content -->
+             <!-- Main content -->
             <section class="content">
                 <!-- START CUSTOM TABS -->
-               
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
-					
                         <div class="row">
-						  <div class="col-md-12">
-                            <div class="box box-info">
-								<div class="box-header with-border">
-								  <i class="fa fa fa-ticket"></i>
-								  <h3 class="box-title">Create Ticket</h3>
-								</div>
-								<!-- /.box-header -->
-								<!-- form start -->
-							 
-								  <div class="box-body">
-								    <div class="col-md-8 form-horizontal"> 
-                                       <div class="form-group">
-											<button class="btn btn-primary" title="Create Ticket">
-											  <i class="fa fa-ticket"></i>
-											  Create Ticket
-											</button>
-											
-											<a class="btn btn-link ng-scope"   href="#">Cancel</a>
-											
-									   </div>
-									   <div class="form-group">
-										<label class="col-sm-2 control-label">Topic</label>
-										<div class="col-sm-10">
-										  <select class="form-control">
-										    <option>Select Topic 1</option>
-											<option>Select Topic 2</option>
-										  </select>
-										</div>
-									   </div>
-									    <div class="form-group">
-											<label class="col-sm-2 control-label">Customer Email/Login</label>
-											<div class="col-sm-10">
-											  <input class="form-control " type="text" style="">
-											</div>
-									    </div>
-									   <div class="form-group">
-											<label class="col-sm-2 control-label">Subject</label>
-											<div class="col-sm-10">
-											  <input class="form-control " type="text" style="">
-											</div>
-									    </div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label">Asign to Agent</label>
-											<div class="col-sm-10">
-											  <select class="form-control">
-												<option>--None--</option>
-											  </select>
-											</div>
-									   </div>
-										
-										<hr></hr>
-										<div class="panel-body">
-											
-										     <p class="attach-file"> <label class="btn-bs-file ">
-													Attach files		
-													<input type="file" />
-											  </label></span> (Maximum 10 MB upload at one time.)</p>
-										</div>
-										<div class="form-group text-editor-container">
-										  <div class="col-sm-12">
-											<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
-										  </div>
-										</div>
-										 <div class="col-sm-12">
-											<div class="panel panel-default form-group">
-												<div class="panel-heading">
-												  <i class="fa fa-fw fa-pencil-square-o"></i>
-												  Private Comments
-												</div>
-												<div class="panel-body">
-												  <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note" style=""></textarea>
-												</div>
-											</div>	
-										</div>
-									</div> 
-									<div class="col-md-4">
-									  <div class="box box-warning stock-responses ng-scope">
-										<div class="box-header with-border">
-										  <h3 class="box-title">
-											<i class="fa fa-fw fa-envelope"></i>
-											Message Properties
-										  </h3>
-										</div>
-										<div class="box-body">
-										  <div class="form-group ng-binding">
-											<!--<label>Segment Name:</label>-->
-											--
-										  </div>
-										<!--  <div>
-										   <div class="form-group">
-											  <label >Authorization Type</label>
-											  <input type="text" class="form-control"  placeholder="">
-										    </div>
-											<div class="form-group">
-											  <label >Task1</label>
-											  <select class="form-control"><option>--Select Value--</option></select>
-										    </div>
-											<div class="form-group">
-											  <label >Task2</label>
-											  <select class="form-control"><option>--Select Value--</option></select>
-										    </div>
-										  </div> -->
-										  
-										</div>
-									  </div>
-									  
-									  <div class="nav-tabs-custom">
-											<ul class="nav nav-tabs">
-												<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-												<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-											</ul>
-											<div class="tab-content">
-												<div class="tab-pane active" id="tab_1">
-													<div class="row" id="variable-box">
-														<div class="col-xs-12 variable-responses">
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Contact
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Name</li>
-																	<li class="segment-lable">Global
-																	    <ul>
-																		   <li class="section-var-link">Address1</li>
-																		   <li class="section-var-link">Address2</li>
-																		   <li class="section-var-link">City</li>
-																		   <li class="section-var-link">Country</li>
-																		   <li class="section-var-link">Company</li>
-																		</ul>
-																	</li>
-																	<li class="segment-lable">JC Segment
-																	    <ul>
-																		   <li class="section-var-link">Contact View Only Property</li>
-																		   <li class="section-var-link">Contact Viewable and Editable Property</li>
-																		   <li class="section-var-link">Multi value No Descr</li>
-																		   <li class="section-var-link">Shared Property from JC - cust can't see</li>
-																		</ul>
-																	</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Answer
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Email</li>
-																	<li class="section-var-link">Reference Number</li>
-																	<li class="section-var-link">Original Date</li>
-																	<li class="section-var-link">Original Time</li>
-																	<li class="section-var-link">Subject</li>
-																	<li class="section-var-link">Original Body</li>
-																	<li class="section-var-link">Quoted Question</li>
-																  </ul>
-																</li>
-															 </ul>
-														</div>
-													</div>
-												</div>
-												<!-- /.tab-pane -->
-												<div class="tab-pane" id="tab_2">
-													<div class="row " id="stock-responses">
-														<div class="col-xs-12 stock-responses">
-														    <div>
-															  <input type="text" class="form-control" placeholder="Keyword Search">
-															</div>
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Segment Responses
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Chat Closing</li>
-																	<li class="section-var-link">Chat Opening</li>
-																	<li class="section-var-link">Chat Wait</li>
-																	<li class="section-var-link">iService Website</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Agent Response
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Test</li>
-																	
-																  </ul>
-																</li>
-															 </ul>
-														</div>
-													</div>
-												</div>
-												
-											</div>
+						    <div class="col-md-12">
+                                <div class="box box-info">
+                                    <div class="box-header with-border">
+                                        <i class="fa fa fa-ticket"></i>
+                                        <h3 class="box-title">Create Ticket</h3>
+                                    </div>
+							    	<!-- /.box-header -->
+								    <!-- form start -->
+								    <div class="box-body">
+								        <div class="col-md-8 form-horizontal"> 
+                                            <div class="form-group">
+                                                <button class="btn btn-primary" title="Create Ticket">
+                                                <i class="fa fa-ticket"></i>
+                                                Create Ticket
+                                                </button>
+                                                <a class="btn btn-link ng-scope"   href="#">Cancel</a>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Topic</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control">
+                                                        <option>Select Topic 1</option>
+                                                        <option>Select Topic 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Customer Email/Login</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Subject</label>
+                                                    <div class="col-sm-10">
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Asign to Agent</label>
+                                                <div class="col-sm-10">
+                                                <select class="form-control">
+                                                    <option>--None--</option>
+                                                </select>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="panel-body">
+                                                <p class="attach-file"> <label class="btn-bs-file">
+                                                        Attach files		
+                                                        <input type="file" />
+                                                </label> (Maximum 10 MB upload at one time.)</p>
+                                            </div>
+                                            <div class="form-group text-editor-container">
+                                            <div class="col-sm-12">
+                                                <textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
+                                            </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="panel panel-default form-group">
+                                                    <div class="panel-heading">
+                                                    <i class="fa fa-fw fa-pencil-square-o"></i>
+                                                    Private Comments
+                                                    </div>
+                                                    <div class="panel-body">
+                                                    <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note"></textarea>
+                                                    </div>
+                                                </div>	
+                                             </div>
+									    </div> 
+									    <div class="col-md-4">
+                                            <div class="box box-warning stock-responses ng-scope">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">
+                                                        <i class="fa fa-fw fa-envelope"></i>
+                                                        Message Properties
+                                                    </h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="form-group ng-binding">
+                                                        --
+                                                    </div>
+                                                </div>
+                                            </div>
+									        <div class="nav-tabs-custom">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+                                                    <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="tab_1">
+                                                        <div class="row" id="variable-box">
+                                                            <div class="col-xs-12 variable-responses">
+                                                                <ul class="list-unstyled segment-variable-list">
+                                                                    <li class="section-label">Contact
+                                                                    <ul class="segment-variables">
+                                                                        <li class="section-var-link">Name</li>
+                                                                        <li class="segment-lable">Global
+                                                                            <ul>
+                                                                            <li class="section-var-link">Address1</li>
+                                                                            <li class="section-var-link">Address2</li>
+                                                                            <li class="section-var-link">City</li>
+                                                                            <li class="section-var-link">Country</li>
+                                                                            <li class="section-var-link">Company</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="segment-lable">JC Segment
+                                                                            <ul>
+                                                                            <li class="section-var-link">Contact View Only Property</li>
+                                                                            <li class="section-var-link">Contact Viewable and Editable Property</li>
+                                                                            <li class="section-var-link">Multi value No Descr</li>
+                                                                            <li class="section-var-link">Shared Property from JC - cust can't see</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                    </li>
+                                                                </ul>
+                                                                <ul class="list-unstyled segment-variable-list">
+                                                                    <li class="section-label">Answer
+                                                                    <ul class="segment-variables">
+                                                                        <li class="section-var-link">Email</li>
+                                                                        <li class="section-var-link">Reference Number</li>
+                                                                        <li class="section-var-link">Original Date</li>
+                                                                        <li class="section-var-link">Original Time</li>
+                                                                        <li class="section-var-link">Subject</li>
+                                                                        <li class="section-var-link">Original Body</li>
+                                                                        <li class="section-var-link">Quoted Question</li>
+                                                                    </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.tab-pane -->
+                                                    <div class="tab-pane" id="tab_2">
+                                                        <div class="row" id="stock-responses">
+                                                            <div class="col-xs-12 stock-responses">
+                                                                <div>
+                                                                <input type="text" class="form-control" placeholder="Keyword Search">
+                                                                </div>
+                                                                <ul class="list-unstyled segment-variable-list">
+                                                                    <li class="section-label">Segment Responses
+                                                                    <ul class="segment-variables">
+                                                                        <li class="section-var-link">Chat Closing</li>
+                                                                        <li class="section-var-link">Chat Opening</li>
+                                                                        <li class="section-var-link">Chat Wait</li>
+                                                                        <li class="section-var-link">iService Website</li>
+                                                                    </ul>
+                                                                    </li>
+                                                                </ul>
+                                                                <ul class="list-unstyled segment-variable-list">
+                                                                    <li class="section-label">Agent Response
+                                                                        <ul class="segment-variables">
+                                                                            <li class="section-var-link">Test</li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 											<!-- /.tab-content -->
-											
-										</div>
-									</div>
-								  </div>
-								 
-							  </div> 
-						  </div>
-						  <div class="col-md-4">
-
-						  </div>
+										    </div>
+									    </div>
+								    </div>
+							    </div> 
+						    </div>
+                            <div class="col-md-4"></div>
                         </div>                         
                     </div>
                     <!-- /.col -->
-
-                
                 </div>
                 <!-- /.row -->
-    <!-- END ACCORDION & CAROUSEL-->
-	
+                <!-- END ACCORDION & CAROUSEL-->
             </section>
-         
         </div>
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
@@ -254,10 +219,8 @@ title: Customer Info - Create Ticket
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
                                     <p>Will be 23 on April 24th</p>
                                 </div>
                             </a>
@@ -265,10 +228,8 @@ title: Customer Info - Create Ticket
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-user bg-yellow"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
                                     <p>New phone +1(800)555-1234</p>
                                 </div>
                             </a>
@@ -276,10 +237,8 @@ title: Customer Info - Create Ticket
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
                                     <p>nora@example.com</p>
                                 </div>
                             </a>
@@ -287,17 +246,14 @@ title: Customer Info - Create Ticket
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
                                     <p>Execution time 5 seconds</p>
                                 </div>
                             </a>
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                     <h3 class="control-sidebar-heading">Tasks Progress</h3>
                     <ul class="control-sidebar-menu">
                         <li>
@@ -306,7 +262,6 @@ title: Customer Info - Create Ticket
                                     Custom Template Design
                                     <span class="label label-danger pull-right">70%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
                                 </div>
@@ -318,7 +273,6 @@ title: Customer Info - Create Ticket
                                     Update Resume
                                     <span class="label label-success pull-right">95%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-success" style="width: 95%"></div>
                                 </div>
@@ -330,7 +284,6 @@ title: Customer Info - Create Ticket
                                     Laravel Integration
                                     <span class="label label-warning pull-right">50%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
                                 </div>
@@ -342,7 +295,6 @@ title: Customer Info - Create Ticket
                                     Back End Framework
                                     <span class="label label-primary pull-right">68%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
                                 </div>
@@ -350,7 +302,6 @@ title: Customer Info - Create Ticket
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                 </div>
                 <!-- /.tab-pane -->
                 <!-- Stats tab content -->
@@ -360,37 +311,31 @@ title: Customer Info - Create Ticket
                 <div class="tab-pane" id="control-sidebar-settings-tab">
                     <form method="post">
                         <h3 class="control-sidebar-heading">General Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Report panel usage
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Some information about this general settings option
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Allow mail redirect
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Other sets of options are available
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Expose author name in posts
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Allow the user to show his name in blog posts
                             </p>
@@ -398,7 +343,6 @@ title: Customer Info - Create Ticket
                         <!-- /.form-group -->
 
                         <h3 class="control-sidebar-heading">Chat Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Show me as online
@@ -406,7 +350,6 @@ title: Customer Info - Create Ticket
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Turn off notifications
@@ -414,7 +357,6 @@ title: Customer Info - Create Ticket
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Delete chat history
@@ -434,7 +376,6 @@ title: Customer Info - Create Ticket
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-   
 	<script>
 	   $(function ()
        {
@@ -445,7 +386,7 @@ title: Customer Info - Create Ticket
 			  $('#stock-responses').slimScroll({
 				height: '250px'
 			  });
-              CKEDITOR.replace('editor1')
+              CKEDITOR.replace('editor1');
        });
 	</script>
 </body>

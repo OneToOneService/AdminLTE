@@ -108,8 +108,6 @@ form .ng-invalid
 .horizontal-separator
 {
     border: 1px solid @box-border-color;
-    height: 100%;
-    width: 1px;
     display: inline;
     margin: 0 3px;
 }
@@ -1116,24 +1114,21 @@ ul.timeline span.stack-icon
         left: -30px;
         position: absolute;
     }
-
-
-
 .qa-message-list span i
 {
     top: 0;
 }
 
-.glyphicon-chevron-right.expanded
+.glyphicon-chevron-right
 {
-    transform: rotate(90deg);
+    transform: rotate(0deg);
     transition-duration: 0.5s;
 	font-size:12px;
 }
 
-.collapsed .glyphicon-chevron-right.expanded
+.glyphicon-chevron-right__expanded
 {
-    transform: rotate(0deg);
+    transform: rotate(90deg);
     transition-duration: 0.5s;
 }
 
@@ -1388,7 +1383,7 @@ ul.timeline span.stack-icon
     overflow-y: hidden
 }
 .btn-purple{color:@white;background-color:@purple; border-color: @purple-border;}
-.btn-warning:hover, .btn-warning:active, .btn-warning.hover {
+.btn-purple:hover, .btn-purple:active, .btn-purple.hover {
     color:@white;
     background-color: @purple-hover;
 }
@@ -1397,7 +1392,6 @@ ul.timeline span.stack-icon
 .message-box-body{padding:10px;}
 .message-box-header{
   .user{float:left; margin-right:10px;width:75px; color:@gray; margin-right:10px; text-align:center;background:@white;border:1px solid @gray-lte;}
-  .user img {}
   .message-info{float:left;} 
   .status{margin:10px 10px; }   
 }
@@ -1627,3 +1621,8 @@ ul.timeline span.stack-icon
 	.stack-icon-label i:last-child{top:2px; font-size:14px;}
 }
 .count-block{padding:0px 3px 0px 3px; width:25px; text-align:center; font-weight:500;}	
+
+//chat
+.chat .user-initials{height:40px;width:40px;font-size:17px;line-height:40px}
+.private-comment-box{height:150px;}
+.ui-select-choices-row .ui-select-choices-row-inner{padding:3px 20px;}

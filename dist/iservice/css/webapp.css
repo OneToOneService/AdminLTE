@@ -58,8 +58,6 @@ form .ng-invalid {
 }
 .horizontal-separator {
   border: 1px solid #f4f4f4;
-  height: 100%;
-  width: 1px;
   display: inline;
   margin: 0 3px;
 }
@@ -797,13 +795,13 @@ ul.timeline span.stack-icon .aqua {
 .qa-message-list span i {
   top: 0;
 }
-.glyphicon-chevron-right.expanded {
-  transform: rotate(90deg);
+.glyphicon-chevron-right {
+  transform: rotate(0deg);
   transition-duration: 0.5s;
   font-size: 12px;
 }
-.collapsed .glyphicon-chevron-right.expanded {
-  transform: rotate(0deg);
+.glyphicon-chevron-right__expanded {
+  transform: rotate(90deg);
   transition-duration: 0.5s;
 }
 /*Added for contact summary end*/
@@ -984,9 +982,9 @@ ul.timeline span.stack-icon .aqua {
   background-color: #9467bd;
   border-color: #712daf;
 }
-.btn-warning:hover,
-.btn-warning:active,
-.btn-warning.hover {
+.btn-purple:hover,
+.btn-purple:active,
+.btn-purple.hover {
   color: #ffffff;
   background-color: #8449bb;
 }
@@ -1478,4 +1476,16 @@ ul.timeline span.stack-icon .aqua {
   width: 25px;
   text-align: center;
   font-weight: 500;
+}
+.chat .user-initials {
+  height: 40px;
+  width: 40px;
+  font-size: 17px;
+  line-height: 40px;
+}
+.private-comment-box {
+  height: 150px;
+}
+.ui-select-choices-row .ui-select-choices-row-inner {
+  padding: 3px 20px;
 }

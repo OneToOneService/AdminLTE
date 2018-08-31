@@ -5,7 +5,6 @@ title: View Mode
 <html ng-app="iService">
 <head>
     {% include common-head.html %}
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -19,280 +18,254 @@ title: View Mode
                     {{ page.title }}
                 </h1>
             </section>
-  <!-- Main content -->
+  			<!-- Main content -->
             <section class="content">
                 <!-- START CUSTOM TABS -->
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
                         <div class="row">
-						  <div class="col-md-12">
-                            <div class="box-container">
-								<div class="box-body">
-								    <div class="col-md-12"> 
-									 <div class="row">
-									   <table class="table  ">
-									     <tr>
-										   <td class="btn-collapse icon-col">
-										     <button class="btn btn-link text-primary">
-												<i class="fa fa-minus-circle" style=""></i>
-											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="bottom" data-original-title="Case includes unresolved questions">
-												 <i class="fa fa-envelope-open" ></i>
-											  </button>
-										   </td>
-										   <th>Re: [ref#: 1006-1009] Looking for low cost TV</th>
-										   <th>All Topic</th>
-										   <th>&nbsp;</th>
-										   <th class="inline-icon">
-										     <span class="fa-stack stack-icon fa-lg icon-label bg-blue" data-toggle="tooltip" data-placement="bottom" data-original-title="Customer Ticket">
-												<i class="fa fa-user fa-stack-1x"></i>
-												<i class="fa fa-ticket  fa-stack"></i>
-											 </span>
-										   </th>
-										   <th>&nbsp;</th>
-										   <th>Jhon Doe</th>
-										   <th>April 2, 2018 8:55:23AM</th>
-										 </tr>
-									   </table>
-									 </div>
-									 <div class="row padding-collapse"> 
- 								       <div class="row">
-										   <div class="col-md-12">
-												<button class="btn btn-primary bg-aqua-active btn-info margin-r-5 "  data-toggle="tooltip" data-placement="bottom" data-original-title="Send agent email as reply to this interaction">
-													<i class="fa fa-envelope"></i>
-													Agent email
-												</button>
-												<button class="btn  btn-success margin-r-5 "  data-toggle="tooltip" data-placement="bottom" data-original-title="Add note to case">
-													<i class="fa fa-pencil-square-o"></i>
-													Note
-												</button>
-												<button class="btn  btn-warning margin-r-5 "  data-toggle="tooltip" data-placement="bottom" data-original-title="Create ticket in reply to this interaction">
-													<i class="fa fa-ticket"></i>
-													Ticket
-												</button>
-												<button class="btn  btn-purple margin-r-5 "  data-toggle="tooltip" data-placement="bottom" data-original-title="Forward a copy of this via email">
-													<i class="fa fa-mail-forward"></i>
-													Forward Copy
-												</button>
-											  
-												<select class="form-control pull-right widthauto moreaction">
-												      <option value="">More Actions</option>
-													  <option value="statusaudit">Show Status Audit</option>
-													  <option>Show Full Case</option>
-													  <option>Print</option>
-													  <option>Display Plain Text/HTML</option>
-												</select>
-												<button class="btn bg-info btn-info margin-r-5 pull-right "  data-toggle="tooltip" data-placement="bottom" data-original-title="Assign this interaction to yourself">
-													<i class="fa fa-sign-in"></i>
-													Get This
-												</button>
-										     </div>
-											 
-											 <div class="col-md-12 mtop-15">
-											   <div class="box status-box" style="display:none">
-											     <div class="box-header with-border">
-												   <h3 class="box-title">Status Audit</h3>
-												   <div class="box-tools pull-right">
-												     <button type="button" class="btn btn-box-tool cancel-widget" ><i class="fa fa-times"></i></button>
-												  </div>
-												 </div>
-												 <div class="box-body table-responsive">
-												   <table id="example1" class="table  table-striped table-hover ">
-													 <thead>
-													  <tr>
-														<th class="text-capitalize">
-														 Time 
+						  	<div class="col-md-12">
+                            	<div class="box-container">
+									<div class="box-body">
+								    	<div class="col-md-12"> 
+									 		<div class="row">
+									   			<table class="table">
+													<tr>
+														<th class="btn-collapse icon-col">
+															<button class="btn btn-link text-primary">
+																<i class="fa fa-minus-circle"></i>
+															</button>
+															<button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="bottom">
+																<i class="fa fa-envelope-open"></i>
+															</button>
 														</th>
-														<th class="text-capitalize" >
-														  Modifier
+														<th>Re: [ref#: 1006-1009] Looking for low cost TV</th>
+														<th>All Topic</th>
+														<th>&nbsp;</th>
+														<th class="inline-icon">
+															<span class="fa-stack stack-icon fa-lg icon-label bg-blue" uib-tooltip="Customer Ticket" tooltip-placement="bottom">
+																<i class="fa fa-user fa-stack-1x"></i>
+																<i class="fa fa-ticket  fa-stack"></i>
+															</span>
 														</th>
-														<th class="text-capitalize" >
-														  Status
-														</th>
-														<th class="text-capitalize">
-														  Action
-														</th>
-														<th class="text-capitalize">
-														 Assigned To
-														</th>
-														<th class="text-capitalize">
-														 Topic
-														</th>
-													  </tr>
-													</thead>  
-													<tbody>
-													  <tr >
-														<td >
-													     11/11/2017 12:19:20PM
-														</td>
-														<td class="">
-														 Jaswantchouhan
-														</td>
-														<td class="">
-														  <small class="label label-success">Resolved</small>
-														</td>
-														<td class="">
-														  Contact 181 -> [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
-														</td>
-														<td class="">
-														Jaswantchouhan
-														</td>
-														<td class="">
-														 JC - Segment- All Topic - To- Quote - Open Quotes
-														</td>
-													  </tr>
-													</tbody>
-												  </table>  
-												 </div>
-											   </div>
-										     </div>
-                                       </div>								
-									 
-									   <div class="message-box">
-									      <div class="message-box-header">
-										    <div class="col-md-12">
-											  <span class="user">
-											    <img src="/dist/img/agent.png">
-												<b>Agent</b>
-											  </span>
-											 
-												  <div class="message-info">
-													  <b>From:</b> john.doe@example.com<br>
-													  <b>To:</b> alek.packard@1to1service.com<br>
-													  <b>CC:</b> justin.time@1to1service.com<br>
-													  <b>BCC:</b> jonie.hewlett@1to1service.com<br>
-												  </div>	
-												  <div class="clear"></div>
-													  
-												<div class="pull-right">		
-												<b> Interaction ID : 4645646</b>
-												 <br>  											
-												 <small class="bg-green-active label">Resolved</small>
-												</div>
-										     </div>
-											 
-									         <div class="col-md-12 mtop-15"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
-
-											  <div class="col-md-12 ">
-												   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-												<div class="panel panel-default">
-													<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
-														<h4 class="panel-title">
-															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="text-capitalize">
-																 interaction properties and details
-																 <i class="glyphicon glyphicon-chevron-right"></i>
-															</a>
-														</h4>
-													</div>
-													<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
-														<div class="panel-body">
-														  <div class="row">
-															<div class="col-md-12">
-															 <div class="row">
-															  <div class="nested-panel-heading">
-															    <h3 class="nested-title">Interaction Properties</h3>
-															  </div>
-															  <form role="form">
-																	<div class="form-group col-md-6">
-																	  <label for="">Follow Up Date</label>
-																	  <input type="email" class="form-control" id="" placeholder="11/08/17">
-																	</div>
-																	<div class="form-group col-md-6">
-																	  <label for="">isFollowUp</label>
-																	  <select id="" class="form-control">
-																		<option>True</option>
-																		
-																	  </select>
-																	</div>
-																	<div class="form-group col-md-6">
-																	  <label for="">isOpen</label>
-																	  <select id="" class="form-control">
-																		<option>False</option>
-																		
-																	  </select>
-																	</div>
-																	<div class="form-group col-md-6">
-																	  <label for="">Owner</label>
-																	  <select id="" class="form-control">
-																		<option>Joe</option>												
-																	  </select>
-																	</div>
-																	<div class="form-group col-md-6">
-																	  <label for="">priority</label>
-																	  <select id="" class="form-control">
-																		<option>0-Urgent</option>
-																		
-																	  </select>
-																	</div>
-																	<div class="col-md-12">
-																	  <button type="submit" class="btn btn-primary btn-sm">Edit Properties</button>
-																    </div>
-																</form>			 
-															 </div>
-															 <hr />
-															 <div class="row">
-															  <div class="nested-panel-heading">
-															    <h3 class="nested-title">Interaction Detail</h3>
-															  </div>
-															  
-															  <div class="col-md-6">
-															
-																	<div><b> Segment / Topic : </b>All Topic</div>
-																	<div><b> Resolved By:</b>Alek Packard</div>
-																	<div><b> Approved By:</b> </div>
-																	
-																</div> 	
-															
-															  <div class="col-md-6">
-																
-															  </div>
-															
-															 </div>
+														<th>&nbsp;</th>
+														<th>Jhon Doe</th>
+														<th>April 2, 2018 8:55:23AM</th>
+													</tr>
+									   			</table>
+									 		</div>
+											 <div class="row padding-collapse"> 
+ 								       			<div class="row">
+										  			 <div class="col-md-12">
+														<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom" >
+															<i class="fa fa-envelope"></i>
+															Agent email
+														</button>
+														<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom">
+															<i class="fa fa-pencil-square-o"></i>
+															Note
+														</button>
+														<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom">
+															<i class="fa fa-ticket"></i>
+															Ticket
+														</button>
+														<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom">
+															<i class="fa fa-mail-forward"></i>
+															Forward Copy
+														</button>
+														<select class="form-control pull-right widthauto moreaction">
+															<option value="">More Actions</option>
+															<option value="statusaudit">Show Status Audit</option>
+															<option>Show Full Case</option>
+															<option>Print</option>
+															<option>Display Plain Text/HTML</option>
+														</select>
+														<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom">
+															<i class="fa fa-sign-in"></i>
+															Get This
+														</button>
+										    		</div>
+													<div class="col-md-12 mtop-15">
+											    		<div class="box status-box" style="display:none">
+															<div class="box-header with-border">
+																<h3 class="box-title">Status Audit</h3>
+																<div class="box-tools pull-right">
+																	<button type="button" class="btn btn-box-tool cancel-widget" ><i class="fa fa-times"></i></button>
+																</div>
 															</div>
-														   </div>				
+															 <div class="box-body table-responsive">
+																<table id="example1" class="table  table-striped table-hover">
+																	<thead>
+																		<tr>
+																			<th class="text-capitalize">
+																			Time 
+																			</th>
+																			<th class="text-capitalize" >
+																			Modifier
+																			</th>
+																			<th class="text-capitalize" >
+																			Status
+																			</th>
+																			<th class="text-capitalize">
+																			Action
+																			</th>
+																			<th class="text-capitalize">
+																			Assigned To
+																			</th>
+																			<th class="text-capitalize">
+																			Topic
+																			</th>
+																		</tr>
+																	</thead>  
+																	<tbody>
+																		<tr>
+																			<td>
+																			11/11/2017 12:19:20PM
+																			</td>
+																			<td>
+																			Jaswantchouhan
+																			</td>
+																			<td>
+																			<small class="label label-success">Resolved</small>
+																			</td>
+																			<td>
+																			Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+																			</td>
+																			<td>
+																			Jaswantchouhan
+																			</td>
+																			<td>
+																			JC - Segment- All Topic - To- Quote - Open Quotes
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>  
+															 </div>
+											   			</div>
+										    		 </div>
+                                       			</div>								
+									   			<div class="message-box">
+									      			<div class="message-box-header">
+										    			<div class="col-md-12">
+															<span class="user">
+																<img src="/dist/img/agent.png">
+																<b>Agent</b>
+															</span>
+															<div class="message-info">
+																<b>From:</b> john.doe@example.com<br>
+																<b>To:</b> alek.packard@1to1service.com<br>
+																<b>CC:</b> justin.time@1to1service.com<br>
+																<b>BCC:</b> jonie.hewlett@1to1service.com<br>
+															</div>	
+												 			 <div class="clear"></div>
+															<div class="pull-right">		
+																<b> Interaction ID : 4645646</b>
+																<br>  											
+																<small class="bg-green-active label">Resolved</small>
+															</div>
+										     			</div>
+											 
+									         			<div class="col-md-12 mtop-15"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
+
+											 			<div class="col-md-12">
+												   			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
+																		<h4 class="panel-title">
+																			<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
+																				interaction properties and details
+																				<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></i>
+																			</a>
+																		</h4>
+																	</div>
+																	<div class="panel-collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" uib-collapse="isCollapsed">
+																		<div class="panel-body">
+																			<div class="row">
+																				<div class="col-md-12">
+																					<div class="row">
+																						<div class="nested-panel-heading">
+																							<h3 class="nested-title">Interaction Properties</h3>
+																						</div>
+																						<form role="form">
+																							<div class="form-group col-md-6">
+																								<label for="">Follow Up Date</label>
+																								<input type="email" class="form-control" id="" placeholder="11/08/17">
+																							</div>
+																							<div class="form-group col-md-6">
+																								<label for="">isFollowUp</label>
+																								<select id="" class="form-control">
+																									<option>True</option>
+																									
+																								</select>
+																							</div>
+																							<div class="form-group col-md-6">
+																								<label for="">isOpen</label>
+																								<select id="" class="form-control">
+																									<option>False</option>
+																									
+																								</select>
+																							</div>
+																							<div class="form-group col-md-6">
+																								<label for="">Owner</label>
+																								<select id="" class="form-control">
+																									<option>Joe</option>												
+																								</select>
+																							</div>
+																							<div class="form-group col-md-6">
+																								<label for="">priority</label>
+																								<select id="" class="form-control">
+																									<option>0-Urgent</option>
+																									
+																								</select>
+																							</div>
+																							<div class="col-md-12">
+																								<button type="submit" class="btn btn-primary btn-sm">Edit Properties</button>
+																							</div>
+																						</form>			 
+																					</div>
+																					<hr />
+																					<div class="row">
+																						<div class="nested-panel-heading">
+																							<h3 class="nested-title">Interaction Detail</h3>
+																						</div>
+																						<div class="col-md-6">
+																							<div><b> Segment / Topic : </b>All Topic</div>
+																							<div><b> Resolved By:</b>Alek Packard</div>
+																							<div><b> Approved By:</b> </div>
+																						</div> 	
+																						<div class="col-md-6">
+																						</div>
+																					</div>
+																				</div>
+																			</div>				
+																		</div>
+																	</div>
+																</div>
+															</div>	
+											   			</div>
+										  			</div>
+													<div class="message-box-body"> 
+														<div class="clear"></div>
+														<div>										   
+															<p>Hello,<br>
+																I'm looking for a flat screen. Any suggestions?
+															</p>
 														</div>
 													</div>
-												</div>
+									  			</div>
 											</div>	
-											    </div>
-										  </div>
-										  <div class="message-box-body"> 
-										   
-										   <div class="clear"></div>
-                                           <div>										   
-										    Hello,<br>
-
-                                            I'm looking for a flat screen. Any suggestions?
-											<br>
-											
-											<br><br><br><br>
-											</div>
-										  </div>
-									   </div>
-										</div>	
-									  </div>
+									 	</div>
 									</div> 
-									</div>
-								  </div>
-								 
-							  </div> 
-						  </div>
-						  <div class="col-md-4">
-
-						  </div>
-                        </div>                         
-                    </div>
-                    <!-- /.col -->
-
-                
+								</div>
+							</div>
+						</div> 
+					</div>
+					<div class="col-md-4"></div>
                 </div>
                 <!-- /.row -->
     <!-- END ACCORDION & CAROUSEL-->
-	
             </section>
-         
         </div>
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
@@ -312,10 +285,8 @@ title: View Mode
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
                                     <p>Will be 23 on April 24th</p>
                                 </div>
                             </a>
@@ -323,10 +294,8 @@ title: View Mode
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-user bg-yellow"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
                                     <p>New phone +1(800)555-1234</p>
                                 </div>
                             </a>
@@ -334,10 +303,8 @@ title: View Mode
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
                                     <p>nora@example.com</p>
                                 </div>
                             </a>
@@ -345,17 +312,14 @@ title: View Mode
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
                                     <p>Execution time 5 seconds</p>
                                 </div>
                             </a>
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                     <h3 class="control-sidebar-heading">Tasks Progress</h3>
                     <ul class="control-sidebar-menu">
                         <li>
@@ -364,7 +328,6 @@ title: View Mode
                                     Custom Template Design
                                     <span class="label label-danger pull-right">70%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
                                 </div>
@@ -376,7 +339,6 @@ title: View Mode
                                     Update Resume
                                     <span class="label label-success pull-right">95%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-success" style="width: 95%"></div>
                                 </div>
@@ -388,7 +350,6 @@ title: View Mode
                                     Laravel Integration
                                     <span class="label label-warning pull-right">50%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
                                 </div>
@@ -400,7 +361,6 @@ title: View Mode
                                     Back End Framework
                                     <span class="label label-primary pull-right">68%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
                                 </div>
@@ -408,7 +368,6 @@ title: View Mode
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                 </div>
                 <!-- /.tab-pane -->
                 <!-- Stats tab content -->
@@ -418,45 +377,37 @@ title: View Mode
                 <div class="tab-pane" id="control-sidebar-settings-tab">
                     <form method="post">
                         <h3 class="control-sidebar-heading">General Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Report panel usage
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Some information about this general settings option
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Allow mail redirect
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Other sets of options are available
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Expose author name in posts
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Allow the user to show his name in blog posts
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <h3 class="control-sidebar-heading">Chat Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Show me as online
@@ -464,7 +415,6 @@ title: View Mode
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Turn off notifications
@@ -472,7 +422,6 @@ title: View Mode
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Delete chat history
@@ -504,11 +453,10 @@ title: View Mode
 			  $('#stock-responses').slimScroll({
 				height: '250px'
 			  });
-              CKEDITOR.replace('editor1')
+              CKEDITOR.replace('editor1');
        });
-
 	</script>
-	 <script>
+	<script>
 		function toggleIcon(e) {
 		$(e.target)
 			.prev('.panel-heading')
@@ -517,30 +465,33 @@ title: View Mode
 		}
 		$('.panel-group').on('hidden.bs.collapse', toggleIcon);
 		$('.panel-group').on('shown.bs.collapse', toggleIcon);
-	 </script>
-	 <script>
-	   $(document).ready(function() {
-		// DataTable
-		var table = $('#example1').DataTable( {
-			"order": [],
-			"columnDefs": [ {
-			  "targets"  : 'no-sort',
-			  "orderable": false,
+	</script>
+	<script>
+		$(document).ready(function() {
+			// DataTable
+			var table = $('#example1').DataTable( {
+				"order": [],
+				"columnDefs": [ {
+				"targets"  : 'no-sort',
+				"orderable": false,
+				}]
 			}
-			]
-		}
-		);
-      });
-	  
-	  $('.cancel-widget').click(function (){
-	     $('.status-box').slideUp();
-	  });
-	   $('.moreaction').change(function (){
-	     if($('.moreaction').val() == 'statusaudit')
-		 {
-		  $('.status-box').slideDown();
-		 }
-	  });
-	 </script>
+			);
+		});
+		$('.cancel-widget').click(function (){
+			$('.status-box').slideUp();
+		});
+		$('.moreaction').change(function (){
+			if($('.moreaction').val() == 'statusaudit')
+			{
+				$('.status-box').slideDown();
+			}
+		});
+	</script>
+    <script>
+			angular.module('iService').controller('action-mode', function ($scope) {
+				$scope.isCollapsed = false;
+			});
+	</script>
 </body>
 </html>
