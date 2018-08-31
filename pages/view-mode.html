@@ -74,13 +74,19 @@ title: View Mode
 															<i class="fa fa-mail-forward"></i>
 															Forward Copy
 														</button>
-														<select class="form-control pull-right widthauto moreaction">
-															<option value="">More Actions</option>
-															<option value="statusaudit">Show Status Audit</option>
-															<option>Show Full Case</option>
-															<option>Print</option>
-															<option>Display Plain Text/HTML</option>
-														</select>
+                            <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                              <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                                <li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+                                  <a href="" ng-click="isStatusAuditSectionExpanded = !isStatusAuditSectionExpanded">Show Status Audit</a>
+                                </li>
+                                <li role="menuitem"><a href="#">Show Full Case</a></li>
+                                <li role="menuitem"><a href="#">Print</a></li>
+                                <li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
+                              </ul>
+                            </div>
 														<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom">
 															<i class="fa fa-sign-in"></i>
 															Get This
@@ -444,17 +450,17 @@ title: View Mode
    	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	<script>
-	   $(function ()
-       {
-	       // SLIMSCROLL FOR CHAT WIDGET
-			  $('#variable-box').slimScroll({
-				height: '250px'
-			  });
-			  $('#stock-responses').slimScroll({
-				height: '250px'
-			  });
-              CKEDITOR.replace('editor1');
-       });
+    $(function ()
+    {
+      // SLIMSCROLL FOR CHAT WIDGET
+      $('#variable-box').slimScroll({
+        height: '250px'
+      });
+      $('#stock-responses').slimScroll({
+        height: '250px'
+      });
+      CKEDITOR.replace('editor1');
+    });
 	</script>
 	<script>
 		function toggleIcon(e) {
@@ -473,20 +479,23 @@ title: View Mode
 				"order": [],
 				"columnDefs": [ {
 				"targets"  : 'no-sort',
-				"orderable": false,
+				"orderable": false
 				}]
 			}
 			);
-		});
-		$('.cancel-widget').click(function (){
-			$('.status-box').slideUp();
-		});
-		$('.moreaction').change(function (){
-			if($('.moreaction').val() == 'statusaudit')
-			{
-				$('.status-box').slideDown();
-			}
-		});
+    });
+
+    $('.cancel-widget').click(function ()
+    {
+      $('.status-box').slideUp();
+    });
+    $('.moreaction').change(function ()
+    {
+      if($('.moreaction').val() === 'statusaudit')
+      {
+        $('.status-box').slideDown();
+      }
+    });
 	</script>
     <script>
 			angular.module('iService').controller('action-mode', function ($scope) {
