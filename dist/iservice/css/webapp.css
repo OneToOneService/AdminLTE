@@ -1486,3 +1486,6 @@ ul.timeline span.stack-icon .aqua {
 .private-comment-box {
   height: 150px;
 }
+.ui-select-choices-row .ui-select-choices-row-inner {
+  padding: 3px 20px;
+}
