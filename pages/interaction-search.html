@@ -5,11 +5,10 @@ title:  Search Interactions
 <html ng-app="iService">
 <head>
     {% include common-head.html %}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
-<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
-
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -23,517 +22,480 @@ title:  Search Interactions
                     {{ page.title }}
                 </h1>
             </section>
-  <!-- Main content -->
+  			<!-- Main content -->
             <section class="content">
                 <!-- START CUSTOM TABS -->
-               
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
 						<div class="box box-primary">
-						  <div class="box-header with-border">
-							<i class="fa fa-search"></i>
-							<h3 class="box-title">Search Parameters</h3>
-						  </div>
-						  <div class="box-body">
-						     <section class="container-fluid search-parameters">
-							   <fieldset class="row" style="">
-								  <div class="panel panel-default col-xs-12 bg-gray-light">
+							<div class="box-header with-border">
+								<i class="fa fa-search"></i>
+								<h3 class="box-title">Search Parameters</h3>
+							</div>
+							<div class="box-body">
+								<section class="container-fluid search-parameters">
+									<fieldset class="row">
+										<div class="panel panel-default col-xs-12 bg-gray-light">
+											<div class="row">
+												<div class="col-xs-12 col-md-2">
+													<div class="floating-label bg-white">
+														<select>
+															<option value="anywhere" selected="selected">anywhere</option>
+															<option value="start">start</option>
+															<option value="end">end</option>
+															<option value="entire">entire</option>
+														</select>
+														<label>Search where</label>
+													</div>
+												</div>
+												<div class="col-xs-12 col-md-3">
+													<div class="floating-label bg-white">
+														<select class="infield">
+															<option value="all">-- All --</option>
+															<option value="ID">-- ID --</option>
+															<option value="login" selected="selected">-- Login --</option>
+															<option value="loginbounced">-- Login (Bounced) --</option>
+															<option value="Tags">-- Tags --</option>
+															<option value="segment">-- Segment Membership --</option>
+															<option value="30">Additional Detail</option>
+															<option value="5">Address</option>
+															<option value="33">Address1</option>
+															<option value="34">Address2</option>
+															<option value="35">City</option>
+															<option value="7">Company</option>
+															<option value="40">Contact Viewable - Not Editable</option>
+															<option value="41">Contact Viewable AND Editable</option>
+															<option value="38">Country</option>
+															<option value="6">Customer Type</option>
+															<option value="29">Date</option>
+															<option value="31">Existing Phone Property</option>
+															<option value="1">First Name</option>
+															<option value="8">Job Title</option>
+															<option value="3">Last Name</option>
+															<option value="2">Middle Initial</option>
+															<option value="4">Phone</option>
+															<option value="37">Postal Code</option>
+															<option value="26">s2only</option>
+															<option value="36">State</option>
+															<option value="32">Svc Level 5 Min</option>
+															<option value="25">Text</option>
+															<option value="Date">Date</option>
+														</select>
+														<label>In field</label>
+													</div>
+												</div>
+												<div class="col-xs-12 col-md-3">
+													<div class="floating-label bg-white">
+														<select id="searchOption">
+															<option value="Contain">Contains</option>
+															<option value="Does Not Contain">Does Not Contain</option>
+															<option value="Is Greater Than">Is Greater Than</option>
+															<option value="Is Equal To">Is Equal To</option>
+															<option value="Is Less Than">Is Less Than</option>
+														</select>
+														<label>Search options</label>
+													</div>
+												</div>
+												<div class="col-xs-12 col-md-4 search-field">
+													<div class="floating-label bg-white">
+													<input type="text" class="searchtag search" data-role="tagsinput" style="display:none;">
+													<input type="text" for="search" class="searchnormal search" required>
+													<label id="search" class="floatlabel">Search for</label>
+													</div>
+													<button class="btn btn-lg btn-link" type="button" title="Remove Field">
+													<i class="fa fa-times-circle text-red"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+									</fieldset>
 									<div class="row">
-									  <div class="col-xs-12 col-md-2">
-										<div class="floating-label bg-white">
-										  <select>
-											<option value="anywhere" selected="selected">anywhere</option>
-											<option value="start">start</option>
-											<option value="end">end</option>
-											<option value="entire">entire</option>
-										  </select>
-										  <label>Search where</label>
-										</div>
-									
-									  </div>
-									  <div class="col-xs-12 col-md-3">
-										<div class="floating-label bg-white">
-										  <select class="infield">
-											<option value="all">-- All --</option>
-											<option value="ID">-- ID --</option>
-											<option value="login" selected="selected">-- Login --</option>
-											<option value="loginbounced">-- Login (Bounced) --</option>
-											<option value="Tags">-- Tags --</option>
-											<option value="segment">-- Segment Membership --</option>
-											<option value="30">Additional Detail</option>
-											<option value="5">Address</option>
-											<option value="33">Address1</option>
-											<option value="34">Address2</option>
-											<option value="35">City</option>
-											<option value="7">Company</option>
-											<option value="40">Contact Viewable - Not Editable</option>
-											<option value="41">Contact Viewable AND Editable</option>
-											<option value="38">Country</option>
-											<option value="6">Customer Type</option>
-											<option value="29">Date</option>
-											<option value="31">Existing Phone Property</option>
-											<option value="1">First Name</option>
-											<option value="8">Job Title</option>
-											<option value="3">Last Name</option>
-											<option value="2">Middle Initial</option>
-											<option value="4">Phone</option>
-											<option value="37">Postal Code</option>
-											<option value="26">s2only</option>
-											<option value="36">State</option>
-											<option value="32">Svc Level 5 Min</option>
-											<option value="25">Text</option>
-											<option value="Date">Date</option>
-										  </select>
-										  <label>In field</label>
-										</div>
-									  </div>
-									   <div class="col-xs-12 col-md-3">
-										<div class="floating-label bg-white">
-										  <select id="searchOption">
-										    <option value="Contain">Contains</option>
-											<option value="Does Not Contain">Does Not Contain</option>
-											<option value="Is Greater Than">Is Greater Than</option>
-											<option value="Is Equal To">Is Equal To</option>
-											<option value="Is Less Than">Is Less Than</option>
-											
-										  </select>
-										 
-										  <label>Search options</label>
-										</div>
-										
-									  </div>
-									  <div class="col-xs-12 col-md-4 search-field">
-										<div class="floating-label bg-white">
-										  <input type="text" class="searchtag search" data-role="tagsinput" style="display:none;">
-										  <input type="text" for="search" class="searchnormal search" required>
-										  <label id="search" class="floatlabel">Search for</label>
-										</div>
-										<button class="btn btn-lg btn-link" type="button" title="Remove Field" style="">
-										  <i class="fa fa-times-circle text-red"></i>
+										<button class="btn btn-lg btn-link" type="button">
+											<i class="fa fa-plus-circle text-light-blue"></i>
+											Add another search parameter
 										</button>
-									  </div>
-									 </div>
-								  </div>
-								</fieldset>
-							   <div class="row">
-								  <button class="btn btn-lg btn-link" type="button">
-									<i class="fa fa-plus-circle text-light-blue" ></i>
-									Add another search parameter
-								  </button>
-								</div>
-								<div class="row">
-								 <i class="fa fa-calendar filter-label"></i><label>Limit by date interaction was</label>
-								 <div class="row">
-									 <div class="col-md-8">
-									   <div class="form-group col-md-4">
-									     <select class="form-control">
-										   <option value="">Created</option>
-										   <option value="">Resolved</option>
-										 </select>
-									   </div>
-									   <div class="form-group col-md-4">
-										   <input type="text" class="form-control" placeholder="On Or After:" id="datepickerafter">
-									   </div>
-									   <div class="form-group col-md-4">
-										   <input type="text" class="form-control" placeholder="On Or Before:" id="datepickerbefore">
-									   </div>								   
-									 </div>
-								  </div>	 
-								</div>
-							  </section>
-						  </div>
+									</div>
+									<div class="row">
+										<i class="fa fa-calendar filter-label"></i><label>Limit by date interaction was</label>
+										<div class="row">
+											<div class="col-md-8">
+												<div class="form-group col-md-4">
+													<select class="form-control">
+													<option value="">Created</option>
+													<option value="">Resolved</option>
+													</select>
+												</div>
+												<div class="form-group col-md-4">
+													<input type="text" class="form-control" placeholder="On Or After:" id="datepickerafter">
+												</div>
+												<div class="form-group col-md-4">
+													<input type="text" class="form-control" placeholder="On Or Before:" id="datepickerbefore">
+												</div>								   
+											</div>
+										</div>	 
+									</div>
+								</section>
+							</div>
 						</div>
                         <div class="row">
-						  <div class="col-md-12">
-                            <div class="box box-info">
-								<div class="box-header with-border">
-								  <i class="fa  fa-list-alt"></i>
-								  <h3 class="box-title head-title-padding">Search Result</h3>
-								</div>
+						  	<div class="col-md-12">
+                            	<div class="box box-info">
+									<div class="box-header with-border">
+										<i class="fa  fa-list-alt"></i>
+										<h3 class="box-title head-title-padding">Search Result</h3>
+									</div>
 								<!-- /.box-header -->
 								<!-- form start -->
-								 <div class="box-body table-responsive ">
-									 
-									  <table id="example1" class="table  table-striped table-hover ">
-										 <thead>
-										  <tr>
-											<th class="no-sort icon-col"  name="name" ><div class="icon-col"></div></th>
-											<th class="text-capitalize">
-											 Subject 
-											</th>
-											<th class="text-capitalize" >
-											  Topic
-											</th>
-											<th class="text-capitalize" >
-											  Status
-											</th>
-											<th class="text-capitalize" >
-											  Type
-											</th>
-											<th class="text-capitalize">
-											  Username
-											</th>
-											<th class="text-capitalize">
-											  Properties
-											</th>
-											<th class="text-capitalize">
-											 Date
-											</th>
-										  </tr>
-										</thead>  
-										<tbody>
-										  <tr >
-											<td  name="name" width="30">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ></i>
-											  </button>
-											</td>
-											<td class="">
-												[ref#: 71-71] Called with question about TVs
-											</td>
-											<td class="">
-											  Products
-											</td>
-											<td class="">
-											  <small class="bg-green-disabled label">PrivateNote</small>
-											</td>
-											<td class="">
-											 <small class="bg-teal-active label"> 
-											    <span class="fa-stack stack-icon-label">
-												  <i class="fa fa-file-text-o"></i>
-												  <i class="fa fa-lock "></i> 
-												</span>  Private Note
-											 </small>
-											</td>
-											<td class="">
-											 Jhon Doe
-											</td>
-											<td class="">
-											--
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-										  </tr>
-										  <tr >
-											<td name="name" width="30">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-											  [ref#: 140-140] Need Digital Converter
-											</td>
-											<td class="">
-											 Products
-											</td>
-											<td class="">
-											  <small class="bg-green-active label">Resolved</small>
-											</td>
-											<td class="">
-											  <small class="label bg-blue"> 
-											    <span class="fa-stack stack-icon-label">
-												  <i class="fa fa-user"></i>
-												  <i class="fa fa-ticket "></i> 
-												</span> Customer Ticket
-											  </small>
-											</td>
-											<td class="">
-											 Julie	Persuavia
-											</td>
-											<td class="">
-											--
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-										  </tr>
-										  <tr >
-											<td  name="name" class="icon-col">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message">
-												 <i class="fa fa-envelope-open" data-toggle="tooltip" data-placement="bottom" data-original-title="Case includes unresolved questions"></i>
-											  </button>							 
-											</td>
-											<td class="">
-											 [ref#: 1006-1006] Looking for low cost TV
-											</td>
-											<td class="">
-											 Products
-											</td>
-											<td class="">
-											  <small class="bg-green-active label">Resolved</small>
-											</td>
-											<td class="">
-											  <small class="label bg-blue"> 
-											    <span class="fa-stack stack-icon-label">
-												  <i class="fa fa-user"></i>
-												  <i class="fa fa-ticket "></i> 
-												</span> Customer Ticket
-											  </small>
-											</td>
-											<td class="">
-											 Jhon Doe 
-											</td>
-											<td class="">
-											--
-											</td>
-											<td class="">
-											 4 Days ago
-											</td>
-										  </tr>
-										   <tr >
-											<td  name="name" class="icon-col">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											  <button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="bottom" ata-original-title="Case includes unresolved questions">
-												 <i class="fa fa-envelope-open" data-toggle="tooltip" data-placement="bottom" data-original-title="Case includes unresolved questions"></i>
-											  </button>
-											</td>
-											<td class="">
-											 Re: [ref#: 1006-1009] Looking for low cost TV
-											</td>
-											<td class="">
-											 Products
-											</td>
-											<td class="">
-											 <small class="bg-green-active label">Sent</small>
-											</td>
-											<td class="">
-											  <small class="label bg-green"> 
-												  <span class="fa-stack stack-icon-label">
-													<i class="fa fa-user"></i>
-													<i class="fa fa-reply agent-response"></i> 
-												  </span> Agent Response
-											  </small>
-											</td>
-											<td class="">
-											 Jhon Doe 
-											</td>
-											<td class="">
-											--
-											</td>
-											<td class="">
-											 5 Days ago
-											</td>
-										  </tr>
-										</tbody>
-									  </table>
-                   
-								  </div>
-							 
-							</div> 
-						  </div>
-						  <div class="col-md-4">
-
-						  </div>
+									<div class="box-body table-responsive ">
+										<table id="example1" class="table  table-striped table-hover ">
+											<thead>
+												<tr>
+													<th class="no-sort icon-col" name="name"><div class="icon-col"></div></th>
+													<th class="text-capitalize">
+														Subject 
+													</th>
+													<th class="text-capitalize">
+														Topic
+													</th>
+													<th class="text-capitalize">
+														Status
+													</th>
+													<th class="text-capitalize">
+														Type
+													</th>
+													<th class="text-capitalize">
+														Username
+													</th>
+													<th class="text-capitalize">
+														Properties
+													</th>
+													<th class="text-capitalize">
+														Date
+													</th>
+												</tr>
+											</thead>  
+											<tbody>
+												<tr>
+													<td  name="name" width="30">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+															<i class="fa fa-plus-circle"></i>
+														</button>
+													</td>
+													<td>
+														[ref#: 71-71] Called with question about TVs
+													</td>
+													<td>
+														Products
+													</td>
+													<td>
+														<small class="bg-green-disabled label">PrivateNote</small>
+													</td>
+													<td>
+														<small class="bg-teal-active label"> 
+															<span class="fa-stack stack-icon-label">
+															<i class="fa fa-file-text-o"></i>
+															<i class="fa fa-lock "></i> 
+															</span>  Private Note
+														</small>
+													</td>
+													<td>
+														Jhon Doe
+													</td>
+													<td>
+														--
+													</td>
+													<td>
+														2 Days ago
+													</td>
+												</tr>
+												<tr>
+													<td name="name" width="30">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+															<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+														</button>
+													</td>
+													<td>
+														[ref#: 140-140] Need Digital Converter
+													</td>
+													<td>
+														Products
+													</td>
+													<td>
+														<small class="bg-green-active label">Resolved</small>
+													</td>
+													<td>
+														<small class="label bg-blue"> 
+															<span class="fa-stack stack-icon-label">
+																<i class="fa fa-user"></i>
+																<i class="fa fa-ticket "></i> 
+															</span> Customer Ticket
+														</small>
+													</td>
+													<td>
+														Julie	Persuavia
+													</td>
+													<td>
+														--
+													</td>
+													<td>
+														2 Days ago
+													</td>
+												</tr>
+												<tr>
+													<td  name="name" class="icon-col">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
+															<i class="fa fa-plus-circle"></i>
+														</button>
+														<button class="btn btn-xs btn-link text-default open-message">
+															<i class="fa fa-envelope-open" data-toggle="tooltip" data-placement="bottom" data-original-title="Case includes unresolved questions"></i>
+														</button>							 
+													</td>
+													<td>
+														[ref#: 1006-1006] Looking for low cost TV
+													</td>
+													<td>
+														Products
+													</td>
+													<td>
+														<small class="bg-green-active label">Resolved</small>
+													</td>
+													<td>
+													<small class="label bg-blue"> 
+														<span class="fa-stack stack-icon-label">
+														<i class="fa fa-user"></i>
+														<i class="fa fa-ticket "></i> 
+														</span> Customer Ticket
+													</small>
+													</td>
+													<td>
+														Jhon Doe 
+													</td>
+													<td>
+														--
+													</td>
+													<td>
+														4 Days ago
+													</td>
+												</tr>
+												<tr>
+													<td  name="name" class="icon-col">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
+															<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+														</button>
+														<button class="btn btn-xs btn-link text-default open-message" data-toggle="tooltip" data-placement="bottom" ata-original-title="Case includes unresolved questions">
+															<i class="fa fa-envelope-open" data-toggle="tooltip" data-placement="bottom" data-original-title="Case includes unresolved questions"></i>
+														</button>
+													</td>
+													<td>
+														Re: [ref#: 1006-1009] Looking for low cost TV
+													</td>
+													<td>
+													Products
+													</td>
+													<td>
+														<small class="bg-green-active label">Sent</small>
+													</td>
+													<td>
+														<small class="label bg-green"> 
+															<span class="fa-stack stack-icon-label">
+																<i class="fa fa-user"></i>
+																<i class="fa fa-reply agent-response"></i> 
+															</span> Agent Response
+														</small>
+													</td>
+													<td>
+														Jhon Doe 
+													</td>
+													<td>
+														--
+													</td>
+													<td>
+														5 Days ago
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div> 
+						 	 </div>
+							<div class="col-md-4">
+							</div>
                         </div>                         
                     </div>
                     <!-- /.col -->
-
-                
-                </div>
+*                </div>
                 <!-- /.row -->
-    <!-- END ACCORDION & CAROUSEL-->
-	
+    			<!-- END ACCORDION & CAROUSEL-->
             </section>
-         
         </div>
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
         <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane" id="control-sidebar-home-tab">
-                    <h3 class="control-sidebar-heading">Recent Activity</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                    <p>Will be 23 on April 24th</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                    <p>New phone +1(800)555-1234</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                    <p>nora@example.com</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                    <p>Execution time 5 seconds</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Custom Template Design
-                                    <span class="label label-danger pull-right">70%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Update Resume
-                                    <span class="label label-success pull-right">95%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Laravel Integration
-                                    <span class="label label-warning pull-right">50%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Back End Framework
-                                    <span class="label label-primary pull-right">68%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                </div>
-                <!-- /.tab-pane -->
-                <!-- Stats tab content -->
-                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                <!-- /.tab-pane -->
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                    <form method="post">
-                        <h3 class="control-sidebar-heading">General Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Report panel usage
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Some information about this general settings option
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Allow mail redirect
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Other sets of options are available
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Expose author name in posts
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Allow the user to show his name in blog posts
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Show me as online
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Turn off notifications
-                                <input type="checkbox" class="pull-right">
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Delete chat history
-                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-                    </form>
-                </div>
-                <!-- /.tab-pane -->
-            </div>
-        </aside>
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Create the tabs -->
+			<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+				<li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+				<li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<!-- Home tab content -->
+				<div class="tab-pane" id="control-sidebar-home-tab">
+					<h3 class="control-sidebar-heading">Recent Activity</h3>
+					<ul class="control-sidebar-menu">
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+									<p>Will be 23 on April 24th</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-user bg-yellow"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+									<p>New phone +1(800)555-1234</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+									<p>nora@example.com</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-file-code-o bg-green"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+									<p>Execution time 5 seconds</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- /.control-sidebar-menu -->
+					<h3 class="control-sidebar-heading">Tasks Progress</h3>
+					<ul class="control-sidebar-menu">
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Custom Template Design
+									<span class="label label-danger pull-right">70%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Update Resume
+									<span class="label label-success pull-right">95%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-success" style="width: 95%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Laravel Integration
+									<span class="label label-warning pull-right">50%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Back End Framework
+									<span class="label label-primary pull-right">68%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- /.control-sidebar-menu -->
+				</div>
+				<!-- /.tab-pane -->
+				<!-- Stats tab content -->
+				<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+				<!-- /.tab-pane -->
+				<!-- Settings tab content -->
+				<div class="tab-pane" id="control-sidebar-settings-tab">
+					<form method="post">
+						<h3 class="control-sidebar-heading">General Settings</h3>
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Report panel usage
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Some information about this general settings option
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Allow mail redirect
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Other sets of options are available
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Expose author name in posts
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Allow the user to show his name in blog posts
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<h3 class="control-sidebar-heading">Chat Settings</h3>
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Show me as online
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Turn off notifications
+								<input type="checkbox" class="pull-right">
+							</label>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Delete chat history
+								<a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+							</label>
+						</div>
+						<!-- /.form-group -->
+					</form>
+				</div>
+				<!-- /.tab-pane -->
+			</div>
+		</aside>
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
              immediately after the control sidebar -->

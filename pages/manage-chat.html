@@ -4,983 +4,931 @@ title: Manage Active Chats
 <!DOCTYPE html>
 <html ng-app="iService">
 <head>
-    {% include common-head.html %}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
-<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
-
+  {% include common-head.html %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
-        {% include common-header.html %}
-        {% include common-menu.html %}
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    {{ page.title }}
-                </h1>
-            </section>
-  <!-- Main content -->
-            <section class="content">
-			  
-              <div class="row"> 
-			    <div class="col-md-4">
-				  <!-- Profile Image -->
-				  <div class="box box-primary">
-				    <div class="box-header with-border">
-					  <i class="fa  fa-list-ul"></i>
-					  <h3 class="box-title text-right">Topic List</h3>
-					</div>
-					<div class="box-body search-criteria">
-					  <div class="checkbox">
-						 <label class="mright-15"> <input type="checkbox" class="icheck"> Include Sub Topics </label> 
-					  </div>
-					  <div class="checkbox">
-						 <label class="mright-15"><input type="checkbox" class="icheck"> Show All Messages</label> 
-					  </div>
-					  <div class="row">
-						   <div class="col-md-12 chat-head">
-						      <div class="pull-right count-block">
-							<span class="fa-stack stack-icon-label">
-							  <i class="fa fa-comment"></i>
-							  <i class="fa fa-arrow-circle-o-right text-green"></i> 
-							 </span>
-						      </div>
-						      <div class="pull-right count-block">
-							<span class="fa-stack stack-icon-label">
-							  <i class="fa fa-comment"></i>
-							  <i class="fa fa-clock-o"></i> 
-							 </span>
-						      </div>
-						      <div class="pull-right count-block">
-							<i class="fa fa-user"></i>
-						      </div>
-						   </div> 
-				          </div>	
-					  <div class="treeview">
-					   	   
-					   <ul id="tree1" class="tree">
-							<li><a href="#" >e-shop -- All Topics <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></a>
-								<ul>
-									<li>_Feedback (0) <input type="checkbox" class="minimal" ><div class="pull-right count-block ">0</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li> 
-									<li>_Newsletter Subscription (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-									<li>_Spam (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-									<li>_Undeliverable (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-									<li>Account Questions (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
-										<ul>
-											<li>Orders (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-											<li>Refunds (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-											<li class="selected">Returns (1) <input type="checkbox" class="minimal" checked><div class="pull-right count-block ">2</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-										</ul>
-									</li>
-									<li>Products(0)<input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
-										<ul>
-											<li>Audio-Video (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-											<li>Cameras (2) <input type="checkbox" class="minimal" checked><div class="pull-right count-block ">1</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-											<li>Cell Phones (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-											<li>Computers (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-											<li>Televisions(0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-										</ul>
-									</li>
-									<li>Shipping (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-									<li>Technical Support (0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-									<li>To Quote(0) <input type="checkbox" class="minimal"><div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
-										<ul>
-											<li>Open Quotes (1) <input type="checkbox" class="minimal"> <div class="pull-right count-block ">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-  									    </ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					</div>
-					<!-- /.box-body -->
-				  </div>
-				  <!-- /.box -->
-                  
-				</div>
-	            <div class="col-md-8 p-l-0">
-				 <div class="row ">
-						  <div class="col-md-12">
-							  <div class="box box-primary">
-								 <div class="box-header with-border">
-									  <h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
-									  <div class="box-tools pull-right">
-										<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
-										</button>
-									  </div>
-								  </div> 
-								  <div class="box-body p0 manage-message collapse" id="massupdate" >
-								    <div class="mtop-15">
-									   <div class="col-md-8 form-horizontal"> 
-									   <div class="col-md-12">
-                                       <div class="form-group">
-											  <div class="btn-group dropdown margin-r-5">
-												  <button type="button" class="btn btn-primary "> <i class="fa fa-send"></i>
-												  Send</button>										 
-												  <div class="btn-group">
-													<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-													<span class="caret"></span></button>
-													<ul class="dropdown-menu" role="menu">
-													  <li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
-													  <li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
-													</ul>
-												  </div>
-												</div>
-											  <button  class="btn btn-primary" type="button">
-												  <i class="fa  fa-check"></i>
-												  Resolve
-												</button>
-											<button class="btn btn-primary margin-r-5" title="Forward">
-											  <i class="fa fa-share"></i>
-											  forward
-											</button>
-											<div class="btn-group dropdown margin-r-5">
-												  <button type="button" class="btn btn-primary "> <i class="fa fa-save"></i>
-												  Save</button>										 
-												  <div class="btn-group">
-													<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-													<span class="caret"></span></button>
-													<ul class="dropdown-menu" role="menu">
-													  <li><a href="#">Private Note</a></li>
-													  <li><a href="#">Public Note</a></li>
-													</ul>
-												  </div>
-											</div>
-											
-											<button class="btn btn-primary" title="Spam">
-											  <i class="fa fa-ban"></i>
-											  Spam
-											</button>
-											<a class="btn btn-link ng-scope"   href="#">Cancel</a>
-									   </div>
-									   <div class="row">
-									   <div class="box box-success">
-                                         <div class="box-header with-border">
-											  <h3 class="box-title">Email Addresses And Subject Line</h3>
-											  <div class="box-tools pull-right">
-												<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
-												</button>							
-											  </div>
-										 </div>	
-                                        <div class="box-body p0 collapse" id="emailbox"> 	
-                                           <div class="p10"> 										
-										    <div class="form-group">
-											<label class="col-sm-2 control-label">From</label>
-											<div class="col-sm-10">
-											  <input class="form-control " type="text" style="">
-											</div>
-										   </div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">To</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
-												</div>
-											</div>
-										    <div class="form-group">
-												<label class="col-sm-2 control-label">CC</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">BCC</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Subject</label>
-												<div class="col-sm-4">
-												  <input class="form-control " type="text" style="" disabled>
-												</div>
-												<div class="col-sm-6">
-												  <input class="form-control " type="text" style="">
-												</div>
-										   </div>
-										   </div>  
-										  </div>	 
-				                        </div>		
+  <div class="wrapper">
+		{% include common-header.html %}
+		{% include common-menu.html %}
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+						{{ page.title }}
+				</h1>
+			</section>
+			<!-- Main content -->
+			<section class="content">
+				<div class="row"> 
+					<div class="col-md-4">
+					<!-- Profile Image -->
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<i class="fa  fa-list-ul"></i>
+								<h3 class="box-title text-right">Topic List</h3>
+							</div>
+							<div class="box-body search-criteria">
+								<div class="checkbox">
+									<label class="mright-15"> <input type="checkbox" class="icheck"> Include Sub Topics </label> 
+								</div>
+								<div class="checkbox">
+									<label class="mright-15"><input type="checkbox" class="icheck"> Show All Messages</label> 
+								</div>
+								<div class="row">
+									<div class="col-md-12 chat-head">
+										<div class="pull-right count-block">
+											<span class="fa-stack stack-icon-label">
+												<i class="fa fa-comment"></i>
+												<i class="fa fa-arrow-circle-o-right text-green"></i> 
+											</span>
 										</div>
-									  <div class="row"> 
-									    
-										<div class="nav-tabs-custom">
-										    <ul class="nav nav-tabs">
-											  <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-											  <li class=""><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-                                              <li class="pull-right"> 
-											     <p class="attach-file"> <label class="btn-bs-file ">
-													Attach files		
-													<input type="file" />
-											      </label></span> (Maximum 10 MB upload at one time.)</p>
-											  </li>
-											</ul>
-											<div class="tab-content">
-											  <div class="tab-pane active" id="draftbody">
-											      <div class="form-group text-editor-container">
-													  <div class="col-sm-12">
-														<textarea class="form-control" style="height:500px;" rows="10" placeholder="" id="editor1" name="editor1"></textarea>
-													  </div>
-													</div>
-											   </div>
-                                               <div class="tab-pane" id="plainhtml">	
-											     &nbsp;<br><br><br>
-                                               </div>				
-                                               										   
-											</div>
+										<div class="pull-right count-block">
+											<span class="fa-stack stack-icon-label">
+												<i class="fa fa-comment"></i>
+												<i class="fa fa-clock-o"></i> 
+											</span>
 										</div>
-										 <div class="col-sm-12">
-											<div class="panel panel-default form-group">
-												<div class="panel-heading">
-												  <i class="fa fa-fw fa-pencil-square-o"></i>
-												  Private Comments
-												</div>
-												<div class="panel-body">
-												  <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note" style=""></textarea>
-												</div>
-											</div>	
-										  </div>
-									  </div>
-									  </div>
-									  
+										<div class="pull-right count-block">
+											<i class="fa fa-user"></i>
+										</div>
 									</div> 
-									<div class="col-md-4">
-									  <div class="box box-warning stock-responses ng-scope">
-										<div class="box-header with-border">
-										  <h3 class="box-title">
-											<i class="fa fa-fw fa-envelope"></i>
-											Message Properties
-										  </h3>
-										</div>
-										<div class="box-body">
-										  <div class="">
-											<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
-											<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
-										  </div>
-										</div>	
-									  </div>
-									  <div class="nav-tabs-custom">
-											<ul class="nav nav-tabs">
-												<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-												<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+								</div>	
+								<div class="treeview">
+									<ul id="tree1" class="tree">
+										<li><a href="#">e-shop -- All Topics <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></a>
+											<ul>
+												<li>_Feedback (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">0</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li> 
+												<li>_Newsletter Subscription (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li>_Spam (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li>_Undeliverable (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li>Account Questions (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
+													<ul>
+														<li>Orders (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+														<li>Refunds (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+														<li class="selected">Returns (1) <input type="checkbox" class="minimal" checked><div class="pull-right count-block">2</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+													</ul>
+												</li>
+												<li>Products(0)<input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
+													<ul>
+														<li>Audio-Video (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+														<li>Cameras (2) <input type="checkbox" class="minimal" checked><div class="pull-right count-block">1</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+														<li>Cell Phones (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+														<li>Computers (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+														<li>Televisions(0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+													</ul>
+												</li>
+												<li>Shipping (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li>Technical Support (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li>To Quote(0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
+													<ul>
+														<li>Open Quotes (1) <input type="checkbox" class="minimal"> <div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+															</ul>
+												</li>
 											</ul>
-											<div class="tab-content">
-												<div class="tab-pane active" id="tab_1">
-													<div class="row" id="variable-box">
-														<div class="col-xs-12 variable-responses">
-														    <div>
-															  <input type="text" class="form-control" placeholder="Keyword Search">
+										</li>
+									</ul>
+								</div>
+							</div>
+					<!-- /.box-body -->
+						</div>
+					<!-- /.box -->
+					</div>
+					<div class="col-md-8 p-l-0">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="box box-primary">
+									<div class="box-header with-border">
+										<h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
+										<div class="box-tools pull-right">
+											<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate"><i class="more-less glyphicon glyphicon-chevron-down"></i>
+											</button>
+										</div>
+									</div> 
+									<div class="box-body p0 manage-message collapse" id="massupdate">
+										<div class="mtop-15">
+											<div class="col-md-8 form-horizontal"> 
+												<div class="col-md-12">
+													<div class="form-group">
+														<div class="btn-group dropdown margin-r-5">
+															<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
+															Send</button>										 
+															<div class="btn-group">
+																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+																<span class="caret"></span></button>
+																<ul class="dropdown-menu" role="menu">
+																	<li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
+																	<li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
+																</ul>
 															</div>
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Contact
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Name</li>
-																	<li class="segment-lable">Global
-																	    <ul>
-																		   <li class="section-var-link">Address1</li>
-																		   <li class="section-var-link">Address2</li>
-																		   <li class="section-var-link">City</li>
-																		   <li class="section-var-link">Country</li>
-																		   <li class="section-var-link">Company</li>
-																		</ul>
-																	</li>
-																	<li class="segment-lable">JC Segment
-																	    <ul>
-																		   <li class="section-var-link">Contact View Only Property</li>
-																		   <li class="section-var-link">Contact Viewable and Editable Property</li>
-																		   <li class="section-var-link">Multi value No Descr</li>
-																		   <li class="section-var-link">Shared Property from JC - cust can't see</li>
-																		</ul>
-																	</li>
-																  </ul>
+														</div>
+														<button  class="btn btn-primary" type="button">
+															<i class="fa  fa-check"></i>
+															Resolve
+														</button>
+														<button class="btn btn-primary margin-r-5" title="Forward">
+															<i class="fa fa-share"></i>
+															forward
+														</button>
+														<div class="btn-group dropdown margin-r-5">
+																<button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
+																Save</button>										 
+																<div class="btn-group">
+																	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+																	<span class="caret"></span></button>
+																	<ul class="dropdown-menu" role="menu">
+																		<li><a href="#">Private Note</a></li>
+																		<li><a href="#">Public Note</a></li>
+																	</ul>
+																</div>
+														</div>
+														<button class="btn btn-primary" title="Spam">
+															<i class="fa fa-ban"></i>
+															Spam
+														</button>
+														<a class="btn btn-link ng-scope" href="#">Cancel</a>
+												</div>
+												<div class="row">
+													<div class="box box-success">
+														<div class="box-header with-border">
+															<h3 class="box-title">Email Addresses And Subject Line</h3>
+															<div class="box-tools pull-right">
+															<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox"><i class="more-less glyphicon glyphicon-chevron-down"></i>
+															</button>							
+															</div>
+														</div>	
+														<div class="box-body p0 collapse" id="emailbox"> 	
+															<div class="p10"> 										
+																<div class="form-group">
+																	<label class="col-sm-2 control-label">From</label>
+																	<div class="col-sm-10">
+																		<input class="form-control " type="text">
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label">To</label>
+																	<div class="col-sm-10">
+																		<input class="form-control " type="text">
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label">CC</label>
+																	<div class="col-sm-10">
+																		<input class="form-control " type="text">
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label">BCC</label>
+																	<div class="col-sm-10">
+																		<input class="form-control " type="text">
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label">Subject</label>
+																	<div class="col-sm-4">
+																		<input class="form-control " type="text" disabled>
+																	</div>
+																	<div class="col-sm-6">
+																		<input class="form-control " type="text">
+																	</div>
+																</div>
+															</div>  
+														</div>	 
+													</div>		
+												</div>
+												<div class="row"> 
+													<div class="nav-tabs-custom">
+														<ul class="nav nav-tabs">
+																<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+																<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+																											<li class="pull-right"> 
+																		<p class="attach-file"> <label class="btn-bs-file">
+																	Attach files		
+																	<input type="file" />
+																		</label> (Maximum 10 MB upload at one time.)</p>
 																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Answer
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Email</li>
-																	<li class="section-var-link">Reference Number</li>
-																	<li class="section-var-link">Original Date</li>
-																	<li class="section-var-link">Original Time</li>
-																	<li class="section-var-link">Subject</li>
-																	<li class="section-var-link">Original Body</li>
-																	<li class="section-var-link">Quoted Question</li>
-																  </ul>
-																</li>
-															 </ul>
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane active" id="draftbody">
+																<div class="form-group text-editor-container">
+																	<div class="col-sm-12">
+																		<textarea class="form-control" style="height:500px;" rows="10" placeholder="" id="editor1" name="editor1"></textarea>
+																	</div>
+																</div>
+															</div>
+															<div class="tab-pane" id="plainhtml">	
+																	&nbsp;<br><br><br>
+															</div>																						
 														</div>
 													</div>
-												</div>
-												<!-- /.tab-pane -->
-												<div class="tab-pane" id="tab_2">
-													<div class="row " id="stock-responses">
-														<div class="col-xs-12 stock-responses">
-														    <div>
-															  <input type="text" class="form-control" placeholder="Keyword Search">
+													<div class="col-sm-12">
+														<div class="panel panel-default form-group">
+															<div class="panel-heading">
+																<i class="fa fa-fw fa-pencil-square-o"></i>
+																Private Comments
 															</div>
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Segment Responses
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Chat Closing</li>
-																	<li class="section-var-link">Chat Opening</li>
-																	<li class="section-var-link">Chat Wait</li>
-																	<li class="section-var-link">iService Website</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Agent Response
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Test</li>
-																	
-																  </ul>
-																</li>
-															 </ul>
-														</div>
+															<div class="panel-body">
+																<textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note"></textarea>
+															</div>
+														</div>	
 													</div>
 												</div>
-												
 											</div>
-											<!-- /.tab-content -->
+										</div> 
+										<div class="col-md-4">
+											<div class="box box-warning stock-responses ng-scope">
+												<div class="box-header with-border">
+													<h3 class="box-title">
+													<i class="fa fa-fw fa-envelope"></i>
+														Message Properties
+													</h3>
+												</div>
+												<div class="box-body">
+													<div>
+														<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
+														<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
+													</div>
+												</div>	
+											</div>
+											<div class="nav-tabs-custom">
+												<ul class="nav nav-tabs">
+													<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+													<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="tab_1">
+														<div class="row" id="variable-box">
+															<div class="col-xs-12 variable-responses">
+																<div>
+																	<input type="text" class="form-control" placeholder="Keyword Search">
+																</div>
+																<ul class="list-unstyled segment-variable-list">
+																	<li class="section-label">Contact
+																		<ul class="segment-variables">
+																			<li class="section-var-link">Name</li>
+																			<li class="segment-lable">Global
+																				<ul>
+																						<li class="section-var-link">Address1</li>
+																						<li class="section-var-link">Address2</li>
+																						<li class="section-var-link">City</li>
+																						<li class="section-var-link">Country</li>
+																						<li class="section-var-link">Company</li>
+																				</ul>
+																			</li>
+																			<li class="segment-lable">JC Segment
+																				<ul>
+																					<li class="section-var-link">Contact View Only Property</li>
+																					<li class="section-var-link">Contact Viewable and Editable Property</li>
+																					<li class="section-var-link">Multi value No Descr</li>
+																					<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																				</ul>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+																<ul class="list-unstyled segment-variable-list">
+																	<li class="section-label">Answer
+																		<ul class="segment-variables">
+																			<li class="section-var-link">Email</li>
+																			<li class="section-var-link">Reference Number</li>
+																			<li class="section-var-link">Original Date</li>
+																			<li class="section-var-link">Original Time</li>
+																			<li class="section-var-link">Subject</li>
+																			<li class="section-var-link">Original Body</li>
+																			<li class="section-var-link">Quoted Question</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<!-- /.tab-pane -->
+													<div class="tab-pane" id="tab_2">
+														<div class="row" id="stock-responses">
+															<div class="col-xs-12 stock-responses">
+																<div>
+																	<input type="text" class="form-control" placeholder="Keyword Search">
+																</div>
+																<ul class="list-unstyled segment-variable-list">
+																	<li class="section-label">Segment Responses
+																		<ul class="segment-variables">
+																		<li class="section-var-link">Chat Closing</li>
+																		<li class="section-var-link">Chat Opening</li>
+																		<li class="section-var-link">Chat Wait</li>
+																		<li class="section-var-link">iService Website</li>
+																		</ul>
+																	</li>
+																	</ul>
+																	<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">Agent Response
+																			<ul class="segment-variables">
+																				<li class="section-var-link">Test</li>
+																			</ul>
+																		</li>
+																	</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- /.tab-content -->
+											</div>
+										</div>
 										</div>
 									</div>
-								   </div>
-								  </div>
-								
-							  </div>
-						  </div>	  
-						
-                       
-						  <div class="col-md-12">
-                            <div class="box box-info" ng-controller="myCtrl">
-								<div class="box-header with-border">
-								  <i class="fa fa-comments"></i>
-								  <h3 class="box-title head-title-padding">Active Chat</h3>
 								</div>
+							</div>	  		
+							<div class="col-md-12">
+								<div class="box box-info" ng-controller="myCtrl">
+									<div class="box-header with-border">
+										<i class="fa fa-comments"></i>
+										<h3 class="box-title head-title-padding">Active Chat</h3>
+									</div>
 								<!-- /.box-header -->
 								<!-- form start -->
-								 <div class="box-body table-responsive ">
-									 
-									  <table id="example1" class="table  table-striped table-hover ">
-										 <thead>
-										  <tr>
-											<th class="no-sort"  name="name">&nbsp;
-											</th>
-											<th class="text-capitalize">
-											 Subject 
-											</th>
-											<th class="text-capitalize" >
-											  Visitors Name
-											</th>
-											<th class="text-capitalize" >
-											  Operator
-											 </th>
-											<th class="text-capitalize">
-											 Time In Chat
-											</th>
-											<th class="text-capitalize" >
-											  Wait Time
-											</th>
-											<th class="text-capitalize">
-											 Topic
-											 </th>
-										  </tr>
-										</thead>  
-										<tbody>
-										 
-										  <tr >
-											<td name="name" class="">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow()">
-												<i class="fa fa-plus-circle" ng-show="!expanded"></i>
-												<i class="fa fa-minus-circle ng-hide" ng-show="expanded" style="" ng-cloak></i>
-											  </button>
-											</td>
-											<td class="">
-											 I need a good small camera
-											</td>
-											<td class="">
-											 James Williams
-											</td>
-											<td class="">
-											 Jonie Hewlett
-											</td>
-											<td class="">
-											 01.42
-											</td>
-											<td class="">
-										    00.42
-											</td>
-											<td class="">
-											 Cameras
-											</td>
-										  </tr>
-										  <tr ng-show="expanded" ng-cloak>
-										    <td>&nbsp;</td>
-                                            <td colspan="6">
-											  <div class="col-md-12 col-sm-12">
-												  <div class="box box-warning">
-												          <div class="box-header with-border actions">
-													    <h3 class="box-title">
-													      <i class="fa fa-fw fa-reply"></i>
-													      Chat Dialog
-													    </h3>
-													    <div class="pull-right">
-													        <button class="btn btn-xs btn-danger ng-scope hidden-xs hidden-sm" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
-														      <i class="fa fa-fw fa-close" ng-hide="chat.chatEndRunning()"></i>
-														      <i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
-														      End
+									<div class="box-body table-responsive">
+										<table id="example1" class="table  table-striped table-hover">
+											<thead>
+												<tr>
+													<th class="no-sort"  name="name">&nbsp;
+													</th>
+													<th class="text-capitalize">
+														Subject 
+													</th>
+													<th class="text-capitalize">
+														Visitors Name
+													</th>
+													<th class="text-capitalize">
+														Operator
+													</th>
+													<th class="text-capitalize">
+														Time In Chat
+													</th>
+													<th class="text-capitalize">
+														Wait Time
+													</th>
+													<th class="text-capitalize">
+														Topic
+													</th>
+												</tr>
+											</thead>  
+											<tbody>
+												<tr>
+													<td name="name">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow()">
+														<i class="fa fa-plus-circle" ng-show="!expanded"></i>
+														<i class="fa fa-minus-circle ng-hide" ng-show="expanded" ng-cloak></i>
 														</button>
-														<div class="btn-group btn-xs dropdown" uib-dropdown="" is-open="status.isopen" style="">
-															<button id="single-button" type="button" class="btn btn-primary btn-xs dropdown-toggle" uib-dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
-																<i class="fa fa-fw fa-mail-forward"></i>
-																Forward <span class="caret"></span>
-															</button>
-															<ul class="dropdown-menu" uib-dropdown-menu="" role="menu" aria-labelledby="single-button">
-																<li role="menuitem"><a href="#">Remove From My Queue</a></li>
-																<li role="menuitem"><a href="#">Assign To Agent…</a>
-																 <div class="bg-info text-muted text-center" style="">
-																	<i>No agents available</i>
-																  </div>
-																</li>
-															</ul>
-														</div>
-
-														<div class="btn-group  hidden-xs hidden-sm dropdown" uib-dropdown="" auto-close="outsideClick">
-															<button type="button" class="btn btn-default btn-xs dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
-															<i class="fa fa-fw fa-arrows"></i>
-																Change Topic <span class="caret"></span>
-															</button>
-															
-																    <ul class="dropdown-menu" uib-dropdown-menu="" r role="menu" aria-labelledby="single-button">
-																		<li role="menuitem">
-																		  <div class="input-group input-group-sm search-control">
-																			<input type="text" class="form-control" placeholder="Query" ng-model="query"></input>
-																		  </div>
-																		</li>
-																		<li role="presentation" ng-repeat='item in items | filter:query'> 
-																		  <div class="ui-select-choices-group-label dropdown-header">Segment1</div>
-																		  <div  class="ui-select-choices-row ng-scope active" role="option" id="ui-select-choices-row-0-0">
-																		     <span class="ui-select-choices-row-inner" uis-transclude-append="">
-																			   <span class="ng-binding ng-scope" title="All Topics">Segment1 -- All Topics</span>
-																			 </span>
-																			 </div>
-																		</li>
-																	  </ul>
-																
-														</div>
-													   </div>														  </div>  
-													  <div class="box-body">
-														<div class="direct-chat-messages chat-box chat">
-															<dl>
-																<dt>Subject</dt>
-																<dd>[ref#: 26197-26197] Need to return a camera</dd>
-																<dt>Question</dt>
-																<dd>Need to return a camera</dd>
-															</dl>
-														    <div class="direct-chat-msg ng-scope left" ng-repeat="line in chat.chatData.chatLines" ng-class="{ left: !line.isAgent }">
-																<div class="direct-chat-info clearfix">
-																  <span class="direct-chat-name ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'">Jhon Doe</span>
+													</td>
+													<td>
+														I need a good small camera
+													</td>
+													<td>
+														James Williams
+													</td>
+													<td>
+														Jonie Hewlett
+													</td>
+													<td>
+														01.42
+													</td>
+													<td>
+														00.42
+													</td>
+													<td>
+														Cameras
+													</td>
+												</tr>
+												<tr ng-show="expanded" ng-cloak>
+													<td>&nbsp;</td>
+													<td colspan="6">
+														<div class="col-md-12 col-sm-12">
+															<div class="box box-warning">
+																<div class="box-header with-border actions">
+																	<h3 class="box-title">
+																		<i class="fa fa-fw fa-reply"></i>
+																		Chat Dialog
+																	</h3>
+																	<div class="pull-right">
+																		<button class="btn btn-xs btn-danger ng-scope hidden-xs hidden-sm" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
+																			<i class="fa fa-fw fa-close" ng-hide="chat.chatEndRunning()"></i>
+																			<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
+																			End
+																		</button>
+																		<div class="btn-group btn-xs dropdown" uib-dropdown="" is-open="status.isopen">
+																			<button id="single-button" type="button" class="btn btn-primary btn-xs dropdown-toggle" uib-dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
+																				<i class="fa fa-fw fa-mail-forward"></i>
+																				Forward <span class="caret"></span>
+																			</button>
+																			<ul class="dropdown-menu" uib-dropdown-menu="" role="menu" aria-labelledby="single-button">
+																				<li role="menuitem"><a href="#">Remove From My Queue</a></li>
+																				<li role="menuitem"><a href="#">Assign To Agent…</a>
+																					<div class="bg-info text-muted text-center">
+																					<i>No agents available</i>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																		<div class="btn-group  hidden-xs hidden-sm dropdown" uib-dropdown="" auto-close="outsideClick">
+																			<button type="button" class="btn btn-default btn-xs dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+																			<i class="fa fa-fw fa-arrows"></i>
+																				Change Topic <span class="caret"></span>
+																			</button>
+																			<ul class="dropdown-menu" uib-dropdown-menu="" r role="menu" aria-labelledby="single-button">
+																				<li role="menuitem">
+																					<div class="input-group input-group-sm search-control">
+																					<input type="text" class="form-control" placeholder="Query" ng-model="query">
+																					</div>
+																				</li>
+																				<li role="presentation" ng-repeat='item in items | filter:query'> 
+																					<div class="ui-select-choices-group-label dropdown-header">Segment1</div>
+																					<div  class="ui-select-choices-row ng-scope active" role="option" id="ui-select-choices-row-0-0">
+																							<span class="ui-select-choices-row-inner" uis-transclude-append="">
+																							<span class="ng-binding ng-scope" title="All Topics">Segment1 -- All Topics</span>
+																						</span>
+																					</div>
+																				</li>
+																			</ul>
+																				
+																		</div>
+																	</div>														  
+																</div>  
+																<div class="box-body">
+																	<div class="direct-chat-messages chat-box chat">
+																		<dl>
+																			<dt>Subject</dt>
+																			<dd>[ref#: 26197-26197] Need to return a camera</dd>
+																			<dt>Question</dt>
+																			<dd>Need to return a camera</dd>
+																		</dl>
+																		<div class="direct-chat-msg ng-scope left" ng-repeat="line in chat.chatData.chatLines" ng-class="{ left: !line.isAgent }">
+																			<div class="direct-chat-info clearfix">
+																				<span class="direct-chat-name ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'">Jhon Doe</span>
+																			</div>
+																			<div class="user-initials round no-select pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" iservice-name-initials="line.name" style="background-color: rgb(5, 160, 90);">JD</div>
+																			<div class="clearfix">
+																				<span class="direct-chat-text ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" ng-bind-html="line.messageHtml"><span>Need to return a camera</span></span>
+																			</div>
+																			<span class="direct-chat-timestamp pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" am-time-ago="line.date">11 minutes ago</span>
+																		</div>
+																		<!-- Message to the right -->
+																		<div class="direct-chat-msg right">
+																			<div class="direct-chat-info clearfix">
+																				<span class="direct-chat-name pull-right">Alek Packard</span>
+																				<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+																			</div>
+																			<!-- /.direct-chat-info -->
+																			<div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">AP</div>
+																			<!-- /.direct-chat-img -->
+																			<div class="direct-chat-text">
+																				Hello John, how may i help
+																			</div>
+																			<!-- /.direct-chat-text -->
+																		</div>
+																		<!-- /.direct-chat-msg -->
+																	<!-- Message. Default to the left -->
+																		<div class="direct-chat-msg">
+																			<div class="direct-chat-info clearfix">
+																				<span class="direct-chat-name pull-left">Jhon Doe</span>
+																				<span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
+																			</div>
+																			<!-- /.direct-chat-info -->
+																			<div class="user-initials round no-select pull-left" style="background-color: rgb(61, 185, 117);">JD</div>
+																			<!-- /.direct-chat-img -->
+																			<div class="direct-chat-text">
+																				The camera i just received has a cracked lence and i need to return it for replacement.
+																			</div>
+																			<!-- /.direct-chat-text -->
+																		</div>
+																		<!-- /.direct-chat-msg -->
+																		<!-- Message to the right -->
+																		<div class="direct-chat-msg right">
+																			<div class="direct-chat-info clearfix">
+																				<span class="direct-chat-name pull-right">Alek Packard</span>
+																				<span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
+																			</div>
+																				<!-- /.direct-chat-info -->
+																			<div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">AP</div>
+																				<!-- /.direct-chat-img -->
+																			<div class="direct-chat-text">
+																				We will provide the pickup for same.
+																			</div>
+																			<!-- /.direct-chat-text -->
+																		</div>
+																		<!-- /.direct-chat-msg -->
+																	</div>
 																</div>
-																<div class="user-initials round no-select pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" iservice-name-initials="line.name" style="background-color: rgb(5, 160, 90);">JD</div>
-																<div class="clearfix">
-																  <span class="direct-chat-text ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" ng-bind-html="line.messageHtml"><span>Need to return a camera</span></span>
-																</div>
-																<span class="direct-chat-timestamp pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" am-time-ago="line.date">11 minutes ago</span>
-															 </div>
-
-															<!-- Message to the right -->
-															<div class="direct-chat-msg right">
-															  <div class="direct-chat-info clearfix">
-																<span class="direct-chat-name pull-right">Alek Packard</span>
-																<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-															  </div>
-															  <!-- /.direct-chat-info -->
-															  <div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">AP</div>
-															  <!-- /.direct-chat-img -->
-															  <div class="direct-chat-text">
-																Hello John, how may i help
-															  </div>
-															  <!-- /.direct-chat-text -->
 															</div>
-															<!-- /.direct-chat-msg -->
-
-															<!-- Message. Default to the left -->
-															<div class="direct-chat-msg">
-															  <div class="direct-chat-info clearfix">
-																<span class="direct-chat-name pull-left">Jhon Doe</span>
-																<span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
-															  </div>
-															  <!-- /.direct-chat-info -->
-															  <div class="user-initials round no-select pull-left" style="background-color: rgb(61, 185, 117);">JD</div>
-															  <!-- /.direct-chat-img -->
-															  <div class="direct-chat-text">
-																The camera i just received has a cracked lence and i need to return it for replacement.
-															  </div>
-															  <!-- /.direct-chat-text -->
-															</div>
-															<!-- /.direct-chat-msg -->
-															<!-- Message to the right -->
-															<div class="direct-chat-msg right">
-															  <div class="direct-chat-info clearfix">
-																<span class="direct-chat-name pull-right">Alek Packard</span>
-																<span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
-															  </div>
-															  <!-- /.direct-chat-info -->
-															  <div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">AP</div>
-															  <!-- /.direct-chat-img -->
-															  <div class="direct-chat-text">
-																We will provide the pickup for same.
-															  </div>
-															  <!-- /.direct-chat-text -->
-															</div>
-															<!-- /.direct-chat-msg -->
-
-														  </div>
-													  </div>
-													</div>
-                </div>
-											</td>
-											<td ng-show="!expanded">$nbsp;</td> 
-											<td ng-show="!expanded">$nbsp;</td>
-                                            <td ng-show="!expanded">$nbsp;</td>
-											<td ng-show="!expanded">$nbsp;</td> 
-											<td ng-show="!expanded">$nbsp;</td> 											
-										  </tr>
-										  <tr >
-											<td  name="name">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
-											</td>
-											<td class="">
-											Can't find it
-											</td>
-											<td class="">
-											Julie Persuavia
-											</td>
-											<td class="">
-											 Robert Williams
-											</td>
-											<td class="">
-											 01.33
-											</td>
-											<td class="">
-											  01.00
-											</td>
-											<td class="">
-											   Return
-											</td>
-										  </tr>
-										   <tr >
-											<td  name="name">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-                                             Best price on LG Plasma
-											</td>
-											<td class="">
-												John Doe
-											</td>
-											<td class="">
-											 Jacob Smith
-											</td>
-											<td class="">
-											 00.22
-											</td>
-											<td class="">
-											   00.10
-											</td>
-											<td class="">
-											  Return
-											</td>
-										  </tr>
-										</tbody>
-									  </table>
-                   
-								  </div>
-							</div> 
-						  </div>
-                                              
-                        </div>
-				    </div>		
-                </div> 
-            </section>
-         
-        </div>
-        <!-- /.content-wrapper -->
-        {% include common-footer.html %}
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane" id="control-sidebar-home-tab">
-                    <h3 class="control-sidebar-heading">Recent Activity</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                    <p>Will be 23 on April 24th</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                    <p>New phone +1(800)555-1234</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                    <p>nora@example.com</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                    <p>Execution time 5 seconds</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Custom Template Design
-                                    <span class="label label-danger pull-right">70%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Update Resume
-                                    <span class="label label-success pull-right">95%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Laravel Integration
-                                    <span class="label label-warning pull-right">50%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Back End Framework
-                                    <span class="label label-primary pull-right">68%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                </div>
-                <!-- /.tab-pane -->
-                <!-- Stats tab content -->
-                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                <!-- /.tab-pane -->
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                    <form method="post">
-                        <h3 class="control-sidebar-heading">General Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Report panel usage
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Some information about this general settings option
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Allow mail redirect
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Other sets of options are available
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Expose author name in posts
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Allow the user to show his name in blog posts
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Show me as online
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Turn off notifications
-                                <input type="checkbox" class="pull-right">
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Delete chat history
-                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-                    </form>
-                </div>
-                <!-- /.tab-pane -->
-            </div>
-        </aside>
-        <!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-             immediately after the control sidebar -->
-        <div class="control-sidebar-bg"></div>
-    </div>
+														</div>
+													</td>
+													<td ng-show="!expanded">$nbsp;</td> 
+													<td ng-show="!expanded">$nbsp;</td>
+													<td ng-show="!expanded">$nbsp;</td>
+													<td ng-show="!expanded">$nbsp;</td> 
+													<td ng-show="!expanded">$nbsp;</td> 											
+												</tr>
+												<tr>
+													<td name="name">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
+														<i class="fa fa-plus-circle"></i>
+														</button>
+													</td>
+													<td>
+														Can't find it
+													</td>
+													<td>
+														Julie Persuavia
+													</td>
+													<td>
+														Robert Williams
+													</td>
+													<td>
+														01.33
+													</td>
+													<td>
+														01.00
+													</td>
+													<td>
+														Return
+													</td>
+												</tr>
+												<tr>
+													<td  name="name">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
+														<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+														</button>
+													</td>
+													<td>
+														Best price on LG Plasma
+													</td>
+													<td>
+														John Doe
+													</td>
+													<td>
+														Jacob Smith
+													</td>
+													<td>
+														00.22
+													</td>
+													<td>
+															00.10
+													</td>
+													<td>
+														Return
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+						  	</div> 
+							</div>														
+						</div>
+					</div>		
+				</div> 
+			</section>
+		</div>
+		<!-- /.content-wrapper -->
+		{% include common-footer.html %}
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Create the tabs -->
+			<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+				<li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+				<li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<!-- Home tab content -->
+				<div class="tab-pane" id="control-sidebar-home-tab">
+					<h3 class="control-sidebar-heading">Recent Activity</h3>
+					<ul class="control-sidebar-menu">
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+									<p>Will be 23 on April 24th</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-user bg-yellow"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+									<p>New phone +1(800)555-1234</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+									<p>nora@example.com</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-file-code-o bg-green"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+									<p>Execution time 5 seconds</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- /.control-sidebar-menu -->
+					<h3 class="control-sidebar-heading">Tasks Progress</h3>
+					<ul class="control-sidebar-menu">
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Custom Template Design
+									<span class="label label-danger pull-right">70%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Update Resume
+									<span class="label label-success pull-right">95%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-success" style="width: 95%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Laravel Integration
+									<span class="label label-warning pull-right">50%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Back End Framework
+									<span class="label label-primary pull-right">68%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- /.control-sidebar-menu -->
+				</div>
+				<!-- /.tab-pane -->
+				<!-- Stats tab content -->
+				<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+				<!-- /.tab-pane -->
+				<!-- Settings tab content -->
+				<div class="tab-pane" id="control-sidebar-settings-tab">
+					<form method="post">
+						<h3 class="control-sidebar-heading">General Settings</h3>
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Report panel usage
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Some information about this general settings option
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Allow mail redirect
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Other sets of options are available
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Expose author name in posts
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Allow the user to show his name in blog posts
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<h3 class="control-sidebar-heading">Chat Settings</h3>
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Show me as online
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Turn off notifications
+								<input type="checkbox" class="pull-right">
+							</label>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Delete chat history
+								<a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+							</label>
+						</div>
+						<!-- /.form-group -->
+					</form>
+				</div>
+				<!-- /.tab-pane -->
+			</div>
+		</aside>
+		<!-- /.control-sidebar -->
+		<!-- Add the sidebar's background. This div must be placed
+					immediately after the control sidebar -->
+		<div class="control-sidebar-bg"></div>
+  </div>
     <!-- ./wrapper -->
-    {% include common-javascript.html %}
+  {% include common-javascript.html %}
    
 	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-	
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+  <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			// DataTable
+			var table = $('#example1').DataTable( {
+				"language" : {
+				"search": "Filter"
+				},
+				dom: 'Blfrtip',
+					"order": [],
+			buttons: ['colvis' ],
+			"columnDefs": [ {
+				"targets"  : 'no-sort',
+				"orderable": false,
+			}]
+		});
 	
-	
-<script>
-	$(document).ready(function() {
-    // DataTable
-    var table = $('#example1').DataTable( {
-	    "language" : {
-			"search": "Filter"
-		  },
-	    dom: 'Blfrtip',
-        "order": [],
-		 buttons: ['colvis' ],
-		"columnDefs": [ {
-		  "targets"  : 'no-sort',
-		  "orderable": false,
-		}]
-	});
- 
-	 $('.selectpicker').selectpicker('refresh');
+		$('.selectpicker').selectpicker('refresh');
 
-	$.fn.extend({
-		treed: function (o) {
-		  
-		  var openedClass = 'glyphicon-minus-sign';
-		  var closedClass = 'glyphicon-plus-sign';
-		  
-		  if (typeof o != 'undefined'){
-			if (typeof o.openedClass != 'undefined'){
-			openedClass = o.openedClass;
-			}
-			if (typeof o.closedClass != 'undefined'){
-			closedClass = o.closedClass;
-			}
-		  };
-		  
-			//initialize each of the top levels
-			var tree = $(this);
-			tree.addClass("tree");
-			tree.find('li').has("ul").each(function () {
-				var branch = $(this); //li with children ul
-				branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
-				branch.addClass('branch');
-				branch.on('click', function (e) {
-					if (this == e.target) {
-						var icon = $(this).children('i:first');
-						icon.toggleClass(openedClass + " " + closedClass);
-						$(this).children().children().toggle();
-					}
-				})
-				branch.children().children().toggle();
-			});
-			//fire event from the dynamically added icon
-		  tree.find('.branch .indicator').each(function(){
-			$(this).on('click', function () {
-				$(this).closest('li').click();
-			});
-		  });
-			//fire event to open branch if the li contains an anchor instead of text
-			tree.find('.branch>a').each(function () {
-				$(this).on('click', function (e) {
-					$(this).closest('li').click();
-					e.preventDefault();
+		$.fn.extend({
+			treed: function (o) {
+				
+				var openedClass = 'glyphicon-minus-sign';
+				var closedClass = 'glyphicon-plus-sign';
+				
+				if (typeof o != 'undefined'){
+				if (typeof o.openedClass != 'undefined'){
+				openedClass = o.openedClass;
+				}
+				if (typeof o.closedClass != 'undefined'){
+				closedClass = o.closedClass;
+				}
+				};
+				
+				//initialize each of the top levels
+				var tree = $(this);
+				tree.addClass("tree");
+				tree.find('li').has("ul").each(function () {
+					var branch = $(this); //li with children ul
+					branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+					branch.addClass('branch');
+					branch.on('click', function (e) {
+						if (this == e.target) {
+							var icon = $(this).children('i:first');
+							icon.toggleClass(openedClass + " " + closedClass);
+							$(this).children().children().toggle();
+						}
+					})
+					branch.children().children().toggle();
 				});
-			});
-			//fire event to open branch if the li contains a button instead of text
-			tree.find('.branch>button').each(function () {
-				$(this).on('click', function (e) {
+				//fire event from the dynamically added icon
+				tree.find('.branch .indicator').each(function(){
+				$(this).on('click', function () {
 					$(this).closest('li').click();
-					e.preventDefault();
 				});
-			});
-		}
-	});
-    $('#tree1').treed();	
-	$('#tree1 .branch').each(function(){
-		var icon = $(this).children('i:first');
-		icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
-		$(this).children().children().toggle();
-	});	
-	
-   $(function ()
-   {
-	   // SLIMSCROLL FOR CHAT WIDGET
-		  $('#variable-box').slimScroll({
-			height: '250px'
-		  });
-		  $('#stock-responses').slimScroll({
-			height: '250px'
-		  });
-		  CKEDITOR.replace('editor1',
-			{
-				 height: 300
-			});
-		 
-		  //iCheck for checkbox and radio inputs
-		  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-			checkboxClass: 'icheckbox_minimal-blue blue2',
-			radioClass: 'iradio_minimal-blue'
-		  });
-		  $('input[type="checkbox"].icheck').iCheck({
-			checkboxClass: 'icheckbox_square-blue'
-		  });
-   });
-   
-});	  
-</script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
-<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
-<script>
-	var app = angular.module('iService', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
-		app.controller('myCtrl', function($scope,$log) {
-		    $scope.expanded = false;
-			$scope.items = [{
-				'name': 'Item 1'
-			  }, {
-				'name': 'Item 2'
-			  }, {
-				'name': 'Account 3'
-			  }, {
-				'name': 'Account 4'
-			  }, {
-				'name': 'Item 5'
-			  }, {
-				'name': 'Item 6'
-			  }, {
-				'name': 'User 7'
-			  }, {
-				'name': 'User 8'
-			  }];
-
-			$scope.toggleRow = function ()
-			{
-			   
-				if(!$scope.expanded){ $scope.expanded = true;} else{$scope.expanded = false;}
-			};
+				});
+				//fire event to open branch if the li contains an anchor instead of text
+				tree.find('.branch>a').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+				//fire event to open branch if the li contains a button instead of text
+				tree.find('.branch>button').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+			}
+		});
+			$('#tree1').treed();	
+		$('#tree1 .branch').each(function(){
+			var icon = $(this).children('i:first');
+			icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
+			$(this).children().children().toggle();
+		});	
 		
-                          $scope.items = [
-			    'The first choice!',
-			    'And another choice for you.',
-			    'but wait! A third!'
-			  ];
-
-			  $scope.status = {
-			    isopen: false
-			  };
-
-			  $scope.toggled = function(open) {
-			    $log.log('Dropdown is now: ', open);
-			  };
-
-			  $scope.toggleDropdown = function($event) {
-			    $event.preventDefault();
-			    $event.stopPropagation();
-			    $scope.status.isopen = !$scope.status.isopen;
-			  };
-
-			  $scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
+		$(function ()
+		{
+			// SLIMSCROLL FOR CHAT WIDGET
+				$('#variable-box').slimScroll({
+				height: '250px'
+				});
+				$('#stock-responses').slimScroll({
+				height: '250px'
+				});
+				CKEDITOR.replace('editor1',
+				{
+					height: 300
+				});
+			
+				//iCheck for checkbox and radio inputs
+				$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+				checkboxClass: 'icheckbox_minimal-blue blue2',
+				radioClass: 'iradio_minimal-blue'
+				});
+				$('input[type="checkbox"].icheck').iCheck({
+				checkboxClass: 'icheckbox_square-blue'
+				});
 		});
 		
-	
-	
-</script>
+	});	  
+	</script>
+	<script>
+		var app = angular.module('iService', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+			app.controller('myCtrl', function($scope,$log) {
+					$scope.expanded = false;
+				$scope.items = [{
+					'name': 'Item 1'
+					}, {
+					'name': 'Item 2'
+					}, {
+					'name': 'Account 3'
+					}, {
+					'name': 'Account 4'
+					}, {
+					'name': 'Item 5'
+					}, {
+					'name': 'Item 6'
+					}, {
+					'name': 'User 7'
+					}, {
+					'name': 'User 8'
+					}];
+
+				$scope.toggleRow = function ()
+				{
+					
+					if(!$scope.expanded){ $scope.expanded = true;} else{$scope.expanded = false;}
+				};
+			
+														$scope.items = [
+						'The first choice!',
+						'And another choice for you.',
+						'but wait! A third!'
+					];
+
+					$scope.status = {
+						isopen: false
+					};
+
+					$scope.toggled = function(open) {
+						$log.log('Dropdown is now: ', open);
+					};
+
+					$scope.toggleDropdown = function($event) {
+						$event.preventDefault();
+						$event.stopPropagation();
+						$scope.status.isopen = !$scope.status.isopen;
+					};
+
+					$scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
+			});
+			
+		
+		
+	</script>
 </body>
 </html>

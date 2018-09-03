@@ -5,7 +5,6 @@ title: Customer Info - Contact History
 <html ng-app="iService">
 <head>
     {% include common-head.html %}
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -19,10 +18,9 @@ title: Customer Info - Contact History
                     {{ page.title }}
                 </h1>
             </section>
-  <!-- Main content -->
+            <!-- Main content -->
             <section class="content">
                 <!-- START CUSTOM TABS -->
-               
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
@@ -30,118 +28,108 @@ title: Customer Info - Contact History
 							<h2 class="col-xs-12 col-sm-8 col-md-10 ">Contact History</h2>
 						</div>
                         <div class="row">
-						  <div class="col-md-12">
-                            <div class="box box-info">
-								<div class="box-header with-border">
-								  <i class="fa fa-history"></i>
-								  <h3 class="box-title">History</h3>
-								</div>
-								<!-- /.box-header -->
-								<!-- form start -->
-								  <div class="box-body">
-									 
-									  <table id="example1" class="table  table-striped table-hover ">
-										 <thead>
-										  <tr>
-											<th style="width: 16px" class="sorting_disabled" name="name"></th>
-											<th class="text-capitalize">
-											 Subject
-											</th>
-											<th class="text-capitalize" data-no-col-vis>
-											  Type
-											</th>
-											<th class="text-capitalize">
-											 Date
-											</th>
-
-										  </tr>
-										</thead>  
-										<tbody>
-										  <tr >
-											<td style="width: 16px" name="name">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-											 [ref#: 326-326] System access request for Test2 Test2
-											</td>
-											<td class="">
-											  <small class="label bg-light-blue">Agent Email</small>
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-										  </tr>
-										   <tr >
-											<td style="width: 16px" name="name">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-											 [ref#: 326-326] System access request for Test2 Test2
-											</td>
-											<td class="">
-											   <small class="label bg-light-blue">Agent Email</small>
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-										  </tr>
-										   <tr >
-											<td style="width: 16px" name="name">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-											 [ref#: 326-326] System access request for Test2 Test2
-											</td>
-											<td class="">
-											   <small class="label bg-teal-active">Asq Question</small>
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-										  </tr>
-										   <tr >
-											<td style="width: 16px" name="name">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-											 [ref#: 326-326] System access request for Test2 Test2
-											</td>
-											<td class="">
-											  <small class="label bg-light-blue">Agent Email</small>
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-										  </tr>
-										  
-										</tbody>
-									  </table>
-                   
-								  </div>
-							  </div> 
-						  </div>
-						  <div class="col-md-4">
-
-						  </div>
+						    <div class="col-md-12">
+                                <div class="box box-info">
+                                    <div class="box-header with-border">
+                                        <i class="fa fa-history"></i>
+                                        <h3 class="box-title">History</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <!-- form start -->
+								    <div class="box-body">
+									    <table id="example1" class="table  table-striped table-hover ">
+										    <thead>
+                                                <tr>
+                                                    <th style="width: 16px" class="sorting_disabled" name="name"></th>
+                                                    <th class="text-capitalize">
+                                                         Subject
+                                                    </th>
+                                                    <th class="text-capitalize" data-no-col-vis>
+                                                        Type
+                                                    </th>
+                                                    <th class="text-capitalize">
+                                                        Date
+                                                    </th>
+                                                </tr>
+                                            </thead>  
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width: 16px" name="name">
+                                                        <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+                                                            <i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        [ref#: 326-326] System access request for Test2 Test2
+                                                    </td>
+                                                    <td>
+                                                        <small class="label bg-light-blue">Agent Email</small>
+                                                    </td>
+                                                    <td>
+                                                        2 Days ago
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 16px" name="name">
+                                                        <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+                                                            <i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        [ref#: 326-326] System access request for Test2 Test2
+                                                    </td>
+                                                    <td>
+                                                        <small class="label bg-light-blue">Agent Email</small>
+                                                    </td>
+                                                    <td>
+                                                        2 Days ago
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 16px" name="name">
+                                                        <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+                                                            <i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        [ref#: 326-326] System access request for Test2 Test2
+                                                    </td>
+                                                    <td>
+                                                        <small class="label bg-teal-active">Asq Question</small>
+                                                    </td>
+                                                    <td>
+                                                        2 Days ago
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 16px" name="name">
+                                                        <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+                                                            <i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        [ref#: 326-326] System access request for Test2 Test2
+                                                    </td>
+                                                    <td>
+                                                        <small class="label bg-light-blue">Agent Email</small>
+                                                    </td>
+                                                    <td>
+                                                        2 Days ago
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+									    </table>
+							        </div>
+							    </div> 
+						    </div>
+						    <div class="col-md-4"></div>
                         </div>                         
                     </div>
                     <!-- /.col -->
-
-                
                 </div>
                 <!-- /.row -->
-    <!-- END ACCORDION & CAROUSEL-->
-	
-            </section>
-         
+        <!-- END ACCORDION & CAROUSEL-->
+	        </section>
         </div>
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
@@ -161,10 +149,8 @@ title: Customer Info - Contact History
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
                                     <p>Will be 23 on April 24th</p>
                                 </div>
                             </a>
@@ -172,10 +158,8 @@ title: Customer Info - Contact History
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-user bg-yellow"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
                                     <p>New phone +1(800)555-1234</p>
                                 </div>
                             </a>
@@ -183,10 +167,8 @@ title: Customer Info - Contact History
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
                                     <p>nora@example.com</p>
                                 </div>
                             </a>
@@ -194,17 +176,14 @@ title: Customer Info - Contact History
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
                                     <p>Execution time 5 seconds</p>
                                 </div>
                             </a>
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                     <h3 class="control-sidebar-heading">Tasks Progress</h3>
                     <ul class="control-sidebar-menu">
                         <li>
@@ -213,7 +192,6 @@ title: Customer Info - Contact History
                                     Custom Template Design
                                     <span class="label label-danger pull-right">70%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
                                 </div>
@@ -225,7 +203,6 @@ title: Customer Info - Contact History
                                     Update Resume
                                     <span class="label label-success pull-right">95%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-success" style="width: 95%"></div>
                                 </div>
@@ -237,7 +214,6 @@ title: Customer Info - Contact History
                                     Laravel Integration
                                     <span class="label label-warning pull-right">50%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
                                 </div>
@@ -249,7 +225,6 @@ title: Customer Info - Contact History
                                     Back End Framework
                                     <span class="label label-primary pull-right">68%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
                                 </div>
@@ -257,7 +232,6 @@ title: Customer Info - Contact History
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                 </div>
                 <!-- /.tab-pane -->
                 <!-- Stats tab content -->
@@ -267,45 +241,37 @@ title: Customer Info - Contact History
                 <div class="tab-pane" id="control-sidebar-settings-tab">
                     <form method="post">
                         <h3 class="control-sidebar-heading">General Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Report panel usage
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Some information about this general settings option
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Allow mail redirect
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Other sets of options are available
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Expose author name in posts
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Allow the user to show his name in blog posts
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <h3 class="control-sidebar-heading">Chat Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Show me as online
@@ -313,7 +279,6 @@ title: Customer Info - Contact History
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Turn off notifications
@@ -321,7 +286,6 @@ title: Customer Info - Contact History
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Delete chat history

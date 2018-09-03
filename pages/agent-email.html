@@ -19,215 +19,197 @@ title: Customer Info - Agent Email
                     {{ page.title }}
                 </h1>
             </section>
-  <!-- Main content -->
+            <!-- Main content -->
             <section class="content">
                 <!-- START CUSTOM TABS -->
-               
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Custom Tabs -->
-						
-						<div class="row">
-							<div class="col-xs-12 col-sm-8 col-md-10 ">
-							   <button class="btn btn-primary pull-left btn-margin" title="Manage Form">
-									  Manage Form
-							   </button>
-							</div>
-						</div>
-						
                         <div class="row">
-						  <div class="col-md-12">
-                            <div class="box box-info">
-								<div class="box-header with-border">
-								  <h3 class="box-title">Agent Email</h3>
-								</div>
-								<!-- /.box-header -->
-								<!-- form start -->
-							 
-								  <div class="box-body">
-								    <div class="col-md-8"> 
-									  <form class="form-horizontal">
-									    <div class="form-group">
-										  <label for="inputPassword3" class="col-sm-2 control-label">Topic</label>
-
-										  <div class="col-sm-10">
-											<select class="form-control">
-												<option>Select Topic 1</option>
-												<option>option 2</option>
-												<option>option 3</option>
-												<option>option 4</option>
-												<option>option 5</option>
-											  </select>
-										  </div>
-										</div>
-										<div class="form-group">
-										  <label for="inputEmail3" class="col-sm-2 control-label">From</label>
-										  <div class="col-sm-10">
-											<input type="email" class="form-control" placeholder="">
-										  </div>
-										</div>
-										<div class="form-group">
-										  <label for="inputEmail3" class="col-sm-2 control-label">To</label>
-										  <div class="col-sm-10">
-											<input type="email" class="form-control" placeholder="">
-										  </div>
-										</div>
-										
-										<div class="form-group">
-										  <label for="inputPassword3" class="col-sm-2 control-label">CC</label>
-										  <div class="col-sm-10">
-											<textarea class="form-control" rows="2" placeholder=""></textarea>
-										  </div>
-										</div>
-										<div class="form-group">
-										  <label for="inputEmail3" class="col-sm-2 control-label">Subject</label>
-										  <div class="col-sm-10">
-											<input type="text" class="form-control" placeholder="">
-										  </div>
-										</div>
-										<div class="form-group">
-										  <label for="inputPassword3" class="col-sm-2 control-label">Body</label>
-										  <div class="col-sm-10">
-											<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
-										  </div>
-										</div>
-										<div class="form-group">
-										  <label for="inputPassword3" class="col-sm-2 control-label">File</label>
-										  <div class="col-sm-10">
-											 <p class="attach-file"> <label class="btn-bs-file ">
-													Attach files
-													<input type="file" />
-											  </label></span> (Maximum 10 MB upload at one time.)</p>
-										  </div>
-										</div>
-										<div class="form-group">
-										  <div class="col-sm-offset-2 col-sm-10">
-											<div class="checkbox">
-											  <label>
-												<input type="checkbox"> Expect Customer Reply
-											  </label>
-											</div>
-										  </div>
-										</div>
-										
-										<div class="form-group">
-										  <div class="col-sm-offset-2 col-sm-10">
-											<button type="button" class="pull-left btn btn-info " id="sendEmail">Send
-												<i class="fa fa-arrow-circle-right"></i></button>
-										  </div>
-										</div>
-									  </form>	
-									</div> 
-									<div class="col-md-4">
-									  <div class="box box-solid bg-gray list-search box-body">
-									     <div class="form-group">
-										  <div class="col-sm-12 no-padding">
-											<input type="email" class="form-control" placeholder="List Search">
-										  </div>
-										</div>
-									  </div>
-									  
-									  <div class="nav-tabs-custom">
-											<ul class="nav nav-tabs">
-												<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-												<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-											</ul>
-											<div class="tab-content">
-												<div class="tab-pane active" id="tab_1">
-													<div class="row" id="variable-box">
-														<div class="col-xs-12 variable-responses">
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Contact
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Name</li>
-																	<li class="segment-lable">Global
-																	    <ul>
-																		   <li class="section-var-link">Address1</li>
-																		   <li class="section-var-link">Address2</li>
-																		   <li class="section-var-link">City</li>
-																		   <li class="section-var-link">Country</li>
-																		   <li class="section-var-link">Company</li>
-																		</ul>
-																	</li>
-																	<li class="segment-lable">JC Segment
-																	    <ul>
-																		   <li class="section-var-link">Contact View Only Property</li>
-																		   <li class="section-var-link">Contact Viewable and Editable Property</li>
-																		   <li class="section-var-link">Multi value No Descr</li>
-																		   <li class="section-var-link">Shared Property from JC - cust can't see</li>
-																		</ul>
-																	</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Answer
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Email</li>
-																	<li class="section-var-link">Reference Number</li>
-																	<li class="section-var-link">Original Date</li>
-																	<li class="section-var-link">Original Time</li>
-																	<li class="section-var-link">Subject</li>
-																	<li class="section-var-link">Original Body</li>
-																	<li class="section-var-link">Quoted Question</li>
-																  </ul>
-																</li>
-															 </ul>
-														</div>
-													</div>
-												</div>
-												<!-- /.tab-pane -->
-												<div class="tab-pane" id="tab_2">
-													<div class="row " id="stock-responses">
-														<div class="col-xs-12 stock-responses">
-														    <div>
-															  <input type="text" class="form-control" placeholder="Keyword Search">
-															</div>
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Segment Responses
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Chat Closing</li>
-																	<li class="section-var-link">Chat Opening</li>
-																	<li class="section-var-link">Chat Wait</li>
-																	<li class="section-var-link">iService Website</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Agent Response
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Test</li>
-																	
-																  </ul>
-																</li>
-															 </ul>
-														</div>
-													</div>
-												</div>
-												
-											</div>
-											<!-- /.tab-content -->
-											
-										</div>
-									</div>
-								  </div>
-								 
-							  </div> 
-						  </div>
-						  <div class="col-md-4">
-
-						  </div>
+                            <div class="col-xs-12 col-sm-8 col-md-10">
+                                <button class="btn btn-primary pull-left btn-margin" title="Manage Form">
+                                        Manage Form
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box box-info">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Agent Email</h3>
+                                    </div>
+                                <!-- /.box-header -->
+                                <!-- form start -->
+                                    <div class="box-body">
+                                        <div class="col-md-8"> 
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-2 control-label">Topic</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-control">
+                                                            <option>Select Topic 1</option>
+                                                            <option>option 2</option>
+                                                            <option>option 3</option>
+                                                            <option>option 4</option>
+                                                            <option>option 5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">From</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">To</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-2 control-label">CC</label>
+                                                    <div class="col-sm-10">
+                                                    <textarea class="form-control" rows="2"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">Subject</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-2 control-label">Body</label>
+                                                    <div class="col-sm-10">
+                                                        <textarea class="form-control" rows="5" id="editor1" name="editor1"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-2 control-label">File</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="attach-file"> <label class="btn-bs-file">
+                                                            Attach files
+                                                            <input type="file" />
+                                                        </label>(Maximum 10 MB upload at one time.)</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox"> Expect Customer Reply
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="button" class="pull-left btn btn-info" id="sendEmail">Send
+                                                        <i class="fa fa-arrow-circle-right"></i></button>
+                                                    </div>
+                                                </div>
+                                            </form>	
+                                        </div> 
+                                        <div class="col-md-4">
+                                            <div class="box box-solid bg-gray list-search box-body">
+                                                <div class="form-group">
+                                                    <div class="col-sm-12 no-padding">
+                                                     <input type="email" class="form-control" placeholder="List Search">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="nav-tabs-custom">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+                                                    <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="tab_1">
+                                                        <div class="row" id="variable-box">
+                                                            <div class="col-xs-12 variable-responses">
+                                                                <ul class="list-unstyled segment-variable-list">
+                                                                    <li class="section-label">Contact
+                                                                        <ul class="segment-variables">
+                                                                            <li class="section-var-link">Name</li>
+                                                                            <li class="segment-lable">Global
+                                                                                <ul>
+                                                                                    <li class="section-var-link">Address1</li>
+                                                                                    <li class="section-var-link">Address2</li>
+                                                                                    <li class="section-var-link">City</li>
+                                                                                    <li class="section-var-link">Country</li>
+                                                                                    <li class="section-var-link">Company</li>
+                                                                                </ul>
+                                                                            </li>
+                                                                            <li class="segment-lable">JC Segment
+                                                                                <ul>
+                                                                                    <li class="section-var-link">Contact View Only Property</li>
+                                                                                    <li class="section-var-link">Contact Viewable and Editable Property</li>
+                                                                                    <li class="section-var-link">Multi value No Descr</li>
+                                                                                    <li class="section-var-link">Shared Property from JC - cust can't see</li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                                <ul class="list-unstyled segment-variable-list">
+                                                                    <li class="section-label">Answer
+                                                                        <ul class="segment-variables">
+                                                                            <li class="section-var-link">Email</li>
+                                                                            <li class="section-var-link">Reference Number</li>
+                                                                            <li class="section-var-link">Original Date</li>
+                                                                            <li class="section-var-link">Original Time</li>
+                                                                            <li class="section-var-link">Subject</li>
+                                                                            <li class="section-var-link">Original Body</li>
+                                                                            <li class="section-var-link">Quoted Question</li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.tab-pane -->
+                                                    <div class="tab-pane" id="tab_2">
+                                                        <div class="row" id="stock-responses">
+                                                            <div class="col-xs-12 stock-responses">
+                                                                <div>
+                                                                    <input type="text" class="form-control" placeholder="Keyword Search">
+                                                                </div>
+                                                                <ul class="list-unstyled segment-variable-list">
+                                                                    <li class="section-label">Segment Responses
+                                                                        <ul class="segment-variables">
+                                                                            <li class="section-var-link">Chat Closing</li>
+                                                                            <li class="section-var-link">Chat Opening</li>
+                                                                            <li class="section-var-link">Chat Wait</li>
+                                                                            <li class="section-var-link">iService Website</li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                                <ul class="list-unstyled segment-variable-list">
+                                                                    <li class="section-label">Agent Response
+                                                                        <ul class="segment-variables">
+                                                                            <li class="section-var-link">Test</li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.tab-content -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-md-4"></div>
                         </div>                         
                     </div>
                     <!-- /.col -->
-
-                
                 </div>
                 <!-- /.row -->
     <!-- END ACCORDION & CAROUSEL-->
-	
             </section>
-         
         </div>
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
@@ -247,10 +229,8 @@ title: Customer Info - Agent Email
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
                                     <p>Will be 23 on April 24th</p>
                                 </div>
                             </a>
@@ -258,10 +238,8 @@ title: Customer Info - Agent Email
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-user bg-yellow"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
                                     <p>New phone +1(800)555-1234</p>
                                 </div>
                             </a>
@@ -269,10 +247,8 @@ title: Customer Info - Agent Email
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
                                     <p>nora@example.com</p>
                                 </div>
                             </a>
@@ -280,17 +256,14 @@ title: Customer Info - Agent Email
                         <li>
                             <a href="javascript:void(0)">
                                 <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
                                     <p>Execution time 5 seconds</p>
                                 </div>
                             </a>
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                     <h3 class="control-sidebar-heading">Tasks Progress</h3>
                     <ul class="control-sidebar-menu">
                         <li>
@@ -299,7 +272,6 @@ title: Customer Info - Agent Email
                                     Custom Template Design
                                     <span class="label label-danger pull-right">70%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
                                 </div>
@@ -311,7 +283,6 @@ title: Customer Info - Agent Email
                                     Update Resume
                                     <span class="label label-success pull-right">95%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-success" style="width: 95%"></div>
                                 </div>
@@ -323,7 +294,6 @@ title: Customer Info - Agent Email
                                     Laravel Integration
                                     <span class="label label-warning pull-right">50%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
                                 </div>
@@ -335,7 +305,6 @@ title: Customer Info - Agent Email
                                     Back End Framework
                                     <span class="label label-primary pull-right">68%</span>
                                 </h4>
-
                                 <div class="progress progress-xxs">
                                     <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
                                 </div>
@@ -343,7 +312,6 @@ title: Customer Info - Agent Email
                         </li>
                     </ul>
                     <!-- /.control-sidebar-menu -->
-
                 </div>
                 <!-- /.tab-pane -->
                 <!-- Stats tab content -->
@@ -353,45 +321,37 @@ title: Customer Info - Agent Email
                 <div class="tab-pane" id="control-sidebar-settings-tab">
                     <form method="post">
                         <h3 class="control-sidebar-heading">General Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Report panel usage
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Some information about this general settings option
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Allow mail redirect
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Other sets of options are available
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Expose author name in posts
                                 <input type="checkbox" class="pull-right" checked>
                             </label>
-
                             <p>
                                 Allow the user to show his name in blog posts
                             </p>
                         </div>
                         <!-- /.form-group -->
-
                         <h3 class="control-sidebar-heading">Chat Settings</h3>
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Show me as online
@@ -399,7 +359,6 @@ title: Customer Info - Agent Email
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Turn off notifications
@@ -407,7 +366,6 @@ title: Customer Info - Agent Email
                             </label>
                         </div>
                         <!-- /.form-group -->
-
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
                                 Delete chat history
@@ -422,7 +380,7 @@ title: Customer Info - Agent Email
         </aside>
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
-             immediately after the control sidebar -->
+                immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
     </div>
     <!-- ./wrapper -->
@@ -438,7 +396,7 @@ title: Customer Info - Agent Email
 			  $('#stock-responses').slimScroll({
 				height: '250px'
 			  });
-              CKEDITOR.replace('editor1')
+              CKEDITOR.replace('editor1');
        });
 	</script>
 </body>

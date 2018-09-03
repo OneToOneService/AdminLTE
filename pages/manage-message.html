@@ -5,11 +5,10 @@ title: Manage Messages - List View
 <html ng-app="iService">
 <head>
     {% include common-head.html %}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
-<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
-
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -18,677 +17,639 @@ title: Manage Messages - List View
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    {{ page.title }}
-                </h1>
-            </section>
-  <!-- Main content -->
+			<section class="content-header">
+					<h1>
+							{{ page.title }}
+					</h1>
+			</section>
+  				<!-- Main content -->
             <section class="content">
                 <!-- START CUSTOM TABS -->
-                <div class=""> 
-				 <div class="col-md-12">
-				  <div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
-					  <a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message.html">List View</a>
-					  <a class="btn btn-default " data-toggle="on" href="/pages/manage-message-treeview.html">Tree View</a>
-				  </div>
-				 </div>
+              	<div> 
+					<div class="col-md-12">
+						<div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
+							<a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message.html">List View</a>
+							<a class="btn btn-default " data-toggle="on" href="/pages/manage-message-treeview.html">Tree View</a>
+						</div>
+					</div>
 				</div>
-                <div class="row p-l-0">
-                    <div class="col-md-12">
-                        <!-- Custom Tabs -->
+              	<div class="row p-l-0">
+                	<div class="col-md-12">
+                  	<!-- Custom Tabs -->
 						<div class="box box-primary">
-						  <div class="box-header with-border">
-							<i class="fa fa-search"></i>
-							<h3 class="box-title text-right">Message List Criteria</h3>
-						  </div>
-						  <div class="box-body">
-						     <section class="container-fluid search-parameters">
-							  <div class="form-horizontal">
-								   <div class="col-md-6">
-									 <div class="form-group">
-										<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
-										<div class="col-sm-8">
-										  <select class="selectpicker form-control" multiple>
-											<option>e-shop -- All Topics(0)</option>
-											<option>.._Feedback (2)</option>
-											<option>.._Newsletter Subscription (0)</option>
-											<option>.._Spam (0)</option>
-											<option>.._Undeliverable (0)</option>
-											<option>..Account Questions (0)</option>
-											<option>....Orders (0)</option>
-											<option>....Refunds (0)</option>
-											<option>....Returns (0)</option>
-											<option>..Products(0)</option>
-											<option>....Audio-Video (0)</option>
-											<option>....Cameras (0)</option>
-											<option>....Cell Phones (0)</option>
-											<option>....Computers (0)</option>
-											<option>....Televisions(0)</option>
-											<option>..Shipping (0)</option>
-											<option>..Technical Support (0)</option>
-											<option>....Open Quotes (1)</option>
-										  </select>
-										</div>
-									  </div>
-								   </div>
-									<div class="col-md-6">
-									   <div class="checkbox d-inline">
-										 <label class="mright-15 "> Include Sub Topics </label> <input type="checkbox">
-									    </div>
-										<div class="checkbox d-inline">
-										 <label class="mright-15 "> Show All Messages</label> <input type="checkbox">
-									    </div>
-								   </div>
-							   </div>
-							 </section>
-						  </div>
-						</div>
-						<div class="row">
-						  <div class="col-md-12">
-							  <div class="box box-primary">
-								  <div class="box-header with-border">
-									<h3 class="box-title"><i class="fa fa-fw fa-edit"></i>  Mass Update</h3> 
-									<div class="box-tools pull-right">
-										<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
-										</button>
-									</div>
-								  </div>
-								  <div class="box-body p0 manage-message collapse" id="massupdate">
-								    <div class="mtop-15">
-									<div class="col-md-8 form-horizontal"> 
-									  <div class="col-md-12">
-                                       <div class="form-group">
-											  <div class="btn-group dropdown margin-r-5">
-												  <button type="button" class="btn btn-primary "> <i class="fa fa-send"></i>
-												  Send</button>										 
-												  <div class="btn-group">
-													<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-													<span class="caret"></span></button>
-													<ul class="dropdown-menu" role="menu">
-													  <li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
-													  <li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
-													</ul>
-												  </div>
-												</div>
-											  <button  class="btn btn-primary" type="button">
-												  <i class="fa  fa-check"></i>
-												  Resolve
-												</button>
-											<button class="btn btn-primary margin-r-5" title="Forward">
-											  <i class="fa fa-share"></i>
-											  forward
-											</button>
-											<div class="btn-group dropdown margin-r-5">
-												  <button type="button" class="btn btn-primary "> <i class="fa fa-save"></i>
-												  Save</button>										 
-												  <div class="btn-group">
-													<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-													<span class="caret"></span></button>
-													<ul class="dropdown-menu" role="menu">
-													  <li><a href="#">Private Note</a></li>
-													  <li><a href="#">Public Note</a></li>
-													</ul>
-												  </div>
-											</div>
-											
-											<button class="btn btn-primary" title="Spam">
-											  <i class="fa fa-ban"></i>
-											  Spam
-											</button>
-											<a class="btn btn-link ng-scope"   href="#">Cancel</a>
-									   </div>
-									   <div class="row">
-									   <div class="box box-success">
-                                         <div class="box-header with-border">
-											  <h3 class="box-title">Email Addresses And Subject Line</h3>
-											  <div class="box-tools pull-right">
-												<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox" ><i class="more-less glyphicon glyphicon-chevron-down"></i></i>
-												</button>							
-											  </div>
-										 </div>	
-                                        <div class="box-body p0 collapse" id="emailbox"> 	
-                                          <div class="p10"> 										
-										    <div class="form-group">
-											<label class="col-sm-2 control-label">From</label>
-											<div class="col-sm-10">
-											  <input class="form-control " type="text" style="">
-											</div>
-										   </div>
+							<div class="box-header with-border">
+								<i class="fa fa-search"></i>
+								<h3 class="box-title text-right">Message List Criteria</h3>
+							</div>
+							<div class="box-body">
+								<section class="container-fluid search-parameters">
+									<div class="form-horizontal">
+										<div class="col-md-6">
 											<div class="form-group">
-												<label class="col-sm-2 control-label">To</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
+												<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
+												<div class="col-sm-8">
+													<select class="selectpicker form-control" multiple>
+													<option>e-shop -- All Topics(0)</option>
+													<option>.._Feedback (2)</option>
+													<option>.._Newsletter Subscription (0)</option>
+													<option>.._Spam (0)</option>
+													<option>.._Undeliverable (0)</option>
+													<option>..Account Questions (0)</option>
+													<option>....Orders (0)</option>
+													<option>....Refunds (0)</option>
+													<option>....Returns (0)</option>
+													<option>..Products(0)</option>
+													<option>....Audio-Video (0)</option>
+													<option>....Cameras (0)</option>
+													<option>....Cell Phones (0)</option>
+													<option>....Computers (0)</option>
+													<option>....Televisions(0)</option>
+													<option>..Shipping (0)</option>
+													<option>..Technical Support (0)</option>
+													<option>....Open Quotes (1)</option>
+													</select>
 												</div>
-											</div>
-										    <div class="form-group">
-												<label class="col-sm-2 control-label">CC</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">BCC</label>
-												<div class="col-sm-10">
-												  <input class="form-control " type="text" style="">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Subject</label>
-												<div class="col-sm-4">
-												  <input class="form-control " type="text" style="" disabled>
-												</div>
-												<div class="col-sm-6">
-												  <input class="form-control " type="text" style="">
-												</div>
-										   </div>
-										    <div class="form-group">
-											  <div class="col-md-2">
-											  </div>
-											 
-											</div> 
-										   </div>
-										  </div>	 
-				                        </div>		
-										</div>
-									  <div class="row"> 
-									    
-										<div class="nav-tabs-custom">
-										    <ul class="nav nav-tabs">
-											  <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-											  <li class=""><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-                                              <li class="pull-right"> 
-											     <p class="attach-file"> <label class="btn-bs-file ">
-													Attach files		
-													<input type="file" />
-											      </label></span> (Maximum 10 MB upload at one time.)</p>
-											  </li>
-											</ul>
-											<div class="tab-content">
-											  <div class="tab-pane active" id="draftbody">
-											      <div class="form-group text-editor-container">
-													  <div class="col-sm-12">
-														<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
-													  </div>
-													</div>
-											   </div>
-                                               <div class="tab-pane" id="plainhtml">	
-											     &nbsp;<br><br><br>
-                                               </div>				
-                                               										   
 											</div>
 										</div>
-										 <div class="col-sm-12">
-											<div class="panel panel-default form-group">
-												<div class="panel-heading">
-												  <i class="fa fa-fw fa-pencil-square-o"></i>
-												  Private Comments
-												</div>
-												<div class="panel-body">
-												  <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note" style=""></textarea>
-												</div>
-											</div>	
-										  </div>
-									  </div>
-									 </div> 
-									</div> 
-									<div class="col-md-4">
-									  <div class="box box-warning stock-responses ng-scope">
-										<div class="box-header with-border">
-										  <h3 class="box-title">
-											<i class="fa fa-fw fa-envelope"></i>
-											Message Properties
-										  </h3>
-										</div>
-										<div class="box-body">
-										  <div class="">
-											<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
-											<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
-										  </div>
-										</div>
-									  </div>
-									  <div class="nav-tabs-custom">
-											<ul class="nav nav-tabs">
-												<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-												<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-											</ul>
-											<div class="tab-content">
-												<div class="tab-pane active" id="tab_1">
-													<div class="row" id="variable-box">
-														<div class="col-xs-12 variable-responses">
-														    <div>
-															  <input type="text" class="form-control" placeholder="Keyword Search">
-															</div>
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Contact
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Name</li>
-																	<li class="segment-lable">Global
-																	    <ul>
-																		   <li class="section-var-link">Address1</li>
-																		   <li class="section-var-link">Address2</li>
-																		   <li class="section-var-link">City</li>
-																		   <li class="section-var-link">Country</li>
-																		   <li class="section-var-link">Company</li>
-																		</ul>
-																	</li>
-																	<li class="segment-lable">JC Segment
-																	    <ul>
-																		   <li class="section-var-link">Contact View Only Property</li>
-																		   <li class="section-var-link">Contact Viewable and Editable Property</li>
-																		   <li class="section-var-link">Multi value No Descr</li>
-																		   <li class="section-var-link">Shared Property from JC - cust can't see</li>
-																		</ul>
-																	</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Answer
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Email</li>
-																	<li class="section-var-link">Reference Number</li>
-																	<li class="section-var-link">Original Date</li>
-																	<li class="section-var-link">Original Time</li>
-																	<li class="section-var-link">Subject</li>
-																	<li class="section-var-link">Original Body</li>
-																	<li class="section-var-link">Quoted Question</li>
-																  </ul>
-																</li>
-															 </ul>
-														</div>
-													</div>
-												</div>
-												<!-- /.tab-pane -->
-												<div class="tab-pane" id="tab_2">
-													<div class="row " id="stock-responses">
-														<div class="col-xs-12 stock-responses">
-														    <div>
-															  <input type="text" class="form-control" placeholder="Keyword Search">
-															</div>
-															<ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Segment Responses
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Chat Closing</li>
-																	<li class="section-var-link">Chat Opening</li>
-																	<li class="section-var-link">Chat Wait</li>
-																	<li class="section-var-link">iService Website</li>
-																  </ul>
-																</li>
-															 </ul>
-															 <ul class="list-unstyled segment-variable-list">
-																<li class="section-label">Agent Response
-																  <ul class="segment-variables">
-																	<li class="section-var-link">Test</li>
-																	
-																  </ul>
-																</li>
-															 </ul>
-														</div>
-													</div>
-												</div>
-												
+										<div class="col-md-6">
+											<div class="checkbox d-inline">
+												<label class="mright-15"> Include Sub Topics </label> <input type="checkbox">
 											</div>
-											<!-- /.tab-content -->
+											<div class="checkbox d-inline">
+												<label class="mright-15"> Show All Messages</label> <input type="checkbox">
+											</div>
 										</div>
 									</div>
-								   </div>
-								  </div>
-								
-							  </div>
-						  </div>	  
+								</section>
+							</div>
 						</div>
 						<div class="row">
-						  <div class="col-md-12">
-                            <div class="box box-info">
-								<div class="box-header with-border">
-								  <i class="fa  fa-list-alt"></i>
-								  <h3 class="box-title head-title-padding">Message List</h3>
-								</div>
-								<!-- /.box-header -->
-								<!-- form start -->
-								 <div class="box-body table-responsive ">
-									 
-									  <table id="example1" class="table  table-striped table-hover ">
-										 <thead>
-										  <tr>
-											<th class="no-sort"  name="name">
-											</th>
-											<th class="text-capitalize">
-											 Subject 
-											</th>
-											<th class="text-capitalize" >
-											  Contact Name
-											</th>
-											<th class="text-capitalize" >
-											  Contact Email
-											 </th>
-											<th class="text-capitalize">
-											 Date
-											</th>
-											<th class="text-capitalize" >
-											  Assigned To
-											</th>
-											<th class="text-capitalize">
-											 Topic
-											 </th>
-										  </tr>
-										</thead>  
-										<tbody>
-										  <tr >
-											<td  name="name" class="icon-col">
-											  <input type="checkbox" value="">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ></i>
-											  </button>
-											</td>
-											<td class="">
-											 Feedback provided
-											</td>
-											<td class="">
-											 Feedback Account
-											</td>
-											<td class="">
-											 feedback@gmail.com
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-											<td class="">
-											  Jacob Smith
-											</td>
-											<td class="">
-											  _Feedback
-											</td>
-										  </tr>
-										  <tr >
-											<td name="name" class="icon-col">
-											  <input type="checkbox" value="">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-											 I need a good small camera
-											</td>
-											<td class="">
-											 James Williams
-											</td>
-											<td class="">
-											 customer2@1to1service.com
-											</td>
-											<td class="">
-											 2 Days ago
-											</td>
-											<td class="">
-											 Jonie Hewlett
-											</td>
-											<td class="">
-											 Cameras
-											</td>
-										  </tr>
-										  <tr >
-											<td  name="name">
-											  <input type="checkbox" value="">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
-											</td>
-											<td class="">
-											Can't find it
-											</td>
-											<td class="">
-											James Williams
-											</td>
-											<td class="">
-											 customer2@1to1service.com
-											</td>
-											<td class="">
-											 4 Days ago
-											</td>
-											<td class="">
-											 Jacob Smith
-											</td>
-											<td class="">
-											   Televisions
-											</td>
-										  </tr>
-										   <tr >
-											<td  name="name">
-											  <input type="checkbox" value="">
-											  <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-												<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-											  </button>
-											</td>
-											<td class="">
-											 	
-                                             Best price on LG Plasma
-											</td>
-											<td class="">
-											 	
-												John Doe
-											</td>
-											<td class="">
-											 customer1@1to1service.com
-											</td>
-											<td class="">
-											 5 Days ago
-											</td>
-											<td class="">
-											  Jonie Hewlett
-											</td>
-											<td class="">
-											  Televisions
-											</td>
-										  </tr>
-										</tbody>
-									  
+							<div class="col-md-12">
+								<div class="box box-primary">
+									<div class="box-header with-border">
+										<h3 class="box-title"><i class="fa fa-fw fa-edit"></i>  Mass Update</h3> 
+										<div class="box-tools pull-right">
+											<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate"><i class="more-less glyphicon glyphicon-chevron-down"></i>
+											</button>
+										</div>
+									</div>
+									<div class="box-body p0 manage-message collapse" id="massupdate">
+										<div class="mtop-15">
+											<div class="col-md-8 form-horizontal"> 
+												<div class="col-md-12">
+													<div class="form-group">
+														<div class="btn-group dropdown margin-r-5">
+															<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
+															Send</button>										 
+															<div class="btn-group">
+																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+																<span class="caret"></span></button>
+																<ul class="dropdown-menu" role="menu">
+																	<li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
+																	<li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
+																</ul>
+															</div>
+														</div>
+														<button  class="btn btn-primary" type="button">
+															<i class="fa  fa-check"></i>
+															Resolve
+														</button>
+														<button class="btn btn-primary margin-r-5" title="Forward">
+															<i class="fa fa-share"></i>
+															forward
+														</button>
+														<div class="btn-group dropdown margin-r-5">
+																<button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
+																Save</button>										 
+																<div class="btn-group">
+																	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+																	<span class="caret"></span></button>
+																	<ul class="dropdown-menu" role="menu">
+																		<li><a href="#">Private Note</a></li>
+																		<li><a href="#">Public Note</a></li>
+																	</ul>
+																</div>
+															</div>
+															<button class="btn btn-primary" title="Spam">
+																<i class="fa fa-ban"></i>
+																Spam
+															</button>
+															<a class="btn btn-link ng-scope" href="#">Cancel</a>
+														</div>
+														<div class="row">
+															<div class="box box-success">
+																<div class="box-header with-border">
+																	<h3 class="box-title">Email Addresses And Subject Line</h3>
+																	<div class="box-tools pull-right">
+																		<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox"><i class="more-less glyphicon glyphicon-chevron-down"></i>
+																		</button>							
+																	</div>
+																</div>	
+																<div class="box-body p0 collapse" id="emailbox"> 	
+																	<div class="p10"> 										
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">From</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">To</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">CC</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">BCC</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">Subject</label>
+																			<div class="col-sm-4">
+																				<input class="form-control" type="text" disabled>
+																			</div>
+																			<div class="col-sm-6">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<div class="col-md-2">
+																			</div>
+																		</div> 
+																	</div>
+																</div>	 
+															</div>		
+														</div>
+														<div class="row"> 
+															<div class="nav-tabs-custom">
+																<ul class="nav nav-tabs">
+																	<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+																	<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+																	<li class="pull-right"> 
+																		<p class="attach-file"> <label class="btn-bs-file">
+																		Attach files		
+																		<input type="file" />
+																			</label>(Maximum 10 MB upload at one time.)</p>
+																	</li>
+																</ul>
+																<div class="tab-content">
+																	<div class="tab-pane active" id="draftbody">
+																			<div class="form-group text-editor-container">
+																				<div class="col-sm-12">
+																					<textarea class="form-control" rows="5" id="editor1" name="editor1"></textarea>
+																				</div>
+																			</div>
+																	</div>
+																	<div class="tab-pane" id="plainhtml">	
+																		&nbsp;<br><br><br>
+																	</div>																							
+																</div>
+															</div>
+															<div class="col-sm-12">
+																<div class="panel panel-default form-group">
+																	<div class="panel-heading">
+																		<i class="fa fa-fw fa-pencil-square-o"></i>
+																		Private Comments
+																	</div>
+																	<div class="panel-body">
+																		<textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note"></textarea>
+																	</div>
+																</div>	
+															</div>
+														</div>
+													</div> 
+												</div> 
+												<div class="col-md-4">
+													<div class="box box-warning stock-responses ng-scope">
+														<div class="box-header with-border">
+															<h3 class="box-title">
+															<i class="fa fa-fw fa-envelope"></i>
+															Message Properties
+															</h3>
+														</div>
+														<div class="box-body">
+															<div>
+																<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
+																<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
+															</div>
+														</div>
+													</div>
+													<div class="nav-tabs-custom">
+														<ul class="nav nav-tabs">
+															<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+															<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane active" id="tab_1">
+																<div class="row" id="variable-box">
+																	<div class="col-xs-12 variable-responses">
+																		<div>
+																			<input type="text" class="form-control" placeholder="Keyword Search">
+																		</div>
+																		<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">Contact
+																				<ul class="segment-variables">
+																					<li class="section-var-link">Name</li>
+																					<li class="segment-lable">Global
+																						<ul>
+																							<li class="section-var-link">Address1</li>
+																							<li class="section-var-link">Address2</li>
+																							<li class="section-var-link">City</li>
+																							<li class="section-var-link">Country</li>
+																							<li class="section-var-link">Company</li>
+																						</ul>
+																					</li>
+																					<li class="segment-lable">JC Segment
+																						<ul>
+																							<li class="section-var-link">Contact View Only Property</li>
+																							<li class="section-var-link">Contact Viewable and Editable Property</li>
+																							<li class="section-var-link">Multi value No Descr</li>
+																							<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																						</ul>
+																					</li>
+																				</ul>
+																			</li>
+																		</ul>
+																		<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">Answer
+																				<ul class="segment-variables">
+																					<li class="section-var-link">Email</li>
+																					<li class="section-var-link">Reference Number</li>
+																					<li class="section-var-link">Original Date</li>
+																					<li class="section-var-link">Original Time</li>
+																					<li class="section-var-link">Subject</li>
+																					<li class="section-var-link">Original Body</li>
+																					<li class="section-var-link">Quoted Question</li>
+																				</ul>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+															<!-- /.tab-pane -->
+															<div class="tab-pane" id="tab_2">
+																<div class="row" id="stock-responses">
+																	<div class="col-xs-12 stock-responses">
+																		<div>
+																			<input type="text" class="form-control" placeholder="Keyword Search">
+																		</div>
+																		<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">Segment Responses
+																				<ul class="segment-variables">
+																					<li class="section-var-link">Chat Closing</li>
+																					<li class="section-var-link">Chat Opening</li>
+																					<li class="section-var-link">Chat Wait</li>
+																					<li class="section-var-link">iService Website</li>
+																				</ul>
+																			</li>
+																		</ul>
+																		<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">Agent Response
+																				<ul class="segment-variables">
+																					<li class="section-var-link">Test</li>
+																				</ul>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- /.tab-content -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	  
+						    </div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="box box-info">
+									<div class="box-header with-border">
+										<i class="fa  fa-list-alt"></i>
+										<h3 class="box-title head-title-padding">Message List</h3>
+									</div>
+									<!-- /.box-header -->
+									<!-- form start -->
+									<div class="box-body table-responsive">
+										<table id="example1" class="table  table-striped table-hover">
+											<thead>
+												<tr>
+													<th class="no-sort"  name="name">
+													</th>
+													<th class="text-capitalize">
+													Subject 
+													</th>
+													<th class="text-capitalize">
+														Contact Name
+													</th>
+													<th class="text-capitalize">
+														Contact Email
+													</th>
+													<th class="text-capitalize">
+														Date
+													</th>
+													<th class="text-capitalize">
+														Assigned To
+													</th>
+													<th class="text-capitalize">
+														Topic
+													</th>
+												</tr>
+											</thead>  
+											<tbody>
+												<tr>
+													<td name="name" class="icon-col">
+														<input type="checkbox" value="">
+															<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+															<i class="fa fa-plus-circle"></i>
+														</button>
+													</td>
+													<td>
+														Feedback provided
+													</td>
+													<td>
+														Feedback Account
+													</td>
+													<td>
+														feedback@gmail.com
+													</td>
+													<td>
+														2 Days ago
+													</td>
+													<td>
+														Jacob Smith
+													</td>
+													<td>
+														_Feedback
+													</td>
+												</tr>
+												<tr>
+													<td name="name" class="icon-col">
+														<input type="checkbox" value="">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
+															<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+														</button>
+													</td>
+													<td>
+														I need a good small camera
+													</td>
+													<td>
+														James Williams
+													</td>
+													<td>
+														customer2@1to1service.com
+													</td>
+													<td>
+														2 Days ago
+													</td>
+													<td>
+														Jonie Hewlett
+													</td>
+													<td>
+														Cameras
+													</td>
+												</tr>
+												<tr>
+													<td  name="name">
+														<input type="checkbox" value="">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
+														<i class="fa fa-plus-circle"></i>
+														</button>
+													</td>
+													<td>
+														Can't find it
+													</td>
+													<td>
+														James Williams
+													</td>
+													<td>
+														customer2@1to1service.com
+													</td>
+													<td>
+														4 Days ago
+													</td>
+													<td>
+														Jacob Smith
+													</td>
+													<td>
+														Televisions
+													</td>
+												</tr>
+												<tr>
+													<td name="name">
+														<input type="checkbox" value="">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
+														<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+														</button>
+													</td>
+													<td>
+														Best price on LG Plasma
+													</td>
+													<td>
+														John Doe
+													</td>
+													<td>
+														customer1@1to1service.com
+													</td>
+													<td>
+														5 Days ago
+													</td>
+													<td>
+														Jonie Hewlett
+													</td>
+													<td>
+														Televisions
+													</td>
+												</tr>
+											</tbody>
 										</table>
-								  </div>
-							</div> 
-                        </div>                         
-                    </div>
+									</div>
+								</div> 
+							</div>                         
+						</div>
                     <!-- /.col -->
-                  </div> 
-                
+                 	</div> 
                 </div>
                 <!-- /.row -->
-    <!-- END ACCORDION & CAROUSEL-->
-	
-            </section>
-         
-        </div>
+    			<!-- END ACCORDION & CAROUSEL-->
+            	</section>
+       		</div>
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
         <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane" id="control-sidebar-home-tab">
-                    <h3 class="control-sidebar-heading">Recent Activity</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                    <p>Will be 23 on April 24th</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                    <p>New phone +1(800)555-1234</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                    <p>nora@example.com</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                    <p>Execution time 5 seconds</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Custom Template Design
-                                    <span class="label label-danger pull-right">70%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Update Resume
-                                    <span class="label label-success pull-right">95%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Laravel Integration
-                                    <span class="label label-warning pull-right">50%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Back End Framework
-                                    <span class="label label-primary pull-right">68%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                </div>
-                <!-- /.tab-pane -->
-                <!-- Stats tab content -->
-                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                <!-- /.tab-pane -->
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                    <form method="post">
-                        <h3 class="control-sidebar-heading">General Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Report panel usage
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Some information about this general settings option
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Allow mail redirect
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Other sets of options are available
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Expose author name in posts
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Allow the user to show his name in blog posts
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Show me as online
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Turn off notifications
-                                <input type="checkbox" class="pull-right">
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Delete chat history
-                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-                    </form>
-                </div>
-                <!-- /.tab-pane -->
-            </div>
-        </aside>
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Create the tabs -->
+			<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+				<li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+				<li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<!-- Home tab content -->
+				<div class="tab-pane" id="control-sidebar-home-tab">
+					<h3 class="control-sidebar-heading">Recent Activity</h3>
+					<ul class="control-sidebar-menu">
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+									<p>Will be 23 on April 24th</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-user bg-yellow"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+									<p>New phone +1(800)555-1234</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+									<p>nora@example.com</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<i class="menu-icon fa fa-file-code-o bg-green"></i>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+									<p>Execution time 5 seconds</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- /.control-sidebar-menu -->
+					<h3 class="control-sidebar-heading">Tasks Progress</h3>
+					<ul class="control-sidebar-menu">
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Custom Template Design
+									<span class="label label-danger pull-right">70%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Update Resume
+									<span class="label label-success pull-right">95%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-success" style="width: 95%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Laravel Integration
+									<span class="label label-warning pull-right">50%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<h4 class="control-sidebar-subheading">
+									Back End Framework
+									<span class="label label-primary pull-right">68%</span>
+								</h4>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- /.control-sidebar-menu -->
+				</div>
+				<!-- /.tab-pane -->
+				<!-- Stats tab content -->
+				<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+				<!-- /.tab-pane -->
+				<!-- Settings tab content -->
+				<div class="tab-pane" id="control-sidebar-settings-tab">
+					<form method="post">
+						<h3 class="control-sidebar-heading">General Settings</h3>
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Report panel usage
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Some information about this general settings option
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Allow mail redirect
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Other sets of options are available
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Expose author name in posts
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+							<p>
+								Allow the user to show his name in blog posts
+							</p>
+						</div>
+						<!-- /.form-group -->
+						<h3 class="control-sidebar-heading">Chat Settings</h3>
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Show me as online
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Turn off notifications
+								<input type="checkbox" class="pull-right">
+							</label>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Delete chat history
+								<a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+							</label>
+						</div>
+						<!-- /.form-group -->
+					</form>
+				</div>
+				<!-- /.tab-pane -->
+			</div>
+		</aside>
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
              immediately after the control sidebar -->
@@ -697,19 +658,19 @@ title: Manage Messages - List View
     <!-- ./wrapper -->
     {% include common-javascript.html %}
        <!-- DataTables -->
-    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-	
-	<script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+<script>
 	$(document).ready(function() {
     // DataTable
-    var table = $('#example1').DataTable( {
+      var table = $('#example1').DataTable( {
 	    "language" : {
 			"search": "Filter Messages"
 		  },
@@ -724,18 +685,16 @@ title: Manage Messages - List View
 	  
 	   // SLIMSCROLL FOR CHAT WIDGET
 	  $('#variable-box').slimScroll({
-		height: '250px'
+			height: '250px'
 	  });
 	  $('#stock-responses').slimScroll({
-		height: '250px'
+			height: '250px'
 	  });
 	  CKEDITOR.replace('editor1',
 		{
 			 height: 250
 		});
-			 
-	  
-    } );
+    });
 
 	$('.selectpicker').selectpicker('refresh');
 	  //iCheck for checkbox and radio inputs
@@ -743,8 +702,7 @@ title: Manage Messages - List View
 		checkboxClass: 'icheckbox_minimal-blue',
 		radioClass: 'iradio_minimal-blue'
 	});
-	
-  
+
 </script>
 </body>
 </html>
