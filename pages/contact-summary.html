@@ -184,15 +184,15 @@ title: Customer Info - Contact
                 </div>
               </div>
               <!-- /.tab-pane -->
-              <div class="tab-pane contact-detail" id="tab_2">
+              <div class="tab-pane contact-detail" id="tab_2" ng-controller="myCtrl">
                 <div class="row">
                   <div class="col-xs-12 col-sm-9 panel-group">
                     <div class="box box-info">
-                      <div class="box-header with-border" data-toggle="collapse" data-target="#contactinfo">
+                      <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment1')">
                         <h3 class="box-title">Contact Information</h3>
-                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
+                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment1}"></span>
                       </div>
-                      <div class="box-body in collapse " id="contactinfo">
+                      <div class="box-body in collapse" uib-collapse="segment1">
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
                             <div>
@@ -343,11 +343,11 @@ title: Customer Info - Contact
                       </button>
                     </div>
                     <div class="box box-warning">
-                      <div class="box-header with-border" data-toggle="collapse" data-target="#segment">
+                      <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment2')">
                         <h3 class="box-title ng-binding">Automated Test Segment</h3>
-                        <span class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
+                        <span class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment2}"></span>
                       </div>
-                      <div class="box-body in collapse">
+                      <div class="box-body in collapse" uib-collapse="segment2">
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
                             <div>
@@ -374,11 +374,11 @@ title: Customer Info - Contact
                       </button>
                     </div>
                     <div class="box box-success">
-                      <div class="box-header with-border" data-toggle="collapse" data-target="#segment1">
+                      <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment3')">
                         <h3 class="box-title ng-binding">Segment1</h3>
-                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
+                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment3}"></span>
                       </div>
-                      <div class="box-body in collapse" id="segment1">
+                      <div class="box-body in collapse" uib-collapse="segment3">
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
                            <div>
@@ -427,11 +427,11 @@ title: Customer Info - Contact
                       </button>
                     </div>
                     <div class="box box-danger">
-                      <div class="box-header with-border" data-toggle="collapse" data-target="#segment2">
+                      <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment4')">
                         <h3 class="box-title ng-binding">Segment2</h3>
-                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded"></span>
+                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment4}"></span>
                       </div>
-                      <div class="box-body in collapse" id="segment2">
+                      <div class="box-body in collapse" uib-collapse="segment4">
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
                             <div>
@@ -1262,5 +1262,13 @@ title: Customer Info - Contact
       });
 
   </script>
+  <script>
+      angular.module('iService').controller('myCtrl', function ($scope) {
+          $scope.toggleSegmentCollapsedState = function (segmentName)
+          { 
+            $scope[segmentName] = !$scope[segmentName];
+          };
+      });
+    </script>
 </body>
 </html>

@@ -1443,7 +1443,7 @@ ul.timeline span.stack-icon
     border: 1px solid @gray-lte;
     margin: 5px 0 0 10px;
     color: @direct-chat-default-font-color;
-
+    max-width:calc(92% - 50px);
 }
 
 .direct-chat-text:after, .direct-chat-text:before {
@@ -1474,19 +1474,23 @@ ul.timeline span.stack-icon
     border-color: @yellow;
     color: @component-active-color;
 }
-.right .direct-chat-text {
-    margin-right: 10px;
-    margin-left: 0;
-    float: right;
-}
-.direct-chat-warning .right>.direct-chat-text:after, .direct-chat-warning .right>.direct-chat-text:before {
-    border-left-color: @yellow;
+
+
+.right > .direct-chat-text {
+    background:  @yellow;;
+    border-color:  @yellow;;
+    color: #ffffff;
+    float:right;
+    margin: 0px 10px 5px 0px;
 }
 .right .direct-chat-text:after, .right .direct-chat-text:before {
     right: auto;
     left: 100%;
     border-right-color: transparent;
-    border-left-color: @box-default-border-top-color;
+    border-left-color: #d2d6de;
+}
+.right > .direct-chat-text:after,  .right > .direct-chat-text:before {
+    border-left-color:  @yellow;;
 }
 .online-chat-list{
   .contacts-list-info{color:@logo-blue;}

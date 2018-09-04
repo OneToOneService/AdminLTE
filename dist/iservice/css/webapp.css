@@ -1147,6 +1147,7 @@ ul.timeline span.stack-icon .aqua {
   border: 1px solid #d2d6de;
   margin: 5px 0 0 10px;
   color: #444444;
+  max-width: calc(42%);
 }
 .direct-chat-text:after,
 .direct-chat-text:before {
@@ -1177,14 +1178,12 @@ ul.timeline span.stack-icon .aqua {
   border-color: #f39c12;
   color: #ffffff;
 }
-.right .direct-chat-text {
-  margin-right: 10px;
-  margin-left: 0;
+.right > .direct-chat-text {
+  background: #f39c12;
+  border-color: #f39c12;
+  color: #ffffff;
   float: right;
-}
-.direct-chat-warning .right > .direct-chat-text:after,
-.direct-chat-warning .right > .direct-chat-text:before {
-  border-left-color: #f39c12;
+  margin: 0px 10px 5px 0px;
 }
 .right .direct-chat-text:after,
 .right .direct-chat-text:before {
@@ -1192,6 +1191,10 @@ ul.timeline span.stack-icon .aqua {
   left: 100%;
   border-right-color: transparent;
   border-left-color: #d2d6de;
+}
+.right > .direct-chat-text:after,
+.right > .direct-chat-text:before {
+  border-left-color: #f39c12;
 }
 .online-chat-list .contacts-list-info {
   color: #3c8dbc;
