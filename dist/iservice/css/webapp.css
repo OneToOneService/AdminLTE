@@ -1491,3 +1491,8 @@ ul.timeline span.stack-icon .aqua {
 .ui-select-choices-row .ui-select-choices-row-inner {
   padding: 3px 20px;
 }
+.interaction-properties-panel .form-control,
+.interaction-properties-panel .form-inline .form-control {
+  width: 100% !important;
+  margin-bottom: 15px;
+}
