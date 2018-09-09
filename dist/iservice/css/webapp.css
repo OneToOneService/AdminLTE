@@ -1369,7 +1369,7 @@ ul.timeline span.stack-icon .aqua {
 .table .icon-col {
   width: 54px;
 }
-.table > thead > tr > th:first-child {
+.table > thead > tr > th.no-sort {
   padding-right: 0px !important;
 }
 .dropdown-menu .dropdown-header {
@@ -1494,5 +1494,11 @@ ul.timeline span.stack-icon .aqua {
 .interaction-properties-panel .form-control,
 .interaction-properties-panel .form-inline .form-control {
   width: 100% !important;
+}
+.form-inline .form-group .form-control {
+  width: 100%;
+}
+.form-inline .form-group {
+  display: block;
   margin-bottom: 15px;
 }

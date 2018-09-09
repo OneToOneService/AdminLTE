@@ -396,23 +396,24 @@ title: Manage Messages - List View
 												<tr ng-show="row1" ng-cloak>
 													<td class="icon-col">&nbsp;</td>
 													<td colspan="6">
-														<div class="row"> 
+														<!--form data start-->	
+														<div class="row" ng-hide="hidetrue"> 
 															<div class="col-md-12">
 																<div class="row">
 																	<div class="col-md-12">
-																		<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom">
+																		<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom" ng-click="show('agentemail')">
 																			<i class="fa fa-envelope"></i>
 																			Agent email
 																		</button>
-																		<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom">
+																		<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
 																			<i class="fa fa-pencil-square-o"></i>
 																			Note
 																		</button>
-																		<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom">
+																		<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
 																			<i class="fa fa-ticket"></i>
 																			Ticket
 																		</button>
-																		<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom">
+																		<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show('forwardcopy')">
 																			<i class="fa fa-mail-forward"></i>
 																			Forward Copy
 																		</button>
@@ -429,7 +430,7 @@ title: Manage Messages - List View
 																				<li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
 																			</ul>
 																		</div>
-																		<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom">
+																		<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom" ng-click="show('getthis')">
 																			<i class="fa fa-sign-in"></i>
 																			Get This
 																		</button>
@@ -602,6 +603,22 @@ title: Manage Messages - List View
 																</div>
 															</div>
 														</div>
+														<!--form data end-->
+														<!--agent email start-->
+														{% include agent-email-include.html %}    
+														<!--agent email end-->
+														<!--create note start-->
+														{% include create-note-include.html %}
+														<!--create note end-->
+														<!--create ticket start-->
+														{% include create-ticket-include.html %}
+														<!--create ticket end-->
+														<!--forward start-->
+														{% include forward-copy-include.html %}
+													    <!--forward end-->
+														<!--Get this-->
+														{% include get-this-include.html %}
+														<!--Get thisa-->
 													</td>
 													<td ng-show="!row1"></td> 
 													<td ng-show="!row1">$nbsp;</td>
@@ -901,16 +918,37 @@ title: Manage Messages - List View
 	  });
 	  
 	   // SLIMSCROLL FOR CHAT WIDGET
-	  $('#variable-box').slimScroll({
+	  $('#variable-box,#variable-box2,#variable-box3,#variable-box4,#variable-box5,#variable-box6').slimScroll({
 			height: '250px'
 	  });
-	  $('#stock-responses').slimScroll({
+	  $('#stock-responses,#stock-responses2,#stock-responses3,#stock-responses4,#stock-responses5,#stock-responses6').slimScroll({
 			height: '250px'
 	  });
-	  CKEDITOR.replace('editor1',
+	   CKEDITOR.replace('editor1',
 		{
 			 height: 250
 		});
+		CKEDITOR.replace('editor2',
+		{
+			 height: 250
+		});
+		CKEDITOR.replace('editor3',
+		{
+			 height: 250
+		});
+		CKEDITOR.replace('editor4',
+		{
+			 height: 250
+		});
+		CKEDITOR.replace('editor5',
+		{
+			 height: 250
+		});
+		CKEDITOR.replace('editor6',
+		{
+			 height: 250
+		});
+
     });
 
 	$('.selectpicker').selectpicker('refresh');
@@ -923,14 +961,24 @@ title: Manage Messages - List View
         checkboxClass: 'icheckbox_square-blue',
         radioClass: 'iradio_flat-green'
     });
-    
+
 	var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
 			app.controller('myCtrl', function($scope,$log) {
 				$scope.toggleRow = function (segmentName)
 				{ 
 					$scope[segmentName] = !$scope[segmentName];
 				};
-				
+
+				$scope.show = function(action) {
+					$scope.hidetrue = true;
+					$scope[action] = !$scope[action];
+				};
+
+				$scope.cancel = function(action) {
+					$scope.hidetrue = false;
+					$scope[action] = !$scope[action];
+				};	
+
 		});	 
 </script>
 </body>
