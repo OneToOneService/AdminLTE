@@ -312,35 +312,35 @@ title:  Customer Info Search
 
 	<!--Expanded row inner data start-->
 	<div id="expandedrow" style="display:none;">
-			<div class="row" ng-hide="hidetrue">
+		<div class="row" ng-hide="hidetrue">
+			<div class="col-md-12">
+				<div class="row">
 					<div class="col-md-12">
-						<div class="row">
-							<div class="col-md-12">
-								<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom" ng-click="show('agentemail')">
-									<i class="fa fa-envelope"></i>
-									Agent email
-								</button>
-								<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
-									<i class="fa fa-pencil-square-o"></i>
-									Note
-								</button>
-								<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
-									<i class="fa fa-ticket"></i>
-									Ticket
-								</button>
-							</div>		
-						</div>
+						<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom" ng-click="show('agentemail')">
+							<i class="fa fa-envelope"></i>
+							Agent email
+						</button>
+						<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
+							<i class="fa fa-pencil-square-o"></i>
+							Note
+						</button>
+						<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
+							<i class="fa fa-ticket"></i>
+							Ticket
+						</button>
 					</div>		
 				</div>
-				<!--agent email start-->
-				{% include agent-email-include.html %}    
-				<!--agent email end-->
-				<!--create note start-->
-				{% include create-note-include.html %}
-				<!--create note end-->
-				<!--create ticket start-->
-				{% include create-ticket-include.html %}
-				<!--create ticket end-->	 
+			</div>		
+		</div>
+		<!--agent email start-->
+		{% include agent-email-include.html %}    
+		<!--agent email end-->
+		<!--create note start-->
+		{% include create-note-include.html %}
+		<!--create note end-->
+		<!--create ticket start-->
+		{% include create-ticket-include.html %}
+		<!--create ticket end-->	 
 	</div>	
 	<!--Expanded row inner data end-->
         <!-- /.content-wrapper -->
@@ -625,10 +625,7 @@ title:  Customer Info Search
 				angular.element('.expandedrowcontent').remove();
 			}
 
-			function setColSpan(span) {
-                document.getElementById('example1').rows[2].cells[1].colSpan = span;
-            }
-
+			
 			$scope.show = function(action) {
 				$scope.hidetrue = true;
 				$scope[action] = !$scope[action];
