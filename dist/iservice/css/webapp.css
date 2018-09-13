@@ -1502,3 +1502,12 @@ ul.timeline span.stack-icon .aqua {
   display: block;
   margin-bottom: 15px;
 }
+.inline-check-toolbar {
+  padding-top: 3px !important;
+}
+.dataTables_filter {
+  float: right;
+}
+.inline-check-toolbar .icheckbox_square-blue {
+  margin-left: 5px;
+}

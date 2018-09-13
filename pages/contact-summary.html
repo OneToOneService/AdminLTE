@@ -665,7 +665,6 @@ title: Customer Info - Contact
                                 <a class="btn btn-primary active" data-toggle="on" href="javascript:void(0)">Chronological View</a>
                                 <a class="btn btn-default " data-toggle="off" href="javascript:void(0)" onclick="showcase();">Case View</a>
                               </div>
-                              <span class="pull-right mright-15 inline-check"><input type="checkbox" for="notifications">Show Notification</span>
                             </div>
                           <!-- /.box-header -->
                           <!-- form start -->
@@ -1214,9 +1213,9 @@ title: Customer Info - Contact
   <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
   <script>
-    $(document).ready(function() {
-      // DataTable
+    
       var table = $('#example1').DataTable( {
+        "dom": 'lf<"toolbar">',
         "language" : {
           "search": "Filter History"
           },
@@ -1228,8 +1227,8 @@ title: Customer Info - Contact
         },
       ]}
       );
-    } );
-
+      $("div.toolbar").html('<span class="pull-right mright-15 inline-check-toolbar">Show Notification<input type="checkbox" for="notifications" class="flat-red"></span>');
+   
     function stopPropagation(evt) {
       if (evt.stopPropagation !== undefined) {
       evt.stopPropagation();
@@ -1250,6 +1249,7 @@ title: Customer Info - Contact
   /*script for case view*/
   // DataTable
     var table = $('#example2').DataTable( {
+        "dom": 'lf<"toolbar1">',
         "language" : {
         "search": "Filter History"
         },
@@ -1258,10 +1258,16 @@ title: Customer Info - Contact
         "targets"  : 'no-sort',
         "orderable": false,
         "width":"30px"
-      }]
+        }]
       });
-
-  </script>
+      
+      $("div.toolbar1").html('<span class="pull-right mright-15 inline-check-toolbar">Show Notification<input type="checkbox" for="notifications" class="flat-red"></span>');
+      
+      $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_flat-green'
+      });
+ </script>
   <script>
       angular.module('iService').controller('myCtrl', function ($scope) {
           $scope.toggleSegmentCollapsedState = function (segmentName)
