@@ -184,7 +184,7 @@ title: Customer Info - Contact
                 </div>
               </div>
               <!-- /.tab-pane -->
-              <div class="tab-pane contact-detail" id="tab_2" ng-controller="myCtrl">
+              <div class="tab-pane contact-detail" id="tab_2" ng-controller="myCtrlDetail">
                 <div class="row">
                   <div class="col-xs-12 col-sm-9 panel-group">
                     <div class="box box-info">
@@ -651,7 +651,7 @@ title: Customer Info - Contact
                   </button>
                 </div>
               </div>
-              <div class="tab-pane" id="tab_4">
+              <div class="tab-pane" id="tab_4" ng-controller="myCtrl">
                 <div class="row" id="chrono-view">
                     <div class="col-md-12">
                       <!-- Custom Tabs -->
@@ -697,10 +697,11 @@ title: Customer Info - Contact
                                   </tr>
                                 </thead>  
                                 <tbody>
-                                  <tr>
+                                  <tr id="row1">
                                     <td name="name">
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-                                        <i class="fa fa-plus-circle"></i>
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
+                                          <i class="fa fa-plus-circle" ng-show="!row1"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
                                       </button>
                                     </td>
                                     <td>
@@ -728,42 +729,44 @@ title: Customer Info - Contact
                                     2016-07-18 9:36:26 AM
                                     </td>
                                   </tr>
-                                  <tr>
-                                  <td name="name">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-                                    <i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-                                    </button>
-                                  </td>
-                                  <td>
-                                    [ref#: 6680-6680] Return policy
-                                  </td>
-                                  <td>
-                                    Returns
-                                  </td>
-                                  <td>
-                                    <small class="bg-green-active label">Resolved</small>
-                                  </td>
-                                  <td>
-                                    <small class="label label-with-icon bg-blue">
-                                      <i class="fa fa-envelope"></i>
-                                      Customer Email
-                                    </small>
-                                  </td>
-                                  <td>
-                                    Jacob Smith
-                                  </td>
-                                  <td>
-                                    <b>Urgency Level</b> : High
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default"><i class="fa fa-fw fa-pencil"></i></a>
-                                  </td>
-                                  <td>
-                                    2016-07-18 9:36:26 AM
-                                  </td>
-                                  </tr>
-                                  <tr>
+                                  <tr id="row2">
                                     <td name="name">
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-                                        <i class="fa fa-plus-circle"></i>
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
+                                          <i class="fa fa-plus-circle" ng-show="!row2"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
+                                      </button>
+                                    </td>
+                                    <td>
+                                      [ref#: 6680-6680] Return policy
+                                    </td>
+                                    <td>
+                                      Returns
+                                    </td>
+                                    <td>
+                                      <small class="bg-green-active label">Resolved</small>
+                                    </td>
+                                    <td>
+                                      <small class="label label-with-icon bg-blue">
+                                        <i class="fa fa-envelope"></i>
+                                        Customer Email
+                                      </small>
+                                    </td>
+                                    <td>
+                                      Jacob Smith
+                                    </td>
+                                    <td>
+                                      <b>Urgency Level</b> : High
+                                      <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default"><i class="fa fa-fw fa-pencil"></i></a>
+                                    </td>
+                                    <td>
+                                      2016-07-18 9:36:26 AM
+                                    </td>
+                                  </tr>
+                                  <tr id="row3">
+                                    <td name="name">
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
+                                          <i class="fa fa-plus-circle" ng-show="!row3"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
                                       </button>
                                     </td>
                                     <td>
@@ -792,10 +795,11 @@ title: Customer Info - Contact
                                       2016-07-18 9:36:26 AM
                                     </td>
                                   </tr>
-                                  <tr>
+                                  <tr id="row4">
                                     <td name="name">
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-                                        <i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
+                                          <i class="fa fa-plus-circle" ng-show="!row4"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
                                       </button>
                                     </td>
                                     <td>
@@ -891,8 +895,8 @@ title: Customer Info - Contact
                           </div>
                           <!-- /.box-header -->
                           <!-- form start -->
-                          <div class="box-body table-responsive">
-                            <table id="example2" class="table  table-striped table-hover">
+                          <div class="box-body table-responsive" >
+                            <table id="contactHistoryTable" class="table  table-striped table-hover">
                               <thead>
                                 <tr>
                                   <th class="no-sort"><div class="icon-col"></div></th>
@@ -914,11 +918,12 @@ title: Customer Info - Contact
                                 </tr>
                               </thead>  
                               <tbody>
-                                <tr>
+                                <tr id="row5">
                                   <td>
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-                                      <i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
-                                    </button>
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
+                                          <i class="fa fa-plus-circle" ng-show="!row5"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
+                                      </button>
                                   </td>
                                   <td>
                                     [ref#: 42733-42733] I need help picking a camera
@@ -937,10 +942,11 @@ title: Customer Info - Contact
                                     2016-07-18 9:36:26 AM
                                   </td>
                                 </tr>
-                                <tr>
+                                <tr id="row6">
                                   <td>
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-                                      <i class="fa fa-plus-circle"></i>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row6')">
+                                        <i class="fa fa-plus-circle" ng-show="!row6"></i>
+                                        <i class="fa fa-minus-circle ng-hide" ng-show="row6" ng-cloak></i>
                                     </button>
                                   </td>
                                   <td>
@@ -960,10 +966,11 @@ title: Customer Info - Contact
                                     2016-07-18 9:36:26 AM
                                   </td>
                                 </tr>
-                                <tr>
+                                <tr id="row7">
                                   <td class="icon-col">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-                                      <i class="fa fa-plus-circle"></i>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row7')">
+                                        <i class="fa fa-plus-circle" ng-show="!row7"></i>
+                                        <i class="fa fa-minus-circle ng-hide" ng-show="row7" ng-cloak></i>
                                     </button>
                                     <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
                                         <i class="fa fa-envelope-open"></i>
@@ -985,10 +992,11 @@ title: Customer Info - Contact
                                     3 Days ago
                                   </td>
                                 </tr>
-                                <tr>
+                                <tr id="row8">
                                   <td class="icon-col">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-                                    <i class="fa fa-plus-circle"></i>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row8')">
+                                        <i class="fa fa-plus-circle" ng-show="!row8"></i>
+                                        <i class="fa fa-minus-circle ng-hide" ng-show="row8" ng-cloak></i>
                                     </button>
                                     <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
                                       <i class="fa fa-envelope-open"></i>
@@ -1034,6 +1042,234 @@ title: Customer Info - Contact
         <!-- END ACCORDION & CAROUSEL-->
       </section>
     </div>
+    <!--expanded row content start-->
+		<div id="expandedrow" style="display:none;">
+        <!--form data start-->	
+        <div class="row" ng-hide="hidetrue"> 
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom" ng-click="show('agentemail')">
+                  <i class="fa fa-envelope"></i>
+                  Agent email
+                </button>
+                <button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
+                  <i class="fa fa-pencil-square-o"></i>
+                  Note
+                </button>
+                <button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
+                  <i class="fa fa-ticket"></i>
+                  Ticket
+                </button>
+                <button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show('forwardcopy')">
+                  <i class="fa fa-mail-forward"></i>
+                  Forward Copy
+                </button>
+                <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                  <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                    <li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+                    <a href="" ng-click="isStatusAuditSectionExpanded = !isStatusAuditSectionExpanded">Show Status Audit</a>
+                    </li>
+                    <li role="menuitem"><a href="#">Show Full Case</a></li>
+                    <li role="menuitem"><a href="#">Print</a></li>
+                    <li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
+                  </ul>
+                </div>
+                <button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom" ng-click="show('getthis')">
+                  <i class="fa fa-sign-in"></i>
+                  Get This
+                </button>
+              </div>
+              <div class="col-md-12 mtop-15">
+                <div class="box status-box" style="display:none">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Status Audit</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body table-responsive">
+                  <table id="example2" class="table  table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th class="text-capitalize">
+                        Time 
+                        </th>
+                        <th class="text-capitalize">
+                        Modifier
+                        </th>
+                        <th class="text-capitalize">
+                        Status
+                        </th>
+                        <th class="text-capitalize">
+                        Action
+                        </th>
+                        <th class="text-capitalize">
+                        Assigned To
+                        </th>
+                        <th class="text-capitalize">
+                        Topic
+                        </th>
+                      </tr>
+                    </thead>  
+                    <tbody>
+                      <tr>
+                        <td>
+                        11/11/2017 12:19:20PM
+                        </td>
+                        <td>
+                        Jaswantchouhan
+                        </td>
+                        <td>
+                        <small class="label label-success">Resolved</small>
+                        </td>
+                        <td>
+                        Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+                        </td>
+                        <td>
+                        Jaswantchouhan
+                        </td>
+                        <td>
+                        JC - Segment- All Topic - To- Quote - Open Quotes
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>  
+                </div>
+                </div>
+              </div>
+            </div>								
+            <div class="message-box">
+              <div class="message-box-header">
+                <div class="col-md-12">
+                <span class="user">
+                  <img src="/dist/img/agent.png">
+                  <b>Agent</b>
+                </span>
+                <div class="message-info">
+                  <b>From:</b> john.doe@example.com<br>
+                  <b>To:</b> alek.packard@1to1service.com<br>
+                  <b>CC:</b> justin.time@1to1service.com<br>
+                  <b>BCC:</b> jonie.hewlett@1to1service.com<br>
+                </div>	
+                  <div class="clear"></div>
+                <div class="pull-right">		
+                  <b> Interaction ID : 4645646</b>
+                  <br>  											
+                  <small class="bg-green-active label">Resolved</small>
+                </div>
+                </div>
+        
+                <div class="col-md-12 mtop-15"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
+  
+                <div class="col-md-12">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
+                          interaction properties and details
+                          <i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></i>
+                        </a>
+                      </h4>
+                    </div>
+                    <div class="panel-collapse interaction-properties-panel" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" uib-collapse="isCollapsed">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="row">
+                              <div class="nested-panel-heading">
+                                <h3 class="nested-title">Interaction Properties</h3>
+                              </div>
+                              <form role="form">
+                                <div class="form-group col-md-6">
+                                  <label for="">Follow Up Date</label>
+                                  <input type="email" class="form-control" placeholder="11/08/17">
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="">isFollowUp</label>
+                                  <select class="form-control">
+                                    <option>True</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="">isOpen</label>
+                                  <select class="form-control">
+                                    <option>False</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="">Owner</label>
+                                  <select class="form-control">
+                                    <option>Joe</option>												
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="">priority</label>
+                                  <select class="form-control">
+                                    <option>0-Urgent</option>
+                                    
+                                  </select>
+                                </div>
+                                <div class="col-md-12">
+                                  <button type="submit" class="btn btn-primary btn-sm">Edit Properties</button>
+                                </div>
+                              </form>			 
+                            </div>
+                            <hr />
+                            <div class="row">
+                              <div class="nested-panel-heading">
+                                <h3 class="nested-title">Interaction Detail</h3>
+                              </div>
+                              <div class="col-md-6">
+                                <div><b> Segment / Topic : </b>All Topic</div>
+                                <div><b> Resolved By:</b>Alek Packard</div>
+                                <div><b> Approved By:</b> </div>
+                              </div> 	
+                              <div class="col-md-6">
+                              </div>
+                            </div>
+                          </div>
+                        </div>				
+                      </div>
+                    </div>
+                  </div>
+                </div>	
+                </div>
+              </div>
+              <div class="message-box-body"> 
+                <div class="clear"></div>
+                <div>										   
+                  <p>Hello,<br>
+                    I'm looking for a flat screen. Any suggestions?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--form data end-->
+        <!--agent email start-->
+        {% include agent-email-include.html %}    
+        <!--agent email end-->
+        <!--create note start-->
+        {% include create-note-include.html %}
+        <!--create note end-->
+        <!--create ticket start-->
+        {% include create-ticket-include.html %}
+        <!--create ticket end-->
+        <!--forward start-->
+        {% include forward-copy-include.html %}
+        <!--forward end-->
+        <!--Get this-->
+        {% include get-this-include.html %}
+        <!--Get thisa-->
+      </div>	
+       <!--expanded row content end-->
+    
     <!-- /.content-wrapper -->
     {% include common-footer.html %}
     <!-- Control Sidebar -->
@@ -1213,7 +1449,6 @@ title: Customer Info - Contact
   <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
   <script>
-    
       var table = $('#example1').DataTable( {
         "dom": 'lf<"toolbar">',
         "language" : {
@@ -1248,7 +1483,7 @@ title: Customer Info - Contact
     }
   /*script for case view*/
   // DataTable
-    var table = $('#example2').DataTable( {
+    var table = $('#contactHistoryTable').DataTable( {
         "dom": 'lf<"toolbar1">',
         "language" : {
         "search": "Filter History"
@@ -1268,13 +1503,55 @@ title: Customer Info - Contact
         radioClass: 'iradio_flat-green'
       });
  </script>
-  <script>
-      angular.module('iService').controller('myCtrl', function ($scope) {
+ <script>
+      
+      var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
+
+      app.controller('myCtrlDetail', function ($scope) {
           $scope.toggleSegmentCollapsedState = function (segmentName)
           { 
             $scope[segmentName] = !$scope[segmentName];
           };
       });
-    </script>
+      
+			app.controller('myCtrl', function($scope,$log,$compile) {
+				$scope.toggleRow = function (segmentName)
+			{ 
+				for(var i = 1; i<=5;i++){
+					if(!$scope[segmentName]){
+						removeFunction(segmentName);
+						$scope['row'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunction(segmentName);
+				}else{
+					removeFunction(segmentName);
+				}
+			};
+
+			function myCreateFunction(row) {
+				var innerHTML = document.getElementById('expandedrow').innerHTML;
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			}
+
+			function removeFunction(row){
+				angular.element('.expandedrowcontent').remove();
+			}
+
+			$scope.show = function(action) {
+				$scope.hidetrue = true;
+				$scope[action] = !$scope[action];
+			};
+
+			$scope.cancel = function(action) {
+				$scope.hidetrue = false;
+				$scope[action] = !$scope[action];
+			};	
+
+		});	 
+
+  </script>
 </body>
 </html>
