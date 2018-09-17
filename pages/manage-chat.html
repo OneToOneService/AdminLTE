@@ -376,11 +376,11 @@ title: Manage Active Chats
 												</tr>
 											</thead>  
 											<tbody>
-												<tr>
+												<tr id="row1">
 													<td name="name">
-														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow()">
-														<i class="fa fa-plus-circle" ng-show="!expanded"></i>
-														<i class="fa fa-minus-circle ng-hide" ng-show="expanded" ng-cloak></i>
+														<button class="btn btn-xs btn-link text-default btn-expand"  ng-click="toggleRow('row1')">
+															<i class="fa fa-plus-circle" ng-show="!row1"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
 														</button>
 													</td>
 													<td>
@@ -402,138 +402,11 @@ title: Manage Active Chats
 														Cameras
 													</td>
 												</tr>
-												<tr ng-show="expanded" ng-cloak>
-													<td>&nbsp;</td>
-													<td colspan="6">
-														<div class="col-md-12 col-sm-12">
-															<div class="box box-warning">
-																<div class="box-header with-border actions">
-																	<h3 class="box-title">
-																		<i class="fa fa-fw fa-reply"></i>
-																		Chat Dialog
-																	</h3>
-																	<div class="pull-right">
-																		<button class="btn btn-xs btn-danger ng-scope hidden-xs hidden-sm" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
-																			<i class="fa fa-fw fa-close" ng-hide="chat.chatEndRunning()"></i>
-																			<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
-																			End
-																		</button>
-																		<div class="btn-group btn-xs dropdown" uib-dropdown="" is-open="status.isopen">
-																			<button id="single-button" type="button" class="btn btn-primary btn-xs dropdown-toggle" uib-dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
-																				<i class="fa fa-fw fa-mail-forward"></i>
-																				Forward <span class="caret"></span>
-																			</button>
-																			<ul class="dropdown-menu" uib-dropdown-menu="" role="menu" aria-labelledby="single-button">
-																				<li role="menuitem"><a href="#">Remove From My Queue</a></li>
-																				<li role="menuitem"><a href="#">Assign To Agent…</a>
-																					<div class="bg-info text-muted text-center">
-																					<i>No agents available</i>
-																					</div>
-																				</li>
-																			</ul>
-																		</div>
-																		<div class="btn-group  hidden-xs hidden-sm dropdown" uib-dropdown="" auto-close="outsideClick">
-																			<button type="button" class="btn btn-default btn-xs dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
-																			<i class="fa fa-fw fa-arrows"></i>
-																				Change Topic <span class="caret"></span>
-																			</button>
-																			<ul class="dropdown-menu" uib-dropdown-menu="" r role="menu" aria-labelledby="single-button">
-																				<li role="menuitem">
-																					<div class="input-group input-group-sm search-control">
-																					<input type="text" class="form-control" placeholder="Query" ng-model="query">
-																					</div>
-																				</li>
-																				<li role="presentation" ng-repeat='item in items | filter:query'> 
-																					<div class="ui-select-choices-group-label dropdown-header">Segment1</div>
-																					<div  class="ui-select-choices-row ng-scope active" role="option" id="ui-select-choices-row-0-0">
-																							<span class="ui-select-choices-row-inner" uis-transclude-append="">
-																							<span class="ng-binding ng-scope" title="All Topics">Segment1 -- All Topics</span>
-																						</span>
-																					</div>
-																				</li>
-																			</ul>
-																				
-																		</div>
-																	</div>														  
-																</div>  
-																<div class="box-body">
-																	<div class="direct-chat-messages chat-box chat">
-																		<dl>
-																			<dt>Subject</dt>
-																			<dd>[ref#: 26197-26197] Need to return a camera</dd>
-																			<dt>Question</dt>
-																			<dd>Need to return a camera</dd>
-																		</dl>
-																		<div class="direct-chat-msg ng-scope left" ng-repeat="line in chat.chatData.chatLines" ng-class="{ left: !line.isAgent }">
-																			<div class="direct-chat-info clearfix">
-																				<span class="direct-chat-name ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'">John Doe</span>
-																			</div>
-																			<div class="user-initials round no-select pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" iservice-name-initials="line.name" style="background-color: rgb(5, 160, 90);">JD</div>
-																			<div class="clearfix">
-																				<span class="direct-chat-text ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" ng-bind-html="line.messageHtml"><span>Need to return a camera</span></span>
-																			</div>
-																			<span class="direct-chat-timestamp pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" am-time-ago="line.date">11 minutes ago</span>
-																		</div>
-																		<!-- Message to the right -->
-																		<div class="direct-chat-msg right">
-																			<div class="direct-chat-info clearfix">
-																				<span class="direct-chat-name pull-right">Jonie Hewlett</span>
-																				<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-																			</div>
-																			<!-- /.direct-chat-info -->
-																			<div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">JH</div>
-																			<!-- /.direct-chat-img -->
-																			<div class="direct-chat-text">
-																				Hello James, how may I help you ?
-																			</div>
-																			<!-- /.direct-chat-text -->
-																		</div>
-																		<!-- /.direct-chat-msg -->
-																	<!-- Message. Default to the left -->
-																		<div class="direct-chat-msg">
-																			<div class="direct-chat-info clearfix">
-																				<span class="direct-chat-name pull-left">James Williams</span>
-																				<span class="direct-chat-timestamp pull-right">23 Jan 2:47 pm</span>
-																			</div>
-																			<!-- /.direct-chat-info -->
-																			<div class="user-initials round no-select pull-left" style="background-color: rgb(61, 185, 117);">JW</div>
-																			<!-- /.direct-chat-img -->
-																			<div class="direct-chat-text">
-																				The camera i just received has a cracked lence and i need to return it for replacement.
-																			</div>
-																			<!-- /.direct-chat-text -->
-																		</div>
-																		<!-- /.direct-chat-msg -->
-																		<!-- Message to the right -->
-																		<div class="direct-chat-msg right">
-																			<div class="direct-chat-info clearfix">
-																				<span class="direct-chat-name pull-right">Jonie Hewlett</span>
-																				<span class="direct-chat-timestamp pull-left">23 Jan 2:48 pm</span>
-																			</div>
-																				<!-- /.direct-chat-info -->
-																			<div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">JH</div>
-																				<!-- /.direct-chat-img -->
-																			<div class="direct-chat-text">
-																				We will provide the pickup for same.
-																			</div>
-																			<!-- /.direct-chat-text -->
-																		</div>
-																		<!-- /.direct-chat-msg -->
-																	</div>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td ng-show="!expanded">$nbsp;</td> 
-													<td ng-show="!expanded">$nbsp;</td>
-													<td ng-show="!expanded">$nbsp;</td>
-													<td ng-show="!expanded">$nbsp;</td> 
-													<td ng-show="!expanded">$nbsp;</td> 											
-												</tr>
-												<tr>
+												<tr id="row2">
 													<td name="name">
-														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-														<i class="fa fa-plus-circle"></i>
+														<button class="btn btn-xs btn-link text-default btn-expand"  ng-click="toggleRow('row2')">
+															<i class="fa fa-plus-circle" ng-show="!row2"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
 														</button>
 													</td>
 													<td>
@@ -555,10 +428,11 @@ title: Manage Active Chats
 														Return
 													</td>
 												</tr>
-												<tr>
-													<td  name="name">
-														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-														<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+												<tr id="row3">
+													<td name="name">
+														<button class="btn btn-xs btn-link text-default btn-expand"  ng-click="toggleRow('row3')">
+															<i class="fa fa-plus-circle" ng-show="!row3"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
 														</button>
 													</td>
 													<td>
@@ -590,6 +464,129 @@ title: Manage Active Chats
 				</div> 
 			</section>
 		</div>
+
+		<!--expanded row content start-->
+		<div id="expandedrow" style="display:none;">
+			<div class="col-md-12 col-sm-12">
+				<div class="box box-warning">
+					<div class="box-header with-border actions">
+						<h3 class="box-title">
+							<i class="fa fa-fw fa-reply"></i>
+							Chat Dialog
+						</h3>
+						<div class="pull-right">
+							<button class="btn btn-xs btn-danger ng-scope hidden-xs hidden-sm" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
+								<i class="fa fa-fw fa-close" ng-hide="chat.chatEndRunning()"></i>
+								<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
+								End
+							</button>
+							<div class="btn-group btn-xs dropdown" uib-dropdown="" is-open="status.isopen">
+								<button id="single-button" type="button" class="btn btn-primary btn-xs dropdown-toggle" uib-dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
+									<i class="fa fa-fw fa-mail-forward"></i>
+									Forward <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu="" role="menu" aria-labelledby="single-button">
+									<li role="menuitem"><a href="#">Remove From My Queue</a></li>
+									<li role="menuitem"><a href="#">Assign To Agent…</a>
+										<div class="bg-info text-muted text-center">
+										<i>No agents available</i>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="btn-group  hidden-xs hidden-sm dropdown" uib-dropdown="" auto-close="outsideClick">
+								<button type="button" class="btn btn-default btn-xs dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-fw fa-arrows"></i>
+									Change Topic <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu="" r role="menu" aria-labelledby="single-button">
+									<li role="menuitem">
+										<div class="input-group input-group-sm search-control">
+											<input type="text" class="form-control" placeholder="Query" ng-model="query">
+										</div>
+									</li>
+									<li role="presentation" ng-repeat="item in items | filter:query"> 
+										<div class="ui-select-choices-group-label dropdown-header">Segment1</div>
+										<div  class="ui-select-choices-row ng-scope active" role="option" id="ui-select-choices-row-0-0">
+												<span class="ui-select-choices-row-inner" uis-transclude-append="">
+												<span class="ng-binding ng-scope" title="All Topics">Segment1 -- All Topics</span>
+											</span>
+										</div>
+									</li>
+								</ul>
+									
+							</div>
+						</div>														  
+					</div>  
+					<div class="box-body">
+						<div class="direct-chat-messages chat-box chat">
+							<dl>
+								<dt>Subject</dt>
+								<dd>[ref#: 26197-26197] Need to return a camera</dd>
+								<dt>Question</dt>
+								<dd>Need to return a camera</dd>
+							</dl>
+							<div class="direct-chat-msg ng-scope left" ng-repeat="line in chat.chatData.chatLines" ng-class="{ left: !line.isAgent }">
+								<div class="direct-chat-info clearfix">
+									<span class="direct-chat-name ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'">John Doe</span>
+								</div>
+								<div class="user-initials round no-select pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" iservice-name-initials="line.name" style="background-color: rgb(5, 160, 90);">JD</div>
+								<div class="clearfix">
+									<span class="direct-chat-text ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" ng-bind-html="line.messageHtml"><span>Need to return a camera</span></span>
+								</div>
+								<span class="direct-chat-timestamp pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" am-time-ago="line.date">11 minutes ago</span>
+							</div>
+							<!-- Message to the right -->
+							<div class="direct-chat-msg right">
+								<div class="direct-chat-info clearfix">
+									<span class="direct-chat-name pull-right">Jonie Hewlett</span>
+									<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+								</div>
+								<!-- /.direct-chat-info -->
+								<div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">JH</div>
+								<!-- /.direct-chat-img -->
+								<div class="direct-chat-text">
+									Hello James, how may I help you ?
+								</div>
+								<!-- /.direct-chat-text -->
+							</div>
+							<!-- /.direct-chat-msg -->
+						<!-- Message. Default to the left -->
+							<div class="direct-chat-msg">
+								<div class="direct-chat-info clearfix">
+									<span class="direct-chat-name pull-left">James Williams</span>
+									<span class="direct-chat-timestamp pull-right">23 Jan 2:47 pm</span>
+								</div>
+								<!-- /.direct-chat-info -->
+								<div class="user-initials round no-select pull-left" style="background-color: rgb(61, 185, 117);">JW</div>
+								<!-- /.direct-chat-img -->
+								<div class="direct-chat-text">
+									The camera i just received has a cracked lence and i need to return it for replacement.
+								</div>
+								<!-- /.direct-chat-text -->
+							</div>
+							<!-- /.direct-chat-msg -->
+							<!-- Message to the right -->
+							<div class="direct-chat-msg right">
+								<div class="direct-chat-info clearfix">
+									<span class="direct-chat-name pull-right">Jonie Hewlett</span>
+									<span class="direct-chat-timestamp pull-left">23 Jan 2:48 pm</span>
+								</div>
+									<!-- /.direct-chat-info -->
+								<div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">JH</div>
+									<!-- /.direct-chat-img -->
+								<div class="direct-chat-text">
+									We will provide the pickup for same.
+								</div>
+								<!-- /.direct-chat-text -->
+							</div>
+							<!-- /.direct-chat-msg -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--expanded row content end-->	
 		<!-- /.content-wrapper -->
 		{% include common-footer.html %}
 		<!-- Control Sidebar -->
@@ -877,9 +874,23 @@ title: Manage Active Chats
 	});	  
 	</script>
 	<script>
-		var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
-			app.controller('myCtrl', function($scope,$log) {
-					$scope.expanded = false;
+			var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
+			app.controller('myCtrl', function($scope,$log,$compile) {
+			$scope.toggleRow = function (segmentName)
+			{ 
+				for(var i = 1; i<=5;i++){
+					if(!$scope[segmentName]){
+						removeFunction(segmentName);
+						$scope['row'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunction(segmentName);
+				}else{
+					removeFunction(segmentName);
+				}
+
 				$scope.items = [{
 					'name': 'Item 1'
 					}, {
@@ -897,37 +908,39 @@ title: Manage Active Chats
 					}, {
 					'name': 'User 8'
 					}];
+			};
 
-				$scope.toggleRow = function ()
-				{
-					
-					if(!$scope.expanded){ $scope.expanded = true;} else{$scope.expanded = false;}
-				};
+			function myCreateFunction(row) {
+				var innerHTML = document.getElementById('expandedrow').innerHTML;
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			}
+
+			function removeFunction(row){
+				angular.element('.expandedrowcontent').remove();
+			}
+
+			$scope.show = function(action) {
+				$scope.hidetrue = true;
+				$scope[action] = !$scope[action];
+			};
+
+			$scope.cancel = function(action) {
+				$scope.hidetrue = false;
+				$scope[action] = !$scope[action];
+			};	
+
 			
-														$scope.items = [
-						'The first choice!',
-						'And another choice for you.',
-						'but wait! A third!'
-					];
 
-					$scope.status = {
-						isopen: false
-					};
-
-					$scope.toggled = function(open) {
-						$log.log('Dropdown is now: ', open);
-					};
-
-					$scope.toggleDropdown = function($event) {
-						$event.preventDefault();
-						$event.stopPropagation();
-						$scope.status.isopen = !$scope.status.isopen;
-					};
-
-					$scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
-			});
 			
-		
+			$scope.toggleDropdown = function($event) {
+				$event.preventDefault();
+				$event.stopPropagation();
+				$scope.status.isopen = !$scope.status.isopen;
+			};
+
+			$scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
+
+		});	 
 		
 	</script>
 </body>
