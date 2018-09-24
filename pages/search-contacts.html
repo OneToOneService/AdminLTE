@@ -130,6 +130,39 @@ title:  Customer Info Search
 					<div class="row">
 						<div class="col-md-12">
 							<div class="box box-info" ng-controller="myCtrl"> 
+								<!--Expanded row inner data start-->
+								<div id="expandedrow" style="display:none;">
+										<div class="row" ng-hide="hidetrue">
+											<div class="col-md-12">
+												<div class="row">
+													<div class="col-md-12">
+														<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email John Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+															<i class="fa fa-envelope"></i>
+															Agent email
+														</button>
+														<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
+															<i class="fa fa-pencil-square-o"></i>
+															Note
+														</button>
+														<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
+															<i class="fa fa-ticket"></i>
+															Ticket
+														</button>
+													</div>		
+												</div>
+											</div>		
+										</div>
+										<!--agent email start-->
+										{% include agent-email-include.html %}    
+										<!--agent email end-->
+										<!--create note start-->
+										{% include create-note-include.html %}
+										<!--create note end-->
+										<!--create ticket start-->
+										{% include create-ticket-include.html %}
+										<!--create ticket end-->	 
+								</div>	
+								<!--Expanded row inner data end-->
 								<div class="box-header with-border">
 									<i class="fa  fa-users"></i>
 									<h3 class="box-title head-title-padding">Search Results</h3>
@@ -310,39 +343,7 @@ title:  Customer Info Search
       </section>
 	</div>
 
-	<!--Expanded row inner data start-->
-	<div id="expandedrow" style="display:none;">
-		<div class="row" ng-hide="hidetrue">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-12">
-						<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom" ng-click="show('agentemail')">
-							<i class="fa fa-envelope"></i>
-							Agent email
-						</button>
-						<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
-							<i class="fa fa-pencil-square-o"></i>
-							Note
-						</button>
-						<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
-							<i class="fa fa-ticket"></i>
-							Ticket
-						</button>
-					</div>		
-				</div>
-			</div>		
-		</div>
-		<!--agent email start-->
-		{% include agent-email-include.html %}    
-		<!--agent email end-->
-		<!--create note start-->
-		{% include create-note-include.html %}
-		<!--create note end-->
-		<!--create ticket start-->
-		{% include create-ticket-include.html %}
-		<!--create ticket end-->	 
-	</div>	
-	<!--Expanded row inner data end-->
+	
         <!-- /.content-wrapper -->
     {% include common-footer.html %}
 	<!-- Control Sidebar -->
@@ -600,6 +601,7 @@ title:  Customer Info Search
 
 	var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
 		app.controller('myCtrl', function($scope,$log,$compile) {
+			
 			$scope.toggleRow = function (segmentName)
 			{ 
 				for(var i = 1; i<=5;i++){
@@ -614,12 +616,14 @@ title:  Customer Info Search
 				}else{
 					removeFunction(segmentName);
 				}
+				
 			};
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
 				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
-			}
+		        $scope['fname'] = 'ddddd';
+		   }
 
 			function removeFunction(row){
 				angular.element('.expandedrowcontent').remove();
