@@ -1502,6 +1502,44 @@ ul.timeline span.stack-icon .aqua {
   display: block;
   margin-bottom: 15px;
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .treeview-textwrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 30%;
+    float: left;
+  }
+  .treeview .indicator {
+    margin-right: 5px;
+    float: left;
+    margin-top: 5px;
+  }
+  .treeview ul li .treeview-textwrap {
+    width: 40%;
+  }
+  .treeview ul li ul li .treeview-textwrap {
+    width: 27%;
+  }
+  .treeview ul li ul li ul li .treeview-textwrap {
+    width: 22%;
+  }
+  .sidebar-collapse .treeview ul li .treeview-textwrap {
+    width: auto;
+    margin-right: 5px;
+    max-width: 55%;
+  }
+  .sidebar-collapse .treeview ul li ul li .treeview-textwrap {
+    width: auto;
+    margin-right: 5px;
+    max-width: 40%;
+  }
+  .sidebar-collapse .treeview ul li ul li ul li .treeview-textwrap {
+    width: auto;
+    margin-right: 5px;
+    max-width: 40%;
+  }
+}
 .inline-check-toolbar {
   padding-top: 3px !important;
 }

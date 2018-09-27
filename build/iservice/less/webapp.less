@@ -1633,6 +1633,31 @@ ul.timeline span.stack-icon
 .interaction-properties-panel .form-control,.interaction-properties-panel .form-inline .form-control{width:100% !important;}
 .form-inline .form-group .form-control{width:100%;}
 .form-inline .form-group{display:block;margin-bottom:15px;} 
+
+@media (min-width: @screen-md) and (max-width: @screen-lg)
+{
+    .treeview-textwrap{  
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width:30%;
+        float:left;
+    }
+    .treeview .indicator {
+        margin-right: 5px;
+        float: left;
+        margin-top: 5px;
+    }
+
+    .treeview  ul li .treeview-textwrap{width:40%;}
+    .treeview ul li ul li .treeview-textwrap{width:27%;}
+    .treeview ul li ul li ul li .treeview-textwrap{width:22%;}
+    .sidebar-collapse {
+        .treeview  ul li .treeview-textwrap{width: auto;  margin-right: 5px;max-width: 55%;}
+        .treeview ul li ul li .treeview-textwrap{width: auto;  margin-right: 5px;max-width: 40%;}
+        .treeview ul li ul li ul li .treeview-textwrap{width: auto;  margin-right: 5px;max-width: 40%;}
+    }
+}
 //loggedin chat agents
 
 .inline-check-toolbar{padding-top:3px !important}
