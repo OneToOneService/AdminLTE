@@ -1550,3 +1550,6 @@ ul.timeline span.stack-icon .aqua {
 .inline-check-toolbar .icheckbox_square-blue {
   margin-left: 5px;
 }
+.slimScrollDiv div.custom-scroll {
+  width: 100% !important;
+}

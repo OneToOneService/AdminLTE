@@ -130,39 +130,6 @@ title:  Customer Info Search
 					<div class="row">
 						<div class="col-md-12">
 							<div class="box box-info" ng-controller="myCtrl"> 
-								<!--Expanded row inner data start-->
-								<div id="expandedrow" style="display:none;">
-										<div class="row" ng-hide="hidetrue">
-											<div class="col-md-12">
-												<div class="row">
-													<div class="col-md-12">
-														<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email John Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
-															<i class="fa fa-envelope"></i>
-															Agent email
-														</button>
-														<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
-															<i class="fa fa-pencil-square-o"></i>
-															Note
-														</button>
-														<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
-															<i class="fa fa-ticket"></i>
-															Ticket
-														</button>
-													</div>		
-												</div>
-											</div>		
-										</div>
-										<!--agent email start-->
-										{% include agent-email-include.html %}    
-										<!--agent email end-->
-										<!--create note start-->
-										{% include create-note-include.html %}
-										<!--create note end-->
-										<!--create ticket start-->
-										{% include create-ticket-include.html %}
-										<!--create ticket end-->	 
-								</div>	
-								<!--Expanded row inner data end-->
 								<div class="box-header with-border">
 									<i class="fa  fa-users"></i>
 									<h3 class="box-title head-title-padding">Search Results</h3>
@@ -342,8 +309,40 @@ title:  Customer Info Search
       <!-- END ACCORDION & CAROUSEL-->
       </section>
 	</div>
+	<!--Expanded row inner data start-->
+	<div id="expandedrow" style="display:none;">
+		<div class="row" ng-hide="hidetrue">
+			<div class="col-md-12">
+				<div class="row">{{data}}
+					<div class="col-md-12">
+						<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email John Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+							<i class="fa fa-envelope"></i>
+							Agent email
+						</button>
+						<button class="btn  btn-success margin-r-5"  uib-tooltip="Add Note to John Doe" tooltip-placement="bottom" ng-click="show('createnote')">
+							<i class="fa fa-pencil-square-o"></i>
+							Note
+						</button>
+						<button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for John Doe" tooltip-placement="bottom" ng-click="show('createticket')">
+							<i class="fa fa-ticket"></i>
+							Ticket
+						</button>
+					</div>		
+				</div>
+			</div>		
+		</div>
+		<!--agent email start-->
+		{% include agent-email-include.html %}    
+		<!--agent email end-->
+		<!--create note start-->
+		{% include create-note-include.html %}
+		<!--create note end-->
+		<!--create ticket start-->
+		{% include create-ticket-include.html %}
+		<!--create ticket end-->	 
+	</div>	
+	<!--Expanded row inner data end-->
 
-	
         <!-- /.content-wrapper -->
     {% include common-footer.html %}
 	<!-- Control Sidebar -->
@@ -532,17 +531,17 @@ title:  Customer Info Search
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
 	<script>
-			$(document).ready(function() {
-				var rowcount;
-			
-				$(".bootstrap-tagsinput input").focus(function(){
-						$('.floatlabel').addClass("float-label");
-				});
-				$(".bootstrap-tagsinput input").blur(function(){
-				if($( ".bootstrap-tagsinput span" ).hasClass( "tag" )){
-						
-				}else{$('.floatlabel').removeClass("float-label");}
-				});
+		$(document).ready(function() {
+			var rowcount;
+		
+			$(".bootstrap-tagsinput input").focus(function(){
+					$('.floatlabel').addClass("float-label");
+			});
+			$(".bootstrap-tagsinput input").blur(function(){
+			if($( ".bootstrap-tagsinput span" ).hasClass( "tag" )){
+					
+			}else{$('.floatlabel').removeClass("float-label");}
+			});
 			$('.infield').change(function(){
 				if($('option:selected',this).val()=='Tags'){ 
 					$('.bootstrap-tagsinput').show();
@@ -567,25 +566,9 @@ title:  Customer Info Search
 				}]
 			});
             var rowcount = (table.page.info().recordsTotal);
-			$('#variable-box,#variable-box2,#variable-box3').slimScroll({
-					height: '250px'
-			});
-			$('#stock-responses,#stock-responses2,#stock-responses4').slimScroll({
-					height: '250px'
-			});
-			CKEDITOR.replace('editor1',
-			{
-				height: 250
-			});
-			CKEDITOR.replace('editor3',
-			{
-				height: 250
-			});
-			CKEDITOR.replace('editor4',
-			{
-				height: 250
-			});
+		
 		} );
+	
 		function stopPropagation(evt) {
 			if (evt.stopPropagation !== undefined) {
 			evt.stopPropagation();
@@ -601,7 +584,7 @@ title:  Customer Info Search
 
 	var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
 		app.controller('myCtrl', function($scope,$log,$compile) {
-			
+			$scope.data = 'ddddd';
 			$scope.toggleRow = function (segmentName)
 			{ 
 				for(var i = 1; i<=5;i++){
@@ -622,7 +605,7 @@ title:  Customer Info Search
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
 				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
-		        $scope['fname'] = 'ddddd';
+		       
 		   }
 
 			function removeFunction(row){
