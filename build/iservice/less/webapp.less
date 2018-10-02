@@ -223,7 +223,8 @@ p.login-box-msg
         position: absolute;
         pointer-events: none;
         left: @floating-input-padding;
-        top: 50%;
+       // top: 50%;
+        top:10px;
         transform: translateY(-50%);
         opacity: .6;
         .transition(all linear .2s);
@@ -231,12 +232,11 @@ p.login-box-msg
         font-size: 14px;
     }
 
-    &.multiple label,
+    /*&.multiple label,
     input:focus + label,
     textarea:focus + label,
     input.ng-not-empty + label,
     select + label,
-	input:valid + label,
 	.focus + input + label
     {
         opacity: 1;
@@ -245,7 +245,7 @@ p.login-box-msg
         transform: none;
         font-size: unset;
         color: @input-border-focus;
-    }
+    }*/
 
     input,
     select,

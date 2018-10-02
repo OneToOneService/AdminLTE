@@ -136,6 +136,20 @@ p.login-box-msg {
 .floating-label {
   position: relative;
   border: 1px solid #d2d6de;
+  /*&.multiple label,
+    input:focus + label,
+    textarea:focus + label,
+    input.ng-not-empty + label,
+    select + label,
+	.focus + input + label
+    {
+        opacity: 1;
+        font-weight: normal;
+        top: -2px;
+        transform: none;
+        font-size: unset;
+        color: @input-border-focus;
+    }*/
 }
 .floating-label.multiple {
   height: auto;
@@ -146,7 +160,7 @@ p.login-box-msg {
   position: absolute;
   pointer-events: none;
   left: 4px;
-  top: 50%;
+  top: 10px;
   transform: translateY(-50%);
   opacity: .6;
   -webkit-transition: all linear 0.2s;
@@ -154,20 +168,6 @@ p.login-box-msg {
   transition: all linear 0.2s;
   font-weight: normal;
   font-size: 14px;
-}
-.floating-label.multiple label,
-.floating-label input:focus + label,
-.floating-label textarea:focus + label,
-.floating-label input.ng-not-empty + label,
-.floating-label select + label,
-.floating-label input:valid + label,
-.floating-label .focus + input + label {
-  opacity: 1;
-  font-weight: normal;
-  top: -2px;
-  transform: none;
-  font-size: unset;
-  color: #66afe9;
 }
 .floating-label input,
 .floating-label select,
