@@ -998,7 +998,7 @@ ul.timeline span.stack-icon .aqua {
   background: #ecf0f5;
   border-bottom: 1px solid #f4f4f4;
   padding: 10px;
-  display: table;
+  display: inline-block;
   width: 100%;
 }
 .message-box-body {
@@ -1367,7 +1367,8 @@ ul.timeline span.stack-icon .aqua {
   padding-left: 0px !important;
 }
 .table .icon-col {
-  width: 54px;
+  width: 62px;
+  padding-top: 5px;
 }
 .table > thead > tr > th.no-sort {
   padding-right: 0px !important;

@@ -192,8 +192,8 @@ title: Manage Messages - Tree View
 													<div class="row"> 
 														<div class="nav-tabs-custom">
 																<ul class="nav nav-tabs">
-																	<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-																	<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+																	<li class="active"><a href="#draftbody-massupdate" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+																	<li><a href="#plainhtml-massupdate" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
 																	<li class="pull-right"> 
 																		<p class="attach-file"> <label class="btn-bs-file ">
 																		Attach files		
@@ -202,14 +202,14 @@ title: Manage Messages - Tree View
 																	</li>
 																</ul>
 																<div class="tab-content">
-																	<div class="tab-pane active" id="draftbody">
+																	<div class="tab-pane active" id="draftbody-massupdate">
 																			<div class="form-group text-editor-container">
 																			<div class="col-sm-12">
-																			<textarea class="form-control" style="height:500px;" rows="10" placeholder="" id="editor1" name="editor1"></textarea>
+																			<textarea class="form-control" style="height:500px;" rows="10" placeholder="" id="editor5" name="editor5"></textarea>
 																			</div>
 																		</div>
 																	</div>
-																	<div class="tab-pane" id="plainhtml">	
+																	<div class="tab-pane" id="plainhtml-massupdate">	
 																		
 																	</div>																						
 																</div>
@@ -229,7 +229,7 @@ title: Manage Messages - Tree View
 													</div>
 												</div> 
 												<div class="col-md-4">
-													<div class="box box-warning stock-responses ng-scope">
+													<div class="box box-warning  ng-scope">
 														<div class="box-header with-border">
 															<h3 class="box-title">
 															<i class="fa fa-fw fa-envelope"></i>
@@ -251,7 +251,7 @@ title: Manage Messages - Tree View
 														<div class="tab-content">
 															<div class="tab-pane active" id="tab_1">
 																<div class="row" id="variable-box">
-																	<div class="col-xs-12 variable-responses">
+																	<div class="col-xs-12 variable-responses custom-scroll">
 																		<div>
 																			<input type="text" class="form-control" placeholder="Keyword Search">
 																		</div>
@@ -298,7 +298,7 @@ title: Manage Messages - Tree View
 															<!-- /.tab-pane -->
 															<div class="tab-pane" id="tab_2">
 																<div class="row " id="stock-responses">
-																	<div class="col-xs-12 stock-responses">
+																	<div class="col-xs-12 stock-responses custom-scroll">
 																		<div>
 																			<input type="text" class="form-control" placeholder="Keyword Search">
 																		</div>
@@ -888,7 +888,7 @@ title: Manage Messages - Tree View
 	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	
-  <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
@@ -981,40 +981,11 @@ title: Manage Messages - Tree View
 		$(this).children().children().toggle();
 	});	
 	
-     // SLIMSCROLL FOR CHAT WIDGET
-	 $('#variable-box,#variable-box2,#variable-box3,#variable-box4,#variable-box5,#variable-box6').slimScroll({
-			height: '250px'
-	  });
-	  $('#stock-responses,#stock-responses2,#stock-responses3,#stock-responses4,#stock-responses5,#stock-responses6').slimScroll({
-			height: '250px'
-	  });
-	   CKEDITOR.replace('editor1',
-		{
-			 height: 250
-		});
-		CKEDITOR.replace('editor2',
-		{
-			 height: 250
-		});
-		CKEDITOR.replace('editor3',
-		{
-			 height: 250
-		});
-		CKEDITOR.replace('editor4',
-		{
-			 height: 250
-		});
-		CKEDITOR.replace('editor5',
-		{
-			 height: 250
-		});
-		CKEDITOR.replace('editor6',
-		{
-			 height: 250
-		});
-
+  
     });
-
+   // SLIMSCROLL FOR CHAT WIDGET
+   
+    CKEDITOR.replace('editor5');
 	$('.selectpicker').selectpicker('refresh');
 	  //iCheck for checkbox and radio inputs
 	  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({

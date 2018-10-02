@@ -44,7 +44,7 @@
                 </label> (Maximum 10 MB upload at one time.)</p>
             <div class="form-group text-editor-container">
             <div class="col-sm-12">
-                <textarea class="form-control" rows="5" placeholder="" id="editor4" name="editor1"></textarea>
+                <textarea class="form-control" rows="5" placeholder="" id="editor4" name="editor4"></textarea>
             </div>
             </div>
             <div class="col-sm-12">
@@ -81,7 +81,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_7">
                         <div class="row" id="variable-box4">
-                            <div class="col-xs-12 variable-responses">
+                            <div class="col-xs-12 variable-responses custom-scroll">
                                 <ul class="list-unstyled segment-variable-list">
                                     <li class="section-label">Contact
                                     <ul class="segment-variables">
@@ -125,7 +125,7 @@
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_8">
                         <div class="row" id="stock-responses4">
-                            <div class="col-xs-12 stock-responses">
+                            <div class="col-xs-12 stock-responses custom-scroll">
                                 <div>
                                 <input type="text" class="form-control" placeholder="Keyword Search">
                                 </div>
@@ -154,3 +154,9 @@
             </div>
         </div>
     </div>	
+    <script>
+        $(function ()
+        {
+            CKEDITOR.replace('editor4');
+        });
+    </script>   
