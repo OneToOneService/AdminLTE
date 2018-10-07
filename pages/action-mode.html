@@ -71,7 +71,7 @@ title: Action Mode
 														</td>
 														<td>
 															<b>Urgency Level</b> : High 
-															<a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default"><i class="fa fa-fw fa-pencil"></i></a>
+															<a href="javascript:void(0)"><i class="fa fa-fw fa-pencil"></i></a>
 														</td>
 														<td>
 														2016-07-18 9:36:26 AM
@@ -212,7 +212,7 @@ title: Action Mode
 																				Private Comments
 																				</div>
 																				<div class="panel-body">
-																					<textarea class="full-width full-height private-comment-box"></textarea>
+																					<textarea class="full-width full-height"></textarea>
 																				</div>
 																			</div>	
 																		</div>
@@ -553,7 +553,7 @@ title: Action Mode
 			  $('.custom-scroll').slimScroll({
 				height: '250px'
 			  });
-              CKEDITOR.replace('editor1');
+              CKEDITOR.replace('editor1', {height:400});
        });
 	</script>
 	<script>

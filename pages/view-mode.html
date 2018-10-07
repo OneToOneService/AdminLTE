@@ -60,7 +60,7 @@ title: View Mode
 														</td>
 														<td>
 															<b>Urgency Level</b> : High 
-															<a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default"><i class="fa fa-fw fa-pencil"></i></a>
+															<a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>
 														</td>
 														<td>
 														2016-07-18 9:36:26 AM
@@ -249,7 +249,7 @@ title: View Mode
 										<h4 class="panel-title">
 											<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
 												interaction properties and details
-												<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></i>
+												<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
 											</a>
 										</h4>
 									</div>
@@ -575,6 +575,22 @@ title: View Mode
 				}else{
 					removeFunction(segmentName);
 				}
+			};
+			$scope.togglePropertyRow = function (segmentName)
+			{ 
+				for(var i = 1; i<=5;i++){
+					if(!$scope[segmentName]){
+						removeFunction(segmentName);
+						$scope['row'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunction(segmentName);
+				}else{
+					removeFunction(segmentName);
+				}
+       			 $scope.isCollapsed = false;
 			};
 
 			function myCreateFunction(row) {
