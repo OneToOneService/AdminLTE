@@ -723,7 +723,7 @@ title: Customer Info - Contact
                                     </td>
                                     <td>
                                       <b>Urgency Level</b> : High 
-                                      <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default"><i class="fa fa-fw fa-pencil"></i></a>
+                                      <a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>
                                     </td>
                                     <td>
                                     2016-07-18 9:36:26 AM
@@ -756,7 +756,7 @@ title: Customer Info - Contact
                                     </td>
                                     <td>
                                       <b>Urgency Level</b> : High
-                                      <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default"><i class="fa fa-fw fa-pencil"></i></a>
+                                      <a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>
                                     </td>
                                     <td>
                                       2016-07-18 9:36:26 AM
@@ -789,7 +789,7 @@ title: Customer Info - Contact
                                     </td>
                                     <td>
                                         <b>Urgency Level</b> : High
-                                      <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default"><i class="fa fa-fw fa-pencil"></i></a>
+                                      <a href="javascript:void(0)" ng-click="togglePropertyRow('row3')"><i class="fa fa-fw fa-pencil"></i></a>
                                     </td>
                                     <td>
                                       2016-07-18 9:36:26 AM
@@ -824,7 +824,7 @@ title: Customer Info - Contact
                                     </td>
                                     <td>
                                       <b>Urgency Level</b>: High 
-                                      <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default"><i class="fa fa-fw fa-pencil"></i></a>
+                                      <a href="javascript:void(0)" ng-click="togglePropertyRow('row4')"><i class="fa fa-fw fa-pencil"></i></a>
                                     </td>
                                     <td>
                                       2016-07-18 9:36:26 AM
@@ -1172,7 +1172,7 @@ title: Customer Info - Contact
                       <h4 class="panel-title">
                         <a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
                           interaction properties and details
-                          <i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></i>
+                          <i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
                         </a>
                       </h4>
                     </div>
@@ -1215,7 +1215,7 @@ title: Customer Info - Contact
                                   </select>
                                 </div>
                                 <div class="col-md-12">
-                                  <button type="submit" class="btn btn-primary btn-sm">Edit Properties</button>
+                                  <button type="submit" class="btn btn-primary btn-sm">Save Properties</button>
                                 </div>
                               </form>			 
                             </div>
@@ -1509,6 +1509,7 @@ title: Customer Info - Contact
       var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
 
       app.controller('myCtrlDetail', function ($scope) {
+      
           $scope.toggleSegmentCollapsedState = function (segmentName)
           { 
             $scope[segmentName] = !$scope[segmentName];
@@ -1516,7 +1517,8 @@ title: Customer Info - Contact
       });
       
 			app.controller('myCtrl', function($scope,$log,$compile) {
-				$scope.toggleRow = function (segmentName)
+      $scope.isCollapsed = true;
+			$scope.toggleRow = function (segmentName)
 			{ 
 				for(var i = 1; i<=5;i++){
 					if(!$scope[segmentName]){
@@ -1530,6 +1532,23 @@ title: Customer Info - Contact
 				}else{
 					removeFunction(segmentName);
 				}
+			};
+
+      $scope.togglePropertyRow = function (segmentName)
+			{ 
+				for(var i = 1; i<=5;i++){
+					if(!$scope[segmentName]){
+						removeFunction(segmentName);
+						$scope['row'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunction(segmentName);
+				}else{
+					removeFunction(segmentName);
+				}
+        $scope.isCollapsed = false;
 			};
 
 			function myCreateFunction(row) {
