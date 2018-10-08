@@ -1553,3 +1553,45 @@ ul.timeline span.stack-icon .aqua {
 .slimScrollDiv div.custom-scroll {
   width: 100% !important;
 }
+.saved-search-block {
+  display: inline-block;
+}
+.saved-search-block .save-this {
+  margin-right: 15px;
+}
+.saved-search-block .save-this .fa {
+  margin-right: 5px;
+}
+ul.bookmark-list {
+  padding: 15px;
+  height: auto;
+  max-width: 80%;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 300px;
+  min-width: 300px;
+}
+ul.bookmark-list li {
+  padding: 8px 0px 8px 0px;
+  border-bottom: 1px solid #f4f4f4;
+}
+ul.bookmark-list li:last-child {
+  border-bottom: 0px;
+}
+ul.bookmark-list li a {
+  padding: 0px;
+  display: inline-block;
+}
+ul.bookmark-list li a:hover {
+  background: none;
+}
+ul.bookmark-list li a:first {
+  padding-right: 15px;
+}
+.save-search-panel {
+  padding: 5px;
+}
+.save-search-panel .btn {
+  margin-left: 15px;
+  margin-top: 7px;
+}

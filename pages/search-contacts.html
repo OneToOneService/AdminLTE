@@ -32,10 +32,41 @@ title:  Customer Info Search
 						<div class="box-header with-border">
 							<i class="fa fa-search"></i>
 							<h3 class="box-title">Search Parameters</h3>
-
-							<a href="javascript:void(0)" class="pull-right"><i class="fa fa-save"></i>Save This Search</a>
+                            <div class="saved-search-block pull-right"> 
+								<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+									<a href="javascript:void(0)" uib-dropdown-toggle class="pull-right">
+										Saved Searches
+									</a>
+									<ul class="dropdown-menu dropdown-menu-right bookmark-list" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+									<li role="menuitem">
+										<a href="javascript:void(0)">
+												<i class="fa fa-times-circle text-red"></i>
+										</a>
+										<a href="#">Customer search list </a>
+									</li>
+									<li role="menuitem">
+											<a href="javascript:void(0)">
+												<i class="fa fa-times-circle text-red"></i>
+											</a>
+											<a href="#">Address search contain login details</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:void(0)" class="save-this pull-right" ng-click="isCollapsedSavePanel = !isCollapsedSavePanel" ><i class="fa fa-save"></i>Save This Search</a>
+						    </div>
 						</div>
 						<div class="box-body">
+							<div class="row" uib-collapse="isCollapsedSavePanel" ng-cloak ng-init="isCollapsedSavePanel=true;">
+								<div class="col-xs-12">
+									<div class="panel panel-default col-xs-12 bg-gray-light save-search-panel">
+										<div class="floating-label col-sm-8">
+											<input type="text" value="">
+											<label>Search Name</label>
+										</div>
+										<button type="button" class="btn btn-primary">Save</button>
+									</div>
+								</div>		
+							</div>	
 							<section class="container-fluid search-parameters">
 								<fieldset class="row">
 									<div class="panel panel-default col-xs-12 bg-gray-light">

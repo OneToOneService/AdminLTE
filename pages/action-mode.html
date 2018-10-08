@@ -554,6 +554,11 @@ title: Action Mode
 				height: '250px'
 			  });
               CKEDITOR.replace('editor1', {height:400});
+			  CKEDITOR.editorConfig = function( config ) {
+					config.toolbarGroups = [
+					
+						{ name: 'about', groups: [ 'about' ] }
+					];};
        });
 	</script>
 	<script>
