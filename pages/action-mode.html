@@ -50,7 +50,7 @@ title: Action Mode
 															<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
 																<i class="fa fa-plus-circle ng-hide"  ng-show="row1" ng-cloak></i>
 																<i class="fa fa-minus-circle" ng-show="!row1" ></i>
-															</button>
+															</button> 
 														</td>
 														<td>
 															[ref#: 42733-42733] I need help picking a camera
@@ -59,11 +59,12 @@ title: Action Mode
 															All Topics
 														</td>
 														<td>
-															<small class="bg-green-active label">Resolved</small>
+															<small class="bg-red-disabled label">Queued</small>
 														</td>
 														<td>
-															<small class="label bg-blue disabled label-with-icon">
-															<i class="fa fa-comments"></i>Chat
+															<small class="label label-with-icon bg-blue">
+																<i class="fa fa-envelope"></i>
+																Customer Email
 															</small>
 														</td>
 														<td>
@@ -82,141 +83,189 @@ title: Action Mode
 													  	</td>	  	
 													 	<td colspan="7">
 															<div class="col-md-8 form-horizontal"> 
-																	<div class="form-group">
-																		<div class="btn-group dropdown margin-r-5">
-																			<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
-																			Send</button>										 
-																			<div class="btn-group">
-																				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-																				<span class="caret"></span></button>
-																				<ul class="dropdown-menu" role="menu">
-																					<li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
-																					<li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
-																				</ul>
+																<div class="row">  
+																   <div class="col-md-12">
+																		<div class="form-group">
+																			<div class="btn-group dropdown margin-r-5">
+																				<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
+																				Send</button>										 
+																				<div class="btn-group">
+																					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+																					<span class="caret"></span></button>
+																					<ul class="dropdown-menu" role="menu">
+																						<li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
+																						<li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
+																					</ul>
+																				</div>
+																			</div>
+																			<button class="btn btn-primary" type="button">
+																				<i class="fa  fa-check"></i>
+																				Resolve
+																			</button>
+																			<button class="btn btn-primary margin-r-5" title="Forward">
+																			<i class="fa fa-share"></i>
+																			forward
+																			</button>
+																			<div class="btn-group dropdown margin-r-5">
+																				<button type="button" class="btn btn-primary"><i class="fa fa-save"></i>Save</button>										 
+																				<div class="btn-group">
+																					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+																					<span class="caret"></span></button>
+																					<ul class="dropdown-menu" role="menu">
+																						<li><a href="#">Private Note</a></li>
+																						<li><a href="#">Public Note</a></li>
+																					</ul>
+																				</div>
+																			</div>
+																			<button class="btn btn-primary" title="Spam">
+																			<i class="fa fa-ban"></i>
+																			Spam
+																			</button>
+																			<a class="btn btn-link ng-scope" href="javascript:void(0)" ng-click="cancel('getthis')">Cancel</a>
+																		</div>
+																  </div>	
+																</div>
+																<div class="row">
+																	<div class="box interaction-property-box">
+																		<div class="box-header with-border" ng-click="isCollapsedProperty = !isCollapsedProperty">
+																			<h3 class="box-title">Interaction Properties And Details </h3> 
+																			<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedProperty}" ng-init="isCollapsedProperty = true;"></span>
+																		</div>
+																		<div class="box-body" uib-collapse="isCollapsedProperty">									
+																			<form role="form">
+																				<div class="form-group col-md-6">
+																					<label for="">Follow Up Date</label>
+																					<input type="email" class="form-control" placeholder="11/08/17">
+																				</div>
+																				<div class="form-group col-md-6">
+																					<label for="">isFollowUp</label>
+																					<select class="form-control">
+																						<option>True</option>
+																					</select>
+																				</div>
+																				<div class="form-group col-md-6">
+																					<label for="">isOpen</label>
+																					<select class="form-control">
+																						<option>False</option>
+																					</select>
+																				</div>
+																				<div class="form-group col-md-6">
+																					<label for="">Owner</label>
+																					<select class="form-control">
+																						<option>Joe</option>												
+																					</select>
+																				</div>
+																				<div class="form-group col-md-6">
+																					<label for="">priority</label>
+																					<select class="form-control">
+																						<option>0-Urgent</option>
+																						
+																					</select>
+																				</div>
+																				<div class="col-md-12">
+																					<button type="submit" class="btn btn-primary btn-sm">Edit Properties</button>
+																				</div>
+																			</form>		
+																		</div>	 
+																	</div>		
+																</div>
+																<div class="row">
+																	<div class="box">
+																		<div class="box-header with-border" ng-click="isCollapsed = !isCollapsed">
+																			<h3 class="box-title">Email Addresses And Subject Line</h3> 
+																			<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></span>
+																		</div>
+																		<div class="box-body" uib-collapse="isCollapsed" >									
+																			<div class="form-group">
+																				<label class="col-sm-2 control-label">From</label>
+																				<div class="col-sm-10">
+																				<input class="form-control" type="text" value="Support@1to1service.com">
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="col-sm-2 control-label">To</label>
+																				<div class="col-sm-10">
+																				<input class="form-control" type="text" value="john.doe@example.com">
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="col-sm-2 control-label">CC</label>
+																				<div class="col-sm-10">
+																					<input class="form-control" type="text" >
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="col-sm-2 control-label">BCC</label>
+																				<div class="col-sm-10">
+																					<input class="form-control" type="text" >
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="col-sm-2 control-label">Subject</label>
+																				<div class="col-sm-4">
+																					<input class="form-control" type="text" value="Ref#: 1006-1009"  disabled>
+																				</div>
+																				<div class="col-sm-6">
+																					<input class="form-control" type="text" value="looking for low cost tv">
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<div class="col-md-2">
+																				</div>
+																			</div> 
+																		</div>	 
+																	</div>		
+																</div>
+																<div class="row"> 
+																	<div class="nav-tabs-custom">
+																		<ul class="nav nav-tabs">
+																			<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+																			<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+																			<li class="pull-right"> 
+																				<p class="attach-file"> <label class="btn-bs-file">
+																					Attach files		
+																					<input type="file" />
+																				</label> (Maximum 10 MB upload at one time.)</p>
+																			</li>
+																		</ul>
+																		<div class="tab-content">
+																		<div class="tab-pane active" id="draftbody">
+																			<div class="form-group text-editor-container">
+																				<div class="col-sm-12">
+																					<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"><p>Hello,</p>
+												
+																						<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+																						
+																						<p>Regards,</p>
+																						
+																						<p>John Doe</p>
+																					</textarea>
+																				</div>
 																			</div>
 																		</div>
-																		<button class="btn btn-primary" type="button">
-																			<i class="fa  fa-check"></i>
-																			Resolve
-																		</button>
-																		<button class="btn btn-primary margin-r-5" title="Forward">
-																		<i class="fa fa-share"></i>
-																		forward
-																		</button>
-																		<div class="btn-group dropdown margin-r-5">
-																			<button type="button" class="btn btn-primary"><i class="fa fa-save"></i>Save</button>										 
-																			<div class="btn-group">
-																				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-																				<span class="caret"></span></button>
-																				<ul class="dropdown-menu" role="menu">
-																					<li><a href="#">Private Note</a></li>
-																					<li><a href="#">Public Note</a></li>
-																				</ul>
-																			</div>
+																		<div class="tab-pane" id="plainhtml">
+																			<p>Hello,</p>
+												
+																			<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+																			
+																			<p>Regards,</p>
+																			
+																			<p>John Doe</p>
+																		</div>										   
 																		</div>
-																		<button class="btn btn-primary" title="Spam">
-																		<i class="fa fa-ban"></i>
-																		Spam
-																		</button>
-																		<a class="btn btn-link ng-scope" href="javascript:void(0)" ng-click="cancel('getthis')">Cancel</a>
 																	</div>
-																	<div class="row">
-																		<div class="box">
-																			<div class="box-header with-border" ng-click="isCollapsed = !isCollapsed">
-																				<h3 class="box-title">Email Addresses And Subject Line</h3> 
-																				<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></span>
+																	<div class="col-sm-12">
+																		<div class="panel panel-default form-group">
+																			<div class="panel-heading">
+																			<i class="fa fa-fw fa-pencil-square-o"></i>
+																			Private Comments
 																			</div>
-																			<div class="box-body" uib-collapse="isCollapsed" >									
-																				<div class="form-group">
-																					<label class="col-sm-2 control-label">From</label>
-																					<div class="col-sm-10">
-																					<input class="form-control" type="text" value="Support@1to1service.com">
-																					</div>
-																				</div>
-																				<div class="form-group">
-																					<label class="col-sm-2 control-label">To</label>
-																					<div class="col-sm-10">
-																					<input class="form-control" type="text" value="john.doe@example.com">
-																					</div>
-																				</div>
-																				<div class="form-group">
-																					<label class="col-sm-2 control-label">CC</label>
-																					<div class="col-sm-10">
-																						<input class="form-control" type="text" >
-																					</div>
-																				</div>
-																				<div class="form-group">
-																					<label class="col-sm-2 control-label">BCC</label>
-																					<div class="col-sm-10">
-																						<input class="form-control" type="text" >
-																					</div>
-																				</div>
-																				<div class="form-group">
-																					<label class="col-sm-2 control-label">Subject</label>
-																					<div class="col-sm-4">
-																						<input class="form-control" type="text" value="Ref#: 1006-1009"  disabled>
-																					</div>
-																					<div class="col-sm-6">
-																						<input class="form-control" type="text" value="looking for low cost tv">
-																					</div>
-																				</div>
-																				<div class="form-group">
-																					<div class="col-md-2">
-																					</div>
-																				</div> 
-																			</div>	 
-																		</div>		
+																			<div class="panel-body">
+																				<textarea class="full-width full-height"></textarea>
+																			</div>
+																		</div>	
 																	</div>
-																	<div class="row"> 
-																		<div class="nav-tabs-custom">
-																			<ul class="nav nav-tabs">
-																				<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-																				<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-																				<li class="pull-right"> 
-																					<p class="attach-file"> <label class="btn-bs-file">
-																						Attach files		
-																						<input type="file" />
-																					</label> (Maximum 10 MB upload at one time.)</p>
-																				</li>
-																			</ul>
-																			<div class="tab-content">
-																			<div class="tab-pane active" id="draftbody">
-																				<div class="form-group text-editor-container">
-																					<div class="col-sm-12">
-																						<textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"><p>Hello,</p>
-													
-																							<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
-																							
-																							<p>Regards,</p>
-																							
-																							<p>John Doe</p>
-																						</textarea>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="tab-pane" id="plainhtml">
-																				<p>Hello,</p>
-													
-																				<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
-																				
-																				<p>Regards,</p>
-																				
-																				<p>John Doe</p>
-																			</div>										   
-																			</div>
-																		</div>
-																		<div class="col-sm-12">
-																			<div class="panel panel-default form-group">
-																				<div class="panel-heading">
-																				<i class="fa fa-fw fa-pencil-square-o"></i>
-																				Private Comments
-																				</div>
-																				<div class="panel-body">
-																					<textarea class="full-width full-height"></textarea>
-																				</div>
-																			</div>	
-																		</div>
-																	</div>
+																</div>
 															</div> 
 															<div class="col-md-4">
 																<div class="box box-warning stock-responses ng-scope">
@@ -233,6 +282,7 @@ title: Action Mode
 																		</div>
 																	</div>
 																</div>
+																
 																<div class="nav-tabs-custom">
 																	<ul class="nav nav-tabs">
 																		<li class="active"><a href="#variable-tab" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
