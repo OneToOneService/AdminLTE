@@ -37,7 +37,6 @@
                     <i class="fa fa-ban"></i>
                     Spam
                     </button>
-                    <a class="btn btn-link ng-scope" href="javascript:void(0)" ng-click="cancel('getthis')">Cancel</a>
                 </div>
 
                 <div class="row">
@@ -86,11 +85,11 @@
                 </div>
                 <div class="row">
                     <div class="box">
-                        <div class="box-header with-border" ng-click="isCollapsed = !isCollapsed">
+                        <div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail">
                             <h3 class="box-title">Email Addresses And Subject Line</h3> 
-                            <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}"></span>
+                            <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}"></span>
                         </div>
-                        <div class="box-body" uib-collapse="isCollapsed" >									
+                        <div class="box-body" uib-collapse="isCollapsedEmail" >									
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">From</label>
                                 <div class="col-sm-10">
@@ -302,9 +301,6 @@
 		<!--Message history-->
 </div>
 <script>
-     // SLIMSCROLL FOR CHAT WIDGET
-        $('.custom-scroll').slimScroll({
-        height: '250px'
-        });
+   
         CKEDITOR.replace('editor1', {height:400});
 </script>    
