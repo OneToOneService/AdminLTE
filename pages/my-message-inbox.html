@@ -37,7 +37,7 @@ title:  My Message Inbox
 								<table id="example1" class="table  table-striped table-hover">
 									<thead>
 										<tr>
-											<th class="no-sort"  name="name" width="30"></th>
+											<!--<th class="no-sort"  name="name" width="30"></th>-->
 											<th class="text-capitalize">
 												From
 											</th>
@@ -56,13 +56,13 @@ title:  My Message Inbox
 										</tr>
 									</thead>  
 									<tbody>
-										<tr id="row1">
-											<td name="name" width="30">
+										<tr id="row1" ng-click="toggleRow('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+										<!--	<td name="name" width="30">
 												<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
 													<i class="fa fa-plus-circle" ng-show="!row1"></i>
 													<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
 												</button>
-											</td>
+											</td>-->
 											<td>
 												John Doe
 											</td>
@@ -81,13 +81,13 @@ title:  My Message Inbox
 											</td>
 										</tr>
 										
-										<tr id="row2">
-											<td name="name" width="30">
+										<tr id="row2" ng-click="toggleRow('row2')"  ng-class="{true: 'row-active', false: ''}[row2]">
+										<!--	<td name="name" width="30">
 												<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
 													<i class="fa fa-plus-circle" ng-show="!row2"></i>
 													<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
-												</button>
-											</td>
+												</button> 
+											</td>-->
 											<td>
 												Albert Metricman
 											</td>
@@ -106,13 +106,13 @@ title:  My Message Inbox
 											</td>
 										</tr>
 										
-										<tr id="row3">
-											<td name="name" width="30">
+										<tr id="row3" ng-click="toggleRow('row3')"  ng-class="{true: 'row-active', false: ''}[row3]">
+										<!--	<td name="name" width="30">
 												<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
 													<i class="fa fa-plus-circle" ng-show="!row3"></i>
 													<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
 												</button>
-											</td>
+											</td>-->
 											<td>
 												Julie Persuavexaia
 											</td>
@@ -130,13 +130,13 @@ title:  My Message Inbox
 											    All Topic
 											</td>
 										</tr>
-										<tr id="row4">
-												<td name="name" width="30">
+										<tr id="row4" ng-click="toggleRow('row4')"  ng-class="{true: 'row-active', false: ''}[row4]">
+											<!--	<td name="name" width="30">
 													<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
 														<i class="fa fa-plus-circle" ng-show="!row4"></i>
 														<i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
 													</button>
-												</td>
+												</td>-->
 											<td>
 												Howard Smith
 											</td>
@@ -154,13 +154,13 @@ title:  My Message Inbox
 												All Topic
 											</td>
 										</tr>
-										<tr id="row5">
-												<td name="name" width="30">
+										<tr id="row5" ng-click="toggleRow('row5')"  ng-class="{true: 'row-active', false: ''}[row5]">
+												<!--<td name="name" width="30">
 													<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
 														<i class="fa fa-plus-circle" ng-show="!row5"></i>
 														<i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
 													</button>
-												</td>
+												</td>-->
 											<td>
 												Robert Williams
 											</td>
@@ -448,9 +448,9 @@ title:  My Message Inbox
                       </div>                         
                     </div>
                     <!-- /.col -->
-                     </div>
+                  </div>
                 <!-- /.row -->
-				    <div class="row" id="case-view" style="display:none;">
+				    			<div class="row" id="case-view" style="display:none;">
                         <div class="col-md-12">
                     <!-- Custom Tabs -->
                     <div class="row">
@@ -489,11 +489,11 @@ title:  My Message Inbox
                                 </tr>
                               </thead>  
                               <tbody>
-                                <tr id="row5">
+                                <tr id="row6">
                                   <td>
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
-                                          <i class="fa fa-plus-circle" ng-show="!row5"></i>
-                                          <i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row6')">
+                                          <i class="fa fa-plus-circle" ng-show="!row6"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row6" ng-cloak></i>
                                       </button>
                                   </td>
                                   <td>
@@ -513,11 +513,11 @@ title:  My Message Inbox
                                     2016-07-18 9:36:26 AM
                                   </td>
                                 </tr>
-                                <tr id="row6">
+                                <tr id="row7">
                                   <td>
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row6')">
-                                        <i class="fa fa-plus-circle" ng-show="!row6"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row6" ng-cloak></i>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row7')">
+                                        <i class="fa fa-plus-circle" ng-show="!row7"></i>
+                                        <i class="fa fa-minus-circle ng-hide" ng-show="row7" ng-cloak></i>
                                     </button>
                                   </td>
                                   <td>
@@ -537,11 +537,11 @@ title:  My Message Inbox
                                     2016-07-18 9:36:26 AM
                                   </td>
                                 </tr>
-                                <tr id="row7">
+                                <tr id="row8">
                                   <td class="icon-col">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row7')">
-                                        <i class="fa fa-plus-circle" ng-show="!row7"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row7" ng-cloak></i>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row8')">
+                                        <i class="fa fa-plus-circle" ng-show="!row8"></i>
+                                        <i class="fa fa-minus-circle ng-hide" ng-show="row8" ng-cloak></i>
                                     </button>
                                     <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
                                         <i class="fa fa-envelope-open"></i>
@@ -563,11 +563,11 @@ title:  My Message Inbox
                                     3 Days ago
                                   </td>
                                 </tr>
-                                <tr id="row8">
+                                <tr id="row9">
                                   <td class="icon-col">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row8')">
-                                        <i class="fa fa-plus-circle" ng-show="!row8"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row8" ng-cloak></i>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row9')">
+                                        <i class="fa fa-plus-circle" ng-show="!row9"></i>
+                                        <i class="fa fa-minus-circle ng-hide" ng-show="row9" ng-cloak></i>
                                     </button>
                                     <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
                                       <i class="fa fa-envelope-open"></i>
@@ -599,319 +599,319 @@ title:  My Message Inbox
                     </div>                         
                         </div>
                     <!-- /.col -->
-                    </div>
+                   </div>
                 <!-- /.row -->
                 </div>
-				<!-- /.tab-pane -->
-				<div class="tab-pane" id="tab_3" >
-						<div class="row">
-							<div class="col-xs-12 col-sm-9 panel-group">
-								  <div class="box box-info">
-									<div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment1')">
-									  <h3 class="box-title">Contact Information</h3>
-									  <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment1}"></span>
-									</div>
-									<div class="box-body in collapse" uib-collapse="segment1">
-									  <div class="row">
-										<div class="col-xs-12 col-sm-6">
-										  <div>
-											<div class="form-group floating-label">
-											  <input type="text" value="">
-											  <label>First Name</label>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label">
-											  <input value="" type="text">
-											  <label>Middle Initial</label>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label">
-											  <input type="text" value="">
-											  <label>Last Name</label>
-											</div>
-										  </div>
-										  <div class="form-group floating-label multiple">
-											<label>Phone</label>
-											<div class="float-btn-group">
-											  <button class="margin-5 icon-button button-delete" type="button">
-												<i class="fa fa-times-circle"></i>
-											  </button>
-											  <select><option label="Fax" value="string:Fax" selected="selected">Fax</option><option label="Home" value="string:Home">Home</option><option label="Mobile" value="string:Mobile">Mobile</option><option label="Work" value="string:Work">Work</option></select>
-											  <input value="" type="text">
-											</div>
-											<button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
-											  <i class="fa fa-plus-circle"></i>
-											</button>
-										  </div>
-										  <div>
-											<div class="form-group floating-label multiple">
-											  <label>Address</label>
-											  <div class="float-btn-group">
-												<button class="margin-5 icon-button button-delete" type="button">
-												  <i class="fa fa-times-circle"></i>
-												</button>
-												<select><option label="Home" value="string:Home" selected="selected">Home</option><option label="Work" value="string:Work">Work</option></select><textarea ng-model="value.value"></textarea>
-											  </div>
-											  <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label multiple">
-											  <label>Customer Type</label>
-											  <div class="float-btn-group">
-												<button class="margin-5 icon-button button-delete" type="button">
-												  <i class="fa fa-times-circle"></i>
-												</button>
-												<select><option label="Agent" value="string:Agent" selected="selected">Agent</option><option label="Customer" value="string:Customer">Customer</option><option label="Spam" value="string:Spam">Spam</option><option label="Vendor" value="string:Vendor">Vendor</option><option label="-- select a value --" value="string:">-- select a value --</option></select>
-											  </div>
-											  <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label">
-											  <input type="text" value="">
-											  <label>Company</label>
-											</div>
-										  </div>
-										</div>
-										<div class="col-xs-12 col-sm-6">
-										  <div class="ng-scope">
-											<div class="form-group floating-label ng-scope property-job-title">
-											  <input type="text" value="">
-											  <label class="ng-binding">Job Title</label>
-											</div>
-										  </div>
-										  <div class="ng-scope">
-											<div class="form-group floating-label group-bg detail-g-borderbottom">
-											  <input type="text" value="">
-											  <label class="ng-binding">Address1</label>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
-											  <input type="text" value="">
-											  <label class="ng-binding">Address2</label>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
-											  <input type="text" value="">
-											  <label class="ng-binding">City</label>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
-											  <input type="text" value="">
-											  <label class="ng-binding">State</label>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
-											  <input type="text" value="">
-											  <label class="ng-binding">Postal Code</label>
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label group-bg detail-g-bordertop">
-											  <input type="text" value="">
-											  <label class="ng-binding">Country</label>
-											</div>
-										  </div>
-										</div>
-									  </div>
-									  <div>
-										<div class="form-group floating-label multiple">
-										  <label>Logins</label>
-										  <div class="float-btn-group">
-											<button class="margin-5 icon-button button-delete" type="button">
-											  <i class="fa fa-times-circle"></i>
-											</button>
-											<select>
-											  <option value="Email" selected="selected">Email</option>
-											  <option value="Bounced">Bounced</option>
-											  <option value=""></option>
-											</select>
-											<span class="ng-binding ng-hide">Email</span>
-											<input type="text" value="">
-										  </div>
-										  <div class="float-btn-group">
-											<button class="margin-5 icon-button button-delete" type="button">
-											  <i class="fa fa-times-circle"></i>
-											</button>
-											<select>
-											  <option value="Email" selected="selected">Email</option>
-											  <option value="Bounced">Bounced</option>
-											  <option value=""></option>
-											</select>
-											<input type="text" value="">
-										  </div>
-										  <button class="margin-5 icon-button button-add-row" type="button">
-											<i class="fa fa-plus-circle"></i>
-										  </button>
-										</div>
-									  </div>
-									</div>
-									<button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
-									  <strong>…</strong>
-									</button>
-								  </div>
-								  <div class="box box-warning">
-										<div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment2')">
-										  <h3 class="box-title ng-binding">Automated Test Segment</h3>
-										  <span class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment2}"></span>
-										</div>
-										<div class="box-body in collapse" uib-collapse="segment2">
-										  <div class="row">
-											<div class="col-xs-12 col-sm-6">
-											  <div>
-												<div class="form-group floating-label property-contact-property-1">
-												  <input type="text" value="">
-												  <label>Contact Property 1</label>
+							<!-- /.tab-pane -->
+							<div class="tab-pane" id="tab_3">
+									<div class="row">
+										<div class="col-xs-12 col-sm-9 panel-group">
+												<div class="box box-info">
+												<div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment1')">
+													<h3 class="box-title">Contact Information</h3>
+													<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment1}"></span>
 												</div>
-											  </div>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-											</div>
-										  </div>
-										  <div>
-											<div class="form-group floating-label multiple ng-hide">
-											  <label>Logins</label>
-											  <button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
-												<i class="fa fa-plus-circle"></i>
-											  </button>
-											</div>
-										  </div>
-										</div>
-										<button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
-										  <strong>…</strong>
-										</button>
-									  </div>
+												<div class="box-body in collapse" uib-collapse="segment1">
+													<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<div>
+														<div class="form-group floating-label">
+															<input type="text" value="">
+															<label>First Name</label>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label">
+															<input value="" type="text">
+															<label>Middle Initial</label>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label">
+															<input type="text" value="">
+															<label>Last Name</label>
+														</div>
+														</div>
+														<div class="form-group floating-label multiple">
+														<label>Phone</label>
+														<div class="float-btn-group">
+															<button class="margin-5 icon-button button-delete" type="button">
+															<i class="fa fa-times-circle"></i>
+															</button>
+															<select><option label="Fax" value="string:Fax" selected="selected">Fax</option><option label="Home" value="string:Home">Home</option><option label="Mobile" value="string:Mobile">Mobile</option><option label="Work" value="string:Work">Work</option></select>
+															<input value="" type="text">
+														</div>
+														<button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+															<i class="fa fa-plus-circle"></i>
+														</button>
+														</div>
+														<div>
+														<div class="form-group floating-label multiple">
+															<label>Address</label>
+															<div class="float-btn-group">
+															<button class="margin-5 icon-button button-delete" type="button">
+																<i class="fa fa-times-circle"></i>
+															</button>
+															<select><option label="Home" value="string:Home" selected="selected">Home</option><option label="Work" value="string:Work">Work</option></select><textarea ng-model="value.value"></textarea>
+															</div>
+															<button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+															<i class="fa fa-plus-circle"></i>
+															</button>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label multiple">
+															<label>Customer Type</label>
+															<div class="float-btn-group">
+															<button class="margin-5 icon-button button-delete" type="button">
+																<i class="fa fa-times-circle"></i>
+															</button>
+															<select><option label="Agent" value="string:Agent" selected="selected">Agent</option><option label="Customer" value="string:Customer">Customer</option><option label="Spam" value="string:Spam">Spam</option><option label="Vendor" value="string:Vendor">Vendor</option><option label="-- select a value --" value="string:">-- select a value --</option></select>
+															</div>
+															<button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+															<i class="fa fa-plus-circle"></i>
+															</button>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label">
+															<input type="text" value="">
+															<label>Company</label>
+														</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<div class="ng-scope">
+														<div class="form-group floating-label ng-scope property-job-title">
+															<input type="text" value="">
+															<label class="ng-binding">Job Title</label>
+														</div>
+														</div>
+														<div class="ng-scope">
+														<div class="form-group floating-label group-bg detail-g-borderbottom">
+															<input type="text" value="">
+															<label class="ng-binding">Address1</label>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+															<input type="text" value="">
+															<label class="ng-binding">Address2</label>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+															<input type="text" value="">
+															<label class="ng-binding">City</label>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+															<input type="text" value="">
+															<label class="ng-binding">State</label>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+															<input type="text" value="">
+															<label class="ng-binding">Postal Code</label>
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label group-bg detail-g-bordertop">
+															<input type="text" value="">
+															<label class="ng-binding">Country</label>
+														</div>
+														</div>
+													</div>
+													</div>
+													<div>
+													<div class="form-group floating-label multiple">
+														<label>Logins</label>
+														<div class="float-btn-group">
+														<button class="margin-5 icon-button button-delete" type="button">
+															<i class="fa fa-times-circle"></i>
+														</button>
+														<select>
+															<option value="Email" selected="selected">Email</option>
+															<option value="Bounced">Bounced</option>
+															<option value=""></option>
+														</select>
+														<span class="ng-binding ng-hide">Email</span>
+														<input type="text" value="">
+														</div>
+														<div class="float-btn-group">
+														<button class="margin-5 icon-button button-delete" type="button">
+															<i class="fa fa-times-circle"></i>
+														</button>
+														<select>
+															<option value="Email" selected="selected">Email</option>
+															<option value="Bounced">Bounced</option>
+															<option value=""></option>
+														</select>
+														<input type="text" value="">
+														</div>
+														<button class="margin-5 icon-button button-add-row" type="button">
+														<i class="fa fa-plus-circle"></i>
+														</button>
+													</div>
+													</div>
+												</div>
+												<button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+													<strong>…</strong>
+												</button>
+												</div>
+												<div class="box box-warning">
+													<div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment2')">
+														<h3 class="box-title ng-binding">Automated Test Segment</h3>
+														<span class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment2}"></span>
+													</div>
+													<div class="box-body in collapse" uib-collapse="segment2">
+														<div class="row">
+														<div class="col-xs-12 col-sm-6">
+															<div>
+															<div class="form-group floating-label property-contact-property-1">
+																<input type="text" value="">
+																<label>Contact Property 1</label>
+															</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-6">
+														</div>
+														</div>
+														<div>
+														<div class="form-group floating-label multiple ng-hide">
+															<label>Logins</label>
+															<button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
+															<i class="fa fa-plus-circle"></i>
+															</button>
+														</div>
+														</div>
+													</div>
+													<button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+														<strong>…</strong>
+													</button>
+													</div>
 
-									  <div class="box box-success">
-											<div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment3')">
-											  <h3 class="box-title ng-binding">Segment1</h3>
-											  <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment3}"></span>
+													<div class="box box-success">
+														<div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment3')">
+															<h3 class="box-title ng-binding">Segment1</h3>
+															<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment3}"></span>
+														</div>
+														<div class="box-body in collapse" uib-collapse="segment3">
+															<div class="row">
+															<div class="col-xs-12 col-sm-6">
+															<div>
+																<div class="form-group floating-label property-text">
+																	<input type="text" value="">
+																	<label>Text</label>
+																</div>
+																</div><div>
+																<div class="form-group floating-label property-date">
+																	<input type="text" value="">
+																	<label>Date</label>
+																</div>
+																</div>
+																<div>
+																<div class="form-group floating-label property-additional-detail">
+																	<select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="detail1a" value="string:detail1a">detail1a</option><option label="detail1b" value="string:detail1b">detail1b</option><option label="detail1c" value="string:detail1c">detail1c</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+																	<label>Additional Detail</label>
+																</div>
+																</div>
+															</div>
+															<div class="col-xs-12 col-sm-6">
+																<div>
+																<div class="form-group floating-label property-existing-phone-property">
+																	<select class="ng-pristine ng-untouched ng-valid ng-empty"><option value="string:"></option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+																	<label>Existing Phone Property</label>
+																</div>
+																</div><div>
+																<div class="form-group floating-label property-svc-level-5-min">
+																	<select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="False" value="string:False">False</option><option label="True" value="string:True">True</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+																	<label>Svc Level 5 Min</label>
+																</div>
+																</div>
+															</div>
+															</div>
+															<div>
+															<div class="form-group floating-label multiple ng-hide">
+																<label>Logins</label>
+																<button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
+																<i class="fa fa-plus-circle"></i>
+																</button>
+															</div>
+															</div>
+														</div>
+														
+												</div>
+												
+											<div class="box box-danger">
+											<div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment4')">
+											<h3 class="box-title ng-binding">Segment2</h3>
+											<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment4}"></span>
 											</div>
-											<div class="box-body in collapse" uib-collapse="segment3">
-											  <div class="row">
+											<div class="box-body in collapse" uib-collapse="segment4">
+											<div class="row">
 												<div class="col-xs-12 col-sm-6">
-												 <div>
-													<div class="form-group floating-label property-text">
-													  <input type="text" value="">
-													  <label>Text</label>
+												<div>
+													<div class="form-group floating-label property-s2only">
+													<input type="text" value="">
+													<label>s2only</label>
 													</div>
-												  </div><div>
-													<div class="form-group floating-label property-date">
-													  <input type="text" value="">
-													  <label>Date</label>
-													</div>
-												  </div>
-												  <div>
-													<div class="form-group floating-label property-additional-detail">
-													  <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="detail1a" value="string:detail1a">detail1a</option><option label="detail1b" value="string:detail1b">detail1b</option><option label="detail1c" value="string:detail1c">detail1c</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
-													  <label>Additional Detail</label>
-													</div>
-												  </div>
+												</div>
 												</div>
 												<div class="col-xs-12 col-sm-6">
-												  <div>
-													<div class="form-group floating-label property-existing-phone-property">
-													  <select class="ng-pristine ng-untouched ng-valid ng-empty"><option value="string:"></option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
-													  <label>Existing Phone Property</label>
-													</div>
-												  </div><div>
-													<div class="form-group floating-label property-svc-level-5-min">
-													  <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="False" value="string:False">False</option><option label="True" value="string:True">True</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
-													  <label>Svc Level 5 Min</label>
-													</div>
-												  </div>
 												</div>
-											  </div>
-											  <div>
+											</div>
+											<div>
 												<div class="form-group floating-label multiple ng-hide">
-												  <label>Logins</label>
-												  <button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
+												<label>Logins</label>
+												<button class="margin-5 icon-button button-add-row" type="button">
 													<i class="fa fa-plus-circle"></i>
-												  </button>
+												</button>
 												</div>
-											  </div>
 											</div>
-											
-									</div>
-									
-								<div class="box box-danger">
-							  <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment4')">
-								<h3 class="box-title ng-binding">Segment2</h3>
-								<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment4}"></span>
-							  </div>
-							  <div class="box-body in collapse" uib-collapse="segment4">
-								<div class="row">
-								  <div class="col-xs-12 col-sm-6">
-									<div>
-									  <div class="form-group floating-label property-s2only">
-										<input type="text" value="">
-										<label>s2only</label>
-									  </div>
-									</div>
-								  </div>
-								  <div class="col-xs-12 col-sm-6">
-								  </div>
-								</div>
-								<div>
-								  <div class="form-group floating-label multiple ng-hide">
-									<label>Logins</label>
-									<button class="margin-5 icon-button button-add-row" type="button">
-									  <i class="fa fa-plus-circle"></i>
-									</button>
-								  </div>
-								</div>
-							  </div>
-							  <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
-								<strong>…</strong>
-							  </button>
-							</div>
+											</div>
+											<button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+											<strong>…</strong>
+											</button>
+										</div>
 
-							<button class="btn btn-success" type="button" ng-click="">
-									<i class="fa fa-save"></i>
-									Save
-								  </button>
+										<button class="btn btn-success" type="button" ng-click="">
+												<i class="fa fa-save"></i>
+												Save
+												</button>
+										</div>
+											<div class="col-xs-12 col-sm-3">
+												<h3>Segment Membership</h3>
+												<div class="segment">
+												<label>
+													<input type="checkbox" class="minimal flat-red" checked>
+													Automated Test Segment
+												</label>
+												</div>
+												<div class="segment">
+												<label>
+													<input type="checkbox" class="minimal flat-red" checked>
+													seantest
+												</label>
+												</div>
+												<div class="segment">
+												<label>
+													<input type="checkbox" class="minimal flat-red" checked>
+													Segment1
+												</label>
+												</div>
+												<div class="segment">
+												<label>
+													<input type="checkbox" class="minimal flat-red" checked>
+													Segment2
+												</label>
+												</div>
+											</div>
+											</div>
 							</div>
-								<div class="col-xs-12 col-sm-3">
-								  <h3>Segment Membership</h3>
-								  <div class="segment">
-									<label>
-									  <input type="checkbox" class="minimal flat-red" checked>
-									  Automated Test Segment
-									</label>
-								  </div>
-								  <div class="segment">
-									<label>
-									  <input type="checkbox" class="minimal flat-red" checked>
-									  seantest
-									</label>
-								  </div>
-								  <div class="segment">
-									<label>
-									  <input type="checkbox" class="minimal flat-red" checked>
-									  Segment1
-									</label>
-								  </div>
-								  <div class="segment">
-									<label>
-									  <input type="checkbox" class="minimal flat-red" checked>
-									  Segment2
-									</label>
-								  </div>
-								</div>
-							  </div>
-				</div>
-				<!-- /.tab-pane -->
+							<!-- /.tab-pane -->
 			</div>	
 		</div>	
 	
@@ -1043,7 +1043,7 @@ title:  My Message Inbox
 										<div class="panel-heading panel-with-border box-primary" role="tab">
 											<h4 class="panel-title">
 												<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
-													interaction properties and details
+													<i class="fa fa-exclamation-triangle blink"></i>	interaction properties and details
 													<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
 												</a>
 											</h4>
@@ -1355,7 +1355,7 @@ title:  My Message Inbox
 		var table = $('#example1,example9').DataTable( {
             "dom": 'lf<"toolbar">',
             "language" : {
-            "search": "Filter History"
+            "search": "Filter Inbox"
            },
            "order": [],
            "columnDefs": [ {
@@ -1420,6 +1420,9 @@ title:  My Message Inbox
 				}else{
 					removeFunction(segmentName);
 				}
+				$('.custom-scroll').slimScroll({
+					height: '250px'
+				});
 			};
 
 			$scope.togglePropertyRow = function (segmentName)
@@ -1441,7 +1444,7 @@ title:  My Message Inbox
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#row5').after($compile('<tr class="expandedrowcontent"><td colspan="5">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			}
 
 			function removeFunction(row){
@@ -1475,9 +1478,9 @@ title:  My Message Inbox
 					removeFunctionInbox(segmentName);
 				}
 			
-                $('.custom-scroll').slimScroll({
-                  height: '250px'
-                });
+				$('.custom-scroll').slimScroll({
+					height: '250px'
+				});
 			};
 			function myCreateFunctionInbox(row) {
 				

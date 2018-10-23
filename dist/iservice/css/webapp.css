@@ -1604,3 +1604,7 @@ ul.bookmark-list li a:first {
 .interaction-property-box .box-body {
   padding: 10px 0px;
 }
+.row-active {
+  background: #3c8dbc !important;
+  color: #ffffff;
+}
