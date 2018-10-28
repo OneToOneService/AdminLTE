@@ -294,7 +294,7 @@ title:  My Message Inbox
 														</td>
 														<td>
 															<b>Urgency Level</b> : High 
-															<a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>
+															<a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow12')"><i class="fa fa-fw fa-pencil"></i></a>
 														</td>
 														<td>
 														2016-07-18 9:36:26 AM
@@ -327,7 +327,7 @@ title:  My Message Inbox
 														</td>
 														<td>
 															<b>Urgency Level</b> : High
-															<a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>
+															<a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow13')"><i class="fa fa-fw fa-pencil"></i></a>
 														</td>
 														<td>
 															2016-07-18 9:36:26 AM
@@ -359,8 +359,8 @@ title:  My Message Inbox
 															Alek Packard
 														</td>
 														<td>
-																<b>Urgency Level</b> : High
-															<a href="javascript:void(0)" ng-click="togglePropertyRow('row15')"><i class="fa fa-fw fa-pencil"></i></a>
+															<b>Urgency Level</b> : High
+															<a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow15')"><i class="fa fa-fw fa-pencil"></i></a>
 														</td>
 														<td>
 															2016-07-18 9:36:26 AM
@@ -395,7 +395,7 @@ title:  My Message Inbox
 														</td>
 														<td>
 															<b>Urgency Level</b>: High 
-															<a href="javascript:void(0)" ng-click="togglePropertyRow('historyrow16')"><i class="fa fa-fw fa-pencil"></i></a>
+															<a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow16')"><i class="fa fa-fw fa-pencil"></i></a>
 														</td>
 														<td>
 															2016-07-18 9:36:26 AM
@@ -1034,9 +1034,7 @@ title:  My Message Inbox
 								<small class="bg-green-active label">Resolved</small>
 							</div>
 							</div>
-			
 							<div class="col-md-12 mtop-15"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
-
 							<div class="col-md-12">
 								<div class="panel-group" role="tablist" aria-multiselectable="true">
 									<div class="panel panel-default">
@@ -1408,23 +1406,7 @@ title:  My Message Inbox
             	$scope['case'] = false; 
 				$scope['crono'] = true;
 			}
-			$scope.togglePropertyRow = function (segmentName)
-			{ 
-				for(var i = 1; i<=5;i++){
-					if(!$scope[segmentName]){
-						removeFunction(segmentName);
-						$scope['row'+i] = false;
-					}	
-				}
-				$scope[segmentName] = !$scope[segmentName];
-				if($scope[segmentName]){
-					myCreateFunction(segmentName);
-				}else{
-					removeFunction(segmentName);
-				}
-       			 $scope.isCollapsed = false;
-			};
-
+			
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
 				angular.element('#history-table').after($compile('<div class="expandedrowcontent"><div colspan="5">'+document.getElementById('expandedrow').innerHTML+'</div></div>')($scope));
@@ -1521,6 +1503,27 @@ title:  My Message Inbox
 					removeFunctionHistory(segmentName);
 				}
 			};
+
+
+			$scope.togglePropertyRowHistory = function (segmentName)
+			{  
+				$scope.hidetrue = false;
+				for(var i = 1; i<=16;i++){
+					if(!$scope[segmentName]){
+						removeFunctionInbox(segmentName);
+						$scope['inboxrow'+i] = false;
+						$scope['historyrow'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunctionHistory(segmentName);
+				}else{
+					removeFunctionHistory(segmentName);
+				}
+				$scope.isCollapsed = false;
+			};
+
 			function myCreateFunctionHistory(row) {
 				var innerHTML = document.getElementById('expandedrowviewmode').innerHTML;
 				angular.element('#'+row).after($compile('<tr class="expandedrowcontentinbox"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr>')($scope));
