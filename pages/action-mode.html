@@ -570,6 +570,8 @@ title: Action Mode
 			};
 			$scope.togglePropertyRow = function (segmentName)
 			{ 
+				$scope.hidetrue = true;
+				$scope['getthis'] = true;
 				for(var i = 1; i<=5;i++){
 					if(!$scope[segmentName]){
 						removeFunction(segmentName);
@@ -582,7 +584,7 @@ title: Action Mode
 				}else{
 					removeFunction(segmentName);
 				}
-       			 $scope.isCollapsed = false;
+       			 $scope.isCollapsedProperty = false;
 			};
 
 			function myCreateFunction(row) {
