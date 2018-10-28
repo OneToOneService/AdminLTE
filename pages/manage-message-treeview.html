@@ -91,14 +91,11 @@ title: Manage Messages - Tree View
 						<div class="row ">
 							<div class="col-md-12">
 								<div class="box box-primary">
-									<div class="box-header with-border">
+									<div class="box-header with-border" ng-click="isCollapsedMassUpdate = !isCollapsedMassUpdate">
 										<h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
-										<div class="box-tools pull-right">
-											<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate"><i class="more-less glyphicon glyphicon-chevron-down"></i>
-											</button>
-										</div>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
 									</div> 
-									<div class="box-body p0 manage-message collapse" id="massupdate">
+									<div class="box-body p0 manage-message" uib-collapse="isCollapsedMassUpdate">
 										<div class="mtop-15">
 											<div class="col-md-8 form-horizontal"> 
 												<div class="col-md-12">
@@ -143,14 +140,11 @@ title: Manage Messages - Tree View
 													</div>
 													<div class="row">
 														<div class="box box-success">
-															<div class="box-header with-border">
+															<div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail">
 																<h3 class="box-title">Email Addresses And Subject Line</h3>
-																<div class="box-tools pull-right">
-																	<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox"><i class="more-less glyphicon glyphicon-chevron-down"></i>
-																	</button>							
-																</div>
+																<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}" ng-init="isCollapsedEmail = true;"></span>
 															</div>	
-															<div class="box-body p0 collapse" id="emailbox"> 	
+															<div class="box-body p0" uib-collapse="isCollapsedEmail"> 	
 																<div class="p10"> 										
 																	<div class="form-group">
 																		<label class="col-sm-2 control-label">From</label>

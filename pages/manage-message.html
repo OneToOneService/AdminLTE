@@ -86,14 +86,11 @@ title: Manage Messages - List View
 						<div class="row">
 							<div class="col-md-12">
 								<div class="box box-primary">
-									<div class="box-header with-border">
+									<div class="box-header with-border" ng-click="isCollapsedMassUpdate = !isCollapsedMassUpdate">
 										<h3 class="box-title"><i class="fa fa-fw fa-edit"></i>  Mass Update</h3> 
-										<div class="box-tools pull-right">
-											<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate"><i class="more-less glyphicon glyphicon-chevron-down"></i>
-											</button>
-										</div>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
 									</div>
-									<div class="box-body p0 manage-message collapse" id="massupdate">
+									<div class="box-body p0 manage-message" uib-collapse="isCollapsedMassUpdate">
 										<div class="mtop-15">
 											<div class="col-md-8 form-horizontal"> 
 												<div class="col-md-12">
@@ -138,14 +135,11 @@ title: Manage Messages - List View
 														</div>
 														<div class="row">
 															<div class="box box-success">
-																<div class="box-header with-border">
+																<div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail">
 																	<h3 class="box-title">Email Addresses And Subject Line</h3>
-																	<div class="box-tools pull-right">
-																		<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox"><i class="more-less glyphicon glyphicon-chevron-down"></i>
-																		</button>							
-																	</div>
+																	<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}" ng-init="isCollapsedEmail = true;"></span>
 																</div>	
-																<div class="box-body p0 collapse" id="emailbox"> 	
+																<div class="box-body p0" uib-collapse="isCollapsedEmail"> 	
 																	<div class="p10"> 										
 																		<div class="form-group">
 																			<label class="col-sm-2 control-label">From</label>
@@ -204,7 +198,7 @@ title: Manage Messages - List View
 																	<div class="tab-pane active" id="draftbody-massupdate">
 																			<div class="form-group text-editor-container">
 																				<div class="col-sm-12">
-																					<textarea class="form-control" rows="5" id="editor5" name="editor5"></textarea>
+																					<textarea class="form-control" rows="5" id="massUpdateDraftBody" name="massUpdateDraftBody"></textarea>
 																				</div>
 																			</div>
 																	</div>
@@ -921,10 +915,11 @@ title: Manage Messages - List View
 	  $('#stock-responses,#stock-responses2,#stock-responses3,#stock-responses4,#stock-responses5,#stock-responses6').slimScroll({
 			height: '250px'
 	  });
-	  
-
     });
-
+    
+	
+	CKEDITOR.replace('massUpdateDraftBody', {height:400});
+ 
 	$('.selectpicker').selectpicker('refresh');
 	  //iCheck for checkbox and radio inputs
 	  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
