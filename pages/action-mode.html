@@ -28,7 +28,7 @@ title: Action Mode
 						  	<div class="col-md-12">
 								<div class="box-container">
 									<div class="box-body table-responsive">
-										<div class="col-md-12 form-horizontal"> 
+										<div class="col-md-12"> 
 											<div class="row">
 												<table class="table table-striped table-hover">
 													<!--<tr>
@@ -46,7 +46,7 @@ title: Action Mode
 														<th>April 2, 2018 8:55:23AM</th>
 													</tr> -->
 													<tr id="row1">
-														<td name="name">
+														<td name="name" class="icon-col">
 															<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
 																<i class="fa fa-plus-circle ng-hide"  ng-show="!row1"  ng-cloak></i>
 																<i class="fa fa-minus-circle" ng-show="row1"></i>
@@ -72,7 +72,7 @@ title: Action Mode
 														</td>
 														<td>
 															<b>Urgency Level</b> : High 
-															<a href="javascript:void(0)"><i class="fa fa-fw fa-pencil"></i></a>
+															<a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>
 														</td>
 														<td>
 														2016-07-18 9:36:26 AM
