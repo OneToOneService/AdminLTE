@@ -143,3 +143,17 @@
     </div>                         
 </div>
  <!-- /.col -->
+<script>
+    var table = $('#contactHistoryTable').DataTable( {
+				"dom": 'lf<"toolbar1">',
+				"language" : {
+				"search": "Filter History"
+				},
+				"order": [],
+				"columnDefs": [ {
+				"targets"  : 'no-sort',
+				"orderable": false,
+				"width":"30px"
+				}]
+		});
+</script>

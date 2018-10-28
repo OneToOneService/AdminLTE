@@ -219,7 +219,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="variable-tab">
                         <div class="row" id="variable-box">
-                            <div class="col-xs-12 variable-responses custom-scroll">
+                            <div class="col-xs-12 variable-responses custom-scroll-inbox">
                                 <div>
                                     <input type="text" class="form-control" placeholder="Keyword Search">
                                 </div>
@@ -303,4 +303,7 @@
 <script>
    
         CKEDITOR.replace('editor1', {height:400});
+        $('.custom-scroll-inbox').slimScroll({
+            height: '250px'
+        });
 </script>    
