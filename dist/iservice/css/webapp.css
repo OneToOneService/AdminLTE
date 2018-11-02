@@ -1660,3 +1660,9 @@ label .icheckbox_square-blue {
 .formstep .btn-sort {
   padding: 6px;
 }
+.btn i.fa {
+  margin-right: 3px;
+}
+.tab-content .nav-tabs-custom ul li a i {
+  color: #ccc;
+}

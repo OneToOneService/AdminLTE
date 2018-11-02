@@ -38,7 +38,6 @@
                     Spam
                     </button>
                 </div>
-
                 <div class="row">
                     <div class="box interaction-property-box">
                         <div class="box-header with-border" ng-click="isCollapsedProperty = !isCollapsedProperty">
@@ -85,217 +84,220 @@
                 </div>
                 <div class="row">
                     <div class="box">
-                        <div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail">
-                            <h3 class="box-title">Email Addresses And Subject Line</h3> 
-                            <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}"></span>
+                        <div class="box-header with-border" ng-click="isCollapsedVariable = !isCollapsedVariable" ng-init="isCollapsedVariable = true;">
+                            <h3 class="box-title">Variables & Stock Responses</h3> 
+                            <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedVariable}"></span>
                         </div>
-                        <div class="box-body" uib-collapse="isCollapsedEmail" >									
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">From</label>
-                                <div class="col-sm-10">
-                                <input class="form-control" type="text" value="Support@1to1service.com">
+                        <div class="box-body" uib-collapse="isCollapsedVariable" >									
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#variable-tab" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+                                    <li><a href="#stock-response-tab" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="variable-tab">
+                                        <div class="row" id="variable-box">
+                                            <div class="col-xs-12 variable-responses custom-scroll-inbox">
+                                                <div>
+                                                    <input type="text" class="form-control" placeholder="Keyword Search">
+                                                </div>
+                                                <ul class="list-unstyled segment-variable-list">
+                                                    <li class="section-label">Contact
+                                                    <ul class="segment-variables">
+                                                        <li class="section-var-link">Name</li>
+                                                        <li class="segment-lable">Global
+                                                            <ul>
+                                                            <li class="section-var-link">Address1</li>
+                                                            <li class="section-var-link">Address2</li>
+                                                            <li class="section-var-link">City</li>
+                                                            <li class="section-var-link">Country</li>
+                                                            <li class="section-var-link">Company</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="segment-lable">JC Segment
+                                                            <ul>
+                                                            <li class="section-var-link">Contact View Only Property</li>
+                                                            <li class="section-var-link">Contact Viewable and Editable Property</li>
+                                                            <li class="section-var-link">Multi value No Descr</li>
+                                                            <li class="section-var-link">Shared Property from JC - cust can't see</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    </li>
+                                                </ul>
+                                                <ul class="list-unstyled segment-variable-list">
+                                                    <li class="section-label">Answer
+                                                        <ul class="segment-variables">
+                                                            <li class="section-var-link">Email</li>
+                                                            <li class="section-var-link">Reference Number</li>
+                                                            <li class="section-var-link">Original Date</li>
+                                                            <li class="section-var-link">Original Time</li>
+                                                            <li class="section-var-link">Subject</li>
+                                                            <li class="section-var-link">Original Body</li>
+                                                            <li class="section-var-link">Quoted Question</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="stock-response-tab">
+                                        <div class="row" id="stock-responses">
+                                            <div class="col-xs-12 stock-responses custom-scroll">
+                                                <div>
+                                                    <input type="text" class="form-control" placeholder="Keyword Search">
+                                                </div>
+                                                <ul class="list-unstyled segment-variable-list">
+                                                    <li class="section-label">Segment Responses
+                                                    <ul class="segment-variables">
+                                                        <li class="section-var-link">Chat Closing</li>
+                                                        <li class="section-var-link">Chat Opening</li>
+                                                        <li class="section-var-link">Chat Wait</li>
+                                                        <li class="section-var-link">iService Website</li>
+                                                    </ul>
+                                                    </li>
+                                                </ul>
+                                                <ul class="list-unstyled segment-variable-list">
+                                                    <li class="section-label">Agent Response
+                                                        <ul class="segment-variables">
+                                                            <li class="section-var-link">Test</li>
+                                                            
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- /.tab-content -->
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">To</label>
-                                <div class="col-sm-10">
-                                <input class="form-control" type="text" value="john.doe@example.com">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">CC</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">BCC</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">Subject</label>
-                                <div class="col-sm-4">
-                                    <input class="form-control" type="text" value="Ref#: 1006-1009"  disabled>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input class="form-control" type="text" value="looking for low cost tv">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                </div>
-                            </div> 
-                    </div>	 
+                        </div>	 
                     </div>		
                 </div>
-
-                <div class="row"> 
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-                            <li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-                            <li class="pull-right"> 
-                                <p class="attach-file"> <label class="btn-bs-file">
-                                    Attach files		
-                                    <input type="file" />
-                                </label> (Maximum 10 MB upload at one time.)</p>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                        <div class="tab-pane active" id="draftbody">
-                            <div class="form-group text-editor-container">
-                                <div class="col-sm-12">
-                                    <textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"><p>Hello,</p>
-
-                                        <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
-                                        
-                                        <p>Regards,</p>
-                                        
-                                        <p>John Doe</p>
-                                    </textarea>
+                <div class="row">
+                        <div class="box">
+                            <div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail"  ng-init="isCollapsedEmail = true;">
+                                <h3 class="box-title">Email Addresses And Subject Line</h3> 
+                                <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}"></span>
+                            </div>
+                            <div class="box-body" uib-collapse="isCollapsedEmail" >									
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">From</label>
+                                    <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="Support@1to1service.com">
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="plainhtml">
-                            <p>Hello,</p>
-
-                            <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
-                            
-                            <p>Regards,</p>
-                            
-                            <p>John Doe</p>
-                        </div>										   
-                        </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">To</label>
+                                    <div class="col-sm-10">
+                                    <input class="form-control" type="text" value="john.doe@example.com">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">CC</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">BCC</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="text" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Subject</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" type="text" value="Ref#: 1006-1009"  disabled>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="text" value="looking for low cost tv">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-2">
+                                    </div>
+                                </div> 
+                        </div>	 
+                        </div>		
                     </div>
-                    <div class="col-sm-12">
-                        <div class="panel panel-default form-group">
-                            <div class="panel-heading">
-                            <i class="fa fa-fw fa-pencil-square-o"></i>
-                            Private Comments
-                            </div>
-                            <div class="panel-body">
-                                <textarea class="full-width full-height"></textarea>
-                            </div>
-                        </div>	
-                    </div>
-                </div>
+    
             </div>    
         </div> 
         <div class="col-md-4">
             <div class="box box-warning stock-responses ng-scope">
                 <div class="box-header with-border">
                 <h3 class="box-title">
-                    <i class="fa fa-fw fa-envelope"></i>
-                    Message Properties
+                    <i class="fa fa-fw fa-paperclip"></i>
+                    Message Attachments
                 </h3>
                 </div>
-                <div class="box-body">
+                <div class="box-body message-attachments">
                     <div>
-                        <label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i></span> <br>
+                        <label>Segment Name:</label> QA <span class="inlibne-edit"> <i class="fa fa-fw fa-pencil"></i></span> <br>
                         <label>Topic:</label> All Topics <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i></span>
                     </div>
-                </div>
-            </div>
-            <div class="box box-primary stock-responses ng-scope">
-                <div class="box-header with-border">
-                    <h3 class="box-title">
-                        <i class="fa fa-fw fa-paperclip"></i>
-                        Message Attachments
-                    </h3>
-                </div>
-                <div class="box-body">
+                    <hr>
+                    <h4><strong>Attachments :- </strong></h4>
                     <div>
                         <a href="#">Errorimage.jpg</a>, <a href="#">Errorimage2.jpg</a>
                     </div>
                 </div>
             </div>
+        </div>
+      
+        <div class="col-md-12"> 
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#variable-tab" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-                    <li><a href="#stock-response-tab" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+                    <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+                    <li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+                    <li class="pull-right"> 
+                        <p class="attach-file"> <label class="btn-bs-file">
+                            Attach files		
+                            <input type="file" />
+                        </label> (Maximum 10 MB upload at one time.)</p>
+                    </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="variable-tab">
-                        <div class="row" id="variable-box">
-                            <div class="col-xs-12 variable-responses custom-scroll-inbox">
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Keyword Search">
-                                </div>
-                                <ul class="list-unstyled segment-variable-list">
-                                    <li class="section-label">Contact
-                                    <ul class="segment-variables">
-                                        <li class="section-var-link">Name</li>
-                                        <li class="segment-lable">Global
-                                            <ul>
-                                            <li class="section-var-link">Address1</li>
-                                            <li class="section-var-link">Address2</li>
-                                            <li class="section-var-link">City</li>
-                                            <li class="section-var-link">Country</li>
-                                            <li class="section-var-link">Company</li>
-                                            </ul>
-                                        </li>
-                                        <li class="segment-lable">JC Segment
-                                            <ul>
-                                            <li class="section-var-link">Contact View Only Property</li>
-                                            <li class="section-var-link">Contact Viewable and Editable Property</li>
-                                            <li class="section-var-link">Multi value No Descr</li>
-                                            <li class="section-var-link">Shared Property from JC - cust can't see</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled segment-variable-list">
-                                    <li class="section-label">Answer
-                                        <ul class="segment-variables">
-                                            <li class="section-var-link">Email</li>
-                                            <li class="section-var-link">Reference Number</li>
-                                            <li class="section-var-link">Original Date</li>
-                                            <li class="section-var-link">Original Time</li>
-                                            <li class="section-var-link">Subject</li>
-                                            <li class="section-var-link">Original Body</li>
-                                            <li class="section-var-link">Quoted Question</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="stock-response-tab">
-                        <div class="row" id="stock-responses">
-                            <div class="col-xs-12 stock-responses custom-scroll">
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Keyword Search">
-                                </div>
-                                <ul class="list-unstyled segment-variable-list">
-                                    <li class="section-label">Segment Responses
-                                    <ul class="segment-variables">
-                                        <li class="section-var-link">Chat Closing</li>
-                                        <li class="section-var-link">Chat Opening</li>
-                                        <li class="section-var-link">Chat Wait</li>
-                                        <li class="section-var-link">iService Website</li>
-                                    </ul>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled segment-variable-list">
-                                    <li class="section-label">Agent Response
-                                        <ul class="segment-variables">
-                                            <li class="section-var-link">Test</li>
-                                            
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.tab-content -->
-            </div>
-        </div>
+                    <div class="tab-pane active" id="draftbody">
+                        <div class="form-group text-editor-container">
+                            <textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"><p>Hello,</p>
 
+                                <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+                                
+                                <p>Regards,</p>
+                                
+                                <p>John Doe</p>
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="plainhtml">
+                        <p>Hello,</p>
+
+                        <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+                        
+                        <p>Regards,</p>
+                        
+                        <p>John Doe</p>
+                    </div>										   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default form-group">
+                        <div class="panel-heading">
+                        <i class="fa fa-fw fa-pencil-square-o"></i>
+                            Private Comments
+                        </div>
+                        <div class="panel-body">
+                            <textarea class="full-width full-height"></textarea>
+                        </div>
+                    </div>	
+                </div>
+            </div>    
+        </div>
+      
         <!--Message history-->
 		{% include inbox-message-history.html %}
 		<!--Message history-->
@@ -305,5 +307,8 @@
         CKEDITOR.replace('editor1', {height:400});
         $('.custom-scroll-inbox').slimScroll({
             height: '250px'
+        });
+        $('.message-attachments').slimScroll({
+            height: '178px'
         });
 </script>    
