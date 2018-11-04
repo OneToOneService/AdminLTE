@@ -1345,6 +1345,8 @@ title:  My Message Inbox
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 	<script src="../../plugins/select2/select2.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			var rowcount;
@@ -1387,7 +1389,7 @@ title:  My Message Inbox
 			evt.cancelBubble = true;
 			}
 		}
-	
+		$('.selectpicker').selectpicker('refresh');
 	</script>
 
   <script>
