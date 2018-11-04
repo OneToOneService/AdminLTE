@@ -9,6 +9,7 @@ title:  My Message Inbox
 	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
 	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
@@ -34,7 +35,7 @@ title:  My Message Inbox
 								<!-- /.box-header -->
 								<!-- form start -->
 								<div class="box-body table-responsive" uib-collapse="isCollapsedInboxList" ng-init="isCollapsedInboxList = false;">
-									<table id="history-table" class="table  table-striped table-hover">
+									<table id="history-table" class="table  table-striped">
 										<thead>
 											<tr>
 												<!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -49,6 +50,9 @@ title:  My Message Inbox
 												</th>
 												<th class="text-capitalize">
 													Subject
+												</th>
+												<th class="text-capitalize">
+													Segment 
 												</th>
 												<th class="text-capitalize">
 													Topic 
@@ -70,12 +74,15 @@ title:  My Message Inbox
 													john.doe@example.com
 												</td>
 												<td>
-													2 Days ago
+													1 Days ago
 												</td>
 												
 												<td>
-													Example Company, Inc.
+													MSSQLSERVER:Server:17063 by iService Incoming Undeliverable Emails in Tenant Critical Alert
 												</td>
+												<td>
+													QA
+												</td>	
 												<td>
 													Feedback
 												</td>
@@ -99,7 +106,10 @@ title:  My Message Inbox
 												</td>
 											
 												<td>
-													Example Company, Inc.
+													Kind Attend :: I need to purchase LG TV
+												</td>
+												<td>
+													QA
 												</td>
 												<td>
 													Sales
@@ -127,6 +137,9 @@ title:  My Message Inbox
 													Example Company, Inc.
 												</td>
 												<td>
+													QA
+												</td>
+												<td>
 													All Topic
 												</td>
 											</tr>
@@ -151,6 +164,9 @@ title:  My Message Inbox
 													Example Network
 												</td>
 												<td>
+													QA
+												</td>
+												<td>
 													All Topic
 												</td>
 											</tr>
@@ -173,6 +189,9 @@ title:  My Message Inbox
 												
 												<td>
 													Example Network
+												</td>
+												<td>
+													QA
 												</td>
 												<td>
 													All Topic
@@ -218,7 +237,7 @@ title:  My Message Inbox
 							</a>
 						</li>
 					</ul>
-					<div class="tab-content">
+					<div class="tab-content box-bg-color">
 						<div class="tab-pane contact-summary active" id="tab_1">
 							<!--action this-->
 							{% include inbox-action-mode.html %}
@@ -242,7 +261,7 @@ title:  My Message Inbox
 											<!-- /.box-header -->
 											<!-- form start -->
 												<div class="box-body table-responsive">
-													<table id="historyTabCaseView" class="table  table-striped table-hover">
+													<table id="historyTabCaseView" class="table  table-striped">
 														<thead>
 															<tr>
 																<th class="no-sort" name="name"></th>
@@ -469,7 +488,7 @@ title:  My Message Inbox
 													<!-- /.box-header -->
 													<!-- form start -->
 													<div class="box-body table-responsive" >
-														<table id="messageHistoryTable" class="table  table-striped table-hover">
+														<table id="messageHistoryTable" class="table  table-striped">
 															<thead>
 																<tr>
 																	<th class="no-sort"><div class="icon-col"></div></th>
@@ -967,7 +986,7 @@ title:  My Message Inbox
 								</div>
 							</div>
 							<div class="box-body table-responsive">
-								<table id="example" class="table  table-striped table-hover">
+								<table id="example" class="table  table-striped">
 									<thead>
 										<tr>
 											<th class="text-capitalize">
@@ -1325,7 +1344,7 @@ title:  My Message Inbox
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+	<script src="../../plugins/select2/select2.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			var rowcount;
@@ -1358,12 +1377,7 @@ title:  My Message Inbox
 				"search": "Filter Inbox"
 				},
 				"order": [],
-				"columnDefs": [ {
-				"targets"  : 'no-sort',
-				"orderable": false,
-				"width":"30px"
-				},
-				]}
+				}
 		);
 		
 		function stopPropagation(evt) {
@@ -1373,15 +1387,12 @@ title:  My Message Inbox
 			evt.cancelBubble = true;
 			}
 		}
-
-		$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-			checkboxClass: 'icheckbox_square-blue',
-			radioClass: 'iradio_flat-green'
-   		 });
+	
 	</script>
 
   <script>
 		var count = 1;
+		var i = 1;
 		var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']).controller('myCtrl', function ($scope,$log,$compile) {
 			
 			$scope.toggleRow = function (segmentName)
@@ -1432,20 +1443,24 @@ title:  My Message Inbox
 			$scope.messageDetailTab = function(){
 				$scope.cancelall();
 			}
+			
 			$scope.historyTab = function(){
-				var table = $('#historyTabCaseView,#messageHistoryTable').DataTable( {
-					"dom": 'lf<"toolbar">',
-					"language" : {
-					"search": "Filter Inbox"
-					},
-					"order": [],
-					"columnDefs": [ {
-					"targets"  : 'no-sort',
-					"orderable": false,
-					"width":"30px"
-					},
-					]}
-				);
+				if(i==1){
+					var table = $('#historyTabCaseView,#messageHistoryTable').DataTable( {
+							"dom": 'lf<"toolbar">',
+							"language" : {
+							"search": "Filter Inbox"
+							},
+							"order": [],
+							"columnDefs": [ {
+							"targets"  : 'no-sort',
+							"orderable": false,
+							"width":"30px"
+							},
+						]}
+					);
+					i = i+1;
+				}
 				$scope.cancelall();
 			}
      		 $scope.cancelall = function(){
@@ -1483,7 +1498,7 @@ title:  My Message Inbox
 			};
 			function myCreateFunctionInbox(row) {
 				var innerHTML = document.getElementById('expandedrowviewmode').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontentinbox"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontentinbox box-bg-color"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr>')($scope));
 			}
 			function removeFunctionInbox(row){
 				angular.element('.expandedrowcontentinbox').remove();

@@ -995,7 +995,7 @@ ul.timeline span.stack-icon .aqua {
   display: block;
 }
 .message-box-header {
-  background: #ecf0f5;
+  background: #ffffff;
   border-bottom: 1px solid #f4f4f4;
   padding: 10px;
   display: inline-block;
@@ -1007,7 +1007,6 @@ ul.timeline span.stack-icon .aqua {
 .message-box-header .user {
   float: left;
   width: 75px;
-  color: #555555;
   margin-right: 10px;
   text-align: center;
   background: #ffffff;
@@ -1664,5 +1663,51 @@ label .icheckbox_square-blue {
   margin-right: 3px;
 }
 .tab-content .nav-tabs-custom ul li a i {
-  color: #ccc;
+  display: inline;
+  padding: 0;
+  color: #111111;
+}
+.box-bg-color {
+  background-color: #ecf0f5 !important;
+  z-index: 99999;
+  position: relative;
+}
+.tab-content .slimScrollDiv,
+.tab-content .custom-scroll-inbox {
+  width: 100% !important;
+}
+.color-tab-icon > .nav-tabs > li.active a,
+.color-tab-icon > .nav-tabs > li.active a:hover {
+  background: #ecf0f5;
+}
+.form-group button {
+  margin-right: 5px;
+}
+.form-group .btn-group button {
+  margin-right: 0px;
+}
+.dropdown-menu > li > a.text-primary {
+  color: #3c8dbc !important;
+}
+.dropdown-menu {
+  z-index: 99999;
+}
+.dropdown-menu-btn-option > li {
+  padding: 3px 20px;
+}
+.dropdown-menu-btn-option > li > a {
+  padding: 0;
+  display: inline-block;
+}
+.dropdown-menu-btn-option > li > a:hover,
+.dropdown-menu-btn-option > li > a:active,
+.dropdown-menu-btn-option > li > a:focus {
+  background: none;
+}
+.btn-list-options button {
+  margin-top: 8px;
+}
+.select2-container {
+  width: 100% !important;
+  z-index: 999999;
 }

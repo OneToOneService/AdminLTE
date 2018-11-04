@@ -1388,10 +1388,10 @@ ul.timeline span.stack-icon
     background-color: @purple-hover;
 }
 .message-box{width:100%; margin-top:15px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); display:block;}	
-.message-box-header{background:@body-bg; border-bottom:1px solid @box-border-color; padding:10px; display:inline-block; width:100%;}
+.message-box-header{background:@white; border-bottom:1px solid @box-border-color; padding:10px; display:inline-block; width:100%;}
 .message-box-body{padding:10px;}
 .message-box-header{
-  .user{float:left; margin-right:10px;width:75px; color:@gray; margin-right:10px; text-align:center;background:@white;border:1px solid @gray-lte;}
+  .user{float:left; margin-right:10px;width:75px; margin-right:10px; text-align:center;background:@white;border:1px solid @gray-lte;}
   .message-info{float:left;} 
   .status{margin:10px 10px; }   
 }
@@ -1739,5 +1739,17 @@ label .icheckbox_square-blue{margin-right:15px;}
 .action hr{margin:0px 0px 15px 0px;} 
 .formstep .btn-sort{padding:6px;} 
 .btn i.fa{margin-right:3px}
-.tab-content .nav-tabs-custom ul li a i{color:#ccc;}
+.tab-content .nav-tabs-custom ul li a i{display: inline;padding: 0; color:@black}
+.box-bg-color{background-color:@body-bg !important; z-index:99999; position: relative;}
+.tab-content .slimScrollDiv,.tab-content .custom-scroll-inbox{width:100% !important;}
+.color-tab-icon>.nav-tabs>li.active a,.color-tab-icon>.nav-tabs>li.active a:hover{background:@body-bg;}
+.form-group button{margin-right:5px;}
+.form-group .btn-group button{margin-right:0px;}
+.dropdown-menu>li>a.text-primary{color:@light-blue !important;}
+.dropdown-menu{z-index: 99999;}
+.dropdown-menu-btn-option>li{padding:3px 20px;}
+.dropdown-menu-btn-option>li>a{ padding:0; display:inline-block;}
+.dropdown-menu-btn-option > li > a:hover, .dropdown-menu-btn-option > li > a:active,.dropdown-menu-btn-option > li > a:focus{background:none;}
+.btn-list-options button{margin-top:8px;}
+.select2-container{width:100% !important; z-index: 999999;}
 //form admin tools end
