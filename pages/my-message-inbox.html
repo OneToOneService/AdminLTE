@@ -1425,7 +1425,7 @@ title:  My Message Inbox
 			
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#inbox-list').after($compile('<div class="expandedrowcontent"><div colspan="5">'+document.getElementById('expandedrow').innerHTML+'</div></div>')($scope));
+				angular.element('#inbox-list').after($compile('<div class="expandedrowcontent box-bg-color"><div colspan="5">'+document.getElementById('expandedrow').innerHTML+'</div></div>')($scope));
 			}
 
 			function removeFunction(row){
@@ -1546,7 +1546,7 @@ title:  My Message Inbox
 
 			function myCreateFunctionHistory(row) {
 				var innerHTML = document.getElementById('expandedrowviewmode').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontentinbox"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontentinbox box-bg-color"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr>')($scope));
 			}
 			function removeFunctionHistory(row){
 				angular.element('.expandedrowcontentinbox').remove();
