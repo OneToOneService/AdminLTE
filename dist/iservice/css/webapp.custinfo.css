@@ -25,7 +25,11 @@
   margin-bottom: 10px;
 }
 .dataTables_filter {
+  height: 35px;
   float: right;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
 .dataTables_length {
   float: left;
