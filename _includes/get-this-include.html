@@ -170,7 +170,7 @@
                                 <!-- /.tab-pane -->
                                 <div class="tab-pane" id="stock-response-tab">
                                     <div class="row" id="stock-responses">
-                                        <div class="col-xs-12 stock-responses custom-scroll">
+                                        <div class="col-xs-12 stock-responses custom-scroll-inbox">
                                             <div>
                                                 <input type="text" class="form-control" placeholder="Keyword Search">
                                             </div>
@@ -366,7 +366,7 @@
              radioClass: 'iradio_flat-green'
          });
          CKEDITOR.replace('editor1', {height:400});
-         $('.custom-scroll').slimScroll({
+         $('.custom-scroll,.custom-scroll-inbox').slimScroll({
              height: '250px'
          });
          $('.message-attachments').slimScroll({
