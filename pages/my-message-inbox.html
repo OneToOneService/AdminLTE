@@ -35,7 +35,7 @@ title:  My Message Inbox
 								<!-- /.box-header -->
 								<!-- form start -->
 								<div class="box-body table-responsive" uib-collapse="isCollapsedInboxList" ng-init="isCollapsedInboxList = false;">
-									<table id="history-table" class="table  table-striped table-hover">
+									<table id="inbox-table" class="table  table-striped table-hover">
 										<thead>
 											<tr>
 												<!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -177,6 +177,153 @@ title:  My Message Inbox
 															<i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
 														</button>
 													</td>-->
+												<td>
+													Robert Williams
+												</td>
+												<td>
+													robert.williams@example.net
+												</td>
+												<td>
+													2 Days ago
+												</td>
+												
+												<td>
+													Example Network
+												</td>
+												<td>
+													QA
+												</td>
+												<td>
+													All Topic
+												</td>
+											</tr>
+											<tr id="row6" ng-click="toggleRow('row6')"  ng-class="{true: 'row-active', false: ''}[row6]">
+												<td>
+													Robert Williams
+												</td>
+												<td>
+													robert.williams@example.net
+												</td>
+												<td>
+													2 Days ago
+												</td>
+												
+												<td>
+													Example Network
+												</td>
+												<td>
+													QA
+												</td>
+												<td>
+													All Topic
+												</td>
+											</tr>
+											<tr id="row7" ng-click="toggleRow('row7')"  ng-class="{true: 'row-active', false: ''}[row7]">
+												<td>
+													Robert Williams
+												</td>
+												<td>
+													robert.williams@example.net
+												</td>
+												<td>
+													2 Days ago
+												</td>
+												
+												<td>
+													Example Network
+												</td>
+												<td>
+													QA
+												</td>
+												<td>
+													All Topic
+												</td>
+											</tr>
+											<tr id="row8" ng-click="toggleRow('row8')"  ng-class="{true: 'row-active', false: ''}[row8]">
+												<td>
+													Robert Williams
+												</td>
+												<td>
+													robert.williams@example.net
+												</td>
+												<td>
+													2 Days ago
+												</td>
+												
+												<td>
+													Example Network
+												</td>
+												<td>
+													QA
+												</td>
+												<td>
+													All Topic
+												</td>
+											</tr>
+											<tr id="row9" ng-click="toggleRow('row9')"  ng-class="{true: 'row-active', false: ''}[row9]">
+												<td>
+													Robert Williams
+												</td>
+												<td>
+													robert.williams@example.net
+												</td>
+												<td>
+													2 Days ago
+												</td>
+												
+												<td>
+													Example Network
+												</td>
+												<td>
+													QA
+												</td>
+												<td>
+													All Topic
+												</td>
+											</tr>
+											<tr id="row10" ng-click="toggleRow('row10')"  ng-class="{true: 'row-active', false: ''}[row10]">
+												<td>
+													Robert Williams
+												</td>
+												<td>
+													robert.williams@example.net
+												</td>
+												<td>
+													2 Days ago
+												</td>
+												
+												<td>
+													Example Network
+												</td>
+												<td>
+													QA
+												</td>
+												<td>
+													All Topic
+												</td>
+											</tr>
+											<tr id="row11" ng-click="toggleRow('row11')"  ng-class="{true: 'row-active', false: ''}[row11]">
+												<td>
+													Robert Williams
+												</td>
+												<td>
+													robert.williams@example.net
+												</td>
+												<td>
+													2 Days ago
+												</td>
+												
+												<td>
+													Example Network
+												</td>
+												<td>
+													QA
+												</td>
+												<td>
+													All Topic
+												</td>
+											</tr>
+											<tr id="row12" ng-click="toggleRow('row12')"  ng-class="{true: 'row-active', false: ''}[row12]">
 												<td>
 													Robert Williams
 												</td>
@@ -1372,14 +1519,7 @@ title:  My Message Inbox
 			
 		} );
 
-		var table = $('#history-table').DataTable( {
-				"dom": 'lf<"toolbar">',
-				"language" : {
-				"search": "Filter Inbox"
-				},
-				"order": [],
-				}
-		);
+		
 		
 		function stopPropagation(evt) {
 			if (evt.stopPropagation !== undefined) {
@@ -1396,6 +1536,14 @@ title:  My Message Inbox
 		var i = 1;
 		var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']).controller('myCtrl', function ($scope,$log,$compile) {
 			
+			var table = $('#inbox-table').DataTable( {
+				"language" : {
+				"search": "Filter Inbox"
+				},
+				"createdRow": function ( row, data, index ) {
+        			$compile(row)($scope);  //add this to compile the DOM
+   				}
+		    });
 			$scope.toggleRow = function (segmentName)
 			{  
 				$scope['getthis'] = true;

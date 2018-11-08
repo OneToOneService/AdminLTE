@@ -248,7 +248,7 @@ title: View Mode
 										<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
 											<h4 class="panel-title">
 												<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
-													Interaction Properties
+													Interaction Properties & Details
 													<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
 												</a>
 											</h4>
@@ -595,7 +595,7 @@ title: View Mode
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			}
 
 			function removeFunction(row){

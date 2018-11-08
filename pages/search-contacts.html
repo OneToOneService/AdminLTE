@@ -567,7 +567,7 @@ title:  Customer Info Search
 		$(document).ready(function() {
 			var rowcount;
 			$(".bootstrap-tagsinput input").focus(function(){
-					$('.floatlabel').addClass("float-label");
+				$('.floatlabel').addClass("float-label");
 			});
 			$(".bootstrap-tagsinput input").blur(function(){
 			if($( ".bootstrap-tagsinput span" ).hasClass( "tag" )){
@@ -616,7 +616,6 @@ title:  Customer Info Search
 
 	var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
 		app.controller('myCtrl', function($scope,$log,$compile) {
-			$scope.data = 'ddddd';
 			$scope.toggleRow = function (segmentName)
 			{ 
 				for(var i = 1; i<=5;i++){
@@ -636,7 +635,7 @@ title:  Customer Info Search
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 		       
 		   }
 
@@ -644,7 +643,6 @@ title:  Customer Info Search
 				angular.element('.expandedrowcontent').remove();
 			}
 
-			
 			$scope.show = function(action) {
 				$scope.hidetrue = true;
 				$scope[action] = !$scope[action];

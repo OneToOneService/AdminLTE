@@ -495,7 +495,7 @@ title: Customer Info - Contact
               <div class="tab-pane" id="tab_3">
                 <div>
                   <h3>Mailing List Subscriptions</h3>
-                  <table class="table table-striped subscriptions">
+                  <table class="table table-striped table-hover subscriptions">
                     <thead>
                       <tr>
                       <th>Name</th>
@@ -608,7 +608,7 @@ title: Customer Info - Contact
                     </tbody>
                   </table>
                   <h3>Campaign Subscriptions</h3>
-                  <table class="table table-striped subscriptions">
+                  <table class="table table-striped table-hover subscriptions">
                     <thead>
                       <tr>
                         <th>Name</th>
@@ -631,7 +631,7 @@ title: Customer Info - Contact
                   </tbody>
                   </table>
                   <h3>Find Answer Article Subscriptions</h3>
-                  <table class="table table-striped subscriptions">
+                  <table class="table table-striped table-hover subscriptions">
                     <thead>
                       <tr>
                         <th>Topic</th>
@@ -669,7 +669,7 @@ title: Customer Info - Contact
                           <!-- /.box-header -->
                           <!-- form start -->
                             <div class="box-body table-responsive">
-                              <table id="example1" class="table table-striped">
+                              <table id="example1" class="table table-striped table-hover">
                                 <thead>
                                   <tr>
                                     <th class="no-sort" name="name"></th>
@@ -896,7 +896,7 @@ title: Customer Info - Contact
                           <!-- /.box-header -->
                           <!-- form start -->
                           <div class="box-body table-responsive" >
-                            <table id="contactHistoryTable" class="table table-striped">
+                            <table id="contactHistoryTable" class="table table-striped table-hover">
                               <thead>
                                 <tr>
                                   <th class="no-sort"><div class="icon-col"></div></th>
@@ -1092,7 +1092,7 @@ title: Customer Info - Contact
                   </div>
                 </div>
                 <div class="box-body table-responsive">
-                  <table id="example2" class="table table-striped">
+                  <table id="example2" class="table table-striped table-hover">
                     <thead>
                       <tr>
                         <th class="text-capitalize">
@@ -1171,7 +1171,7 @@ title: Customer Info - Contact
                     <div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
                       <h4 class="panel-title">
                         <a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
-                          interaction properties and details
+                          Interaction Properties & Details
                           <i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
                         </a>
                       </h4>
@@ -1553,7 +1553,7 @@ title: Customer Info - Contact
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			}
 
 			function removeFunction(row){
