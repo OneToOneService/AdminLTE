@@ -1714,3 +1714,9 @@ label .icheckbox_square-blue {
 .form-action .btn {
   margin-top: 5px;
 }
+.nav-tabs-custom > .tab-content {
+  padding: 15px !important;
+}
+.bg-box {
+  padding: 15px;
+}

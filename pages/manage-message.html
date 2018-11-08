@@ -90,320 +90,324 @@ title: Manage Messages - List View
 										<h3 class="box-title"><i class="fa fa-fw fa-edit"></i>  Mass Update</h3> 
 										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
 									</div>
-									<div class="box-body p0 manage-message" uib-collapse="isCollapsedMassUpdate">
-										<div class="col-md-8 form-horizontal"> 
-											<div class="col-md-12 form-action">
-												<div class="form-group">
-													<div class="btn-group dropdown margin-r-5">
-														<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
-														Send</button>										 
-														<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-															<button type="button" class="btn btn-primary" uib-dropdown-toggle>
-															  <span class="caret"></span>
-														   </button>
-															<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-																<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)"> Leave Open</a></li>
-																<li><a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
-																	<div ng-show="shownotificationdropdown">
-																		<select class="form-control">
-																			<option>Select a notification</option>
-																		</select>    
-																	</div>    
-																</li>
-																<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Expect Custmer Reply</a></li>
-																<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Add Reference Number</a></li>
-															</ul>
-														</div>
-													</div>
-													<button class="btn btn-primary" type="button">
-														<i class="fa  fa-check"></i>
-														Resolve
-													</button>
-													<div class="btn-group dropdown margin-r-5">
-														<button type="button" class="btn btn-primary" uib-dropdown-toggle>
-															<i class="fa fa-mail-forward"></i>
-															forward
-														</button>									 
-														<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-															<button type="button" class="btn btn-primary" uib-dropdown-toggle>
-																<span class="caret"></span>
+									<div class="box-body manage-message" uib-collapse="isCollapsedMassUpdate">
+										<div class="col-md-12 bg-box box-bg-color">
+										    <div class="row">	
+												<div class="col-md-8 form-horizontal"> 
+													<div class="col-md-12 form-action">
+														<div class="form-group">
+															<div class="btn-group dropdown margin-r-5">
+																<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
+																Send</button>										 
+																<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																	<button type="button" class="btn btn-primary" uib-dropdown-toggle>
+																	<span class="caret"></span>
+																</button>
+																	<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																		<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)"> Leave Open</a></li>
+																		<li><a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
+																			<div ng-show="shownotificationdropdown">
+																				<select class="form-control">
+																					<option>Select a notification</option>
+																				</select>    
+																			</div>    
+																		</li>
+																		<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Expect Custmer Reply</a></li>
+																		<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Add Reference Number</a></li>
+																	</ul>
+																</div>
+															</div>
+															<button class="btn btn-primary" type="button">
+																<i class="fa  fa-check"></i>
+																Resolve
 															</button>
-															<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
-																<li><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent"> Forward To Agent</a>
-																	<div class="btn-list-options form-group" ng-show="selectAgent">
-																		<select class="form-control">
-																			<option>Select an agent</option>
-																		</select>  
-																		<button class="btn btn-primary btn-xs">Assign To Selected Agent</button> 
-																	</div>    
-																</li>
-																<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
-																<li><a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment"> Forward To Segment</a>
-																	<div class="btn-list-options form-group" ng-show="forwardSegment">
-																		<select class="js-example-templating js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-																			<optgroup label="QA" data-select2-id="6">
-																				<option value="default mailbox" data-select2-id="5"> -- Default Mailbox --</option>
-																				<option value="qoute" data-select2-id="7">Qoute</option>
-																			</optgroup>
-																		</select>
-																		<button class="btn btn-primary btn-xs">Forward Now</button> 
-																	</div>   
-																</li>
-																<li><a href="javascript:void(0)" class="text-primary"> Forward To External Segment</a></li>
-															</ul>
-														</div>
-													</div>
-													<div class="btn-group dropdown margin-r-5">
-															<button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
-															Save</button>										 
-															<div class="btn-group">
-																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-																<span class="caret"></span></button>
-																<ul class="dropdown-menu" role="menu">
-																		<li><a href="#">Private Note</a></li>
-																		<li><a href="#">Public Note</a></li>
+															<div class="btn-group dropdown margin-r-5">
+																<button type="button" class="btn btn-primary" uib-dropdown-toggle>
+																	<i class="fa fa-mail-forward"></i>
+																	forward
+																</button>									 
+																<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																	<button type="button" class="btn btn-primary" uib-dropdown-toggle>
+																		<span class="caret"></span>
+																	</button>
+																	<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+																		<li><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent"> Forward To Agent</a>
+																			<div class="btn-list-options form-group" ng-show="selectAgent">
+																				<select class="form-control">
+																					<option>Select an agent</option>
+																				</select>  
+																				<button class="btn btn-primary btn-xs">Assign To Selected Agent</button> 
+																			</div>    
+																		</li>
+																		<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+																		<li><a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment"> Forward To Segment</a>
+																			<div class="btn-list-options form-group" ng-show="forwardSegment">
+																				<select class="js-example-templating js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+																					<optgroup label="QA" data-select2-id="6">
+																						<option value="default mailbox" data-select2-id="5"> -- Default Mailbox --</option>
+																						<option value="qoute" data-select2-id="7">Qoute</option>
+																					</optgroup>
+																				</select>
+																				<button class="btn btn-primary btn-xs">Forward Now</button> 
+																			</div>   
+																		</li>
+																		<li><a href="javascript:void(0)" class="text-primary"> Forward To External Segment</a></li>
+																	</ul>
+																</div>
+															</div>
+															<div class="btn-group dropdown margin-r-5">
+																	<button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
+																	Save</button>										 
+																	<div class="btn-group">
+																		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+																		<span class="caret"></span></button>
+																		<ul class="dropdown-menu" role="menu">
+																				<li><a href="#">Private Note</a></li>
+																				<li><a href="#">Public Note</a></li>
+																		</ul>
+																	</div>
+															</div>
+															<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																<button class="btn btn-primary" title="Spam"  uib-dropdown-toggle>
+																	<i class="fa  fa-arrows-alt"></i>
+																	Change Topic
+																</button>
+																<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																	<li>
+																			<select class="selectpicker form-control" multiple>
+																					<option>e-shop -- All Topics(0)</option>
+																					<option>.._Feedback (2)</option>
+																					<option>.._Newsletter Subscription (0)</option>
+																					<option>.._Spam (0)</option>
+																					<option>.._Undeliverable (0)</option>
+																					<option>..Account Questions (0)</option>
+																					<option>....Orders (0)</option>
+																					<option>....Refunds (0)</option>
+																					<option>....Returns (0)</option>
+																					<option>..Products(0)</option>
+																					<option>....Audio-Video (0)</option>
+																					<option>....Cameras (0)</option>
+																					<option>....Cell Phones (0)</option>
+																					<option>....Computers (0)</option>
+																					<option>....Televisions(0)</option>
+																					<option>..Shipping (0)</option>
+																					<option>..Technical Support (0)</option>
+																					<option>....Open Quotes (1)</option>
+																				</select>
+																	</li>
 																</ul>
 															</div>
+															<button class="btn btn-primary" title="Spam">
+																<i class="fa fa-ban"></i>
+																Spam
+															</button>
+														</div>
+														<div class="row">
+															<div class="box">
+																<div class="box-header with-border" ng-click="isCollapsedVariable = !isCollapsedVariable" ng-init="isCollapsedVariable = true;">
+																	<h3 class="box-title">Variables & Stock Responses</h3> 
+																	<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedVariable}"></span>
+																</div>
+																<div class="box-body" uib-collapse="isCollapsedVariable" >									
+																	<div class="nav-tabs-custom">
+																		<ul class="nav nav-tabs">
+																			<li class="active"><a href="#variable-tab-update" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+																			<li><a href="#stock-response-tab-update" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+																		</ul>
+																		<div class="tab-content">
+																			<div class="tab-pane active" id="variable-tab-update">
+																				<div class="row">
+																					<div class="col-xs-12 variable-responses custom-scroll">
+																						<div>
+																							<input type="text" class="form-control" placeholder="Keyword Search">
+																						</div>
+																						<ul class="list-unstyled segment-variable-list">
+																							<li class="section-label">Contact
+																							<ul class="segment-variables">
+																								<li class="section-var-link">Name</li>
+																								<li class="segment-lable">Global
+																									<ul>
+																									<li class="section-var-link">Address1</li>
+																									<li class="section-var-link">Address2</li>
+																									<li class="section-var-link">City</li>
+																									<li class="section-var-link">Country</li>
+																									<li class="section-var-link">Company</li>
+																									</ul>
+																								</li>
+																								<li class="segment-lable">JC Segment
+																									<ul>
+																									<li class="section-var-link">Contact View Only Property</li>
+																									<li class="section-var-link">Contact Viewable and Editable Property</li>
+																									<li class="section-var-link">Multi value No Descr</li>
+																									<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																									</ul>
+																								</li>
+																							</ul>
+																							</li>
+																						</ul>
+																						<ul class="list-unstyled segment-variable-list">
+																							<li class="section-label">Answer
+																								<ul class="segment-variables">
+																									<li class="section-var-link">Email</li>
+																									<li class="section-var-link">Reference Number</li>
+																									<li class="section-var-link">Original Date</li>
+																									<li class="section-var-link">Original Time</li>
+																									<li class="section-var-link">Subject</li>
+																									<li class="section-var-link">Original Body</li>
+																									<li class="section-var-link">Quoted Question</li>
+																								</ul>
+																							</li>
+																						</ul>
+																					</div>
+																				</div>
+																			</div>
+																			<!-- /.tab-pane -->
+																			<div class="tab-pane" id="stock-response-tab-update">
+																				<div class="row">
+																					<div class="col-xs-12 stock-responses custom-scroll">
+																						<div>
+																							<input type="text" class="form-control" placeholder="Keyword Search">
+																						</div>
+																						<ul class="list-unstyled segment-variable-list">
+																							<li class="section-label">Segment Responses
+																							<ul class="segment-variables">
+																								<li class="section-var-link">Chat Closing</li>
+																								<li class="section-var-link">Chat Opening</li>
+																								<li class="section-var-link">Chat Wait</li>
+																								<li class="section-var-link">iService Website</li>
+																							</ul>
+																							</li>
+																						</ul>
+																						<ul class="list-unstyled segment-variable-list">
+																							<li class="section-label">Agent Response
+																								<ul class="segment-variables">
+																									<li class="section-var-link">Test</li>
+																									
+																								</ul>
+																							</li>
+																						</ul>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<!-- /.tab-content -->
+																	</div>
+																</div>	 
+															</div>		
+														</div>
+														<div class="row">
+															<div class="box box-success">
+																<div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail">
+																	<h3 class="box-title">Email Addresses And Subject Line</h3>
+																	<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}" ng-init="isCollapsedEmail = true;"></span>
+																</div>	
+																<div class="box-body p0" uib-collapse="isCollapsedEmail"> 	
+																	<div class="p10"> 										
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">From</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">To</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																			<div class="form-group">
+																			<label class="col-sm-2 control-label">CC</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">BCC</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">Subject</label>
+																			<div class="col-sm-4">
+																				<input class="form-control " type="text" disabled>
+																			</div>
+																			<div class="col-sm-6">
+																				<input class="form-control " type="text">
+																			</div>
+																		</div>
+																	</div>  
+																</div>	 
+															</div>		
+														</div>
 													</div>
-													<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-														<button class="btn btn-primary" title="Spam"  uib-dropdown-toggle>
-															<i class="fa  fa-arrows-alt"></i>
-															Change Topic
-														</button>
-														<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-															<li>
-																	<select class="selectpicker form-control" multiple>
-																			<option>e-shop -- All Topics(0)</option>
-																			<option>.._Feedback (2)</option>
-																			<option>.._Newsletter Subscription (0)</option>
-																			<option>.._Spam (0)</option>
-																			<option>.._Undeliverable (0)</option>
-																			<option>..Account Questions (0)</option>
-																			<option>....Orders (0)</option>
-																			<option>....Refunds (0)</option>
-																			<option>....Returns (0)</option>
-																			<option>..Products(0)</option>
-																			<option>....Audio-Video (0)</option>
-																			<option>....Cameras (0)</option>
-																			<option>....Cell Phones (0)</option>
-																			<option>....Computers (0)</option>
-																			<option>....Televisions(0)</option>
-																			<option>..Shipping (0)</option>
-																			<option>..Technical Support (0)</option>
-																			<option>....Open Quotes (1)</option>
-																		</select>
+												</div> 
+												<div class="col-md-4">
+													<div class="box box-warning  ng-scope">
+														<div class="box-header with-border">
+															<h3 class="box-title">
+															<i class="fa fa-fw fa-paperclip"></i>
+															Message Attachments
+															</h3>
+														</div>
+														<div class="box-body message-attachments">
+															<div>
+																<a href="#">Errorimage.jpg</a>, <a href="#">Errorimage2.jpg</a>
+															</div>
+														</div>	
+													</div>
+												</div>
+												<div class="col-md-12"> 
+													<div class="nav-tabs-custom">
+														<ul class="nav nav-tabs">
+															<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+															<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+															<li class="pull-right"> 
+																<p class="attach-file"> <label class="btn-bs-file">
+																	Attach files		
+																	<input type="file" />
+																</label> (xMaximum 10 MB upload at one time.)</p>
 															</li>
 														</ul>
-													</div>
-													<button class="btn btn-primary" title="Spam">
-														<i class="fa fa-ban"></i>
-														Spam
-													</button>
-												</div>
-												<div class="row">
-													<div class="box">
-														<div class="box-header with-border" ng-click="isCollapsedVariable = !isCollapsedVariable" ng-init="isCollapsedVariable = true;">
-															<h3 class="box-title">Variables & Stock Responses</h3> 
-															<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedVariable}"></span>
-														</div>
-														<div class="box-body" uib-collapse="isCollapsedVariable" >									
-															<div class="nav-tabs-custom">
-																<ul class="nav nav-tabs">
-																	<li class="active"><a href="#variable-tab-update" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-																	<li><a href="#stock-response-tab-update" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-																</ul>
-																<div class="tab-content">
-																	<div class="tab-pane active" id="variable-tab-update">
-																		<div class="row">
-																			<div class="col-xs-12 variable-responses custom-scroll">
-																				<div>
-																					<input type="text" class="form-control" placeholder="Keyword Search">
-																				</div>
-																				<ul class="list-unstyled segment-variable-list">
-																					<li class="section-label">Contact
-																					<ul class="segment-variables">
-																						<li class="section-var-link">Name</li>
-																						<li class="segment-lable">Global
-																							<ul>
-																							<li class="section-var-link">Address1</li>
-																							<li class="section-var-link">Address2</li>
-																							<li class="section-var-link">City</li>
-																							<li class="section-var-link">Country</li>
-																							<li class="section-var-link">Company</li>
-																							</ul>
-																						</li>
-																						<li class="segment-lable">JC Segment
-																							<ul>
-																							<li class="section-var-link">Contact View Only Property</li>
-																							<li class="section-var-link">Contact Viewable and Editable Property</li>
-																							<li class="section-var-link">Multi value No Descr</li>
-																							<li class="section-var-link">Shared Property from JC - cust can't see</li>
-																							</ul>
-																						</li>
-																					</ul>
-																					</li>
-																				</ul>
-																				<ul class="list-unstyled segment-variable-list">
-																					<li class="section-label">Answer
-																						<ul class="segment-variables">
-																							<li class="section-var-link">Email</li>
-																							<li class="section-var-link">Reference Number</li>
-																							<li class="section-var-link">Original Date</li>
-																							<li class="section-var-link">Original Time</li>
-																							<li class="section-var-link">Subject</li>
-																							<li class="section-var-link">Original Body</li>
-																							<li class="section-var-link">Quoted Question</li>
-																						</ul>
-																					</li>
-																				</ul>
-																			</div>
-																		</div>
-																	</div>
-																	<!-- /.tab-pane -->
-																	<div class="tab-pane" id="stock-response-tab-update">
-																		<div class="row">
-																			<div class="col-xs-12 stock-responses custom-scroll">
-																				<div>
-																					<input type="text" class="form-control" placeholder="Keyword Search">
-																				</div>
-																				<ul class="list-unstyled segment-variable-list">
-																					<li class="section-label">Segment Responses
-																					<ul class="segment-variables">
-																						<li class="section-var-link">Chat Closing</li>
-																						<li class="section-var-link">Chat Opening</li>
-																						<li class="section-var-link">Chat Wait</li>
-																						<li class="section-var-link">iService Website</li>
-																					</ul>
-																					</li>
-																				</ul>
-																				<ul class="list-unstyled segment-variable-list">
-																					<li class="section-label">Agent Response
-																						<ul class="segment-variables">
-																							<li class="section-var-link">Test</li>
-																							
-																						</ul>
-																					</li>
-																				</ul>
-																			</div>
-																		</div>
-																	</div>
+														<div class="tab-content">
+															<div class="tab-pane active" id="draftbody">
+																<div class="form-group text-editor-container">
+																	<textarea class="form-control" rows="5" placeholder="" id="massUpdateDraftBody" name="massUpdateDraftBody"><p>Hello,</p>
+										
+																		<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+																		
+																		<p>Regards,</p>
+																		
+																		<p>John Doe</p>
+																	</textarea>
 																</div>
-																<!-- /.tab-content -->
 															</div>
-														</div>	 
-													</div>		
-												</div>
-												<div class="row">
-													<div class="box box-success">
-														<div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail">
-															<h3 class="box-title">Email Addresses And Subject Line</h3>
-															<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}" ng-init="isCollapsedEmail = true;"></span>
-														</div>	
-														<div class="box-body p0" uib-collapse="isCollapsedEmail"> 	
-															<div class="p10"> 										
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">From</label>
-																	<div class="col-sm-10">
-																		<input class="form-control" type="text">
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">To</label>
-																	<div class="col-sm-10">
-																		<input class="form-control" type="text">
-																	</div>
-																</div>
-																	<div class="form-group">
-																	<label class="col-sm-2 control-label">CC</label>
-																	<div class="col-sm-10">
-																		<input class="form-control" type="text">
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">BCC</label>
-																	<div class="col-sm-10">
-																		<input class="form-control" type="text">
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">Subject</label>
-																	<div class="col-sm-4">
-																		<input class="form-control " type="text" disabled>
-																	</div>
-																	<div class="col-sm-6">
-																		<input class="form-control " type="text">
-																	</div>
-																</div>
-															</div>  
-														</div>	 
-													</div>		
-												</div>
-											</div>
-										</div> 
-										<div class="col-md-4">
-											<div class="box box-warning  ng-scope">
-												<div class="box-header with-border">
-													<h3 class="box-title">
-													<i class="fa fa-fw fa-paperclip"></i>
-													Message Attachments
-													</h3>
-												</div>
-												<div class="box-body message-attachments">
-													<div>
-														<a href="#">Errorimage.jpg</a>, <a href="#">Errorimage2.jpg</a>
-													</div>
-												</div>	
-											</div>
-										</div>
-										<div class="col-md-12"> 
-											<div class="nav-tabs-custom">
-												<ul class="nav nav-tabs">
-													<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-													<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-													<li class="pull-right"> 
-														<p class="attach-file"> <label class="btn-bs-file">
-															Attach files		
-															<input type="file" />
-														</label> (xMaximum 10 MB upload at one time.)</p>
-													</li>
-												</ul>
-												<div class="tab-content">
-													<div class="tab-pane active" id="draftbody">
-														<div class="form-group text-editor-container">
-															<textarea class="form-control" rows="5" placeholder="" id="massUpdateDraftBody" name="massUpdateDraftBody"><p>Hello,</p>
-								
+															<div class="tab-pane" id="plainhtml">
+																<p>Hello,</p>
+										
 																<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
 																
 																<p>Regards,</p>
 																
 																<p>John Doe</p>
-															</textarea>
+															</div>										   
 														</div>
 													</div>
-													<div class="tab-pane" id="plainhtml">
-														<p>Hello,</p>
-								
-														<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
-														
-														<p>Regards,</p>
-														
-														<p>John Doe</p>
-													</div>										   
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-sm-12">
-													<div class="panel panel-default form-group">
-														<div class="panel-heading">
-														<i class="fa fa-fw fa-pencil-square-o"></i>
-															Private Comments
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default form-group">
+																<div class="panel-heading">
+																<i class="fa fa-fw fa-pencil-square-o"></i>
+																	Private Comments
+																</div>
+																<div class="panel-body">
+																	<textarea class="full-width full-height"></textarea>
+																</div>
+															</div>	
 														</div>
-														<div class="panel-body">
-															<textarea class="full-width full-height"></textarea>
-														</div>
-													</div>	
+													</div>  
 												</div>
-											</div>  
+											</div>	
 										</div>
 									</div>
 								</div>
@@ -695,7 +699,7 @@ title: Manage Messages - List View
 									<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
 										<h4 class="panel-title">
 											<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
-												interaction properties
+												Interaction Properties & Details
 												<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
 											</a>
 										</h4>
