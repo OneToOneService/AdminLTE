@@ -1,7 +1,7 @@
 
 <div class="row" ng-show="getthis">  
         <div class="col-md-8 form-horizontal"> 
-            <div class="col-md-12">
+            <div class="col-md-12  form-action">
                 <div class="form-group">
                     <div class="btn-group dropdown margin-r-5">
                         <button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
@@ -28,7 +28,6 @@
                         <i class="fa  fa-check"></i>
                         Resolve
                     </button>
-
                     <div class="btn-group dropdown margin-r-5">
                         <button type="button" class="btn btn-primary" uib-dropdown-toggle>
                             <i class="fa fa-mail-forward"></i>
@@ -63,10 +62,9 @@
                             </ul>
                         </div>
                     </div>
-                   
                     <div class="btn-group dropdown margin-r-5">
                             <button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
-                            Send</button>										 
+                            Save</button>										 
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 <span class="caret"></span></button>
@@ -75,8 +73,8 @@
                                         <li><a href="#">Public Note</a></li>
                                 </ul>
                             </div>
-                        </div>
-                    <div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                    </div>
+                    <div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
                         <button class="btn btn-primary" title="Spam"  uib-dropdown-toggle>
                             <i class="fa  fa-arrows-alt"></i>
                             Change Topic
@@ -110,7 +108,6 @@
                         <i class="fa fa-ban"></i>
                         Spam
                     </button>
-                   
                 </div>
                 <div class="row">
                     <div class="box interaction-property-box">
@@ -150,7 +147,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
                                 </div>
                             </form>		
                         </div>	 
@@ -171,7 +168,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="variable-tab">
                                         <div class="row" id="variable-box">
-                                            <div class="col-xs-12 variable-responses custom-scroll-inbox">
+                                            <div class="col-xs-12 variable-responses custom-scroll">
                                                 <div>
                                                     <input type="text" class="form-control" placeholder="Keyword Search">
                                                 </div>
@@ -250,53 +247,52 @@
                     </div>		
                 </div>
                 <div class="row">
-                        <div class="box">
-                            <div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail"  ng-init="isCollapsedEmail = true;">
-                                <h3 class="box-title">Email Addresses And Subject Line</h3> 
-                                <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}"></span>
+                    <div class="box">
+                        <div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail"  ng-init="isCollapsedEmail = true;">
+                            <h3 class="box-title">Email Addresses And Subject Line</h3> 
+                            <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}"></span>
+                        </div>
+                        <div class="box-body" uib-collapse="isCollapsedEmail" >									
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">From</label>
+                                <div class="col-sm-10">
+                                <input class="form-control" type="text" value="Support@1to1service.com">
+                                </div>
                             </div>
-                            <div class="box-body" uib-collapse="isCollapsedEmail" >									
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">From</label>
-                                    <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="Support@1to1service.com">
-                                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">To</label>
+                                <div class="col-sm-10">
+                                <input class="form-control" type="text" value="john.doe@example.com">
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">To</label>
-                                    <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="john.doe@example.com">
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">CC</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" >
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">CC</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" >
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">BCC</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" >
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">BCC</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" >
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Subject</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="text" value="Ref#: 1006-1009"  disabled>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Subject</label>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" type="text" value="Ref#: 1006-1009"  disabled>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="text" value="looking for low cost tv">
-                                    </div>
+                                <div class="col-sm-6">
+                                    <input class="form-control" type="text" value="looking for low cost tv">
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-2">
-                                    </div>
-                                </div> 
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                </div>
+                            </div> 
                         </div>	 
-                        </div>		
-                    </div>
-    
+                    </div>		
+                </div>
             </div>    
         </div> 
         <div class="col-md-4">
@@ -314,7 +310,6 @@
                 </div>
             </div>
         </div>
-      
         <div class="col-md-12"> 
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
@@ -324,7 +319,7 @@
                         <p class="attach-file"> <label class="btn-bs-file">
                             Attach files		
                             <input type="file" />
-                        </label> (Maximum 10 MB upload at one time.)</p>
+                        </label> (xMaximum 10 MB upload at one time.)</p>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -384,5 +379,4 @@
         });
         $(".js-example-templating").select2({
         });
-       
 </script>    
