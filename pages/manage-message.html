@@ -209,12 +209,12 @@ title: Manage Messages - List View
 														<div class="box-body" uib-collapse="isCollapsedVariable" >									
 															<div class="nav-tabs-custom">
 																<ul class="nav nav-tabs">
-																	<li class="active"><a href="#variable-tab" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-																	<li><a href="#stock-response-tab" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+																	<li class="active"><a href="#variable-tab-update" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
+																	<li><a href="#stock-response-tab-update" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
 																</ul>
 																<div class="tab-content">
-																	<div class="tab-pane active" id="variable-tab">
-																		<div class="row" id="variable-box">
+																	<div class="tab-pane active" id="variable-tab-update">
+																		<div class="row">
 																			<div class="col-xs-12 variable-responses custom-scroll">
 																				<div>
 																					<input type="text" class="form-control" placeholder="Keyword Search">
@@ -260,8 +260,8 @@ title: Manage Messages - List View
 																		</div>
 																	</div>
 																	<!-- /.tab-pane -->
-																	<div class="tab-pane" id="stock-response-tab">
-																		<div class="row" id="stock-responses">
+																	<div class="tab-pane" id="stock-response-tab-update">
+																		<div class="row">
 																			<div class="col-xs-12 stock-responses custom-scroll">
 																				<div>
 																					<input type="text" class="form-control" placeholder="Keyword Search">
@@ -348,7 +348,7 @@ title: Manage Messages - List View
 													Message Attachments
 													</h3>
 												</div>
-												<div class="box-body">
+												<div class="box-body message-attachments">
 													<div>
 														<a href="#">Errorimage.jpg</a>, <a href="#">Errorimage2.jpg</a>
 													</div>
@@ -994,11 +994,8 @@ title: Manage Messages - List View
 	  });
 	  
 	   // SLIMSCROLL FOR CHAT WIDGET
-	  $('#variable-box,#variable-box2,#variable-box3,#variable-box4,#variable-box5,#variable-box6').slimScroll({
-			height: '250px'
-	  });
-	  $('#stock-responses,#stock-responses2,#stock-responses3,#stock-responses4,#stock-responses5,#stock-responses6').slimScroll({
-			height: '250px'
+	  $('.custom-scroll').slimScroll({
+		height: '250px'
 	  });
 	  $('.message-attachments').slimScroll({
             height: '178px'
