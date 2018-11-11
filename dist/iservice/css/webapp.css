@@ -1726,3 +1726,9 @@ label .icheckbox_square-blue {
 .login-box-body a > .btn-link {
   padding: 3px 10px;
 }
+.formstep {
+  margin: 5px 0px;
+}
+.box-bg-white {
+  background: #ffffff;
+}

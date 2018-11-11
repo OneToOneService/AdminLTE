@@ -479,34 +479,34 @@ title: Admin tools - Forms
 									<div class="box-body">
 										<section class="search-parameters">
 											<div class="form-horizontal">
-												<div class="col-md-6">
+												<div class="col-md-3">
 													<div class="form-group">
-														<label for="inputPassword3" class="col-sm-4 control-label text-left">Form Name</label>
-														<div class="col-sm-8">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Form Name</label>
+														<div class="col-sm-12">
 															<input type="text" class="form-control">
 														</div>
 													</div>
 												</div>
-												<div class="col-md-6">
+												<div class="col-md-3">
 													<div class="form-group">
-														<label for="inputPassword3" class="col-sm-4 control-label text-left">Description</label>
-														<div class="col-sm-8">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+														<div class="col-sm-12">
 															<input type="text" class="form-control">
 														</div>
 													</div>
 												</div>
-												<div class="col-md-6">
+												<div class="col-md-3">
 													<div class="form-group">
-														<label for="inputPassword3" class="col-sm-4 control-label text-left">Submission Success Redirect URL</label>
-														<div class="col-sm-8">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Submission Success Redirect URL</label>
+														<div class="col-sm-12">
 															<input type="text" class="form-control">
 														</div>
 													</div>
 												</div>
-												<div class="col-md-6">
+												<div class="col-md-3">
 													<div class="form-group">
-														<label for="inputPassword3" class="col-sm-4 control-label text-left">Is Registration</label>
-														<div class="col-sm-8">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Is Registration</label>
+														<div class="col-sm-12">
 															<input  class="flat-red" type="checkbox">
 														</div>
 													</div>
@@ -585,7 +585,7 @@ title: Admin tools - Forms
 																<h3 class="box-title ng-binding">Actions</h3>
 															</div>			
 															<div class="box-body">
-																<section class="container-fluid search-parameters">
+																<section class="container-fluid search-parameters" id="action-container" ng-show="showAction">
 																	<fieldset class="row action">
 																		<div class="panel panel-default col-xs-12 bg-gray-light">
 																			<div class="row mtop-15">
@@ -595,7 +595,7 @@ title: Admin tools - Forms
 																							<div class="form-group">
 																								<label  class="col-sm-4 control-label text-left">Run action if field</label>
 																								<div class="col-sm-8">
-																									<input type="email" class="form-control" placeholder="Email">
+																									<input type="email" class="form-control" placeholder="">
 																								</div>
 																							</div>
 																						</div>
@@ -603,7 +603,7 @@ title: Admin tools - Forms
 																							<div class="form-group">
 																								<label class="col-sm-4 control-label text-left">Matches regex</label>
 																								<div class="col-sm-8">
-																									<input type="email" class="form-control"  placeholder="Email">
+																									<input type="email" class="form-control"  placeholder="">
 																								</div>
 																							</div>
 																						</div>	
@@ -616,7 +616,273 @@ title: Admin tools - Forms
 																				</div>	
 																			</div>
 																			<hr>
-																			<div class="row formstep">
+																			<div class="col-md-12 formstep box-bg-color" style="padding-top:15px;" ng-show="formActionStep1">
+																				<div class="col-md-10"> 
+																					<div class="row">
+																						<div class="col-md-6">
+																							<div class="form-group">
+																								<label class="col-sm-4 control-label text-left">Pick a step type...</label>
+																								<div class="col-sm-8">
+																									<select class="form-control" id="" ng-change="showStepType();" ng-model="stepValue">
+																										<option value="choose">Choose A Type...</option>
+																										<optgroup label="Forms Actions">
+																											<option value="adminForms">Admin Forms</option>
+																											<option value="adminWebsites">Admin Websites</option>
+																											<option value="captchaVerify">Captcha Verify</option>
+																											<option value="chatCreate">Chat Create</option>
+																											<option value="chatEnd">Chat End</option>
+																											<option value="chatForward">Chat Forward</option>
+																											<option value="chatGetNext">Chat Get Next</option>
+																											<option value="chatKeepAlive">Chat Keep Alive</option>
+																											<option value="chatSend">Chat Send</option>
+																											<option value="chatToggleAvailability">Chat Toggle Availability</option>
+																											<option value="agentEmail">Create Agent Email</option>
+																											<option value="note">Create Note</option>
+																											<option value="ticket">Create Ticket/Ask A Question</option>
+																											<option value="contactFindCreate">Find/Create Contact</option>
+																											<option value="customerInfoDetails">Customer Info Set Details</option>
+																											<option value="interactionHistoryProperties">Interaction Set Properties</option>
+																											<option value="logout">Logout</option>
+																											<option value="messageQueueGetApprove">Message Queue Get Approve</option>
+																											<option value="messageQueueGetNext">Message Queue Get Next</option>
+																											<option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
+																											<option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
+																											<option value="messageQueueQAReject">Message Queue QA Reject</option>
+																											<option value="messageQueueChangeTopic">Message Queue Change Topic</option>
+																											<option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
+																											<option value="messageQueueSaveDraft">Message Queue Save Draft</option>
+																											<option value="messageQueueAssign">Message Queue Assign To Agent</option>
+																											<option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
+																											<option value="messageQueueForwardExternal">Message Queue Forward To External Agent</option>
+																											<option value="messageQueueSaveNote">Message Queue Save Note</option>
+																											<option value="messageQueueSend">Message Queue Send</option>
+																											<option value="myAccountSubscriptions">My Account Subscriptions</option>
+																											<option value="myAccountDetails">My Account Details</option>
+																											<option value="passwordResetSend">Password Reset Send</option>
+																										</optgroup>
+																										<optgroup label="Filter Actions">
+																											<option value="interactionSetParent">Change Interaction Parent</option>
+																											<option value="changeTopic">Change Topic</option>
+																											<option value="filter">Filter</option>
+																											<option value="forwardExternal">Forward External</option>
+																											<option value="interactionResolve">Resolve Interaction</option>
+																											<option value="roundRobin">Round Robin Assignment</option>
+																											<option value="selectAgents">Select Agents</option>
+																											<option value="sendAutoResponse">Send Auto Response</option>
+																											<option value="interactionPropertySet">Set Interaction Property</option>
+																										</optgroup>
+																										<optgroup label="Alerts Actions">
+																											<option value="interactionResolve">Resolve Interaction</option>
+																											<option value="selectAgents">Select Agents</option>
+																											<option value="sendAutoResponse">Send Auto Response</option>
+																											<option value="interactionPropertySet">Set Interaction Property</option>
+																										</optgroup>
+																									</select>
+																								</div>
+																							</div>
+																						</div>
+																					</div>	
+																				   <!--Step type action start-->
+																					<div class="row formstep box-bg-white" ng-show="subFormActionStepType1">
+																						<div class="col-md-12">
+																							<h4>Create Agent Email</h4>
+																						</div>
+																						<div class="col-md-12">
+																							<div class="row">
+																								<div class="col-md-6">	
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Send As Secure Email </label>
+																										<div class="col-sm-8">
+																											<input type="checkbox" class="form-control flat-red">	
+																										</div>																									
+																									</div>
+																								</div>
+																								<div class="col-md-6">	
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Notification ID:</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Expect Customer Response</label>
+																										<div class="col-sm-8">
+																											<input type="checkbox" class="form-control flat-red">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">From Mailbox ID</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">To Contact ID</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Contact Email Address </label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																										</div>
+																									</div>
+																								</div>		
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Parent Interaction ID</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">CC</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">BCC</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Subject</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																										</div>
+																									</div>
+																								</div>	
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Topic Id</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Add Reference Number To Subject Line</label>
+																										<div class="col-sm-8">
+																											<input type="checkbox" class="form-control flat-red">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Generate Only A Plain Text Body</label>
+																										<div class="col-sm-8">
+																												<input type="checkbox" class="form-control flat-red">
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-12">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Form Body</label>
+																										<div class="col-sm-12">
+																											<textarea class="form-control" rows="5" placeholder="" id="agentEmailAction" name="agentEmailAction"></textarea>
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Note:</label>
+																										<div class="col-sm-8">
+																											<textarea class="form-control" rows="5"></textarea>
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Property Group</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																											<small  class="text-muted">
+																											*Specified with $input ... -group'xxx'$
+																											</small>
+																										</div>
+																									</div>
+																								</div>
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Full Creation Parameters (JSON)</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																											<a href="javascript:void(0)" ng-click="showFormat= !showFormat">Format</a>
+																										</div>
+																										<div class="col-md-12" ng-show="showFormat">
+																												
+																												<samp><i>details</i> := { "contactID": "string",  "inResponseToID": "string",
+																														  "segmentID": "string",
+																														  "mailboxID": "string",
+																														  "topicID": "string",
+																														  "destEmail": "string",
+																														  "cc": "string",
+																														  "bcc": "string",
+																														  "subject": "string",
+																														  "addSubjectRefNum": bool,
+																														  "body": "string",
+																														  "bodyHtml": "string",
+																														  "note": "string",
+																														  "autoGenerateHtmlIfMising": bool,
+																														  "action": number, //1 = Agent Email, 2 = Secure Email
+																														  "notificationID": "string",
+																														  "expectingResponse": bool,
+																														  "properties": 
+																														  [ { "propertyID", "string",
+																															  "values":
+																															  [ { "description": "string",
+																																  "value": "string",
+																																  "valueDate": "/Date(date.getTime())/"
+																															  } ]
+																														  } ]
+																														}</samp>
+																																																			</div>	
+																									</div>
+																								</div>	
+																								<div class="col-md-6">
+																									<div class="form-group">
+																										<label class="col-sm-4 control-label text-left">Result Name</label>
+																										<div class="col-sm-8">
+																											<input type="text" class="form-control"  placeholder="">
+																											<small  class="text-muted">
+																												*Can be referenced in other steps as $result -id'name'$
+																											</small>
+																										</div>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																					<!--Step type action end-->
+																				</div>
+																				<div class="col-md-2">
+																					<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
+																					<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
+																					<button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
+																							<i class="fa fa-times-circle text-red"></i>
+																					</button>
+																				</div>
+																			</div>
+
+																			<div class="col-md-12 formstep box-bg-color" style="padding-top:15px;" ng-show="formActionStep1">
 																				<div class="col-md-10"> 
 																					<div class="row">
 																						<div class="col-md-6">
@@ -691,65 +957,10 @@ title: Admin tools - Forms
 																					</button>
 																				</div>		
 																			</div>
-																			<hr>
-																			<div class="row formstep">
-																				<div class="col-md-12">
-																					<h4>Admin Website</h4>
-																				</div>
-																				<div class="col-md-10">
-																					<div class="row">
-																						<div class="col-md-6">	
-																							<div class="form-group">
-																								<label class="col-sm-4 control-label text-left">Mode</label>
-																								<div class="col-sm-8">
-																									<input type="text" class="form-control"  placeholder="Email">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="col-md-6">	
-																							<div class="form-group">
-																								<label class="col-sm-4 control-label text-left">Website ID</label>
-																								<div class="col-sm-8">
-																									<input type="text" class="form-control"  placeholder="Mode">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="col-md-6">
-																							<div class="form-group">
-																								<label class="col-sm-4 control-label text-left">Details</label>
-																								<div class="col-sm-8">
-																									<input type="text" class="form-control"  placeholder="Details">
-																									<small  class="text-muted">
-																											<a href="">Format</a>
-																									</small>
-																								</div>
-																							</div>
-																						</div>
-																						<div class="col-md-6">
-																							<div class="form-group">
-																								<label class="col-sm-4 control-label text-left">Result</label>
-																								<div class="col-sm-8">
-																									<input type="text" class="form-control"  placeholder="Result">
-																									<small  class="text-muted">
-																										*Can be referenced in other steps as $result -id'name'$
-																										
-																									</small>
-																								</div>
-																							</div>
-																						</div>	
-																					</div>
-																				</div>
-																				<div class="col-md-2">
-																					<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
-																					<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
-																					<button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
-																							<i class="fa fa-times-circle text-red"></i>
-																					</button>
-																				</div>		
-																			</div>	
-																			<hr>
+																			
+																			
 																			<div class="row">
-																				<button class="btn btn-lg btn-link pull-left" type="button">
+																				<button class="btn btn-lg btn-link pull-left" type="button" ng-click="addStep();">
 																					<i class="fa fa-plus-circle text-light-blue"></i>
 																					Add Steps
 																				</button>
@@ -757,13 +968,13 @@ title: Admin tools - Forms
 																		</div>
 																	</fieldset>
 																</section>
-															</div>
-															<div class="row">
-																	<button class="btn btn-lg btn-link" type="button">
+																<div class="row">
+																	<button class="btn btn-lg btn-link" type="button" ng-click="addAction();">
 																		<i class="fa fa-plus-circle text-light-blue"></i>
 																		Add Actions
 																	</button>
 																</div>
+															</div>
 														</div>
 													</div>
 												</div>	
@@ -1308,6 +1519,8 @@ title: Admin tools - Forms
 	  	$('.custom-scroll').slimScroll({
 			height: '490px'
 		});
+		CKEDITOR.replace('agentEmailAction', {height:200});
+       
     });
     
 	
@@ -1363,8 +1576,19 @@ title: Admin tools - Forms
 					else	
 					   $scope['formstep'+i] = false;
 				}
-			};	
-			
+			};
+
+			//action button click events
+            var actionClickCount = 0;
+			$scope.addAction = function(actionClickCount){
+				$scope.showAction = true;
+			}
+			$scope.addStep = function(){
+				$scope.formActionStep1 = true;
+			}
+			$scope.showStepType = function(){
+				$scope.subFormActionStepType1 = true;
+			}
 	});	 
 </script>
 
