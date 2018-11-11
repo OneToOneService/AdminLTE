@@ -1,97 +1,71 @@
-﻿<!DOCTYPE html>
-<html>
+---
+title: Password Reset
+---
+<!DOCTYPE html>
+<html ng-app="iService">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/dist/iservice/css/webapp.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <!-- Google Font
-<svg>
-          <use xlink:href="/dist/img/logo.svg#iservice-logo" />
-        </svg>
-        <b>Service</b>
-  -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  {% include common-head.html %}
 </head>
 <body class="hold-transition login-page login-bg">
   <div class="login-box">
     <div class="login-logo">
       <a href="../../index2.html">
-        <img src="/dist/img/logos/newlogo/1to1newlogosm.png" width="210px;">
+        <svg>
+          <use xlink:href="/dist/img/logo.svg#iservice-logo" />
+        </svg>
+        <b>Service</b>
       </a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
-      <form action="../../index2.html" method="post">
-        <div class="form-group has-feedback">
-          <input class="form-control" placeholder="Login Name">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="row">
-          <div class="col-xs-8">
-            <button type="button" class="btn btn-link">I forgot my password</button>
+        <p class="login-box-msg">Sign in to start your session</p>
+  
+        <form action="../../index2.html" method="post">
+          <div class="form-group has-feedback">
+            <input class="form-control" placeholder="Login Name">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
-          <!-- /.col -->
-          <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
-          <!-- /.col -->
+          <div class="row">
+            <div class="col-xs-8">
+              <a href="/pages/examples/register.html">
+                <button type="button" class="btn btn-link">Register</button>
+              </a> |
+              <a href="/pages/examples/forget-password.html">
+                <button type="button" class="btn btn-link">Forgot Password</button>
+              </a>  
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+        <div class="social-auth-links text-center">
+          <p>- OR -</p>
+          <a href="#" class="btn btn-block btn-social btn-microsoft btn-flat">
+            <i class="fa  fa-windows"></i> Sign in using
+            Microsoft
+          </a>
+          <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+            <i class="fa fa-google-plus"></i> Sign in using
+            Google+
+          </a>
         </div>
-      </form>
-
-      <div class="social-auth-links text-center">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-social btn-microsoft btn-flat">
-          <i class="fa  fa-windows"></i> Sign in using
-          Microsoft
-        </a>
-        <a href="#" class="btn btn-block btn-social btn-google btn-flat">
-          <i class="fa fa-google-plus"></i> Sign in using
-          Google+
-        </a>
+        <!-- /.social-auth-links -->
       </div>
-      <!-- /.social-auth-links -->
-    </div>
     <!-- /.login-box-body -->
     <div class="copy-text">
-      © 2008-2017 One-to-One Service.com. All rights reserved.<br>
-      Powered by <a href="">iService</a> Version: 7.6.101 - 2017.07.09 - 20:04:20
-      <a href=""> Anti-Spam Policy</a>
+       &copy; 2008-{{ site.time | date: '%Y' }} One-to-One Service.com. All rights reserved.
+       <span>Powered by iService Version: 8.0 - {{ site.time | date: '%Y.%m.%d - %H:%M:%S' }}</span>
     </div>
   </div>
   <!-- /.login-box -->
-  <!-- jQuery 3.1.1 -->
-  <script src="../../plugins/jQuery/jquery-3.1.1.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
-  <script src="../../bootstrap/js/bootstrap.min.js"></script>
-  <!-- iCheck -->
-  <script src="../../plugins/iCheck/icheck.min.js"></script>
+  {% include common-javascript.html %}
   <script>
     $(function ()
     {

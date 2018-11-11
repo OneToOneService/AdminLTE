@@ -1720,3 +1720,9 @@ label .icheckbox_square-blue {
 .bg-box {
   padding: 15px;
 }
+.login-box-body ul {
+  padding-left: 15px;
+}
+.login-box-body a > .btn-link {
+  padding: 3px 10px;
+}
