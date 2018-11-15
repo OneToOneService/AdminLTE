@@ -162,9 +162,8 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
         if (firstVal !== undefined) createdEditor.setData(firstVal);
       }
 
-      var stopWatchForInitial = $scope.$watch(function ()
-      {
-        return ngModel ? ngModel.$modelValue : null;
+      var stopWatchForInitial = $scope.$watch(function () {
+        return ngModel.$modelValue;
       },
       function (newval, oldval) {
         if (newval === undefined) return;
@@ -176,7 +175,7 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
         CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
         if (isChrome) CKEDITOR.config.extraPlugins = 'pastebase64';
         CKEDITOR.config.entities_additional = '';
-        //CKEDITOR.config.contentsCss = rootPath + 'css/ckeditor.css';
+        CKEDITOR.config.contentsCss = rootPath + 'css/ckeditor.css';
         CKEDITOR.config.extraAllowedContent = 'img[alt,!src]{width,height}';
         CKEDITOR.config.disableNativeSpellChecker = false;
         var ck = CKEDITOR.replace(attr.id, options);
@@ -184,22 +183,14 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
         ck.on('instanceReady', function () {
           ck.resize('100%', $window.getComputedStyle(elm[0]).height, true);
           EditorReady(ck);
-
-          if(ngModel)
-          {
-            ngModel.$render = function (value)
-            {
-              ck.setData(ngModel.$modelValue);
-            };
-            ck.on('change', function ()
-            {
-              $timeout(function ()
-              {
-                ngModel.$setViewValue(ck.getData());
-              }, 0);
-            });
-          }
-
+          ngModel.$render = function (value) {
+            ck.setData(ngModel.$modelValue);
+          };
+          ck.on('change', function () {
+            $timeout(function () {
+              ngModel.$setViewValue(ck.getData());
+            }, 0);
+          });
           if (isFirefox) {
             this.commands.maximize.on('exec', function (evt) {
               if (evt.sender.state === CKEDITOR.TRISTATE_ON) {
@@ -221,7 +212,7 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
       function loadPasteImages() {
         var loc = window.location;
         var pathname = loc.pathname;
-        var dir = rootPath + 'dist/iservice/js/pastebase64.js';
+        var dir = loc.origin + pathname.substring(0, pathname.lastIndexOf('/') + 1) + rootPath + 'js/pastebase64.js';
         CKEDITOR.plugins.addExternal('pastebase64', dir, '');
       }
       function refreshCursor(editor) {
