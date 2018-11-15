@@ -330,7 +330,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="draftbody">
                         <div class="form-group text-editor-container">
-                            <textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"><p>Hello,</p>
+                            <textarea id="editor1" class="form-control" rows="5" placeholder="" ckeditor><p>Hello,</p>
 
                                 <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
                                 
@@ -371,17 +371,12 @@
 		<!--Message history-->
 </div>
 <script>
-       $('input[type="checkbox"].flat-red').iCheck({
-			checkboxClass: 'icheckbox_square-blue',
-			radioClass: 'iradio_flat-green'
-    	});
-        CKEDITOR.replace('editor1', {height:400});
-        $('.custom-scroll-inbox').slimScroll({
-            height: '250px'
-        });
-        $('.message-attachments').slimScroll({
-            height: '178px'
-        });
-        $(".js-example-templating").select2({
-        });
+  //$('.custom-scroll-inbox').slimScroll({
+  //  height: '250px'
+  //});
+  //$('.message-attachments').slimScroll({
+  //  height: '178px'
+  //});
+  //$(".js-example-templating").select2({
+  //});
 </script>    
