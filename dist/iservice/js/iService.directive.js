@@ -1,31 +1,41 @@
 
 var iServiceDirective = angular.module('iService.directive', []);
-iServiceDirective.directive('pasteTarget', function ($timeout) {
+iServiceDirective.directive('pasteTarget', function ($timeout)
+{
   return {
     restrict: 'A',
-    link: function (scope, element, attrs) {
-      var PollSelection = function () {
-        if (elementContainsSelection(element[0]) == false) return;
+    link: function (scope, element, attrs)
+    {
+      var PollSelection = function ()
+      {
+        if(elementContainsSelection(element[0]) == false) return;
         scope.$apply(attrs.pasteTarget);
         $timeout(PollSelection, 100);
       };
-      element.bind('focus', function () {
+      element.bind('focus', function ()
+      {
         $timeout(PollSelection);
       });
     }
   };
-}).directive('ngEnter', function () {
-  return function (scope, element, attrs) {
-    element.bind('keydown keypress', function (event) {
-      if (event.which === 13) {
-        scope.$apply(function () {
+}).directive('ngEnter', function ()
+{
+  return function (scope, element, attrs)
+  {
+    element.bind('keydown keypress', function (event)
+    {
+      if(event.which === 13)
+      {
+        scope.$apply(function ()
+        {
           scope.$eval(attrs.ngEnter);
         });
         event.preventDefault();
       }
     });
   };
-}).directive('asyncImageButton', function () {
+}).directive('asyncImageButton', function ()
+{
   return {
     restrict: 'A',
     scope: {
@@ -35,69 +45,86 @@ iServiceDirective.directive('pasteTarget', function ($timeout) {
       RootPath: '&rootPath'
     },
     template: '<button type="button" class="async-image-button" ng-click="Click()" ng-disabled="Running()">' +
-                '<img ng-src="{{RootPath()}}images/nothing.png" alt="{{ Tooltip() }}" title="{{ Tooltip() }}">' +
-                '<div grey-out ng-show="Running()"></div>' +
-              '</button>'
+      '<img ng-src="{{RootPath()}}images/nothing.png" alt="{{ Tooltip() }}" title="{{ Tooltip() }}">' +
+      '<div grey-out ng-show="Running()"></div>' +
+      '</button>'
   };
-}).directive('greyOut', function () {
+}).directive('greyOut', function ()
+{
   return {
     restrict: 'A',
     template: '<div class="cover-button"><div class="grey-out"></div></div>'
   };
-}).directive('contenteditable', ['$sce', function ($sce) {
+}).directive('contenteditable', ['$sce', function ($sce)
+{
   return {
     restrict: 'A',
     require: '?ngModel',
-    link: function (scope, element, attrs, ngModel) {
-      if (!ngModel) return;
-      ngModel.$render = function () {
+    link: function (scope, element, attrs, ngModel)
+    {
+      if(!ngModel) return;
+      ngModel.$render = function ()
+      {
         element.html($sce.getTrustedHtml(ngModel.$viewValue || ''));
       };
-      element.on('blur keyup change', function () {
+      element.on('blur keyup change', function ()
+      {
         scope.$apply(read);
       });
-      function read() {
+      function read()
+      {
         var html = element.html();
-        if (attrs.stripBr && html == '<br>') {
+        if(attrs.stripBr && html == '<br>')
+        {
           html = '';
         }
         ngModel.$setViewValue(html);
       }
     }
   };
-} ]).directive('checklistModel', ['$parse', '$compile', function ($parse, $compile) {
+}]).directive('checklistModel', ['$parse', '$compile', function ($parse, $compile)
+{
   //http://vitalets.github.io/checklist-model/checklist-model.js
-  function contains(arr, item, comparator) { if (angular.isArray(arr)) { for (var i = arr.length; i--; ) { if (comparator(arr[i], item)) { return true; } } } return false; }
-  function add(arr, item, comparator) { arr = angular.isArray(arr) ? arr : []; if (!contains(arr, item, comparator)) { arr.push(item); } return arr; }
-  function remove(arr, item, comparator) { if (angular.isArray(arr)) { for (var i = arr.length; i--; ) { if (comparator(arr[i], item)) { arr.splice(i, 1); break; } } } return arr; }
-  function postLinkFn(scope, elem, attrs) {
+  function contains(arr, item, comparator) { if(angular.isArray(arr)) { for(var i = arr.length; i--;) { if(comparator(arr[i], item)) { return true; } } } return false; }
+  function add(arr, item, comparator) { arr = angular.isArray(arr) ? arr : []; if(!contains(arr, item, comparator)) { arr.push(item); } return arr; }
+  function remove(arr, item, comparator) { if(angular.isArray(arr)) { for(var i = arr.length; i--;) { if(comparator(arr[i], item)) { arr.splice(i, 1); break; } } } return arr; }
+  function postLinkFn(scope, elem, attrs)
+  {
     $compile(elem)(scope);
     var getter = $parse(attrs.checklistModel);
     var setter = getter.assign;
     var checklistChange = $parse(attrs.checklistChange);
     var value = $parse(attrs.checklistValue)(scope.$parent);
     var comparator = angular.equals;
-    if (attrs.hasOwnProperty('checklistComparator')) {
+    if(attrs.hasOwnProperty('checklistComparator'))
+    {
       comparator = $parse(attrs.checklistComparator)(scope.$parent);
     }
-    scope.$watch('checked', function (newValue, oldValue) {
-      if (newValue === oldValue) { return; }
+    scope.$watch('checked', function (newValue, oldValue)
+    {
+      if(newValue === oldValue) { return; }
       var current = getter(scope.$parent);
-      if (newValue === true) {
+      if(newValue === true)
+      {
         setter(scope.$parent, add(current, value, comparator));
-      } else {
+      } else
+      {
         setter(scope.$parent, remove(current, value, comparator));
       }
-      if (checklistChange) {
+      if(checklistChange)
+      {
         checklistChange(scope);
       }
     });
-    function setChecked(newArr, oldArr) {
+    function setChecked(newArr, oldArr)
+    {
       scope.checked = contains(newArr, value, comparator);
     }
-    if (angular.isFunction(scope.$parent.$watchCollection)) {
+    if(angular.isFunction(scope.$parent.$watchCollection))
+    {
       scope.$parent.$watchCollection(attrs.checklistModel, setChecked);
-    } else {
+    } else
+    {
       scope.$parent.$watch(attrs.checklistModel, setChecked, true);
     }
   }
@@ -106,26 +133,29 @@ iServiceDirective.directive('pasteTarget', function ($timeout) {
     priority: 1000,
     terminal: true,
     scope: true,
-    compile: function (tElement, tAttrs) {
+    compile: function (tElement, tAttrs)
+    {
       tElement.removeAttr('checklist-model');
       tElement.attr('ng-model', 'checked');
       return postLinkFn;
     }
   };
-} ]);
+}]);
 
 CKEDITOR.replaceClass = null;
 CKEDITOR.disableAutoInline = true;
 var noBuiltinCkeditor = false;
-iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeout, $window) {
+iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeout, $window)
+{
   return {
     require: '?ngModel',
-    link: function ($scope, elm, attr, ngModel) {
-      if (noBuiltinCkeditor) return;
+    link: function ($scope, elm, attr, ngModel)
+    {
+      if(noBuiltinCkeditor) return;
       var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
       var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 
-      if (isChrome) loadPasteImages();
+      if(isChrome) loadPasteImages();
 
       var options = {
         toolbar: 'full',
@@ -142,64 +172,87 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
         width: '100%'
       };
 
-      if (CKEDITOR.instances[attr.id]) {
-        try {
+      if(CKEDITOR.instances[attr.id])
+      {
+        try
+        {
           CKEDITOR.instances[attr.id].destroy(true);
         }
-        catch (ex) { }
+        catch(ex) { }
       }
-      if (CKEDITOR.instances[attr.id]) {
+      if(CKEDITOR.instances[attr.id])
+      {
         delete CKEDITOR.instances[attr.id];
       }
 
       var createdEditor, firstVal;
-      function FirstValue(v) {
+      function FirstValue(v)
+      {
         firstVal = v;
-        if (createdEditor) createdEditor.setData(firstVal);
+        if(createdEditor) createdEditor.setData(firstVal);
       }
-      function EditorReady(e) {
+      function EditorReady(e)
+      {
         createdEditor = e;
-        if (firstVal !== undefined) createdEditor.setData(firstVal);
+        if(firstVal !== undefined) createdEditor.setData(firstVal);
       }
 
-      var stopWatchForInitial = $scope.$watch(function () {
-        return ngModel.$modelValue;
+      var stopWatchForInitial = $scope.$watch(function ()
+      {
+        return ngModel ? ngModel.$modelValue : null;
       },
-      function (newval, oldval) {
-        if (newval === undefined) return;
-        stopWatchForInitial();
-        FirstValue(newval);
-      });
+        function (newval, oldval)
+        {
+          if(newval === undefined) return;
+          stopWatchForInitial();
+          FirstValue(newval);
+        });
 
-      $timeout(function () {
+      $timeout(function ()
+      {
         CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
-        if (isChrome) CKEDITOR.config.extraPlugins = 'pastebase64';
+        if(isChrome) CKEDITOR.config.extraPlugins = 'pastebase64';
         CKEDITOR.config.entities_additional = '';
-        CKEDITOR.config.contentsCss = rootPath + 'css/ckeditor.css';
+        //CKEDITOR.config.contentsCss = rootPath + 'css/ckeditor.css';
         CKEDITOR.config.extraAllowedContent = 'img[alt,!src]{width,height}';
         CKEDITOR.config.disableNativeSpellChecker = false;
         var ck = CKEDITOR.replace(attr.id, options);
 
-        ck.on('instanceReady', function () {
+        ck.on('instanceReady', function ()
+        {
           ck.resize('100%', $window.getComputedStyle(elm[0]).height, true);
           EditorReady(ck);
-          ngModel.$render = function (value) {
-            ck.setData(ngModel.$modelValue);
-          };
-          ck.on('change', function () {
-            $timeout(function () {
-              ngModel.$setViewValue(ck.getData());
-            }, 0);
-          });
-          if (isFirefox) {
-            this.commands.maximize.on('exec', function (evt) {
-              if (evt.sender.state === CKEDITOR.TRISTATE_ON) {
-                $timeout(function () {
+
+          if(ngModel)
+          {
+            ngModel.$render = function (value)
+            {
+              ck.setData(ngModel.$modelValue);
+            };
+            ck.on('change', function ()
+            {
+              $timeout(function ()
+              {
+                ngModel.$setViewValue(ck.getData());
+              }, 0);
+            });
+          }
+
+          if(isFirefox)
+          {
+            this.commands.maximize.on('exec', function (evt)
+            {
+              if(evt.sender.state === CKEDITOR.TRISTATE_ON)
+              {
+                $timeout(function ()
+                {
                   $('body').removeAttr('contenteditable');
                   refreshCursor(CKEDITOR.instances[elm.attr('id')]);
                 }, 0);
-              } else {
-                $timeout(function () {
+              } else
+              {
+                $timeout(function ()
+                {
                   $('body').attr('contenteditable', true);
                   refreshCursor(CKEDITOR.instances.Body);
                 }, 0);
@@ -209,17 +262,21 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
         });
       });
 
-      function loadPasteImages() {
+      function loadPasteImages()
+      {
         var loc = window.location;
         var pathname = loc.pathname;
-        var dir = loc.origin + pathname.substring(0, pathname.lastIndexOf('/') + 1) + rootPath + 'js/pastebase64.js';
+        var dir = rootPath + 'dist/iservice/js/pastebase64.js';
         CKEDITOR.plugins.addExternal('pastebase64', dir, '');
       }
-      function refreshCursor(editor) {
-        if (editor.focusManager.hasFocus) {
+      function refreshCursor(editor)
+      {
+        if(editor.focusManager.hasFocus)
+        {
           var focusGrabber = editor.container.append(CKEDITOR.dom.element.createFromHtml(
-                        '<span tabindex="-1" style="position:absolute; left:-10000" role="presentation"></span>'));
-          focusGrabber.on('focus', function () {
+            '<span tabindex="-1" style="position:absolute; left:-10000" role="presentation"></span>'));
+          focusGrabber.on('focus', function ()
+          {
             editor.focus();
           });
           focusGrabber.focus();
@@ -228,13 +285,17 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
       }
     }
   };
-} ]).directive('noCkeditor', ['$interval', function ($interval) {
+}]).directive('noCkeditor', ['$interval', function ($interval)
+{
   return {
     restrict: 'A',
-    link: function ($scope, el, attr) {
+    link: function ($scope, el, attr)
+    {
       var ckInstance = el.attr('id');
-      var interval = $interval(function () {
-        if (CKEDITOR.instances[ckInstance] && CKEDITOR.instances[ckInstance].loaded) {
+      var interval = $interval(function ()
+      {
+        if(CKEDITOR.instances[ckInstance] && CKEDITOR.instances[ckInstance].loaded)
+        {
           CKEDITOR.instances[ckInstance].destroy();
           el[0].contentEditable = true;
           $interval.cancel(interval);
@@ -242,39 +303,48 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
       }, 30)
     }
   }
-} ]).directive('bindHtmlCompile', ['$compile', function ($compile) {
+}]).directive('bindHtmlCompile', ['$compile', function ($compile)
+{
   return {
     restrict: 'A',
-    link: function (scope, element, attrs) {
-      scope.$watch(function () {
+    link: function (scope, element, attrs)
+    {
+      scope.$watch(function ()
+      {
         return scope.$eval(attrs.bindHtmlCompile);
-      }, function (value) {
+      }, function (value)
+      {
         element.html(value && value.toString());
         var compileScope = scope;
-        if (attrs.bindHtmlScope) {
+        if(attrs.bindHtmlScope)
+        {
           compileScope = scope.$eval(attrs.bindHtmlScope);
         }
         $compile(element.contents())(compileScope);
       });
     }
   };
-}]).directive('iserviceCursorPosition', function () {
+}]).directive('iserviceCursorPosition', function ()
+{
   return {
     restrict: 'A',
     scope: {
       selectionStart: '=',
       selectionEnd: '='
     },
-    link: function (scope, element, attrs) {
+    link: function (scope, element, attrs)
+    {
       var currentSelectionStart,
         currentSelectionEnd;
 
-      function applyExpression(scope) {
+      function applyExpression(scope)
+      {
         scope.selectionStart = currentSelectionStart;
         scope.selectionEnd = currentSelectionEnd;
       }
 
-      element.on('keyup mouseup touchend', function () {
+      element.on('keyup mouseup touchend', function ()
+      {
         currentSelectionStart = this.selectionStart;
         currentSelectionEnd = this.selectionEnd;
 
@@ -285,12 +355,15 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
       scope.selectionEnd = element[0].selectionEnd;
     }
   };
-}).filter('htmlencode', function () {
-  return function (input) {
+}).filter('htmlencode', function ()
+{
+  return function (input)
+  {
     input = input || '';
     return htmlEscape(input);
   };
-}).directive('iserviceFocus', function () {
+}).directive('iserviceFocus', function ()
+{
   return {
     restrict: 'A',
     link: function (scope, element)
@@ -298,39 +371,40 @@ iServiceDirective.directive('ckeditor', ['$timeout', '$window', function ($timeo
       element.focus();
     }
   };
-  }).directive('adminLteTree', [function () {
-    return {
-      restrict: 'A',
-      link: function (scope, element, attributes)
-      {
-        element.tree();
-      }
+}).directive('adminLteTree', [function ()
+{
+  return {
+    restrict: 'A',
+    link: function (scope, element, attributes)
+    {
+      element.tree();
+    }
+  };
+}]).directive('input', function ($timeout)
+{
+  var checkBoxOptions = {
+    checkboxClass: 'icheckbox_square-blue'
+  },
+    radioOptions = {
+      radioClass: 'iradio_square-blue'
     };
-  }]).directive('input', function ($timeout)
-  {
-    var checkBoxOptions = {
-      checkboxClass: 'icheckbox_square-blue'
-    },
-      radioOptions = {
-        radioClass: 'iradio_square-blue'
-      };
 
-    return {
-      restrict: 'E',
-      link: function ($scope, elem, attr)
+  return {
+    restrict: 'E',
+    link: function ($scope, elem, attr)
+    {
+      switch(attr.type)
       {
-        switch(attr.type)
-        {
-          case 'checkbox':
-            elem.iCheck(checkBoxOptions);
+        case 'checkbox':
+          elem.iCheck(checkBoxOptions);
 
-            break;
+          break;
 
-          case 'radio':
-            elem.iCheck(radioOptions);
+        case 'radio':
+          elem.iCheck(radioOptions);
 
-            break;
-        }
+          break;
       }
-    };
-  });
+    }
+  };
+});

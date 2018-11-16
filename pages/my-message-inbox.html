@@ -360,7 +360,7 @@ title:  My Message Inbox
       </section>
     </div>
     <!--expanded row content start-->
-    <div id="expandedrow" style="display:none;">
+    <script id="expandedrow" type="text/ng-template">
       <div class="box box-info with-border">
         <div class="box-body table-responsive">
           <div class="nav-tabs-custom color-tab-icon">
@@ -1086,10 +1086,10 @@ title:  My Message Inbox
           </div>
         </div>
       </div>
-    </div>
+    </script>
     <!--expanded row content end-->
     <!--expanded row content start-->
-    <div id="expandedrowviewmode" style="display:none;">
+    <script id="expandedrowviewmode" type="text/ng-template">
       <!--form data start-->
       <div class="row" ng-hide="hidetrue">
         <div class="col-md-12">
@@ -1305,7 +1305,7 @@ title:  My Message Inbox
       {% include forward-copy-include.html %}
       <!--forward end-->
       <!--form data end-->
-    </div>
+    </script>
     <!--expanded row content end-->
     <!-- /.content-wrapper -->
     {% include common-footer.html %}
@@ -1536,6 +1536,7 @@ title:  My Message Inbox
     {
       $scope.dtOptions = DTOptionsBuilder
         .newOptions()
+        .withDOM('lf<"toolbar1">')
         .withOption('language', {
           search: 'Filter Inbox'
         })
