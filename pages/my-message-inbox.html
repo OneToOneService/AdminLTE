@@ -366,31 +366,31 @@ title:  My Message Inbox
           <div class="nav-tabs-custom color-tab-icon">
             <ul class="nav nav-tabs">
               <li class="active" ng-click="messageDetailTab()">
-                <a href="#tab_1" data-toggle="tab">
+                <a href="#tab_messagedetail" data-toggle="tab">
                   <i class="fa fa-navicon orange"></i>
                   <span>Message Details</span>
                 </a>
               </li>
               <li>
-                <a href="#tab_2" data-toggle="tab" ng-click="historyTab()">
+                <a href="#tab_history" data-toggle="tab" ng-click="historyTab()">
                   <i class="fa fa-history green"></i>
                   <span>History</span>
                 </a>
               </li>
               <li>
-                <a href="#tab_3" data-toggle="tab">
+                <a href="#tab_contactdetail" data-toggle="tab">
                   <i class="fa fa-ellipsis-h blue"></i>
                   <span>Contact Details</span>
                 </a>
               </li>
             </ul>
             <div class="tab-content box-bg-color">
-              <div class="tab-pane contact-summary active" id="tab_1">
+              <div class="tab-pane contact-summary active" id="tab_messagedetail">
                 <!--action this-->
                 {% include inbox-action-mode.html %}
                 <!--action this-->
               </div>
-              <div class="tab-pane" id="tab_2">
+              <div class="tab-pane" id="tab_history">
                 <div class="row" id="chrono-view" ng-show="crono" ng-init="crono = true;">
                   <div class="col-md-12">
                     <!-- Custom Tabs -->
@@ -773,7 +773,7 @@ title:  My Message Inbox
                 <!-- /.row -->
               </div>
               <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_3">
+              <div class="tab-pane" id="tab_contactdetail">
                 <div class="row">
                   <div class="col-xs-12 col-sm-9 panel-group">
                     <div class="box box-info">
