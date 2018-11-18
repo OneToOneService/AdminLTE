@@ -53,7 +53,7 @@ title: My Stock Responses
                         </tr>
                       </thead>
                       <tbody>
-                        <tr id="row1" ng-click="toggleRow('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+                        <tr id="row1" ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
                           <td>
                             1531
                           </td>
@@ -64,7 +64,7 @@ title: My Stock Responses
                             A stock TV quotation
                           </td>
                         </tr>
-                        <tr id="row2" ng-click="toggleRow('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
+                        <tr id="row2" ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
                           <td>
                             1534
                           </td>
@@ -373,19 +373,11 @@ title: My Stock Responses
   var i = 1;
   angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
   {
-    $scope.dtOptions = DTOptionsBuilder
+      $scope.dtContactHistoryOptions = DTOptionsBuilder
       .newOptions()
       .withDOM('lf<"toolbar1">')
       .withOption('language', {
-        search: 'Filter Inbox'
-      })
-      .withBootstrap();
-
-    $scope.dtContactHistoryOptions = DTOptionsBuilder
-      .newOptions()
-      .withDOM('lf<"toolbar1">')
-      .withOption('language', {
-        search: 'Filter History'
+        search: 'Filter Responses'
       })
       .withBootstrap();
 
@@ -393,37 +385,6 @@ title: My Stock Responses
       DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
     ];
    
-    $scope.showcustomform = function(){
-				$scope.customform = true;	
-				$scope.builtinform = false;
-			};
-			$scope.showbuiltinform = function(){
-				$scope.customform = false;	
-				$scope.builtinform = true;
-			};
-            
-			$scope.showWizard = function(step){
-				$scope.showwizard = true;
-			};	
-			$scope.showWizardStep = function(step){
-				$scope.cancelForm(0);
-				for(var i =1; i<=2; i++){
-					if(i == step){
-					   $scope['step'+i] = true;
-					}	   
-					else	
-					   $scope['step'+i] = false;
-				}
-			};	
-			$scope.cancelWizard = function(step){
-				for(var i =1; i<=2; i++){
-					if(i == step){
-					   $scope['step'+i] = true;
-					}	   
-					else	
-					   $scope['step'+i] = false;
-				}
-			};
 			$scope.cancelForm = function(step){
 				for(var i =1; i<=2; i++){
 					if(i == step){
@@ -435,7 +396,6 @@ title: My Stock Responses
 			};		
 
 			$scope.showNewFormStep = function(step){
-				$scope.cancelWizard(0);
 				for(var i =1; i<=2; i++){
 					if(i == step){
 					   $scope['formstep'+i] = true;
@@ -443,19 +403,12 @@ title: My Stock Responses
 					else	
 					   $scope['formstep'+i] = false;
 				}
+      };
+      
+      $scope.toggleFormStep = function(segmentName){
+        $scope[segmentName] = !$scope[segmentName];
+        $scope['formstep'+2] = !$scope['formstep'+2];
 			};
-
-			//action button click events
-            var actionClickCount = 0;
-			$scope.addAction = function(actionClickCount){
-				$scope.showAction = true;
-			}
-			$scope.addStep = function(){
-				$scope.formActionStep1 = true;
-			}
-			$scope.showStepType = function(){
-				$scope.subFormActionStepType1 = true;
-			}
   });
 
 </script>
