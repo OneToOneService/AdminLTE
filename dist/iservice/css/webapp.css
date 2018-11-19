@@ -1732,3 +1732,6 @@ label .icheckbox_square-blue {
 .box-bg-white {
   background: #ffffff;
 }
+.box-content {
+  padding: 15px;
+}
