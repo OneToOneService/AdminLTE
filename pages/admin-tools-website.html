@@ -576,9 +576,12 @@ title: Admin Tools - Websites
       };
       
       $scope.toggleFormStep = function(segmentName){
+		for(var i =1; i<=2; i++){
+			$scope['row'+i] = false;  
+		}
         $scope[segmentName] = !$scope[segmentName];
         $scope['formstep'+2] = !$scope['formstep'+2];
-			};
+		};
   });
 
 </script>
