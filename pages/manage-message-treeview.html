@@ -348,18 +348,23 @@ title: Manage Messages - Tree View
 													</div>
 												</div> 
 												<div class="col-md-4">
-													<div class="box box-warning  ng-scope">
+													<div class="box box-warning stock-responses ng-scope">
 														<div class="box-header with-border">
 															<h3 class="box-title">
-															<i class="fa fa-fw fa-paperclip"></i>
-															Message Attachments
+																<i class="fa fa-fw fa-paperclip"></i>
+																Message Attachments & Details
 															</h3>
 														</div>
 														<div class="box-body message-attachments">
+															<div class="form-group">
+																<label>Interaction Id</label>:114576
+															</div>
+															<hr>
 															<div>
+																<h4>Attachments</h4>
 																<a href="#">Errorimage.jpg</a>, <a href="#">Errorimage2.jpg</a>
 															</div>
-														</div>	
+														</div>
 													</div>
 												</div>
 												<div class="col-md-12"> 
@@ -426,7 +431,7 @@ title: Manage Messages - Tree View
 									<!-- /.box-header -->
 									<!-- form start -->
 									<div class="box-body table-responsive" ng-controller="myCtrl">
-										<table id="example1" class="table  table-striped table-hover">
+										<table id="example1" class="table  table-striped table-hover" datatable dt-options="dtContactMessagesOptions" dt-column-defs="dtContactMessagesColumnDefs">
 											<thead>
 												<tr>
 													<th class="no-sort" name="name">
@@ -572,7 +577,7 @@ title: Manage Messages - Tree View
 		</div>
 		<!-- /.content-wrapper -->
 		<!--expanded row content start-->
-		<div id="expandedrow" style="display:none;">
+		<div id="expandedrow" style="display:none;" type="text/ng-template">
 			<!--form data start-->	
 			<div class="row" ng-hide="hidetrue"> 
 				<div class="col-md-12">
@@ -954,7 +959,7 @@ title: Manage Messages - Tree View
 						<!-- /.form-group -->
 						<div class="form-group">
 							<label class="control-sidebar-subheading">
-								Delete chat history
+								Delete chat Messages
 								<a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
 							</label>
 						</div>
@@ -971,126 +976,102 @@ title: Manage Messages - Tree View
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-   
-	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-	
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-	
+
 <script>
-	 var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
-			app.controller('myCtrl', function($scope,$log) {
-				$scope.toggleRow = function (segmentName)
-				{ 
-					$scope[segmentName] = !$scope[segmentName];
-				};
-				
-		});	  
 	$(document).ready(function() {
-    // DataTable
-    var table = $('#example1').DataTable( {
-	    "language" : {
-			"search": "Filter Messages"
-		  },
-	    dom: 'Blfrtip',
-        "order": [],
-		 buttons: ['colvis' ],
-		"columnDefs": [ {
-		  "targets"  : 'no-sort',
-		  "orderable": false,
-		}]
-	});
- 
-	 $('.selectpicker').selectpicker('refresh');
+		//$('.selectpicker').selectpicker('refresh');
+		$.fn.extend({
+			treed: function (o) {
+			
+			var openedClass = 'glyphicon-minus-sign';
+			var closedClass = 'glyphicon-plus-sign';
+			
+			if (typeof o != 'undefined'){
+				if (typeof o.openedClass != 'undefined'){
+				openedClass = o.openedClass;
+				}
+				if (typeof o.closedClass != 'undefined'){
+				closedClass = o.closedClass;
+				}
+			};
+			
+				//initialize each of the top levels
+				var tree = $(this);
+				tree.addClass("tree");
+				tree.find('li').has("ul").each(function () {
+					var branch = $(this); //li with children ul
+					branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+					branch.addClass('branch');
+					branch.on('click', function (e) {
+						if (this == e.target) {
+							var icon = $(this).children('i:first');
+							icon.toggleClass(openedClass + " " + closedClass);
+							$(this).children().children().toggle();
+						}
+					})
+					branch.children().children().toggle();
+				});
+				//fire event from the dynamically added icon
+			tree.find('.branch .indicator').each(function(){
+				$(this).on('click', function () {
+					$(this).closest('li').click();
+				});
+			});
+				//fire event to open branch if the li contains an anchor instead of text
+				tree.find('.branch>a').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+				//fire event to open branch if the li contains a button instead of text
+				tree.find('.branch>button').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+			}
+		});
+		$('#tree1').treed();	
+		$('#tree1 .branch').each(function(){
+			var icon = $(this).children('i:first');
+			icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
+			$(this).children().children().toggle();
+		});	
 
-	$.fn.extend({
-		treed: function (o) {
-		  
-		  var openedClass = 'glyphicon-minus-sign';
-		  var closedClass = 'glyphicon-plus-sign';
-		  
-		  if (typeof o != 'undefined'){
-			if (typeof o.openedClass != 'undefined'){
-			openedClass = o.openedClass;
-			}
-			if (typeof o.closedClass != 'undefined'){
-			closedClass = o.closedClass;
-			}
-		  };
-		  
-			//initialize each of the top levels
-			var tree = $(this);
-			tree.addClass("tree");
-			tree.find('li').has("ul").each(function () {
-				var branch = $(this); //li with children ul
-				branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
-				branch.addClass('branch');
-				branch.on('click', function (e) {
-					if (this == e.target) {
-						var icon = $(this).children('i:first');
-						icon.toggleClass(openedClass + " " + closedClass);
-						$(this).children().children().toggle();
-					}
-				})
-				branch.children().children().toggle();
-			});
-			//fire event from the dynamically added icon
-		  tree.find('.branch .indicator').each(function(){
-			$(this).on('click', function () {
-				$(this).closest('li').click();
-			});
-		  });
-			//fire event to open branch if the li contains an anchor instead of text
-			tree.find('.branch>a').each(function () {
-				$(this).on('click', function (e) {
-					$(this).closest('li').click();
-					e.preventDefault();
-				});
-			});
-			//fire event to open branch if the li contains a button instead of text
-			tree.find('.branch>button').each(function () {
-				$(this).on('click', function (e) {
-					$(this).closest('li').click();
-					e.preventDefault();
-				});
-			});
-		}
-	});
-  $('#tree1').treed();	
-	$('#tree1 .branch').each(function(){
-		var icon = $(this).children('i:first');
-		icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
-		$(this).children().children().toggle();
-	});	
-	
-  
-    });
-	$('.custom-scroll').slimScroll({
+		$('.custom-scroll').slimScroll({
 		height: '250px'
-	});
-	$('.message-attachments').slimScroll({
-		height: '178px'
-	});
-   // SLIMSCROLL FOR CHAT WIDGET
-   
-    CKEDITOR.replace('editor5');
-	$('.selectpicker').selectpicker('refresh');
-	  //iCheck for checkbox and radio inputs
-	  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-		checkboxClass: 'icheckbox_minimal-blue',
-		radioClass: 'iradio_minimal-blue'
-	});
-	$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-        checkboxClass: 'icheckbox_square-blue',
-        radioClass: 'iradio_flat-green'
+		});
+		$('.message-attachments').slimScroll({
+			height: '178px'
+		});
+		//iCheck for checkbox and radio inputs
+		$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+			checkboxClass: 'icheckbox_minimal-blue',
+			radioClass: 'iradio_minimal-blue'
+		});
+		$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+			checkboxClass: 'icheckbox_square-blue',
+			radioClass: 'iradio_flat-green'
+		});
     });
+	
 
-	var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
-			app.controller('myCtrl', function($scope,$log,$compile) {
+	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    {
+			
+			$scope.dtContactMessagesOptions = DTOptionsBuilder
+				.newOptions()
+				.withDOM('lf<"toolbar1">')
+				.withOption('language', {
+				search: 'Filter Messages'
+				})
+				.withBootstrap();
+
+			$scope.dtContactMessagesColumnDefs = [
+				DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
+			];
 			$scope.toggleRow = function (segmentName)
 			{ 
 				for(var i = 1; i<=5;i++){
