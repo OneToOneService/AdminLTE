@@ -1513,9 +1513,6 @@ title:  My Message Inbox
       // var rowcount = (table.page.info().recordsTotal);
 
     });
-
-
-
     function stopPropagation(evt)
     {
       if(evt.stopPropagation !== undefined)
@@ -1615,24 +1612,6 @@ title:  My Message Inbox
 
       $scope.historyTab = function ()
       {
-        if(i == 1)
-        {
-          var table = $('#historyTabCaseView,#messageHistoryTable').DataTable({
-            "dom": 'lf<"toolbar">',
-            "language": {
-              "search": "Filter Inbox"
-            },
-            "order": [],
-            "columnDefs": [{
-              "targets": 'no-sort',
-              "orderable": false,
-              "width": "30px"
-            },
-            ]
-          }
-          );
-          i = i + 1;
-        }
         $scope.cancelall();
       }
       $scope.cancelall = function ()

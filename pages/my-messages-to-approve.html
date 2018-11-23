@@ -29,7 +29,7 @@ title:  My Messages To Approve
                 <div class="box box-info" id="inbox-list">
                   <div class="box-header with-border" ng-click="isCollapsedInboxList = !isCollapsedInboxList" ng-init="isCollapsedInboxList = false;">
                     <i class="fa  fa-inbox"></i>
-                    <h3 class="box-title head-title-padding">My Message Inbox</h3>
+                    <h3 class="box-title head-title-padding">My Message To Approve</h3>
                     <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedInboxList}"></span>
                   </div>
                   <!-- /.box-header -->
@@ -1513,9 +1513,6 @@ title:  My Messages To Approve
       // var rowcount = (table.page.info().recordsTotal);
 
     });
-
-
-
     function stopPropagation(evt)
     {
       if(evt.stopPropagation !== undefined)
@@ -1602,9 +1599,6 @@ title:  My Messages To Approve
         $scope[action] = !$scope[action];
         if(count == 1)
         {
-          //$('.custom-scroll').slimScroll({
-          //  height: '250px'
-          //});
           count = count + 1;
         }
       };
@@ -1615,24 +1609,6 @@ title:  My Messages To Approve
 
       $scope.historyTab = function ()
       {
-        if(i == 1)
-        {
-          var table = $('#historyTabCaseView,#messageHistoryTable').DataTable({
-            "dom": 'lf<"toolbar">',
-            "language": {
-              "search": "Filter Inbox"
-            },
-            "order": [],
-            "columnDefs": [{
-              "targets": 'no-sort',
-              "orderable": false,
-              "width": "30px"
-            },
-            ]
-          }
-          );
-          i = i + 1;
-        }
         $scope.cancelall();
       }
       $scope.cancelall = function ()

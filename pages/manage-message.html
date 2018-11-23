@@ -576,7 +576,7 @@ title: Manage Messages - List View
             </section>
 		</div>
 		<!--expanded row content start-->
-		<div id="expandedrow" style="display:none;">
+		<script id="expandedrow" type="text/ng-template">
 			<!--form data start-->	
 			<div class="row" ng-hide="hidetrue"> 
 				<div class="col-md-12">
@@ -800,7 +800,7 @@ title: Manage Messages - List View
 			<!--Get this-->
 			{% include get-this-include.html %}
 			<!--Get thisa-->
-		</div>	
+		</script>	
 		 <!--expanded row content end-->
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
@@ -976,7 +976,7 @@ title: Manage Messages - List View
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-       <!-- DataTables -->
+       <!-- DataTables 
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	
@@ -985,7 +985,7 @@ title: Manage Messages - List View
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-
+-->
 <script>
 	$(document).ready(function() {
 	   // SLIMSCROLL FOR CHAT WIDGET
@@ -1043,6 +1043,7 @@ title: Manage Messages - List View
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
+				setTimeout('', 5000);
 				angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			}
 
