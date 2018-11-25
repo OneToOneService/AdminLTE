@@ -1532,9 +1532,15 @@ title:  My Message Inbox
     {
        $scope.dtInboxOptions = DTOptionsBuilder
         .newOptions()
-        .withDOM('lf<"toolbar1">')
         .withOption('language', {
           search: 'Filter Inbox'
+        })
+        .withBootstrap();
+
+      $scope.dtContactHistoryOptions = DTOptionsBuilder
+        .newOptions()
+        .withOption('language', {
+          search: 'Filter History'
         })
         .withBootstrap();
 
