@@ -1,0 +1,1496 @@
+---
+title:  My Pending Messages
+---
+<!DOCTYPE html>
+<html ng-app="iService">
+<head>
+    {% include common-head.html %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+    {% include common-header.html %}
+    {% include common-menu.html %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+      <!-- Main content -->
+      <section class="content">
+        <!-- START CUSTOM TABS -->
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Custom Tabs -->
+            <div class="row">
+              <div class="col-md-12" ng-controller="myCtrl">
+                <div class="box box-info" id="inbox-list">
+                  <div class="box-header with-border" ng-click="isCollapsedInboxList = !isCollapsedInboxList" ng-init="isCollapsedInboxList = false;">
+                    <i class="fa  fa-inbox"></i>
+                    <h3 class="box-title head-title-padding">My Pending Messages</h3>
+                    <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedInboxList}"></span>
+                  </div>
+                  <!-- /.box-header -->
+                  <!-- form start -->
+                  <div class="box-body table-responsive" uib-collapse="isCollapsedInboxList">
+                    <table class="table table-striped table-hover" datatable dt-options="dtInboxOptions">
+                      <thead>
+                        <tr>
+                          <!--<th class="no-sort"  name="name" width="30"></th>-->
+                          <th class="text-capitalize">
+                            From
+                          </th>
+                          <th class="text-capitalize">
+                            Email
+                          </th>
+                          <th class="text-capitalize">
+                            Date
+                          </th>
+                          <th class="text-capitalize">
+                            Subject
+                          </th>
+                          <th class="text-capitalize">
+                            Segment
+                          </th>
+                          <th class="text-capitalize">
+                            Topic
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr id="row1" ng-click="toggleRow('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+                          <!--	<td name="name" width="30">
+                              <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
+                                <i class="fa fa-plus-circle" ng-show="!row1"></i>
+                                <i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
+                              </button>
+                            </td>-->
+                          <td>
+                            John Doe
+                          </td>
+                          <td>
+                            john.doe@example.com
+                          </td>
+                          <td>
+                            1 Days ago
+                          </td>
+
+                          <td>
+                            MSSQLSERVER:Server:17063 by iService Incoming Undeliverable Emails in Tenant Critical Alert
+                          </td>
+                          <td>
+                            QA
+                          </td>
+                          <td>
+                            Feedback
+                          </td>
+                        </tr>
+                        <tr id="row2" ng-click="toggleRow('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
+                          <!--	<td name="name" width="30">
+                              <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
+                                <i class="fa fa-plus-circle" ng-show="!row2"></i>
+                                <i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
+                              </button>
+                            </td>-->
+                          <td>
+                            Albert Metricman
+                          </td>
+                          <td>
+                            albert.metricman@example.com
+                          </td>
+                          <td>
+                            2 Days ago
+                          </td>
+
+                          <td>
+                            Kind Attend :: I need to purchase LG TV
+                          </td>
+                          <td>
+                            QA
+                          </td>
+                          <td>
+                            Sales
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+              </div>
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <!-- END ACCORDION & CAROUSEL-->
+      </section>
+    </div>
+    <!--expanded row content start-->
+    <script id="expandedrow" type="text/ng-template">
+      <div class="box box-info with-border">
+        <div class="box-body table-responsive">
+          <div class="nav-tabs-custom color-tab-icon">
+            <ul class="nav nav-tabs">
+              <li class="active" ng-click="messageDetailTab()">
+                <a href="#tab_messagedetail" data-toggle="tab">
+                  <i class="fa fa-navicon orange"></i>
+                  <span>Message Details</span>
+                </a>
+              </li>
+              <li>
+                <a href="#tab_history" data-toggle="tab" ng-click="historyTab()">
+                  <i class="fa fa-history green"></i>
+                  <span>History</span>
+                </a>
+              </li>
+              <li>
+                <a href="#tab_contactdetail" data-toggle="tab">
+                  <i class="fa fa-ellipsis-h blue"></i>
+                  <span>Contact Details</span>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content box-bg-color">
+              <div class="tab-pane contact-summary active" id="tab_messagedetail">
+                <!--action this-->
+                {% include inbox-action-mode.html %}
+                <!--action this-->
+              </div>
+              <div class="tab-pane" id="tab_history">
+                <div class="row" id="chrono-view" ng-show="crono" ng-init="crono = true;">
+                  <div class="col-md-12">
+                    <!-- Custom Tabs -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="box box-info">
+                          <div class="box-header with-border">
+                            <i class="fa fa-history"></i>
+                            <h3 class="box-title head-title-padding">Contact History</h3>
+                            <div class="btn-group pull-right" id="realtime" data-toggle="btn-toggle">
+                              <a class="btn btn-primary active" data-toggle="on" href="javascript:void(0)" ng-click="showcrono()">Chronological View</a>
+                              <a class="btn btn-default " data-toggle="off" href="javascript:void(0)" ng-click="showcase();">Case View</a>
+                            </div>
+                          </div>
+                          <!-- /.box-header -->
+                          <!-- form start -->
+                          <div class="box-body table-responsive">
+                            <table id="historyTabCaseView" class="table  table-striped table-hover">
+                              <thead>
+                                <tr>
+                                  <th class="no-sort" name="name"></th>
+                                  <th class="text-capitalize">
+                                    Subject
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Topic
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Status
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Type
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Username
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Properties
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Date
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr id="historyrow12">
+                                  <td name="name">
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowHistory('historyrow12')">
+                                      <i class="fa fa-plus-circle" ng-show="!historyrow12"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="historyrow12" ng-cloak></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    [ref#: 42733-42733] I need help picking a camera
+                                  </td>
+                                  <td>
+                                    All Topics
+                                  </td>
+                                  <td>
+                                    <small class="bg-green-active label">Resolved</small>
+                                  </td>
+                                  <td>
+                                    <small class="label bg-blue disabled label-with-icon">
+                                      <i class="fa fa-comments"></i>Chat
+                                    </small>
+                                  </td>
+                                  <td>
+                                    Jacob Smith
+                                  </td>
+                                  <td>
+                                    <b>Urgency Level</b> : High
+                                    <a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow12')"><i class="fa fa-fw fa-pencil"></i></a>
+                                  </td>
+                                  <td>
+                                    2016-07-18 9:36:26 AM
+                                  </td>
+                                </tr>
+                                <tr id="historyrow13">
+                                  <td name="name">
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowHistory('historyrow13')">
+                                      <i class="fa fa-plus-circle" ng-show="!historyrow13"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="historyrow13" ng-cloak></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    [ref#: 6680-6680] Return policy
+                                  </td>
+                                  <td>
+                                    Returns
+                                  </td>
+                                  <td>
+                                    <small class="bg-green-active label">Resolved</small>
+                                  </td>
+                                  <td>
+                                    <small class="label label-with-icon bg-blue">
+                                      <i class="fa fa-envelope"></i>
+                                      Customer Email
+                                    </small>
+                                  </td>
+                                  <td>
+                                    Jacob Smith
+                                  </td>
+                                  <td>
+                                    <b>Urgency Level</b> : High
+                                    <a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow13')"><i class="fa fa-fw fa-pencil"></i></a>
+                                  </td>
+                                  <td>
+                                    2016-07-18 9:36:26 AM
+                                  </td>
+                                </tr>
+                                <tr id="historyrow14">
+                                  <td name="name">
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowHistory('historyrow14')">
+                                      <i class="fa fa-plus-circle" ng-show="!historyrow14"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="historyrow14" ng-cloak></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    [ref#: 42912-42912] Best price on LG Plasma
+                                  </td>
+                                  <td>
+                                    Open Quotes
+                                  </td>
+                                  <td>
+                                    <small class="bg-red-disabled label">Queued</small>
+                                  </td>
+                                  <td>
+                                    <small class="label label-with-icon bg-blue">
+                                      <i class="fa fa-ticket"></i>
+                                      Agent Ticket
+                                    </small>
+                                  </td>
+                                  <td>
+                                    Alek Packard
+                                  </td>
+                                  <td>
+                                    <b>Urgency Level</b> : High
+                                    <a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow15')"><i class="fa fa-fw fa-pencil"></i></a>
+                                  </td>
+                                  <td>
+                                    2016-07-18 9:36:26 AM
+                                  </td>
+                                </tr>
+                                <tr id="historyrow16">
+                                  <td name="name">
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowHistory('historyrow16')">
+                                      <i class="fa fa-plus-circle" ng-show="!historyrow16"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="historyrow16" ng-cloak></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    [ref#: 42883-42883] Need a travel camera
+                                  </td>
+                                  <td>
+                                    To Quote
+                                  </td>
+                                  <td>
+                                    <small class="bg-green-active label">Resolved</small>
+                                  </td>
+                                  <td>
+                                    <small class="label bg-blue">
+                                      <span class="fa-stack stack-icon-label">
+                                        <i class="fa fa-user"></i>
+                                        <i class="fa fa-ticket"></i>
+                                      </span> Customer Ticket
+                                    </small>
+                                  </td>
+                                  <td>
+                                    Alek Packard
+                                  </td>
+                                  <td>
+                                    <b>Urgency Level</b>: High
+                                    <a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow16')"><i class="fa fa-fw fa-pencil"></i></a>
+                                  </td>
+                                  <td>
+                                    2016-07-18 9:36:26 AM
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <!-- /.row -->
+                            <div class="modal fade" id="modal-default">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">Properties</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="urgency">Urgency</label>
+                                          <input type="text" class="form-control" id="urgency" value="High">
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="exampleInputEmail1">isOpen</label>
+                                          <select class="form-control">
+                                            <option>TRUE</option>
+                                            <option>FALSE</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                  </div>
+                                </div>
+                                <!-- /.modal-content -->
+                              </div>
+                              <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+                <div class="row" id="case-view" ng-show="case" ng-init="case = false;">
+                  <div class="col-md-12">
+                    <!-- Custom Tabs -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="box box-info">
+                          <div class="box-header with-border">
+                            <i class="fa fa-history"></i>
+                            <h3 class="box-title head-title-padding">Contact History</h3>
+                            <div class="btn-group pull-right" data-toggle="btn-toggle">
+                              <a class="btn btn-default" data-toggle="on" href="javascript:void(0)" ng-click="showcrono()">Chronological View</a>
+                              <a class="btn btn-primary active" data-toggle="off" href="javascript:void(0)" ng-click="showcase()">Case View</a>
+                            </div>
+                          </div>
+                          <!-- /.box-header -->
+                          <!-- form start -->
+                          <div class="box-body table-responsive">
+                            <table id="messageHistoryTable" class="table  table-striped table-hover">
+                              <thead>
+                                <tr>
+                                  <th class="no-sort"><div class="icon-col"></div></th>
+                                  <th class="text-capitalize">
+                                    Subject
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Case Topic
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Case Status
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Case Properties
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Date
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr id="inboxrow13">
+                                  <td>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowInbox('inboxrow13')">
+                                      <i class="fa fa-plus-circle" ng-show="!inboxrow13"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="inboxrow13" ng-cloak></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    [ref#: 42733-42733] I need help picking a camera
+                                  </td>
+                                  <td>
+                                    All Topics
+                                  </td>
+                                  <td>
+                                    <small class="bg-green-active label">Resolved</small>
+                                  </td>
+
+                                  <td>
+                                    --
+                                  </td>
+                                  <td>
+                                    2016-07-18 9:36:26 AM
+                                  </td>
+                                </tr>
+                                <tr id="inboxrow14">
+                                  <td>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowInbox('inboxrow14')">
+                                      <i class="fa fa-plus-circle" ng-show="!inboxrow14"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="inboxrow14" ng-cloak></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    [ref#: 6680-6680] Return policy
+                                  </td>
+                                  <td>
+                                    Returns
+                                  </td>
+                                  <td>
+                                    <small class="bg-green-active label">Resolved</small>
+                                  </td>
+
+                                  <td>
+                                    --
+                                  </td>
+                                  <td>
+                                    2016-07-18 9:36:26 AM
+                                  </td>
+                                </tr>
+                                <tr id="inboxrow15">
+                                  <td class="icon-col">
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowInbox('inboxrow15')">
+                                      <i class="fa fa-plus-circle" ng-show="!inboxrow15"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="inboxrow15" ng-cloak></i>
+                                    </button>
+                                    <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
+                                      <i class="fa fa-envelope-open"></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    [ref#: 42912-42912] Best price on LG Plasma
+                                  </td>
+                                  <td>
+                                    Open Quotes
+                                  </td>
+                                  <td>
+                                    <small class="bg-red-disabled label">Queued</small>
+                                  </td>
+                                  <td>
+                                    --
+                                  </td>
+                                  <td>
+                                    3 Days ago
+                                  </td>
+                                </tr>
+                                <tr id="inboxrow16">
+                                  <td class="icon-col">
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowInbox('inboxrow16')">
+                                      <i class="fa fa-plus-circle" ng-show="!inboxrow16"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="inboxrow16" ng-cloak></i>
+                                    </button>
+                                    <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
+                                      <i class="fa fa-envelope-open"></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    [ref#: 42883-42883] Need a travel camera
+                                  </td>
+                                  <td>
+                                    To Quote
+                                  </td>
+                                  <td>
+                                    <small class="bg-green-active label">Resolved</small>
+                                  </td>
+                                  <td>
+                                    --
+                                  </td>
+                                  <td>
+                                    2016-07-18 9:36:26 AM
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_contactdetail">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-9 panel-group">
+                    <div class="box box-info">
+                      <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment1')">
+                        <h3 class="box-title">Contact Information</h3>
+                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment1}"></span>
+                      </div>
+                      <div class="box-body in collapse" uib-collapse="segment1">
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-6">
+                            <div>
+                              <div class="form-group floating-label">
+                                <input type="text" value="">
+                                <label>First Name</label>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label">
+                                <input value="" type="text">
+                                <label>Middle Initial</label>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label">
+                                <input type="text" value="">
+                                <label>Last Name</label>
+                              </div>
+                            </div>
+                            <div class="form-group floating-label multiple">
+                              <label>Phone</label>
+                              <div class="float-btn-group">
+                                <button class="margin-5 icon-button button-delete" type="button">
+                                  <i class="fa fa-times-circle"></i>
+                                </button>
+                                <select><option label="Fax" value="string:Fax" selected="selected">Fax</option><option label="Home" value="string:Home">Home</option><option label="Mobile" value="string:Mobile">Mobile</option><option label="Work" value="string:Work">Work</option></select>
+                                <input value="" type="text">
+                              </div>
+                              <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+                                <i class="fa fa-plus-circle"></i>
+                              </button>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label multiple">
+                                <label>Address</label>
+                                <div class="float-btn-group">
+                                  <button class="margin-5 icon-button button-delete" type="button">
+                                    <i class="fa fa-times-circle"></i>
+                                  </button>
+                                  <select><option label="Home" value="string:Home" selected="selected">Home</option><option label="Work" value="string:Work">Work</option></select><textarea ng-model="value.value"></textarea>
+                                </div>
+                                <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+                                  <i class="fa fa-plus-circle"></i>
+                                </button>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label multiple">
+                                <label>Customer Type</label>
+                                <div class="float-btn-group">
+                                  <button class="margin-5 icon-button button-delete" type="button">
+                                    <i class="fa fa-times-circle"></i>
+                                  </button>
+                                  <select><option label="Agent" value="string:Agent" selected="selected">Agent</option><option label="Customer" value="string:Customer">Customer</option><option label="Spam" value="string:Spam">Spam</option><option label="Vendor" value="string:Vendor">Vendor</option><option label="-- select a value --" value="string:">-- select a value --</option></select>
+                                </div>
+                                <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+                                  <i class="fa fa-plus-circle"></i>
+                                </button>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label">
+                                <input type="text" value="">
+                                <label>Company</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-6">
+                            <div class="ng-scope">
+                              <div class="form-group floating-label ng-scope property-job-title">
+                                <input type="text" value="">
+                                <label class="ng-binding">Job Title</label>
+                              </div>
+                            </div>
+                            <div class="ng-scope">
+                              <div class="form-group floating-label group-bg detail-g-borderbottom">
+                                <input type="text" value="">
+                                <label class="ng-binding">Address1</label>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                                <input type="text" value="">
+                                <label class="ng-binding">Address2</label>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                                <input type="text" value="">
+                                <label class="ng-binding">City</label>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                                <input type="text" value="">
+                                <label class="ng-binding">State</label>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                                <input type="text" value="">
+                                <label class="ng-binding">Postal Code</label>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label group-bg detail-g-bordertop">
+                                <input type="text" value="">
+                                <label class="ng-binding">Country</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="form-group floating-label multiple">
+                            <label>Logins</label>
+                            <div class="float-btn-group">
+                              <button class="margin-5 icon-button button-delete" type="button">
+                                <i class="fa fa-times-circle"></i>
+                              </button>
+                              <select>
+                                <option value="Email" selected="selected">Email</option>
+                                <option value="Bounced">Bounced</option>
+                                <option value=""></option>
+                              </select>
+                              <span class="ng-binding ng-hide">Email</span>
+                              <input type="text" value="">
+                            </div>
+                            <div class="float-btn-group">
+                              <button class="margin-5 icon-button button-delete" type="button">
+                                <i class="fa fa-times-circle"></i>
+                              </button>
+                              <select>
+                                <option value="Email" selected="selected">Email</option>
+                                <option value="Bounced">Bounced</option>
+                                <option value=""></option>
+                              </select>
+                              <input type="text" value="">
+                            </div>
+                            <button class="margin-5 icon-button button-add-row" type="button">
+                              <i class="fa fa-plus-circle"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+                        <strong>…</strong>
+                      </button>
+                    </div>
+                    <div class="box box-warning">
+                      <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment2')">
+                        <h3 class="box-title ng-binding">Automated Test Segment</h3>
+                        <span class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment2}"></span>
+                      </div>
+                      <div class="box-body in collapse" uib-collapse="segment2">
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-6">
+                            <div>
+                              <div class="form-group floating-label property-contact-property-1">
+                                <input type="text" value="">
+                                <label>Contact Property 1</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-6">
+                          </div>
+                        </div>
+                        <div>
+                          <div class="form-group floating-label multiple ng-hide">
+                            <label>Logins</label>
+                            <button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
+                              <i class="fa fa-plus-circle"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+                        <strong>…</strong>
+                      </button>
+                    </div>
+
+                    <div class="box box-success">
+                      <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment3')">
+                        <h3 class="box-title ng-binding">Segment1</h3>
+                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment3}"></span>
+                      </div>
+                      <div class="box-body in collapse" uib-collapse="segment3">
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-6">
+                            <div>
+                              <div class="form-group floating-label property-text">
+                                <input type="text" value="">
+                                <label>Text</label>
+                              </div>
+                            </div><div>
+                              <div class="form-group floating-label property-date">
+                                <input type="text" value="">
+                                <label>Date</label>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-group floating-label property-additional-detail">
+                                <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="detail1a" value="string:detail1a">detail1a</option><option label="detail1b" value="string:detail1b">detail1b</option><option label="detail1c" value="string:detail1c">detail1c</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                                <label>Additional Detail</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-6">
+                            <div>
+                              <div class="form-group floating-label property-existing-phone-property">
+                                <select class="ng-pristine ng-untouched ng-valid ng-empty"><option value="string:"></option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                                <label>Existing Phone Property</label>
+                              </div>
+                            </div><div>
+                              <div class="form-group floating-label property-svc-level-5-min">
+                                <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="False" value="string:False">False</option><option label="True" value="string:True">True</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                                <label>Svc Level 5 Min</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="form-group floating-label multiple ng-hide">
+                            <label>Logins</label>
+                            <button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
+                              <i class="fa fa-plus-circle"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="box box-danger">
+                      <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment4')">
+                        <h3 class="box-title ng-binding">Segment2</h3>
+                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment4}"></span>
+                      </div>
+                      <div class="box-body in collapse" uib-collapse="segment4">
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-6">
+                            <div>
+                              <div class="form-group floating-label property-s2only">
+                                <input type="text" value="">
+                                <label>s2only</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-6">
+                          </div>
+                        </div>
+                        <div>
+                          <div class="form-group floating-label multiple ng-hide">
+                            <label>Logins</label>
+                            <button class="margin-5 icon-button button-add-row" type="button">
+                              <i class="fa fa-plus-circle"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+                        <strong>…</strong>
+                      </button>
+                    </div>
+
+                    <button class="btn btn-primary" type="button" ng-click="">
+                      Save
+                    </button>
+                  </div>
+                  <div class="col-xs-12 col-sm-3">
+                    <h3>Segment Membership</h3>
+                    <div class="segment">
+                      <label>
+                        <input type="checkbox" class="minimal flat-red" checked>
+                        Automated Test Segment
+                      </label>
+                    </div>
+                    <div class="segment">
+                      <label>
+                        <input type="checkbox" class="minimal flat-red" checked>
+                        seantest
+                      </label>
+                    </div>
+                    <div class="segment">
+                      <label>
+                        <input type="checkbox" class="minimal flat-red" checked>
+                        Segment1
+                      </label>
+                    </div>
+                    <div class="segment">
+                      <label>
+                        <input type="checkbox" class="minimal flat-red" checked>
+                        Segment2
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    <!--expanded row content end-->
+    <!--expanded row content start-->
+    <script id="expandedrowviewmode" type="text/ng-template">
+      <!--form data start-->
+      <div class="row" ng-hide="hidetrue">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to Jhon Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+                <i class="fa fa-envelope"></i>
+                Agent email
+              </button>
+              <button class="btn  btn-success margin-r-5" uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
+                <i class="fa fa-pencil-square-o"></i>
+                Note
+              </button>
+              <button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
+                <i class="fa fa-ticket"></i>
+                Ticket
+              </button>
+              <button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show('forwardcopy')">
+                <i class="fa fa-mail-forward"></i>
+                Forward Copy
+              </button>
+              <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                  <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                  <li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+                    <a href="" ng-click="isStatusAuditSectionExpanded = !isStatusAuditSectionExpanded">Show Status Audit</a>
+                  </li>
+                  <li role="menuitem"><a href="#">Show Full Case</a></li>
+                  <li role="menuitem"><a href="#">Print</a></li>
+                  <li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-12 mtop-15">
+              <div class="box status-box" style="display:none">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Status Audit</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body table-responsive">
+                  <table id="example" class="table  table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th class="text-capitalize">
+                          Time
+                        </th>
+                        <th class="text-capitalize">
+                          Modifier
+                        </th>
+                        <th class="text-capitalize">
+                          Status
+                        </th>
+                        <th class="text-capitalize">
+                          Action
+                        </th>
+                        <th class="text-capitalize">
+                          Assigned To
+                        </th>
+                        <th class="text-capitalize">
+                          Topic
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          11/11/2017 12:19:20PM
+                        </td>
+                        <td>
+                          Jaswantchouhan
+                        </td>
+                        <td>
+                          <small class="label label-success">Resolved</small>
+                        </td>
+                        <td>
+                          Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+                        </td>
+                        <td>
+                          Jaswantchouhan
+                        </td>
+                        <td>
+                          JC - Segment- All Topic - To- Quote - Open Quotes
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="message-box">
+            <div class="message-box-header">
+              <div class="col-md-12">
+                <span class="user">
+                  <img src="/dist/img/agent.png">
+                  <b>Agent</b>
+                </span>
+                <div class="message-info">
+                  <b>From:</b> john.doe@example.com<br>
+                  <b>To:</b> alek.packard@1to1service.com<br>
+                  <b>CC:</b> justin.time@1to1service.com<br>
+                  <b>BCC:</b> jonie.hewlett@1to1service.com<br>
+                </div>
+                <div class="clear"></div>
+                <div class="pull-right">
+                  <b> Interaction ID : 114545</b>
+                  <br>
+                  <small class="bg-green-active label">Resolved</small>
+                </div>
+              </div>
+              <div class="col-md-12 mtop-15"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
+              <div class="col-md-12">
+                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading panel-with-border box-primary" role="tab">
+                      <h4 class="panel-title">
+                        <a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
+                          <i class="fa fa-exclamation-triangle blink"></i>	interaction properties and details
+                          <i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
+                        </a>
+                      </h4>
+                    </div>
+                    <div class="panel-collapse interaction-properties-panel" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" uib-collapse="isCollapsed">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="row">
+                              <div class="nested-panel-heading">
+                                <h3 class="nested-title">Interaction Properties</h3>
+                              </div>
+                              <form role="form">
+                                <div class="form-group col-md-6">
+                                  <label for="">Follow Up Date</label>
+                                  <input type="email" class="form-control" placeholder="11/08/17">
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="">isFollowUp</label>
+                                  <select class="form-control">
+                                    <option>True</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="">isOpen</label>
+                                  <select class="form-control">
+                                    <option>False</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="">Owner</label>
+                                  <select class="form-control">
+                                    <option>Joe</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="">priority</label>
+                                  <select class="form-control">
+                                    <option>0-Urgent</option>
+
+                                  </select>
+                                </div>
+                                <div class="col-md-12">
+                                  <button type="submit" class="btn btn-primary btn-sm">Edit Properties</button>
+                                </div>
+                              </form>
+                            </div>
+                            <hr />
+                            <div class="row">
+                              <div class="nested-panel-heading">
+                                <h3 class="nested-title">Interaction Detail</h3>
+                              </div>
+                              <div class="col-md-6">
+                                <div><b> Segment / Topic : </b>All Topic</div>
+                                <div><b> Resolved By:</b>Alek Packard</div>
+                                <div><b> Approved By:</b> </div>
+                              </div>
+                              <div class="col-md-6">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="message-box-body">
+              <div class="clear"></div>
+              <div>
+                <p>
+                  Hello,<br>
+                  I'm looking for a flat screen. Any suggestions?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--agent email start-->
+      {% include agent-email-include.html %}
+      <!--agent email end-->
+      <!--create note start-->
+      {% include create-note-include.html %}
+      <!--create note end-->
+      <!--create ticket start-->
+      {% include create-ticket-include.html %}
+      <!--create ticket end-->
+      <!--forward start-->
+      {% include forward-copy-include.html %}
+      <!--forward end-->
+      <!--form data end-->
+    </script>
+    <!--expanded row content end-->
+    <!-- /.content-wrapper -->
+    {% include common-footer.html %}
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Create the tabs -->
+      <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane" id="control-sidebar-home-tab">
+          <h3 class="control-sidebar-heading">Recent Activity</h3>
+          <ul class="control-sidebar-menu">
+            <li>
+              <a href="javascript:void(0)">
+                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                  <p>Will be 23 on April 24th</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="menu-icon fa fa-user bg-yellow"></i>
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+                  <p>New phone +1(800)555-1234</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+                  <p>nora@example.com</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="menu-icon fa fa-file-code-o bg-green"></i>
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+                  <p>Execution time 5 seconds</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
+          <h3 class="control-sidebar-heading">Tasks Progress</h3>
+          <ul class="control-sidebar-menu">
+            <li>
+              <a href="javascript:void(0)">
+                <h4 class="control-sidebar-subheading">
+                  Custom Template Design
+                  <span class="label label-danger pull-right">70%</span>
+                </h4>
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <h4 class="control-sidebar-subheading">
+                  Update Resume
+                  <span class="label label-success pull-right">95%</span>
+                </h4>
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <h4 class="control-sidebar-subheading">
+                  Laravel Integration
+                  <span class="label label-warning pull-right">50%</span>
+                </h4>
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <h4 class="control-sidebar-subheading">
+                  Back End Framework
+                  <span class="label label-primary pull-right">68%</span>
+                </h4>
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
+        </div>
+        <!-- /.tab-pane -->
+        <!-- Stats tab content -->
+        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+        <!-- /.tab-pane -->
+        <!-- Settings tab content -->
+        <div class="tab-pane" id="control-sidebar-settings-tab">
+          <form method="post">
+            <h3 class="control-sidebar-heading">General Settings</h3>
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Report panel usage
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+              <p>
+                Some information about this general settings option
+              </p>
+            </div>
+            <!-- /.form-group -->
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Allow mail redirect
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+              <p>
+                Other sets of options are available
+              </p>
+            </div>
+            <!-- /.form-group -->
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Expose author name in posts
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+              <p>
+                Allow the user to show his name in blog posts
+              </p>
+            </div>
+            <!-- /.form-group -->
+            <h3 class="control-sidebar-heading">Chat Settings</h3>
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Show me as online
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+            </div>
+            <!-- /.form-group -->
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Turn off notifications
+                <input type="checkbox" class="pull-right">
+              </label>
+            </div>
+            <!-- /.form-group -->
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Delete chat history
+                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+              </label>
+            </div>
+            <!-- /.form-group -->
+          </form>
+        </div>
+        <!-- /.tab-pane -->
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  {% include common-javascript.html %}
+
+  <script>
+    $(document).ready(function ()
+    {
+      var rowcount;
+      $(".bootstrap-tagsinput input").focus(function ()
+      {
+        $('.floatlabel').addClass("float-label");
+      });
+      $(".bootstrap-tagsinput input").blur(function ()
+      {
+        if($(".bootstrap-tagsinput span").hasClass("tag"))
+        {
+
+        } else { $('.floatlabel').removeClass("float-label"); }
+      });
+      $('.infield').change(function ()
+      {
+        if($('option:selected', this).val() == 'Tags')
+        {
+          $('.bootstrap-tagsinput').show();
+          $('.searchnormal').hide();
+        } else
+        {
+          $('.bootstrap-tagsinput').hide();
+          $('.searchnormal').show();
+          $('.floatlabel').removeClass("float-label");
+        }
+      });
+
+      // var rowcount = (table.page.info().recordsTotal);
+
+    });
+    function stopPropagation(evt)
+    {
+      if(evt.stopPropagation !== undefined)
+      {
+        evt.stopPropagation();
+      } else
+      {
+        evt.cancelBubble = true;
+      }
+    }
+  </script>
+
+  <script>
+    var count = 1;
+    var i = 1;
+    angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    {
+       $scope.dtInboxOptions = DTOptionsBuilder
+        .newOptions()
+        .withOption('language', {
+          search: 'Filter Messages'
+        })
+        .withBootstrap();
+
+      $scope.dtContactHistoryOptions = DTOptionsBuilder
+        .newOptions()
+        .withOption('language', {
+          search: 'Filter History'
+        })
+        .withBootstrap();
+
+      $scope.dtContactHistoryColumnDefs = [
+        DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
+      ];
+
+      $scope.toggleRow = function (segmentName)
+      {
+        $scope['getthis'] = true;
+        for(var i = 1; i <= 15; i++)
+        {
+          if(!$scope[segmentName])
+          {
+            removeFunction(segmentName);
+            $scope['row' + i] = false;
+          }
+        }
+        $scope[segmentName] = !$scope[segmentName];
+        if($scope[segmentName])
+        {
+          myCreateFunction(segmentName);
+        } else
+        {
+          removeFunction(segmentName);
+        }
+      };
+      $scope.showcase = function ()
+      {
+        $scope['case'] = true;
+        $scope['crono'] = false;
+      }
+
+      $scope.showcrono = function ()
+      {
+        $scope['case'] = false;
+        $scope['crono'] = true;
+      }
+
+      function myCreateFunction(row)
+      {
+        var innerHTML = document.getElementById('expandedrow').innerHTML;
+        angular.element('#inbox-list').after($compile('<div class="expandedrowcontent box-bg-color"><div colspan="5">' + document.getElementById('expandedrow').innerHTML + '</div></div>')($scope));
+      }
+
+      function removeFunction(row)
+      {
+        angular.element('.expandedrowcontent').remove();
+      }
+
+      $scope.show = function (action)
+      {
+        $scope.hidetrue = true;
+        $scope[action] = !$scope[action];
+        if(count == 1)
+        {
+          //$('.custom-scroll').slimScroll({
+          //  height: '250px'
+          //});
+          count = count + 1;
+        }
+      };
+      $scope.messageDetailTab = function ()
+      {
+        $scope.cancelall();
+      }
+
+      $scope.historyTab = function ()
+      {
+        $scope.cancelall();
+      }
+      $scope.cancelall = function ()
+      {
+
+        $scope.hidetrue = false;
+        $scope['agentemail'] = false;
+        $scope['createnote'] = false;
+        $scope['createticket'] = false;
+        $scope['forwardcopy'] = false;
+        for(var i = 1; i <= 16; i++)
+        {
+          $scope['inboxrow' + i] = false;
+          $scope['historyrow' + i] = false;
+        }
+      }
+      $scope.cancel = function (action)
+      {
+        $scope.hidetrue = false;
+        $scope[action] = !$scope[action];
+      };
+
+      $scope.toggleRowInbox = function (segmentName)
+      {
+        $scope.hidetrue = false;
+        for(var i = 1; i <= 15; i++)
+        {
+          if(!$scope[segmentName])
+          {
+            removeFunctionInbox(segmentName);
+            $scope['inboxrow' + i] = false;
+          }
+        }
+        $scope[segmentName] = !$scope[segmentName];
+        if($scope[segmentName])
+        {
+          myCreateFunctionInbox(segmentName);
+        } else
+        {
+          removeFunctionInbox(segmentName);
+        }
+      };
+      function myCreateFunctionInbox(row)
+      {
+        var innerHTML = document.getElementById('expandedrowviewmode').innerHTML;
+        angular.element('#' + row).after($compile('<tr class="expandedrowcontentinbox box-bg-color"><td>&nbsp;</td><td colspan="7">' + document.getElementById('expandedrowviewmode').innerHTML + '</td></tr>')($scope));
+      }
+      function removeFunctionInbox(row)
+      {
+        angular.element('.expandedrowcontentinbox').remove();
+      }
+
+      $scope.toggleRowHistory = function (segmentName)
+      {
+        $scope.hidetrue = false;
+        for(var i = 1; i <= 16; i++)
+        {
+          if(!$scope[segmentName])
+          {
+            removeFunctionInbox(segmentName);
+            $scope['inboxrow' + i] = false;
+            $scope['historyrow' + i] = false;
+          }
+        }
+        $scope[segmentName] = !$scope[segmentName];
+        if($scope[segmentName])
+        {
+          myCreateFunctionHistory(segmentName);
+        } else
+        {
+          removeFunctionHistory(segmentName);
+        }
+      };
+      $scope.togglePropertyRowHistory = function (segmentName)
+      {
+        $scope.hidetrue = false;
+        for(var i = 1; i <= 16; i++)
+        {
+          if(!$scope[segmentName])
+          {
+            removeFunctionInbox(segmentName);
+            $scope['inboxrow' + i] = false;
+            $scope['historyrow' + i] = false;
+          }
+        }
+        $scope[segmentName] = !$scope[segmentName];
+        if($scope[segmentName])
+        {
+          myCreateFunctionHistory(segmentName);
+        } else
+        {
+          removeFunctionHistory(segmentName);
+        }
+        $scope.isCollapsed = false;
+      };
+
+      function myCreateFunctionHistory(row)
+      {
+        var innerHTML = document.getElementById('expandedrowviewmode').innerHTML;
+        angular.element('#' + row).after($compile('<tr class="expandedrowcontentinbox box-bg-color"><td>&nbsp;</td><td colspan="7">' + document.getElementById('expandedrowviewmode').innerHTML + '</td></tr>')($scope));
+      }
+      function removeFunctionHistory(row)
+      {
+        angular.element('.expandedrowcontentinbox').remove();
+      }
+      $scope.toggleSegmentCollapsedState = function (segmentName)
+      {
+        $scope[segmentName] = !$scope[segmentName];
+      };
+    });
+
+  </script>
+</body>
+</html>
