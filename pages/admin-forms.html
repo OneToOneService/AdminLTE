@@ -554,7 +554,6 @@ title: Admin tools - Forms
 																								<div class="col-sm-8">
 																									<select class="form-control" id="" ng-change="showStepType();" ng-model="stepValue">
 																										<option value="choose">Choose A Type...</option>
-																										<optgroup label="Forms Actions">
 																											<option value="adminForms">Admin Forms</option>
 																											<option value="adminWebsites">Admin Websites</option>
 																											<option value="captchaVerify">Captcha Verify</option>
@@ -588,24 +587,6 @@ title: Admin tools - Forms
 																											<option value="myAccountSubscriptions">My Account Subscriptions</option>
 																											<option value="myAccountDetails">My Account Details</option>
 																											<option value="passwordResetSend">Password Reset Send</option>
-																										</optgroup>
-																										<optgroup label="Filter Actions">
-																											<option value="interactionSetParent">Change Interaction Parent</option>
-																											<option value="changeTopic">Change Topic</option>
-																											<option value="filter">Filter</option>
-																											<option value="forwardExternal">Forward External</option>
-																											<option value="interactionResolve">Resolve Interaction</option>
-																											<option value="roundRobin">Round Robin Assignment</option>
-																											<option value="selectAgents">Select Agents</option>
-																											<option value="sendAutoResponse">Send Auto Response</option>
-																											<option value="interactionPropertySet">Set Interaction Property</option>
-																										</optgroup>
-																										<optgroup label="Alerts Actions">
-																											<option value="interactionResolve">Resolve Interaction</option>
-																											<option value="selectAgents">Select Agents</option>
-																											<option value="sendAutoResponse">Send Auto Response</option>
-																											<option value="interactionPropertySet">Set Interaction Property</option>
-																										</optgroup>
 																									</select>
 																								</div>
 																							</div>
@@ -726,7 +707,7 @@ title: Admin tools - Forms
 																									<div class="form-group">
 																										<label class="col-sm-4 control-label text-left">Form Body</label>
 																										<div class="col-sm-12">
-																											<textarea class="form-control" rows="5" placeholder="" id="agentEmailAction" name="agentEmailAction"></textarea>
+																											<textarea class="form-control" rows="5" placeholder="" id="agentEmailAction" name="agentEmailAction" ckeditor></textarea>
 																										</div>
 																									</div>
 																								</div>
@@ -820,7 +801,6 @@ title: Admin tools - Forms
 																								<div class="col-sm-8">
 																									<select class="form-control" id="actionstep1">
 																										<option value="choose">Choose A Type...</option>
-																										<optgroup label="Forms Actions">
 																											<option value="adminForms">Admin Forms</option>
 																											<option value="adminWebsites">Admin Websites</option>
 																											<option value="captchaVerify">Captcha Verify</option>
@@ -854,24 +834,6 @@ title: Admin tools - Forms
 																											<option value="myAccountSubscriptions">My Account Subscriptions</option>
 																											<option value="myAccountDetails">My Account Details</option>
 																											<option value="passwordResetSend">Password Reset Send</option>
-																										</optgroup>
-																										<optgroup label="Filter Actions">
-																											<option value="interactionSetParent">Change Interaction Parent</option>
-																											<option value="changeTopic">Change Topic</option>
-																											<option value="filter">Filter</option>
-																											<option value="forwardExternal">Forward External</option>
-																											<option value="interactionResolve">Resolve Interaction</option>
-																											<option value="roundRobin">Round Robin Assignment</option>
-																											<option value="selectAgents">Select Agents</option>
-																											<option value="sendAutoResponse">Send Auto Response</option>
-																											<option value="interactionPropertySet">Set Interaction Property</option>
-																										</optgroup>
-																										<optgroup label="Alerts Actions">
-																											<option value="interactionResolve">Resolve Interaction</option>
-																											<option value="selectAgents">Select Agents</option>
-																											<option value="sendAutoResponse">Send Auto Response</option>
-																											<option value="interactionPropertySet">Set Interaction Property</option>
-																										</optgroup>
 																									</select>
 																								</div>
 																							</div>
@@ -1442,8 +1404,7 @@ title: Admin tools - Forms
 	  	$('.custom-scroll').slimScroll({
 			height: '250px'
 		});
-		CKEDITOR.replace('agentEmailAction', {height:200});
-       
+	
     });
     
 	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
