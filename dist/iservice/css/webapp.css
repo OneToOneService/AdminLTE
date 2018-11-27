@@ -1735,3 +1735,13 @@ label .icheckbox_square-blue {
 .box-content {
   padding: 15px;
 }
+.label-tag,
+.label-tag span {
+  margin-right: 5px;
+  font-size: 14px;
+  display: inline-block;
+  font-weight: normal;
+}
+.label-tag {
+  margin-bottom: 5px;
+}
