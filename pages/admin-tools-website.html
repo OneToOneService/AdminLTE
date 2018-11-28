@@ -168,6 +168,7 @@ title: Admin Tools - Websites
 																				</div>
 																				<button class="btn btn-primary"  ng-click="adddomain()">Add Domain</button>
 																			</div>
+																			
 																			<div class="form-group">
 																				<div class="col-sm-12">
 																					<span class="label label-info label-tag" ng-repeat="domain in domains">
@@ -213,8 +214,8 @@ title: Admin Tools - Websites
 														<div class="box-header with-border">
 															<h3 class="box-title text-right">Website Details</h3>
 															<div class="btn-group pull-right" data-toggle="btn-toggle">
-																<a class="btn btn-default" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Custom</a>
-																<a class="btn btn-default" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Built-in</a>
+																<a class="btn btn-default btn-xs" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Custom Forms</a>
+																<a class="btn btn-default btn-xs" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Built-in Forms</a>
 															</div>
 														</div>
 														<div class="box-body">
@@ -666,7 +667,7 @@ title: Admin Tools - Websites
 				radioClass: 'iradio_flat-green'
 		});
 	  	$('.custom-scroll').slimScroll({
-			height: '327px'
+			height: '325px'
 		});
 }); 
 </script>
