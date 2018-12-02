@@ -28,10 +28,38 @@ title: Admin Tools - Websites
           	<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12">
+						<p class="text-left">
+							<strong>Agent License Details</strong>
+						</p>
+					</div>	
+					<div class="col-md-6">
+						<div class="progress-group">
+							<span class="progress-text">Email</span>
+							<span class="progress-number"><b>40</b>/100</span>
+		
+							<div class="progress sm">
+							<div class="progress-bar progress-bar-yellow" style="width: 40%"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+					<!-- /.progress-group -->
+						<div class="progress-group">
+							<span class="progress-text">Chat</span>
+							<span class="progress-number"><b>6</b>/10</span>
+		
+							<div class="progress sm">
+							<div class="progress-bar progress-bar-green" style="width: 60%"></div>
+							</div>
+						</div>
+					</div>
+				</div>  
+				<div class="row">
+					<div class="col-md-12">
 						<div class="box box-info">
 							<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
-								<i class="fa fa-globe"></i> 
-								<h3 class="box-title head-title-padding">Websites</h3>
+								<i class="fa fa-user"></i> 
+								<h3 class="box-title head-title-padding">Agents</h3>
 								<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
 							</div>
 							<!-- /.box-header -->
@@ -45,44 +73,135 @@ title: Admin Tools - Websites
 											Id
 										</th>
 										<th class="text-capitalize">
-											Website Name
+											Email
 										</th>
 										<th class="text-capitalize">
-											Segments
+											Full Name
 										</th>
 										<th class="text-capitalize">
-											Domains
+											User Type
 										</th>
+										<th class="text-capitalize">
+											Segments Access
+										</th>
+										<th class="text-capitalize">
+											Skills
+										</th>
+										<th class="text-capitalize">
+											Department Membership
+										</th>
+										<th class="text-capitalize">
+											Receive Notifications
+										</th>
+										<th class="text-capitalize">
+											Logged In 
+										</th>
+										<th class="text-capitalize">
+											Chat Available
+										</th>		
 									</tr>
 								</thead>
 								<tbody>
-									<tr id="row1" ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
-										<td>
-											111
+									<tr>
+										<!--<th class="no-sort"  name="name" width="30"></th>-->
+										<td class="text-capitalize">
+											1
 										</td>
-										<td>
-											Example one
+										<td class="text-capitalize">
+											jacob.smith@example.com
 										</td>
-										<td>
-											QA
+										<td class="text-capitalize">
+											Jacob Smith
 										</td>
-										<td>
-											exampleone.com
+										<td class="text-capitalize">
+											CSR
 										</td>
+										<td class="text-capitalize">
+											qa, qa2 - second segment, sms
+										</td>
+										<td class="text-capitalize">
+											No_Route
+										</td>
+										<td class="text-capitalize">
+											Department Membership
+										</td>
+										<td class="">
+											
+										</td>
+										<td class="text-capitalize">
+											<i class="fa fa-circle text-success"></i>
+										</td>
+										<td class="text-capitalize">
+											<i class="fa fa-circle text-danger"></i>
+										</td>		
 									</tr>
-									<tr id="row2" ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
-										<td>
-											112
+									<tr>
+										<!--<th class="no-sort"  name="name" width="30"></th>-->
+										<td class="text-capitalize">
+											2
 										</td>
-										<td>
-											Example Two
+										<td class="text-capitalize">
+											jacob.smith@example.com
 										</td>
-										<td>
-											QA2
+										<td class="text-capitalize">
+											Jacob Smith
 										</td>
-										<td>
-											exampletwo.com
+										<td class="text-capitalize">
+											CSR
 										</td>
+										<td class="text-capitalize">
+											qa, qa2 - second segment, sms
+										</td>
+										<td class="text-capitalize">
+											No_Route
+										</td>
+										<td class="text-capitalize">
+											Department Membership
+										</td>
+										<td class="">
+											
+										</td>
+										<td class="text-capitalize">
+											<i class="fa fa-circle text-success"></i>
+										</td>
+										<td class="text-capitalize">
+											<i class="fa fa-circle text-danger"></i>
+										</td>		
+									</tr>
+									<tr>
+										<!--<th class="no-sort"  name="name" width="30"></th>-->
+										<td class="text-capitalize">
+											3
+										</td>
+										<td class="text-capitalize">
+											jacob.smith@example.com
+										</td>
+										<td class="text-capitalize">
+											Jacob Smith
+										</td>
+										<td class="text-capitalize">
+											CSR
+										</td>
+										<td class="text-capitalize">
+											qa, qa2 - second segment, sms
+										</td>
+										<td class="text-capitalize">
+											No_Route
+										</td>
+										<td class="text-capitalize">
+											Department Membership
+										</td>
+										<td class="">
+											<div class="btn-switch" ng-class="{'btn-switch--on':toggle.switch}" ng-model="toggle.switch" ng-click="toggle.switch = !toggle.switch">
+  												<div class="btn-switch-circle" ng-class="{'btn-switch-circle--on':toggle.switch}" ng-model="toggle.switch" ng-click="!toggle.switch = toggle.switch"></div>
+											</div>
+										</td>
+										<td class="text-capitalize">
+											<i class="fa fa-circle text-success"></i>
+										</td>
+										<td class="text-capitalize">
+											<i class="fa fa-circle text-success"></i>
+										</td>		
 									</tr>
 								</tbody>
 								</table>
@@ -671,9 +790,13 @@ title: Admin Tools - Websites
 <script>
   var count = 1;
   var i = 1;
-  angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder,)
+  var app =  angular.module('iService');
+  app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
   {
-		
+		    
+			$scope.toggle = {};
+  			$scope.toggle.switch = false;
+
 			$scope.domains = [{'title':'example1.com'},{'title':'example1.com'}];
 			$scope.adddomain = function() {
 				$scope.domains.push({'title': $scope.newdomain, 'done':false})
@@ -695,15 +818,13 @@ title: Admin Tools - Websites
 
 	      
 			$scope.dtContactHistoryOptions = DTOptionsBuilder
-			.newOptions()
-			.withDOM('lf<"toolbar1">')
-			.withOption('language', {
-				search: 'Filter Responses'
+			.newOptions().withOption('language', {
+				search: 'Filter Agents'
 			})
 			.withBootstrap();
 
 			$scope.dtContactHistoryColumnDefs = [
-			DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
+				DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
 			];
    
 			$scope.cancelForm = function(step){
