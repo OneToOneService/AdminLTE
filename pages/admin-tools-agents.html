@@ -58,7 +58,7 @@ title: Admin Tools - Websites
 					<div class="col-md-12">
 						<div class="box box-info">
 							<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
-								<i class="fa fa-user"></i> 
+								<i class="fa fa-users"></i> 
 								<h3 class="box-title head-title-padding">Agents</h3>
 								<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
 							</div>
@@ -102,7 +102,7 @@ title: Admin Tools - Websites
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									<tr ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
 										<!--<th class="no-sort"  name="name" width="30"></th>-->
 										<td class="text-capitalize">
 											1
@@ -126,16 +126,20 @@ title: Admin Tools - Websites
 											Department Membership
 										</td>
 										<td class="">
-											
+											<div class="btn-switch" ng-class="{'btn-switch--on':toggle.switch1}" ng-model="toggle.switch1" ng-click="toggle.switch1 = !toggle.switch1">
+												<div class="btn-switch-circle" ng-class="{'btn-switch-circle--on':toggle.switch1}" ng-model="toggle.switch1" ng-click="!toggle.switch1 = toggle.switch1"></div>
+											</div>
 										</td>
 										<td class="text-capitalize">
+											<div style="display: none;">1</div>
 											<i class="fa fa-circle text-success"></i>
 										</td>
 										<td class="text-capitalize">
+											<div style="display: none;">0</div>
 											<i class="fa fa-circle text-danger"></i>
 										</td>		
 									</tr>
-									<tr>
+									<tr ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
 										<!--<th class="no-sort"  name="name" width="30"></th>-->
 										<td class="text-capitalize">
 											2
@@ -159,16 +163,20 @@ title: Admin Tools - Websites
 											Department Membership
 										</td>
 										<td class="">
-											
+											<div class="btn-switch" ng-class="{'btn-switch--on':toggle.switch2}" ng-model="toggle.switch2" ng-click="toggle.switch2 = !toggle.switch2">
+												<div class="btn-switch-circle" ng-class="{'btn-switch-circle--on':toggle.switch2}" ng-model="toggle.switch2" ng-click="!toggle.switch2 = toggle.switch2"></div>
+											</div>
 										</td>
 										<td class="text-capitalize">
 											<i class="fa fa-circle text-success"></i>
+											<div style="display: none;">1</div>
 										</td>
 										<td class="text-capitalize">
+											<div style="display: none;">0</div>
 											<i class="fa fa-circle text-danger"></i>
 										</td>		
 									</tr>
-									<tr>
+									<tr ng-click="toggleFormStep('row3')" ng-class="{true: 'row-active', false: ''}[row3]">
 										<!--<th class="no-sort"  name="name" width="30"></th>-->
 										<td class="text-capitalize">
 											3
@@ -192,14 +200,16 @@ title: Admin Tools - Websites
 											Department Membership
 										</td>
 										<td class="">
-											<div class="btn-switch" ng-class="{'btn-switch--on':toggle.switch}" ng-model="toggle.switch" ng-click="toggle.switch = !toggle.switch">
-  												<div class="btn-switch-circle" ng-class="{'btn-switch-circle--on':toggle.switch}" ng-model="toggle.switch" ng-click="!toggle.switch = toggle.switch"></div>
+											<div class="btn-switch" ng-class="{'btn-switch--on':toggle.switch3}" ng-model="toggle.switch3" ng-click="toggle.switch3 = !toggle.switch3">
+  												<div class="btn-switch-circle" ng-class="{'btn-switch-circle--on':toggle.switch3}" ng-model="toggle.switch3" ng-click="!toggle.switch3 = toggle.switch3"></div>
 											</div>
 										</td>
 										<td class="text-capitalize">
-											<i class="fa fa-circle text-success"></i>
+											<div style="display: none;">0</div>
+											<i class="fa fa-circle text-danger"></i>
 										</td>
 										<td class="text-capitalize">
+											<div style="display: none;">1</div>
 											<i class="fa fa-circle text-success"></i>
 										</td>		
 									</tr>
@@ -213,10 +223,7 @@ title: Admin Tools - Websites
 				<div class="row">
 						<div class="col-md-12 form-group">
 							<button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
-									New Website
-							</button>
-							<button class="btn btn-primary" type="button" ng-click="showStepStep(1)">
-								Delete Website
+									New Agent
 							</button>
 						</div>	
 				</div>	
@@ -224,26 +231,47 @@ title: Admin Tools - Websites
 						<div class="col-md-12">
 							<div class="box box-primary">
 								<div class="box-header with-border">
-									<i class="fa fa-globe"></i>
-									<h3 class="box-title text-right">New Website</h3>
+									<i class="fa fa-user"></i>
+									<h3 class="box-title text-right">New Agent</h3>
 								</div>
 								<div class="box-body">
 									<section class="search-parameters">
 										<div class="row">
 											<div class="form-horizontal">
-												<div class="col-md-6">
+												<div class="col-md-4">
 													<div class="form-group">
-														<label class="col-sm-4 control-label text-left">Name:</label>
-														<div class="col-sm-8">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Email Address</label>
+														<div class="col-sm-12">
 															<input type="text" class="form-control">
 														</div>
 													</div>
 												</div>
-												<div class="col-md-6">
+												<div class="col-md-4">
 													<div class="form-group">
-														<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
-														<button type="button" class="btn btn-link">Cancel</button>
-													</div>	
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Password (leave blank for pre-existing contact)</label>
+														<div class="col-sm-12">
+															<input type="text" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Type</label>
+														<div class="col-sm-12">
+														   <select class="form-control">
+															   <option>CSR</option>
+															   <option>CSR Manager</option>
+															   <option>Customer Agent</option>
+															   <option>Developer</option>
+															   <option>QA CSR</option>
+															   <option>QA Manager</option>
+														   </select>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-12">
+													<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
+													<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
 												</div>
 											</div>
 										</div>
@@ -256,342 +284,119 @@ title: Admin Tools - Websites
 						<div class="col-md-12">
 							<div class="box box-primary">
 								<div class="box-header with-border">
-									<i class="fa fa-globe"></i>
-									<h3 class="box-title text-right">Website</h3>
+									<i class="fa fa-user"></i>
+									<h3 class="box-title text-right">Agent</h3>
 								</div>
 								<div class="box-body">
-									<section class="box-content box-bg-color">
-										<div class="row">
-											<div class="form-horizontal">
-												<div class="col-md-8">
-													<div class="form-group">
-														<label class="col-sm-3 control-label text-left">Website Name:</label>
-														<div class="col-sm-6">
-															<input type="text" class="form-control">
-														</div>
+									<div class="row">
+										<div class="form-horizontal">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 control-label text-left">Windows Domain Login Name</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control">
 													</div>
 												</div>
-												<div class="col-md-4">
-													sve<button class="btn btn-primary pull-right" type="button">Save</button>
-												</div>	
-												<div class="col-md-6">
-													<div class="box box-primary">
-														<div class="box-header with-border">
-															<h3 class="box-title text-right">Website Domains and Segments</h3>
-														</div>
-														<div class="box-body">
-															<section class="search-parameters">
-																<div class="row">
-																	<div class="form-horizontal custom-scroll">
-																		<div class="col-md-12">
-																			<div class="form-group">
-																				<div class="col-sm-9">
-																					<input type="text" class="form-control" name="newdomain" ng-model="newdomain" required>
-																				</div>
-																				<button class="btn btn-primary"  ng-click="adddomain()">Add Domain</button>
-																			</div>
-																			
-																			<div class="form-group">
-																				<div class="col-sm-12">
-																					<span class="label label-info label-tag" ng-repeat="domain in domains">
-																						{{domain.title}}example.com<span class="fa fa-close text-red" ng-click="deletedomain($index)"></span>
-																					</span>																				
-																				</div>
-																			</div>
-																			<div class="form-group">
-																				<label class="col-sm-8 control-label text-left">
-																						Segments <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
-																				</label>
-																			</div>
-																			<div class="col-sm-12">
-																				<div class="form-group">
-																					<div class="row">
-																						<div class="checkbox col-md-6">
-																							<label><input type="checkbox" class="flat-red">QA</label>
-																						</div> 
-																						<div class="checkbox  col-md-6">
-																							<label><input type="checkbox" class="flat-red">QA - Misc Segment</label>
-																						</div>
-																						<div class="checkbox  col-md-6">
-																							<label><input type="checkbox" class="flat-red">QA2 - Second Segment</label>
-																						</div>
-																						<div class="checkbox  col-md-6">
-																							<label><input type="checkbox" class="flat-red">QA3 - Third Segment</label>
-																						</div>
-																						<div class="checkbox  col-md-6">
-																							<label><input type="checkbox" class="flat-red">QA4 - Fourth Segment</label>
-																						</div>
-																					</div>	
-																				</div>	
-																			</div>																			
-																		</div>
-																	</div>
-																</div>
-															</section>
-														</div>
-													</div>		
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent User Type</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+															<option>CSR</option>
+															<option>CSR Manager</option>
+															<option>Customer Agent</option>
+															<option>Developer</option>
+															<option>QA CSR</option>
+															<option>QA Manager</option>
+														</select>
+													</div>
 												</div>
-												<div class="col-md-6">
-													<div class="box box-primary">
-														<div class="box-header with-border">
-															<h3 class="box-title text-right">Website Details</h3>
-															<div class="btn-group pull-right" data-toggle="btn-toggle">
-																<a class="btn btn-default btn-xs" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Custom Forms</a>
-																<a class="btn btn-default btn-xs" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Built-in Forms</a>
-															</div>
-														</div>
-														<div class="box-body">
-															<div class="row" ng-show="customform">
-																<div class="form-horizontal custom-scroll">
-																	<div class="col-md-12">
-																		<button class="btn btn-primary pull-left" ng-click="addFormItem();">Add</button>
-																		<table class="table table-striped">
-																			<thead>
-																				<tr>
-																					<td class="delete-col"></td>
-																					<td>Placeholder Name</td>
-																					<td>Form ID/Builtin Name</td>
-																				</tr>
-																			</thead>
-																			<tbody>
-																				<tr ng-repeat="forms in formItemList">
-																					<td class="delete-col">
-																						<button class="icon-button button-delete" type="button" ng-click="deleteFormItem($index)">
-																							<i class="fa fa-times-circle"></i>
-																						</button>
-																					</td>
-																					<td><input type="text" class="form-control" value="agentapp-plugins-body$index"></td>
-																					<td><input type="text" class="form-control" value="200"></td>
-																				</tr>
-																				<tr>
-																					<td class="delete-col">
-																						<button class="icon-button button-delete" type="button">
-																							<i class="fa fa-times-circle"></i>
-																						</button>
-																					</td>
-																					<td><input type="text" class="form-control" value="agentapp-plugins-head"></td>
-																					<td><input type="text" class="form-control" value="111"></td>
-																				</tr>
-																				<tr>
-																					<td class="delete-col">
-																						<button class="icon-button button-delete" type="button">
-																							<i class="fa fa-times-circle"></i>
-																						</button>
-																					</td>
-																					<td><input type="text" class="form-control" value="assigned-messages-body"></td>
-																					<td><input type="text" class="form-control" value="200"></td>
-																				</tr>
-																				<tr>
-																					<td class="delete-col">
-																						<button class="icon-button button-delete" type="button">
-																							<i class="fa fa-times-circle"></i>
-																						</button>
-																					</td>
-																					<td><input type="text" class="form-control" value="assigned-messages-head"></td>
-																					<td><input type="text" class="form-control" value="185"></td>
-																				</tr>
-																				<tr>
-																					<td class="delete-col">
-																						<button class="icon-button button-delete" type="button">
-																							<i class="fa fa-times-circle"></i>
-																						</button>
-																					</td>
-																					<td><input type="text" class="form-control" value="previewdialer-body"></td>
-																					<td><input type="text" class="form-control" value="112"></td>
-																				</tr>
-																				<tr>
-																					<td class="delete-col">
-																						<button class="icon-button button-delete" type="button">
-																							<i class="fa fa-times-circle"></i>
-																						</button>
-																					</td>
-																					<td><input type="text" class="form-control" value="previewdialer-head"></td>
-																					<td><input type="text" class="form-control" value="113"></td>
-																				</tr>
-																			</tbody>		
-																		</table>	
-																	</div>	
-																</div>
-															</div>
-															<div class="row" ng-hide="customform">
-																<div class="form-horizontal custom-scroll">
-																	<div class="col-md-12">
-																		<table class="table table-striped">
-																			<thead>
-																				<tr>
-																					<td>Placeholder Name</td>
-																					<td>Form ID/Builtin Name</td>
-																					<td></td>
-																				</tr>
-																			</thead>
-																			<tbody>
-																				<tr>
-																					<td><input type="text" class="form-control" value="admin" disabled></td>
-																					<td><input type="text" class="form-control" value="ngappbuiltin-admin"></td>
-																					<td></td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" class="form-control" value="admin-monitor" disabled></td>
-																					<td><input type="text" class="form-control" value="ngappbuiltin-admin-monitor"></td>
-																					<td><button class="btn btn-primary btn-sm" ng-click="formoptionlist =!formoptionlist">...</button></td>
-																				</tr>
-																				<tr ng-show="formoptionlist">
-																					<td colspan="3">
-																						<p>Choose Form</p>
-																						<div class="col-md-12">
-																							<div class="form-group">
-																								<select class="form-control">
-																									<option>agentapp-plugins-body</option>
-																									<option>agentapp-plugins-head</option>
-																									<option>agentemail-footer-fixed</option>
-																									<option>Approval Form</option>
-																									<option>captcha test</option>
-																								</select>
-																							</div>	
-																						</div>	
-																					</td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" class="form-control" value="admin-openid" disabled></td>
-																					<td><input type="text" class="form-control" value="ngappbuiltin-admin-openid"></td>
-																					<td></td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" class="form-control" value="common-javascript" disabled></td>
-																					<td><input type="text" class="form-control" value="ngappbuiltin-common-javascript"></td>
-																					<td><button class="btn btn-primary btn-sm" ng-click="formoption =!formoption">...</button></td>
-																				</tr>
-																				<tr ng-show="formoption">
-																					<td colspan="3">
-																						<p>Pick version of javascript to use:</p>
-																						<div class="col-md-12">
-																							<div class="form-group">
-																								<button class="btn btn-primary btn-sm">Release (Minimised)</button>
-																								<button class="btn btn-primary btn-sm">Debug</button>
-																							</div>	
-																						</div>	
-																					</td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" class="form-control" value="common-agentchat" disabled></td>
-																					<td><input type="text" class="form-control" value="ngappbuiltin-common-agentchat"></td>
-																					<td></td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" class="form-control" value="common-footer" disabled></td>
-																					<td><input type="text" class="form-control" value="ngappbuiltin-common-footer"></td>
-																					<td></td>
-																				</tr>
-																			</tbody>		
-																		</table>	
-																	</div>	
-																</div>
-															</div>
-														</div>
-													</div>		
+											</div>	
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="col-sm-8 control-label text-left">
+															Segments <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
+													</label>
 												</div>
-												<div class="col-md-12">
-													<div class="row">
-														<div class="col-md-12">
-															<div class="box box-primary">	
-																<div class="box-header with-border">
-																	<h3 class="box-title text-right">Website URLs</h3>
+												<div class="col-sm-12">
+													<div class="form-group">
+														<div class="row">
+															<div class="checkbox col-md-4">
+																<label><input type="checkbox" class="flat-red">QA</label>
+															</div> 
+															<div class="checkbox  col-md-4">
+																<label><input type="checkbox" class="flat-red">QA - Misc Segment</label>
+															</div>
+															<div class="checkbox  col-md-4">
+																<label><input type="checkbox" class="flat-red">QA2 - Second Segment</label>
+															</div>
+															<div class="checkbox  col-md-4">
+																<label><input type="checkbox" class="flat-red">QA3 - Third Segment</label>
+															</div>
+															<div class="checkbox  col-md-4">
+																<label><input type="checkbox" class="flat-red">QA4 - Fourth Segment</label>
+															</div>
+														</div>	
+													</div>
+													<hr>	
+												</div>
+												
+													<div class="form-group">
+														<label class="col-sm-8 control-label text-left">
+																Department Membership <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
+														</label>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group">
+															<div class="row">
+																<div class="checkbox col-md-4">
+																	<label><input type="checkbox" class="flat-red">Department-1</label>
+																</div> 
+																<div class="checkbox  col-md-4">
+																	<label><input type="checkbox" class="flat-red">Department-2</label>
 																</div>
-																<div class="box-body">
-																	<div class="row">
-																		<div class="col-md-6">
-																			<div class="form-group">
-																				<label class="col-sm-12 control-label text-left">CSS Override URL <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-																				<div class="col-sm-12">
-																					<input type="text" class="form-control" value="https://1to1.iservicecrm.com/1to1service/css/aging3.css">
-																				</div>
-																			</div>
-																			<div class="checkbox">
-																				<label>
-																					<input type="checkbox" class="flat-red">
-																					Also Include Standard CSS <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
-																				</label>
-																			</div>
-																	    </div>
-																		<div class="col-md-6">	
-																			<div class="form-group">
-																				<label class="col-sm-12 control-label text-left">Anti-Spam Policy URL <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-																				<div class="col-sm-12">
-																					<input type="text" class="form-control" value="http://www.1to1service.com/antispam.asp">
-																				</div>
-																			</div>
-																		</div>	
-																	</div>	
+																<div class="checkbox  col-md-4">
+																	<label><input type="checkbox" class="flat-red">Department-3</label>
 																</div>
 															</div>	
-
 														</div>
-														<div class="col-md-12">
-															<div class="box box-primary">	
-																<div class="box-header with-border">
-																	<h3 class="box-title text-right"> Password Reset Settings </h3>
+														<hr>	
+													</div>
+													
+													<div class="form-group">
+														<label class="col-sm-8 control-label text-left">
+																Skills <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
+														</label>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group">
+															<div class="row">
+																<div class="checkbox col-md-4">
+																	<label><input type="checkbox" class="flat-red">No_Route</label>
+																</div> 
+																<div class="checkbox  col-md-4">
+																	<label><input type="checkbox" class="flat-red">Skill-1</label>
 																</div>
-																<div class="box-body">
-																	<div class="row">
-																		<div class="col-md-6">	
-																			<div class="form-group">
-																				<label class="col-sm-12 control-label text-left">Outbound Mailbox <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
-																				<div class="col-sm-12">
-																					<select class="form-control">
-																						<option>QA2 - Second Segment -- "QA2"</option>
-																					</select>	
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-6">
-																			<div class="form-group">
-																				<label class="col-sm-12 control-label text-left">Auto response <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
-																				<div class="col-sm-12">
-																					<select class="form-control">
-																						<option>QA2 - Password Reset </option>
-																					</select>	
-																				</div>
-																			</div>
-																		</div>
-																	</div>	
-																</div>	
-															</div>	
-														</div>
-														<div class="col-md-12">
-															<div class="box box-primary">	
-																<div class="box-header with-border">
-																	<h3 class="box-title text-right">Web App Auto Response URL Variables </h3>
+																<div class="checkbox  col-md-4">
+																	<label><input type="checkbox" class="flat-red">Skill-2</label>
 																</div>
-																<div class="box-body">
-																	<div class="row">
-																		<div class="col-md-6">
-																			<div class="form-group">
-																				<label class="col-sm-12 control-label text-left">Forward External <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
-																				<div class="col-sm-12">
-																					<input type="text" class="form-control" value="">
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-6">
-																			<div class="form-group">
-																				<label class="col-sm-12 control-label text-left">Find Answer <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
-																				<div class="col-sm-12">
-																						<input type="text" class="form-control" value="">
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>	
+																<div class="checkbox  col-md-4">
+																	<label><input type="checkbox" class="flat-red">Skill-3</label>
+																</div>
+																<div class="checkbox  col-md-4">
+																	<label><input type="checkbox" class="flat-red">Skill-4</label>
+																</div>
 															</div>	
-														</div>
-														<div class="col-md-12">
-															<button class="btn btn-primary">Save</button>
-														</div>
-													</div>		
-												</div>
+														</div>	
+													</div>																			
+											</div>
+											<div class="col-md-12">
+												<button type="button" class="btn btn-primary margin-r-5">Save</button>
+												<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
 											</div>
 										</div>
-									</section>
+									</div>
 								</div>
 							</div>
 						</div>	
@@ -793,9 +598,7 @@ title: Admin Tools - Websites
   var app =  angular.module('iService');
   app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
   {
-		    
 			$scope.toggle = {};
-  			$scope.toggle.switch = false;
 
 			$scope.domains = [{'title':'example1.com'},{'title':'example1.com'}];
 			$scope.adddomain = function() {
