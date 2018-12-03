@@ -125,11 +125,9 @@ title: Admin Tools - Websites
 										<td class="text-capitalize">
 											Department Membership
 										</td>
-										<td class="">
-											<div class="btn-switch" ng-class="{'btn-switch--on':toggle.switch1}" ng-model="toggle.switch1" ng-click="toggle.switch1 = !toggle.switch1;">
-												<div class="btn-switch-circle" ng-class="{'btn-switch-circle--on':toggle.switch1}" ng-model="toggle.switch1" ng-click="!toggle.switch1 = toggle.switch1"></div>
-											</div>
-										</td>
+                    <td class="">
+                      <input type="checkbox" ng-model="toggle.switch1" ui-switch="{ size: 'small' }" />
+                    </td>
 										<td class="text-capitalize">
 											<div style="display: none;">1</div>
 											<i class="fa fa-circle text-success"></i>
