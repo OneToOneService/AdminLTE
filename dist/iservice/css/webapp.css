@@ -1783,3 +1783,6 @@ label .icheckbox_square-blue {
   left: auto;
   right: 0;
 }
+ul .option-selected {
+  background: #d2d6de;
+}

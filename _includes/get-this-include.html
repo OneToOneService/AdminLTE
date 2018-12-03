@@ -27,40 +27,37 @@
                     <i class="fa  fa-check"></i>
                     Resolve
                 </button>
-                <div class="btn-group dropdown margin-r-5">
+              
+                <div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
                     <button type="button" class="btn btn-primary" uib-dropdown-toggle>
                         <i class="fa fa-mail-forward"></i>
                         Forward
-                    </button>									 
-                    <div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-                        <button type="button" class="btn btn-primary" uib-dropdown-toggle>
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
-                            <li><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent"> Forward To Agent</a>
-                                <div class="btn-list-options form-group" ng-show="selectAgent">
-                                    <select class="form-control">
-                                        <option>Select an agent</option>
-                                    </select>  
-                                    <button class="btn btn-primary btn-xs">Assign To Selected Agent</button> 
-                                </div>    
-                            </li>
-                            <li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
-                            <li><a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment"> Forward To Segment</a>
-                                <div class="btn-list-options form-group" ng-show="forwardSegment">
-                                    <select class="js-example-templating js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <optgroup label="QA" data-select2-id="6">
-                                            <option value="default mailbox" data-select2-id="5"> -- Default Mailbox --</option>
-                                            <option value="qoute" data-select2-id="7">Qoute</option>
-                                        </optgroup>
-                                    </select>
-                                    <button class="btn btn-primary btn-xs">Forward Now</button> 
-                                </div>   
-                            </li>
-                            <li><a href="javascript:void(0)" class="text-primary"> Forward To External Segment</a></li>
-                        </ul>
-                    </div>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+                        <li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent"> Forward To Agent</a>
+                            <div class="btn-list-options form-group" ng-show="selectAgent">
+                                <select class="form-control">
+                                    <option>Select an agent</option>
+                                </select>  
+                                <button class="btn btn-primary btn-xs">Assign To Agent</button> <button class="btn btn-link btn-xs">Cancel</button> 
+                            </div>    
+                        </li>
+                        <li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment"> Forward To Segment</a>
+                            <div class="btn-list-options form-group" ng-show="forwardSegment">
+                                <select class="js-example-templating js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                    <optgroup label="QA" data-select2-id="6">
+                                        <option value="default mailbox" data-select2-id="5"> -- Default Mailbox --</option>
+                                        <option value="qoute" data-select2-id="7">Qoute</option>
+                                    </optgroup>
+                                </select>
+                                <button class="btn btn-primary btn-xs">Forward Now</button> 
+                            </div>   
+                        </li>
+                        <li><a href="javascript:void(0)" class="text-primary"> Forward To External Segment</a></li>
+                    </ul>
                 </div>
+
                 <div class="btn-group dropdown margin-r-5">
                         <button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
                         Save</button>										 

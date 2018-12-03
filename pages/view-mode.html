@@ -120,7 +120,7 @@ title: View Mode
 		<!-- /.modal -->
 
 		<!--expanded row content start-->
-		<div id="expandedrow" style="display:none;">
+		<script id="expandedrow" type="text/ng-template">
 			<!--form data start-->	
 			<div class="row" ng-hide="hidetrue"> 
 				<div class="col-md-12">
@@ -344,7 +344,7 @@ title: View Mode
 			<!--Get this-->
 			{% include get-this-include.html %}
 			<!--Get thisa-->
-		</div>	
+		</script>	
 		<!--expanded row content end-->
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
@@ -520,9 +520,7 @@ title: View Mode
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-   	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-	
+   
 	<script>
 		function toggleIcon(e) {
 		$(e.target)
@@ -534,18 +532,7 @@ title: View Mode
 		$('.panel-group').on('shown.bs.collapse', toggleIcon);
 	</script>
 	<script>
-		$(document).ready(function() {
-			// DataTable
-			var table = $('#example1').DataTable( {
-				"order": [],
-				"columnDefs": [ {
-				"targets"  : 'no-sort',
-				"orderable": false
-				}]
-			}
-			);
-    });
-
+		
     $('.cancel-widget').click(function ()
     {
       $('.status-box').slideUp();
@@ -559,7 +546,7 @@ title: View Mode
     });
 	</script>
     <script>
-		var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
+		var app = angular.module('iService');
 			app.controller('myCtrl', function($scope,$log,$compile) {
 			$scope.toggleRow = function (segmentName)
 			{ 
