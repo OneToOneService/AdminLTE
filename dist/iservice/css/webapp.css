@@ -1755,34 +1755,7 @@ label .icheckbox_square-blue {
   width: 50px;
   margin: 50px auto;
 }
-.btn-switch {
-  position: relative;
-  display: block;
-  width: 48px;
-  height: 22px;
-  cursor: pointer;
-  background-color: #b5bbc8;
-  border: 2px solid #b5bbc8;
-  border-radius: 40px;
-}
-.btn-switch .btn-switch-circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  height: 18px;
-  width: 20px;
-  background-color: white;
-  border-radius: 40px;
-}
-.btn-switch--on {
-  background-color: #30a5ff;
-  border: 2px solid #30a5ff;
-}
-.btn-switch--on .btn-switch-circle--on {
-  left: auto;
-  right: 0;
-}
-ul .option-selected {
-  background: #d2d6de;
+.switchery-small {
+  background-color: #b5bbc8 !important;
+  width: 40px;
 }
