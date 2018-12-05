@@ -1,3 +1,5 @@
 include: ['_all','_all-skins.min.css']
 exclude: ['.vs']
 incremental: true
+liquid:
+  error_mode        : lax
