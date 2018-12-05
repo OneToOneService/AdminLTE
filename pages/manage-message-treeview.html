@@ -474,7 +474,7 @@ title: Manage Messages - Tree View
 													<td>
 														feedback@gmail.com
 													</td>
-													<td>
+													<td class="bg-black disabled">
 														2 Days ago
 													</td>
 													<td>
@@ -501,7 +501,7 @@ title: Manage Messages - Tree View
 													<td>
 														customer2@1to1service.com
 													</td>
-													<td>
+													<td class="bg-black disabled">
 														2 Days ago
 													</td>
 													<td>
@@ -528,7 +528,7 @@ title: Manage Messages - Tree View
 													<td>
 														customer2@1to1service.com
 													</td>
-													<td>
+													<td class="bg-yellow disabled">
 														4 Days ago
 													</td>
 													<td>
@@ -555,7 +555,7 @@ title: Manage Messages - Tree View
 													<td>
 														customer1@1to1service.com
 													</td>
-													<td>
+													<td class="bg-red disabled">
 													5 Days ago
 													</td>
 													<td>
@@ -1046,15 +1046,7 @@ title: Manage Messages - Tree View
 		$('.message-attachments').slimScroll({
 			height: '178px'
 		});
-		//iCheck for checkbox and radio inputs
-		$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-			checkboxClass: 'icheckbox_minimal-blue',
-			radioClass: 'iradio_minimal-blue'
-		});
-		$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-			checkboxClass: 'icheckbox_square-blue',
-			radioClass: 'iradio_flat-green'
-		});
+		
     });
 	
 
@@ -1062,9 +1054,7 @@ title: Manage Messages - Tree View
     {
 			
 			$scope.dtContactMessagesOptions = DTOptionsBuilder
-				.newOptions()
-				.withDOM('lf<"toolbar1">')
-				.withOption('language', {
+				.newOptions().withOption('language', {
 				search: 'Filter Messages'
 				})
 				.withBootstrap();

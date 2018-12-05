@@ -471,7 +471,7 @@ title: Manage Messages - List View
 													<td>
 														feedback@gmail.com
 													</td>
-													<td>
+													<td class="bg-black disabled">
 														2 Days ago
 													</td>
 													<td>
@@ -498,7 +498,7 @@ title: Manage Messages - List View
 													<td>
 														customer2@1to1service.com
 													</td>
-													<td>
+													<td class="bg-black disabled">
 														2 Days ago
 													</td>
 													<td>
@@ -525,7 +525,7 @@ title: Manage Messages - List View
 													<td>
 														customer2@1to1service.com
 													</td>
-													<td>
+													<td class="bg-yellow disabled">
 														4 Days ago
 													</td>
 													<td>
@@ -552,7 +552,7 @@ title: Manage Messages - List View
 													<td>
 														customer1@1to1service.com
 													</td>
-													<td>
+													<td class="bg-red disabled">
 														5 Days ago
 													</td>
 													<td>
@@ -976,16 +976,6 @@ title: Manage Messages - List View
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-       <!-- DataTables 
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-	
-<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
--->
 <script>
 	$(document).ready(function() {
 	   // SLIMSCROLL FOR CHAT WIDGET
@@ -999,24 +989,11 @@ title: Manage Messages - List View
     
 	
 	//CKEDITOR.replace('massUpdateDraftBody', {height:400});
- 
-	//$('.selectpicker').selectpicker('refresh');
-	  //iCheck for checkbox and radio inputs
-	  $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-		checkboxClass: 'icheckbox_minimal-blue',
-		radioClass: 'iradio_minimal-blue'
-	});
-	
-	$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-        checkboxClass: 'icheckbox_square-blue',
-        radioClass: 'iradio_flat-green'
-    });
-
-	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+ 	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
 		    $scope.dtContactMessagesOptions = DTOptionsBuilder
 				.newOptions()
-				.withDOM('lf<"toolbar1">')
+				.withDOM('lf')
 				.withOption('language', {
 				search: 'Filter Messages'
 				})
