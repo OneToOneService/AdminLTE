@@ -56,14 +56,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.6.2/angular-datatables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.6.2/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.6.2/plugins/buttons/angular-datatables.buttons.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-sanitize.min.js"></script>
 <script>
   angular.module('iService', ['iService.directive',
     'ngAnimate',
     'ui.select',
     'ui.bootstrap',
     'angularMoment',
-    'datatables', 'datatables.bootstrap', 'datatables.buttons']);
+    'datatables', 'datatables.bootstrap', 'datatables.buttons','ngSanitize', 'ui.select']);
 
   $('.user-menu a[data-toggle="collapse"]').click(function (e)
   {
