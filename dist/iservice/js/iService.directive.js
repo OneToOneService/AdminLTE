@@ -291,7 +291,7 @@
           return postLinkFn;
         }
       };
-    }]).directive('ckeditor', ['$timeout', '$window', function ($timeout, $window)
+    }]).directive('ckeditor', ['$timeout', function ($timeout)
     {
       return {
         require: '?ngModel',
@@ -359,14 +359,13 @@
             CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
             if(isChrome) CKEDITOR.config.extraPlugins = 'pastebase64';
             CKEDITOR.config.entities_additional = '';
-            //CKEDITOR.config.contentsCss = rootPath + 'css/ckeditor.css';
             CKEDITOR.config.extraAllowedContent = 'img[alt,!src]{width,height}';
             CKEDITOR.config.disableNativeSpellChecker = false;
             var ck = CKEDITOR.replace(attr.id, options);
 
             ck.on('instanceReady', function ()
             {
-              ck.resize('100%', $window.getComputedStyle(elm[0]).height, true);
+              ck.resize('100%', '100%', true);
               EditorReady(ck);
 
               if(ngModel)
@@ -410,10 +409,7 @@
 
           function loadPasteImages()
           {
-            var loc = window.location;
-            var pathname = loc.pathname;
-            var dir = rootPath + 'dist/iservice/js/pastebase64.js';
-            CKEDITOR.plugins.addExternal('pastebase64', dir, '');
+            CKEDITOR.plugins.addExternal('pastebase64', '/dist/iservice/js/pastebase64.js', '');
           }
           function refreshCursor(editor)
           {

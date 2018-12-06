@@ -1711,9 +1711,6 @@ label .icheckbox_square-blue {
   width: 100% !important;
   z-index: 999999;
 }
-.form-action .btn {
-  margin-top: 5px;
-}
 .nav-tabs-custom > .tab-content {
   padding: 15px !important;
 }
@@ -1758,4 +1755,19 @@ label .icheckbox_square-blue {
 .switchery-small {
   background-color: #b5bbc8 !important;
   width: 40px;
+}
+.message-body-editor-container {
+  height: 100vh;
+}
+.answer-body-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+}
+.answer-body-tabs {
+  flex: 1 1 auto;
+}
+.variables-and-stock {
+  flex: 0 0 25%;
 }
