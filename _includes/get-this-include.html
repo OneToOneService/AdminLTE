@@ -9,8 +9,8 @@
                         <button type="button" class="btn btn-primary" uib-dropdown-toggle>
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-                            <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)"> Leave Open</a></li>
+                        <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu auto-close="outsideClick">
+                            <li><input type="checkbox" class="flat-red margin-r-5"> Leave Open</li>
                             <li><a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
                                 <div ng-show="shownotificationdropdown">
                                     <select class="form-control">
@@ -18,8 +18,8 @@
                                     </select>    
                                 </div>    
                             </li>
-                            <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Expect Custmer Reply</a></li>
-                            <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Add Reference Number</a></li>
+                            <li><input type="checkbox" class="flat-red margin-r-5">Expect Custmer Reply</li>
+                            <li><input type="checkbox" class="flat-red margin-r-5">Add Reference Number</li>
                         </ul>
                     </div>
                 </div>
