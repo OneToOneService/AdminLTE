@@ -34,27 +34,42 @@
                         Forward
                     </button>
                     <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
-                        <li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent"> Forward To Agent</a>
+                        <li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
                             <div class="btn-list-options form-group" ng-show="selectAgent">
-                                <select class="form-control">
-                                    <option>Select an agent</option>
-                                </select>  
-                                <button class="btn btn-primary btn-xs">Assign To Agent</button> <button class="btn btn-link btn-xs">Cancel</button> 
+                                <div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
+                                    <ui-select ng-model="ctrl.agent.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+                                        <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name"></ui-select-match>
+                                        <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+                                        <span ng-bind-html="agent.name | highlight: $select.search"></span>
+                                        <small ng-bind-html="agent.code | highlight: $select.search"></small>
+                                        </ui-select-choices>
+                                    </ui-select>
+							    </div>	  
+                                <button class="btn btn-primary btn-xs">Assign To Agent</button>
                             </div>    
                         </li>
                         <li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
-                        <li><a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment"> Forward To Segment</a>
-                            <div class="btn-list-options form-group" ng-show="forwardSegment">
-                                <select class="js-example-templating js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                    <optgroup label="QA" data-select2-id="6">
-                                        <option value="default mailbox" data-select2-id="5"> -- Default Mailbox --</option>
-                                        <option value="qoute" data-select2-id="7">Qoute</option>
-                                    </optgroup>
-                                </select>
+                        <li ng-class="{'option-selected' : forwardSegment}">
+                            <a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
+                            <div class="btn-list-options form-group" ng-show="forwardSegment" >
+                                    <div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
+                                        <ui-select ng-model="ctrl.segment.selected" theme="selectize" title="Choose a segment">
+                                            <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name"></ui-select-match>
+                                            <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+                                                <span ng-bind-html="item.name | highlight: $select.search"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
                                 <button class="btn btn-primary btn-xs">Forward Now</button> 
                             </div>   
                         </li>
-                        <li><a href="javascript:void(0)" class="text-primary"> Forward To External Segment</a></li>
+                        <li ng-class="{'option-selected' : forwardExternalSegment}">
+                            <a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Segment</a>
+                            <div class="btn-list-options form-group" ng-show="forwardExternalSegment">
+                               <p>This segment has no external
+                                    agent notifications.</p>
+                            </div>    
+                        </li>
                     </ul>
                 </div>
 
