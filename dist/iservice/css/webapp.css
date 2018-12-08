@@ -1836,3 +1836,12 @@ label .icheckbox_square-blue {
 .selectize-control > .selectize-dropdown {
   width: 100%;
 }
+.tab-content .tab-pane .segment-variable-list {
+  padding: 0px;
+  border-top: 0px;
+}
+.option-list {
+  margin-top: 15px;
+  border: 1px solid #f4f4f4;
+  padding: 15px;
+}

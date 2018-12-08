@@ -540,8 +540,6 @@ title: Action Mode
 			  $('.custom-scroll').slimScroll({
 				height: '250px'
 			  });
-            
-		
        });
 	</script>
 	<script>
@@ -602,6 +600,12 @@ title: Action Mode
 				$scope[action] = !$scope[action];
 			};	
 
+			$scope.customForm = function(){
+			$scope.customform = true;
+			}
+			$scope.builtinForm = function(){
+				$scope.customform = false;
+			}
 		});	 
 
 		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
@@ -663,7 +667,7 @@ title: Action Mode
 				{ name: 'Push Bullet',  segmentname: 'QA2- Second Segment' },
 			];
 		});
-
+		
 	</script>	
 </body>
 </html>
