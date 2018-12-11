@@ -10,16 +10,17 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu auto-close="outsideClick">
-                            <li><input type="checkbox" class="flat-red margin-r-5"> Leave Open</li>
-                            <li><a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
+                            <li><input type="checkbox" class="margin-r-5"> Leave Open</li>
+                            <li>
+                                <a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
                                 <div ng-show="shownotificationdropdown">
                                     <select class="form-control">
                                         <option>Select a notification</option>
                                     </select>    
                                 </div>    
                             </li>
-                            <li><input type="checkbox" class="flat-red margin-r-5">Expect Custmer Reply</li>
-                            <li><input type="checkbox" class="flat-red margin-r-5">Add Reference Number</li>
+                            <li><input type="checkbox" class="margin-r-5">Expect Custmer Reply</li>
+                            <li><input type="checkbox" class="margin-r-5">Add Reference Number</li>
                         </ul>
                     </div>
                 </div>
@@ -33,7 +34,7 @@
                         <i class="fa fa-mail-forward"></i>
                         Forward
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+                    <ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
                         <li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
                             <div class="btn-list-options form-group" ng-show="selectAgent">
                                 <div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
@@ -338,7 +339,7 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="draftbody">
                     <div class="form-group text-editor-container">
-                        <textarea class="form-control" rows="5" placeholder="" id="editorgetthis" ckeditor><p>Hello,</p>
+                        <textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor ><p>Hello,</p>
 
                             <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
                             
