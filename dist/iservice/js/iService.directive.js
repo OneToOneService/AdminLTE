@@ -370,7 +370,7 @@
 
             ck.on('instanceReady', function ()
             {
-              ck.resize('100%', 600, true);
+              ck.resize('100%', 450, true);
               EditorReady(ck);
 
               if(ngModel)

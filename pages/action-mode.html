@@ -533,15 +533,7 @@ title: Action Mode
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
- 	<script>
-	   $(function ()
-       {
-	       // SLIMSCROLL FOR CHAT WIDGET
-			  $('.custom-scroll').slimScroll({
-				height: '250px'
-			  });
-       });
-	</script>
+ 	
 	<script>
 		angular.module('iService').controller('action-mode', function ($scope,$log,$compile) {
 			$scope.toggleRow = function (segmentName)
@@ -668,5 +660,12 @@ title: Action Mode
 		});
 		
 	</script>	
+
+<script>
+	    // SLIMSCROLL FOR CHAT WIDGET
+		$('.custom-scroll').slimScroll({
+			height: '250px'
+		});
+ </script>
 </body>
 </html>
