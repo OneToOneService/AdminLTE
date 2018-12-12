@@ -1804,9 +1804,6 @@ label .icheckbox_square-blue {
 .ui-select-highlight {
   font-weight: bold;
 }
-.selectize-control {
-  width: 300px;
-}
 .ui-select-offscreen {
   clip: rect(0 0 0 0) !important;
   width: 1px !important;
@@ -1820,11 +1817,10 @@ label .icheckbox_square-blue {
   left: 0px !important;
   top: 0px !important;
 }
-/* Helper class to show styles when focus */
-.selectize-input.selectize-focus {
-  border-color: #007FBB !important;
-}
 /* Fix input width for Selectize theme */
+.selectize-control {
+  width: 100% !important;
+}
 .selectize-control.single > .selectize-input > input {
   width: 100%;
 }
@@ -1836,6 +1832,9 @@ label .icheckbox_square-blue {
 .selectize-control > .selectize-dropdown {
   width: 100%;
 }
+.dropdown-forward {
+  width: 380px;
+}
 .tab-content .tab-pane .segment-variable-list {
   padding: 0px;
   border-top: 0px;
@@ -1844,4 +1843,7 @@ label .icheckbox_square-blue {
   margin-top: 15px;
   border: 1px solid #f4f4f4;
   padding: 15px;
+}
+.dropdown-menu > li.option-selected > a.text-primary {
+  color: white !important;
 }
