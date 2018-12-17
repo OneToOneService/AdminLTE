@@ -1,5 +1,5 @@
 ---
-title: Admin Tools - Websites
+title: Admin Tools - Agents
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -89,7 +89,7 @@ title: Admin Tools - Websites
 													User Type
 												</th>
 												<th class="text-capitalize">
-													Segments Access
+													Segment Access
 												</th>
 												<th class="text-capitalize">
 													Skills
@@ -115,7 +115,7 @@ title: Admin Tools - Websites
 													1
 												</td>
 												<td class="text-capitalize">
-													jacob.smith@example.com
+													jacob.smith@1to1Service.com
 												</td>
 												<td class="text-capitalize">
 													Jacob Smith
@@ -124,13 +124,13 @@ title: Admin Tools - Websites
 													CSR
 												</td>
 												<td class="text-capitalize">
-													qa, qa2 - second segment, sms
+													Sales, Customer Service
 												</td>
 												<td class="text-capitalize">
-													No_Route
+													Product,Shipping, Support
 												</td>
 												<td class="text-capitalize">
-													Department Membership
+													Escalation Team
 												</td>
 												<td ng-click="$event.stopPropagation()">
 													<input type="checkbox" ng-model="toggle.switch1" ui-switch="{ size: 'small' }" />
@@ -150,22 +150,22 @@ title: Admin Tools - Websites
 													2
 												</td>
 												<td class="text-capitalize">
-													jacob.smith@example.com
+													Justin.Time@1to1service.com
 												</td>
 												<td class="text-capitalize">
-													Jacob Smith
+													Justin Time
 												</td>
 												<td class="text-capitalize">
 													CSR
 												</td>
 												<td class="text-capitalize">
-													qa, qa2 - second segment, sms
+													Sales,Customer Service, Human Resources
 												</td>
 												<td class="text-capitalize">
-													No_Route
+													Shipping, Support, Tier 2 support
 												</td>
 												<td class="text-capitalize">
-													Department Membership
+													Sales Team
 												</td>
 												<td ng-click="$event.stopPropagation()">
 													<input type="checkbox" ng-model="toggle.switch2" ui-switch="{ size: 'small' }" />
@@ -185,22 +185,22 @@ title: Admin Tools - Websites
 													3
 												</td>
 												<td class="text-capitalize">
-													jacob.smith@example.com
+													Alek.Packard@1to1service.com
 												</td>
 												<td class="text-capitalize">
-													Jacob Smith
+													Alek Packard
 												</td>
 												<td class="text-capitalize">
 													CSR
 												</td>
 												<td class="text-capitalize">
-													qa, qa2 - second segment, sms
+													Sales,Customer Service, Human Resources
 												</td>
 												<td class="text-capitalize">
-													No_Route
+													Product,Shipping, Support, Tier 2 support
 												</td>
 												<td class="text-capitalize">
-													Department Membership
+													Escalation Team
 												</td>
 												<td ng-click="$event.stopPropagation()">
 													<input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" />
@@ -286,7 +286,7 @@ title: Admin Tools - Websites
 									<div class="box box-primary">
 										<div class="box-header with-border">
 											<i class="fa fa-user"></i>
-											<h3 class="box-title text-right">Agent</h3>
+											<h3 class="box-title text-right">Agent Details</h3>
 										</div>
 										<div class="box-body">
 											<div class="row">
@@ -324,19 +324,13 @@ title: Admin Tools - Websites
 															<div class="form-group">
 																<div class="row">
 																	<div class="checkbox col-md-4">
-																		<label><input type="checkbox" class="flat-red">QA</label>
+																		<label><input type="checkbox" class="flat-red">Sales</label>
 																	</div> 
 																	<div class="checkbox  col-md-4">
-																		<label><input type="checkbox" class="flat-red">QA - Misc Segment</label>
+																		<label><input type="checkbox" class="flat-red">Customer Service</label>
 																	</div>
 																	<div class="checkbox  col-md-4">
-																		<label><input type="checkbox" class="flat-red">QA2 - Second Segment</label>
-																	</div>
-																	<div class="checkbox  col-md-4">
-																		<label><input type="checkbox" class="flat-red">QA3 - Third Segment</label>
-																	</div>
-																	<div class="checkbox  col-md-4">
-																		<label><input type="checkbox" class="flat-red">QA4 - Fourth Segment</label>
+																		<label><input type="checkbox" class="flat-red">Human Resources</label>
 																	</div>
 																</div>	
 															</div>
@@ -352,13 +346,10 @@ title: Admin Tools - Websites
 																<div class="form-group">
 																	<div class="row">
 																		<div class="checkbox col-md-4">
-																			<label><input type="checkbox" class="flat-red">Department-1</label>
+																			<label><input type="checkbox" class="flat-red">Sales Team</label>
 																		</div> 
 																		<div class="checkbox  col-md-4">
-																			<label><input type="checkbox" class="flat-red">Department-2</label>
-																		</div>
-																		<div class="checkbox  col-md-4">
-																			<label><input type="checkbox" class="flat-red">Department-3</label>
+																			<label><input type="checkbox" class="flat-red">Escalation Team</label>
 																		</div>
 																	</div>	
 																</div>
@@ -374,19 +365,16 @@ title: Admin Tools - Websites
 																<div class="form-group">
 																	<div class="row">
 																		<div class="checkbox col-md-4">
-																			<label><input type="checkbox" class="flat-red">No_Route</label>
+																			<label><input type="checkbox" class="flat-red">Product</label>
 																		</div> 
 																		<div class="checkbox  col-md-4">
-																			<label><input type="checkbox" class="flat-red">Skill-1</label>
+																			<label><input type="checkbox" class="flat-red">Shipping</label>
 																		</div>
 																		<div class="checkbox  col-md-4">
-																			<label><input type="checkbox" class="flat-red">Skill-2</label>
+																			<label><input type="checkbox" class="flat-red">Support</label>
 																		</div>
 																		<div class="checkbox  col-md-4">
-																			<label><input type="checkbox" class="flat-red">Skill-3</label>
-																		</div>
-																		<div class="checkbox  col-md-4">
-																			<label><input type="checkbox" class="flat-red">Skill-4</label>
+																			<label><input type="checkbox" class="flat-red">Tier 2 Support</label>
 																		</div>
 																	</div>	
 																</div>	
@@ -614,14 +602,20 @@ title: Admin Tools - Websites
 				$scope.deleteFormItem = function(index) {	
 					$scope.formItemList.splice(index, 1);
 				}
-		
 
-			
 				$scope.dtContactHistoryOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
 					search: 'Filter Agents'
 				})
-				.withBootstrap();
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+					// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+					// disable the show/hide column functionality for certain columns
+					return headCell.dataset.noColVis === undefined;
+					}
+				}]);
 
 				$scope.dtContactHistoryColumnDefs = [
 					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")

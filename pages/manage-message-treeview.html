@@ -1158,6 +1158,16 @@ title: Manage Messages - Tree View
 				{ name: 'Push Bullet',  segmentname: 'QA2- Second Segment' },
 			];
 		});
+		angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
    
 </script>
 
