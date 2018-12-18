@@ -767,7 +767,7 @@ title: Admin Tools - Agents
 																			</tr>
 																		</thead>
 																		<tbody>
-																			<tr id="row1" ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+																			<tr id="row1" ng-click="toggleFormStepResponse('rowresponse3')" ng-class="{true: 'row-active', false: ''}[rowresponse3]">
 																				<td>
 																					111
 																				</td>
@@ -775,7 +775,7 @@ title: Admin Tools - Agents
 																					Example one
 																				</td>
 																			</tr>
-																			<tr id="row2" ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
+																			<tr id="row2" ng-click="toggleFormStepResponse('rowresponse4')" ng-class="{true: 'row-active', false: ''}[rowresponse4]">
 																				<td>
 																					112
 																				</td>
@@ -792,20 +792,20 @@ title: Admin Tools - Agents
 
 													<div class="row">
 														<div class="col-md-12 form-group">
-															<button class="btn btn-primary" type="button" ng-click="showNewFormStep(4)">
+															<button class="btn btn-primary" type="button" ng-click="showNewFormResponse(4)">
 																	New Stock Response
 															</button>
-															<button class="btn btn-primary" type="button" ng-click="showStepStep(4)">
+															<button class="btn btn-primary" type="button">
 																Delete Stock Response
 															</button>
 														</div>	
 													</div>
-													<div class="row" ng-show="formstep4">
+													<div class="row" ng-show="formstepresponse4">
 															<div class="col-md-12">
 																<div class="box box-primary">
 																	<div class="box-header with-border">
-																		<i class="fa fa-globe"></i>
-																		<h3 class="box-title text-right">New Website</h3>
+																		<i class="fa fa-reply"></i>
+																		<h3 class="box-title text-right">New Stock Response</h3>
 																	</div>
 																	<div class="box-body">
 																		<section class="search-parameters">
@@ -813,17 +813,31 @@ title: Admin Tools - Agents
 																				<div class="form-horizontal">
 																					<div class="col-md-6">
 																						<div class="form-group">
-																							<label class="col-sm-4 control-label text-left">Name:</label>
-																							<div class="col-sm-8">
+																							<label class="col-sm-12">Name</label>
+																							<div class="col-sm-12">
 																								<input type="text" class="form-control">
 																							</div>
 																						</div>
 																					</div>
 																					<div class="col-md-6">
 																						<div class="form-group">
-																							<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
+																							<label class="col-sm-12">Description</label>
+																							<div class="col-sm-12">
+																								<input type="text" class="form-control">
+																							</div>
+																						</div>
+																					</div>
+																					<div class="col-md-12">
+																						<div class="form-group">
+																							<label class="col-sm-12 ">Html Response Body</label>
+																							<div class="col-sm-12">
+																								<textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor ></textarea>
+																							</div>
+																						</div>
+																					</div>
+																					<div class="col-md-6">
+																							<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Save</button>
 																							<button type="button" class="btn btn-link">Cancel</button>
-																						</div>	
 																					</div>
 																				</div>
 																			</div>
@@ -1089,7 +1103,8 @@ title: Admin Tools - Agents
 						}	   
 						else	
 						$scope['formstep'+i] = false;
-					}
+				}
+
 		};
 		
 		$scope.toggleFormStep = function(segmentName){
@@ -1098,14 +1113,26 @@ title: Admin Tools - Agents
 			}
 			$scope[segmentName] = !$scope[segmentName];
 				$scope['formstep'+2] = !$scope['formstep'+2];
-			};
+		};
 
-			$scope.customForm = function(){
-				$scope.customform = true;
+		$scope.toggleFormStepResponse = function(segmentName){
+			for(var i =1; i<=4; i++){
+				$scope['rowresponse'+i] = false;  
 			}
-			$scope.builtinForm = function(){
-				$scope.customform = false;
-			}
+			$scope[segmentName] = !$scope[segmentName];
+				$scope['formstepresponse'+4] = !$scope['formstepresponse'+4];
+		};
+
+		$scope.showNewFormResponse = function(){
+			$scope['formstepresponse'+4] = true;
+		};
+       
+		$scope.customForm = function(){
+			$scope.customform = true;
+		}
+		$scope.builtinForm = function(){
+			$scope.customform = false;
+		}
 	});
 	app.controller('myCtrlDetail', function ($scope) {
       
