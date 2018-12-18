@@ -1668,7 +1668,7 @@ label .icheckbox_square-blue {
   color: #111111;
 }
 .box-bg-color {
-  background-color: #ecf0f5 !important;
+  background-color: #f7f7f7 !important;
   z-index: 999;
   position: relative;
 }
@@ -1678,7 +1678,7 @@ label .icheckbox_square-blue {
 }
 .color-tab-icon > .nav-tabs > li.active a,
 .color-tab-icon > .nav-tabs > li.active a:hover {
-  background: #ecf0f5;
+  background: #f7f7f7;
 }
 .form-group button {
   margin-right: 5px;
