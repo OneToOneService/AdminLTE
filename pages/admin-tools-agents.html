@@ -105,6 +105,15 @@ title: Admin Tools - Agents
 												</th>
 												<th class="text-capitalize">
 													Chat Available
+												</th>
+												<th class="text-capitalize">
+													Last Activity
+												</th>
+												<th class="text-capitalize">
+													Empty Inbox
+												</th>
+												<th class="text-capitalize">
+													Inactivity Timeout
 												</th>		
 											</tr>
 										</thead>
@@ -142,6 +151,15 @@ title: Admin Tools - Agents
 												<td class="text-capitalize">
 													<div style="display: none;">0</div>
 													<i class="fa fa-circle text-danger"></i>
+												</td>
+												<td>
+													12/18/2018 9:30:31 PM
+												</td>
+												<td>
+													--
+												</td>
+												<td>
+													2 minutes
 												</td>		
 											</tr>
 											<tr ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
@@ -177,6 +195,15 @@ title: Admin Tools - Agents
 												<td class="text-capitalize">
 													<div style="display: none;">0</div>
 													<i class="fa fa-circle text-danger"></i>
+												</td>
+												<td>
+													12/17/2018 9:30:31 PM
+												</td>
+												<td>
+													--
+												</td>
+												<td>
+													5 minutes
 												</td>		
 											</tr>
 											<tr ng-click="toggleFormStep('row3')" ng-class="{true: 'row-active', false: ''}[row3]">
@@ -212,6 +239,15 @@ title: Admin Tools - Agents
 												<td class="text-capitalize">
 													<div style="display: none;">1</div>
 													<i class="fa fa-circle text-success"></i>
+												</td>
+												<td>
+													12/18/2018 12:30:31 PM
+												</td>
+												<td>
+													--
+												</td>
+												<td>
+													2 minutes
 												</td>		
 											</tr>
 										</tbody>
@@ -1076,16 +1112,19 @@ title: Admin Tools - Agents
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
 					{
-					// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-					// disable the show/hide column functionality for certain columns
-					return headCell.dataset.noColVis === undefined;
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
 					}
 				}]);
 
 				$scope.dtContactHistoryColumnDefs = [
-					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
+					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px"),
+					DTColumnDefBuilder.newColumnDef(10).notVisible(),
+					DTColumnDefBuilder.newColumnDef(11).notVisible(),
+					DTColumnDefBuilder.newColumnDef(12).notVisible()
 				];
-	
+
 				$scope.cancelForm = function(step){
 					for(var i =1; i<=2; i++){
 						if(i == step){
