@@ -1750,6 +1750,7 @@ label .icheckbox_square-blue {
 }
 .delete-col .button-delete {
   padding-top: 10px;
+  outline: none;
 }
 .container {
   width: 50px;
