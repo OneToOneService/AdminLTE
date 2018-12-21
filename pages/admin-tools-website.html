@@ -229,22 +229,18 @@ title: Admin Tools - Websites
 																		<table class="table table-striped">
 																			<thead>
 																				<tr>
-																					
+																					<td class="delete-col"></td>
 																					<td>Placeholder Name</td>
 																					<td>Form ID/Builtin Name</td>
-																					<td class="delete-col"></td>
 																				</tr>
 																			</thead>
 																			<tbody>
 																				<tr ng-repeat="forms in formItemList">
-																					
-																					<td><input type="text" class="form-control" value=""></td>
-																					<td><input type="text" class="form-control" value=""></td>
 																					<td class="delete-col">
-																						<button class="icon-button button-delete" type="button" ng-click="deleteFormItem($index)">
-																							<i class="fa fa-times-circle"></i>
-																						</button>
+																							<div confirm-delete on-confirm="delete(person)"></div>
 																					</td>
+																					<td><input type="text" class="form-control" value=""></td>
+																					<td><input type="text" class="form-control" value=""></td>
 																				</tr>
 																				<tr>
 																					<td class="delete-col">
@@ -640,7 +636,18 @@ title: Admin Tools - Websites
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-       <!-- DataTables -->
+	   <!-- DataTables -->
+	<script type="text/ng-template" id="templates/deleteConfirmation.html">
+		<div class="deleteConfirmation">
+			<div ng-hide="isDeleting" >
+				<button type="button" class="icon-button button-delete" ng-click="startDelete()"><i class="fa fa-times-circle"></i></button>
+			</div>
+			<div ng-show="isDeleting" class="delete-row-confirm">
+				<button type="button" class="btn btn-danger btn-xs"  ng-click="confirm()">Confirm</button>
+				<button type="button" class="btn btn-link btn-xs" ng-click="cancel()">Cancel</button>
+			</div>
+		</div>
+	</script>
   <script>
 	$(document).ready(function() {
     // DataTable
@@ -656,6 +663,28 @@ title: Admin Tools - Websites
 <script>
   var count = 1;
   var i = 1;
+  angular.module('iService').directive('confirmDelete', function() {
+    return {
+      replace: true,
+      templateUrl: 'templates/deleteConfirmation.html',
+      scope: {
+        onConfirm: '&'
+      },
+      controller: function($scope) {
+        $scope.isDeleting = false;
+        $scope.startDelete = function() {
+          return $scope.isDeleting = true;
+        };
+        $scope.cancel = function() {
+          return $scope.isDeleting = false;
+        };
+        return $scope.confirm = function() {
+          return $scope.onConfirm(); // End of directive
+        };
+      }
+    };
+  });
+
   angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder,)
   {
 		

@@ -21,8 +21,8 @@ form .ng-invalid {
   }
   from,
   to {
-    background-color: #ff0000;
-    border: 1px solid #b30000;
+    background-color: #dd4b39;
+    border: 1px solid #ac2d1e;
   }
 }
 .ui-pnotify-icon {
@@ -232,7 +232,7 @@ p.login-box-msg {
   font-size: 18px;
 }
 .button-delete {
-  color: #ff0000;
+  color: #dd4b39;
 }
 .floating-textarea {
   min-height: 30px;
@@ -586,7 +586,7 @@ ul.timeline span.stack-icon .aqua {
   background: #30a5ff;
 }
 .color-tab-icon li i.red {
-  background: #ff0000;
+  background: #dd4b39;
 }
 .color-tab-icon li i.green {
   background: #00a65a;
@@ -662,7 +662,7 @@ ul.timeline span.stack-icon .aqua {
   background: #ff851b;
 }
 .contact-summary a i.red2 {
-  background: #ff0000;
+  background: #dd4b39;
 }
 .contact-summary a i.green2 {
   background: #00a65a;
@@ -1260,7 +1260,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .inline-icon .stack-icon .fa:last-child {
   font-size: 11px;
-  color: #ff0000;
+  color: #dd4b39;
   bottom: -2px;
   right: -5px;
 }
@@ -1305,7 +1305,7 @@ ul.timeline span.stack-icon .aqua {
   right: -3px;
   bottom: 4px;
   font-size: 10px;
-  color: #ff0000;
+  color: #dd4b39;
 }
 .stack-icon-label .aqua {
   color: #00c0ef !important;
@@ -1337,7 +1337,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .icon-label i:last-child {
   font-size: 13px;
-  color: #ff0000;
+  color: #dd4b39;
   bottom: -4px;
   right: -6px;
 }
@@ -1847,4 +1847,8 @@ label .icheckbox_square-blue {
 }
 .dropdown-menu > li.option-selected > a.text-primary {
   color: white !important;
+}
+.delete-row-confirm {
+  width: 102px;
+  margin-top: 7px;
 }
