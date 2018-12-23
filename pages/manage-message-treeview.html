@@ -88,7 +88,7 @@ title: Manage Messages - Tree View
 						<!-- /.box -->    
 					</div>
 					<div class="col-md-9 p-l-0">
-						<div class="row ">
+						<div class="row" ng-controller="myCtrl">
 							<div class="col-md-12">
 								<div class="box box-primary">
 									<div class="box-header with-border" ng-click="isCollapsedMassUpdate = !isCollapsedMassUpdate">
@@ -98,7 +98,7 @@ title: Manage Messages - Tree View
 									<div class="box-body manage-message" uib-collapse="isCollapsedMassUpdate">
 										<div class="col-md-12 bg-box box-bg-color">
 											<div class="row">
-												<div class="col-md-8 form-horizontal"> 
+												<div class="col-md-12 form-horizontal"> 
 													<div class="col-md-12 form-action">
 														<div class="form-group">
 															<div class="btn-group dropdown margin-r-5">
@@ -106,19 +106,20 @@ title: Manage Messages - Tree View
 																Send</button>										 
 																<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
 																	<button type="button" class="btn btn-primary" uib-dropdown-toggle>
-																	<span class="caret"></span>
-																</button>
-																	<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-																		<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)"> Leave Open</a></li>
-																		<li><a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
+																		<span class="caret"></span>
+																	</button>
+																	<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu auto-close="outsideClick">
+																		<li><input type="checkbox" class="margin-r-5"> Leave Open</li>
+																		<li>
+																			<a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
 																			<div ng-show="shownotificationdropdown">
 																				<select class="form-control">
 																					<option>Select a notification</option>
 																				</select>    
 																			</div>    
 																		</li>
-																		<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Expect Custmer Reply</a></li>
-																		<li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Add Reference Number</a></li>
+																		<li><input type="checkbox" class="margin-r-5">Expect Custmer Reply</li>
+																		<li><input type="checkbox" class="margin-r-5">Add Reference Number</li>
 																	</ul>
 																</div>
 															</div>
@@ -126,40 +127,52 @@ title: Manage Messages - Tree View
 																<i class="fa  fa-check"></i>
 																Resolve
 															</button>
-															<div class="btn-group dropdown margin-r-5">
+														  
+															<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
 																<button type="button" class="btn btn-primary" uib-dropdown-toggle>
 																	<i class="fa fa-mail-forward"></i>
 																	Forward
-																</button>									 
-																<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-																	<button type="button" class="btn btn-primary" uib-dropdown-toggle>
-																		<span class="caret"></span>
-																	</button>
-																	<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
-																		<li><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent"> Forward To Agent</a>
-																			<div class="btn-list-options form-group" ng-show="selectAgent">
-																				<select class="form-control">
-																					<option>Select an agent</option>
-																				</select>  
-																				<button class="btn btn-primary btn-xs">Assign To Selected Agent</button> 
-																			</div>    
-																		</li>
-																		<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
-																		<li><a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment"> Forward To Segment</a>
-																			<div class="btn-list-options form-group" ng-show="forwardSegment">
-																				<select class="js-example-templating js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-																					<optgroup label="QA" data-select2-id="6">
-																						<option value="default mailbox" data-select2-id="5"> -- Default Mailbox --</option>
-																						<option value="qoute" data-select2-id="7">Qoute</option>
-																					</optgroup>
-																				</select>
-																				<button class="btn btn-primary btn-xs">Forward Now</button> 
-																			</div>   
-																		</li>
-																		<li><a href="javascript:void(0)" class="text-primary"> Forward To External Segment</a></li>
-																	</ul>
-																</div>
+																</button>
+																<ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+																	<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
+																		<div class="btn-list-options form-group" ng-show="selectAgent">
+																			<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
+																				<ui-select ng-model="ctrl.agent.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+																					<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name"></ui-select-match>
+																					<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+																					<span ng-bind-html="agent.name | highlight: $select.search"></span>
+																					<small ng-bind-html="agent.code | highlight: $select.search"></small>
+																					</ui-select-choices>
+																				</ui-select>
+																			</div>	  
+																			<button class="btn btn-primary btn-xs">Assign To Agent</button>
+																		</div>    
+																	</li>
+																	<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+																	<li ng-class="{'option-selected' : forwardSegment}">
+																		<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
+																		<div class="btn-list-options form-group" ng-show="forwardSegment" >
+																				<div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
+																					<ui-select ng-model="ctrl.segment.selected" theme="selectize" title="Choose a segment">
+																						<ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name"></ui-select-match>
+																						<ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+																							<span ng-bind-html="item.name | highlight: $select.search"></span>
+																						</ui-select-choices>
+																					</ui-select>
+																				</div>
+																			<button class="btn btn-primary btn-xs">Forward Now</button> 
+																		</div>   
+																	</li>
+																	<li ng-class="{'option-selected' : forwardExternalSegment}">
+																		<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Segment</a>
+																		<div class="btn-list-options form-group" ng-show="forwardExternalSegment">
+																		   <p>This segment has no external
+																				agent notifications.</p>
+																		</div>    
+																	</li>
+																</ul>
 															</div>
+											
 															<div class="btn-group dropdown margin-r-5">
 																	<button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
 																	Save</button>										 
@@ -179,26 +192,26 @@ title: Manage Messages - Tree View
 																</button>
 																<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
 																	<li>
-																			<select class="selectpicker form-control" multiple>
-																					<option>e-shop -- All Topics(0)</option>
-																					<option>.._Feedback (2)</option>
-																					<option>.._Newsletter Subscription (0)</option>
-																					<option>.._Spam (0)</option>
-																					<option>.._Undeliverable (0)</option>
-																					<option>..Account Questions (0)</option>
-																					<option>....Orders (0)</option>
-																					<option>....Refunds (0)</option>
-																					<option>....Returns (0)</option>
-																					<option>..Products(0)</option>
-																					<option>....Audio-Video (0)</option>
-																					<option>....Cameras (0)</option>
-																					<option>....Cell Phones (0)</option>
-																					<option>....Computers (0)</option>
-																					<option>....Televisions(0)</option>
-																					<option>..Shipping (0)</option>
-																					<option>..Technical Support (0)</option>
-																					<option>....Open Quotes (1)</option>
-																				</select>
+																		<select class="changetopicselect form-control" multiple>
+																			<option>e-shop -- All Topics(0)</option>
+																			<option>.._Feedback (2)</option>
+																			<option>.._Newsletter Subscription (0)</option>
+																			<option>.._Spam (0)</option>
+																			<option>.._Undeliverable (0)</option>
+																			<option>..Account Questions (0)</option>
+																			<option>....Orders (0)</option>
+																			<option>....Refunds (0)</option>
+																			<option>....Returns (0)</option>
+																			<option>..Products(0)</option>
+																			<option>....Audio-Video (0)</option>
+																			<option>....Cameras (0)</option>
+																			<option>....Cell Phones (0)</option>
+																			<option>....Computers (0)</option>
+																			<option>....Televisions(0)</option>
+																			<option>..Shipping (0)</option>
+																			<option>..Technical Support (0)</option>
+																			<option>....Open Quotes (1)</option>
+																		</select>
 																	</li>
 																</ul>
 															</div>
@@ -206,74 +219,187 @@ title: Manage Messages - Tree View
 																<i class="fa fa-ban"></i>
 																Spam
 															</button>
+															<a class="btn btn-link" ng-click="cancel('getthis')">Cancel</a>
 														</div>
 														<div class="row">
-															<div class="box">
-																<div class="box-header with-border" ng-click="isCollapsedVariable = !isCollapsedVariable" ng-init="isCollapsedVariable = true;">
-																	<h3 class="box-title">Variables & Stock Responses</h3> 
-																	<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedVariable}"></span>
-																</div>
-																<div class="box-body" uib-collapse="isCollapsedVariable" >									
-																	<div class="nav-tabs-custom">
-																		<ul class="nav nav-tabs">
-																			<li class="active"><a href="#variable-tab-update" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-																			<li><a href="#stock-response-tab-update" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-																		</ul>
-																		<div class="tab-content">
-																			<div class="tab-pane active" id="variable-tab-update">
-																				<div class="row">
-																					<div class="col-xs-12 variable-responses custom-scroll">
-																						<div>
-																							<input type="text" class="form-control" placeholder="Keyword Search">
+														   <!-- Custom Tabs -->
+														   <div class="nav-tabs-custom">
+																<ul class="nav nav-tabs">
+																	<li class="active"><a href="#tab_massupdate_1" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Email Addresses & Subject</span></a></li>
+																	<li ><a href="#tab_massupdate_2" data-toggle="tab"><i class="fa fa-paperclip"></i> <span>Details & Attachements</span><span class="new-inside"></span></a></li>
+																	<li><a href="#tab_massupdate_3" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span></a> </li>
+																	<li><a href="#tab_massupdate_4" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i> <span>Variable & Stock Responses</span></a> </li>
+																</ul>
+																<div class="tab-content">
+																	<div class="tab-pane" id="tab_massupdate_2">
+																		<div>
+																			<label>Interaction Id</label>:114576
+																			 <h4>Attachments</h4>
+																			<a href="#">Errorimage.jpg</a>, <a href="#">Errorimage2.jpg</a>
+																		</div>
+																	</div>
+																	<!-- /.tab-pane -->
+																	<div class="tab-pane active" id="tab_massupdate_1">
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">From</label>
+																			<div class="col-sm-10">
+																			<input class="form-control" type="text" value="Support@1to1service.com">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">To</label>
+																			<div class="col-sm-10">
+																			<input class="form-control" type="text" value="john.doe@example.com">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">CC</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text" >
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">BCC</label>
+																			<div class="col-sm-10">
+																				<input class="form-control" type="text" >
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-2 control-label">Subject</label>
+																			<div class="col-sm-4">
+																				<input class="form-control" type="text" value="Ref#: 1006-1009"  disabled>
+																			</div>
+																			<div class="col-sm-6">
+																				<input class="form-control" type="text" value="looking for low cost tv">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<div class="col-md-2">
+																			</div>
+																		    <div class="col-md-10">
+																				<p class="attach-file"> <label class="btn-bs-file">
+																					Attach files		
+																					<input type="file" />
+																				</label> (Maximum 10 MB upload at one time.)</p>
+																		    </div>	
+																		</div> 
+																	</div>
+																	<!-- /.tab-pane -->
+																	<div class="tab-pane" id="tab_massupdate_3">
+																		<div class="row">
+																				<div class="col-xs-6">
+																				   <div class="form-group">    
+																						<label class="col-md-12">Follow Up Date</label>
+																						<div class="col-sm-12">
+																							 <input type="email" class="form-control" placeholder="11/08/17">
 																						</div>
-																						<ul class="list-unstyled segment-variable-list">
-																							<li class="section-label">Contact
-																							<ul class="segment-variables">
-																								<li class="section-var-link">Name</li>
-																								<li class="segment-lable">Global
-																									<ul>
-																									<li class="section-var-link">Address1</li>
-																									<li class="section-var-link">Address2</li>
-																									<li class="section-var-link">City</li>
-																									<li class="section-var-link">Country</li>
-																									<li class="section-var-link">Company</li>
-																									</ul>
-																								</li>
-																								<li class="segment-lable">JC Segment
-																									<ul>
-																									<li class="section-var-link">Contact View Only Property</li>
-																									<li class="section-var-link">Contact Viewable and Editable Property</li>
-																									<li class="section-var-link">Multi value No Descr</li>
-																									<li class="section-var-link">Shared Property from JC - cust can't see</li>
-																									</ul>
-																								</li>
-																							</ul>
+																					</div>  
+																				</div>
+																				<div class="col-xs-6">
+																					<div class="form-group">    
+																						<label class="col-md-12">isFollowUp</label>
+																						<div class="col-sm-12">
+																							<select class="form-control">
+																								<option>True</option>
+																							</select>
+																						</div>
+																					</div>    
+																				</div>
+																				<div class="col-xs-6">
+																					<div class="form-group">    
+																						<label class="col-md-12">isOpen</label>
+																						<div class="col-sm-12">
+																							<select class="form-control">
+																								<option>False</option>
+																							</select>
+																						</div>
+																					</div>    
+																				</div>
+																				<div class="col-xs-6">
+																					<div class="form-group">    
+																						<label class="col-md-12">Owner</label>
+																						<div class="col-sm-12">
+																							<select class="form-control">
+																								<option>Joe</option>												
+																							</select>
+																						</div>
+																					</div>    
+																				</div>
+																				<div class="col-xs-6">
+																					<div class="form-group">    
+																						<label class="col-md-12">priority</label>
+																						<div class="col-sm-12">
+																							<select class="form-control">
+																								<option>0-Urgent</option>
+																							</select>
+																						</div>
+																					</div>    
+																				</div>
+																				<div class="col-md-12">
+																					<button type="submit" class="btn btn-primary">Save</button>
+																				</div>
+																		</div>    
+																	<!-- /.tab-pane -->
+																	</div>
+											
+																	<div class="tab-pane" id="tab_massupdate_4">
+																		<div class="row">
+																			<div class="col-md-12 mbottom-15">
+																				<div class="btn-group pull-left" data-toggle="btn-toggle">
+																					<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
+																					<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+																				</div>
+																			</div>
+																			<div class="col-xs-12 variable-responses" ng-show="customform">
+																				<div>
+																					<input type="text" class="form-control" placeholder="Keyword Search">
+																				</div>
+																				<div class="option-list custom-scroll">
+																					<ul class="list-unstyled segment-variable-list">
+																						<li class="section-label">Contact
+																						<ul class="segment-variables">
+																							<li class="section-var-link">Name</li>
+																							<li class="segment-lable">Global
+																								<ul>
+																								<li class="section-var-link">Address1</li>
+																								<li class="section-var-link">Address2</li>
+																								<li class="section-var-link">City</li>
+																								<li class="section-var-link">Country</li>
+																								<li class="section-var-link">Company</li>
+																								</ul>
 																							</li>
-																						</ul>
-																						<ul class="list-unstyled segment-variable-list">
-																							<li class="section-label">Answer
-																								<ul class="segment-variables">
-																									<li class="section-var-link">Email</li>
-																									<li class="section-var-link">Reference Number</li>
-																									<li class="section-var-link">Original Date</li>
-																									<li class="section-var-link">Original Time</li>
-																									<li class="section-var-link">Subject</li>
-																									<li class="section-var-link">Original Body</li>
-																									<li class="section-var-link">Quoted Question</li>
+																							<li class="segment-lable">JC Segment
+																								<ul>
+																								<li class="section-var-link">Contact View Only Property</li>
+																								<li class="section-var-link">Contact Viewable and Editable Property</li>
+																								<li class="section-var-link">Multi value No Descr</li>
+																								<li class="section-var-link">Shared Property from JC - cust can't see</li>
 																								</ul>
 																							</li>
 																						</ul>
-																					</div>
-																				</div>
+																						</li>
+																					</ul>
+																					<ul class="list-unstyled segment-variable-list">
+																						<li class="section-label">Answer
+																							<ul class="segment-variables">
+																								<li class="section-var-link">Email</li>
+																								<li class="section-var-link">Reference Number</li>
+																								<li class="section-var-link">Original Date</li>
+																								<li class="section-var-link">Original Time</li>
+																								<li class="section-var-link">Subject</li>
+																								<li class="section-var-link">Original Body</li>
+																								<li class="section-var-link">Quoted Question</li>
+																							</ul>
+																						</li>
+																					</ul>
+																				</div>    
 																			</div>
-																			<!-- /.tab-pane -->
-																			<div class="tab-pane" id="stock-response-tab-update">
-																				<div class="row">
-																					<div class="col-xs-12 stock-responses custom-scroll">
-																						<div>
-																							<input type="text" class="form-control" placeholder="Keyword Search">
-																						</div>
-																						<ul class="list-unstyled segment-variable-list">
+																			<div class="col-xs-12 variable-responses" ng-hide="customform">
+																				<div>
+																					<input type="text" class="form-control" placeholder="Keyword Search">
+																				</div>
+																				<div class="option-list custom-scroll">
+																					<ul class="list-unstyled segment-variable-list">
 																							<li class="section-label">Segment Responses
 																							<ul class="segment-variables">
 																								<li class="section-var-link">Chat Closing</li>
@@ -287,103 +413,33 @@ title: Manage Messages - Tree View
 																							<li class="section-label">Agent Response
 																								<ul class="segment-variables">
 																									<li class="section-var-link">Test</li>
-																									
 																								</ul>
 																							</li>
 																						</ul>
-																					</div>
-																				</div>
+																				  
+																				 </div>    
 																			</div>
 																		</div>
-																		<!-- /.tab-content -->
 																	</div>
-																</div>	 
-															</div>		
+																</div>    
+																<!-- /.tab-content -->
+															</div>
+															<!-- nav-tabs-custom -->  
 														</div>
-														<div class="row">
-															<div class="box box-success">
-																<div class="box-header with-border" ng-click="isCollapsedEmail = !isCollapsedEmail">
-																	<h3 class="box-title">Email Addresses And Subject Line</h3>
-																	<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedEmail}" ng-init="isCollapsedEmail = true;"></span>
-																</div>	
-																<div class="box-body p0" uib-collapse="isCollapsedEmail"> 	
-																	<div class="p10"> 										
-																		<div class="form-group">
-																			<label class="col-sm-2 control-label">From</label>
-																			<div class="col-sm-10">
-																				<input class="form-control" type="text">
-																			</div>
-																		</div>
-																		<div class="form-group">
-																			<label class="col-sm-2 control-label">To</label>
-																			<div class="col-sm-10">
-																				<input class="form-control" type="text">
-																			</div>
-																		</div>
-																			<div class="form-group">
-																			<label class="col-sm-2 control-label">CC</label>
-																			<div class="col-sm-10">
-																				<input class="form-control" type="text">
-																			</div>
-																		</div>
-																		<div class="form-group">
-																			<label class="col-sm-2 control-label">BCC</label>
-																			<div class="col-sm-10">
-																				<input class="form-control" type="text">
-																			</div>
-																		</div>
-																		<div class="form-group">
-																			<label class="col-sm-2 control-label">Subject</label>
-																			<div class="col-sm-4">
-																				<input class="form-control " type="text" disabled>
-																			</div>
-																			<div class="col-sm-6">
-																				<input class="form-control " type="text">
-																			</div>
-																		</div>
-																	</div>  
-																</div>	 
-															</div>		
-														</div>
-													</div>
+													</div>    
 												</div> 
-												<div class="col-md-4">
-													<div class="box box-warning stock-responses ng-scope">
-														<div class="box-header with-border">
-															<h3 class="box-title">
-																<i class="fa fa-fw fa-paperclip"></i>
-																Message Attachments & Details
-															</h3>
-														</div>
-														<div class="box-body message-attachments">
-															<div class="form-group">
-																<label>Interaction Id</label>:114576
-															</div>
-															<hr>
-															<div>
-																<h4>Attachments</h4>
-																<a href="#">Errorimage.jpg</a>, <a href="#">Errorimage2.jpg</a>
-															</div>
-														</div>
-													</div>
-												</div>
+											  
 												<div class="col-md-12"> 
 													<div class="nav-tabs-custom">
 														<ul class="nav nav-tabs">
-															<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-															<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-															<li class="pull-right"> 
-																<p class="attach-file"> <label class="btn-bs-file">
-																	Attach files		
-																	<input type="file" />
-																</label> (xMaximum 10 MB upload at one time.)</p>
-															</li>
+															<li class="active"><a href="#draftbodymassupdate" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+															<li><a href="#plainhtmlmassupdate" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
 														</ul>
 														<div class="tab-content">
-															<div class="tab-pane active" id="draftbody">
+															<div class="tab-pane active" id="draftbodymassupdate">
 																<div class="form-group text-editor-container">
-																	<textarea class="form-control" rows="5" placeholder="" id="editor5" name="editor5"><p>Hello,</p>
-										
+																	<textarea class="form-control" rows="10" placeholder="" id="editormassupdate" ckeditor ><p>Hello,</p>
+											
 																		<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
 																		
 																		<p>Regards,</p>
@@ -392,9 +448,9 @@ title: Manage Messages - Tree View
 																	</textarea>
 																</div>
 															</div>
-															<div class="tab-pane" id="plainhtml">
+															<div class="tab-pane" id="plainhtmlmassupdate">
 																<p>Hello,</p>
-										
+											
 																<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
 																
 																<p>Regards,</p>
@@ -415,7 +471,7 @@ title: Manage Messages - Tree View
 																</div>
 															</div>	
 														</div>
-													</div>  
+													</div>    
 												</div>
 											</div>
 										</div>
@@ -430,8 +486,8 @@ title: Manage Messages - Tree View
 									</div>
 									<!-- /.box-header -->
 									<!-- form start -->
-									<div class="box-body table-responsive" ng-controller="myCtrl">
-										<table id="example1" class="table  table-striped table-hover" datatable dt-options="dtContactMessagesOptions" dt-column-defs="dtContactMessagesColumnDefs">
+									<div class="box-body table-responsive">
+										<table class="table  table-striped table-hover" datatable dt-options="dtContactMessagesOptions" dt-column-defs="dtContactMessagesColumnDefs">
 											<thead>
 												<tr>
 													<th class="no-sort" name="name">
@@ -1096,7 +1152,12 @@ title: Manage Messages - Tree View
 				$scope.hidetrue = false;
 				$scope[action] = !$scope[action];
 			};	
-
+			$scope.customForm = function(){
+				$scope.customform = true;
+			}
+			$scope.builtinForm = function(){
+				$scope.customform = false;
+			}
 		});	 
 
 		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {

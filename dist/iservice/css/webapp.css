@@ -1081,6 +1081,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .dropdown-menu .icheckbox_square-blue {
   margin-right: 5px;
+  position: relative;
 }
 .text-left {
   text-align: left !important;
@@ -1851,4 +1852,19 @@ label .icheckbox_square-blue {
 .delete-row-confirm {
   width: 102px;
   margin-top: 7px;
+}
+.table-responsive .table {
+  width: 100% !important;
+}
+.changetopicselect {
+  width: 280px;
+  min-height: 200px;
+}
+.new-inside {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  background: #ff851b;
+  border-radius: 50%;
+  margin-left: 5px;
 }
