@@ -1886,3 +1886,10 @@ label .icheckbox_square-blue {
   background: none!important;
   box-shadow: none !important;
 }
+.drop-box {
+  background: #eee;
+  border: 1px dashed #ddd;
+  width: 100%;
+  text-align: center;
+  padding: 18px;
+}
