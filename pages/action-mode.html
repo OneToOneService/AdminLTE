@@ -56,6 +56,12 @@ title: Action Mode
 															[ref#: 42733-42733] I need help picking a camera
 														</td>
 														<td>
+															John Doe
+														</td>
+														<td>
+															john.doe@example.com
+														</td>
+														<td>
 															All Topics
 														</td>
 														<td>
@@ -67,15 +73,16 @@ title: Action Mode
 																Customer Email
 															</small>
 														</td>
-														<td>
-														Jacob Smith
-														</td>
+														
 														<td>
 															<b>Urgency Level</b> : High 
 															<a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>
 														</td>
 														<td>
 														2016-07-18 9:36:26 AM
+														</td>
+														<td>
+															Jacob Smith
 														</td>
 													</tr>
 												</table>
@@ -574,7 +581,7 @@ title: Action Mode
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="9">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			}
 
 			function removeFunction(row){

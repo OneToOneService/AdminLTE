@@ -1368,7 +1368,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .table .icon-col {
   width: 68px;
-  padding-top: 5px;
+  padding-top: 8px;
 }
 .table > thead > tr > th.no-sort {
   padding-right: 0px !important;
@@ -1867,4 +1867,22 @@ label .icheckbox_square-blue {
   background: #ff851b;
   border-radius: 50%;
   margin-left: 5px;
+}
+.attachments {
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  padding: 3px 8px;
+  line-height: 20px;
+  margin: 0px 8px 8px 0px;
+  display: inline-block;
+}
+.attachments:last-child {
+  margin-right: 0px;
+}
+.btn-link {
+  outline: none !important;
+}
+.btn-link:focus {
+  background: none!important;
+  box-shadow: none !important;
 }

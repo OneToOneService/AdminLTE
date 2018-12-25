@@ -232,11 +232,20 @@ title: Manage Messages - Tree View
 																</ul>
 																<div class="tab-content">
 																	<div class="tab-pane" id="tab_massupdate_2">
-																		<div>
-																			<label>Interaction Id</label>:114576
-																			 <h4>Attachments</h4>
-																			<a href="#">Errorimage.jpg</a>, <a href="#">Errorimage2.jpg</a>
-																		</div>
+																			<div class="row">
+																				<div class="col-md-6">
+																					<h4>Message Details</h4>
+																					<label>Interaction Id</label>:114576<br>
+																					<label>Last Modified By</label>: Alek Packard<br>
+																					<label>Created</label>:45 min ago<br>
+																				</div>
+																				<div class="col-md-6">
+																					<h4>Question Attachments</h4>
+																					<a href="#" class="attachments">original_email.eml</a>
+																					<a href="#" class="attachments">errorimage.jpg</a>
+																					<a href="#" class="attachments">errorimage2.jpg</a>
+																				</div>
+																			</div>    
 																	</div>
 																	<!-- /.tab-pane -->
 																	<div class="tab-pane active" id="tab_massupdate_1">
@@ -734,101 +743,106 @@ title: Manage Messages - Tree View
 					</div>								
 					<div class="message-box">
 						<div class="message-box-header">
-							<div class="col-md-12">
-							<span class="user">
-								<img src="/dist/img/agent.png">
-								<b>Agent</b>
-							</span>
-							<div class="message-info">
-								<b>From:</b> john.doe@example.com<br>
-								<b>To:</b> alek.packard@1to1service.com<br>
-								<b>CC:</b> justin.time@1to1service.com<br>
-								<b>BCC:</b> jonie.hewlett@1to1service.com<br>
-							</div>	
-								<div class="clear"></div>
-							<div class="pull-right">		
-								<b> Interaction ID : 4645646</b>
-								<br>  											
-								<small class="bg-green-active label">Resolved</small>
-							</div>
-							</div>
-			
-							<div class="col-md-12"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
-
-							<div class="col-md-12">
-							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-								<div class="panel panel-default">
-									<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
-										<h4 class="panel-title">
-											<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
-												Interaction Properties & Details
-												<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
-											</a>
-										</h4>
-									</div>
-									<div class="panel-collapse interaction-properties-panel" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" uib-collapse="isCollapsed">
-										<div class="panel-body">
-											<div class="row">
-												<div class="col-md-12">
-													<div class="row">
-														<div class="nested-panel-heading">
-															<h3 class="nested-title">Interaction Properties</h3>
-														</div>
-														<form role="form">
-															<div class="form-group col-md-6">
-																<label for="">Follow Up Date</label>
-																<input type="email" class="form-control" placeholder="11/08/17">
-															</div>
-															<div class="form-group col-md-6">
-																<label for="">isFollowUp</label>
-																<select class="form-control">
-																	<option>True</option>
-																</select>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="">isOpen</label>
-																<select class="form-control">
-																	<option>False</option>
-																</select>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="">Owner</label>
-																<select class="form-control">
-																	<option>Joe</option>												
-																</select>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="">priority</label>
-																<select class="form-control">
-																	<option>0-Urgent</option>
-																	
-																</select>
-															</div>
-															<div class="col-md-12">
-																<button type="submit" class="btn btn-primary btn-sm">Save</button>
-															</div>
-														</form>			 
-													</div>
-													<hr />
-													<div class="row">
-														<div class="nested-panel-heading">
-															<h3 class="nested-title">Interaction Detail</h3>
-														</div>
-														<div class="col-md-6">
-															<div><b> Segment / Topic : </b>All Topic</div>
-															<div><b> Resolved By:</b>Alek Packard</div>
-															<div><b> Approved By:</b> </div>
-														</div> 	
-														<div class="col-md-6">
-														</div>
-													</div>
-												</div>
-											</div>				
-										</div>
+							<div class="row">
+								<div class="col-md-12">
+									<span class="user">
+										<img src="/dist/img/agent.png">
+										<b>Agent</b>
+									</span>
+									<div class="message-info">
+										<b>From:</b> john.doe@example.com<br>
+										<a class="btn btn-default btn-xs">...</a>
+										<div class="moredetail" style="display:none">
+											<b>To:</b> alek.packard@1to1service.com<br>
+											<b>CC:</b> justin.time@1to1service.com<br>
+											<b>BCC:</b> jonie.hewlett@1to1service.com<br>
+										</div>	
+									</div>	
+									<div class="clear"></div>
+									<div class="pull-right">		
+										<b> Interaction ID : 4645646</b>
+										<br>  											
+										<small class="bg-green-active label">Resolved</small>
 									</div>
 								</div>
-							</div>	
-							</div>
+				
+								<div class="col-md-12"><b> Attachments:</b> <a href="" class="attachments">Image1</a><a href="" class="attachments">Image2</a></div>
+
+								<div class="col-md-12">
+									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
+												<h4 class="panel-title">
+													<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
+														Interaction Properties & Details
+														<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
+													</a>
+												</h4>
+											</div>
+											<div class="panel-collapse interaction-properties-panel" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" uib-collapse="isCollapsed">
+												<div class="panel-body">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="row">
+																<div class="nested-panel-heading">
+																	<h3 class="nested-title">Interaction Properties</h3>
+																</div>
+																<form role="form">
+																	<div class="form-group col-md-6">
+																		<label for="">Follow Up Date</label>
+																		<input type="email" class="form-control" placeholder="11/08/17">
+																	</div>
+																	<div class="form-group col-md-6">
+																		<label for="">isFollowUp</label>
+																		<select class="form-control">
+																			<option>True</option>
+																		</select>
+																	</div>
+																	<div class="form-group col-md-6">
+																		<label for="">isOpen</label>
+																		<select class="form-control">
+																			<option>False</option>
+																		</select>
+																	</div>
+																	<div class="form-group col-md-6">
+																		<label for="">Owner</label>
+																		<select class="form-control">
+																			<option>Joe</option>												
+																		</select>
+																	</div>
+																	<div class="form-group col-md-6">
+																		<label for="">priority</label>
+																		<select class="form-control">
+																			<option>0-Urgent</option>
+																			
+																		</select>
+																	</div>
+																	<div class="col-md-12">
+																		<button type="submit" class="btn btn-primary btn-sm">Save</button>
+																	</div>
+																</form>			 
+															</div>
+															<hr />
+															<div class="row">
+																<div class="nested-panel-heading">
+																	<h3 class="nested-title">Interaction Detail</h3>
+																</div>
+																<div class="col-md-6">
+																	<div><b> Segment / Topic : </b>All Topic</div>
+																	<div><b> Resolved By:</b>Alek Packard</div>
+																	<div><b> Approved By:</b> </div>
+																</div> 	
+																<div class="col-md-6">
+																</div>
+															</div>
+														</div>
+													</div>				
+												</div>
+											</div>
+										</div>
+									</div>	
+								</div>
+						   </div>
 						</div>
 						<div class="message-box-body"> 
 							<div class="clear"></div>
