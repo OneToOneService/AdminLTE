@@ -1389,7 +1389,7 @@ ul.timeline span.stack-icon
     color:@white;
     background-color: @purple-hover;
 }
-.message-box{width:100%; margin-top:15px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); display:block;}	
+.message-box{width:100%; margin-top:15px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); display:block;background: @white;}	
 .message-box-header{background:@white; border-bottom:1px solid @box-border-color; padding:10px; display:inline-block; width:100%;}
 .message-box-body{padding:10px;}
 .message-box-header{
@@ -1876,3 +1876,14 @@ label .icheckbox_square-blue{margin-right:15px;}
     .btn-link:focus{background: none!important;box-shadow:none !important;}
     .drop-box{background:#eee; border:1px dashed #ddd; width:100%;text-align: center;
         padding: 18px; }
+    label span.required{color:red; margin-right: 3px;}   
+    .delete-row-confirm{position: absolute;
+        width: calc(~'100% - 30px');
+        background:rgba(12, 12, 12, 0.5);
+        margin-left: -8px;
+        padding-top: 14px;
+        margin-top: -8px;
+        padding-bottom: 14px;
+        text-align: center;
+    } 
+    .delete-row-confirm .btn-link{color:@white;}
