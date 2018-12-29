@@ -1865,7 +1865,7 @@ label .icheckbox_square-blue {
   width: 6px;
   height: 6px;
   display: inline-block;
-  background: #ff851b;
+  background: #dd4b39;
   border-radius: 50%;
   margin-left: 5px;
 }
@@ -1910,4 +1910,96 @@ label span.required {
 }
 .delete-row-confirm .btn-link {
   color: #ffffff;
+}
+.imageuploadify-overlay {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  display: none;
+  font-size: 7em;
+  background-color: rgba(242, 242, 242, 0.7);
+  text-align: center;
+  pointer-events: none;
+}
+.imageuploadify-overlay i {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.imageuploadify-images-list {
+  display: inline-block;
+  width: 94px;
+}
+.imageuploadify-images-list i {
+  display: block;
+  font-size: 42px;
+  text-align: center;
+  margin-top: 0px;
+  padding-bottom: 12px;
+  z-index: 99999;
+  margin-top: 17px;
+}
+.imageuploadify-images-list span.imageuploadify-message {
+  font-size: 24px;
+  border-top: 1px solid #3AA0FF;
+  border-bottom: 1px solid #3AA0FF;
+  padding: 10px;
+  display: inline-block;
+}
+.imageuploadify-images-list button.btn-default {
+  display: block;
+  color: #3AA0FF;
+  border-color: #3AA0FF;
+  border-radius: 1em;
+  margin: 25px auto;
+  width: 100%;
+  max-width: 500px;
+}
+.imageuploadify-images-list .imageuploadify-container {
+  width: 75px;
+  height: 75PX;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5px;
+  float: left;
+  border-radius: 12px;
+  box-shadow: 0 0 4px 0 #888888;
+}
+.imageuploadify-images-list .imageuploadify-container button.btn-danger {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 15px;
+  font-size: 8px;
+  line-height: 13px;
+  padding: 0px 0;
+  text-align: center;
+  z-index: 3;
+}
+.imageuploadify-images-list .imageuploadify-container img {
+  height: 100px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+}
+.imageuploadify-details {
+  white-space: nowrap;
+  width: 86px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: -8px;
+}
+.imageuploadify-images-list .imageuploadify-container .imageuploadify-details span {
+  display: block;
 }
