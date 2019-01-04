@@ -453,7 +453,7 @@ title: Admin Tools - Agents
 													</div>
 													<div class="col-md-4">
 														<div class="form-group">    
-															<label class="col-md-12 ccontrol-label text-left">Notification Address</label>
+															<label class="col-md-12 control-label text-left">Notification Address</label>
 															<div class="col-sm-12">
 																<select class="form-control">
 																	<option>Address1</option>
@@ -790,35 +790,53 @@ title: Admin Tools - Agents
 																<!-- /.box-header -->
 																<!-- form start -->
 																<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
-																	<table class="table table-striped table-hover" datatable>
+																	<table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
 																		<thead>
-																			<tr>
-																				<!--<th class="no-sort"  name="name" width="30"></th>-->
-																				<th class="text-capitalize">
-																					Id
-																				</th>
-																				<th class="text-capitalize">
-																					Stock Responses Name
-																				</th>
-																			</tr>
+																		  <tr>
+																			<!--<th class="no-sort"  name="name" width="30"></th>-->
+																			<th class="text-capitalize">
+																			  Id
+																			</th>
+																			<th class="text-capitalize">
+																			  Name
+																			</th>
+																			<th class="text-capitalize">
+																			  Description
+																			</th>
+																			<th class="text-capitalize">
+																				Response Type
+																			 </th>
+																		  </tr>
 																		</thead>
 																		<tbody>
-																			<tr id="row1" ng-click="toggleFormStepResponse('rowresponse3')" ng-class="{true: 'row-active', false: ''}[rowresponse3]">
-																				<td>
-																					111
-																				</td>
-																				<td>
-																					Example one
-																				</td>
-																			</tr>
-																			<tr id="row2" ng-click="toggleFormStepResponse('rowresponse4')" ng-class="{true: 'row-active', false: ''}[rowresponse4]">
-																				<td>
-																					112
-																				</td>
-																				<td>
-																					Example Two
-																				</td>
-																			</tr>
+																		  <tr id="row1" ng-click="toggleFormStepResponse('rowresponse3')" ng-class="{true: 'row-active', false: ''}[rowresponse3]">
+																			<td>
+																			  1531
+																			</td>
+																			<td>
+																				TV quotation
+																			</td>
+																			<td>
+																			  A stock TV quotation
+																			</td>
+																			<td>
+																				Chat
+																			</td>
+																		  </tr>
+																		  <tr id="row2" ng-click="toggleFormStepResponse('rowresponse4')" ng-class="{true: 'row-active', false: ''}[rowresponse4]">
+																			<td>
+																			  1534
+																			</td>
+																			<td>
+																			  General quote
+																			</td>
+																			<td>
+																				 A stock response for general quotation
+																			</td>
+																			<td>
+																				 Chat
+																			</td>
+																		  </tr>
 																		</tbody>
 																	</table>
 																</div>
@@ -849,7 +867,7 @@ title: Admin Tools - Agents
 																				<div class="form-horizontal">
 																					<div class="col-md-6">
 																						<div class="form-group">
-																							<label class="col-sm-12 control-label text-left">Name</label>
+																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Name:</label>
 																							<div class="col-sm-12">
 																								<input type="text" class="form-control">
 																							</div>
@@ -857,7 +875,18 @@ title: Admin Tools - Agents
 																					</div>
 																					<div class="col-md-6">
 																						<div class="form-group">
-																							<label class="col-sm-12 control-label text-left">Description</label>
+																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type:</label>
+																							<div class="col-sm-12">
+																								<select class="form-control">
+																										<option>Chat</option>
+																										<option>Email</option>
+																								</select> 	 
+																							</div>
+																						</div>
+																					</div>
+																					<div class="col-md-6">
+																						<div class="form-group">
+																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Description:</label>
 																							<div class="col-sm-12">
 																								<input type="text" class="form-control">
 																							</div>
@@ -865,16 +894,17 @@ title: Admin Tools - Agents
 																					</div>
 																					<div class="col-md-12">
 																						<div class="form-group">
-																							<label class="col-sm-12 control-label text-left">Html Response Body</label>
-																							<div class="col-sm-12">
-																								<textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor ></textarea>
+																							<label for="inputPassword3" class="col-sm-4 control-label text-left">
+																							Html Response Body:</label>
+																							<div class="col-sm-12 text-editor-container">
+																							<textarea id="editor1" class="form-control" rows="5" placeholder="" ckeditor>
+																							</textarea>
 																							</div>
 																						</div>
-																					</div>
-																					<div class="col-md-6">
-																							<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Save</button>
-																							<button type="button" class="btn btn-link">Cancel</button>
-																					</div>
+																					</div> 
+																					<div class="col-md-12">
+																						<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Save</button>
+																					</div>	
 																				</div>
 																			</div>
 																		</section>

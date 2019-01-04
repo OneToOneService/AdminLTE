@@ -667,7 +667,7 @@ title: Customer Info - Contact
                           <!-- /.box-header -->
                           <!-- form start -->
                             <div class="box-body table-responsive">
-                              <table id="example1" class="table table-striped table-hover">
+                              <table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
                                 <thead>
                                   <tr>
                                     <th class="no-sort" name="name"></th>
@@ -894,7 +894,7 @@ title: Customer Info - Contact
                           <!-- /.box-header -->
                           <!-- form start -->
                           <div class="box-body table-responsive" >
-                            <table id="contactHistoryTable" class="table table-striped table-hover">
+                            <table id="contactHistoryTable" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
                               <thead>
                                 <tr>
                                   <th class="no-sort"><div class="icon-col"></div></th>
@@ -1041,7 +1041,7 @@ title: Customer Info - Contact
       </section>
     </div>
     <!--expanded row content start-->
-		<div id="expandedrow" style="display:none;">
+    <script id="expandedrow" type="text/ng-template">
         <!--form data start-->	
         <div class="row" ng-hide="hidetrue"> 
           <div class="col-md-12">
@@ -1161,7 +1161,7 @@ title: Customer Info - Contact
                 </div>
                 </div>
         
-                <div class="col-md-12 mtop-15"><b> Attachments:</b><a class="attachements" href="">Image1</a>,<a class="attachements" href="">Image2</a>,  </div>
+                <div class="col-md-12 mtop-15"><b> Attachments:</b> <a class="attachments" href="">Image1</a><a class="attachments" href="">Image2</a>,  </div>
   
                 <div class="col-md-12">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -1265,7 +1265,7 @@ title: Customer Info - Contact
         <!--Get this-->
         {% include get-this-include.html %}
         <!--Get thisa-->
-      </div>	
+      </script>	
        <!--expanded row content end-->
     
     <!-- /.content-wrapper -->
@@ -1442,26 +1442,9 @@ title: Customer Info - Contact
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
-  
-  <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+ 
   <script>
-      var table = $('#example1').DataTable( {
-        "dom": 'lf<"toolbar">',
-        "language" : {
-          "search": "Filter History"
-          },
-        "order": [],
-        "columnDefs": [ {
-          "targets"  : 'no-sort',
-          "orderable": false,
-          "width":"30px"
-        },
-      ]}
-      );
-      $("div.toolbar").html('<span class="pull-right mright-15 inline-check-toolbar">Show Notifications<input type="checkbox" for="notifications" class="flat-red"></span>');
-   
+    
     function stopPropagation(evt) {
       if (evt.stopPropagation !== undefined) {
       evt.stopPropagation();
@@ -1481,40 +1464,17 @@ title: Customer Info - Contact
     }
   /*script for case view*/
   // DataTable
-    var table = $('#contactHistoryTable').DataTable( {
-        "dom": 'lf<"toolbar1">',
-        "language" : {
-        "search": "Filter History"
-        },
-          "order": [],
-      "columnDefs": [ {
-        "targets"  : 'no-sort',
-        "orderable": false,
-        "width":"30px"
-        }]
-      });
-      
-      
-      $("div.toolbar1").html('<span class="pull-right mright-15 inline-check-toolbar">Show Notifications<input type="checkbox" for="notifications" class="flat-red"></span>');
-      
-      $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-        checkboxClass: 'icheckbox_square-blue',
-        radioClass: 'iradio_flat-green'
-      });
+    
  </script>
  <script>
-      
-      var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
-
       app.controller('myCtrlDetail', function ($scope) {
-      
           $scope.toggleSegmentCollapsedState = function (segmentName)
           { 
             $scope[segmentName] = !$scope[segmentName];
           };
       });
       
-			app.controller('myCtrl', function($scope,$log,$compile) {
+			app.controller('myCtrl', function($scope,$log,$compile, DTOptionsBuilder, DTColumnDefBuilder) {
       $scope.isCollapsed = true;
 			$scope.toggleRow = function (segmentName)
 			{ 
@@ -1531,7 +1491,23 @@ title: Customer Info - Contact
 					removeFunction(segmentName);
 				}
 			};
-
+      $scope.dtContactHistoryOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter History'
+				})
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+			}]);
+ 
+			$scope.dtContactHistoryColumnDefs = [
+					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px"),
+			];
       $scope.togglePropertyRow = function (segmentName)
 			{ 
 				for(var i = 1; i<=5;i++){
