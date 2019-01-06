@@ -1612,7 +1612,7 @@ ul.bookmark-list li a:first {
 }
 /*form admin tools start*/
 .stepwizard-step p {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 .stepwizard-row {
   display: table-row;
