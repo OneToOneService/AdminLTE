@@ -150,69 +150,83 @@
                         </div>
                         <!-- /.tab-pane -->
                         <div class="tab-pane active" id="tab_1">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">From</label>
-                                <div class="col-sm-10">                              
-                                    <select class="form-control">
-                                        <option>--Default Mailbox--</option>
-                                        <option>Customer Service (cs@1to1service.com)</option>
-                                    </select>  
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">To</label>
-                                <div class="col-sm-10">                              
-                                    <select class="form-control">
-                                        <option>Jacob.Smith@1to1Service.Com</option>
-                                    </select>    
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">CC</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">BCC</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="text" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">Subject</label>
-                                <div class="col-sm-4">
-                                    <input class="form-control" type="text" value="Ref#: 1006-1009"  disabled>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input class="form-control" type="text" value="looking for low cost tv">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="drop-box">Drop files here or click to upload
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label text-left">From</label>
+                                        <div class="col-sm-10">                              
+                                            <select class="form-control">
+                                                <option>--Default Mailbox--</option>
+                                                <option>Customer Service (cs@1to1service.com)</option>
+                                            </select>  
+                                        </div>
                                     </div>
-                                    <p> (Maximum 10 MB upload at one time.)</p>
-                                    <div class="imageuploadify">
-                                        <div class="imageuploadify-images-list">
-                                                <div class="imageuploadify-container"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button>
-                                                    <span><i class="fa fa-file"></i></span>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label text-left">To</label>
+                                        <div class="col-sm-10">                              
+                                            <select class="form-control">
+                                                <option>Jacob.Smith@1to1Service.Com</option>
+                                            </select>    
+                                        </div>
+                                    </div>
+                                    <div class="cc-label">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-10">
+                                            <a class="btn-link" ng-hide="showCC" ng-click="showCC = !showCC">Add CC</a> 
+                                            <a class="btn-link" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-show="showCC">
+                                        <label class="col-sm-2 control-label text-left">CC</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-show="showBCC">
+                                        <label class="col-sm-2 control-label text-left">BCC</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label text-left">Subject</label>
+                                        <div class="col-sm-4">
+                                            <input class="form-control" type="text" value="Ref#: 123456789-123456789"  disabled>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" value="looking for low cost tv">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="drop-box">Drop files here or click to upload
+                                            </div>
+                                            <p> (Maximum 10 MB upload at one time.)</p>
+                                            <div class="imageuploadify">
+                                                <div class="imageuploadify-details">
+                                                    <button class="icon-button button-delete" type="button">
+                                                        <i class="fa fa-times-circle"></i>
+                                                    </button>
+                                                    <span>Invoice 1456549.pdf</span>
                                                 </div>
                                                 <div class="imageuploadify-details">
-                                                    <span>New Text Document (3).txt</span>
-                                                </div>
-                                        </div>    
-                                        <div class="imageuploadify-images-list">
-                                                <div class="imageuploadify-container"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button>
-                                                    <span><i class="fa fa-file"></i></span>
+                                                    <button class="icon-button button-delete" type="button">
+                                                        <i class="fa fa-times-circle"></i>
+                                                    </button>
+                                                    <span>order_details_45875034.pdf</span>
                                                 </div>
                                                 <div class="imageuploadify-details">
-                                                    <span>New Text Document (3).txt</span>
-                                                </div>
+                                                    <button class="icon-button button-delete" type="button">
+                                                        <i class="fa fa-times-circle"></i>
+                                                    </button>
+                                                    <span>product_image-full-size-58476098.jpg</span>
+                                                </div>   
+                                            </div>
                                         </div>    
-                                    </div>  
+                                    </div> 
                                 </div>    
                             </div> 
                         </div>
