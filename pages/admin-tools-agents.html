@@ -429,29 +429,23 @@ title: Admin Tools - Agents
 										<div class="tab-pane" id="tab_2">
 											<div class="row">
 												<div class="form-horizontal">
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<div class="form-group">    
 															<label class="col-md-12 control-label text-left">Receive Notifications</label>
 															<div class="col-sm-12">
-																<select class="form-control">
-																	<option>True</option>
-																	<option>False</option>
-																</select>
+																<input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" />
 															</div>
 														</div>  
 													</div>
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<div class="form-group">    
 															<label class="col-md-12 control-label text-left">Empty Inbox When Logged Out</label>
 															<div class="col-sm-12">
-																<select class="form-control">
-																	<option>True</option>
-																	<option>False</option>
-																</select>
+																<input type="checkbox" ng-model="toggle.switch7" ui-switch="{ size: 'small' }" />
 															</div>
 														</div>    
 													</div>
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<div class="form-group">    
 															<label class="col-md-12 control-label text-left">Notification Address</label>
 															<div class="col-sm-12">
@@ -461,7 +455,7 @@ title: Admin Tools - Agents
 															</div>
 														</div>    
 													</div>
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<div class="form-group">    
 															<label class="col-md-12 control-label text-left">Inactivity Timeout Minutes</label>
 															<div class="col-sm-12">
