@@ -127,8 +127,8 @@
                <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Email Addresses & Subject for Response</span></a></li>
-                        <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-                        <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+                        <li><a href="#tab_2" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+                        <li><a href="#tab_3" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
                         <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i> <span>Variables & Stock Responses</span></a> </li>
                     </ul>
                     <div class="tab-content">
@@ -236,8 +236,13 @@
                                     <div class="col-xs-6">
                                        <div class="form-group">    
                                             <label class="col-md-12">Follow Up Date</label>
-                                            <div class="col-sm-12">
-                                                 <input type="email" class="form-control" placeholder="11/08/17">
+                                            <div class="col-sm-6">
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon" ng-click="isDatepickerOpen = !isDatepickerOpen">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpen = !isDatepickerOpen" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpen" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                                                </div>
                                             </div>
                                         </div>  
                                     </div>
