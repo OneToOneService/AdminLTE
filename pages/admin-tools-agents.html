@@ -142,6 +142,7 @@ title: Admin Tools - Agents
 													Escalation Team
 												</td>
 												<td ng-click="$event.stopPropagation()">
+														<span style="display:none;" ng-bind="toggle.switch1">false</span>
 													<input type="checkbox" ng-model="toggle.switch1" ui-switch="{ size: 'small' }" />
 												</td>
 												<td class="text-capitalize">
@@ -186,6 +187,7 @@ title: Admin Tools - Agents
 													Sales Team
 												</td>
 												<td ng-click="$event.stopPropagation()">
+													<span style="display:none;" ng-bind="toggle.switch2">false</span>
 													<input type="checkbox" ng-model="toggle.switch2" ui-switch="{ size: 'small' }" />
 												</td>
 												<td class="text-capitalize">
@@ -230,6 +232,7 @@ title: Admin Tools - Agents
 													Escalation Team
 												</td>
 												<td ng-click="$event.stopPropagation()">
+													<span style="display:none;" ng-bind="toggle.switch3">false</span>
 													<input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" />
 												</td>
 												<td class="text-capitalize">
