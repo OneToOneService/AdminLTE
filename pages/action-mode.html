@@ -544,6 +544,13 @@ title: Action Mode
 	<script>
 
 		angular.module('iService').controller('action-mode', function ($scope,$log,$compile) {
+
+			$scope.options = {
+				language: 'en',
+				allowedContent: true,
+				entities: false
+			};
+
 			$scope.toggleRow = function (segmentName)
 			{  
 				$scope.hidetrue = true;
