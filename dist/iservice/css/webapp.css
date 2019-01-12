@@ -1952,3 +1952,14 @@ label span.required {
 .expandedrowcontent {
   border: 1px solid #f4f4f4;
 }
+.skill-heading {
+  padding: 15px 0px 15px 0px;
+}
+.skill-list .skill-item {
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  padding: 3px 8px;
+  line-height: 20px;
+  margin: 0px 8px 8px 0px;
+  display: inline-block;
+}
