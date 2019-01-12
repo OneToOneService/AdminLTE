@@ -991,15 +991,14 @@ ul.timeline span.stack-icon .aqua {
 }
 .message-box {
   width: 100%;
-  margin-top: 15px;
+  border-left: 8px solid #d2d6de;
+  margin-top: -12px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   display: block;
   background: #ffffff;
 }
 .message-box-header {
   background: #ffffff;
-  border-bottom: 1px solid #f4f4f4;
-  padding: 10px;
   display: inline-block;
   width: 100%;
 }
@@ -1929,4 +1928,27 @@ label span.required {
 .imageuploadify-details .btn-remove {
   width: 18px;
   height: 18px;
+}
+.control-label {
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .form-horizontal label.col-md-12 {
+    padding-top: 0px !important;
+  }
+}
+.detail-container {
+  margin-bottom: 15px;
+}
+.white-bg {
+  background: white;
+}
+.bg-customer-reply {
+  background: #f7f7f7;
+}
+.bg-agent-reply {
+  background: #fbf4f4;
+}
+.expandedrowcontent {
+  border: 1px solid #f4f4f4;
 }

@@ -41,30 +41,33 @@ title: View Mode
 																<i class="fa fa-envelope-open"></i>
 															</button>
 														</td>
-														<td>
+														<td style="width:420px;">
 															[ref#: 42733-42733] I need help picking a camera
 														</td>
-														<td>
+														<td ng-show="!row1">
 															All Topics
 														</td>
-														<td>
+														<td ng-show="!row1">
 															<small class="bg-green-active label">Resolved</small>
 														</td>
-														<td>
+														<td ng-show="!row1">
 															<small class="label bg-blue disabled label-with-icon">
 															<i class="fa fa-comments"></i>Chat
 															</small>
 														</td>
-														<td>
+														<td ng-show="!row1">
 														Jacob Smith
 														</td>
-														<td>
+														<!--<td>
 															<b>Urgency Level</b> : High 
 															<a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>
-														</td>
-														<td>
+														</td>-->
+														<td ng-show="!row1">
 														2016-07-18 9:36:26 AM
 														</td>
+														<td col-span="5" ng-show="row1">
+                                                             &nbsp;
+														</td>	
 													</tr>
 									   			</table>
 									 		</div>
@@ -123,7 +126,7 @@ title: View Mode
 		<script id="expandedrow" type="text/ng-template">
 			<!--form data start-->	
 			<div class="row" ng-hide="hidetrue"> 
-				<div class="col-md-12">
+				<div class="col-md-12 ">
 					<div class="row">
 						<div class="col-md-12">
 							<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to Jhon Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
@@ -218,105 +221,130 @@ title: View Mode
 							</div>
 							</div>
 						</div>
-					</div>								
-					<div class="message-box">
-						<div class="message-box-header">
-							<div class="col-md-12">
-							<span class="user">
-								<img src="/dist/img/agent.png">
-								<b>Agent</b>
-							</span>
-							<div class="message-info">
-								<b>From:</b> john.doe@example.com<br>
-								<b>To:</b> alek.packard@1to1service.com<br>
-								<b>CC:</b> justin.time@1to1service.com<br>
-								<b>BCC:</b> jonie.hewlett@1to1service.com<br>
-							</div>	
-								<div class="clear"></div>
-							<div class="pull-right">		
-								<b> Interaction ID : 4645646</b>
-								<br>  											
-								<small class="bg-green-active label">Resolved</small>
-							</div>
-							</div>
-			
-							<div class="col-md-12 mtop-15"><b> Attachments:</b><a href="">Image1</a>,<a href="">Image2</a>,  </div>
-
-							<div class="col-md-12">
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-										<div class="panel-heading panel-with-border box-primary" role="tab" id="headingOne">
-											<h4 class="panel-title">
-												<a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
-													Interaction Properties & Details
-													<i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
-												</a>
-											</h4>
-										</div>
-										<div class="panel-collapse interaction-properties-panel" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" uib-collapse="isCollapsed">
-											<div class="panel-body">
-												<div class="row">
+					</div>	
+					<div class="row">
+						<div class="col-md-12">
+							<div class="nav-tabs-custom">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#tab_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+									<li><a href="#tab_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_1">
+										<div class="row">
+												<div class="message-box-header">
 													<div class="col-md-12">
-														<div class="row">
-															<div class="nested-panel-heading">
-																<h3 class="nested-title">Interaction Properties</h3>
-															</div>
-															<form role="form">
-																<div class="form-group col-md-6">
-																	<label for="">Follow Up Date</label>
-																	<input type="email" class="form-control" placeholder="11/08/17">
-																</div>
-																<div class="form-group col-md-6">
-																	<label for="">isFollowUp</label>
-																	<select class="form-control">
-																		<option>True</option>
-																	</select>
-																</div>
-																<div class="form-group col-md-6">
-																	<label for="">isOpen</label>
-																	<select class="form-control">
-																		<option>False</option>
-																	</select>
-																</div>
-																<div class="form-group col-md-6">
-																	<label for="">Owner</label>
-																	<select class="form-control">
-																		<option>Joe</option>												
-																	</select>
-																</div>
-																<div class="form-group col-md-6">
-																	<label for="">priority</label>
-																	<select class="form-control">
-																		<option>0-Urgent</option>
-																		
-																	</select>
-																</div>
-																<div class="col-md-12">
-																	<button type="submit" class="btn btn-primary">Save</button>
-																</div>
-															</form>			 
-														</div>
-														<hr />
-														<div class="row">
-															<div class="nested-panel-heading">
-																<h3 class="nested-title">Interaction Detail</h3>
-															</div>
-															<div class="col-md-6">
-																<div><b> Segment / Topic : </b>All Topic</div>
-																<div><b> Resolved By:</b>Alek Packard</div>
-																<div><b> Approved By:</b> </div>
-															</div> 	
-															<div class="col-md-6">
-															</div>
+														<span class="user">
+															<img src="/dist/img/agent.png">
+															<b>Agent</b>
+														</span>
+														<div class="message-info">
+															<b>From:</b> john.doe@example.com<br>
+															<b>To:</b> alek.packard@1to1service.com<br>
+															<b>CC:</b> justin.time@1to1service.com<br>
+															<b>BCC:</b> jonie.hewlett@1to1service.com<br>
+														</div>	
+														<div class="clear"></div>
+														<div class="pull-right">		
+															<b> Interaction ID : 4645646</b>
+															<br>  											
+															<small class="bg-green-active label">Resolved</small>
 														</div>
 													</div>
-												</div>				
+													<div class="col-md-12 mtop-15"><b> Attachments:</b> <a href="" class="attachments">Image1</a><a href=""  class="attachments">Image2</a> </div>
+												</div>
+										</div>	
+									</div>
+									<div class="tab-pane" id="tab_2">
+										<div class="row detail-container">
+											<div class="nested-panel-heading">
+												<h3 class="nested-title">Interaction Detail</h3>
+											</div>
+											<div class="col-md-6">
+												<div><b> Segment / Topic : </b>All Topic</div>
+												<div><b> Resolved By:</b>Alek Packard</div>
+												<div><b> Approved By:</b>&nbsp;</div>
+											</div> 	
+											<div class="col-md-6">
 											</div>
 										</div>
-									</div>
+
+										<div class="row form-horizontal">
+											<div class="nested-panel-heading">
+												<h3 class="nested-title">Interaction Properties</h3>
+											</div>
+											<div class="col-md-4">
+												<h4>Case Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Change Request Type</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Delivery Date</label>
+													<div class="col-sm-12">
+														<div class="input-group date">
+															<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+																<i class="fa fa-calendar"></i>
+															</div>
+															<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+														</div>
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Detail</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div> 
+											</div> 
+											<div class="col-md-4">
+												<h4>Question Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Quantity</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Team</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>  
+											</div> 
+											<div class="col-md-4">
+												<h4>Answer Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Priority</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>High</option>
+																<option>Low</option>
+														</select>    
+													</div>
+												</div> 
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">isOpen</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>True</option>
+																<option>False</option>
+														</select>    
+													</div>
+												</div>  
+											</div>    
+											<div class="col-md-12">
+												<button type="submit" class="btn btn-primary">Save</button>
+											</div>
+										</div>    
+								    </div>
 								</div>	
 							</div>
-						</div>
+						</div>	
+					</div>	
+					<div class="message-box">
 						<div class="message-box-body"> 
 							<div class="clear"></div>
 							<div>										   
@@ -582,7 +610,7 @@ title: View Mode
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent"><td class="white-bg">&nbsp;</td><td colspan="7" style="padding:0px;"><table class="table"><tr id="row1" class="bg-customer-reply"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style=""></i></button></td><td style="width:376px;">[ref#: 42733-42733] I need help picking a camera</td><td>	All Topics</td>	<td><small class="bg-green-active label">Resolved</small></td><td><small class="label bg-blue disabled label-with-icon"><i class="fa fa-comments"></i>Chat</small></td><td>	Jacob Smith	</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="bg-customer-reply"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr><tr id="row1" class="bg-agent-reply"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style=""></i></button></td><td style="width:376px;">[ref#: 42733-42733] I need help picking a camera</td><td>	All Topics</td>	<td><small class="bg-green-active label">Resolved</small></td><td><small class="label bg-blue disabled label-with-icon"><i class="fa fa-comments"></i>Chat</small></td><td>	Jacob Smith	</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="bg-agent-reply"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr></table></td></tr>')($scope));
 			}
 
 			function removeFunction(row){

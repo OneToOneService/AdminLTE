@@ -1390,8 +1390,8 @@ ul.timeline span.stack-icon
     color:@white;
     background-color: @purple-hover;
 }
-.message-box{width:100%; margin-top:15px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); display:block;background: @white;}	
-.message-box-header{background:@white; border-bottom:1px solid @box-border-color; padding:10px; display:inline-block; width:100%;}
+.message-box{width:100%; border-left:8px solid @gray-lte; margin-top:-12px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); display:block;background: @white;}	
+.message-box-header{background:@white;display:inline-block; width:100%;}
 .message-box-body{padding:10px;}
 .message-box-header{
   .user{float:left; margin-right:10px;width:75px; margin-right:10px; text-align:center;background:@white;border:1px solid @gray-lte;}
@@ -1899,3 +1899,12 @@ label .icheckbox_square-blue{margin-right:15px;}
     }
     .imageuploadify-details{width:100%; margin-bottom:5px;}
     .imageuploadify-details .btn-remove{ width:18px; height:18px;}
+    .control-label{font-weight: 600;}
+    @media (min-width: @screen-sm-min){
+        .form-horizontal label.col-md-12{padding-top:0px !important}
+    }
+    .detail-container{margin-bottom:15px;}
+    .white-bg{background:white;}
+    .bg-customer-reply{background:#f7f7f7;}
+    .bg-agent-reply{background:#fbf4f4}
+    .expandedrowcontent{border:1px solid #f4f4f4;} 
