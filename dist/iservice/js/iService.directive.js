@@ -7,6 +7,217 @@
   CKEDITOR.replaceClass = null;
   CKEDITOR.disableAutoInline = true;
 
+  /**
+  * @param {JQLite} document Injected document
+  * @param {String} rootPath -
+  * @returns {angular.IDirective<{files:Array<File>}|angular.IScope>} Directive definition
+  */
+  function directiveIserviceFilesUpload(document)
+  {
+    var documentStartEvents = 'drag dragover dragenter',
+      documentEndEvents = 'dragleave dragend drop';
+
+    function getMimeIcon(type)
+    {
+      switch(type)
+      {
+        case 'application/vnd.ms-excel':
+        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          return 'fa-file-excel-o';
+
+        case 'application/pdf':
+        case 'application/x-pdf':
+        case 'application/acrobat':
+        case 'applications/vnd.pdf':
+        case 'text/pdf':
+        case 'text/x-pdf':
+          return 'fa-file-pdf-o';
+
+        case 'audio/wav':
+        case 'audio/mpeg':
+        case 'audio/mp3':
+        case 'audio/ogg':
+        case 'application/ogg':
+          return 'fa-file-audio-o';
+
+        case 'application/msword':
+        case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+          return 'fa-file-word-o';
+
+        case 'application/zip':
+        case 'application/x-rar-compressed':
+        case 'application/rar':
+          return 'fa-file-archive-o';
+
+        case 'image/gif':
+        case 'image/png':
+        case 'image/jpeg':
+        case 'image/bmp':
+        case 'image/svg+xml':
+        case 'image/webp':
+        case 'image/vnd.microsoft.icon':
+          return 'fa-file-image-o';
+
+        case 'text/plain':
+        case 'text/html':
+        case 'text/css':
+        case 'text/javascript':
+        case 'text/markdown':
+          return 'fa-file-text-o';
+
+        case 'video/webm':
+        case 'video/ogg':
+        case 'application/mp4':
+          return 'fa-file-video-o';
+
+        case 'application/vnd.ms-powerpoint':
+        case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
+          return 'fa-file-powerpoint-o';
+      }
+
+      return 'fa-file-o';
+    }
+
+    /**
+     * -
+     * @param {DataTransfer} dataTransfer -
+     * @returns {boolean} -
+     */
+    function hasFiles(dataTransfer)
+    {
+      // Because in IE types is a DOMStringList, and in other browsers, it's a string Array
+      return dataTransfer.types.contains ? dataTransfer.types.contains('Files') :
+        dataTransfer.types.indexOf('Files') >= 0;
+    }
+
+    return {
+      restrict: 'E',
+      templateUrl: '/resources/files-upload.html',
+      scope: {
+        files: '='
+      },
+      link: function (scope, element)
+      {
+        var dragging = false,
+          dropZone = element.find('.drop-box'),
+          fileInput = element.find('input');
+
+        scope.deleteFile = deleteFile;
+        scope.getMimeIcon = getMimeIcon;
+
+        document.on(documentStartEvents, onDocumentDragStart);
+        document.on(documentEndEvents, onDocumentDragEnd);
+
+        dropZone.on('drag dragover dragenter ', onDragEnter);
+        dropZone.on('dragleave dragend', onDragLeave);
+        dropZone.on('drop', onDrop);
+
+        fileInput.on('change', onFilesSelected);
+
+        scope.$on('$destroy', onDestroy);
+
+        /**
+         * -
+         * @param {DragEvent} e -
+         */
+        function onDocumentDragStart(e)
+        {
+          if(!hasFiles(e.originalEvent.dataTransfer))
+            return;
+
+          dragging = true;
+
+          dropZone.addClass('drop-box_active');
+        }
+
+        function onDocumentDragEnd(e)
+        {
+          dragging = false;
+
+          if(e.type !== 'dragleave' || !e.relatedTarget)
+            dropZone.removeClass('drop-box_active drop-box_hover');
+        }
+
+        /**
+         * -
+         * @param {DragEvent} e -
+         */
+        function onDragEnter(e)
+        {
+          if(!dragging)
+            return;
+
+          e.stopPropagation();
+          e.preventDefault();
+
+          dropZone.removeClass('drop-box_active');
+          dropZone.addClass('drop-box_hover');
+        }
+
+        function onDragLeave()
+        {
+          if(dragging)
+          {
+            dropZone.removeClass('drop-box_hover');
+
+            dropZone.addClass('drop-box_active');
+          }
+        }
+
+        /**
+         * -
+         * @param {DragEvent} e -
+         */
+        function onDrop(e)
+        {
+          var data = e.originalEvent.dataTransfer;
+
+          if(!hasFiles(data))
+            return;
+
+          e.preventDefault();
+
+          addFiles(data.files);
+
+          dropZone.removeClass('drop-box_hover drop-box_active');
+        }
+
+        function onDestroy()
+        {
+          document.off(documentStartEvents, onDocumentDragStart);
+          document.off(documentEndEvents, onDocumentDragEnd);
+        }
+
+        function onFilesSelected(e)
+        {
+          addFiles(e.target.files);
+
+          fileInput.val('');
+        }
+
+        /**
+         * -
+         * @param {FileList} files -
+         */
+        function addFiles(files)
+        {
+          scope.$apply(function ()
+          {
+            Array.prototype.forEach.call(files, function (f)
+            {
+              scope.files.push(f);
+            });
+          });
+        }
+
+        function deleteFile(index)
+        {
+          scope.files.splice(index, 1);
+        }
+      }
+    };
+  }
+
   function directiveIserviceInput($window, $parse, $timeout)
   {
     var checkBoxOptions = {
@@ -365,7 +576,7 @@
             //CKEDITOR.config.contentsCss = rootPath + 'css/ckeditor.css';
             CKEDITOR.config.extraAllowedContent = 'img[alt,!src]{width,height}';
             CKEDITOR.config.disableNativeSpellChecker = false;
-            
+
             var ck = CKEDITOR.replace(elm[0], options);
 
             ck.on('instanceReady', function ()
@@ -530,5 +741,6 @@
           element.tree();
         }
       };
-    }]).directive('input', ['$window', '$parse', '$timeout', directiveIserviceInput]);
+    }]).directive('input', ['$window', '$parse', '$timeout', directiveIserviceInput])
+    .directive('iserviceFilesUpload', ['$document', directiveIserviceFilesUpload]);
 })();
