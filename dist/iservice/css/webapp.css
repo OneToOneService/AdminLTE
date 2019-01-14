@@ -37,7 +37,7 @@ form .ng-invalid {
 }
 .bg-light-orange {
   background-color: #fa8e8e !important;
-  color: white!important;
+  color: white !important;
 }
 .no-select {
   -webkit-user-select: none;
@@ -1586,7 +1586,7 @@ ul.bookmark-list li a {
 ul.bookmark-list li a:hover {
   background: none;
 }
-ul.bookmark-list li a:first {
+ul.bookmark-list li a:first-child {
   padding-right: 15px;
 }
 .save-search-panel {
@@ -1884,15 +1884,31 @@ label .icheckbox_square-blue {
   outline: none !important;
 }
 .btn-link:focus {
-  background: none!important;
+  background: none !important;
   box-shadow: none !important;
 }
 .drop-box {
-  background: #eee;
-  border: 1px dashed #ddd;
+  cursor: pointer;
+  font-weight: normal;
+  background-color: #eee;
+  outline: 1px dashed #ddd;
   width: 100%;
   text-align: center;
   padding: 18px;
+  transition: all ease-in-out 0.2s;
+}
+.drop-box_active {
+  cursor: auto;
+  outline-width: 3px;
+  outline-offset: -4px;
+  background-color: lightyellow;
+}
+.drop-box_hover {
+  outline-width: 3px;
+  outline-offset: -5px;
+  background-color: gold;
+  outline-color: white;
+  color: white;
 }
 label span.required {
   color: red;
