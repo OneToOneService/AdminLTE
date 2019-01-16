@@ -76,7 +76,7 @@ title: Manage Messages - List View
 												<label class="mright-15"> Include Sub Topics </label> <input type="checkbox" class="flat-red">
 											</div>
 											<div class="checkbox d-inline">
-												<label class="mright-15"> Show All Messages</label> <input type="checkbox" class="flat-red">
+												<label class="mright-15">Select All Topics</label> <input type="checkbox" class="flat-red">
 											</div>
 										</div>
 									</div>
@@ -515,6 +515,10 @@ title: Manage Messages - List View
 									<div class="box-header with-border">
 										<i class="fa  fa-list-alt"></i>
 										<h3 class="box-title head-title-padding">Message List</h3>
+										<div class="btn-group pull-right"  data-toggle="btn-toggle">
+											<button class="btn btn-primary active" data-toggle="on" ng-class="{true: 'active btn-primary'}[incomingList]" ng-click="showIncomingList();" ng-init="incomingList =true;">Incoming Questions</button>
+											<button class="btn btn-default" data-toggle="off" ng-class="{false: 'active btn-primary'}[incomingList]" ng-click="showPraposedList();">Agent Proposed Answers</button>
+										</div>
 									</div>
 									<!-- /.box-header -->
 									<!-- form start -->
@@ -545,7 +549,7 @@ title: Manage Messages - List View
 												</tr>
 											</thead>  
 											<tbody>
-												<tr id="row1">
+												<tr id="row1"  ng-show="incomingList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
@@ -572,7 +576,7 @@ title: Manage Messages - List View
 														_Feedback
 													</td>
 												</tr>
-												<tr id="row2">
+												<tr id="row2"  ng-show="incomingList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
@@ -599,7 +603,7 @@ title: Manage Messages - List View
 														Cameras
 													</td>
 												</tr>
-												<tr id="row3">
+												<tr id="row3"  ng-show="incomingList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
@@ -626,7 +630,7 @@ title: Manage Messages - List View
 														Televisions
 													</td>
 												</tr>
-												<tr id="row4">
+												<tr id="row4"  ng-show="incomingList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
@@ -653,6 +657,62 @@ title: Manage Messages - List View
 														Televisions
 													</td>
 												</tr>
+												<!--Agent Praposed answer rows displayed when tab is clicked-->
+												<tr id="row5" ng-hide="incomingList">
+													<td name="name" class="icon-col">
+														<input type="checkbox" class="flat-red">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
+															<i class="fa fa-plus-circle" ng-show="!row5"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
+														</button>
+													</td>
+													<td>
+														Feedback provided
+													</td>
+													<td>
+														Feedback Account
+													</td>
+													<td>
+														feedback@gmail.com
+													</td>
+													<td>
+														<small class="bg-black disabled label">2018-08-03 11:59:44 AM</small>
+													</td>
+													<td>
+														Jacob Smith
+													</td>
+													<td>
+														_Feedback
+													</td>
+												</tr>
+												<tr id="row6" ng-hide="incomingList">
+													<td name="name" class="icon-col">
+														<input type="checkbox" class="flat-red">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row6')">
+															<i class="fa fa-plus-circle" ng-show="!row6"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row6" ng-cloak></i>
+														</button>
+													</td>
+													<td>
+														I need a good small camera
+													</td>
+													<td>
+														James Williams
+													</td>
+													<td>
+														customer2@1to1service.com
+													</td>
+													<td>
+														<small class="bg-black disabled label">2018-08-03 11:55:44 AM</small>
+													</td>
+													<td>
+														Jonie Hewlett
+													</td>
+													<td>
+														Cameras
+													</td>
+												</tr>
+												<!--Agent Praposed answer rows displayed when tab is clicked-->
 											</tbody>
 										</table>
 									</div>
@@ -1157,6 +1217,14 @@ title: Manage Messages - List View
 			}
 			$scope.builtinForm = function(){
 				$scope.customform = false;
+			}
+			$scope.showIncomingList = function(){
+				$scope.incomingList = true;
+				removeFunction('');
+			}
+			$scope.showPraposedList = function(){
+				$scope.incomingList = false;
+				removeFunction('');
 			}
 
 		});	 
