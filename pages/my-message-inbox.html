@@ -1730,7 +1730,16 @@ title:  My Message Inbox
 				{name: 'Justin Time (justin.time@example.com)', code: 'JT'},
 			];
 		});
-
+    angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentname = [ 
+				{name: 'Alek Packard (alek.packard@example.com)', code: 'AP'},
+				{name: 'Jacob Smith (jacob.smith@example.com)', code: 'JS'},
+				{name: 'Jonie Hewlett (jonie.hewlett@example.com)', code: 'JH'},
+				{name: 'Justin Time (justin.time@example.com)', code: 'JT'},
+			];
+		});
 		app.filter('propsFilter', function() {
 			return function(items, props) {
 				var out = [];

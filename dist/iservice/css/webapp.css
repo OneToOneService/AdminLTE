@@ -1982,3 +1982,10 @@ label span.required {
 .massupdated-interaction-prop .icheckbox_square-blue {
   margin-top: 27px;
 }
+.selectize-input {
+  background: none !important;
+  background-image: none !important;
+  border-radius: 0px !important;
+  border-color: #d2d6de !important;
+  box-shadow: none !important;
+}
