@@ -226,11 +226,11 @@ title: View Mode
 						<div class="col-md-12">
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
-									<li class="active"><a href="#tab_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-									<li><a href="#tab_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+									<li class="active"><a href="#tab_case_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+									<li><a href="#tab_case_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
 								</ul>
 								<div class="tab-content">
-									<div class="tab-pane active" id="tab_1">
+									<div class="tab-pane active" id="tab_case_1">
 										<div class="row">
 												<div class="message-box-header">
 													<div class="col-md-12">
@@ -255,7 +255,7 @@ title: View Mode
 												</div>
 										</div>	
 									</div>
-									<div class="tab-pane" id="tab_2">
+									<div class="tab-pane" id="tab_case_2">
 										<div class="row detail-container">
 											<div class="nested-panel-heading">
 												<h3 class="nested-title">Interaction Detail</h3>
@@ -686,6 +686,16 @@ title: View Mode
 				{ name: 'Push Bullet', segmentname: 'QA' },
 				{ name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
 				{ name: 'Push Bullet',  segmentname: 'QA2- Second Segment' },
+			];
+		});
+		angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentname = [ 
+				{name: 'Alek Packard (alek.packard@example.com)', code: 'AP'},
+				{name: 'Jacob Smith (jacob.smith@example.com)', code: 'JS'},
+				{name: 'Jonie Hewlett (jonie.hewlett@example.com)', code: 'JH'},
+				{name: 'Justin Time (justin.time@example.com)', code: 'JT'},
 			];
 		});
 	</script>

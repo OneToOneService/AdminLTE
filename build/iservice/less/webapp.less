@@ -2894,16 +2894,20 @@ label span.required
 
 .skill-list .skill-item
 {
-    border-radius: 25px;
-    border: 1px solid #ddd;
-    padding: 3px 8px;
-    line-height: 20px;
+    border-radius: .25em;
+    border: 1px solid @gray-lte;
+    padding: .2em .6em .3em;
+    line-height: 1;
     margin: 0px 8px 8px 0px;
     display: inline-block;
 }
+.skill-item .fa-close{margin-left:5px;}
 
 .massupdated-interaction-prop .icheckbox_square-blue
 {
     margin-top: 27px;
 }
-.selectize-input{background:none !important;background-image:none !important; border-radius:0px !important; border-color:@gray-lte !important; box-shadow:none !important}
+.selectize-input{background:white !important;background-image:none !important; border-radius:0px !important; border-color:@gray-lte !important; box-shadow:none !important; padding: 6px 12px !important;font-size:14px !important;}
+.selectize-input:after{ right: 5px !important;     border-width: 6px 3px 0 3px !important;}
+.box-header label.incoming-ques .icheckbox_square-blue,.box-header label.agent-prop-ans .icheckbox_square-blue{margin-right: 8px;}
+label.incoming-ques, label.agent-prop-ans {border-radius:3px; margin-left:15px; margin-bottom:0px;    font-weight: normal;}

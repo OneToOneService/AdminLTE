@@ -1183,112 +1183,124 @@ title:  My Message Inbox
               </div>
             </div>
           </div>
-          <div class="message-box">
-            <div class="message-box-header">
-              <div class="col-md-12">
-                <span class="user">
-                  <img src="/dist/img/agent.png">
-                  <b>Agent</b>
-                </span>
-                <div class="message-info">
-                  <b>From:</b> john.doe@example.com<br>
-                  <b>To:</b> alek.packard@1to1service.com<br>
-                  <b>CC:</b> justin.time@1to1service.com<br>
-                  <b>BCC:</b> jonie.hewlett@1to1service.com<br>
-                </div>
-                <div class="clear"></div>
-                <div class="pull-right">
-                  <b> Interaction ID : 114545</b>
-                  <br>
-                  <small class="bg-green-active label">Resolved</small>
-                </div>
-              </div>
-              <div class="col-md-12 mtop-15"><b> Attachments:</b> <a href="" class="attachments">Image1</a> <a href="" class="attachments">Image2</a>  </div>
-              <div class="col-md-12">
-                <div class="panel-group" role="tablist" aria-multiselectable="true">
-                  <div class="panel panel-default">
-                    <div class="panel-heading panel-with-border box-primary" role="tab">
-                      <h4 class="panel-title">
-                        <a role="button" class="text-capitalize" ng-click="isCollapsed = !isCollapsed">
-                          <i class="fa fa-exclamation-triangle blink"></i>	interaction properties and details
-                          <i class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsed}" ng-init="isCollapsed = true;"></i>
-                        </a>
-                      </h4>
-                    </div>
-                    <div class="panel-collapse interaction-properties-panel" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" uib-collapse="isCollapsed">
-                      <div class="panel-body">
-                        <div class="row">
+         <div class="row">
+						<div class="col-md-12">
+							<div class="nav-tabs-custom">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+									<li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_detail_1">
+										<div class="row">
+												<div class="message-box-header">
                           <div class="col-md-12">
-                            <div class="row">
-                              <div class="nested-panel-heading">
-                                <h3 class="nested-title">Interaction Properties</h3>
-                              </div>
-                              <form role="form">
-                                <div class="form-group col-md-6">
-                                  <label for="">Follow Up Date</label>
-                                  <input type="email" class="form-control" placeholder="11/08/17">
-                                </div>
-                                <div class="form-group col-md-6">
-                                  <label for="">isFollowUp</label>
-                                  <select class="form-control">
-                                    <option>True</option>
-                                  </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                  <label for="">isOpen</label>
-                                  <select class="form-control">
-                                    <option>False</option>
-                                  </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                  <label for="">Owner</label>
-                                  <select class="form-control">
-                                    <option>Joe</option>
-                                  </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                  <label for="">priority</label>
-                                  <select class="form-control">
-                                    <option>0-Urgent</option>
-
-                                  </select>
-                                </div>
-                                <div class="col-md-12">
-                                  <button type="submit" class="btn btn-primary btn-sm">Edit Properties</button>
-                                </div>
-                              </form>
-                            </div>
-                            <hr />
-                            <div class="row">
-                              <div class="nested-panel-heading">
-                                <h3 class="nested-title">Interaction Detail</h3>
-                              </div>
-                              <div class="col-md-6">
-                                <div><b> Segment / Topic : </b>All Topic</div>
-                                <div><b> Resolved By:</b>Alek Packard</div>
-                                <div><b> Approved By:</b> </div>
-                              </div>
-                              <div class="col-md-6">
-                              </div>
+                            <span class="user">
+                              <img src="/dist/img/agent.png">
+                              <b>Agent</b>
+                            </span>
+                            <div class="message-info">
+                              <b>From:</b> john.doe@example.com<br>
+                              <b>To:</b> alek.packard@1to1service.com<br>
+                              <b>CC:</b> justin.time@1to1service.com<br>
+                              <b>BCC:</b> jonie.hewlett@1to1service.com<br>
+                            </div>	
+                            <div class="clear"></div>
+                            <div class="pull-right"> 
+                              <div>Interaction ID : 4645646</div>
+                              <div><b> Segment / Topic : </b>All Topic</div>
+                              <div><b> Resolved By:</b>Alek Packard</div>
+                              <div><b> Approved By:</b>&nbsp;</div>									
+                              <small class="bg-green-active label">Resolved</small>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="message-box-body">
-              <div class="clear"></div>
-              <div>
-                <p>
-                  Hello,<br>
-                  I'm looking for a flat screen. Any suggestions?
-                </p>
-              </div>
-            </div>
-          </div>
+													<div class="col-md-12 mtop-15"><b> Attachments:</b> <a href="" class="attachments">Image1</a><a href=""  class="attachments">Image2</a> </div>
+												</div>
+										</div>	
+									</div>
+									<div class="tab-pane" id="tab_property_2">
+										<div class="row form-horizontal">
+											<div class="col-md-4">
+												<h4>Case Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Change Request Type</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Delivery Date</label>
+													<div class="col-sm-12">
+														<div class="input-group date">
+															<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+																<i class="fa fa-calendar"></i>
+															</div>
+															<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+														</div>
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Detail</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div> 
+											</div> 
+											<div class="col-md-4">
+												<h4>Question Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Quantity</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Team</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>  
+											</div> 
+											<div class="col-md-4">
+												<h4>Answer Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Priority</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>High</option>
+																<option>Low</option>
+														</select>    
+													</div>
+												</div> 
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">isOpen</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>True</option>
+																<option>False</option>
+														</select>    
+													</div>
+												</div>  
+											</div>    
+											<div class="col-md-12">
+												<button type="submit" class="btn btn-primary">Save</button>
+											</div>
+										</div>    
+									</div>
+								</div>	
+							</div>
+						</div>	
+					</div>	
+					<div class="message-box">
+						<div class="message-box-body"> 
+							<div class="clear"></div>
+							<div>										   
+								<p>Hello,<br>
+									I'm looking for a flat screen. Any suggestions?
+								</p>
+							</div>
+						</div>
+					</div>
         </div>
       </div>
       <!--agent email start-->
