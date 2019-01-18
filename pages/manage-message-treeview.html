@@ -42,40 +42,37 @@ title: Manage Messages - Tree View
 								</div>
 								<div class="box-body search-criteria">
 									<div class="checkbox">
-										<label class="mright-15"> <input type="checkbox" class="flat-red"> Include Sub Topics </label> 
-									</div>
-									<div class="checkbox">
-										<label class="mright-15"><input type="checkbox" class="flat-red">Select All Topics</label> 
+										<label class="select-all-topic"> <input type="checkbox" class="flat-red">Select All Topics</label> 
 									</div>
 									<div class="treeview">
 										<ul id="tree1" class="tree">
-											<li><a href="#" class="selected">e-shop -- All Topics <input type="checkbox" class="minimal"></a>
+											<li><a href="#" class="selected"><input type="checkbox" class="minimal"> e-shop -- All Topics </a>
 												<ul>
-													<li>_Feedback (2) <input type="checkbox" class="minimal" checked></li>
-													<li>_Newsletter Subscription (0) <input type="checkbox" class="minimal" checked></li>
-													<li>_Spam (0) <input type="checkbox" class="minimal"></li>
-													<li>_Undeliverable (0) <input type="checkbox" class="minimal"></li>
-													<li>Account Questions (0) <input type="checkbox" class="minimal">
+													<li> <input type="checkbox" class="minimal">_Feedback <span class="pull-right">(2)</span></li>
+													<li> <input type="checkbox" class="minimal" checked><span>_Newsletter Subscription</span> <span class="pull-right">(0)</span></li>
+													<li> <input type="checkbox" class="minimal">_Spam <span class="pull-right">(0)</span> </li>
+													<li> <input type="checkbox" class="minimal" >_Undeliverable <span class="pull-right">(0)</span> </li>
+													<li> <input type="checkbox" class="minimal">Account Questions<span class="pull-right"> (0) </span>
 														<ul>
-															<li>Orders (0) <input type="checkbox" class="minimal"></li>
-															<li>Refunds (0) <input type="checkbox" class="minimal"></li>
-															<li>Returns (0) <input type="checkbox" class="minimal"></li>
+															<li> <input type="checkbox" class="minimal">Orders <span class="pull-right"> (0)</span></li>
+															<li> <input type="checkbox" class="minimal">Refunds <span class="pull-right"> (0)</span></li>
+															<li> <input type="checkbox" class="minimal">Returns <span class="pull-right"> (0)</span></li>
 														</ul>
 													</li>
-													<li>Products(0)<input type="checkbox" class="minimal">
+													<li> <input type="checkbox" class="minimal">Products<span class="pull-right"> (0)</span>
 														<ul>
-															<li>Audio-Video (0) <input type="checkbox" class="minimal"></li>
-															<li>Cameras (0) <input type="checkbox" class="minimal"></li>
-															<li>Cell Phones (0) <input type="checkbox" class="minimal"></li>
-															<li>Computers (0) <input type="checkbox" class="minimal"></li>
-															<li>Televisions(0) <input type="checkbox" class="minimal"></li>
+															<li> <input type="checkbox" class="minimal">Audio-Video <span class="pull-right"> (0)</span></li>
+															<li> <input type="checkbox" class="minimal">Cameras <span class="pull-right"> (0) </span></li>
+															<li> <input type="checkbox" class="minimal">Cell Phones <span class="pull-right"> (0)</span> </li>
+															<li> <input type="checkbox" class="minimal">Computers <span class="pull-right"> (0)</span> </li>
+															<li> <input type="checkbox" class="minimal">Televisions<span class="pull-right"> (0)</span></li>
 														</ul>
 													</li>
-													<li>Shipping (0) <input type="checkbox" class="minimal"></li>
-													<li>Technical Support (0) <input type="checkbox" class="minimal"></li>
-													<li>To Quote(0) <input type="checkbox" class="minimal">
+													<li> <input type="checkbox" class="minimal">Shipping <span class="pull-right"> (0)</span> </li>
+													<li> <input type="checkbox" class="minimal">Technical Support <span class="pull-right"> (0)</span></li>
+													<li> <input type="checkbox" class="minimal">To Quote<span class="pull-right"> (0)</span>
 														<ul>
-															<li>Open Quotes (1) <input type="checkbox" class="minimal"></li>
+															<li> <input type="checkbox" class="minimal">Open Quotes <span class="pull-right"> (1) </span></li>
 																</ul>
 													</li>
 												</ul>
@@ -324,7 +321,7 @@ title: Manage Messages - Tree View
 																			<div class="col-md-6">
 																				<div class="row">
 																					<div class="col-md-2 col-sm-2">
-																						<input type="checkbox" checkbox checked> 
+																						<input type="checkbox" checkbox> 
 																					</div>	
 																					<div class="form-group col-md-10 col-sm-10">    
 																						<label class="col-md-12 control-label text-left">Priority</label>
@@ -356,7 +353,7 @@ title: Manage Messages - Tree View
 																			<div class="col-md-6">
 																				<div class="row">
 																					<div class="col-md-2">
-																						<input type="checkbox" checkbox checked> 
+																						<input type="checkbox" checkbox> 
 																					</div>	
 																					<div class="form-group col-md-10">    
 																						<label class="col-md-12 control-label text-left">Owner</label>
@@ -528,6 +525,7 @@ title: Manage Messages - Tree View
 											<thead>
 												<tr>
 													<th class="no-sort" name="name">
+														<input type="checkbox" checkbox>
 													</th>
 													<th class="text-capitalize">
 														Subject 
@@ -1075,7 +1073,7 @@ title: Manage Messages - Tree View
 						<div class="form-group">
 							<label class="control-sidebar-subheading">
 								Report panel usage
-								<input type="checkbox" class="pull-right" checked>
+								<input type="checkbox" class="pull-right">
 							</label>
 							<p>
 								Some information about this general settings option
@@ -1085,7 +1083,7 @@ title: Manage Messages - Tree View
 						<div class="form-group">
 							<label class="control-sidebar-subheading">
 								Allow mail redirect
-								<input type="checkbox" class="pull-right" checked>
+								<input type="checkbox" class="pull-right">
 							</label>
 							<p>
 								Other sets of options are available
@@ -1095,7 +1093,7 @@ title: Manage Messages - Tree View
 						<div class="form-group">
 							<label class="control-sidebar-subheading">
 								Expose author name in posts
-								<input type="checkbox" class="pull-right" checked>
+								<input type="checkbox" class="pull-right">
 							</label>
 							<p>
 								Allow the user to show his name in blog posts
@@ -1106,7 +1104,7 @@ title: Manage Messages - Tree View
 						<div class="form-group">
 							<label class="control-sidebar-subheading">
 								Show me as online
-								<input type="checkbox" class="pull-right" checked>
+								<input type="checkbox" class="pull-right">
 							</label>
 						</div>
 						<!-- /.form-group -->
@@ -1206,9 +1204,16 @@ title: Manage Messages - Tree View
 		$('.message-attachments').slimScroll({
 			height: '178px'
 		});
+
+		
 		
     });
-	
+	$(document).on('change', '.tree input[type=checkbox]', function(e) {
+		alert("");
+		$(this).siblings('ul').find("input[type='checkbox']").prop('checked', this.checked);
+		$(this).parentsUntil('.tree').children("input[type='checkbox']").prop('checked', this.checked);
+		e.stopPropagation();
+	});
 
 	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
