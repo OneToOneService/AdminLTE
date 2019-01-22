@@ -314,52 +314,49 @@ title: Manage Messages - Tree View
 																	</div>
 																	<!-- /.tab-pane -->
 																	<div class="tab-pane" id="tab_massupdate_3">
-																		<div class="row form-horizontal massupdated-interaction-prop">
+																		<div class="row form-horizontal">
 																			<div class="col-md-12">
-																				<h4><input type="checkbox" checkbox>  Add properties to all answers regardless of topic</h4>
-																			</div>	
-																			<div class="col-md-6">
-																				<div class="row">
-																					<div class="form-group col-md-12 col-sm-12">    
-																						<label class="col-md-12 control-label text-left">Priority</label>
-																						<div class="col-sm-12">
-																							<select class="form-control">
-																									<option>High</option>
-																									<option>Low</option>
-																							</select>    
-																						</div>
-																					</div> 
+																			    <div class="col-md-12">
+																					<div class="form-group"> 
+																						<label class="control-label">
+																							<input type="checkbox"> Add properties to all answers regardless of topic
+																						</label>
+																					</div>
 																				</div>	
 																			</div>
 																			<div class="col-md-6">
-																				<div class="row">
-																					<div class="form-group col-md-12 col-sm-12">    
-																						<label class="col-md-12 control-label text-left">isOpen</label>
-																						<div class="col-sm-12">
-																							<select class="form-control">
-																									<option>True</option>
-																									<option>False</option>
-																							</select>    
-																						</div>
+																				<div class="form-group"> 
+																					<label class="col-md-12 control-label text-left">Priority</label>
+																					<div class="col-sm-12">
+																						<select class="form-control">
+																							<option>High</option>
+																							<option>Low</option>
+																						</select>    
 																					</div>
-																				</div>	  
-																			</div>
+																				</div>
+																			</div>		
 																			<div class="col-md-6">
-																				<div class="row">
-																					<div class="form-group col-md-12">    
-																						<label class="col-md-12 control-label text-left">Owner</label>
-																						<div class="col-sm-12">
-																							<select class="form-control">
-																									<option>Owner List</option>
-																							</select>    
-																						</div>
+																				<div class="form-group"> 
+																					<label class="col-md-12 control-label text-left">Owner</label>
+																					<div class="col-sm-12">
+																						<select class="form-control">
+																							<option>Owner List</option>
+																						</select>    
 																					</div>
-																				</div>	  
+																				</div>
 																			</div>
-																			<div class="col-md-12">
-																				<button type="submit" class="btn btn-primary">Save</button>
-																			</div>
-																		</div>  
+																			<div class="col-md-6">	
+                                                                               <div class="form-group">    
+																					<label class="col-md-12 control-label text-left">isOpen</label>
+																					<div class="col-sm-12">
+																						<select class="form-control">
+																								<option value="True">True</option>
+																								<option value="False">False</option>
+																						</select>    
+																					</div>
+																				</div>
+																		    </div>		
+																		</div>	
 																	</div>
 											
 																	<div class="tab-pane" id="tab_massupdate_4">
@@ -504,10 +501,10 @@ title: Manage Messages - Tree View
 										<i class="fa  fa-list-alt"></i>
 										<h3 class="box-title">Message List</h3>
 										<div class="pull-right">
-											 <label class="incoming-ques"><input type="checkbox" value="" class="minimal" checkbox>Incoming Questions</label>
-											 <label class="agent-prop-ans"><input type="checkbox" value="" class="minimal" checkbox>Agent Proposed Answers</label>
+											 <label class="incoming-ques"><input type="checkbox" value="" class="minimal" checkbox ng-model="incomingList" ng-init="incomingList = true">Incoming Questions</label>
+											 <label class="agent-prop-ans"><input type="checkbox" value="" class="minimal" checkbox ng-model="praposedList">Agent Proposed Answers</label>
 										</div>	
-									
+									  
 									</div>
 									<!-- /.box-header -->
 									<!-- form start -->
@@ -648,7 +645,7 @@ title: Manage Messages - Tree View
 													</td>
 												</tr>
 												<!--Agent Praposed answer rows displayed when tab is clicked-->
-												<tr id="row5" ng-hide="incomingList">
+												<tr id="row5" ng-show="praposedList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
@@ -675,7 +672,7 @@ title: Manage Messages - Tree View
 														_Feedback
 													</td>
 												</tr>
-												<tr id="row6" ng-hide="incomingList">
+												<tr id="row6" ng-show="praposedList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row6')">

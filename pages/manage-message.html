@@ -312,61 +312,49 @@ title: Manage Messages - List View
 																			</div>
 																			<!-- /.tab-pane -->
 																			<div class="tab-pane" id="tab_massupdate_3">
-																				<div class="row form-horizontal massupdated-interaction-prop">
+																				<div class="row form-horizontal">
 																					<div class="col-md-12">
-																						<h4>Add this property values to all answers.</h4>
-																					</div>	
-																					<div class="col-md-6">
-																						<div class="row">
-																							<div class="col-md-1 col-xs-2">
-																								<input type="checkbox" checkbox checked> 
-																							</div>	
-																							<div class="form-group col-md-11 col-xs-10">    
-																								<label class="col-md-12 control-label text-left">Priority</label>
-																								<div class="col-sm-12">
-																									<select class="form-control">
-																											<option>High</option>
-																											<option>Low</option>
-																									</select>    
-																								</div>
-																							</div> 
+																						<div class="col-md-12">
+																							<div class="form-group"> 
+																								<label class="control-label">
+																									<input type="checkbox"> Add properties to all answers regardless of topic
+																								</label>
+																							</div>
 																						</div>	
 																					</div>
 																					<div class="col-md-6">
-																						<div class="row">
-																							<div class="col-md-1 col-xs-2">
-																								<input type="checkbox" checkbox> 
-																							</div>	
-																							<div class="form-group col-md-11 col-xs-10">    
-																								<label class="col-md-12 control-label text-left">isOpen</label>
-																								<div class="col-xs-12">
-																									<select class="form-control">
-																											<option>True</option>
-																											<option>False</option>
-																									</select>    
-																								</div>
+																						<div class="form-group"> 
+																							<label class="col-md-12 control-label text-left">Priority</label>
+																							<div class="col-sm-12">
+																								<select class="form-control">
+																									<option>High</option>
+																									<option>Low</option>
+																								</select>    
 																							</div>
-																						</div>	  
-																					</div>
+																						</div>
+																					</div>		
 																					<div class="col-md-6">
-																						<div class="row">
-																							<div class="col-md-1  col-xs-2">
-																								<input type="checkbox" checkbox checked> 
-																							</div>	
-																							<div class="form-group col-md-11  col-xs-10">    
-																								<label class="col-md-12 control-label text-left">Owner</label>
-																								<div class="col-sm-12">
-																									<select class="form-control">
-																											<option>Owner List</option>
-																									</select>    
-																								</div>
+																						<div class="form-group"> 
+																							<label class="col-md-12 control-label text-left">Owner</label>
+																							<div class="col-sm-12">
+																								<select class="form-control">
+																									<option>Owner List</option>
+																								</select>    
 																							</div>
-																						</div>	  
+																						</div>
 																					</div>
-																					<div class="col-md-12">
-																						<button type="submit" class="btn btn-primary">Save</button>
-																					</div>
-																				</div> 
+																					<div class="col-md-6">	
+																					<div class="form-group">    
+																							<label class="col-md-12 control-label text-left">isOpen</label>
+																							<div class="col-sm-12">
+																								<select class="form-control">
+																										<option value="True">True</option>
+																										<option value="False">False</option>
+																								</select>    
+																							</div>
+																						</div>
+																					</div>		
+																				</div>	
 																			</div>
 													
 																			<div class="tab-pane" id="tab_massupdate_4">
@@ -518,10 +506,10 @@ title: Manage Messages - List View
 									<div class="box-header with-border">
 										<i class="fa  fa-list-alt"></i>
 										<h3 class="box-title head-title-padding">Message List</h3>
-										<div class="btn-group pull-right"  data-toggle="btn-toggle">
-											<button class="btn btn-primary active" data-toggle="on" ng-class="{true: 'active btn-primary'}[incomingList]" ng-click="showIncomingList();" ng-init="incomingList =true;">Incoming Questions</button>
-											<button class="btn btn-default" data-toggle="off" ng-class="{false: 'active btn-primary'}[incomingList]" ng-click="showPraposedList();">Agent Proposed Answers</button>
-										</div>
+									    <div class="pull-right">
+											 <label class="incoming-ques"><input type="checkbox" value="" class="minimal" checkbox ng-model="incomingList" ng-init="incomingList = true">Incoming Questions</label>
+											 <label class="agent-prop-ans"><input type="checkbox" value="" class="minimal" checkbox ng-model="praposedList">Agent Proposed Answers</label>
+										</div>	
 									</div>
 									<!-- /.box-header -->
 									<!-- form start -->
@@ -661,7 +649,7 @@ title: Manage Messages - List View
 													</td>
 												</tr>
 												<!--Agent Praposed answer rows displayed when tab is clicked-->
-												<tr id="row5" ng-hide="incomingList">
+												<tr id="row5" ng-show="praposedList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
@@ -688,7 +676,7 @@ title: Manage Messages - List View
 														_Feedback
 													</td>
 												</tr>
-												<tr id="row6" ng-hide="incomingList">
+												<tr id="row6" ng-show="praposedList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row6')">
@@ -860,7 +848,7 @@ title: Manage Messages - List View
 														<small class="bg-green-active label">Resolved</small>
 													</div>
 												</div>
-												<div class="col-md-12 mtop-15"><b> Attachments:</b> <a href="" class="attachments">Image1</a><a href=""  class="attachments">Image2</a> </div>
+												<div class="col-md-12 mtop-15"><b> Attachments:</b> <a href="" class="attachments">Image1.jpg</a><a href=""  class="attachments">Image2.jpg</a> </div>
 											</div>
 										</div>	
 									</div>
