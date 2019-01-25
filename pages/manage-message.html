@@ -46,37 +46,32 @@ title: Manage Messages - List View
 									<div class="form-horizontal">
 										<div class="col-md-6">
 											<div class="form-group">
+												<label class="mright-15 col-sm-4 text-left">Select All Topics</label> <input type="checkbox" class="flat-red">
+											</div>
+											<div class="form-group">
 												<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
 												<div class="col-sm-8">
 													<select class="form-control" multiple>
-														<option>e-shop -- All Topics(0)</option>
-														<option>.._Feedback (2)</option>
-														<option>.._Newsletter Subscription (0)</option>
-														<option>.._Spam (0)</option>
-														<option>.._Undeliverable (0)</option>
-														<option>..Account Questions (0)</option>
-														<option>....Orders (0)</option>
-														<option>....Refunds (0)</option>
-														<option>....Returns (0)</option>
-														<option>..Products(0)</option>
-														<option>....Audio-Video (0)</option>
-														<option>....Cameras (0)</option>
-														<option>....Cell Phones (0)</option>
-														<option>....Computers (0)</option>
-														<option>....Televisions(0)</option>
-														<option>..Shipping (0)</option>
-														<option>..Technical Support (0)</option>
-														<option>....Open Quotes (1)</option>
+													<option>e-shop -- All Topics(0)</option>
+													<option>.._Feedback (2)</option>
+													<option>.._Newsletter Subscription (0)</option>
+													<option>.._Spam (0)</option>
+													<option>.._Undeliverable (0)</option>
+													<option>..Account Questions (0)</option>
+													<option>....Orders (0)</option>
+													<option>....Refunds (0)</option>
+													<option>....Returns (0)</option>
+													<option>..Products(0)</option>
+													<option>....Audio-Video (0)</option>
+													<option>....Cameras (0)</option>
+													<option>....Cell Phones (0)</option>
+													<option>....Computers (0)</option>
+													<option>....Televisions(0)</option>
+													<option>..Shipping (0)</option>
+													<option>..Technical Support (0)</option>
+													<option>....Open Quotes (1)</option>
 													</select>
 												</div>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="checkbox d-inline">
-												<label class="mright-15"> Include Sub Topics </label> <input type="checkbox" class="flat-red">
-											</div>
-											<div class="checkbox d-inline">
-												<label class="mright-15">Select All Topics</label> <input type="checkbox" class="flat-red">
 											</div>
 										</div>
 									</div>
@@ -548,23 +543,38 @@ title: Manage Messages - List View
 															<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
 														</button>
 													</td>
-													<td>
+													<td class="subject-col-width">
 														Feedback provided
 													</td>
-													<td>
+													<td ng-show="!row1">
 														Feedback Account
 													</td>
-													<td>
+													<td ng-show="!row1">
 														feedback@gmail.com
 													</td>
-													<td>
+													<td ng-show="!row1">
 														<small class="bg-black disabled label">2018-08-03 11:59:44 AM</small>
 													</td>
-													<td>
+													<td ng-show="!row1">
 														Jacob Smith
 													</td>
-													<td>
+													<td ng-show="!row1">
 														_Feedback
+													</td>
+													<td col-span="" ng-show="row1">
+															&nbsp;
+													</td>	
+													<td col-span="" ng-show="row1">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row1">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row1">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row1">
+															&nbsp;
 													</td>
 												</tr>
 												<tr id="row2"  ng-show="incomingList">
@@ -578,20 +588,35 @@ title: Manage Messages - List View
 													<td>
 														I need a good small camera
 													</td>
-													<td>
+													<td ng-show="!row2">
 														James Williams
 													</td>
-													<td>
+													<td ng-show="!row2">
 														customer2@1to1service.com
 													</td>
-													<td>
+													<td ng-show="!row2">
 														<small class="bg-black disabled label">2018-08-03 11:55:44 AM</small>
 													</td>
-													<td>
+													<td ng-show="!row2">
 														Jonie Hewlett
 													</td>
-													<td>
+													<td ng-show="!row2">
 														Cameras
+													</td>
+													<td col-span="" ng-show="row2">
+															&nbsp;
+													</td>	
+													<td col-span="" ng-show="row2">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row2">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row2">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row2">
+															&nbsp;
 													</td>
 												</tr>
 												<tr id="row3"  ng-show="incomingList">
@@ -605,20 +630,35 @@ title: Manage Messages - List View
 													<td>
 														Can't find it
 													</td>
-													<td>
+													<td ng-show="!row3">
 														James Williams
 													</td>
-													<td>
+													<td ng-show="!row3">
 														customer2@1to1service.com
 													</td>
-													<td>
+													<td ng-show="!row3">
 														<small class="bg-yellow disabled label">2018-08-03 11:47:44 AM</small>
 													</td>
-													<td>
+													<td ng-show="!row3">
 														Jacob Smith
 													</td>
-													<td>
+													<td ng-show="!row3">
 														Televisions
+													</td>
+													<td col-span="" ng-show="row3">
+															&nbsp;
+													</td>	
+													<td col-span="" ng-show="row3">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row3">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row3">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row3">
+															&nbsp;
 													</td>
 												</tr>
 												<tr id="row4"  ng-show="incomingList">
@@ -632,20 +672,35 @@ title: Manage Messages - List View
 													<td>
 														Best price on LG Plasma
 													</td>
-													<td>
+													<td ng-show="!row4">
 														John Doe
 													</td>
-													<td>
+													<td ng-show="!row4">
 														customer1@1to1service.com
 													</td>
-													<td>
+													<td ng-show="!row4">
 														<small class="bg-red disabled label">2018-08-03 11:41:44 AM</small>
 													</td>
-													<td>
+													<td ng-show="!row4">
 														Jonie Hewlett
 													</td>
-													<td>
+													<td ng-show="!row4">
 														Televisions
+													</td>
+													<td col-span="" ng-show="row4">
+															&nbsp;
+													</td>	
+													<td col-span="" ng-show="row4">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row4">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row4">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row4">
+															&nbsp;
 													</td>
 												</tr>
 												<!--Agent Praposed answer rows displayed when tab is clicked-->
@@ -660,20 +715,35 @@ title: Manage Messages - List View
 													<td>
 														Feedback provided
 													</td>
-													<td>
+													<td ng-show="!row5">
 														Feedback Account
 													</td>
-													<td>
+													<td ng-show="!row5">
 														feedback@gmail.com
 													</td>
-													<td>
+													<td ng-show="!row5">
 														<small class="bg-black disabled label">2018-08-03 11:59:44 AM</small>
 													</td>
-													<td>
+													<td ng-show="!row5">
 														Jacob Smith
 													</td>
-													<td>
+													<td ng-show="!row5">
 														_Feedback
+													</td>
+													<td col-span="" ng-show="row5">
+															&nbsp;
+													</td>	
+													<td col-span="" ng-show="row5">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row5">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row5">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row5">
+															&nbsp;
 													</td>
 												</tr>
 												<tr id="row6" ng-show="praposedList">
@@ -687,20 +757,35 @@ title: Manage Messages - List View
 													<td>
 														I need a good small camera
 													</td>
-													<td>
+													<td ng-show="!row6">
 														James Williams
 													</td>
-													<td>
+													<td ng-show="!row6">
 														customer2@1to1service.com
 													</td>
-													<td>
+													<td ng-show="!row6">
 														<small class="bg-black disabled label">2018-08-03 11:55:44 AM</small>
 													</td>
-													<td>
+													<td ng-show="!row6">
 														Jonie Hewlett
 													</td>
-													<td>
+													<td ng-show="!row6">
 														Cameras
+													</td>
+													<td col-span="" ng-show="row6">
+															&nbsp;
+													</td>	
+													<td col-span="" ng-show="row6">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row6">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row6">
+															&nbsp;
+													</td>
+													<td col-span="" ng-show="row6">
+															&nbsp;
 													</td>
 												</tr>
 												<!--Agent Praposed answer rows displayed when tab is clicked-->
@@ -955,6 +1040,244 @@ title: Manage Messages - List View
 			<!--Get thisa-->
 		</script>	
 		 <!--expanded row content end-->
+
+		 	<script id="expandedrow2" type="text/ng-template">
+			<!--form data start-->	
+			<div class="row" ng-hide="hidetrue2"> 
+				<div class="col-md-12 ">
+					<div class="row">
+						<div class="col-md-12">
+							<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to Jhon Doe" tooltip-placement="bottom" ng-click="show2('agentemail2')">
+								<i class="fa fa-envelope"></i>
+								Agent email
+							</button>
+							<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show2('createnote2')">
+								<i class="fa fa-pencil-square-o"></i>
+								Note
+							</button>
+							<button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show2('createticket2')">
+								<i class="fa fa-ticket"></i>
+								Ticket
+							</button>
+							<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show2('forwardcopy2')">
+								<i class="fa fa-mail-forward"></i>
+								Forward Copy
+							</button>
+							<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+								<button type="button" class="btn btn-default" uib-dropdown-toggle>
+									<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+									<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded2 }">
+									<a href="" ng-click="isStatusAuditSectionExpanded2 = !isStatusAuditSectionExpanded2">Show Status Audit</a>
+									</li>
+									<li role="menuitem"><a href="#">Show Full Case</a></li>
+									<li role="menuitem"><a href="#">Print</a></li>
+									<li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
+								</ul>
+							</div>
+							<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this…" tooltip-placement="bottom" ng-click="show2('getthis2')">
+								<i class="fa fa-sign-in"></i>
+								Get This
+							</button>
+						</div>
+						<div class="col-md-12 mtop-15">
+							<div class="box status-box" style="display:none">
+							<div class="box-header with-border">
+								<h3 class="box-title">Status Audit</h3>
+								<div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+								</div>
+							</div>
+							<div class="box-body table-responsive">
+								<table id="example2" class="table  table-striped">
+									<thead>
+										<tr>
+											<th class="text-capitalize">
+											Time 
+											</th>
+											<th class="text-capitalize">
+											Modifier
+											</th>
+											<th class="text-capitalize">
+											Status
+											</th>
+											<th class="text-capitalize">
+											Action
+											</th>
+											<th class="text-capitalize">
+											Assigned To
+											</th>
+											<th class="text-capitalize">
+											Topic
+											</th>
+										</tr>
+									</thead>  
+									<tbody>
+										<tr>
+											<td>
+											11/11/2017 12:19:20PM
+											</td>
+											<td>
+											Jaswantchouhan
+											</td>
+											<td>
+											<small class="label label-success">Resolved</small>
+											</td>
+											<td>
+											Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+											</td>
+											<td>
+											Jaswantchouhan
+											</td>
+											<td>
+											JC - Segment- All Topic - To- Quote - Open Quotes
+											</td>
+										</tr>
+									</tbody>
+								</table>  
+							</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-12">
+							<div class="nav-tabs-custom">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#tab_case_2_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+									<li><a href="#tab_case__2_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_case_2_1">
+										<div class="row">
+											<div class="message-box-header">
+												<div class="col-md-12">
+													<span class="user">
+														<img src="/dist/img/agent.png">
+														<b>Agent</b>
+													</span>
+													<div class="message-info">
+														<b>From:</b> john.doe@example.com<br>
+														<b>To:</b> alek.packard@1to1service.com<br>
+														<b>CC:</b> justin.time@1to1service.com<br>
+														<b>BCC:</b> jonie.hewlett@1to1service.com<br>
+													</div>	
+													<div class="clear"></div>
+													<div class="pull-right"> 
+														<div>Interaction ID : 4645646</div>
+														<div><b> Segment / Topic : </b>All Topic</div>
+														<div><b> Resolved By:</b>Alek Packard</div>
+														<div><b> Approved By:</b>&nbsp;</div>									
+														<small class="bg-green-active label">Resolved</small>
+													</div>
+												</div>
+												<div class="col-md-12 mtop-15"><b> Attachments:</b> <a href="" class="attachments">Image1.jpg</a><a href=""  class="attachments">Image2.jpg</a> </div>
+											</div>
+										</div>	
+									</div>
+									<div class="tab-pane" id="tab_case__2_2">
+										<div class="row form-horizontal">
+											<div class="col-md-4">
+												<h4>Case Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Change Request Type</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Delivery Date</label>
+													<div class="col-sm-12">
+														<div class="input-group date">
+															<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+																<i class="fa fa-calendar"></i>
+															</div>
+															<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+														</div>
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Detail</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div> 
+											</div> 
+											<div class="col-md-4">
+												<h4>Question Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Quantity</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Team</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>  
+											</div> 
+											<div class="col-md-4">
+												<h4>Answer Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Priority</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>High</option>
+																<option>Low</option>
+														</select>    
+													</div>
+												</div> 
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">isOpen</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>True</option>
+																<option>False</option>
+														</select>    
+													</div>
+												</div>  
+											</div>    
+											<div class="col-md-12">
+												<button type="submit" class="btn btn-primary">Save</button>
+											</div>
+										</div>    
+								    </div>
+								</div>	
+							</div>
+						</div>	
+					</div>	
+					<div class="message-box">
+						<div class="message-box-body"> 
+							<div class="clear"></div>
+							<div>										   
+								<p>Hello,<br>
+									I'm looking for a flat screen. Any suggestions?
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--form data end-->
+			<!--agent email start-->
+			{% include agent-email-include-2.html %}    
+			<!--agent email end-->
+			<!--create note start-->
+			{% include create-note-include-2.html %}
+			<!--create note end-->
+			<!--create ticket start-->
+			{% include create-ticket-include-2.html %}
+			<!--create ticket end-->
+			<!--forward start-->
+			{% include forward-copy-include-2.html %}
+			<!--forward end-->
+			<!--Get this-->
+			{% include get-this-include-2.html %}
+			<!--Get thisa-->
+		</script>
+		<!--expanded row content end-->
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
         <!-- Control Sidebar -->
@@ -1173,7 +1496,9 @@ title: Manage Messages - List View
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr id="row_1" class="bg-customer-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded1 = false;" ng-show="showexpanded1"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded1" ng-click="showexpanded1 = true;"></i></button></span>Feedback provided</td><td>Jacob Smith	</td><td>feedback@gmail.com</td><td><small class="bg-black disabled label">2018-08-03 11:59:44 AM</small></td><td>Jacob Smith</td><td>_Feedback</td></tr><tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			   //<tr id="row_2" class="bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td style="width:auto;"><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span>Feedback provided</td><td>Feed Account</td><td>Feedback Account</td><td><small class="bg-black disabled label">2018-08-03 11:59:44 AM</small></td><td>Jacob Smith	</td><td>All Topic</td></tr><tr class="bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>
+				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			}
 
 			function removeFunction(row){
@@ -1189,6 +1514,16 @@ title: Manage Messages - List View
 				$scope.hidetrue = false;
 				$scope[action] = !$scope[action];
 			};	
+			$scope.show2 = function(action) {
+				$scope.hidetrue2 = true;
+				$scope[action] = !$scope[action];
+			};	
+
+			$scope.cancel2 = function(action) {
+				$scope.hidetrue2 = false;
+				$scope[action] = !$scope[action];
+			};
+
 			$scope.customForm = function(){
 				$scope.customform = true;
 			}
