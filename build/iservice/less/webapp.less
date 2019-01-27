@@ -35,6 +35,9 @@
 @bg-orange-disabled: #ffb06b;
 @bg-yellow-disabled: #f7bf66;
 @bg-gray-light: #f7f7f7;
+@data-table-border:#f4f4f4;
+@bg-customer-reply:#f7f7f7;
+@bg-agent-reply:  #fbefef;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -2872,20 +2875,24 @@ label span.required
     background: white;
 }
 
+
 .bg-customer-reply
 {
-    background: #f7f7f7;
+    background: @bg-customer-reply !important;
 }
 
 .bg-agent-reply
 {
-    background: #fbf4f4
+    background: @bg-agent-reply !important;
 }
 
 .expandedrowcontent
 {
-    border: 1px solid #f4f4f4;
+    border: 0px solid @data-table-border;
 }
+.rowborder td:first-child{border-left:1px solid @data-table-border !important; border-top:none;}
+tr.expandedrowcontent td{border:0px !important; border-top: 0px;}
+tr.bg-customer-reply td{border:0px !important;border-color: @data-table-border;}
 
 .skill-heading
 {
@@ -2895,18 +2902,13 @@ label span.required
 .skill-list .skill-item
 {
     border-radius: .25em;
-    border: 1px solid @gray-lte;
-    padding: .2em .6em .3em;
+    padding: .2em .0em .3em;
     line-height: 1;
     margin: 0px 8px 8px 0px;
-    display: inline-block;
+    display: block;
 }
-.skill-item .fa-close{margin-left:5px;}
+.skill-item .fa-close{margin-left:5px;cursor:pointer;}
 
-.massupdated-interaction-prop .icheckbox_square-blue
-{
-    margin-top: 27px;
-}
 .selectize-input{background:white !important;background-image:none !important; border-radius:0px !important; border-color:@gray-lte !important; box-shadow:none !important; padding: 6px 12px !important;font-size:14px !important;}
 .selectize-input:after{ right: 5px !important;     border-width: 6px 3px 0 3px !important;}
 .box-header label.incoming-ques .icheckbox_square-blue,.box-header label.agent-prop-ans .icheckbox_square-blue{margin-right: 8px;}
@@ -2914,5 +2916,8 @@ label.incoming-ques, label.agent-prop-ans {border-radius:3px; margin-left:15px; 
 .tree .icheckbox_square-blue{margin-right:8px;}
 .select-all-topic{padding-left:19px !important;}
 .tree-lable {line-height:18px;}
-.massupdated-interaction-prop h4 .icheckbox_square-blue{margin-top:2px !important;}
+.massupdated-interaction-prop h4 div.icheckbox_square-blue{margin-top:2px !important;}
+.rowdata{padding-left:38px !important; }
+.subject-col-width{width:300px;}
+tr span.expanded-button{float:left;}
 

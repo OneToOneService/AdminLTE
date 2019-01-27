@@ -1960,30 +1960,39 @@ label span.required {
   background: white;
 }
 .bg-customer-reply {
-  background: #f7f7f7;
+  background: #f7f7f7 !important;
 }
 .bg-agent-reply {
-  background: #fbf4f4;
+  background: #fbefef !important;
 }
 .expandedrowcontent {
-  border: 1px solid #f4f4f4;
+  border: 0px solid #f4f4f4;
+}
+.rowborder td:first-child {
+  border-left: 1px solid #f4f4f4 !important;
+  border-top: none;
+}
+tr.expandedrowcontent td {
+  border: 0px !important;
+  border-top: 0px;
+}
+tr.bg-customer-reply td {
+  border: 0px !important;
+  border-color: #f4f4f4;
 }
 .skill-heading {
   padding: 15px 0px 15px 0px;
 }
 .skill-list .skill-item {
   border-radius: .25em;
-  border: 1px solid #d2d6de;
-  padding: .2em .6em .3em;
+  padding: .2em .0em .3em;
   line-height: 1;
   margin: 0px 8px 8px 0px;
-  display: inline-block;
+  display: block;
 }
 .skill-item .fa-close {
   margin-left: 5px;
-}
-.massupdated-interaction-prop .icheckbox_square-blue {
-  margin-top: 27px;
+  cursor: pointer;
 }
 .selectize-input {
   background: white !important;
@@ -2018,6 +2027,15 @@ label.agent-prop-ans {
 .tree-lable {
   line-height: 18px;
 }
-.massupdated-interaction-prop h4 .icheckbox_square-blue {
+.massupdated-interaction-prop h4 div.icheckbox_square-blue {
   margin-top: 2px !important;
+}
+.rowdata {
+  padding-left: 38px !important;
+}
+.subject-col-width {
+  width: 300px;
+}
+tr span.expanded-button {
+  float: left;
 }
