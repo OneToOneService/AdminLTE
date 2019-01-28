@@ -38,6 +38,7 @@
 @data-table-border:#f4f4f4;
 @bg-customer-reply:#f7f7f7;
 @bg-agent-reply:  #fbefef;
+@font-color: #333333;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -2750,18 +2751,21 @@ label .icheckbox_square-blue
 
 .attachments
 {
-    border-radius: 25px;
-    border: 1px solid #ddd;
+    border-radius: 5px;
+    border: 1px dashed #ddd;
+    background: @bg-gray-light;
     padding: 3px 8px;
     line-height: 20px;
     margin: 0px 8px 8px 0px;
     display: inline-block;
 }
-
-    .attachments:last-child
-    {
-        margin-right: 0px;
-    }
+.attachments i{margin-right:8px;font-size:18px; margin-top: 2px;}
+.attachment-icon{font-size:20px;margin-right: 15px;}
+.attachments .filename{color:@font-color;}
+.attachments:last-child
+{
+    margin-right: 0px;
+}
 
 .btn-link
 {
