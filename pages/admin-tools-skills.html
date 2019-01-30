@@ -197,7 +197,7 @@ title: Admin Tools - Skills
 													<div class="form-group">
 														<label class="col-md-12 control-label text-left"><span class="required">*</span>Interaction Property</label>
 														<div class="col-md-12">
-															<select class="form-control">
+															<select class="form-control" ng-change="setFocus()" ng-model="myValue" ng-init="myValue = 21;">
 																<option value="21">Answer Property  (QA) (Answer)</option>
 																<option value="2">Authorization Type  (QA) (Question)</option>
 																<option value="42">Carrier Adjument Amount (AR)  (1to1Service) (Case)</option>
@@ -212,7 +212,8 @@ title: Admin Tools - Skills
 													<div class="form-group">
 														<label class="col-md-12 control-label text-left"><span class="required">*</span>Interaction Property Value</label>
 														<div class="col-md-12">														
-															<input type="text" class="form-control">
+															<input type="text" class="form-control" id="propertyValue" ng-blur="onBlur()">
+															<small class="text-red help-block" ng-show="notFilled" ng-init="notFilled = false;"  >Interaction Property Value Must Be Filled With Interaction Property </small>
 														</div>
 													</div>
 												</div>
@@ -482,7 +483,7 @@ title: Admin Tools - Skills
     };
   });
 
-  angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder,)
+  angular.module('iService').controller('myCtrl', function ($scope, $log, $compile,$window , DTOptionsBuilder, DTColumnDefBuilder,)
   {
 		
 			$scope.domains = [{'title':'example1.com'},{'title':'example1.com'}];
@@ -503,8 +504,21 @@ title: Admin Tools - Skills
 				$scope.formItemList.splice(index, 1);
 			}
 	 
+			$scope.setFocus = function () {
+                var propertyValue = $window.document.getElementById('propertyValue');
+                propertyValue.focus();
+				$scope.notFilled = true;
+            };
+	        
+			$scope.onBlur = function () {
+                var propertyValue = $window.document.getElementById('propertyValue');
+				if(propertyValue.value !=''){
+					$scope.notFilled = false;
+				}else{
+					$scope.notFilled = true;
+				}
+            };
 
-	      
 			$scope.dtContactHistoryOptions = DTOptionsBuilder
 			.newOptions()
 			.withDOM('lf<"toolbar1">')
