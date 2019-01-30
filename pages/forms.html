@@ -20,7 +20,7 @@ title: Forms
       </section>
 
       <!-- Main content -->
-      <section class="content">
+      <section class="content"  >
         <div class="row">
           <!-- left column -->
           <div class="col-md-6">
@@ -958,13 +958,41 @@ title: Forms
             </div>
             <!-- /.box -->
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" ng-controller="myCtrl">
               <div class="box box-primary">
                 <div class="box-header with-border">
                    <h3 class="box-title">Select Option And Tagging</h3>
                  </div>
                  <div class="box-body">
-                   
+                   <div class="row">
+                        <div class="form-group">
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="newdomain" ng-model="newdomain" required>
+                          </div>
+                          <button class="btn btn-primary"  ng-click="adddomain()">Add Domain</button>
+                        </div>
+                        
+                        <div class="form-group">
+                          <div class="col-sm-12">
+                            <span class="label label-info label-tag" ng-repeat="domain in domains">
+                              {{domain.title}}example.com<span class="fa fa-close text-red" ng-click="deletedomain($index)"></span>
+                            </span>																				
+                          </div>
+                        </div>
+                   </div>
+                   <h4>Multi Select</h4>
+                   <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" ng-controller="TopicCtrl as ctrl">
+                            <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+                              <ui-select-match placeholder="Select topics..." >{{$item}}</ui-select-match>
+                              <ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
+                                  <span ng-bind-html="color.Topic | highlight: $select.search"></span>
+                              </ui-select-choices>
+                            </ui-select>
+                        </div>
+                      </div> 
+                    </div>
                  </div>  
               </div>  
           </div>  
@@ -1240,6 +1268,47 @@ title: Forms
         showInputs: false
       });
     });
+
+
+     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile)
+    {
+		
+          $scope.domains = [{'title':'example1.com'},{'title':'example1.com'}];
+          $scope.adddomain = function() {
+            $scope.domains.push({'title': $scope.newdomain, 'done':false})
+            $scope.newdomain = ''
+          }
+          $scope.deletedomain = function(index) {	
+				    $scope.domains.splice(index, 1);
+			    }
+     });
+    angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+		  var vm = this;
+			vm.availableTopics = [
+					{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'},
+					{Topic: '.._Newsletter Subscription (0)'},
+					{Topic: '.._Spam (0)'},
+					{Topic: '.._Undeliverable (0)'},
+					{Topic: '..Account Questions (0)'},
+					{Topic: '....Orders (0)'},
+					{Topic: '....Refunds (0)'},
+					{Topic: '....Returns (0)'},
+					{Topic: '..Products(0)'},
+					{Topic: '....Audio-Video (0)'},
+					{Topic: '....Cameras (0)'},
+					{Topic: '....Cell Phones (0)'},
+					{Topic: '....Computers (0)'},
+					{Topic: '....Televisions(0)'},
+					{Topic: '..Shipping (0)'},
+					{Topic: '..Technical Support (0)'},
+					{Topic: '....Open Quotes (1)'}
+				
+			];
+			vm.multipleDemo = {};
+			vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'}];
+		});
   </script>
 </body>
 </html>

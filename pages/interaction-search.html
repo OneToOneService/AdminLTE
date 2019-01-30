@@ -23,7 +23,7 @@ title:  Search Interactions
                 </h1>
             </section>
   			<!-- Main content -->
-            <section class="content">
+            <section class="content"  ng-controller="myCtrl">
                 <!-- START CUSTOM TABS -->
                 <div class="row">
                     <div class="col-md-12">
@@ -127,10 +127,20 @@ title:  Search Interactions
 													</select>
 												</div>
 												<div class="form-group col-md-4">
-													<input type="text" class="form-control" placeholder="On Or After:" id="datepickerafter">
+													<div class="input-group date">
+														<div class="input-group-addon" ng-click="isDatepickerStart = !isDatepickerStart">
+															<i class="fa fa-calendar"></i>
+														</div>
+														<input type="text" class="form-control pull-right" ng-focus="isDatepickerStart = !isDatepickerStart" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerStart" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+													</div>
 												</div>
 												<div class="form-group col-md-4">
-													<input type="text" class="form-control" placeholder="On Or Before:" id="datepickerbefore">
+													<div class="input-group date">
+															<div class="input-group-addon" ng-click="isDatepickerEnd = !isDatepickerEnd">
+																<i class="fa fa-calendar"></i>
+															</div>
+															<input type="text" class="form-control pull-right" ng-focus="isDatepickerEnd = !isDatepickerEnd" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerEnd" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+														</div>
 												</div>								   
 											</div>
 										</div>	 
@@ -147,8 +157,8 @@ title:  Search Interactions
 									</div>
 								<!-- /.box-header -->
 								<!-- form start -->
-									<div class="box-body table-responsive ">
-										<table id="example1" class="table  table-striped table-hover ">
+									<div class="box-body table-responsive">
+										<table id="example1" class="table  table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
 											<thead>
 												<tr>
 													<th class="no-sort" name="name"><div class="icon-col"></div></th>
@@ -201,7 +211,7 @@ title:  Search Interactions
 														<small class="bg-teal-active label"> 
 															<span class="fa-stack stack-icon-label">
 															<i class="fa fa-file-text-o"></i>
-															<i class="fa fa-lock "></i> 
+															<i class="fa fa-lock"></i> 
 															</span>  Private Note
 														</small>
 													</td>
@@ -240,7 +250,7 @@ title:  Search Interactions
 														<small class="label bg-blue"> 
 															<span class="fa-stack stack-icon-label">
 																<i class="fa fa-user"></i>
-																<i class="fa fa-ticket "></i> 
+																<i class="fa fa-ticket"></i> 
 															</span> Customer Ticket
 														</small>
 													</td>
@@ -257,7 +267,7 @@ title:  Search Interactions
 														2 Days ago
 													</td>
 													<td>
-														--
+														Jonie Hewlett
 													</td>
 												</tr>
 												<tr>
@@ -280,7 +290,7 @@ title:  Search Interactions
 													<small class="label bg-blue"> 
 														<span class="fa-stack stack-icon-label">
 														<i class="fa fa-user"></i>
-														<i class="fa fa-ticket "></i> 
+														<i class="fa fa-ticket"></i> 
 														</span> Customer Ticket
 													</small>
 													</td>
@@ -297,7 +307,7 @@ title:  Search Interactions
 														4 Days ago
 													</td>
 													<td>
-														--
+														Jacob Smith
 													</td>
 												</tr>
 												<tr>
@@ -336,7 +346,7 @@ title:  Search Interactions
 														5 Days ago
 													</td>
 													<td>
-														--
+														Jacob Smith
 													</td>
 												</tr>
 											</tbody>
@@ -528,21 +538,7 @@ title:  Search Interactions
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-       <!-- DataTables -->
-	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
-
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+    
 	<script>
 	$(document).ready(function() {
 	
@@ -550,7 +546,7 @@ title:  Search Interactions
         $('.floatlabel').addClass("float-label");
     });
     $(".bootstrap-tagsinput input").blur(function(){
-	   if($( ".bootstrap-tagsinput span" ).hasClass( "tag" )){
+	   if($(".bootstrap-tagsinput span" ).hasClass("tag" )){
         
 		}else{$('.floatlabel').removeClass("float-label");}
 	   });
@@ -564,19 +560,7 @@ title:  Search Interactions
 		  $('.floatlabel').removeClass("float-label");
 	   }
 	});   
-    // DataTable
-    var table = $('#example1').DataTable( {
-		"language" : {
-				"search": "Filter Search Results"
-		},
-	    dom: 'Blfrtip',
-        "order": [],
-		 buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
-		"columnDefs": [ {
-		  "targets"  : 'no-sort',
-		  "orderable": false,
-		}]
-	});
+    
  
    	$('#subject').on( 'keyup', function () {
     table
@@ -604,7 +588,7 @@ title:  Search Interactions
                     .draw();
             } );
         table.column(2).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
+            select.append("<option value='"+d+"'>"+d+"</option>" )
         } );
     } );
 		
@@ -616,7 +600,7 @@ title:  Search Interactions
                     .draw();
             } );
         table.column(3).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
+            select.append("<option value='"+d+"'>"+d+"</option>" )
         } );
     } );
 	$("#selectType").each( function (i) {
@@ -627,7 +611,7 @@ title:  Search Interactions
                     .draw();
             } );
         table.column(4).data().unique().sort().each( function ( d, j ) {
-            select.append( "<option value='"+d+"'>"+d+"</option>" )
+            select.append("<option value='"+d+"'>"+d+"</option>" )
         } );
     } );
 
@@ -640,9 +624,7 @@ function stopPropagation(evt) {
 	evt.cancelBubble = true;
 	}
 }
- $('#datepickerafter,#datepickerbefore').datepicker({
-        autoclose: true
- });
+
  
  $('.infield').change(function(){
    
@@ -652,6 +634,31 @@ function stopPropagation(evt) {
       $('.search').off();
    }
  });
+
+    var app =  angular.module('iService');
+	app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+	{
+		$scope.toggle = {};
+		$scope.dtContactHistoryOptions = DTOptionsBuilder
+		.newOptions().withOption('language', {
+			search: 'Filter Search Results'
+		})
+		.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+			extend: 'colvis',
+			columns: function (index, apiObj, headCell)
+			{
+				// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+				// disable the show/hide column functionality for certain columns
+				return headCell.dataset.noColVis === undefined;
+			}
+		}]);
+       	$scope.dtContactHistoryColumnDefs = [
+			DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width","30px"),
+			DTColumnDefBuilder.newColumnDef(3).notVisible(),
+			DTColumnDefBuilder.newColumnDef(4).notVisible(),
+			DTColumnDefBuilder.newColumnDef(7).notVisible()
+		];
+	});
 </script>
 </body>
 </html>
