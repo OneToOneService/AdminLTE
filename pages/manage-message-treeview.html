@@ -515,7 +515,7 @@ title: Manage Messages - Tree View
 													<th class="no-sort" name="name">
 														<input type="checkbox" checkbox>
 													</th>
-													<th class="text-capitalize">
+													<th class="text-capitalize" style="width:250px;">
 														Subject 
 													</th>
 													<th class="text-capitalize">
@@ -670,6 +670,9 @@ title: Manage Messages - Tree View
 															<i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
 														</button>
 													</td>
+													<td ng-show="!row4">
+														Best price on LG Plasma
+													</td>	
 													<td ng-show="!row4">
 														John Doe
 													</td>
@@ -1318,6 +1321,7 @@ title: Manage Messages - Tree View
 			];
 			$scope.toggleRow = function (segmentName)
 			{ 
+				$scope.showexpanded1 = !false; 
 				for(var i = 1; i<=6;i++){
 					if(!$scope[segmentName]){
 						removeFunction(segmentName);

@@ -841,7 +841,8 @@ title: View Mode
 		var app = angular.module('iService');
 			app.controller('myCtrl', function($scope,$log,$compile) {
 			$scope.toggleRow = function (segmentName)
-			{ 
+			{   
+				$scope.showexpanded1 = !false; 
 				for(var i = 1; i<=5;i++){
 					if(!$scope[segmentName]){
 						removeFunction(segmentName);

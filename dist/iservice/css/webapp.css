@@ -2389,3 +2389,15 @@ body > .ui-select-bootstrap.open {
   right: 10px;
   color: #3c8dbc;
 }
+.related-property {
+  top: 28px;
+  position: absolute;
+  right: -9px;
+}
+@media (max-width: 992px) {
+  .related-property {
+    position: relative;
+    top: -3px;
+    left: 50%;
+  }
+}
