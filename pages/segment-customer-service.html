@@ -1,5 +1,5 @@
 ---
-title:  Segment Customer Service
+title:  Segment - Customer Service
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -17,117 +17,230 @@ title:  Segment Customer Service
     {% include common-menu.html %}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
+     <section class="content-header">
+					<h1>
+							{{ page.title }}
+					</h1>
+			</section>
       <!-- Main content -->
       <section class="content">
-        <!-- START CUSTOM TABS -->
-        <div class="row">
-          <div class="col-md-12">
-            <!-- Custom Tabs -->
-            <div class="row">
-              <div class="col-md-12" ng-controller="myCtrl">
-                <div class="box box-info" id="inbox-list">
-                  <div class="box-header with-border" >
-                    <i class="fa fa-code-fork"></i>
-                    <h3 class="box-title head-title-padding">Segment - Customer Service</h3>
-                  </div>
-                  <!-- /.box-header -->
-                  <!-- form start -->
-                  <div class="box-body table-responsive" >
-                      <div class="nav-tabs-custom color-tab-icon">
-                          <ul class="nav nav-tabs">
-                            <li class="active">
-                              <a href="#tab_segment_details" data-toggle="tab">
-                                <span>Details</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#tab_contact_properties" data-toggle="tab">
-                                <span>Contact Properties</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#tab_interaction_properties" data-toggle="tab">
-                                <span>Interaction Properties</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#tab_mailboxes" data-toggle="tab">
-                                <span>Mailboxes</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#tab_auto_response" data-toggle="tab">
-                                <span>Auto Responses</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#tab_stock_response" data-toggle="tab">
-                                <span>Stock Responses</span>
-                              </a>
-                            </li>
-                            
-                          </ul>
-                          <div class="tab-content box-bg-color">
-                            <div class="tab-pane" id="tab_segment_details">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div> 
-                                </div>  
-                            </div> 
-                            <div class="tab-pane" id="tab_contact_properties">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div> 
-                                </div>  
-                            </div> 
-                            <div class="tab-pane" id="tab_interaction_properties">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div> 
-                                </div>  
-                            </div> 
-                            <div class="tab-pane" id="tab_mailboxes">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div> 
-                                </div>  
-                            </div> 
-                            <div class="tab-pane" id="tab_auto_response">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div> 
-                                </div>  
+          <div class="nav-tabs-custom color-tab">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#tab_segment_details" data-toggle="tab">
+                  <i class="fa fa-ellipsis-h"></i>
+                  <span>Details</span>
+                </a>
+              </li>
+              <li>
+                <a href="#tab_contact_properties" data-toggle="tab">
+                  <i class="fa fa-user"></i>
+                  <span>Contact Properties</span>
+                </a>
+              </li>
+              <li>
+                <a href="#tab_interaction_properties" data-toggle="tab">
+                  <i class="fa fa-exchange"></i>
+                  <span>Interaction Properties</span>
+                </a>
+              </li>
+              <li>
+                <a href="#tab_mailboxes" data-toggle="tab">
+                  <i class="fa fa-inbox"></i>
+                  <span>Mailboxes</span>
+                </a>
+              </li>
+              <li>
+                <a href="#tab_auto_response" data-toggle="tab">
+                  <i class="fa fa-reply "></i>
+                  <span>Auto Responses</span>
+                </a>
+              </li>
+              <li>
+                <a href="#tab_stock_response" data-toggle="tab">
+                  <i class="fa fa-reply "></i>
+                  <span>Stock Responses</span>
+                </a>
+              </li>
+              
+            </ul>
+            <div class="tab-content box-bg-color">
+              <div class="tab-pane active" id="tab_segment_details">
+                  <div class="row form-horizontal">
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Name</label>
+                            <div class="col-sm-12">
+                              <input type="text" class="form-control" value="Sales">
                             </div>
-                            <div class="tab-pane" id="tab_stock_response">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div> 
-                                </div>  
+                          </div>
+                        </div> 
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+                            <div class="col-sm-12">
+                              <textarea class="form-control" row="3"></textarea>
+                            </div>
+                          </div>
+                        </div> 
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Parent</label>
+                            <div class="col-sm-12">
+                              <select class="form-control">
+                                <option>Salesforce</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div> 
+                        <div class="col-md-12">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Standard Segment
+                            </label>
+                          </div>
+                        </div> 
+                        <div class="col-md-12">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Queue all unassigned interactions for same contact with Get Next
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div> 
+                    <div class="col-md-6">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Topic Auto Response</label>
+                              <div class="col-sm-12">
+                                <select class="form-control">
+                                  <option>-None-</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
                             </div> 
-                            <div class="tab-pane" id="tab_topics">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div> 
-                                </div>  
+                            <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Account Creation Message</label>
+                              <div class="col-sm-12">
+                                <select class="form-control">
+                                  <option>-None-</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
                             </div> 
-                            <div class="tab-pane" id="tab_filters">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div> 
-                                </div>  
-                            </div>     
-                          </div>  
-                       </div> 
-                  </div>
-                </div>
+                            <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Agent Notification Message</label>
+                              <div class="col-sm-12">
+                                <select class="form-control">
+                                  <option>-None-</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
+                            </div> 
+                            <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Find Answer Default Notification Message</label>
+                              <div class="col-sm-12">
+                                <select class="form-control">
+                                  <option>-None-</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
+                            </div> 
+                            <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Service Lavel</label>
+                              <div class="col-sm-12">
+                                <select class="form-control">
+                                  <option>-None-</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
+                            </div> 
+                        </div> 
+                      </div> 
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                  </div>  
+              </div> 
+              <div class="tab-pane" id="tab_contact_properties">
+                  <div class="row">
+                      <div class="col-md-12 form-group">
+                        <button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
+                            New Contact
+                        </button>
+                        <button class="btn btn-primary" type="button" ng-click="showStepStep(1)">
+                          Delete Contact
+                        </button>
+                      </div>	
+                  </div>  
+              </div> 
+              <div class="tab-pane" id="tab_interaction_properties">
+                  <div class="row">
+                      <div class="col-md-12">
+                      </div> 
+                  </div>  
+              </div> 
+              <div class="tab-pane" id="tab_mailboxes">
+                  <div class="row">
+                      <div class="col-md-12">
+                      </div> 
+                  </div>  
+              </div> 
+              <div class="tab-pane" id="tab_auto_response">
+                  <div class="row">
+                      <div class="col-md-12">
+                      </div> 
+                  </div>  
               </div>
-              <div class="col-md-4">
-              </div>
-            </div>
-          </div>
-          <!-- /.col -->
-        </div>
+              <div class="tab-pane" id="tab_stock_response">
+                  <div class="row">
+                      <div class="col-md-12">
+                      </div> 
+                  </div>  
+              </div> 
+              <div class="tab-pane" id="tab_topics">
+                  <div class="row">
+                      <div class="col-md-12">
+                      </div> 
+                  </div>  
+              </div> 
+              <div class="tab-pane" id="tab_filters">
+                  <div class="row">
+                      <div class="col-md-12">
+                      </div> 
+                  </div>  
+              </div>     
+            </div>  
+          </div> 
+
         <!-- /.row -->
         <!-- END ACCORDION & CAROUSEL-->
       </section>
@@ -308,6 +421,10 @@ title:  Segment Customer Service
   <!-- ./wrapper -->
   {% include common-javascript.html %}
 
- 
+ <script>
+    angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    {
+    });
+ </script>  
 </body>
 </html>
