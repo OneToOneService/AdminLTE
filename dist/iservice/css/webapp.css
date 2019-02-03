@@ -1754,10 +1754,6 @@ label .icheckbox_square-blue {
   padding-top: 10px;
   outline: none;
 }
-.container {
-  width: 50px;
-  margin: 50px auto;
-}
 .switchery-small {
   background-color: #b5bbc8 !important;
   width: 40px;
