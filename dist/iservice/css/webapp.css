@@ -1923,6 +1923,9 @@ label span.required {
   color: red;
   margin-right: 3px;
 }
+label.required {
+  color: red;
+}
 .delete-row-confirm {
   position: absolute;
   width: calc(100% - 30px);
