@@ -35,7 +35,7 @@ title:  Segment - Customer Service
               <div class="col-md-12">
                 <div class="box box-primary">
                   <div class="box-header with-border">
-                    <i class="fa fa-globe"></i>
+                    <i class="fa fa-users"></i>
                     <h3 class="box-title text-right">New Segment</h3>
                   </div>
                   <div class="box-body">
@@ -241,73 +241,1020 @@ title:  Segment - Customer Service
                   </div>  
               </div> 
               <div class="tab-pane" id="tab_contact_properties">
-                  <div class="row">
-                      <div class="col-md-12 form-group">
-                        <button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
-                            New Contact
-                        </button>
-                        <button class="btn btn-primary" type="button" ng-click="showStepStep(1)">
-                          Delete Contact
-                        </button>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                      <button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
+                          New Contact Property
+                      </button>
+                      <button class="btn btn-primary" type="button" ng-click="showAlert = true">
+                        Delete Contact Property
+                      </button>
+                    </div>	
+                </div>
+                <div class="row" ng-show="showAlert">
+                  <div class="col-md-12">
+                    <div class="box box-danger">
+                      <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
+            
+                        <h3 class="box-title">Alerts</h3>
+                      </div>
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <b> Deleting This will affect the following</b>
+                            <p>
+                                Number of contact property values of this property : <a href="">0</a>
+                            </p>
+                            <p>	
+                            All Contact Properties, Interaction properties and Service Lavel That have this Interaction Property will lose this values.
+                            </p> 
+                             <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+                          </div>
+                          <div class="col-md-12">
+                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+                            <button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+                          </div>
+                        </div>
                       </div>	
-                  </div>
-                  <div class="row">
+                    </div>	
+                  </div>	
+                </div>	
+                <div class="row" ng-show="formstep1">
+                  <div class="col-md-12">
+                    <div class="box box-primary">
+                      <div class="box-header with-border">
+                        <i class="fa fa-globe"></i>
+                        <h3 class="box-title text-right">New Contact Property</h3>
+                      </div>
+                      <div class="box-body">
+                        <section class="search-parameters">
+                          <div class="row">
+                            <div class="form-horizontal">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label text-left">Propery Name:</label>
+                                  <div class="col-sm-8">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <button type="button" class="btn btn-primary">Create</button>
+                                  <button type="button" class="btn btn-link" ng-click="cancelForm(1)">Cancel</button>
+                                </div>	
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>	
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="box box-info">
+                      <div class="box-body table-responsive with-border">
+                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Id
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Contact Property Name
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr id="row1" ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+                                  <td>
+                                    111
+                                  </td>
+                                  <td>
+                                    Example one
+                                  </td>
+                                </tr>
+                                <tr id="row2" ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
+                                  <td>
+                                    112
+                                  </td>
+                                  <td>
+                                    Example Two
+                                  </td>
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div> 
+                    </div>   
+                  </div>  
+                </div>
+                <div class="row" ng-show="formstep2">
                     <div class="col-md-12">
-                      <div class="box box-info">
-                        <div class="box-body table-responsive with-border">
-                            <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-                                <thead>
-                                  <tr>
-                                    <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                    <th class="text-capitalize">
-                                      Id
-                                    </th>
-                                    <th class="text-capitalize">
-                                      Contact Property Name
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr id="row1" ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
-                                    <td>
-                                      111
-                                    </td>
-                                    <td>
-                                      Example one
-                                    </td>
-                                  </tr>
-                                  <tr id="row2" ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
-                                    <td>
-                                      112
-                                    </td>
-                                    <td>
-                                      Example Two
-                                    </td>
-                                  </tr>
-                                </tbody>
-                            </table>
-                        </div> 
-                      </div>   
-                    </div>  
-                  </div>
+                      <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row">
+                              <div class="form-horizontal">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Property Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Value Type</label>
+                                    <div class="col-md-12">
+                                        <select class="form-control">
+                                        <option value="date">Date</option>
+                                        <option value="int">Integer</option>
+                                        <option value="number">Number</option>
+                                        <option selected="selected" value="text">Text</option>
+                                        <option value="detail3">Address Type</option>
+                                        <option value="detail5">Article Use Code</option>
+                                        <option value="detail2">Bool</option>
+                                        <option value="detail1">Customer Type</option>
+                                        <option value="detail7">Equipment Type List</option>
+                                        <option value="detail13">increase decrease list</option>
+                                        <option value="detail6">New or Change</option>
+                                        <option value="detail9">Owner List</option>
+                                        <option value="detail4">Phone Number Type</option>
+                                        <option value="detail8">Priority List</option>
+                                        <option value="detail12">Reason List</option>
+                                        <option value="detail11">Team</option>
+                                        <option value="detail10">Won or Lost</option>
+                                        <option value="property22">Branch Office (Property)</option>
+                                        <option value="property23">CellTrak (Property)</option>
+                                        <option value="property47">Contact View Only Property (Property)</option>
+                                        <option value="property6">Customer Type (Property)</option>
+                                        <option value="property30">Equipment Provided (Property)</option>
+                                        <option value="property25">Horizon (Property)</option>
+                                        <option value="property28">Horizon Insight (Property)</option>
+                                        <option value="property29">MAS200 (Property)</option>
+                                        <option value="property48">Multi value No Descr (Property)</option>
+                                        <option value="property27">PayChex (Property)</option>
+                                        <option value="property24">PayNet (Property)</option>
+                                        <option value="property4">Phone (Property)</option>
+                                        <option value="property26">Ultimate Pro (Property)</option>
+                                        <option value="login">Login (Email)</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                   <div class="form-group">
+                                    <div class="col-md-12">
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox> Shared Property
+                                        </label> 
+                                      </div> 
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox>Multi-Line Values
+                                        </label> 
+                                      </div> 
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox>Allow Multiple Values
+                                        </label> 
+                                        <div class="checkbox nested">
+                                              <label>
+                                                <input type="checkbox" checkbox checked="checked">Has Descriptions
+                                              </label> 
+                                              <div class="form-group">
+                                                <label class="col-md-12 control-label text-left">Property Name</label>
+                                                <div class="col-md-12">
+                                                  <select class="form-control">
+                                                    <option value="date">Date</option>
+                                                    <option value="int">Integer</option>
+                                                    <option value="number">Number</option>
+                                                    <option selected="selected" value="text">Text</option>
+                                                    <option value="detail3">Address Type</option>
+                                                    <option value="detail5">Article Use Code</option>
+                                                    <option value="detail2">Bool</option>
+                                                    <option value="detail1">Customer Type</option>
+                                                    <option value="detail7">Equipment Type List</option>
+                                                    <option value="detail13">increase decrease list</option>
+                                                    <option value="detail6">New or Change</option>
+                                                    <option value="detail9">Owner List</option>
+                                                    <option value="detail4">Phone Number Type</option>
+                                                    <option value="detail8">Priority List</option>
+                                                    <option value="detail12">Reason List</option>
+                                                    <option value="detail11">Team</option>
+                                                    <option value="detail10">Won or Lost</option>
+                                                  </select>  
+                                                </div>
+                                              </div>
+                                        </div>  
+                                      </div> 
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox>Contact Viewable
+                                        </label> 
+                                        <div class="checkbox nested">
+                                            <label>
+                                              <input type="checkbox" checkbox checked="checked">Contact Editable
+                                            </label> 
+                                        </div>
+                                      </div> 
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox>Agent Setting
+                                        </label> 
+                                      </div> 
+                                     
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Tenant Default Value:</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div> 
+                                </div>
+
+                                <div class="col-md-12 col-sm-12">
+                                  <button class="btn btn-primary pull-left" type="button">Save</button>
+                                </div>
+                                <div class="col-md-12">
+                                  <hr>
+                                </div> 
+                                 <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Contact propertie That Uses This As Value Type</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Interaction Property That Uses This As Property</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Service Levels That Uses This  Property</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                      <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                  </div>  
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>	
+                </div>
               </div> 
               <div class="tab-pane" id="tab_interaction_properties">
-                  <div class="row">
-                      <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                      <button class="btn btn-primary" type="button" ng-click="showNewFormStepInteraction(1)">
+                         New Interaction Property
+                      </button>
+                      <button class="btn btn-primary" type="button" ng-click="showAlertInteraction = true">
+                        Delete Interaction Property
+                      </button>
+                    </div>	
+                </div>
+                <div class="row" ng-show="showAlertInteraction">
+                  <div class="col-md-12">
+                    <div class="box box-danger">
+                      <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
+            
+                        <h3 class="box-title">Alerts</h3>
+                      </div>
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p>	
+                              All Skills, Topics, Filters, Alerts and Service Lavel That have this Interaction Property will lose this values.
+                            </p> 
+                            <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+                          </div>
+                          <div class="col-md-12">
+                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+                            <button type="button" class="btn btn-link" ng-click="showAlertInteraction = false">Cancel</button>
+                          </div>
+                        </div>
+                      </div>	
+                    </div>	
+                  </div>	
+                </div>	
+                <div class="row" ng-show="formstepInteraction1">
+                  <div class="col-md-12">
+                    <div class="box box-primary">
+                      <div class="box-header with-border">
+                        <i class="fa fa-globe"></i>
+                        <h3 class="box-title text-right">New Contact Property</h3>
+                      </div>
+                      <div class="box-body">
+                        <section class="search-parameters">
+                          <div class="row">
+                            <div class="form-horizontal">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label text-left">Propery Name:</label>
+                                  <div class="col-sm-8">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <button type="button" class="btn btn-primary">Create</button>
+                                  <button type="button" class="btn btn-link" ng-click="cancelFormInteraction(1)">Cancel</button>
+                                </div>	
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>	
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="box box-info">
+                      <div class="box-body table-responsive with-border">
+                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Id
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Interaction Property Name
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Type
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Shared
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-click="toggleFormStepInteraction('rowinteraction1')" ng-class="{true: 'row-active', false: ''}[rowinteraction1]">
+                                  <td>
+                                    111
+                                  </td>
+                                  <td>
+                                  	Carrier Adjument Amount (AR)
+                                  </td>
+                                   <td>
+                                  	Case
+                                  </td>
+                                  <td>
+                                  	False
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepInteraction('rowinteraction2')" ng-class="{true: 'row-active', false: ''}[rowinteraction2]">
+                                  <td>
+                                    112
+                                  </td>
+                                  <td>
+                                    Follow Up Date
+                                  </td>
+                                  <td>
+                                    Answer
+                                  </td>
+                                  <td>
+                                    False
+                                  </td>
+                                </tr>
+                              </tbody>
+                          </table>
                       </div> 
+                    </div>   
                   </div>  
+                </div>
+                <div class="row" ng-show="formstepInteraction2">
+                    <div class="col-md-12">
+                      <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row">
+                              <div class="form-horizontal">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Property Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control" value="Carrier Adjument Amount (AR)">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Property Type</label>
+                                    <div class="col-md-12">
+                                      <select class="form-control">
+                                          <option value="Case">Case</option>
+                                          <option value="Question">Question</option>
+                                          <option selected="selected" value="Answer">Answer</option>
+                                          <option value="FindAnswer">FindAnswer</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Value Type</label>
+                                    <div class="col-md-12">
+                                        <select class="form-control">
+                                        <option value="date">Date</option>
+                                        <option value="int">Integer</option>
+                                        <option value="number">Number</option>
+                                        <option selected="selected" value="text">Text</option>
+                                        <option value="detail3">Address Type</option>
+                                        <option value="detail5">Article Use Code</option>
+                                        <option value="detail2">Bool</option>
+                                        <option value="detail1">Customer Type</option>
+                                        <option value="detail7">Equipment Type List</option>
+                                        <option value="detail13">increase decrease list</option>
+                                        <option value="detail6">New or Change</option>
+                                        <option value="detail9">Owner List</option>
+                                        <option value="detail4">Phone Number Type</option>
+                                        <option value="detail8">Priority List</option>
+                                        <option value="detail12">Reason List</option>
+                                        <option value="detail11">Team</option>
+                                        <option value="detail10">Won or Lost</option>
+                                        <option value="property22">Branch Office (Property)</option>
+                                        <option value="property23">CellTrak (Property)</option>
+                                        <option value="property47">Contact View Only Property (Property)</option>
+                                        <option value="property6">Customer Type (Property)</option>
+                                        <option value="property30">Equipment Provided (Property)</option>
+                                        <option value="property25">Horizon (Property)</option>
+                                        <option value="property28">Horizon Insight (Property)</option>
+                                        <option value="property29">MAS200 (Property)</option>
+                                        <option value="property48">Multi value No Descr (Property)</option>
+                                        <option value="property27">PayChex (Property)</option>
+                                        <option value="property24">PayNet (Property)</option>
+                                        <option value="property4">Phone (Property)</option>
+                                        <option value="property26">Ultimate Pro (Property)</option>
+                                        <option value="login">Login (Email)</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-md-12">
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox> Required
+                                        </label> 
+                                      </div> 
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox> Shared Property
+                                        </label> 
+                                      </div> 
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox>Multi-Line Values
+                                        </label> 
+                                      </div> 
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox>Allow Multiple Values
+                                        </label> 
+                                        <div class="checkbox nested">
+                                              <label>
+                                                <input type="checkbox" checkbox checked="checked">Has Descriptions
+                                              </label> 
+                                              <div class="form-group">
+                                                <label class="col-md-12 control-label text-left">Property Name</label>
+                                                <div class="col-md-12">
+                                                  <select class="form-control">
+                                                    <option value="date">Date</option>
+                                                    <option value="int">Integer</option>
+                                                    <option value="number">Number</option>
+                                                    <option selected="selected" value="text">Text</option>
+                                                    <option value="detail3">Address Type</option>
+                                                    <option value="detail5">Article Use Code</option>
+                                                    <option value="detail2">Bool</option>
+                                                    <option value="detail1">Customer Type</option>
+                                                    <option value="detail7">Equipment Type List</option>
+                                                    <option value="detail13">increase decrease list</option>
+                                                    <option value="detail6">New or Change</option>
+                                                    <option value="detail9">Owner List</option>
+                                                    <option value="detail4">Phone Number Type</option>
+                                                    <option value="detail8">Priority List</option>
+                                                    <option value="detail12">Reason List</option>
+                                                    <option value="detail11">Team</option>
+                                                    <option value="detail10">Won or Lost</option>
+                                                  </select>  
+                                                </div>
+                                              </div>
+                                        </div>  
+                                      </div> 
+                                      <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" checkbox>Customer Viewable
+                                        </label> 
+                                        <div class="checkbox nested">
+                                            <label>
+                                              <input type="checkbox" checkbox checked="checked">Customer Editable
+                                            </label> 
+                                        </div>
+                                      </div> 
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                  <button class="btn btn-primary pull-left" type="button">Save</button>
+                                </div>
+                               
+                                <div class="col-md-12">
+                                  <hr>
+                                </div> 
+                               
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Skills That Uses This Interaction Property</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Topics That Uses This Interaction Property</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                        <span class="skill-item"><a href="">Sales Prospecting</a> <span class="fa fa-close text-red"></span></span>
+                                        <span class="skill-item"><a href="">Follow Ups</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Filters With Actions That Uses This Interaction Property</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                  </div>  
+                                </div>
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="col-md-4">
+                                        <div class="nested-panel-heading skill-heading">
+                                          <h3 class="nested-title">Alerts With Actions That Uses This Interaction Property</h3>
+                                        </div>
+                                        <div class="skill-list">
+                                          <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                        </div>	
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="nested-panel-heading skill-heading">
+                                          <h3 class="nested-title">Service Levels That Uses This Interaction Property</h3>
+                                        </div>
+                                        <div class="skill-list">
+                                          <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                        </div>	
+                                      </div>
+                                    </div>  
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>	
+                </div>
               </div> 
               <div class="tab-pane" id="tab_mailboxes">
-                  <div class="row">
-                      <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <button class="btn btn-primary" type="button" ng-click="showNewFormStepMailbox(1)">
+                        New MailBox
+                    </button>
+                    <button class="btn btn-primary" type="button" ng-click="showAlertMailbox = true">
+                      Delete MailBox
+                    </button>
+                  </div>	
+                </div>
+                <div class="row" ng-show="showAlertMailbox">
+                  <div class="col-md-12">
+                    <div class="box box-danger">
+                      <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
+            
+                        <h3 class="box-title">Alerts</h3>
+                      </div>
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+                          </div>
+                          <div class="col-md-12">
+                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+                            <button type="button" class="btn btn-link" ng-click="showAlertMailbox = false">Cancel</button>
+                          </div>
+                        </div>
+                      </div>	
+                    </div>	
+                  </div>	
+                </div>	
+                <div class="row" ng-show="formstepMailbox1">
+                  <div class="col-md-12">
+                    <div class="box box-primary">
+                      <div class="box-header with-border">
+                        <i class="fa fa-inbox"></i>
+                        <h3 class="box-title text-right">New Mailbox</h3>
+                      </div>
+                      <div class="box-body">
+                        <section class="search-parameters">
+                          <div class="row">
+                            <div class="form-horizontal">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-sm-12 control-label text-left">POP Server Name</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-sm-12 control-label text-left">User Name</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-sm-12 control-label text-left">SMTP Server Name</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-sm-12 control-label text-left">Password</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-12 col-sm-12">
+                                  <button type="button" class="btn btn-primary">Create</button>
+                                  <button type="button" class="btn btn-link" ng-click="cancelFormMailbox(1)">Cancel</button>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>	
+                </div>
+                <div class="row" style="display:none;">
+                  <div class="col-md-12">
+                    <div class="box box-info">
+                      <div class="box-body table-responsive with-border">
+                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Id
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Contact Property Name
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-click="toggleFormStepMailbox('mailboxrow1')" ng-class="{true: 'row-active', false: ''}[mailboxrow1]">
+                                  <td>
+                                    111
+                                  </td>
+                                  <td>
+                                    Example one
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepMailbox('mailboxrow2')" ng-class="{true: 'row-active', false: ''}[mailboxrow2]">
+                                  <td>
+                                    112
+                                  </td>
+                                  <td>
+                                    Example Two
+                                  </td>
+                                </tr>
+                              </tbody>
+                          </table>
                       </div> 
+                    </div>   
                   </div>  
+                </div>
+                <div class="row" ng-show="formstepMailbox2">
+                    <div class="col-md-12">
+                      <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row">
+                              <div class="form-horizontal">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Property Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Value Type</label>
+                                    <div class="col-md-12">
+                                        <select class="form-control">
+                                        <option value="date">Date</option>
+                                        <option value="int">Integer</option>
+                                        <option value="number">Number</option>
+                                        <option selected="selected" value="text">Text</option>
+                                        <option value="detail3">Address Type</option>
+                                        <option value="detail5">Article Use Code</option>
+                                        <option value="detail2">Bool</option>
+                                        <option value="detail1">Customer Type</option>
+                                        <option value="detail7">Equipment Type List</option>
+                                        <option value="detail13">increase decrease list</option>
+                                        <option value="detail6">New or Change</option>
+                                        <option value="detail9">Owner List</option>
+                                        <option value="detail4">Phone Number Type</option>
+                                        <option value="detail8">Priority List</option>
+                                        <option value="detail12">Reason List</option>
+                                        <option value="detail11">Team</option>
+                                        <option value="detail10">Won or Lost</option>
+                                        <option value="property22">Branch Office (Property)</option>
+                                        <option value="property23">CellTrak (Property)</option>
+                                        <option value="property47">Contact View Only Property (Property)</option>
+                                        <option value="property6">Customer Type (Property)</option>
+                                        <option value="property30">Equipment Provided (Property)</option>
+                                        <option value="property25">Horizon (Property)</option>
+                                        <option value="property28">Horizon Insight (Property)</option>
+                                        <option value="property29">MAS200 (Property)</option>
+                                        <option value="property48">Multi value No Descr (Property)</option>
+                                        <option value="property27">PayChex (Property)</option>
+                                        <option value="property24">PayNet (Property)</option>
+                                        <option value="property4">Phone (Property)</option>
+                                        <option value="property26">Ultimate Pro (Property)</option>
+                                        <option value="login">Login (Email)</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-md-12">
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox> Shared Property
+                                        </label> 
+                                      </div> 
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>Multi-Line Values
+                                        </label> 
+                                      </div> 
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>Allow Multiple Values
+                                        </label> 
+                                        <div class="checkbox nested">
+                                              <label>
+                                                <input type="checkbox" checkbox checked="checked">Has Descriptions
+                                              </label> 
+                                              <div class="form-group">
+                                                <label class="col-md-12 control-label text-left">Property Name</label>
+                                                <div class="col-md-12">
+                                                  <select class="form-control">
+                                                    <option value="date">Date</option>
+                                                    <option value="int">Integer</option>
+                                                    <option value="number">Number</option>
+                                                    <option selected="selected" value="text">Text</option>
+                                                    <option value="detail3">Address Type</option>
+                                                    <option value="detail5">Article Use Code</option>
+                                                    <option value="detail2">Bool</option>
+                                                    <option value="detail1">Customer Type</option>
+                                                    <option value="detail7">Equipment Type List</option>
+                                                    <option value="detail13">increase decrease list</option>
+                                                    <option value="detail6">New or Change</option>
+                                                    <option value="detail9">Owner List</option>
+                                                    <option value="detail4">Phone Number Type</option>
+                                                    <option value="detail8">Priority List</option>
+                                                    <option value="detail12">Reason List</option>
+                                                    <option value="detail11">Team</option>
+                                                    <option value="detail10">Won or Lost</option>
+                                                  </select>  
+                                                </div>
+                                              </div>
+                                        </div>  
+                                      </div> 
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>Contact Viewable
+                                        </label> 
+                                        <div class="checkbox nested">
+                                            <label>
+                                              <input type="checkbox" checkbox checked="checked">Contact Editable
+                                            </label> 
+                                        </div>
+                                      </div> 
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>Agent Setting
+                                        </label> 
+                                      </div> 
+                                    
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Tenant Default Value:</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div> 
+                                </div>
+
+                                <div class="col-md-12 col-sm-12">
+                                  <button class="btn btn-primary pull-left" type="button">Save</button>
+                                </div>
+                                <div class="col-md-12">
+                                  <hr>
+                                </div> 
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Contact propertie That Uses This As Value Type</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Interaction Property That Uses This As Property</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="nested-panel-heading skill-heading">
+                                        <h3 class="nested-title">Service Levels That Uses This  Property</h3>
+                                      </div>
+                                      <div class="skill-list">
+                                      <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                      </div>	
+                                    </div>
+                                  </div>  
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>	
+                </div>
               </div> 
               <div class="tab-pane" id="tab_auto_response">
-                  <div class="row">
-                      <div class="col-md-12">
+                   <div class="row">
+                  <div class="col-md-12 form-group">
+                    <button class="btn btn-primary" type="button" ng-click="showNewFormStepAutoResponse(1)">
+                      New Auto Response
+                    </button>
+                    <button class="btn btn-primary" type="button" ng-click="showAlertAutoResponse = true">
+                      Delete Auto Response
+                    </button>
+                  </div>	
+                </div>
+                <div class="row" ng-show="showAlertAutoResponse">
+                  <div class="col-md-12">
+                    <div class="box box-danger">
+                      <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
+                        <h3 class="box-title">Alerts</h3>
+                      </div>
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+                          </div>
+                          <div class="col-md-12">
+                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+                            <button type="button" class="btn btn-link" ng-click="showAlertAutoResponse = false">Cancel</button>
+                          </div>
+                        </div>
+                      </div>	
+                    </div>	
+                  </div>	
+                </div>	
+                <div class="row" ng-show="formstepAutoResponse1">
+                  <div class="col-md-12">
+                    <div class="box box-primary">
+                      <div class="box-header with-border">
+                        <i class="fa fa-reply"></i>
+                        <h3 class="box-title text-right">New Auto Response</h3>
+                      </div>
+                      <div class="box-body">
+                        <section class="search-parameters">
+                          <div class="row">
+                            <div class="form-horizontal">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label text-left">Auto Response Name:</label>
+                                  <div class="col-sm-8">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <button type="button" class="btn btn-primary">Create</button>
+                                  <button type="button" class="btn btn-link" ng-click="cancelFormInteraction(1)">Cancel</button>
+                                </div>	
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>	
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="box box-info">
+                      <div class="box-body table-responsive with-border">
+                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Id
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Auto Response Name
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-click="toggleFormStepAutoResponse('rowautoresponse1')" ng-class="{true: 'row-active', false: ''}[rowautoresponse1]">
+                                  <td>
+                                    111
+                                  </td>
+                                  <td>
+                                    Quote - Electronics
+                                  </td>
+                                </tr>
+                              </tbody>
+                          </table>
                       </div> 
+                    </div>   
                   </div>  
+                </div>
+                <div class="row" ng-show="formstepAutoResponse2">
+                  <div class="col-md-12">
+                    <div class="box box-primary">
+                      <div class="box-body">
+                          <div class="row">
+                            <div class="form-horizontal">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-md-12 control-label text-left">Name</label>
+                                  <div class="col-md-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-md-12 control-label text-left">Description</label>
+                                  <div class="col-md-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="col-md-12 control-label text-left">
+                                      Html Response Bod</label>
+                                  <div class="col-md-12">
+                                    <textarea class="form-control" ckeditor></textarea>
+                                  </div>
+                              </div>
+                              </div>
+                              <div class="col-md-12 col-sm-12">
+                                <button class="btn btn-primary pull-left" type="button">Save</button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>	
+                </div>
               </div>
               <div class="tab-pane" id="tab_stock_response">
                   <div class="row">
@@ -521,7 +1468,83 @@ title:  Segment - Customer Service
               $scope['newformsegment'] = false;
         };
 
-        
+        $scope.cancelForm = function(step){
+				for(var i =1; i<=2; i++){
+					 $scope['formstep'+i] = false;
+        }
+		  	};		
+
+		 	$scope.showNewFormStep = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstep'+i] = true;
+					}	   
+					else	
+						$scope['formstep'+i] = false;
+				}
+      }; 
+
+      $scope.toggleFormStep = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['row'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstep'+2] = !$scope['formstep'+2];
+      };
+
+      $scope.toggleFormStepInteraction = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowinteraction'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepInteraction'+2] = !$scope['formstepInteraction'+2];
+      };
+
+     	$scope.showNewFormStepInteraction = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepInteraction'+i] = true;
+					}	   
+					else	
+						$scope['formstepInteraction'+i] = false;
+				}
+      }; 
+
+      $scope.toggleFormStepMailbox = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowmailbox'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepMailbox'+2] = !$scope['formstepMailbox'+2];
+      };
+      $scope.showNewFormStepMailbox = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepMailbox'+i] = true;
+					}	   
+					else	
+						$scope['formstepMailbox'+i] = false;
+				}
+      }; 
+
+      $scope.toggleFormStepAutoResponse = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowautoresponse'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepAutoResponse'+2] = !$scope['formstepAutoResponse'+2];
+      };
+
+      
+      $scope.showNewFormStepAutoResponse = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepAutoResponse'+i] = true;
+					}	   
+					else	
+						$scope['formstepAutoResponse'+i] = false;
+				}
+      }; 
     });
  </script>  
 </body>
