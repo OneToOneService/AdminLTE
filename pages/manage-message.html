@@ -52,7 +52,7 @@ title: Manage Messages - List View
 												<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
 												<div class="col-sm-8">
 													<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
-														<ui-select-match placeholder="Select topics..." >{{$item}}</ui-select-match>
+														<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
 														<ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
 																<span ng-bind-html="color.Topic | highlight: $select.search"></span>
 														</ui-select-choices>
