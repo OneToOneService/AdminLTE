@@ -2423,3 +2423,52 @@ body > .ui-select-bootstrap.open {
   padding-left: 15px;
   margin-top: 8px;
 }
+.tree-test-container {
+  width: calc(100% - 75px);
+  overflow: hidden;
+  display: inline-flex;
+}
+.tree-test-container .text {
+  flex: 0 0 auto;
+}
+.tree-test-container .line {
+  flex: 1 1 auto;
+}
+.tree-test-container,
+.text,
+.line {
+  margin-right: 0.2em;
+  display: inline-flex;
+}
+.line {
+  border-bottom: 1px dashed #b5bbc8;
+  height: 20px;
+}
+.treeviewrow {
+  display: flex;
+}
+.div1 {
+  flex: 0 1 auto;
+  line-height: 18px;
+}
+.div2 {
+  flex: 1 1 auto;
+  border-bottom: 1px dashed #b5bbc8;
+  height: 20px;
+}
+/* other stuff */
+.treeviewrow div {
+  margin: 0.2em;
+}
+.treeviewrow {
+  width: 100%;
+  overflow: hidden;
+}
+ul li .treeviewitem {
+  display: inline-block;
+  width: calc(100% - 58px);
+}
+ul li ul li.branch .treeviewitem {
+  display: inline-block;
+  width: calc(100% - 78px);
+}
