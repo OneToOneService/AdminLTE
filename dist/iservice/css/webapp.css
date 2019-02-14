@@ -2373,6 +2373,9 @@ body > .ui-select-bootstrap.open {
   align-items: flex-end;
   margin-bottom: 15px;
 }
+.simple-label iservice-interaction-property-field {
+  width: 100%;
+}
 .simple-label input,
 .simple-label select,
 .simple-label textarea {

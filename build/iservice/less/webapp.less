@@ -35,9 +35,9 @@
 @bg-orange-disabled: #ffb06b;
 @bg-yellow-disabled: #f7bf66;
 @bg-gray-light: #f7f7f7;
-@data-table-border:#f4f4f4;
-@bg-customer-reply:#f7f7f7;
-@bg-agent-reply:  #fbefef;
+@data-table-border: #f4f4f4;
+@bg-customer-reply: #f7f7f7;
+@bg-agent-reply: #fbefef;
 @font-color: #333333;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
@@ -673,7 +673,6 @@ p.login-box-msg
 
 .box-background
 {
-
     .box-footer
     {
         background: #eaeaea;
@@ -718,7 +717,6 @@ ul.timeline span.stack-icon
         color: @aqua;
     }
 }
-
 
 @media only screen and (max-width : 480px)
 {
@@ -864,7 +862,6 @@ ul.timeline span.stack-icon
         background: @green;
     }
 }
-
 
 .new-contact-btn
 {
@@ -1271,7 +1268,6 @@ ul.timeline span.stack-icon
 }
 
 @import "customer-details";
-
 
 [contenteditable]:empty:not(:focus)::before
 {
@@ -1708,7 +1704,6 @@ ul.timeline span.stack-icon
     border-color: @yellow;
     color: @component-active-color;
 }
-
 
 .right > .direct-chat-text
 {
@@ -2211,7 +2206,6 @@ ul.timeline span.stack-icon
 
 @media (min-width: @screen-md) and (max-width: @screen-lg)
 {
-
     .treeview-textwrap
     {
         white-space: nowrap;
@@ -2586,7 +2580,6 @@ label .icheckbox_square-blue
         outline: none;
     }
 
-
 //form admin tools end
 
 .switchery-small
@@ -2632,7 +2625,6 @@ label .icheckbox_square-blue
 {
     width: 100%;
 }
-
 
 .ui-select-container[theme="selectize"] input.ui-select-search-hidden
 {
@@ -2753,9 +2745,25 @@ label .icheckbox_square-blue
     margin: 0px 8px 8px 0px;
     display: inline-block;
 }
-.attachments i{margin-right:8px;font-size:18px; margin-top: 2px;}
-.attachment-icon{font-size:20px;margin-right: 15px;}
-.attachments .filename{color:@font-color;}
+
+    .attachments i
+    {
+        margin-right: 8px;
+        font-size: 18px;
+        margin-top: 2px;
+    }
+
+.attachment-icon
+{
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.attachments .filename
+{
+    color: @font-color;
+}
+
 .attachments:last-child
 {
     margin-right: 0px;
@@ -2806,7 +2814,12 @@ label span.required
     color: red;
     margin-right: 3px;
 }
-label.required{color:red;}
+
+label.required
+{
+    color: red;
+}
+
 .delete-row-confirm
 {
     position: absolute;
@@ -2873,7 +2886,6 @@ label.required{color:red;}
     background: white;
 }
 
-
 .bg-customer-reply
 {
     background: @bg-customer-reply !important;
@@ -2888,9 +2900,24 @@ label.required{color:red;}
 {
     border: 0px solid @data-table-border;
 }
-.rowborder td:first-child{border-left:1px solid @data-table-border !important; border-top:none;}
-tr.expandedrowcontent td{border:0px !important; border-top: 0px;}
-tr.bg-customer-reply td{border:0px !important;border-color: @data-table-border;}
+
+.rowborder td:first-child
+{
+    border-left: 1px solid @data-table-border !important;
+    border-top: none;
+}
+
+tr.expandedrowcontent td
+{
+    border: 0px !important;
+    border-top: 0px;
+}
+
+tr.bg-customer-reply td
+{
+    border: 0px !important;
+    border-color: @data-table-border;
+}
 
 .skill-heading
 {
@@ -2905,27 +2932,87 @@ tr.bg-customer-reply td{border:0px !important;border-color: @data-table-border;}
     margin: 0px 8px 8px 0px;
     display: block;
 }
-.skill-item .fa-close{margin-left:5px;cursor:pointer;}
 
-.selectize-input{background:white !important;background-image:none !important; border-radius:0px !important; border-color:@gray-lte !important; box-shadow:none !important; padding: 6px 12px !important;font-size:14px !important;}
-.selectize-input:after{ right: 5px !important;     border-width: 6px 3px 0 3px !important;}
-.box-header label.incoming-ques .icheckbox_square-blue,.box-header label.agent-prop-ans .icheckbox_square-blue{margin-right: 8px;}
-label.incoming-ques, label.agent-prop-ans {border-radius:3px; margin-left:15px; margin-bottom:0px;    font-weight: normal;}
-.tree .icheckbox_square-blue{margin-right:8px;}
-.select-all-topic{padding-left:19px !important;}
-.tree-lable {line-height:18px;}
-.massupdated-interaction-prop h4 div.icheckbox_square-blue{margin-top:2px !important;}
-.rowdata{padding-left:38px !important; }
-.subject-col-width{width:300px;}
-tr span.expanded-button{float:left;}
+.skill-item .fa-close
+{
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.selectize-input
+{
+    background: white !important;
+    background-image: none !important;
+    border-radius: 0px !important;
+    border-color: @gray-lte !important;
+    box-shadow: none !important;
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+}
+
+    .selectize-input:after
+    {
+        right: 5px !important;
+        border-width: 6px 3px 0 3px !important;
+    }
+
+.box-header label.incoming-ques .icheckbox_square-blue, .box-header label.agent-prop-ans .icheckbox_square-blue
+{
+    margin-right: 8px;
+}
+
+label.incoming-ques, label.agent-prop-ans
+{
+    border-radius: 3px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+.tree .icheckbox_square-blue
+{
+    margin-right: 8px;
+}
+
+.select-all-topic
+{
+    padding-left: 19px !important;
+}
+
+.tree-lable
+{
+    line-height: 18px;
+}
+
+.massupdated-interaction-prop h4 div.icheckbox_square-blue
+{
+    margin-top: 2px !important;
+}
+
+.rowdata
+{
+    padding-left: 38px !important;
+}
+
+.subject-col-width
+{
+    width: 300px;
+}
+
+tr span.expanded-button
+{
+    float: left;
+}
 
 /*ui- multi select2 */
 /* Style when highlighting a search. */
-.ui-select-highlight {
+.ui-select-highlight
+{
     font-weight: bold;
-  }
-  
-  .ui-select-offscreen {
+}
+
+.ui-select-offscreen
+{
     clip: rect(0 0 0 0) !important;
     width: 1px !important;
     height: 1px !important;
@@ -2937,122 +3024,140 @@ tr span.expanded-button{float:left;}
     outline: 0 !important;
     left: 0px !important;
     top: 0px !important;
-  }
-  
-  
-  .ui-select-choices-row:hover {
+}
+
+.ui-select-choices-row:hover
+{
     background-color: #f5f5f5;
-  }
-  
-  /* Select2 theme */
-  
-  /* Mark invalid Select2 */
-  .ng-dirty.ng-invalid > a.select2-choice {
-      border-color: #D44950;
-  }
-  
-  .select2-result-single {
+}
+
+/* Select2 theme */
+
+/* Mark invalid Select2 */
+.ng-dirty.ng-invalid > a.select2-choice
+{
+    border-color: #D44950;
+}
+
+.select2-result-single
+{
     padding-left: 0;
-  }
-  
-  .select2-locked > .select2-search-choice-close{
-    display:none;
-  }
-  
-  .select-locked > .ui-select-match-close{
-      display:none;
-  }
-  
-  body > .select2-container.open {
+}
+
+.select2-locked > .select2-search-choice-close
+{
+    display: none;
+}
+
+.select-locked > .ui-select-match-close
+{
+    display: none;
+}
+
+body > .select2-container.open
+{
     z-index: 9999; /* The z-index Select2 applies to the select2-drop */
-  }
-  
-  /* Handle up direction Select2 */
-  .ui-select-container[theme="select2"].direction-up .ui-select-match,
-  .ui-select-container.select2.direction-up .ui-select-match {
-      border-radius: 4px; /* FIXME hardcoded value :-/ */
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-  }
-  .ui-select-container[theme="select2"].direction-up .ui-select-dropdown,
-  .ui-select-container.select2.direction-up .ui-select-dropdown {
-      border-radius: 4px; /* FIXME hardcoded value :-/ */
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-  
-      border-top-width: 1px;  /* FIXME hardcoded value :-/ */
-      border-top-style: solid;
-  
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
-  
-      margin-top: -4px; /* FIXME hardcoded value :-/ */
-  }
-  .ui-select-container[theme="select2"].direction-up .ui-select-dropdown .select2-search,
-  .ui-select-container.select2.direction-up .ui-select-dropdown .select2-search {
-      margin-top: 4px; /* FIXME hardcoded value :-/ */
-  }
-  .ui-select-container[theme="select2"].direction-up.select2-dropdown-open .ui-select-match,
-  .ui-select-container.select2.direction-up.select2-dropdown-open .ui-select-match {
-      border-bottom-color: #5897fb;
-  }
-  
-  .ui-select-container[theme="select2"] .ui-select-dropdown .ui-select-search-hidden,
-  .ui-select-container[theme="select2"] .ui-select-dropdown .ui-select-search-hidden input{
-      opacity: 0;
-      height: 0;
-      min-height: 0;
-      padding: 0;
-      margin: 0;
-      border:0;
-  }
-  
-  /* Selectize theme */
-  
-  /* Helper class to show styles when focus */
-  .selectize-input.selectize-focus{
+}
+
+/* Handle up direction Select2 */
+.ui-select-container[theme="select2"].direction-up .ui-select-match,
+.ui-select-container.select2.direction-up .ui-select-match
+{
+    border-radius: 4px; /* FIXME hardcoded value :-/ */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.ui-select-container[theme="select2"].direction-up .ui-select-dropdown,
+.ui-select-container.select2.direction-up .ui-select-dropdown
+{
+    border-radius: 4px; /* FIXME hardcoded value :-/ */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-width: 1px; /* FIXME hardcoded value :-/ */
+    border-top-style: solid;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+    margin-top: -4px; /* FIXME hardcoded value :-/ */
+}
+
+    .ui-select-container[theme="select2"].direction-up .ui-select-dropdown .select2-search,
+    .ui-select-container.select2.direction-up .ui-select-dropdown .select2-search
+    {
+        margin-top: 4px; /* FIXME hardcoded value :-/ */
+    }
+
+.ui-select-container[theme="select2"].direction-up.select2-dropdown-open .ui-select-match,
+.ui-select-container.select2.direction-up.select2-dropdown-open .ui-select-match
+{
+    border-bottom-color: #5897fb;
+}
+
+.ui-select-container[theme="select2"] .ui-select-dropdown .ui-select-search-hidden,
+.ui-select-container[theme="select2"] .ui-select-dropdown .ui-select-search-hidden input
+{
+    opacity: 0;
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* Selectize theme */
+
+/* Helper class to show styles when focus */
+.selectize-input.selectize-focus
+{
     border-color: #007FBB !important;
-  }
-  
-  /* Fix input width for Selectize theme */
-  .selectize-control.single > .selectize-input > input {
+}
+
+/* Fix input width for Selectize theme */
+.selectize-control.single > .selectize-input > input
+{
     width: 100%;
-  }
-  
-  /* Fix line break when there's at least one item selected with the Selectize theme */
-  .selectize-control.multi > .selectize-input > input {
+}
+
+/* Fix line break when there's at least one item selected with the Selectize theme */
+.selectize-control.multi > .selectize-input > input
+{
     margin: 0 !important;
-  }
-  
-  /* Fix dropdown width for Selectize theme */
-  .selectize-control > .selectize-dropdown {
+}
+
+/* Fix dropdown width for Selectize theme */
+.selectize-control > .selectize-dropdown
+{
     width: 100%;
-  }
-  
-  /* Mark invalid Selectize */
-  .ng-dirty.ng-invalid > div.selectize-input {
-      border-color: #D44950;
-  }
-  
-  /* Handle up direction Selectize */
-  .ui-select-container[theme="selectize"].direction-up .ui-select-dropdown {
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
-      margin-top: -2px; /* FIXME hardcoded value :-/ */
-  }
-  
-  .ui-select-container[theme="selectize"] input.ui-select-search-hidden{
-      opacity: 0;
-      height: 0;
-      min-height: 0;
-      padding: 0;
-      margin: 0;
-      border:0;
-      width: 0;
-  }
-  
-  /* Bootstrap theme */
-  
-  /* Helper class to show styles when focus */
-  .btn-default-focus {
+}
+
+/* Mark invalid Selectize */
+.ng-dirty.ng-invalid > div.selectize-input
+{
+    border-color: #D44950;
+}
+
+/* Handle up direction Selectize */
+.ui-select-container[theme="selectize"].direction-up .ui-select-dropdown
+{
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+    margin-top: -2px; /* FIXME hardcoded value :-/ */
+}
+
+.ui-select-container[theme="selectize"] input.ui-select-search-hidden
+{
+    opacity: 0;
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 0;
+}
+
+/* Bootstrap theme */
+
+/* Helper class to show styles when focus */
+.btn-default-focus
+{
     color: #333;
     background-color: #EBEBEB;
     border-color: #ADADAD;
@@ -3060,102 +3165,120 @@ tr span.expanded-button{float:left;}
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  }
-  
-  .ui-select-bootstrap .ui-select-toggle {
+}
+
+.ui-select-bootstrap .ui-select-toggle
+{
     position: relative;
-  }
-  
-  .ui-select-bootstrap .ui-select-toggle > .caret {
-    position: absolute;
-    height: 10px;
-    top: 50%;
-    right: 10px;
-    margin-top: -2px;
-  }
-  
-  /* Fix Bootstrap dropdown position when inside a input-group */
-  .input-group > .ui-select-bootstrap.dropdown {
+}
+
+    .ui-select-bootstrap .ui-select-toggle > .caret
+    {
+        position: absolute;
+        height: 10px;
+        top: 50%;
+        right: 10px;
+        margin-top: -2px;
+    }
+
+/* Fix Bootstrap dropdown position when inside a input-group */
+.input-group > .ui-select-bootstrap.dropdown
+{
     /* Instead of relative */
     position: static;
-  }
-  
-  .input-group > .ui-select-bootstrap > input.ui-select-search.form-control {
+}
+
+.input-group > .ui-select-bootstrap > input.ui-select-search.form-control
+{
     border-radius: 4px; /* FIXME hardcoded value :-/ */
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-  }
-  .input-group > .ui-select-bootstrap > input.ui-select-search.form-control.direction-up {
-    border-radius: 4px !important; /* FIXME hardcoded value :-/ */
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-  }
-  
-  .ui-select-bootstrap .ui-select-search-hidden{
-      opacity: 0;
-      height: 0;
-      min-height: 0;
-      padding: 0;
-      margin: 0;
-      border:0;
-  }
-  
-  .ui-select-bootstrap > .ui-select-match > .btn{
+}
+
+    .input-group > .ui-select-bootstrap > input.ui-select-search.form-control.direction-up
+    {
+        border-radius: 4px !important; /* FIXME hardcoded value :-/ */
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+.ui-select-bootstrap .ui-select-search-hidden
+{
+    opacity: 0;
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.ui-select-bootstrap > .ui-select-match > .btn
+{
     /* Instead of center because of .btn */
     text-align: left !important;
-  }
-  
-  .ui-select-bootstrap > .ui-select-match > .caret {
+}
+
+.ui-select-bootstrap > .ui-select-match > .caret
+{
     position: absolute;
     top: 45%;
     right: 15px;
-  }
-  
-  /* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
-  .ui-select-bootstrap > .ui-select-choices ,.ui-select-bootstrap > .ui-select-no-choice {
+}
+
+/* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
+.ui-select-bootstrap > .ui-select-choices, .ui-select-bootstrap > .ui-select-no-choice
+{
     width: 100%;
     height: auto;
     max-height: 200px;
     overflow-x: hidden;
     margin-top: -1px;
-  }
-  
-  body > .ui-select-bootstrap.open {
+}
+
+body > .ui-select-bootstrap.open
+{
     z-index: 1000; /* Standard Bootstrap dropdown z-index */
-  }
-  
-  .ui-select-multiple.ui-select-bootstrap {
+}
+
+.ui-select-multiple.ui-select-bootstrap
+{
     height: auto;
     padding: 3px 3px 0 3px;
-  }
-  
-  .ui-select-multiple.ui-select-bootstrap input.ui-select-search {
-    background-color: transparent !important; /* To prevent double background when disabled */
-    border: none;
-    outline: none;
-    height: 1.666666em;
-    margin-bottom: 3px;
-  }
-  
-  .ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
-    font-size: 1.6em;
-    line-height: 0.75;
-  }
-  
-  .ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
-    outline: 0;
-    margin: 0 3px 3px 0;
-  }
-  
-  .ui-select-multiple .ui-select-match-item {
+}
+
+    .ui-select-multiple.ui-select-bootstrap input.ui-select-search
+    {
+        background-color: transparent !important; /* To prevent double background when disabled */
+        border: none;
+        outline: none;
+        height: 1.666666em;
+        margin-bottom: 3px;
+    }
+
+    .ui-select-multiple.ui-select-bootstrap .ui-select-match .close
+    {
+        font-size: 1.6em;
+        line-height: 0.75;
+    }
+
+    .ui-select-multiple.ui-select-bootstrap .ui-select-match-item
+    {
+        outline: 0;
+        margin: 0 3px 3px 0;
+    }
+
+.ui-select-multiple .ui-select-match-item
+{
     position: relative;
-  }
-  
-  .ui-select-multiple .ui-select-match-item.dropping .ui-select-match-close {
-    pointer-events: none;
-  }
-  
-  .ui-select-multiple:hover .ui-select-match-item.dropping-before:before {
+}
+
+    .ui-select-multiple .ui-select-match-item.dropping .ui-select-match-close
+    {
+        pointer-events: none;
+    }
+
+.ui-select-multiple:hover .ui-select-match-item.dropping-before:before
+{
     content: "";
     position: absolute;
     top: 0;
@@ -3163,9 +3286,10 @@ tr span.expanded-button{float:left;}
     height: 100%;
     margin-right: 2px;
     border-left: 1px solid #428bca;
-  }
-  
-  .ui-select-multiple:hover .ui-select-match-item.dropping-after:after {
+}
+
+.ui-select-multiple:hover .ui-select-match-item.dropping-after:after
+{
     content: "";
     position: absolute;
     top: 0;
@@ -3173,126 +3297,158 @@ tr span.expanded-button{float:left;}
     height: 100%;
     margin-left: 2px;
     border-right: 1px solid #428bca;
-  }
-  
-  .ui-select-bootstrap .ui-select-choices-row>span {
-      cursor: pointer;
-      display: block;
-      padding: 3px 20px;
-      clear: both;
-      font-weight: 400;
-      line-height: 1.42857143;
-      color: #333;
-      white-space: nowrap;
-  }
-  
-  .ui-select-bootstrap .ui-select-choices-row>span:hover, .ui-select-bootstrap .ui-select-choices-row>span:focus {
-      text-decoration: none;
-      color: #262626;
-      background-color: #f5f5f5;
-  }
-  
-  .ui-select-bootstrap .ui-select-choices-row.active>span {
-      color: #fff;
-      text-decoration: none;
-      outline: 0;
-      background-color: #428bca;
-  }
-  
-  .ui-select-bootstrap .ui-select-choices-row.disabled>span,
-  .ui-select-bootstrap .ui-select-choices-row.active.disabled>span {
-      color: #777;
-      cursor: not-allowed;
-      background-color: #fff;
-  }
-  
-  /* fix hide/show angular animation */
-  .ui-select-match.ng-hide-add,
-  .ui-select-search.ng-hide-add {
-      display: none !important;
-  }
-  
-  /* Mark invalid Bootstrap */
-  .ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
-      border-color: #D44950;
-  }
-  
-  /* Handle up direction Bootstrap */
-  .ui-select-container[theme="bootstrap"].direction-up .ui-select-dropdown {
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
-  }
-  
-  .ui-select-bootstrap .ui-select-match-text {
-      width: 100%;
-      padding-right: 1em;
-  }
-  .ui-select-bootstrap .ui-select-match-text span {
-      display: inline-block;
-      width: 100%;
-      overflow: hidden;
-  }
-  .ui-select-bootstrap .ui-select-toggle > a.btn {
+}
+
+.ui-select-bootstrap .ui-select-choices-row > span
+{
+    cursor: pointer;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+    .ui-select-bootstrap .ui-select-choices-row > span:hover, .ui-select-bootstrap .ui-select-choices-row > span:focus
+    {
+        text-decoration: none;
+        color: #262626;
+        background-color: #f5f5f5;
+    }
+
+.ui-select-bootstrap .ui-select-choices-row.active > span
+{
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #428bca;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.disabled > span,
+.ui-select-bootstrap .ui-select-choices-row.active.disabled > span
+{
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+}
+
+/* fix hide/show angular animation */
+.ui-select-match.ng-hide-add,
+.ui-select-search.ng-hide-add
+{
+    display: none !important;
+}
+
+/* Mark invalid Bootstrap */
+.ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match
+{
+    border-color: #D44950;
+}
+
+/* Handle up direction Bootstrap */
+.ui-select-container[theme="bootstrap"].direction-up .ui-select-dropdown
+{
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.ui-select-bootstrap .ui-select-match-text
+{
+    width: 100%;
+    padding-right: 1em;
+}
+
+    .ui-select-bootstrap .ui-select-match-text span
+    {
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+    }
+
+.ui-select-bootstrap .ui-select-toggle > a.btn
+{
     position: absolute;
     height: 10px;
     right: 10px;
     margin-top: -2px;
-  }
-  
-  /* Spinner */
-  .ui-select-refreshing.glyphicon {
-      position: absolute;
-      right: 0;
-      padding: 8px 27px;
-   }
-  
-  @-webkit-keyframes ui-select-spin {
-    0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
+}
+
+/* Spinner */
+.ui-select-refreshing.glyphicon
+{
+    position: absolute;
+    right: 0;
+    padding: 8px 27px;
+}
+
+@-webkit-keyframes ui-select-spin
+{
+    0%
+    {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-    100% {
-      -webkit-transform: rotate(359deg);
-      transform: rotate(359deg);
+
+    100%
+    {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
     }
-  }
-  @keyframes ui-select-spin {
-    0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
+}
+
+@keyframes ui-select-spin
+{
+    0%
+    {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-    100% {
-      -webkit-transform: rotate(359deg);
-      transform: rotate(359deg);
+
+    100%
+    {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
     }
-  }
-  
-  .ui-select-spin {
+}
+
+.ui-select-spin
+{
     -webkit-animation: ui-select-spin 2s infinite linear;
     animation: ui-select-spin 2s infinite linear;
-  }
-  
-  .ui-select-refreshing.ng-animate {
+}
+
+.ui-select-refreshing.ng-animate
+{
     -webkit-animation: none 0s;
-  }
+}
 /*ui multi select2 end*/
-.simple-label{
-    .float-btn-group{
+.simple-label
+{
+    .float-btn-group
+    {
         width: ~"calc(100% - 26px)";
         display: flex;
         align-items: flex-end;
         margin-bottom: 15px;
     }
-   
-    input,  select, textarea {
+
+    iservice-interaction-property-field
+    {
+        width: 100%;
+    }
+
+    input, select, textarea
+    {
         padding: 4px;
         display: block;
         width: ~"calc(100% - 8px)";
         background: none;
-
         position: relative;
     }
 
-    .button-add-row {
+    .button-add-row
+    {
         position: absolute;
         bottom: 15px;
         right: 10px;
@@ -3301,74 +3457,120 @@ tr span.expanded-button{float:left;}
     //.button-delete, .button-add-row{margin-bottom: 21px;}
 }
 
-.related-property{top: 28px;position:absolute;right: -9px;}
-@media (max-width: @screen-md)
-    {
-       .related-property{position: relative;
-        top:-3px;
-        left:50%;
-        }
-    }
-.checkbox .nested{padding-left:38px;}
-.group-input{ 
-    border: 1px solid @gray-lte;
-    margin: 0px !important;
-    padding-bottom:3px;
-    float:left;
-    width:100%;
-    .group-input-item{height:28px;}
-    .group-input-label{font-weight:normal;}
+.related-property
+{
+    top: 28px;
+    position: absolute;
+    right: -9px;
 }
 
-.nested{
-    .form-group{
+@media (max-width: @screen-md)
+{
+    .related-property
+    {
+        position: relative;
+        top: -3px;
+        left: 50%;
+    }
+}
+
+.checkbox .nested
+{
+    padding-left: 38px;
+}
+
+.group-input
+{
+    border: 1px solid @gray-lte;
+    margin: 0px !important;
+    padding-bottom: 3px;
+    float: left;
+    width: 100%;
+
+    .group-input-item
+    {
+        height: 28px;
+    }
+
+    .group-input-label
+    {
+        font-weight: normal;
+    }
+}
+
+.nested
+{
+    .form-group
+    {
         padding-left: 21px;
     }
-    .control-label{    
+
+    .control-label
+    {
         padding-left: 15px;
         margin-top: 8px;
     }
 }
 
-
-.tree-test-container{
+.tree-test-container
+{
     width: ~"calc(100% - 75px)";
-    overflow:hidden;
-     display: inline-flex;
-    .text{  flex: 0 0 auto;}
-    .line{flex: 1 1 auto; }
-    
- 
- }
- 
- //div.floating-label.group-bg{
-   //  label,input{margin-left:15px;}
- //}
- 
- 
- .treeviewrow {
-   display:flex;
- }
- .div1 {
-   flex: 0 1 auto;
-   line-height: 18px;
- }
- 
- .div2 {
-   flex: 1 1 auto; 
-   border-bottom: 1px dashed @bg-gray-disabled; height:20px;
- }
- 
- 
- /* other stuff */
- .treeviewrow div {
-   margin:0.2em;
-  }
- .treeviewrow {
-   width:100%;
-   overflow:hidden;
- }
- ul li .treeviewitem{display: inline-block;width:~"calc(100% - 58px)";}
- ul li ul li.branch .treeviewitem{display: inline-block;width:~"calc(100% - 78px)";}
- 
- 
+    overflow: hidden;
+    display: inline-flex;
+
+    .text
+    {
+        flex: 0 0 auto;
+    }
+
+    .line
+    {
+        flex: 1 1 auto;
+    }
+}
+
+//div.floating-label.group-bg{
+//  label,input{margin-left:15px;}
+//}
+
+.treeviewrow
+{
+    display: flex;
+}
+
+.div1
+{
+    flex: 0 1 auto;
+    line-height: 18px;
+}
+
+.div2
+{
+    flex: 1 1 auto;
+    border-bottom: 1px dashed @bg-gray-disabled;
+    height: 20px;
+}
+
+/* other stuff */
+.treeviewrow div
+{
+    margin: 0.2em;
+}
+
+.treeviewrow
+{
+    width: 100%;
+    overflow: hidden;
+}
+
+ul li .treeviewitem
+{
+    display: inline-block;
+    width: ~"calc(100% - 58px)";
+}
+
+ul li ul li.branch .treeviewitem
+{
+    display: inline-block;
+    width: ~"calc(100% - 78px)";
+}
