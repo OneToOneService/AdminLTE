@@ -1299,12 +1299,12 @@ ul.timeline span.stack-icon
 .detail-g-borderbottom
 {
     margin-bottom: -1px;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid transparent !important;
 }
 
 .detail-g-bordertop
 {
-    border-top: 1px solid transparent;
+    border-top: 1px solid transparent !important;
 }
 
 .contact-detail
@@ -3310,8 +3310,8 @@ tr span.expanded-button{float:left;}
         }
     }
 .checkbox .nested{padding-left:38px;}
-.group-input{    
-    border-bottom: 1px solid transparent;
+.group-input{ 
+    border: 1px solid @gray-lte;
     margin: 0px !important;
     padding-bottom:3px;
     float:left;
@@ -3341,6 +3341,9 @@ tr span.expanded-button{float:left;}
  
  }
  
+ //div.floating-label.group-bg{
+   //  label,input{margin-left:15px;}
+ //}
  
  
  .treeviewrow {

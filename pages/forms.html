@@ -1007,7 +1007,7 @@ title: Forms
                       <div class="form-group bg-group">
                           <label class="col-md-12 control-label text-left">Interaction Property Based Skills</label>
                           <div class="col-md-12">
-                            <div class="form-group group-bg group-input"> 
+                            <div class="form-group group-bg group-input detail-g-borderbottom"> 
                               <label class="col-md-12 control-label text-left group-input-label">Interaction Property</label>
                               <div class="col-md-12">
                                 <select class="form-control group-input-item" ng-change="setFocus()" ng-model="myValue" ng-init="myValue = 21;">
@@ -1020,21 +1020,65 @@ title: Forms
                                 </select>
                               </div>
                             </div>
-                            <div class="form-group group-bg group-input">
+                            <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
                               <label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value</label>
                               <div class="col-md-12">														
-                                <input type="text" class="form-control group-input-item" id="propertyValue" ng-blur="onBlur()">
-                                <small class="text-red help-block" ng-show="notFilled" ng-init="notFilled = false;"  >Interaction Property Value Must Be Filled With Interaction Property </small>
+                                <input type="text" class="form-control group-input-item" id="propertyValue">
+                              </div>
+                            </div>
+                            <div class="form-group group-bg group-input detail-g-bordertop">
+                              <label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value Type</label>
+                              <div class="col-md-12">														
+                                <input type="text" class="form-control group-input-item" id="propertyValue2">
                               </div>
                             </div>
                           </div>
                         </div> 
                     </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12">
+                          <div class="ng-scope">
+                            <div class="form-group floating-label group-bg detail-g-borderbottom">
+                              <input type="text" value="">
+                              <label class="ng-binding">Address1</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">Address2</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">City</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">State</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">Postal Code</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">Country</label>
+                            </div>
+                          </div>
+                      </div>
+                    </div>  
                  </div>  
               </div>  
           </div>  
-          
-          
           <!--/.col (left) -->
         </div>
         <!--/.col (right) -->

@@ -901,10 +901,10 @@ ul.timeline span.stack-icon .aqua {
 }
 .detail-g-borderbottom {
   margin-bottom: -1px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid transparent !important;
 }
 .detail-g-bordertop {
-  border-top: 1px solid transparent;
+  border-top: 1px solid transparent !important;
 }
 .contact-detail .box-header > .fa,
 .contact-detail .box-header > .glyphicon,
@@ -2404,7 +2404,7 @@ body > .ui-select-bootstrap.open {
   padding-left: 38px;
 }
 .group-input {
-  border-bottom: 1px solid transparent;
+  border: 1px solid #d2d6de;
   margin: 0px !important;
   padding-bottom: 3px;
   float: left;
