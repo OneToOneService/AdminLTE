@@ -314,16 +314,30 @@
 
             <div class="tab-pane" id="tab_4">
               <div class="row">
-                <div class="col-md-12 mbottom-15">
-                  <div class="btn-group pull-left" data-toggle="btn-toggle">
-                    <a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
-                    <a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
-                  </div>
-                </div>
+               <div class="col-md-5">   
+					<div class="btn-group pull-left" data-toggle="btn-toggle">
+						<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
+						<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+					</div>
+				</div>   
+				<div class="col-md-7  pull-right"  ng-show="customform">
+					<div class="form-group">
+						<label for="filtervariable" class="col-md-5 control-label text-right">Filter Variables</label>
+						<div class="col-md-7">
+							<input type="text" id="filtervariable" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-7 pull-right"  ng-hide="customform">
+					<div class="form-group">
+						<label for="filterstockresponses" class="col-md-5 control-label text-right">Filter Stock Responses</label>
+						<div class="col-md-7">
+							<input type="text" id="filterstockresponses" class="form-control">
+						</div>
+					</div>
+				</div>
                 <div class="col-xs-12 variable-responses" ng-show="customform">
-                  <div>
-                    <input type="text" class="form-control" placeholder="Keyword Search">
-                  </div>
+                  
                   <div class="option-list custom-scroll">
                     <ul class="list-unstyled segment-variable-list">
                       <li class="section-label">
@@ -369,9 +383,7 @@
                   </div>
                 </div>
                 <div class="col-xs-12 variable-responses" ng-hide="customform">
-                  <div>
-                    <input type="text" class="form-control" placeholder="Keyword Search">
-                  </div>
+                 
                   <div class="option-list custom-scroll">
                     <ul class="list-unstyled segment-variable-list">
                       <li class="section-label">

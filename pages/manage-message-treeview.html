@@ -48,10 +48,10 @@ title: Manage Messages - Tree View
 										<ul id="tree1" class="tree">
 											<li><input type="checkbox" class="minimal"><a href="#" class="selected"> e-shop -- All Topics </a>
 												<ul>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1"> <i class="fa fa-user text-red"></i> _Feedback</div> <div class="div2">&nbsp;</div></div></div> <span class="pull-right">(2)</span></li>
-													<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1"><i class="fa fa-user text-red"></i>_Newsletter Subscription</div></div></div> <span class="pull-right"></span></li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1"><i class="fa fa-user text-red"></i>_Spam</div><div class="div2">&nbsp;</div> </div></div><span class="pull-right">(21)</span> </li>
-													<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1"><i class="fa fa-user text-red"></i>_Undeliverable</div> </div></div><span class="pull-right">(1)</span></li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <span class="pull-right">(2)</span></li>
+													<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div> <span class="pull-right"></span></li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><span class="pull-right">(21)</span> </li>
+													<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><span class="pull-right">(1)</span></li>
 													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div> <span class="pull-right">  </span>
 														<ul>
 															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div><span class="pull-right"> </span></li>
@@ -70,9 +70,9 @@ title: Manage Messages - Tree View
 													</li>
 													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> <span class="pull-right"> </span> </li>
 													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div> <span class="pull-right"> </span></li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1"><i class="fa fa-user text-red"></i>To Quote</div></div></div><span class="pull-right"> </span>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">To Quote</div></div></div><span class="pull-right"> </span>
 														<ul>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1"><i class="fa fa-user text-red"></i>Open Quotes </div><div class="div2">&nbsp;</div> </div></div><span class="pull-right"> (1) </span></li>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div><span class="pull-right"> (1) </span></li>
 														</ul>
 													</li>
 												</ul>
@@ -361,16 +361,29 @@ title: Manage Messages - Tree View
 											
 																	<div class="tab-pane" id="tab_massupdate_4">
 																		<div class="row">
-																			<div class="col-md-12 mbottom-15">
+																			<div class="col-md-5">   
 																				<div class="btn-group pull-left" data-toggle="btn-toggle">
 																					<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
 																					<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
 																				</div>
+																			</div>   
+																			<div class="col-md-7  pull-right"  ng-show="customform">
+																				<div class="form-group">
+																					<label for="filtervariable" class="col-md-5 control-label text-right">Filter Variables</label>
+																					<div class="col-md-7">
+																						<input type="text" id="filtervariable" class="form-control">
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-md-7 pull-right"  ng-hide="customform">
+																				<div class="form-group">
+																					<label for="filterstockresponses" class="col-md-5 control-label text-right">Filter Stock Responses</label>
+																					<div class="col-md-7">
+																						<input type="text" id="filterstockresponses" class="form-control">
+																					</div>
+																				</div>
 																			</div>
 																			<div class="col-xs-12 variable-responses" ng-show="customform">
-																				<div>
-																					<input type="text" class="form-control" placeholder="Keyword Search">
-																				</div>
 																				<div class="option-list custom-scroll">
 																					<ul class="list-unstyled segment-variable-list">
 																						<li class="section-label">Contact
@@ -412,9 +425,6 @@ title: Manage Messages - Tree View
 																				</div>    
 																			</div>
 																			<div class="col-xs-12 variable-responses" ng-hide="customform">
-																				<div>
-																					<input type="text" class="form-control" placeholder="Keyword Search">
-																				</div>
 																				<div class="option-list custom-scroll">
 																					<ul class="list-unstyled segment-variable-list">
 																							<li class="section-label">Segment Responses
@@ -504,7 +514,6 @@ title: Manage Messages - Tree View
 											 <label class="incoming-ques"><input type="checkbox" value="" class="minimal" checkbox ng-model="incomingList" ng-init="incomingList = true">Incoming Questions</label>
 											 <label class="agent-prop-ans"><input type="checkbox" value="" class="minimal" checkbox ng-model="praposedList">Agent Proposed Answers</label>
 										</div>	
-									  
 									</div>
 									<!-- /.box-header -->
 									<!-- form start -->
@@ -1316,7 +1325,6 @@ title: Manage Messages - Tree View
 		
     });
 	$(document).on('change', '.tree input[type=checkbox]', function(e) {
-		alert("");
 		$(this).siblings('ul').find("input[type='checkbox']").prop('checked', this.checked);
 		$(this).parentsUntil('.tree').children("input[type='checkbox']").prop('checked', this.checked);
 		e.stopPropagation();

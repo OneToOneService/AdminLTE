@@ -99,250 +99,428 @@ title: Manage Active Chats
 					<!-- /.box -->
 					</div>
 					<div class="col-md-8 p-l-0">
-						<div class="row">
+						<div class="row" ng-controller="myCtrl">
 							<div class="col-md-12">
 								<div class="box box-primary">
-									<div class="box-header with-border">
+									<div class="box-header with-border" ng-click="isCollapsedMassUpdate = !isCollapsedMassUpdate">
 										<h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
-										<div class="box-tools pull-right">
-											<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#massupdate"><i class="more-less glyphicon glyphicon-chevron-down"></i>
-											</button>
-										</div>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
 									</div> 
-									<div class="box-body p0 manage-message collapse" id="massupdate">
-										<div class="mtop-15">
-											<div class="col-md-8 form-horizontal"> 
-												<div class="col-md-12">
-													<div class="form-group">
-														<div class="btn-group dropdown margin-r-5">
-															<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
-															Send</button>										 
-															<div class="btn-group">
-																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-																<span class="caret"></span></button>
-																<ul class="dropdown-menu" role="menu">
-																	<li><a href="#"><input type="checkbox" class="margin-r-5">Expect Custmer Reply</a></li>
-																	<li><a href="#"><input type="checkbox" class="margin-r-5">Add Reference Number</a></li>
-																</ul>
-															</div>
-														</div>
-														<button  class="btn btn-primary" type="button">
-															<i class="fa  fa-check"></i>
-															Resolve
-														</button>
-														<button class="btn btn-primary margin-r-5" title="Forward">
-															<i class="fa fa-share"></i>
-															forward
-														</button>
-														<div class="btn-group dropdown margin-r-5">
-																<button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
-																Save</button>										 
-																<div class="btn-group">
-																	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-																	<span class="caret"></span></button>
-																	<ul class="dropdown-menu" role="menu">
-																		<li><a href="#">Private Note</a></li>
-																		<li><a href="#">Public Note</a></li>
+									<div class="box-body manage-message" uib-collapse="isCollapsedMassUpdate">
+										<div class="col-md-12 bg-box box-bg-color">
+											<div class="row">
+												<div class="col-md-12 form-horizontal"> 
+													<div class="col-md-12 form-action">
+														<div class="form-group">
+															<div class="btn-group dropdown margin-r-5">
+																<button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
+																Send</button>										 
+																<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																	<button type="button" class="btn btn-primary" uib-dropdown-toggle>
+																		<span class="caret"></span>
+																	</button>
+																	<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu auto-close="outsideClick">
+																		<li><input type="checkbox" class="margin-r-5"> Leave Open</li>
+																		<li>
+																			<a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
+																			<div ng-show="shownotificationdropdown">
+																				<select class="form-control">
+																					<option>Select a notification</option>
+																				</select>    
+																			</div>    
+																		</li>
+																		<li><input type="checkbox" class="margin-r-5">Expect Custmer Reply</li>
+																		<li><input type="checkbox" class="margin-r-5">Add Reference Number</li>
 																	</ul>
 																</div>
-														</div>
-														<button class="btn btn-primary" title="Spam">
-															<i class="fa fa-ban"></i>
-															Spam
-														</button>
-														<a class="btn btn-link ng-scope" href="#">Cancel</a>
-												</div>
-												<div class="row">
-													<div class="box box-success">
-														<div class="box-header with-border">
-															<h3 class="box-title">Email Addresses And Subject Line</h3>
-															<div class="box-tools pull-right">
-															<button type="button" class="btn btn-box-tool collapsed" data-toggle="collapse" data-target="#emailbox"><i class="more-less glyphicon glyphicon-chevron-down"></i>
-															</button>							
 															</div>
-														</div>	
-														<div class="box-body p0 collapse" id="emailbox"> 	
-															<div class="p10"> 										
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">From</label>
-																	<div class="col-sm-10">
-																		<input class="form-control " type="text">
+															<button class="btn btn-primary" type="button">
+																<i class="fa  fa-check"></i>
+																Resolve
+															</button>
+															
+															<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																<button type="button" class="btn btn-primary" uib-dropdown-toggle>
+																	<i class="fa fa-mail-forward"></i>
+																	Forward
+																</button>
+																<ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+																	<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
+																		<div class="btn-list-options form-group" ng-show="selectAgent">
+																			<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
+																				<ui-select ng-model="ctrl.agent.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+																					<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name"></ui-select-match>
+																					<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+																					<span ng-bind-html="agent.name | highlight: $select.search"></span>
+																					<small ng-bind-html="agent.code | highlight: $select.search"></small>
+																					</ui-select-choices>
+																				</ui-select>
+																			</div>	  
+																			<button class="btn btn-primary btn-xs">Assign To Agent</button>
+																		</div>    
+																	</li>
+																	<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+																	<li ng-class="{'option-selected' : forwardSegment}">
+																		<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
+																		<div class="btn-list-options form-group" ng-show="forwardSegment" >
+																				<div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
+																					<ui-select ng-model="ctrl.segment.selected" theme="selectize" title="Choose a segment">
+																						<ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name"></ui-select-match>
+																						<ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+																							<span ng-bind-html="item.name | highlight: $select.search"></span>
+																						</ui-select-choices>
+																					</ui-select>
+																				</div>
+																			<button class="btn btn-primary btn-xs">Forward Now</button> 
+																		</div>   
+																	</li>
+																	<li ng-class="{'option-selected' : forwardExternalSegment}">
+																		<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Segment</a>
+																		<div class="btn-list-options form-group" ng-show="forwardExternalSegment">
+																			<p>This segment has no external
+																				agent notifications.</p>
+																		</div>    
+																	</li>
+																</ul>
+															</div>
+											
+															<div class="btn-group dropdown margin-r-5">
+																	<button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
+																	Save</button>										 
+																	<div class="btn-group">
+																		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+																		<span class="caret"></span></button>
+																		<ul class="dropdown-menu" role="menu">
+																				<li><a href="#">Private Note</a></li>
+																				<li><a href="#">Public Note</a></li>
+																		</ul>
 																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">To</label>
-																	<div class="col-sm-10">
-																		<input class="form-control " type="text">
+															</div>
+															<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																<button class="btn btn-primary" title="Spam"  uib-dropdown-toggle>
+																	<i class="fa  fa-arrows-alt"></i>
+																	Change Topic
+																</button>
+																<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																	<li>
+																		<select class="changetopicselect form-control" multiple>
+																			<option>e-shop -- All Topics(0)</option>
+																			<option>.._Feedback (2)</option>
+																			<option>.._Newsletter Subscription (0)</option>
+																			<option>.._Spam (0)</option>
+																			<option>.._Undeliverable (0)</option>
+																			<option>..Account Questions (0)</option>
+																			<option>....Orders (0)</option>
+																			<option>....Refunds (0)</option>
+																			<option>....Returns (0)</option>
+																			<option>..Products(0)</option>
+																			<option>....Audio-Video (0)</option>
+																			<option>....Cameras (0)</option>
+																			<option>....Cell Phones (0)</option>
+																			<option>....Computers (0)</option>
+																			<option>....Televisions(0)</option>
+																			<option>..Shipping (0)</option>
+																			<option>..Technical Support (0)</option>
+																			<option>....Open Quotes (1)</option>
+																		</select>
+																	</li>
+																</ul>
+															</div>
+															<button class="btn btn-primary" title="Spam">
+																<i class="fa fa-ban"></i>
+																Spam
+															</button>
+															<a class="btn btn-link" ng-click="cancel('getthis')">Cancel</a>
+														</div>
+														<div class="row">
+															<!-- Custom Tabs -->
+															<div class="nav-tabs-custom">
+																<ul class="nav nav-tabs">
+																	<li class="active"><a href="#tab_massupdate_1" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Email Addresses & Subject</span></a></li>
+																	<li><a href="#tab_massupdate_3" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span></a> </li>
+																	<li><a href="#tab_massupdate_4" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i> <span>Variables & Stock Responses</span></a> </li>
+																</ul>
+																<div class="tab-content">
+																	<!-- /.tab-pane -->
+																	<div class="tab-pane active" id="tab_massupdate_1">
+																		<div class="row">
+																			<div class="col-md-8">
+																				<div class="form-group">
+																					<label class="col-sm-2 control-label text-left">From</label>
+																					<div class="col-sm-10" ng-controller="FromEmail as ctrl"> 
+																						<ui-select ng-model="ctrl.agent.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+																							<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name"></ui-select-match>
+																							<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+																							<span ng-bind-html="agent.name | highlight: $select.search"></span>
+																							<small ng-bind-html="agent.code | highlight: $select.search"></small>
+																							</ui-select-choices>
+																						</ui-select>
+																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-2 control-label text-left">To</label>
+																					<div class="col-sm-10">                              
+																						<select class="form-control">
+																							<option>Jacob.Smith@1to1Service.Com</option>
+																						</select>    
+																					</div>
+																				</div>
+																				<div class="cc-label">
+																					<div class="col-md-2"></div>
+																					<div class="col-md-10">
+																						<a class="btn-link" ng-hide="showCC" ng-click="showCC = !showCC">Add CC</a> 
+																						<a class="btn-link" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
+																					</div>
+																				</div>
+											
+																				<div class="form-group" ng-show="showCC">
+																					<label class="col-sm-2 control-label text-left">CC</label>
+																					<div class="col-sm-10">
+																						<input class="form-control" type="text" >
+																					</div>
+																				</div>
+																				<div class="form-group" ng-show="showBCC">
+																					<label class="col-sm-2 control-label text-left">BCC</label>
+																					<div class="col-sm-10">
+																						<input class="form-control" type="text" >
+																					</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="col-sm-2 control-label text-left">Subject</label>
+																					<div class="col-sm-4">
+																						<input class="form-control" type="text" value="Ref#: 123456789-123456789"  disabled>
+																					</div>
+																					<div class="col-sm-6">
+																						<input class="form-control" type="text" value="looking for low cost tv">
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-md-4">
+																				<div class="form-group">
+																					<div class="col-md-12">
+																						<div class="drop-box">Drop files here or click to upload
+																						</div>
+																						<p> (Maximum 10 MB upload at one time.)</p>
+																						<div class="imageuploadify">
+																								<div class="imageuploadify-details">
+																									<button class="icon-button button-delete" type="button">
+																										<i class="fa fa-times-circle"></i>
+																									</button>
+																									<span>Invoice 1456549.pdf(20 KB)</span>
+																								</div>
+																								<div class="imageuploadify-details">
+																									<button class="icon-button button-delete" type="button">
+																										<i class="fa fa-times-circle"></i>
+																									</button>
+																									<span>order_details_45875034.pdf(30 KB)</span>
+																								</div>
+																								<div class="imageuploadify-details">
+																									<button class="icon-button button-delete" type="button">
+																										<i class="fa fa-times-circle"></i>
+																									</button>
+																									<span>product_image-full-size-58476098.jpg(120 KB)</span>
+																								</div>   
+																							</div>
+																					</div>    
+																				</div> 
+																			</div>    
+																		</div>    
 																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">CC</label>
-																	<div class="col-sm-10">
-																		<input class="form-control " type="text">
+																	<!-- /.tab-pane -->
+																	<div class="tab-pane" id="tab_massupdate_3">
+																		<div class="row form-horizontal">
+																			<div class="col-md-12">
+																				<div class="col-md-12">
+																					<div class="form-group"> 
+																						<label class="control-label">
+																							<input type="checkbox"> Add properties to all answers regardless of topic
+																						</label>
+																					</div>
+																				</div>	
+																			</div>
+																			<div class="col-md-6">
+																				<div class="form-group"> 
+																					<label class="col-md-12 control-label text-left">Priority</label>
+																					<div class="col-sm-12">
+																						<select class="form-control">
+																							<option>High</option>
+																							<option>Low</option>
+																						</select>    
+																					</div>
+																				</div>
+																			</div>		
+																			<div class="col-md-6">
+																				<div class="form-group"> 
+																					<label class="col-md-12 control-label text-left">Owner</label>
+																					<div class="col-sm-12">
+																						<select class="form-control">
+																							<option>Owner List</option>
+																						</select>    
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-md-6">	
+																				<div class="form-group">    
+																					<label class="col-md-12 control-label text-left">isOpen</label>
+																					<div class="col-sm-12">
+																						<select class="form-control">
+																								<option value="True">True</option>
+																								<option value="False">False</option>
+																						</select>    
+																					</div>
+																				</div>
+																			</div>		
+																		</div>	
 																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">BCC</label>
-																	<div class="col-sm-10">
-																		<input class="form-control " type="text">
+											
+																	<div class="tab-pane" id="tab_massupdate_4">
+																		<div class="row">
+																			<div class="col-md-5">   
+																				<div class="btn-group pull-left" data-toggle="btn-toggle">
+																					<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
+																					<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+																				</div>
+																			</div>   
+																			<div class="col-md-7  pull-right"  ng-show="customform">
+																				<div class="form-group">
+																					<label for="filtervariable" class="col-md-5 control-label text-right">Filter Variables</label>
+																					<div class="col-md-7">
+																						<input type="text" id="filtervariable" class="form-control">
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-md-7 pull-right"  ng-hide="customform">
+																				<div class="form-group">
+																					<label for="filterstockresponses" class="col-md-5 control-label text-right">Filter Stock Responses</label>
+																					<div class="col-md-7">
+																						<input type="text" id="filterstockresponses" class="form-control">
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xs-12 variable-responses" ng-show="customform">
+																				<div class="option-list custom-scroll">
+																					<ul class="list-unstyled segment-variable-list">
+																						<li class="section-label">Contact
+																						<ul class="segment-variables">
+																							<li class="section-var-link">Name</li>
+																							<li class="segment-lable">Global
+																								<ul>
+																								<li class="section-var-link">Address1</li>
+																								<li class="section-var-link">Address2</li>
+																								<li class="section-var-link">City</li>
+																								<li class="section-var-link">Country</li>
+																								<li class="section-var-link">Company</li>
+																								</ul>
+																							</li>
+																							<li class="segment-lable">JC Segment
+																								<ul>
+																								<li class="section-var-link">Contact View Only Property</li>
+																								<li class="section-var-link">Contact Viewable and Editable Property</li>
+																								<li class="section-var-link">Multi value No Descr</li>
+																								<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																								</ul>
+																							</li>
+																						</ul>
+																						</li>
+																					</ul>
+																					<ul class="list-unstyled segment-variable-list">
+																						<li class="section-label">Answer
+																							<ul class="segment-variables">
+																								<li class="section-var-link">Email</li>
+																								<li class="section-var-link">Reference Number</li>
+																								<li class="section-var-link">Original Date</li>
+																								<li class="section-var-link">Original Time</li>
+																								<li class="section-var-link">Subject</li>
+																								<li class="section-var-link">Original Body</li>
+																								<li class="section-var-link">Quoted Question</li>
+																							</ul>
+																						</li>
+																					</ul>
+																				</div>    
+																			</div>
+																			<div class="col-xs-12 variable-responses" ng-hide="customform">
+																				<div class="option-list custom-scroll">
+																					<ul class="list-unstyled segment-variable-list">
+																							<li class="section-label">Segment Responses
+																							<ul class="segment-variables">
+																								<li class="section-var-link">Chat Closing</li>
+																								<li class="section-var-link">Chat Opening</li>
+																								<li class="section-var-link">Chat Wait</li>
+																								<li class="section-var-link">iService Website</li>
+																							</ul>
+																							</li>
+																						</ul>
+																						<ul class="list-unstyled segment-variable-list">
+																							<li class="section-label">Agent Response
+																								<ul class="segment-variables">
+																									<li class="section-var-link">Test</li>
+																								</ul>
+																							</li>
+																						</ul>
+																					
+																					</div>    
+																			</div>
+																		</div>
 																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-2 control-label">Subject</label>
-																	<div class="col-sm-4">
-																		<input class="form-control " type="text" disabled>
-																	</div>
-																	<div class="col-sm-6">
-																		<input class="form-control " type="text">
-																	</div>
-																</div>
-															</div>  
-														</div>	 
-													</div>		
-												</div>
-												<div class="row"> 
+																</div>    
+																<!-- /.tab-content -->
+															</div>
+															<!-- nav-tabs-custom -->  
+														</div>
+													</div>    
+												</div> 
+												
+												<div class="col-md-12"> 
 													<div class="nav-tabs-custom">
 														<ul class="nav nav-tabs">
-																<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-																<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-																											<li class="pull-right"> 
-																		<p class="attach-file"> <label class="btn-bs-file">
-																	Attach files		
-																	<input type="file" />
-																		</label> (Maximum 10 MB upload at one time.)</p>
-																</li>
+															<li class="active"><a href="#draftbodymassupdate" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+															<li><a href="#plainhtmlmassupdate" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
 														</ul>
 														<div class="tab-content">
-															<div class="tab-pane active" id="draftbody">
+															<div class="tab-pane active" id="draftbodymassupdate">
 																<div class="form-group text-editor-container">
-																	<div class="col-sm-12">
-																		<textarea class="form-control" style="height:500px;" rows="10" placeholder="" id="editor1" name="editor1"></textarea>
-																	</div>
+																	<textarea class="form-control" rows="10" placeholder="" id="editormassupdate" ckeditor ><p>Hello,</p>
+											
+																		<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+																		
+																		<p>Regards,</p>
+																		
+																		<p>John Doe</p>
+																	</textarea>
 																</div>
 															</div>
-															<div class="tab-pane" id="plainhtml">	
-																	&nbsp;<br><br><br>
-															</div>																						
+															<div class="tab-pane" id="plainhtmlmassupdate">
+																<p>Hello,</p>
+											
+																<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+																
+																<p>Regards,</p>
+																
+																<p>John Doe</p>
+															</div>										   
 														</div>
 													</div>
-													<div class="col-sm-12">
-														<div class="panel panel-default form-group">
-															<div class="panel-heading">
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default form-group">
+																<div class="panel-heading">
 																<i class="fa fa-fw fa-pencil-square-o"></i>
-																Private Comments
-															</div>
-															<div class="panel-body">
-																<textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note"></textarea>
-															</div>
-														</div>	
-													</div>
-												</div>
-											</div>
-										</div> 
-										<div class="col-md-4">
-											<div class="box box-warning stock-responses ng-scope">
-												<div class="box-header with-border">
-													<h3 class="box-title">
-													<i class="fa fa-fw fa-envelope"></i>
-														Message Properties
-													</h3>
-												</div>
-												<div class="box-body">
-													<div>
-														<label>Segment Name:</label> QA <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Segment</span> <br>
-														<label>Topic:</label> All Topic <span class="inline-edit"> <i class="fa fa-fw fa-pencil"></i> Change Topic</span>
-													</div>
-												</div>	
-											</div>
-											<div class="nav-tabs-custom">
-												<ul class="nav nav-tabs">
-													<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-													<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-												</ul>
-												<div class="tab-content">
-													<div class="tab-pane active" id="tab_1">
-														<div class="row" id="variable-box">
-															<div class="col-xs-12 variable-responses">
-																<div>
-																	<input type="text" class="form-control" placeholder="Keyword Search">
+																	Private Comments
 																</div>
-																<ul class="list-unstyled segment-variable-list">
-																	<li class="section-label">Contact
-																		<ul class="segment-variables">
-																			<li class="section-var-link">Name</li>
-																			<li class="segment-lable">Global
-																				<ul>
-																						<li class="section-var-link">Address1</li>
-																						<li class="section-var-link">Address2</li>
-																						<li class="section-var-link">City</li>
-																						<li class="section-var-link">Country</li>
-																						<li class="section-var-link">Company</li>
-																				</ul>
-																			</li>
-																			<li class="segment-lable">JC Segment
-																				<ul>
-																					<li class="section-var-link">Contact View Only Property</li>
-																					<li class="section-var-link">Contact Viewable and Editable Property</li>
-																					<li class="section-var-link">Multi value No Descr</li>
-																					<li class="section-var-link">Shared Property from JC - cust can't see</li>
-																				</ul>
-																			</li>
-																		</ul>
-																	</li>
-																</ul>
-																<ul class="list-unstyled segment-variable-list">
-																	<li class="section-label">Answer
-																		<ul class="segment-variables">
-																			<li class="section-var-link">Email</li>
-																			<li class="section-var-link">Reference Number</li>
-																			<li class="section-var-link">Original Date</li>
-																			<li class="section-var-link">Original Time</li>
-																			<li class="section-var-link">Subject</li>
-																			<li class="section-var-link">Original Body</li>
-																			<li class="section-var-link">Quoted Question</li>
-																		</ul>
-																	</li>
-																</ul>
-															</div>
-														</div>
-													</div>
-													<!-- /.tab-pane -->
-													<div class="tab-pane" id="tab_2">
-														<div class="row" id="stock-responses">
-															<div class="col-xs-12 stock-responses">
-																<div>
-																	<input type="text" class="form-control" placeholder="Keyword Search">
+																<div class="panel-body">
+																	<textarea class="full-width full-height"></textarea>
 																</div>
-																<ul class="list-unstyled segment-variable-list">
-																	<li class="section-label">Segment Responses
-																		<ul class="segment-variables">
-																		<li class="section-var-link">Chat Closing</li>
-																		<li class="section-var-link">Chat Opening</li>
-																		<li class="section-var-link">Chat Wait</li>
-																		<li class="section-var-link">iService Website</li>
-																		</ul>
-																	</li>
-																	</ul>
-																	<ul class="list-unstyled segment-variable-list">
-																		<li class="section-label">Agent Response
-																			<ul class="segment-variables">
-																				<li class="section-var-link">Test</li>
-																			</ul>
-																		</li>
-																	</ul>
-															</div>
+															</div>	
 														</div>
-													</div>
+													</div>    
 												</div>
-												<!-- /.tab-content -->
 											</div>
-										</div>
 										</div>
 									</div>
 								</div>
-							</div>	  		
+							</div>		
 							<div class="col-md-12">
-								<div class="box box-info" ng-controller="myCtrl">
+								<div class="box box-info">
 									<div class="box-header with-border">
 										<i class="fa fa-comments"></i>
 										<h3 class="box-title head-title-padding">Active Chat</h3>
@@ -874,8 +1052,8 @@ title: Manage Active Chats
 	});	  
 	</script>
 	<script>
-			var app = angular.module('iService', ['ngAnimate', 'ui.bootstrap']);
-			app.controller('myCtrl', function($scope,$log,$compile) {
+		angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+           {
 			$scope.toggleRow = function (segmentName)
 			{ 
 				for(var i = 1; i<=5;i++){
@@ -930,7 +1108,7 @@ title: Manage Active Chats
 			};	
 
 			
-
+          
 			
 			$scope.toggleDropdown = function($event) {
 				$event.preventDefault();
@@ -939,8 +1117,103 @@ title: Manage Active Chats
 			};
 
 			$scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
-
+            
+			$scope.customForm = function(){
+				$scope.customform = true;
+			}
+			$scope.builtinForm = function(){
+				$scope.customform = false;
+			}
+			$scope.showIncomingList = function(){
+				$scope.incomingList = true;
+				removeFunction('');
+			}
+			$scope.showPraposedList = function(){
+				$scope.incomingList = false;
+				removeFunction('');
+			}
 		});	 
+
+		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
+
+		app.filter('propsFilter', function() {
+			return function(items, props) {
+				var out = [];
+
+				if (angular.isArray(items)) {
+				var keys = Object.keys(props);
+
+				items.forEach(function(item) {
+					var itemMatches = false;
+
+					for (var i = 0; i < keys.length; i++) {
+					var prop = keys[i];
+					var text = props[prop].toLowerCase();
+					if (item[prop].toString().toLowerCase().indexOf(text) !== -1) {
+						itemMatches = true;
+						break;
+					}
+					}
+
+					if (itemMatches) {
+					out.push(item);
+					}
+				});
+				} else {
+				// Let the output be the input untouched
+				out = items;
+				}
+
+				return out;
+			};
+		});
+
+		app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.segmentObj = {
+				'1' : { name: '-Default Mail Box-', segmentname: 'QA' },
+				'2' : { name: 'Push Bullet', segmentname: 'QA' },
+				'3' : { name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
+				'4' : { name: 'Push Bullet', segmentname: 'QA2- Second Segment' },
+			};
+
+			vm.segment = [
+				{ name: '-Default Mail Box-', segmentname: 'QA' },
+				{ name: 'Push Bullet', segmentname: 'QA' },
+				{ name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
+				{ name: 'Push Bullet',  segmentname: 'QA2- Second Segment' },
+			];
+		});
+		angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
+        angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentname = [ 
+				{name: 'Alek Packard (alek.packard@example.com)', code: 'AP'},
+				{name: 'Jacob Smith (jacob.smith@example.com)', code: 'JS'},
+				{name: 'Jonie Hewlett (jonie.hewlett@example.com)', code: 'JH'},
+				{name: 'Justin Time (justin.time@example.com)', code: 'JT'},
+			];
+		});
+
 		
 	</script>
 </body>

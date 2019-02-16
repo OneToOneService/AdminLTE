@@ -33,7 +33,7 @@ title: Customer Info - Create Ticket
                                     </div>
 							    	<!-- /.box-header -->
 								    <!-- form start -->
-								    <div class="box-body">
+								    <div class="box-body" ng-controller="myCtrl">
 								        <div class="col-md-8 form-horizontal"> 
                                             <div class="form-group">
                                                 <button class="btn btn-primary" title="Create Ticket">
@@ -71,16 +71,14 @@ title: Customer Info - Create Ticket
                                                 </select>
                                                 </div>
                                             </div>
-                                            <hr/>
                                             <div class="panel-body">
-                                                <p class="attach-file"> <label class="btn-bs-file">
-                                                        Attach files		
-                                                        <input type="file" />
-                                                </label> (Maximum 10 MB upload at one time.)</p>
+                                                <div class="drop-box">Drop files here or click to upload
+                                                </div>
+                                                <p> (Maximum 10 MB upload at one time.)</p>
                                             </div>
                                             <div class="form-group text-editor-container">
                                             <div class="col-sm-12">
-                                                <textarea class="form-control" rows="5" placeholder="" id="editor1" name="editor1"></textarea>
+                                                <textarea class="form-control" rows="5" placeholder="" ckeditor name="editor1"></textarea>
                                             </div>
                                             </div>
                                             <div class="col-sm-12">
@@ -90,7 +88,7 @@ title: Customer Info - Create Ticket
                                                     Private Comments
                                                     </div>
                                                     <div class="panel-body">
-                                                    <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note"></textarea>
+                                                    <textarea class="full-width full-height "></textarea>
                                                     </div>
                                                 </div>	
                                              </div>
@@ -118,6 +116,9 @@ title: Customer Info - Create Ticket
                                                     <div class="tab-pane active" id="tab_1">
                                                         <div class="row" id="variable-box">
                                                             <div class="col-xs-12 variable-responses">
+                                                                <div>
+                                                                    <input type="text" class="form-control" placeholder="Filter Variables">
+                                                                </div>
                                                                 <ul class="list-unstyled segment-variable-list">
                                                                     <li class="section-label">Contact
                                                                     <ul class="segment-variables">
@@ -163,7 +164,7 @@ title: Customer Info - Create Ticket
                                                         <div class="row" id="stock-responses">
                                                             <div class="col-xs-12 stock-responses">
                                                                 <div>
-                                                                <input type="text" class="form-control" placeholder="Keyword Search">
+                                                                    <input type="text" class="form-control" placeholder="Filter Stock Responses">
                                                                 </div>
                                                                 <ul class="list-unstyled segment-variable-list">
                                                                     <li class="section-label">Segment Responses
@@ -386,8 +387,12 @@ title: Customer Info - Create Ticket
 			  $('#stock-responses').slimScroll({
 				height: '250px'
 			  });
-              CKEDITOR.replace('editor1');
+       
        });
+       angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+        {
+
+        });
 	</script>
 </body>
 </html>
