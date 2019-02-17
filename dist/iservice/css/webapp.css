@@ -2486,3 +2486,10 @@ ul li ul li.branch ul li .treeviewitem {
   display: inline-block;
   width: calc(100% - 130px);
 }
+.show-notifications {
+  margin-right: 15px;
+  margin-top: 8px;
+}
+.show-notifications .switchery {
+  margin-left: 5px;
+}
