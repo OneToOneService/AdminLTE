@@ -44,40 +44,47 @@ title: Manage Messages - Tree View
 									<div class="checkbox">
 										<label class="select-all-topic"> <input type="checkbox" class="flat-red">Select All Topics</label> 
 									</div>
-								    <div class="treeview">
-										<ul id="tree1" class="tree">
-											<li><input type="checkbox" class="minimal"><a href="#" class="selected"> e-shop -- All Topics </a>
-												<ul>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <span class="pull-right">(2)</span></li>
-													<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div> <span class="pull-right"></span></li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><span class="pull-right">(21)</span> </li>
-													<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><span class="pull-right">(1)</span></li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div> <span class="pull-right">  </span>
-														<ul>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div><span class="pull-right"> </span></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div> <span class="pull-right"> </span></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div><span class="pull-right"> </span></li>
-														</ul>
-													</li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><span class="pull-right">(1)</span>
-														<ul>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div><span class="pull-right"> </span></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div><span class="pull-right">  </span></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div> <span class="pull-right"> </span> </li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div><span class="pull-right"> </span> </li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div><span class="pull-right"> </span></li>
-														</ul>
-													</li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> <span class="pull-right"> </span> </li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div> <span class="pull-right"> </span></li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">To Quote</div></div></div><span class="pull-right"> </span>
-														<ul>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div><span class="pull-right"> (1) </span></li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-										</ul>
+									<div class="row">
+										<div class="col-md-12 chat-head">
+											<div class="pull-right count-block align-right" data-toggle="tooltip" data-placement="bottom" data-original-title="The number of messages in topic">
+													<strong>#</strong>
+											</div>
+										</div> 
+									</div>	
+								  <div class="treeview">
+											<ul id="tree1" class="tree">
+												<li><input type="checkbox" class="minimal"><a href="#" class="selected"> e-shop -- All Topics </a>
+													<ul>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">2</div></li>
+														<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div> <div class="pull-right count-block">--</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">21</div> </li>
+														<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block">--</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div><div class="pull-right count-block">--</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div> <div class="pull-right count-block">--</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div><div class="pull-right count-block">--</div></li>
+															</ul>
+														</li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">1</div>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div><div class="pull-right count-block">--</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div><div class="pull-right count-block">--</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div> <div class="pull-right count-block">--</div> </li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div><div class="pull-right count-block">--</div> </li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div><div class="pull-right count-block">--</div></li>
+															</ul>
+														</li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> <div class="pull-right count-block">--</div> </li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div> <div class="pull-right count-block">--</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><span class="pull-right count-block">1</span>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">1</div></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
 									</div>
 								</div>
 							<!-- /.box-body -->
@@ -540,7 +547,7 @@ title: Manage Messages - Tree View
 														Assigned To
 													</th>
 													<th class="text-capitalize">
-													Topic
+														Topic
 													</th>
 													<td col-span="" style="display:none;">
 															&nbsp;
@@ -561,14 +568,14 @@ title: Manage Messages - Tree View
 											</thead>  
 											<tbody>
 												<tr id="row1" ng-show="incomingList">
-													<td name="name" class="icon-col">
+													<td name="name" >
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
 															<i class="fa fa-plus-circle" ng-show="!row1"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
 														</button>
 													</td>
-													<td>
+													<td class="subject-col-width">
 														Feedback provided
 													</td>
 													<td ng-show="!row1">
@@ -1340,7 +1347,7 @@ title: Manage Messages - Tree View
 				.withBootstrap();
 
 			$scope.dtContactMessagesColumnDefs = [
-				DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
+				DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "10%")
 			];
 			$scope.toggleRow = function (segmentName)
 			{ 

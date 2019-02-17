@@ -1793,7 +1793,7 @@ ul.timeline span.stack-icon
 
 .icon-col
 {
-    width: 54px;
+    width: 54px !important;
 }
 
     .icon-col button:first-child
@@ -3547,8 +3547,8 @@ body > .ui-select-bootstrap.open
 .div2
 {
     flex: 1 1 auto;
-    border-bottom: 1px dashed @bg-gray-disabled;
-    height: 20px;
+   // border-bottom: 1px solid @bg-gray-disabled;
+    height: 14px;
 }
 
 /* other stuff */
@@ -3574,3 +3574,33 @@ ul li ul li.branch .treeviewitem
     display: inline-block;
     width: ~"calc(100% - 78px)";
 }
+
+ul li ul li.branch ul li .treeviewitem
+{
+    display: inline-block;
+    width: ~"calc(100% - 56px)";
+}
+
+.topic-tree-text{width:150px;}
+
+.no-sort > .icheckbox_square-blue{margin-right:50px;}
+
+.active-chat{
+    ul li .treeviewitem
+    {
+        display: inline-block;
+        width: ~"calc(100% - 130px)";
+    }
+
+    ul li ul li.branch .treeviewitem
+    {
+        display: inline-block;
+        width: ~"calc(100% - 153px)";
+    }
+
+    ul li ul li.branch ul li .treeviewitem
+    {
+        display: inline-block;
+        width: ~"calc(100% - 130px)";
+    }
+}    

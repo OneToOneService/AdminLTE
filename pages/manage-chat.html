@@ -34,65 +34,68 @@ title: Manage Active Chats
 							</div>
 							<div class="box-body search-criteria">
 								<div class="checkbox">
-									<label class="mright-15"> <input type="checkbox" class="icheck"> Include Sub Topics </label> 
-								</div>
-								<div class="checkbox">
-									<label class="mright-15"><input type="checkbox" class="icheck"> Show All Messages</label> 
+									<label class="mright-15"><input type="checkbox" class="icheck">Select All Topics</label> 
 								</div>
 								<div class="row">
 									<div class="col-md-12 chat-head">
 										<div class="pull-right count-block">
-											<span class="fa-stack stack-icon-label">
+											<span class="fa-stack stack-icon-label" data-toggle="tooltip" data-placement="bottom" data-original-title="The number of assigned messages">
 												<i class="fa fa-comment"></i>
 												<i class="fa fa-arrow-circle-o-right text-green"></i> 
 											</span>
 										</div>
 										<div class="pull-right count-block">
-											<span class="fa-stack stack-icon-label">
+											<span class="fa-stack stack-icon-label"  data-toggle="tooltip" data-placement="bottom" data-original-title="The number of unassigned messages">
 												<i class="fa fa-comment"></i>
 												<i class="fa fa-clock-o"></i> 
 											</span>
 										</div>
-										<div class="pull-right count-block">
+										<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="The number of agents logged in with skills">
 											<i class="fa fa-user"></i>
+										</div>
+										<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="The number of messages in topic">
+											<b>	#</b>
 										</div>
 									</div> 
 								</div>	
-								<div class="treeview">
-									<ul id="tree1" class="tree">
-										<li><a href="#"><span class="treeview-textwrap">e-shop -- All Topics</span> <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></a>
-											<ul>
-												<li><span class="treeview-textwrap">_Feedback</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">0</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li> 
-												<li><span class="treeview-textwrap">_Newsletter Subscription</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-												<li><span class="treeview-textwrap">_Spam</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-												<li><span class="treeview-textwrap">_Undeliverable</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-												<li><span class="treeview-textwrap">Account Questions</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
-													<ul>
-														<li><span class="treeview-textwrap">Orders</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-														<li><span class="treeview-textwrap">Refunds</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-														<li class="selected"><span class="treeview-textwrap">Returns</span> (1) <input type="checkbox" class="minimal" checked><div class="pull-right count-block">2</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-													</ul>
-												</li>
-												<li><span class="treeview-textwrap">Products</span>(0)<input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
-													<ul>
-														<li><span class="treeview-textwrap">Audio-Video</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-														<li><span class="treeview-textwrap">Cameras</span> (2) <input type="checkbox" class="minimal" checked><div class="pull-right count-block">1</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-														<li><span class="treeview-textwrap">Cell Phones</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-														<li><span class="treeview-textwrap">Computers</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-														<li><span class="treeview-textwrap">Televisions</span>(0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-													</ul>
-												</li>
-												<li><span class="treeview-textwrap">Shipping</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-												<li><span class="treeview-textwrap">Technical Support</span> (0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-												<li><span class="treeview-textwrap">To Quote</span>(0) <input type="checkbox" class="minimal"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
-													<ul>
-														<li><span class="treeview-textwrap">Open Quotes</span> (1) <input type="checkbox" class="minimal"> <div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
-															</ul>
-												</li>
-											</ul>
-										</li>
-									</ul>
+								<div class="treeview  active-chat">
+										<ul id="tree1" class="tree">
+											<li><input type="checkbox" class="minimal"><a href="#" class="selected"> e-shop -- All Topics </a>
+												<ul>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">2</div></li>
+													<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">21</div></li>
+													<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div>
+														<ul>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+														</ul>
+													</li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">1</div>
+														<ul>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div> </li>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div> </li>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+														</ul>
+													</li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div> </li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">--</div></li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">1</div>
+														<ul>
+															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div><div class="pull-right count-block">1</div></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
 								</div>
+
+
+							
 							</div>
 					<!-- /.box-body -->
 						</div>
