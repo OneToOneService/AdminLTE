@@ -65,9 +65,31 @@ title: Manage Messages - List View
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-md-12" ng-show="showAlert" ng-cloak>
+								<div class="box box-danger">
+									<div class="box-header with-border">
+										<i class="fa fa-warning"></i>
+				
+										<h3 class="box-title">Alerts</h3>
+									</div>
+									<div class="box-body">
+										<div class="row">
+											<div class="col-md-12">
+												<p class="text-red">
+												Mass Update cannot be used when both Incoming Questions and Agent Proposed Answers are selected. Please choose only only interaction type before opening the Mass Update panel. 
+												</p>	
+												
+											</div>
+											<div class="col-md-12">
+												<button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+											</div>
+										</div>
+									</div>	
+								</div>	
+							</div>
 							<div class="col-md-12">
 								<div class="box box-primary">
-									<div class="box-header with-border" ng-click="isCollapsedMassUpdate = !isCollapsedMassUpdate">
+									<div class="box-header with-border" ng-click="massUpdate();">
 										<h3 class="box-title"><i class="fa fa-fw fa-edit"></i>  Mass Update</h3> 
 										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
 									</div>
@@ -1581,6 +1603,16 @@ title: Manage Messages - List View
 			$scope.showPraposedList = function(){
 				$scope.incomingList = false;
 				removeFunction('');
+			}
+
+			$scope.massUpdate = function(){
+				
+				if($scope.incomingList && $scope.praposedList){
+           			 $scope.showAlert = true;
+				}else{
+					$scope.showAlert = false;
+					$scope.isCollapsedMassUpdate = !$scope.isCollapsedMassUpdate;
+				}
 			}
 
 		});	 
