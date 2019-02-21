@@ -1683,7 +1683,6 @@ label .icheckbox_square-blue {
 }
 .box-bg-color {
   background-color: #f7f7f7 !important;
-  z-index: 999;
   position: relative;
 }
 .tab-content .slimScrollDiv,

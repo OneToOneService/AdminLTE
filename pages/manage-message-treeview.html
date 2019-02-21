@@ -1321,7 +1321,7 @@ title: Manage Messages - Tree View
 						if (this == e.target) {
 							var icon = $(this).children('i:first');
 							icon.toggleClass(openedClass + " " + closedClass);
-							$(this).children().children().toggle();
+							$(this).children().children().not('.treeviewrow').toggle();
 						}
 					})
 					branch.children().children().toggle();

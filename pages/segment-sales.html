@@ -326,6 +326,33 @@ title:  Segment - Customer Service
                                   <th class="text-capitalize">
                                     Contact Property Name
                                   </th>
+                                  <th class="text-capitalize">
+                                    Description
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Group Name
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Value Type
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Shared
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Multi Line
+                                  </th>
+                                   <th class="text-capitalize">
+                                    Multi Line
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Multiple Value
+                                  </th>
+                                  <th class="text-capitalize">
+                                   Contact Viewable 
+                                  </th>
+                                  <th class="text-capitalize">
+                                   Agent Settings
+                                  </th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -336,6 +363,33 @@ title:  Segment - Customer Service
                                   <td>
                                     Example one
                                   </td>
+                                  <td>
+                                    --
+                                  </td> 
+                                  <td>
+                                   Test Contact Property
+                                  </td> 
+                                  <td>
+                                    Owner List
+                                  </td> 
+                                  <td>
+                                    <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" />
+                                  </td> 
+                                  <td>
+                                    <input type="checkbox" ng-model="toggle.switch4" ui-switch="{ size: 'small' }" />
+                                  </td> 
+                                  <td>
+                                    <input type="checkbox" ng-model="toggle.switch5" ui-switch="{ size: 'small' }" />
+                                  </td> 
+                                  <td>
+                                    <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" />
+                                  </td> 
+                                  <td>
+                                     <input type="checkbox" ng-model="toggle.switch7" ui-switch="{ size: 'small' }" />
+                                  </td> 
+                                  <td>
+                                     <input type="checkbox" ng-model="toggle.switch8" ui-switch="{ size: 'small' }" />
+                                  </td>  
                                 </tr>
                                 <tr id="row2" ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
                                   <td>
@@ -344,6 +398,24 @@ title:  Segment - Customer Service
                                   <td>
                                     Example Two
                                   </td>
+                                  <td>
+                                  </td> 
+                                  <td>
+                                  </td> 
+                                  <td>
+                                  </td> 
+                                  <td>
+                                  </td> 
+                                  <td>
+                                  </td> 
+                                  <td>
+                                  </td> 
+                                  <td>
+                                  </td> 
+                                  <td>
+                                  </td> 
+                                  <td>
+                                  </td>  
                                 </tr>
                               </tbody>
                           </table>
@@ -473,7 +545,21 @@ title:  Segment - Customer Service
                                     </div>
                                   </div> 
                                 </div>
-
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Description</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Group Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                </div>
+                                   
                                 <div class="col-md-12 col-sm-12">
                                   <button class="btn btn-primary pull-left" type="button">Save</button>
                                 </div>
@@ -2083,6 +2169,26 @@ title:  Segment - Customer Service
  <script>
     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
+        $scope.dtContactHistoryOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Contact Properties'
+				})
+				.withBootstrap().withButtons([ {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+        $scope.dtContactHistoryColumnDefs = [
+					DTColumnDefBuilder.newColumnDef(5).notVisible(),
+					DTColumnDefBuilder.newColumnDef(6).notVisible(),
+					DTColumnDefBuilder.newColumnDef(7).notVisible(),
+          DTColumnDefBuilder.newColumnDef(8).notVisible()
+				];
         $scope.showNewSegment = function(step){
               $scope['newformsegment'] = !$scope['newformsegment'];
         };
@@ -2096,7 +2202,7 @@ title:  Segment - Customer Service
 					 $scope['formstep'+i] = false;
         }
 		  	};		
-
+       
 		 	$scope.showNewFormStep = function(step){
 				for(var i =1; i<=2; i++){
 					if(i == step){
