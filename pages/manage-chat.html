@@ -99,121 +99,62 @@ title: Manage Chats
 					<div class="col-md-8 p-l-0">
 						<div class="row" ng-controller="myCtrl">
 							<div class="col-md-12">
-								<div class="box box-primary">
-									<div class="box-header with-border" ng-click="isCollapsedMassUpdate = !isCollapsedMassUpdate">
-										<h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
-										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
-									</div> 
-									<div class="box-body manage-message" uib-collapse="isCollapsedMassUpdate">
-										<div class="col-md-12 bg-box box-bg-color">
-											<div class="row">
-												<div class="col-md-12 form-horizontal"> 
-													<div class="col-md-12 form-action">
-														<div class="form-group">
-															<div class="pull-left">
-																<button class="btn btn-danger ng-scope hidden-xs hidden-sm" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
-																	<i class="fa fa-fw fa-close" ng-hide="chat.chatEndRunning()"></i>
-																	<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
-																	End
-																</button>
-																<div class="btn-group dropdown margin-r-5" uib-dropdown="" is-open="status.isopen">
-																	<button id="single-button" type="button" class="btn btn-primary dropdown-toggle" uib-dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
-																		<i class="fa fa-fw fa-mail-forward"></i>
-																		Forward <span class="caret"></span>
-																	</button>
-																	<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu="" role="menu" aria-labelledby="single-button">
-																		<li role="menuitem"><a href="#">Remove From My Queue</a></li>
-																		<li role="menuitem"><a href="#">Assign To Agent…</a>
-																			<div class="bg-info text-muted text-center">
-																			<i>No agents available</i>
-																			</div>
-																		</li>
-																	</ul>
-																</div>
-																<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-																	<button class="btn btn-primary" title="Spam"  uib-dropdown-toggle>
-																		<i class="fa  fa-arrows-alt"></i>
-																		Change Topic
-																	</button>
-																	<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-																		<li>
-																			<select class="changetopicselect form-control" multiple>
-																				<option>e-shop -- All Topics(0)</option>
-																				<option>.._Feedback (2)</option>
-																				<option>.._Newsletter Subscription (0)</option>
-																				<option>.._Spam (0)</option>
-																				<option>.._Undeliverable (0)</option>
-																				<option>..Account Questions (0)</option>
-																				<option>....Orders (0)</option>
-																				<option>....Refunds (0)</option>
-																				<option>....Returns (0)</option>
-																				<option>..Products(0)</option>
-																				<option>....Audio-Video (0)</option>
-																				<option>....Cameras (0)</option>
-																				<option>....Cell Phones (0)</option>
-																				<option>....Computers (0)</option>
-																				<option>....Televisions(0)</option>
-																				<option>..Shipping (0)</option>
-																				<option>..Technical Support (0)</option>
-																				<option>....Open Quotes (1)</option>
-																			</select>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="box box-warning">
-                                                              	<div class="direct-chat-messages chat-box chat">
-																	<dl>
-																		<dt>Subject</dt>
-																		<dd>[ref#: 26197-26197] Need to return a camera</dd>
-																		<dt>Question</dt>
-																		<dd>Need to return a camera</dd>
-																	</dl>
-																	<div class="direct-chat-msg ng-scope left" ng-repeat="line in chat.chatData.chatLines" ng-class="{ left: !line.isAgent }">
-																		<div class="direct-chat-info clearfix">
-																			<span class="direct-chat-name ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'">John Doe</span>
-																		</div>
-																		<div class="user-initials round no-select pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" iservice-name-initials="line.name" style="background-color: rgb(5, 160, 90);">JD</div>
-																		<div class="clearfix">
-																			<span class="direct-chat-text ng-binding pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" ng-bind-html="line.messageHtml"><span>Need to return a camera</span></span>
-																		</div>
-																		<span class="direct-chat-timestamp pull-left" ng-class="line.isAgent? 'pull-right': 'pull-left'" am-time-ago="line.date">11 minutes ago</span>
-																	</div>
-																	<!-- Message to the right -->
-																	<div class="direct-chat-msg right">
-																		<div class="direct-chat-info clearfix">
-																			<span class="direct-chat-name pull-right">Jonie Hewlett</span>
-																			<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-																		</div>
-																		<!-- /.direct-chat-info -->
-																		<div class="user-initials round no-select pull-right" style="background-color: rgb(73, 60, 96);">JH</div>
-																		<!-- /.direct-chat-img -->
-																		<div class="direct-chat-text">
-																			Hello James, how may I help you ?
-																		</div>
-																		<!-- /.direct-chat-text -->
-																	</div>
-																	<!-- /.direct-chat-msg -->
-																<!-- Message. Default to the left -->
-																
-															
-															   </div>
-															</div>	
-														</div>
-													</div>    
-												</div> 
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>		
-							<div class="col-md-12">
 								<div class="box box-info">
 									<div class="box-header with-border">
 										<i class="fa fa-comments"></i>
 										<h3 class="box-title head-title-padding">Chat List</h3>
+
+										<div class="pull-right">
+											<button class="btn btn-sm btn-danger ng-scope margin-r-5" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
+												<i class="fa fa-fw fa-close" ng-hide="chat.chatEndRunning()"></i>
+												<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
+												End
+											</button>
+											<div class="btn-group dropdown margin-r-5" uib-dropdown="" is-open="status.isopen">
+												<button id="single-button" type="button" class="btn btn-sm btn-primary dropdown-toggle" uib-dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false">
+													<i class="fa fa-fw fa-mail-forward"></i>
+													Forward <span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu="" role="menu" aria-labelledby="single-button">
+													<li role="menuitem"><a href="#">Remove From My Queue</a></li>
+													<li role="menuitem"><a href="#">Assign To Agent…</a>
+														<div class="bg-info text-muted text-center">
+														<i>No agents available</i>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+												<button class="btn btn-sm btn-primary" title="Spam"  uib-dropdown-toggle>
+													<i class="fa  fa-arrows-alt"></i>
+													Change Topic
+												</button>
+												<ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+													<li>
+														<select class="changetopicselect form-control" multiple>
+															<option>e-shop -- All Topics(0)</option>
+															<option>.._Feedback (2)</option>
+															<option>.._Newsletter Subscription (0)</option>
+															<option>.._Spam (0)</option>
+															<option>.._Undeliverable (0)</option>
+															<option>..Account Questions (0)</option>
+															<option>....Orders (0)</option>
+															<option>....Refunds (0)</option>
+															<option>....Returns (0)</option>
+															<option>..Products(0)</option>
+															<option>....Audio-Video (0)</option>
+															<option>....Cameras (0)</option>
+															<option>....Cell Phones (0)</option>
+															<option>....Computers (0)</option>
+															<option>....Televisions(0)</option>
+															<option>..Shipping (0)</option>
+															<option>..Technical Support (0)</option>
+															<option>....Open Quotes (1)</option>
+														</select>
+													</li>
+												</ul>
+											</div>
+										</div>
 									</div>
 								<!-- /.box-header -->
 								<!-- form start -->
