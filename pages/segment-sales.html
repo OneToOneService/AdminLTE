@@ -74,13 +74,7 @@ title:  Segment - Customer Service
               <li>
                 <a href="#tab_contact_properties" data-toggle="tab">
                   <i class="fa fa-user"></i>
-                  <span>Contact Properties</span>
-                </a>
-              </li>
-              <li>
-                <a href="#tab_interaction_properties" data-toggle="tab">
-                  <i class="fa fa-exchange"></i>
-                  <span>Interaction Properties</span>
+                  <span>Custom Properties</span>
                 </a>
               </li>
               <li>
@@ -244,7 +238,7 @@ title:  Segment - Customer Service
                 <div class="row">
                     <div class="col-md-12 form-group">
                       <button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
-                          New Contact Property
+                        New Contact Property
                       </button>
                       <button class="btn btn-primary" type="button" ng-click="showAlert = true">
                         Delete Contact Property
@@ -324,16 +318,19 @@ title:  Segment - Customer Service
                                     Id
                                   </th>
                                   <th class="text-capitalize">
-                                    Contact Property Name
+                                    Property Name
                                   </th>
                                   <th class="text-capitalize">
                                     Description
                                   </th>
                                   <th class="text-capitalize">
+                                    Value Type
+                                  </th>
+                                  <th class="text-capitalize">
                                     Group Name
                                   </th>
                                   <th class="text-capitalize">
-                                    Value Type
+                                    Required
                                   </th>
                                   <th class="text-capitalize">
                                     Shared
@@ -348,10 +345,10 @@ title:  Segment - Customer Service
                                     Multiple Value
                                   </th>
                                   <th class="text-capitalize">
-                                   Contact Viewable 
+                                    Contact Viewable 
                                   </th>
                                   <th class="text-capitalize">
-                                   Agent Settings
+                                    Agent Settings
                                   </th>
                                 </tr>
                               </thead>
@@ -362,6 +359,9 @@ title:  Segment - Customer Service
                                   </td>
                                   <td>
                                     Example one
+                                  </td>
+                                  <td>
+                                    --
                                   </td>
                                   <td>
                                     --
@@ -391,32 +391,6 @@ title:  Segment - Customer Service
                                      <input type="checkbox" ng-model="toggle.switch8" ui-switch="{ size: 'small' }" />
                                   </td>  
                                 </tr>
-                                <tr id="row2" ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
-                                  <td>
-                                    112
-                                  </td>
-                                  <td>
-                                    Example Two
-                                  </td>
-                                  <td>
-                                  </td> 
-                                  <td>
-                                  </td> 
-                                  <td>
-                                  </td> 
-                                  <td>
-                                  </td> 
-                                  <td>
-                                  </td> 
-                                  <td>
-                                  </td> 
-                                  <td>
-                                  </td> 
-                                  <td>
-                                  </td> 
-                                  <td>
-                                  </td>  
-                                </tr>
                               </tbody>
                           </table>
                       </div> 
@@ -439,38 +413,21 @@ title:  Segment - Customer Service
                                   <div class="form-group">
                                     <label class="col-md-12 control-label text-left">Value Type</label>
                                     <div class="col-md-12">
-                                        <select class="form-control">
-                                        <option value="date">Date</option>
-                                        <option value="int">Integer</option>
-                                        <option value="number">Number</option>
-                                        <option selected="selected" value="text">Text</option>
-                                        <option value="detail3">Address Type</option>
-                                        <option value="detail5">Article Use Code</option>
-                                        <option value="detail2">Bool</option>
-                                        <option value="detail1">Customer Type</option>
-                                        <option value="detail7">Equipment Type List</option>
-                                        <option value="detail13">increase decrease list</option>
-                                        <option value="detail6">New or Change</option>
-                                        <option value="detail9">Owner List</option>
-                                        <option value="detail4">Phone Number Type</option>
-                                        <option value="detail8">Priority List</option>
-                                        <option value="detail12">Reason List</option>
-                                        <option value="detail11">Team</option>
-                                        <option value="detail10">Won or Lost</option>
-                                        <option value="property22">Branch Office (Property)</option>
-                                        <option value="property23">CellTrak (Property)</option>
-                                        <option value="property47">Contact View Only Property (Property)</option>
-                                        <option value="property6">Customer Type (Property)</option>
-                                        <option value="property30">Equipment Provided (Property)</option>
-                                        <option value="property25">Horizon (Property)</option>
-                                        <option value="property28">Horizon Insight (Property)</option>
-                                        <option value="property29">MAS200 (Property)</option>
-                                        <option value="property48">Multi value No Descr (Property)</option>
-                                        <option value="property27">PayChex (Property)</option>
-                                        <option value="property24">PayNet (Property)</option>
-                                        <option value="property4">Phone (Property)</option>
-                                        <option value="property26">Ultimate Pro (Property)</option>
-                                        <option value="login">Login (Email)</option>
+                                      <select class="form-control">
+                                          <optgroup label="Value Types">
+                                            <option>Boolean</option>
+                                            <option>Date</option>
+                                            <option>Integer</option>
+                                            <option>Number</option>
+                                            <option>Text</option>
+                                          </optgroup>
+                                          <optgroup label="Lists">
+                                            <option>Customer Types</option>
+                                            <option>Priorities</option>
+                                          </optgroup>
+                                          <optgroup label="Based On Other Properties">
+                                            <option>Important Dates</option>
+                                          </optgroup>
                                       </select>
                                     </div>
                                   </div>
@@ -481,11 +438,7 @@ title:  Segment - Customer Service
                                           <input type="checkbox" checkbox> Shared Property
                                         </label> 
                                       </div> 
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox>Multi-Line Values
-                                        </label> 
-                                      </div> 
+                                     
                                       <div class="checkbox">
                                          <label>
                                           <input type="checkbox" checkbox>Allow Multiple Values
@@ -520,21 +473,6 @@ title:  Segment - Customer Service
                                               </div>
                                         </div>  
                                       </div> 
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox>Contact Viewable
-                                        </label> 
-                                        <div class="checkbox nested">
-                                            <label>
-                                              <input type="checkbox" checkbox checked="checked">Contact Editable
-                                            </label> 
-                                        </div>
-                                      </div> 
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox>Agent Setting
-                                        </label> 
-                                      </div> 
                                      
                                     </div>
                                   </div>
@@ -558,6 +496,28 @@ title:  Segment - Customer Service
                                       <input type="text" class="form-control">
                                     </div>
                                   </div>
+                                  <div class="checkbox">
+                                      <label>
+                                       <input type="checkbox" checkbox>Multi-Line Values
+                                     </label> 
+                                  </div> 
+                                  <div class="checkbox">
+                                      <label>
+                                       <input type="checkbox" checkbox>Contact Viewable
+                                     </label> 
+                                     <div class="checkbox nested">
+                                         <label>
+                                           <input type="checkbox" checkbox checked="checked">Contact Editable
+                                         </label> 
+                                    </div>
+                                   </div> 
+                                   
+                                  <div class="checkbox">
+                                    <label>
+                                     <input type="checkbox" checkbox>Agent Setting
+                                   </label> 
+                                  </div> 
+                                
                                 </div>
                                    
                                 <div class="col-md-12 col-sm-12">
@@ -567,10 +527,13 @@ title:  Segment - Customer Service
                                   <hr>
                                 </div> 
                                  <div class="row">
+                                   <h3 class="col-md-12">
+                                      This property is used in the following locations
+                                   </h3>  
                                   <div class="col-md-12">
                                     <div class="col-md-4">
                                       <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Contact propertie That Uses This As Value Type</h3>
+                                        <h3 class="nested-title">Skills</h3>
                                       </div>
                                       <div class="skill-list">
                                         <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
@@ -578,7 +541,7 @@ title:  Segment - Customer Service
                                     </div>
                                     <div class="col-md-4">
                                       <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Interaction Property That Uses This As Property</h3>
+                                        <h3 class="nested-title">Topics</h3>
                                       </div>
                                       <div class="skill-list">
                                         <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
@@ -586,11 +549,27 @@ title:  Segment - Customer Service
                                     </div>
                                     <div class="col-md-4">
                                       <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Service Levels That Uses This  Property</h3>
+                                        <h3 class="nested-title">Filters</h3>
                                       </div>
                                       <div class="skill-list">
                                       <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
                                       </div>	
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="nested-panel-heading skill-heading">
+                                          <h3 class="nested-title">Alerts</h3>
+                                        </div>
+                                        <div class="skill-list">
+                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                        </div>	
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="nested-panel-heading skill-heading">
+                                          <h3 class="nested-title">Service Levels</h3>
+                                        </div>
+                                        <div class="skill-list">
+                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
+                                        </div>	
                                     </div>
                                   </div>  
                                 </div>

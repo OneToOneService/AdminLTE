@@ -2402,6 +2402,17 @@ body > .ui-select-bootstrap.open {
   right: 10px;
   color: #3c8dbc;
 }
+.simple-label .input-with-desc {
+  width: 100%;
+}
+.simple-label .input-with-desc input {
+  padding-right: 0px;
+  width: 100%;
+}
+.simple-label .input-with-desc label {
+  font-weight: normal;
+  margin-bottom: 0px;
+}
 .related-property {
   top: 28px;
   position: absolute;
