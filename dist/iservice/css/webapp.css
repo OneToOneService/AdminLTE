@@ -2515,3 +2515,7 @@ ul li ul li.branch ul li .treeviewitem {
 .show-notifications .switchery {
   margin-left: 5px;
 }
+.developer-html {
+  font-size: 14px;
+  margin-top: 6px;
+}
