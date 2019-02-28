@@ -153,6 +153,21 @@ title:  Segment - Customer Service
                             </label>
                           </div>
                         </div>
+                         <div class="col-md-12"  ng-controller="TopicCtrl as ctrl">
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Mailboxes</label>
+                            <div class="col-sm-12">
+                              <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" title="Select Mailboxes">
+                                <ui-select-match placeholder="Select Mailboxes" >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
+                                <ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
+                                    <span ng-bind-html="color.Topic | highlight: $select.search"></span>
+                                </ui-select-choices>
+                              </ui-select>
+                            </div>
+                          </div>
+                        </div> 
+                       
+                       
                       </div>
                     </div> 
                     <div class="col-md-6">
@@ -235,77 +250,7 @@ title:  Segment - Customer Service
                   </div>  
               </div> 
               <div class="tab-pane" id="tab_contact_properties">
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                      <button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
-                        New Contact Property
-                      </button>
-                      <button class="btn btn-primary" type="button" ng-click="showAlert = true">
-                        Delete Contact Property
-                      </button>
-                    </div>	
-                </div>
-                <div class="row" ng-show="showAlert">
-                  <div class="col-md-12">
-                    <div class="box box-danger">
-                      <div class="box-header with-border">
-                        <i class="fa fa-warning"></i>
-            
-                        <h3 class="box-title">Alerts</h3>
-                      </div>
-                      <div class="box-body">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <b> Deleting This will affect the following</b>
-                            <p>
-                                Number of contact property values of this property : <a href="">0</a>
-                            </p>
-                            <p>	
-                            All Contact Properties, Interaction properties and Service Lavel That have this Interaction Property will lose this values.
-                            </p> 
-                             <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
-                          </div>
-                          <div class="col-md-12">
-                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-                            <button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
-                          </div>
-                        </div>
-                      </div>	
-                    </div>	
-                  </div>	
-                </div>	
-                <div class="row" ng-show="formstep1">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <i class="fa fa-globe"></i>
-                        <h3 class="box-title text-right">New Contact Property</h3>
-                      </div>
-                      <div class="box-body">
-                        <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Propery Name:</label>
-                                  <div class="col-sm-8">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelForm(1)">Cancel</button>
-                                </div>	
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                    </div>
-                  </div>	
-                </div>
+              
                 <div class="row">
                   <div class="col-md-12">
                     <div class="box box-info">
@@ -384,6 +329,77 @@ title:  Segment - Customer Service
                       </div> 
                     </div>   
                   </div>  
+                </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
+                        New Contact Property
+                      </button>
+                      <button class="btn btn-primary" type="button" ng-click="showAlert = true">
+                        Delete Contact Property
+                      </button>
+                    </div>	
+                </div>
+                <div class="row" ng-show="showAlert">
+                  <div class="col-md-12">
+                    <div class="box box-danger">
+                      <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
+            
+                        <h3 class="box-title">Alerts</h3>
+                      </div>
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <b> Deleting This will affect the following</b>
+                            <p>
+                                Number of contact property values of this property : <a href="">0</a>
+                            </p>
+                            <p>	
+                            All Contact Properties, Interaction properties and Service Lavel That have this Interaction Property will lose this values.
+                            </p> 
+                             <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+                          </div>
+                          <div class="col-md-12">
+                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+                            <button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+                          </div>
+                        </div>
+                      </div>	
+                    </div>	
+                  </div>	
+                </div>	
+                <div class="row" ng-show="formstep1">
+                  <div class="col-md-12">
+                    <div class="box box-primary">
+                      <div class="box-header with-border">
+                        <i class="fa fa-globe"></i>
+                        <h3 class="box-title text-right">New Contact Property</h3>
+                      </div>
+                      <div class="box-body">
+                        <section class="search-parameters">
+                          <div class="row">
+                            <div class="form-horizontal">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label text-left">Propery Name:</label>
+                                  <div class="col-sm-8">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <button type="button" class="btn btn-primary">Create</button>
+                                  <button type="button" class="btn btn-link" ng-click="cancelForm(1)">Cancel</button>
+                                </div>	
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>	
                 </div>
                 <div class="row" ng-show="formstep2">
                     <div class="col-md-12">
@@ -1329,6 +1345,64 @@ title:  Segment - Customer Service
                 </div>
               </div>
               <div class="tab-pane" id="tab_stock_response">
+              
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="box box-info">
+                      <div class="box-body table-responsive with-border">
+                           <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                            <thead>
+                              <tr>
+                                <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                <th class="text-capitalize">
+                                  Id
+                                </th>
+                                <th class="text-capitalize">
+                                  Name
+                                </th>
+                                <th class="text-capitalize">
+                                  Description
+                                </th>
+                                <th class="text-capitalize">
+                                    Response Type
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-click="toggleFormStepStockResponse('rowstockresponse1')" ng-class="{true: 'row-active', false: ''}[row1]">
+                                <td>
+                                  1531
+                                </td>
+                                <td>
+                                  TV quotation
+                                </td>
+                                <td>
+                                  A stock TV quotation
+                                </td>
+                                <td>
+                                  Chat
+                                </td>
+                              </tr>
+                              <tr ng-click="toggleFormStepStockResponse('rowstockresponse2')" ng-class="{true: 'row-active', false: ''}[row2]">
+                                <td>
+                                  1534
+                                </td>
+                                <td>
+                                  General quote
+                                </td>
+                                <td>
+                                    A stock response for general quotation
+                                </td>
+                                <td>
+                                    Chat
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                      </div> 
+                    </div>   
+                  </div>  
+                </div>
                 <div class="row">
                   <div class="col-md-12 form-group">
                     <button class="btn btn-primary" type="button" ng-click="showNewFormStepStockResponse(1)">
@@ -1381,7 +1455,7 @@ title:  Segment - Customer Service
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <button type="button" class="btn btn-primary">Create</button>
+                                  <button type="button" class="btn btn-primary" ng-click="showNewFormStepStockResponse('2')">Create</button>
                                   <button type="button" class="btn btn-link" ng-click="cancelFormStockResponse(1)">Cancel</button>
                                 </div>	
                               </div>
@@ -1391,37 +1465,6 @@ title:  Segment - Customer Service
                       </div>
                     </div>
                   </div>	
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box box-info">
-                      <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-                              <thead>
-                                <tr>
-                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                  <th class="text-capitalize">
-                                    Id
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Stock Response Name
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr ng-click="toggleFormStepStockResponse('rowstockresponse1')" ng-class="{true: 'row-active', false: ''}[rowstockresponse1]">
-                                  <td>
-                                    111
-                                  </td>
-                                  <td>
-                                    Quote - Electronics
-                                  </td>
-                                </tr>
-                              </tbody>
-                          </table>
-                      </div> 
-                    </div>   
-                  </div>  
                 </div>
                 <div class="row" ng-show="formstepStockResponse2">
                   <div class="col-md-12">
@@ -1437,6 +1480,17 @@ title:  Segment - Customer Service
                                   </div>
                                 </div>
                               </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type:</label>
+                                  <div class="col-sm-12">
+                                    <select class="form-control">
+                                      <option>Chat</option>
+                                      <option>Email</option>
+                                    </select> 	 
+                                  </div>
+                                </div>
+												    	</div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label class="col-md-12 control-label text-left">Description</label>
@@ -2299,6 +2353,34 @@ title:  Segment - Customer Service
 				}
       }; 
     });
+
+    angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			vm.availableTopics = [
+					{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'},
+					{Topic: '.._Newsletter Subscription (0)'},
+					{Topic: '.._Spam (0)'},
+					{Topic: '.._Undeliverable (0)'},
+					{Topic: '..Account Questions (0)'},
+					{Topic: '....Orders (0)'},
+					{Topic: '....Refunds (0)'},
+					{Topic: '....Returns (0)'},
+					{Topic: '..Products(0)'},
+					{Topic: '....Audio-Video (0)'},
+					{Topic: '....Cameras (0)'},
+					{Topic: '....Cell Phones (0)'},
+					{Topic: '....Computers (0)'},
+					{Topic: '....Televisions(0)'},
+					{Topic: '..Shipping (0)'},
+					{Topic: '..Technical Support (0)'},
+					{Topic: '....Open Quotes (1)'}
+				
+			];
+			vm.multipleDemo = {};
+			vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'}];
+		});
  </script>  
 </body>
 </html>
