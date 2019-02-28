@@ -2413,6 +2413,14 @@ body > .ui-select-bootstrap.open {
   font-weight: normal;
   margin-bottom: 0px;
 }
+.simple-label .input-with-desc .group-property-1 {
+  width: 40%;
+  float: left;
+}
+.simple-label .input-with-desc input.group-property-2 {
+  width: 58%;
+  float: right;
+}
 .related-property {
   top: 28px;
   position: absolute;
