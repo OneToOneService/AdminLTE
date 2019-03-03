@@ -153,21 +153,20 @@ title:  Segment - Customer Service
                             </label>
                           </div>
                         </div>
-                         <div class="col-md-12"  ng-controller="TopicCtrl as ctrl">
+                         <div class="col-md-12"  ng-controller="MailboxCtrl as ctrl">
                           <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Mailboxes</label>
-                            <div class="col-sm-12">
-                              <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" title="Select Mailboxes">
-                                <ui-select-match placeholder="Select Mailboxes" >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
-                                <ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
-                                    <span ng-bind-html="color.Topic | highlight: $select.search"></span>
+                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Mailbox</label>
+                            <div class="col-sm-12" ng-controller="Mailbox as ctrl">
+                              <ui-select ng-model="ctrl.mailbox.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox">
+                                <ui-select-match placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name"></ui-select-match>
+                                <ui-select-choices repeat="mailbox in ctrl.mailboxname | filter: $select.search">
+                                <span ng-bind-html="mailbox.name | highlight: $select.search"></span>
+                                <small ng-bind-html="mailbox.code | highlight: $select.search"></small>
                                 </ui-select-choices>
                               </ui-select>
                             </div>
                           </div>
                         </div> 
-                       
-                       
                       </div>
                     </div> 
                     <div class="col-md-6">
@@ -202,7 +201,7 @@ title:  Segment - Customer Service
                             </div> 
                             <div class="col-md-12">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Agent Notification Message</label>
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default mailbox Notification Message</label>
                               <div class="col-sm-12">
                                 <select class="form-control">
                                   <option>-None-</option>
@@ -418,7 +417,7 @@ title:  Segment - Customer Service
                                     <label class="col-md-12 control-label text-left">Property Type</label>
                                     <div class="col-md-12">
                                       <select class="form-control">
-                                          <optgroup label="Agent">
+                                          <optgroup label="mailbox">
                                             <option>Case</option>
                                             <option>Question</option>
                                             <option>Answer</option>
@@ -535,7 +534,7 @@ title:  Segment - Customer Service
                                    
                                   <div class="checkbox">
                                     <label>
-                                     <input type="checkbox" checkbox>Agent Setting
+                                     <input type="checkbox" checkbox>mailbox Setting
                                    </label> 
                                   </div> 
                                 
@@ -920,9 +919,64 @@ title:  Segment - Customer Service
               </div> 
               <div class="tab-pane" id="tab_mailboxes">
                 <div class="row">
+                  <div class="col-md-12">
+                    <div class="box box-info">
+                      <div class="box-body table-responsive with-border">
+                          <table class="table table-striped table-hover" datatable>
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Id
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Mailbox Name
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Display Name
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Reply to Address
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Default Topic
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Errors
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-click="toggleFormStepMailbox('rowmailbox1')" ng-class="{true: 'row-active', false: ''}[rowmailbox1]">
+                                  <td>
+                                    111
+                                  </td>
+                                  <td>
+                                    Sales Criticle
+                                  </td>
+                                  <td>
+                                    Sales Criticle
+                                  </td>
+                                  <td>
+                                    --
+                                  </td> 
+                                  <td>
+                                     Sales
+                                  </td> 
+                                  <td>
+                                    --
+                                  </td>  
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div> 
+                    </div>   
+                  </div>  
+                </div> 
+                <div class="row">
                   <div class="col-md-12 form-group">
                     <button class="btn btn-primary" type="button" ng-click="showNewFormStepMailbox(1)">
-                        New MailBox
+                      New MailBox
                     </button>
                     <button class="btn btn-primary" type="button" ng-click="showAlertMailbox = true">
                       Delete MailBox
@@ -934,7 +988,6 @@ title:  Segment - Customer Service
                     <div class="box box-danger">
                       <div class="box-header with-border">
                         <i class="fa fa-warning"></i>
-            
                         <h3 class="box-title">Alerts</h3>
                       </div>
                       <div class="box-body">
@@ -1005,11 +1058,203 @@ title:  Segment - Customer Service
                     </div>
                   </div>	
                 </div>
-                <div class="row" style="display:none;">
+                
+                <div class="row" ng-show="formstepMailbox2">
+                  <div class="col-md-12"> 
+                    	<div class="box box-primary">
+                          
+                          <div class="box-body">
+                             <section class="box-content box-bg-color">
+                                <div class="row form-horizontal">
+                                  <div class="col-md-6">
+                                    <div class="box box-primary">
+                                      <div class="box-header with-border">
+                                        <h3 class="box-title text-right">Incoming Mail Configuration</h3>
+                                      </div>
+                                      <div class="box-body ">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Mail Server Name</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control" value="">
+                                              </div>
+                                            </div>
+                                            <div class="checkbox">
+                                              <label>
+                                                <input type="checkbox"> Use IMAP
+                                              </label>
+                                            </div>
+                                            <div class="checkbox">
+                                              <label>
+                                                <input type="checkbox">Use SSL
+                                              </label>
+                                            </div>
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left text-primary">Set your port number to correspond with POP or IMAP. 
+                                                  The most common port settings are as follows
+                                              </label>
+                                              <div class="col-md-4"></div><div class="col-md-4"><b>POP</b></div><div class="col-md-4"><b>IMAP</b></div>
+                                              <div class="col-md-4"><b>Without SSL</b></div><div class="col-md-4">110</div><div class="col-md-4">143</div>
+                                              <div class="col-md-4"><b>With SSL</b></div><div class="col-md-4">995</div><div class="col-md-4">993</div> 
+                                            </div>
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Port Number</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control" value="">
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Username</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control" value="">
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Password</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control" value="">
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Filter</label>
+                                              <div class="col-md-12">
+                                                <select class="form-control">
+                                                  <option>Test Filter</option>
+                                                </select>  
+                                              </div>
+                                            </div>
+                                            <div class="form-group" ng-controller="TopicCtrl as ctrl">
+                                              <label for="inputPassword3" class="col-md-12 control-label text-left">Topic</label>
+                                              <div class="col-md-12">
+                                                <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+                                                  <ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
+                                                  <ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
+                                                      <span ng-bind-html="color.Topic | highlight: $select.search"></span>
+                                                  </ui-select-choices>
+                                                </ui-select>
+                                              </div>
+                                            </div>
+                                          </div>  
+                                        </div>  
+                                      </div>  
+                                    </div>    
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="box box-primary">
+                                      <div class="box-header with-border">                                      
+                                        <h3 class="box-title text-right">SMTP Configuration</h3>
+                                      </div>
+                                      <div class="box-body">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Display Name</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control" value="">
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Reply To</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control" value="">
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">SMTP Server Name</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control" value="">
+                                              </div>
+                                            </div>
+                                            <div class="form-group bg-group">
+                                                <label class="col-md-12 control-label text-left">Interaction Property Based Skills</label>
+                                                <div class="col-md-12">
+                                                  <div class="checkbox group-bg group-input detail-g-borderbottom group-input-checkbox">
+                                                    <label>
+                                                      <input type="checkbox">Authenticate to SMTP Server
+                                                    </label>
+                                                  </div>
+                                                  <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop"> 
+                                                    <label class="col-md-12 control-label text-left group-input-label">Port Number</label>
+                                                    <div class="col-md-12">
+                                                      <input type="text" class="form-control">
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
+                                                    <label class="col-md-12 control-label text-left  group-input-label">Username</label>
+                                                    <div class="col-md-12">														
+                                                      <input type="text" class="form-control group-input-item">
+                                                     </div>
+                                                  </div>
+                                                  <div class="form-group group-bg group-input detail-g-bordertop">
+                                                    <label class="col-md-12 control-label text-left  group-input-label">Password</label>
+                                                    <div class="col-md-12">														
+                                                      <input type="text" class="form-control group-input-item">
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                          </div>  
+                                        </div>  
+                                      </div>  
+                                    </div>  
+                                  </div>
+                                  <div class="col-md-12">
+                                    <div class="form-group checkbox mbottom-15">
+                                      <label>
+                                        <input type="checkbox">Default Segment Mailbox
+                                      </label>
+                                    </div>
+                                  </div>  
+                                  <div class="col-md-12">
+                                      <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>   
+                             </section> 
+                          </div>
+                      </div>  
+                  </div>
+                  <div class="col-md-12">
+                     <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title text-right">Mailbox Configuration and Runtime Errors</h3>
+                          <button class="btn btn-primary btn-xs pull-right">Clear Errors</button>
+                        </div>
+                        <div class="box-body table-responsive with-border">
+                          <table class="table table-striped table-hover" datatable>
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Date
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Error Message
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-click="toggleFormStepAutoResponse('rowautoresponse1')" ng-class="{true: 'row-active', false: ''}[rowautoresponse1]">
+                                  <td>
+                                    10/13/2018
+                                  </td>
+                                  <td>
+                                    IMAP connect failed: Socket connection has been refused by remote.
+                                  </td>
+                                </tr>
+                              </tbody>
+                          </table>
+                        </div>  
+                     </div>  
+                  </div>  
+                </div>
+              </div> 
+              <div class="tab-pane" id="tab_auto_response">
+                <div class="row">
                   <div class="col-md-12">
                     <div class="box box-info">
                       <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                          <table class="table table-striped table-hover" datatable>
                               <thead>
                                 <tr>
                                   <!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -1017,25 +1262,17 @@ title:  Segment - Customer Service
                                     Id
                                   </th>
                                   <th class="text-capitalize">
-                                    Contact Property Name
+                                    Auto Response Name
                                   </th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr ng-click="toggleFormStepMailbox('mailboxrow1')" ng-class="{true: 'row-active', false: ''}[mailboxrow1]">
+                                <tr ng-click="toggleFormStepAutoResponse('rowautoresponse1')" ng-class="{true: 'row-active', false: ''}[rowautoresponse1]">
                                   <td>
                                     111
                                   </td>
                                   <td>
-                                    Example one
-                                  </td>
-                                </tr>
-                                <tr ng-click="toggleFormStepMailbox('mailboxrow2')" ng-class="{true: 'row-active', false: ''}[mailboxrow2]">
-                                  <td>
-                                    112
-                                  </td>
-                                  <td>
-                                    Example Two
+                                    Quote - Electronics
                                   </td>
                                 </tr>
                               </tbody>
@@ -1044,171 +1281,6 @@ title:  Segment - Customer Service
                     </div>   
                   </div>  
                 </div>
-                <div class="row" ng-show="formstepMailbox2">
-                    <div class="col-md-12">
-                      <div class="box box-primary">
-                        <div class="box-body">
-                            <div class="row">
-                              <div class="form-horizontal">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Property Name</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Value Type</label>
-                                    <div class="col-md-12">
-                                        <select class="form-control">
-                                        <option value="date">Date</option>
-                                        <option value="int">Integer</option>
-                                        <option value="number">Number</option>
-                                        <option selected="selected" value="text">Text</option>
-                                        <option value="detail3">Address Type</option>
-                                        <option value="detail5">Article Use Code</option>
-                                        <option value="detail2">Bool</option>
-                                        <option value="detail1">Customer Type</option>
-                                        <option value="detail7">Equipment Type List</option>
-                                        <option value="detail13">increase decrease list</option>
-                                        <option value="detail6">New or Change</option>
-                                        <option value="detail9">Owner List</option>
-                                        <option value="detail4">Phone Number Type</option>
-                                        <option value="detail8">Priority List</option>
-                                        <option value="detail12">Reason List</option>
-                                        <option value="detail11">Team</option>
-                                        <option value="detail10">Won or Lost</option>
-                                        <option value="property22">Branch Office (Property)</option>
-                                        <option value="property23">CellTrak (Property)</option>
-                                        <option value="property47">Contact View Only Property (Property)</option>
-                                        <option value="property6">Customer Type (Property)</option>
-                                        <option value="property30">Equipment Provided (Property)</option>
-                                        <option value="property25">Horizon (Property)</option>
-                                        <option value="property28">Horizon Insight (Property)</option>
-                                        <option value="property29">MAS200 (Property)</option>
-                                        <option value="property48">Multi value No Descr (Property)</option>
-                                        <option value="property27">PayChex (Property)</option>
-                                        <option value="property24">PayNet (Property)</option>
-                                        <option value="property4">Phone (Property)</option>
-                                        <option value="property26">Ultimate Pro (Property)</option>
-                                        <option value="login">Login (Email)</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <div class="col-md-12">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox> Shared Property
-                                        </label> 
-                                      </div> 
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>Multi-Line Values
-                                        </label> 
-                                      </div> 
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>Allow Multiple Values
-                                        </label> 
-                                        <div class="checkbox nested">
-                                              <label>
-                                                <input type="checkbox" checkbox checked="checked">Has Descriptions
-                                              </label> 
-                                              <div class="form-group">
-                                                <label class="col-md-12 control-label text-left">Property Name</label>
-                                                <div class="col-md-12">
-                                                  <select class="form-control">
-                                                    <option value="date">Date</option>
-                                                    <option value="int">Integer</option>
-                                                    <option value="number">Number</option>
-                                                    <option selected="selected" value="text">Text</option>
-                                                    <option value="detail3">Address Type</option>
-                                                    <option value="detail5">Article Use Code</option>
-                                                    <option value="detail2">Bool</option>
-                                                    <option value="detail1">Customer Type</option>
-                                                    <option value="detail7">Equipment Type List</option>
-                                                    <option value="detail13">increase decrease list</option>
-                                                    <option value="detail6">New or Change</option>
-                                                    <option value="detail9">Owner List</option>
-                                                    <option value="detail4">Phone Number Type</option>
-                                                    <option value="detail8">Priority List</option>
-                                                    <option value="detail12">Reason List</option>
-                                                    <option value="detail11">Team</option>
-                                                    <option value="detail10">Won or Lost</option>
-                                                  </select>  
-                                                </div>
-                                              </div>
-                                        </div>  
-                                      </div> 
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>Contact Viewable
-                                        </label> 
-                                        <div class="checkbox nested">
-                                            <label>
-                                              <input type="checkbox" checkbox checked="checked">Contact Editable
-                                            </label> 
-                                        </div>
-                                      </div> 
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>Agent Setting
-                                        </label> 
-                                      </div> 
-                                    
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Tenant Default Value:</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div> 
-                                </div>
-
-                                <div class="col-md-12 col-sm-12">
-                                  <button class="btn btn-primary pull-left" type="button">Save</button>
-                                </div>
-                                <div class="col-md-12">
-                                  <hr>
-                                </div> 
-                                <div class="row">
-                                  <div class="col-md-12">
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Contact propertie That Uses This As Value Type</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
-                                      </div>	
-                                    </div>
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Interaction Property That Uses This As Property</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
-                                      </div>	
-                                    </div>
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Service Levels That Uses This  Property</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                      <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
-                                      </div>	
-                                    </div>
-                                  </div>  
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>	
-                </div>
-              </div> 
-              <div class="tab-pane" id="tab_auto_response">
                 <div class="row">
                   <div class="col-md-12 form-group">
                     <button class="btn btn-primary" type="button" ng-click="showNewFormStepAutoResponse(1)">
@@ -1272,37 +1344,6 @@ title:  Segment - Customer Service
                     </div>
                   </div>	
                 </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box box-info">
-                      <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-                              <thead>
-                                <tr>
-                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                  <th class="text-capitalize">
-                                    Id
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Auto Response Name
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr ng-click="toggleFormStepAutoResponse('rowautoresponse1')" ng-class="{true: 'row-active', false: ''}[rowautoresponse1]">
-                                  <td>
-                                    111
-                                  </td>
-                                  <td>
-                                    Quote - Electronics
-                                  </td>
-                                </tr>
-                              </tbody>
-                          </table>
-                      </div> 
-                    </div>   
-                  </div>  
-                </div>
                 <div class="row" ng-show="formstepAutoResponse2">
                   <div class="col-md-12">
                     <div class="box box-primary">
@@ -1345,12 +1386,11 @@ title:  Segment - Customer Service
                 </div>
               </div>
               <div class="tab-pane" id="tab_stock_response">
-              
                 <div class="row">
                   <div class="col-md-12">
                     <div class="box box-info">
                       <div class="box-body table-responsive with-border">
-                           <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                           <table class="table table-striped table-hover" datatable>
                             <thead>
                               <tr>
                                 <!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -1535,7 +1575,38 @@ title:  Segment - Customer Service
                      
                       <div class="tab-content"> 
                         <div class="tab-pane active" id="filters">  
-                           <div class="row">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="box box-info">
+                                  <div class="box-body table-responsive with-border">
+                                      <table class="table table-striped table-hover" datatable>
+                                          <thead>
+                                            <tr>
+                                              <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                              <th class="text-capitalize">
+                                                Id
+                                              </th>
+                                              <th class="text-capitalize">
+                                                Filter Name
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr ng-click="toggleFormStepFilter('rowfilter1')" ng-class="{true: 'row-active', false: ''}[rowfilter1]">
+                                              <td>
+                                                111
+                                              </td>
+                                              <td>
+                                                Message Filter
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                      </table>
+                                  </div> 
+                                </div>   
+                              </div>  
+                            </div>
+                            <div class="row">
                               <div class="col-md-12 form-group">
                                 <button class="btn btn-primary" type="button" ng-click="showNewFormStepFilter(1)">
                                   New Filter
@@ -1597,37 +1668,6 @@ title:  Segment - Customer Service
                                   </div>
                                 </div>
                               </div>	
-                            </div>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="box box-info">
-                                  <div class="box-body table-responsive with-border">
-                                      <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-                                          <thead>
-                                            <tr>
-                                              <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                              <th class="text-capitalize">
-                                                Id
-                                              </th>
-                                              <th class="text-capitalize">
-                                                Filter Name
-                                              </th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr ng-click="toggleFormStepFilter('rowfilter1')" ng-class="{true: 'row-active', false: ''}[rowfilter1]">
-                                              <td>
-                                                111
-                                              </td>
-                                              <td>
-                                                Message Filter
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                      </table>
-                                  </div> 
-                                </div>   
-                              </div>  
                             </div>
                             <div class="row" ng-show="formstepFilter2">
                               <div class="col-md-12">
@@ -1709,7 +1749,7 @@ title:  Segment - Customer Service
                                                                   <option value="chatKeepAlive">Chat Keep Alive</option>
                                                                   <option value="chatSend">Chat Send</option>
                                                                   <option value="chatToggleAvailability">Chat Toggle Availability</option>
-                                                                  <option value="agentEmail">Create Agent Email</option>
+                                                                  <option value="mailboxEmail">Create mailbox Email</option>
                                                                   <option value="note">Create Note</option>
                                                                   <option value="ticket">Create Ticket/Ask A Question</option>
                                                                   <option value="contactFindCreate">Find/Create Contact</option>
@@ -1724,9 +1764,9 @@ title:  Segment - Customer Service
                                                                   <option value="messageQueueChangeTopic">Message Queue Change Topic</option>
                                                                   <option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
                                                                   <option value="messageQueueSaveDraft">Message Queue Save Draft</option>
-                                                                  <option value="messageQueueAssign">Message Queue Assign To Agent</option>
+                                                                  <option value="messageQueueAssign">Message Queue Assign To mailbox</option>
                                                                   <option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
-                                                                  <option value="messageQueueForwardExternal">Message Queue Forward To External Agent</option>
+                                                                  <option value="messageQueueForwardExternal">Message Queue Forward To External mailbox</option>
                                                                   <option value="messageQueueSaveNote">Message Queue Save Note</option>
                                                                   <option value="messageQueueSend">Message Queue Send</option>
                                                                   <option value="myAccountSubscriptions">My Account Subscriptions</option>
@@ -1740,7 +1780,7 @@ title:  Segment - Customer Service
                                                       <!--Step type action start-->
                                                       <div class="row formstep box-bg-white" ng-show="subFormActionStepType1">
                                                         <div class="col-md-12">
-                                                          <h4>Create Agent Email</h4>
+                                                          <h4>Create mailbox Email</h4>
                                                         </div>
                                                         <hr>
                                                         <div class="col-md-12">
@@ -1853,7 +1893,7 @@ title:  Segment - Customer Service
                                                               <div class="form-group">
                                                                 <label class="col-sm-4 control-label text-left">Form Body <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
                                                                 <div class="col-sm-12">
-                                                                  <textarea class="form-control" rows="5" placeholder="" id="agentEmailAction" name="agentEmailAction" ckeditor></textarea>
+                                                                  <textarea class="form-control" rows="5" placeholder="" id="mailboxEmailAction" name="mailboxEmailAction" ckeditor></textarea>
                                                                 </div>
                                                               </div>
                                                             </div>
@@ -1898,7 +1938,7 @@ title:  Segment - Customer Service
                                                                           "bodyHtml": "string",
                                                                           "note": "string",
                                                                           "autoGenerateHtmlIfMising": bool,
-                                                                          "action": number, //1 = Agent Email, 2 = Secure Email
+                                                                          "action": number, //1 = mailbox Email, 2 = Secure Email
                                                                           "notificationID": "string",
                                                                           "expectingResponse": bool,
                                                                           "properties": 
@@ -1957,7 +1997,7 @@ title:  Segment - Customer Service
                                                                   <option value="chatKeepAlive">Chat Keep Alive</option>
                                                                   <option value="chatSend">Chat Send</option>
                                                                   <option value="chatToggleAvailability">Chat Toggle Availability</option>
-                                                                  <option value="agentEmail">Create Agent Email</option>
+                                                                  <option value="mailboxEmail">Create mailbox Email</option>
                                                                   <option value="note">Create Note</option>
                                                                   <option value="ticket">Create Ticket/Ask A Question</option>
                                                                   <option value="contactFindCreate">Find/Create Contact</option>
@@ -1972,9 +2012,9 @@ title:  Segment - Customer Service
                                                                   <option value="messageQueueChangeTopic">Message Queue Change Topic</option>
                                                                   <option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
                                                                   <option value="messageQueueSaveDraft">Message Queue Save Draft</option>
-                                                                  <option value="messageQueueAssign">Message Queue Assign To Agent</option>
+                                                                  <option value="messageQueueAssign">Message Queue Assign To mailbox</option>
                                                                   <option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
-                                                                  <option value="messageQueueForwardExternal">Message Queue Forward To External Agent</option>
+                                                                  <option value="messageQueueForwardExternal">Message Queue Forward To External mailbox</option>
                                                                   <option value="messageQueueSaveNote">Message Queue Save Note</option>
                                                                   <option value="messageQueueSend">Message Queue Send</option>
                                                                   <option value="myAccountSubscriptions">My Account Subscriptions</option>
@@ -2353,6 +2393,26 @@ title:  Segment - Customer Service
 				}
       }; 
     });
+
+    angular.module('iService').controller('MailboxCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			vm.availableMailboxes = [
+					{Mailbox: 'iService Support(support@1to1service.com)'},
+					{Mailbox: 'Sales Support (sales@1to1service.com)'},
+					{Mailbox: 'iService Criticle Support (criticle@1to1service.com)'},				
+			];
+			vm.multipleDemo = {};
+		});
+
+    angular.module('iService').controller('Mailbox', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.mailbox = {};
+			vm.mailboxname = [ 
+			   	{name: 'iService Support(support@1to1service.com)'},
+					{name: 'Sales Support (sales@1to1service.com)'},
+					{name: 'iService Criticle Support (criticle@1to1service.com)'},
+			];
+		});
 
     angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
 		var vm = this;

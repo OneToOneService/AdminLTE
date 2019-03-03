@@ -1058,7 +1058,7 @@ ul.timeline span.stack-icon .aqua {
   margin-top: 15px;
 }
 .mbottom-15 {
-  margin-bottom: 15px;
+  margin-bottom: 15px !important;
 }
 .mright-15 {
   margin-right: 15px;
@@ -2246,7 +2246,7 @@ body > .ui-select-bootstrap.open {
 }
 .ui-select-multiple.ui-select-bootstrap {
   height: auto;
-  padding: 3px 3px 0 3px;
+  padding: 4px 3px 1px 3px;
 }
 .ui-select-multiple.ui-select-bootstrap input.ui-select-search {
   background-color: transparent !important;
@@ -2303,6 +2303,19 @@ body > .ui-select-bootstrap.open {
   text-decoration: none;
   color: #262626;
   background-color: #f5f5f5;
+}
+.ui-select-multiple.ui-select-bootstrap:after {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  display: block;
+  width: 0;
+  height: 0;
+  margin-top: -3px;
+  border-color: gray transparent transparent transparent;
+  border-style: solid;
+  border-width: 6px 3px 0 3px;
+  content: ' ';
 }
 .ui-select-bootstrap .ui-select-choices-row.active > span {
   color: #fff;
@@ -2526,4 +2539,13 @@ ul li ul li.branch ul li .treeviewitem {
 .developer-html {
   font-size: 14px;
   margin-top: 6px;
+}
+.group-input-checkbox {
+  padding-top: 5px;
+}
+.padding-left-0 {
+  padding-left: 0px !important;
+}
+.form-group .ui-select-container {
+  width: 100% !important;
 }
