@@ -2549,3 +2549,6 @@ ul li ul li.branch ul li .treeviewitem {
 .form-group .ui-select-container {
   width: 100% !important;
 }
+.treeview.without-numbers {
+  width: 100%;
+}
