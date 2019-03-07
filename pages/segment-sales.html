@@ -922,7 +922,7 @@ title:  Segment - Customer Service
                   <div class="col-md-12">
                     <div class="box box-info">
                       <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable  >
+                          <table class="table table-striped table-hover" datatable dt-options="dtMailboxOptions" dt-column-defs="dtMailboxColumnDefs">
                               <thead>
                                 <tr>
                                   <!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -1256,7 +1256,7 @@ title:  Segment - Customer Service
                   <div class="col-md-12">
                     <div class="box box-info">
                       <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable>
+                          <table class="table table-striped table-hover" datatable dt-options="dtAutoresponsesOptions" dt-column-defs="dtAutoresponsesColumnDefs"> 
                               <thead>
                                 <tr>
                                   <!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -1392,7 +1392,7 @@ title:  Segment - Customer Service
                   <div class="col-md-12">
                     <div class="box box-info">
                       <div class="box-body table-responsive with-border">
-                           <table class="table table-striped table-hover" datatable>
+                           <table class="table table-striped table-hover" datatable dt-options="dtStockresponsesOptions" dt-column-defs="dtStockresponsesColumnDefs">
                             <thead>
                               <tr>
                                 <!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -1651,7 +1651,7 @@ title:  Segment - Customer Service
                               <div class="col-md-12">
                                 <div class="box box-info">
                                   <div class="box-body table-responsive with-border">
-                                      <table class="table table-striped table-hover" datatable>
+                                      <table class="table table-striped table-hover" datatable dt-options="dtFiltersOptions" dt-column-defs="dtFiltersponsesColumnDefs">
                                           <thead>
                                             <tr>
                                               <!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -2405,6 +2405,56 @@ $(document).ready(function() {
 					DTColumnDefBuilder.newColumnDef(9).notVisible()
           //DTColumnDefBuilder.newColumnDef(10).notVisible()
 				];
+
+
+        $scope.dtMailboxOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Mailbox'
+				})
+				.withBootstrap().withButtons([ {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+        $scope.dtAutoresponsesOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Auto Responses'
+				})
+				.withBootstrap().withButtons([ {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+        $scope.dtStockresponsesOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Stock Responses'
+				})
+				.withBootstrap().withButtons([ {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+        $scope.dtFiltersOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter'
+				});
+				
+        
         $scope.showNewSegment = function(step){
               $scope['newformsegment'] = !$scope['newformsegment'];
         };
