@@ -2555,3 +2555,7 @@ ul li ul li.branch ul li .treeviewitem {
 .iradio_square-blue {
   margin-right: 5px;
 }
+label {
+  margin-bottom: 0px;
+  font-weight: 600;
+}
