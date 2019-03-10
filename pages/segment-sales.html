@@ -73,7 +73,7 @@ title:  Segment - Customer Service
               </li>
               <li>
                 <a href="#tab_contact_properties" data-toggle="tab">
-                  <i class="fa fa-user"></i>
+                  <i class="fa fa-list-alt"></i>
                   <span>Custom Properties</span>
                 </a>
               </li>
@@ -110,143 +110,147 @@ title:  Segment - Customer Service
             </ul>
             <div class="tab-content box-bg-color">
               <div class="tab-pane active" id="tab_segment_details">
-                  <div class="row form-horizontal">
-                    <div class="col-md-6">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Name</label>
-                            <div class="col-sm-12">
-                              <input type="text" class="form-control" value="Sales">
-                            </div>
-                          </div>
-                        </div> 
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-                            <div class="col-sm-12">
-                              <textarea class="form-control" row="3"></textarea>
-                            </div>
-                          </div>
-                        </div> 
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Parent</label>
-                            <div class="col-sm-12">
-                              <select class="form-control">
-                                <option>Salesforce</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div> 
-                        <div class="col-md-12">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> Standard Segment
-                            </label>
-                          </div>
-                        </div> 
-                        <div class="col-md-12">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> Queue all unassigned interactions for same contact with Get Next
-                            </label>
-                          </div>
-                        </div>
-                         <div class="col-md-12"  ng-controller="MailboxCtrl as ctrl">
-                          <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Mailbox</label>
-                            <div class="col-sm-12" ng-controller="Mailbox as ctrl">
-                              <ui-select ng-model="ctrl.mailbox.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox">
-                                <ui-select-match placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name"></ui-select-match>
-                                <ui-select-choices repeat="mailbox in ctrl.mailboxname | filter: $select.search">
-                                <span ng-bind-html="mailbox.name | highlight: $select.search"></span>
-                                <small ng-bind-html="mailbox.code | highlight: $select.search"></small>
-                                </ui-select-choices>
-                              </ui-select>
-                            </div>
-                          </div>
-                        </div> 
-                      </div>
-                    </div> 
-                    <div class="col-md-6">
+                <div class="box box-info">
+                  <div class="box-body">
+                    <div class="row form-horizontal">
+                      <div class="col-md-6">
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Topic Auto Response</label>
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Name</label>
                               <div class="col-sm-12">
-                                <select class="form-control">
-                                  <option>-None-</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
-                                </select>
+                                <input type="text" class="form-control" value="Sales">
                               </div>
                             </div>
-                            </div> 
-                            <div class="col-md-12">
+                          </div> 
+                          <div class="col-md-12">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Account Creation Message</label>
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
                               <div class="col-sm-12">
-                                <select class="form-control">
-                                  <option>-None-</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
-                                </select>
+                                <textarea class="form-control" row="3"></textarea>
                               </div>
                             </div>
-                            </div> 
-                            <div class="col-md-12">
+                          </div> 
+                          <div class="col-md-12">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default mailbox Notification Message</label>
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Parent</label>
                               <div class="col-sm-12">
                                 <select class="form-control">
-                                  <option>-None-</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
+                                  <option>Salesforce</option>
                                 </select>
                               </div>
                             </div>
-                            </div> 
-                            <div class="col-md-12">
+                          </div> 
+                          <div class="col-md-12">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Find Answer Default Notification Message</label>
-                              <div class="col-sm-12">
-                                <select class="form-control">
-                                  <option>-None-</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
-                                </select>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox"> Standard Segment
+                                </label>
                               </div>
-                            </div>
+                              <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox"> Queue all unassigned interactions for same contact with Get Next
+                                  </label>
+                                </div>
                             </div> 
-                            <div class="col-md-12">
+                          </div>
+                          <div class="col-md-12"  ng-controller="MailboxCtrl as ctrl">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Service Lavel</label>
-                              <div class="col-sm-12">
-                                <select class="form-control">
-                                  <option>-None-</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
-                                </select>
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Mailbox</label>
+                              <div class="col-sm-12" ng-controller="Mailbox as ctrl">
+                                <ui-select ng-model="ctrl.mailbox.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox">
+                                  <ui-select-match placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name"></ui-select-match>
+                                  <ui-select-choices repeat="mailbox in ctrl.mailboxname | filter: $select.search">
+                                  <span ng-bind-html="mailbox.name | highlight: $select.search"></span>
+                                  <small ng-bind-html="mailbox.code | highlight: $select.search"></small>
+                                  </ui-select-choices>
+                                </ui-select>
                               </div>
                             </div>
-                            </div> 
-                        </div> 
+                          </div> 
+                        </div>
                       </div> 
-                    <div class="col-md-12">
-                      <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                  </div>  
+                      <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Topic Auto Response</label>
+                                <div class="col-sm-12">
+                                  <select class="form-control">
+                                    <option>-None-</option>
+                                    <option>option 2</option>
+                                    <option>option 3</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                  </select>
+                                </div>
+                              </div>
+                              </div> 
+                              <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Account Creation Message</label>
+                                <div class="col-sm-12">
+                                  <select class="form-control">
+                                    <option>-None-</option>
+                                    <option>option 2</option>
+                                    <option>option 3</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                  </select>
+                                </div>
+                              </div>
+                              </div> 
+                              <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default mailbox Notification Message</label>
+                                <div class="col-sm-12">
+                                  <select class="form-control">
+                                    <option>-None-</option>
+                                    <option>option 2</option>
+                                    <option>option 3</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                  </select>
+                                </div>
+                              </div>
+                              </div> 
+                              <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Find Answer Default Notification Message</label>
+                                <div class="col-sm-12">
+                                  <select class="form-control">
+                                    <option>-None-</option>
+                                    <option>option 2</option>
+                                    <option>option 3</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                  </select>
+                                </div>
+                              </div>
+                              </div> 
+                              <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Service Lavel</label>
+                                <div class="col-sm-12">
+                                  <select class="form-control">
+                                    <option>-None-</option>
+                                    <option>option 2</option>
+                                    <option>option 3</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                  </select>
+                                </div>
+                              </div>
+                              </div> 
+                          </div> 
+                        </div> 
+                      <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
+                    </div>  
+                  </div>
+                </div>  
               </div> 
               <div class="tab-pane" id="tab_contact_properties">
               
@@ -1577,7 +1581,7 @@ title:  Segment - Customer Service
               <div class="tab-pane" id="tab_topics">
                 <div class="row">
                   <div class="col-md-12 form-group">
-                    <button class="btn btn-primary" type="button" ng-click="showNewFormStepTopic(1)">
+                    <button class="btn btn-primary" type="button" ng-click="showNewForm = true;">
                       New Topic
                     </button>
                   </div>	
@@ -1635,7 +1639,7 @@ title:  Segment - Customer Service
                   <!-- /.box -->
                   </div>
                   
-                  <div class="col-md-8 p-l-0" ng-hide="formstepTopic1">
+                  <div class="col-md-8 p-l-0" ng-show="showNewForm">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                           <i class="fa fa-list-ul"></i>
@@ -1664,9 +1668,9 @@ title:  Segment - Customer Service
                                   </div>
                                 </div>
                                 <div class="col-md-4">
-                                  <label class="control label"></label>
-                                  <button type="button" class="btn btn-primary margin-r-5 mtop-15" ng-click="showNewFormStep(2)">Create</button>
-                                  <button type="button" class="btn btn-link mtop-15" ng-click="cancelForm(2)">Cancel</button>
+                                  <label class="control-label col-md-12">&nbsp;</label>
+                                  <button type="button" class="btn btn-primary margin-r-5 mtop-5" ng-click="showNewFormStep2 = false; showNewForm = false;">Create</button>
+                                  <button type="button" class="btn btn-link mtop-5" ng-click="showNewForm = false;">Cancel</button>
                                 </div>
                               </div>
                             </div>
@@ -1674,7 +1678,7 @@ title:  Segment - Customer Service
                         </div>
                     </div>	
                   </div>
-                  <div class="col-md-8 p-l-0">
+                  <div class="col-md-8 p-l-0" ng-hide="showNewFormStep2">
                     <div class="box box-primary">
                       <div class="box-body">
                         <div class="box-content box-bg-color">
@@ -1737,96 +1741,95 @@ title:  Segment - Customer Service
                           </div>
                           <div class="clearfix"></div>
                           <div class="col-md-6">
+                            <div class="box box-primary">
+                              <div class="box-header with-border">
+                                <h3 class="box-title text-right">Skills Required For Get Next</h3>
+                              </div>
+                              <div class="box-body custom-scroll">
+                                <div class="form-group">
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" checkbox> No Rout
+                                    </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" checkbox>Sales
+                                    </label>
+                                  </div>
+                                </div>  
+                              </div>     
+                            </div>  
+                          </div>  
+        
+                          <div class="col-md-6">
                               <div class="box box-primary">
                                 <div class="box-header with-border">
-                                  <h3 class="box-title text-right">Skills</h3>
+                                  <h3 class="box-title text-right">Interaction Properties</h3>
                                 </div>
                                 <div class="box-body custom-scroll">
-                                  <div class="form-group">
-                                   <div class="checkbox">
+                                  <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" checkbox> isFollowUp (Answer)
+                                      </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" checkbox>isOpen (Answer)
+                                      </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" checkbox> Follow Up Date (Answer)
+                                      </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" checkbox>Priority (Answer)
+                                      </label>
+                                    </div>
+                                    <div class="checkbox">
                                       <label>
                                         <input type="checkbox" checkbox> No Rout
                                       </label>
-                                   </div>
-                                   <div class="checkbox">
+                                    </div>
+                                    <div class="checkbox">
                                       <label>
                                         <input type="checkbox" checkbox>Sales
                                       </label>
-                                   </div>
-                                  </div>  
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" checkbox> Owner (Answer)
+                                      </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" checkbox>Prop1-Quantity (Question)
+                                      </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" checkbox> Prop2-Weight (Question)
+                                      </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" checkbox>topic 1 property (Question)
+                                      </label>
+                                    </div>
                                 </div>     
                               </div>  
-                            </div>  
-          
-                            <div class="col-md-6">
-                                <div class="box box-primary">
-                                  <div class="box-header with-border">
-                                    <h3 class="box-title text-right">Interaction Properties</h3>
-                                  </div>
-                                  <div class="box-body custom-scroll">
-                                    <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox> isFollowUp (Answer)
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>isOpen (Answer)
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox> Follow Up Date (Answer)
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>Priority (Answer)
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox> No Rout
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>Sales
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox> Owner (Answer)
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>Prop1-Quantity (Question)
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox> Prop2-Weight (Question)
-                                        </label>
-                                      </div>
-                                      <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox" checkbox>topic 1 property (Question)
-                                        </label>
-                                      </div>
-                                  </div>     
-                                </div>  
-                             </div> 
+                          </div> 
+                          <div class="col-md-12 col-sm-12">
+                            <button class="btn btn-primary pull-left" type="button">Save</button>
+                          </div>
                         </div>   
                         </div>
                       </div>  
                     </div>  
                   </div>  
-                  <div class="col-md-12 col-sm-12">
-                    <button class="btn btn-primary pull-left" type="button">Save</button>
-                  </div>
                 </div>
-                
               </div> 
               <div class="tab-pane" id="tab_filters">
                 <div class="row">
@@ -1839,6 +1842,7 @@ title:  Segment - Customer Service
                      
                       <div class="tab-content"> 
                         <div class="tab-pane active" id="filters">  
+
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="box box-info">
