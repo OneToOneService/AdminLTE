@@ -884,6 +884,90 @@ ul.timeline span.stack-icon .aqua {
 .customer-details .box-header {
   cursor: pointer;
 }
+.search-parameters .floating-label {
+  margin: 5px -10px;
+}
+.search-parameters .panel {
+  margin-bottom: 0;
+}
+.search-field {
+  position: relative;
+}
+.search-field .floating-label {
+  width: calc(97%);
+  display: inline-block;
+}
+.search-field .btn-lg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -10px;
+}
+.dataTables_wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+.dataTables_wrapper .dt-buttons {
+  margin-bottom: 10px;
+}
+.dataTables_filter {
+  height: 35px;
+  float: right;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.dataTables_length {
+  float: left;
+  margin-left: 10px;
+}
+@media (max-width: 767px), (max-width: 991px) {
+  .dataTable {
+    width: 200%;
+  }
+}
+@media (max-width: 767px) {
+  .dataTables_filter {
+    float: left;
+  }
+  .dataTables_length {
+    margin-left: 0;
+  }
+}
+.dataTable tr .overlay-wrapper.ng-enter {
+  transition: .2s linear all;
+  opacity: 0;
+  height: 0;
+}
+.dataTable tr .overlay-wrapper.ng-enter-active {
+  opacity: 1;
+  height: 45px;
+}
+.filter-button {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 5px;
+}
+.header-filter-input,
+.header-filter-toggle {
+  transition: all ease-in-out 0.3s;
+}
+.header-filter-input.inactive,
+.header-filter-toggle.inactive {
+  opacity: 0;
+  height: 0;
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+}
+.header-text {
+  transition: all ease-in-out 0.3s;
+}
+.header-text.inactive {
+  font-size: 65%;
+}
 [contenteditable]:empty:not(:focus)::before {
   content: attr(placeholder);
 }

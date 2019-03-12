@@ -60,8 +60,7 @@ module.exports = function (grunt) { // jshint ignore:line
       },
       iServiceCss: {
         files: {
-          'dist/iservice/css/webapp.css': 'build/iservice/less/webapp.less',
-          'dist/iservice/css/webapp.custinfo.css': 'build/iservice/less/webapp.custinfo.less'
+          'dist/iservice/css/webapp.css': 'build/iservice/less/webapp.less'
         }
       },
       iServiceCssMinified: {
@@ -69,8 +68,7 @@ module.exports = function (grunt) { // jshint ignore:line
           compress: true
         },
         files: {
-          'dist/iservice/css/webapp.min.css': 'build/iservice/less/webapp.less',
-          'dist/iservice/css/webapp.custinfo.min.css': 'build/iservice/less/webapp.custinfo.less'
+          'dist/iservice/css/webapp.min.css': 'build/iservice/less/webapp.less'
         }
       },
       // Non minified skin files
