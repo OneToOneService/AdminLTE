@@ -2589,7 +2589,7 @@ $(document).ready(function() {
 				.newOptions().withOption('language', {
 					search: 'Filter Properties'
 				})
-				.withBootstrap().withButtons([ {
+				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
 					{
@@ -2611,7 +2611,7 @@ $(document).ready(function() {
 				.newOptions().withOption('language', {
 					search: 'Filter Mailboxes'
 				})
-				.withBootstrap().withButtons([ {
+				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
 					{
@@ -2625,7 +2625,7 @@ $(document).ready(function() {
 				.newOptions().withOption('language', {
 					search: 'Filter Auto Responses'
 				})
-				.withBootstrap().withButtons([ {
+				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
 					{
@@ -2639,7 +2639,7 @@ $(document).ready(function() {
 				.newOptions().withOption('language', {
 					search: 'Filter Stock Responses'
 				})
-				.withBootstrap().withButtons([ {
+				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
 					{
@@ -2652,13 +2652,29 @@ $(document).ready(function() {
         $scope.dtFiltersOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
 					search: 'Filter Filters'
-				});
+				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
 				
 
         $scope.dtConfigurationOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
 					search: 'Filter Errors'
-				});
+				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
         
         $scope.showNewSegment = function(step){
               $scope['newformsegment'] = !$scope['newformsegment'];

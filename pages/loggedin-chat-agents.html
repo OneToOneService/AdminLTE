@@ -19,7 +19,7 @@ title: Manage Chats
                 </h1>
             </section>
             <!-- Main content -->
-            <section class="content">
+            <section class="content" ng-controller="myCtrl">
                 <!-- START CUSTOM TABS -->
 				<p>This page shows all agents with chat rights that are currently logged into iService.</p>
                 <div class="row"> 
@@ -32,7 +32,7 @@ title: Manage Chats
                             </div>
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <table id="example1" class="table no-margin">
+                                    <table class="table no-margin" datatable dt-options="dtAgentListOptions">
                                         <thead>
                                             <tr>
                                                 <th>Available    </th>
@@ -279,20 +279,28 @@ title: Manage Chats
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // DataTable
-            var table = $('#example1').DataTable( {
-               "language" : {
-                    "search": "Filter Messages"
-                },
-                "columnDefs": [ {
-                    "targets"  : 'no-sort',
-                    "orderable": false,
-                 }]
-            });
+<script>
+    var count = 1;
+    var i = 1;
+    angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    {
+       $scope.dtAgentListOptions = DTOptionsBuilder
+        .newOptions()
+        .withOption('language', {
+          search: 'Filter Agents'
+        }).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+			extend: 'colvis',
+			columns: function (index, apiObj, headCell)
+			{
+				// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+				// disable the show/hide column functionality for certain columns
+				return headCell.dataset.noColVis === undefined;
+			}
+		}]);
 
-        });
-    </script>    
+    });
+
+		
+  </script>
 </body>
 </html>

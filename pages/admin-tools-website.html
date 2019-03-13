@@ -37,7 +37,7 @@ title: Admin Tools - Websites
 							<!-- /.box-header -->
 							<!-- form start -->
 							<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
-								<table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+								<table class="table table-striped table-hover" datatable dt-options="dtWebsiteOptions" dt-column-defs="dtWebsiteColumnDefs">
 								<thead>
 									<tr>
 										<!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -705,17 +705,19 @@ title: Admin Tools - Websites
 			$scope.deleteFormItem = function(index) {	
 				$scope.formItemList.splice(index, 1);
 			}
-	 
 
-	      
-			$scope.dtContactHistoryOptions = DTOptionsBuilder
-			.newOptions()
-			.withDOM('lf<"toolbar1">')
-			.withOption('language', {
-				search: 'Filter Websites'
-			})
-			.withBootstrap();
-
+			$scope.dtWebsiteOptions = DTOptionsBuilder
+					.newOptions().withOption('language', {
+						search: 'Filter Websites'
+					}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
 			$scope.dtContactHistoryColumnDefs = [
 			DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
 			];

@@ -1529,17 +1529,26 @@ title: Manage Messages - List View
 	//CKEDITOR.replace('massUpdateDraftBody', {height:400});
  	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
-		    $scope.dtContactMessagesOptions = DTOptionsBuilder
-				.newOptions()
-				.withDOM('lf')
-				.withOption('language', {
-				search: 'Filter Messages'
-				})
-				.withBootstrap();
-
-			$scope.dtContactMessagesColumnDefs = [
+			
+			$scope.dtContactMessagesOptions = DTOptionsBuilder
+			.newOptions()
+			.withOption('language', {
+			search: 'Filter Messages'
+			}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+				extend: 'colvis',
+				columns: function (index, apiObj, headCell)
+				{
+					// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+					// disable the show/hide column functionality for certain columns
+					return headCell.dataset.noColVis === undefined;
+				}
+			}]);
+            $scope.dtContactMessagesColumnDefs = [
 				DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
 			];
+
+
+
 			$scope.toggleRow = function (segmentName)
 			{ 
 				$scope.showexpanded1 = !false; 

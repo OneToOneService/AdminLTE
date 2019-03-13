@@ -52,7 +52,7 @@ title: Admin tools - Forms
 									<!-- form start -->
 									<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
 										<div ng-show="customform" ng-init="customform = true;">
-											<table id="example1" class="table table-striped table-hover" datatable dt-options="dtFormOptions">
+											<table class="table table-striped table-hover" datatable dt-options="dtFormOptions">
 													<thead>
 														<tr>
 															<th class="no-sort">
@@ -289,7 +289,7 @@ title: Admin tools - Forms
 											</table>
 										</div>
 										<div ng-show="builtinform" ng-init="builtinform = false;">
-											<table id="example2" class="table  table-striped table-hover" datatable dt-options="dtFormOptions">
+											<table class="table  table-striped table-hover" datatable dt-options="dtFormBuiltInOptions">
 												<thead>
 													<tr>
 														<th class="no-sort">
@@ -1416,11 +1416,32 @@ title: Admin tools - Forms
     
 	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
-			$scope.dtFormOptions = DTOptionsBuilder
+		   $scope.dtFormOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
-				search: 'Filter Forms'
-			}).withBootstrap();
+					search: 'Filter Forms'
+				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+				extend: 'colvis',
+				columns: function (index, apiObj, headCell)
+				{
+					// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+					// disable the show/hide column functionality for certain columns
+					return headCell.dataset.noColVis === undefined;
+				}
+			}]);
 
+			$scope.dtFormBuiltInOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Forms'
+				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+				extend: 'colvis',
+				columns: function (index, apiObj, headCell)
+				{
+					// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+					// disable the show/hide column functionality for certain columns
+					return headCell.dataset.noColVis === undefined;
+				}
+			}]);
+   
 			$scope.showcustomform = function(){
 				$scope.customform = true;	
 				$scope.builtinform = false;

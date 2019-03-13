@@ -789,7 +789,7 @@ title: Admin Tools - Agents
 																<!-- /.box-header -->
 																<!-- form start -->
 																<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
-																	<table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+																	<table class="table table-striped table-hover" datatable dt-options="dtStockResponsesOptions" dt-column-defs="dtStockResponsesColumnDefs">
 																		<thead>
 																		  <tr>
 																			<!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -1112,7 +1112,21 @@ title: Admin Tools - Agents
 	var i = 1;
 	var app =  angular.module('iService');
 	app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
-	{
+	{ 
+
+				$scope.dtStockResponsesOptions = DTOptionsBuilder
+						.newOptions()
+						.withOption('language', {
+							search: 'Filter Agents'
+						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
 				$scope.toggle = {};
 
 				$scope.domains = [{'title':'example1.com'},{'title':'example1.com'}];

@@ -35,7 +35,7 @@ title:  My Message Inbox
                   <!-- /.box-header -->
                   <!-- form start -->
                   <div class="box-body table-responsive" uib-collapse="isCollapsedInboxList">
-                    <table class="table table-striped table-hover" datatable dt-options="dtInboxOptions">
+                    <table class="table table-striped table-hover" datatable dt-options="dtInboxOptions" >
                       <thead>
                         <tr>
                           <!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -407,7 +407,7 @@ title:  My Message Inbox
                           <!-- /.box-header -->
                           <!-- form start -->
                           <div class="box-body table-responsive">
-                            <table id="historyTabCaseView" class="table  table-striped table-hover">
+                            <table id="historyTabCaseView" class="table  table-striped table-hover" datatable dt-options="dtContactHistoryOptions">
                               <thead>
                                 <tr>
                                   <th class="no-sort" name="name"></th>
@@ -1810,20 +1810,33 @@ title:  My Message Inbox
         .newOptions()
         .withOption('language', {
           search: 'Filter Inbox'
-        })
-        .withBootstrap();
+        }).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+			extend: 'colvis',
+			columns: function (index, apiObj, headCell)
+			{
+				// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+				// disable the show/hide column functionality for certain columns
+				return headCell.dataset.noColVis === undefined;
+			}
+		}]);
 
       $scope.dtContactHistoryOptions = DTOptionsBuilder
-        .newOptions()
-        .withOption('language', {
-          search: 'Filter History'
-        })
-        .withBootstrap();
-
-      $scope.dtContactHistoryColumnDefs = [
-        DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
-      ];
-
+				.newOptions().withOption('language', {
+					search: 'Filter History'
+				})
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+			}]);
+ 
+			$scope.dtContactHistoryColumnDefs = [
+					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px"),
+			];
       $scope.toggleRow = function (segmentName)
       {
         $scope['getthis'] = true;
