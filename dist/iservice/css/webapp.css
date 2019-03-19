@@ -2576,3 +2576,14 @@ label {
   margin-left: -15px;
   margin-right: -15px;
 }
+.my-form-icon {
+  line-height: 17px !important;
+  width: 20px;
+  height: auto;
+}
+.my-form-icon .icon-myform {
+  position: absolute;
+  right: -2px;
+  top: 7px;
+  font-size: 10px;
+}
