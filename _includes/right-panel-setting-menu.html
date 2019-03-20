@@ -8,54 +8,61 @@
             <i class="fa fa-user icon-myform"></i> 
           </span>
       </a></li>
-      <li><a href="#control-sidebar-builtin-tools-tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-wrench" data-toggle="tooltip" data-placement="bottom" data-original-title=" Tenant Settings"></i></a></li>
+      <li><a href="#control-sidebar-tenantsetting-tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-wrench" data-toggle="tooltip" data-placement="bottom" data-original-title=" Tenant Settings"></i></a></li>
       <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gear" data-toggle="tooltip" data-placement="bottom" data-original-title="My Settings"></i></a></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
      <!-- Home tab content -->
-     <div class="tab-pane right-menu-tab active" id="control-sidebar-builtinforms-tab">
-        <section class="sidebar right-menu">
-          <ul class="sidebar-menu" admin-lte-tree>
-            <li class="active treeview menu-open">
-              <a  href="#">
-                <i class="fa fa-code-fork"></i> 
-                Segment Settings
+    <div class="tab-pane right-menu-tab active" id="control-sidebar-builtinforms-tab">
+      <section class="sidebar right-menu">
+        <ul class="sidebar-menu tree" admin-lte-tree>
+          <li class="treeview">
+            <a  href="#">
+              <span class="fa-stack new-account-icon">
+                <i class="fa fa-envelope-o"></i>
+                <i class="fa fa-users icon-plus"></i> 
+              </span>
+              <span>Mass Mailing</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a  href="/pages/mailing-list.html">
+                  <i class="fa fa-circle-o"></i> 
+                  Mailing Lists
+                </a>
+              </li>
+              <li>
+                <a  href="/pages/criteria.html">
+                  <i class="fa fa-circle-o"></i> 
+                  Criteria
+                </a>
+              </li>
+              <li>
+                <a  href="/pages/mailing.html">
+                  <i class="fa fa-circle-o"></i> 
+                  Mailings
+                </a>
+              </li>
+              <li>
+                <a  href="/pages/campaigns.html">
+                  <i class="fa fa-circle-o"></i> 
+                  Campaigns
+                </a>
+              </li>
+            </ul>	
+          </li>
+          <li class="treeview">
+              <a href="#">
+                <i class="fa fa-gear"></i>  <span>Tenant Settings</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
-              <ul class="treeview-menu" style="display: block;">
-                <li>
-                  <a  href="/pages/segment-sales.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Sales
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/segment-hr.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Human Resources
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/segment-customer-service.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Customer Service
-                  </a>
-                </li>
-              </ul>	
-            </li>
-  
-            <li class="active treeview menu-open">
-              <a  href="#">
-                <i class="fa fa-gear"></i> 
-                Tenant Setting
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu" style="display: block;">
+              <ul class="treeview-menu">
                 <li>
                   <a  href="/pages/admin-tools-agents.html">
                     <i class="fa fa-circle-o"></i> 
@@ -104,247 +111,113 @@
                     Websites
                   </a>
                 </li>
-              </ul>	
-            </li>
-          </ul> 
-        </section>
-       
-        <!-- /.control-sidebar-menu -->
+              </ul>
+          </li>
+        </ul>  
+    </section>  
     </div>
 
     <div class="tab-pane right-menu-tab" id="control-sidebar-myforms-tab">
-        <section class="sidebar right-menu">
-          <ul class="sidebar-menu" admin-lte-tree>
-            <li class="treeview menu-open">
-              <a  href="#">
-                <i class="fa fa-code-fork"></i> 
-                Segment Settings
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu" style="display: block;">
-                <li>
-                  <a  href="/pages/segment-sales.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Sales
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/segment-hr.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Human Resources
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/segment-customer-service.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Customer Service
-                  </a>
-                </li>
-              </ul>	
-            </li>
-  
-            <li class="treeview menu-open">
-              <a  href="#">
-                <i class="fa fa-gear"></i> 
-                Tenant Setting
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu" style="display: block;">
-                <li>
-                  <a  href="/pages/admin-tools-agents.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Agents
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/departments.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Departments
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/lists.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Lists
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/openid-settings.html">
-                    <i class="fa fa-circle-o"></i> 
-                    OpenID Settings
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/service-levels.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Service Levels
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/admin-tools-skills.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Skills
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/user-types.html">
-                    <i class="fa fa-circle-o"></i> 
-                    User Types
-                  </a>
-                </li>
-                <li>
-                  <a  href="/pages/admin-tools-website.html">
-                    <i class="fa fa-circle-o"></i> 
-                    Websites
-                  </a>
-                </li>
-              </ul>	
-            </li>
-          </ul> 
-        </section>
        
-        <!-- /.control-sidebar-menu -->
     </div>
     <!-- /.tab-pane -->
-    <div class="tab-pane right-menu-tab" id="control-sidebar-builtin-tools-tab">
-      <section class="sidebar right-menu">
-        <ul class="sidebar-menu" admin-lte-tree>
-          <li class="active treeview menu-open">
-            <ul class="treeview-menu" style="display: block;">
-              <li class="treeview menu-open">
+    <div class="tab-pane right-menu-tab" id="control-sidebar-tenantsetting-tab">
+        <section class="sidebar right-menu">
+            <ul class="sidebar-menu tree" admin-lte-tree>
+              <li class="treeview">
                 <a  href="#">
-                  <span class="fa-stack new-account-icon">
-                    <i class="fa fa-envelope-o"></i>
-                    <i class="fa fa-users icon-plus"></i> 
-                  </span>
-                  <span>Mass Mailing</span>
+                  <i class="fa fa-code-fork"></i> 
+                  Segment Settings
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
                 </a>
-                <ul class="treeview-menu" style="display: block;">
+                <ul class="treeview-menu">
                   <li>
-                    <a  href="/pages/mailing-list.html">
+                    <a  href="/pages/segment-sales.html">
                       <i class="fa fa-circle-o"></i> 
-                      Mailing Lists
+                      Sales
                     </a>
                   </li>
                   <li>
-                    <a  href="/pages/criteria.html">
+                    <a  href="/pages/segment-hr.html">
                       <i class="fa fa-circle-o"></i> 
-                      Criteria
+                      Human Resources
                     </a>
                   </li>
                   <li>
-                    <a  href="/pages/mailing.html">
+                    <a  href="/pages/segment-customer-service.html">
                       <i class="fa fa-circle-o"></i> 
-                      Mailings
-                    </a>
-                  </li>
-                  <li>
-                    <a  href="/pages/campaigns.html">
-                      <i class="fa fa-circle-o"></i> 
-                      Campaigns
-                    </a>
-                  </li>
-                </ul>	
-              </li>              
-              <li class="treeview menu-open">
-                <a  href="#">
-                  <i class="fa fa-wrench"></i> 
-                  Other Tools
-                  <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </span>
-                </a>
-                <ul class="treeview-menu" style="display: block;">
-                  <li>
-                    <a  href="/pages/alerts.html">
-                      <i class="fa fa-circle-o"></i> 
-                      Alerts
-                    </a>
-                  </li>
-                  <li>
-                    <a  href="/pages/admin-forms.html">
-                      <i class="fa fa-circle-o"></i> 
-                      Forms
-                    </a>
-                  </li>
-                  <li>
-                    <a  href="/pages/smtp-monitor.html">
-                      <i class="fa fa-circle-o"></i> 
-                      SMTP Out Monitor
+                      Customer Service
                     </a>
                   </li>
                 </ul>	
               </li>
-            </ul>	
-          </li> 
-        </ul> 
-      </section>
+              <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-gear"></i>  <span>Tenant Settings</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li>
+                      <a  href="/pages/admin-tools-agents.html">
+                        <i class="fa fa-circle-o"></i> 
+                        Agents
+                      </a>
+                    </li>
+                    <li>
+                      <a  href="/pages/departments.html">
+                        <i class="fa fa-circle-o"></i> 
+                        Departments
+                      </a>
+                    </li>
+                    <li>
+                      <a  href="/pages/lists.html">
+                        <i class="fa fa-circle-o"></i> 
+                        Lists
+                      </a>
+                    </li>
+                    <li>
+                      <a  href="/pages/openid-settings.html">
+                        <i class="fa fa-circle-o"></i> 
+                        OpenID Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a  href="/pages/service-levels.html">
+                        <i class="fa fa-circle-o"></i> 
+                        Service Levels
+                      </a>
+                    </li>
+                    <li>
+                      <a  href="/pages/admin-tools-skills.html">
+                        <i class="fa fa-circle-o"></i> 
+                        Skills
+                      </a>
+                    </li>
+                    <li>
+                      <a  href="/pages/user-types.html">
+                        <i class="fa fa-circle-o"></i> 
+                        User Types
+                      </a>
+                    </li>
+                    <li>
+                      <a  href="/pages/admin-tools-website.html">
+                        <i class="fa fa-circle-o"></i> 
+                        Websites
+                      </a>
+                    </li>
+                  </ul>
+              </li>
+            </ul>  
+        </section>   
     </div>
      
     <!-- Settings tab content -->
     <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-            <h3 class="control-sidebar-heading">General Settings</h3>
-            <div class="form-group">
-                <label class="control-sidebar-subheading">
-                    Report panel usage
-                    <input type="checkbox" class="pull-right" checked>
-                </label>
-                <p>
-                    Some information about this general settings option
-                </p>
-            </div>
-            <!-- /.form-group -->
-            <div class="form-group">
-                <label class="control-sidebar-subheading">
-                    Allow mail redirect
-                    <input type="checkbox" class="pull-right" checked>
-                </label>
-                <p>
-                    Other sets of options are available
-                </p>
-            </div>
-            <!-- /.form-group -->
-            <div class="form-group">
-                <label class="control-sidebar-subheading">
-                    Expose author name in posts
-                    <input type="checkbox" class="pull-right" checked>
-                </label>
-                <p>
-                    Allow the user to show his name in blog posts
-                </p>
-            </div>
-            <!-- /.form-group -->
-            <h3 class="control-sidebar-heading">Chat Settings</h3>
-            <div class="form-group">
-                <label class="control-sidebar-subheading">
-                    Show me as online
-                    <input type="checkbox" class="pull-right" checked>
-                </label>
-            </div>
-            <!-- /.form-group -->
-            <div class="form-group">
-                <label class="control-sidebar-subheading">
-                    Turn off notifications
-                    <input type="checkbox" class="pull-right">
-                </label>
-            </div>
-            <!-- /.form-group -->
-            <div class="form-group">
-                <label class="control-sidebar-subheading">
-                    Delete chat history
-                    <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                </label>
-            </div>
-            <!-- /.form-group -->
-        </form>
+       
     </div>
     <!-- /.tab-pane -->
   </div>
