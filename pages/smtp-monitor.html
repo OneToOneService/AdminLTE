@@ -1,0 +1,257 @@
+---
+title: SMTP Out Monitor
+---
+<!DOCTYPE html>
+<html ng-app="iService">
+<head>
+    {% include common-head.html %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        {% include common-header.html %}
+        {% include common-menu.html %}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+			<section class="content-header">
+					<h1>
+						{{ page.title }} <i class="fa fa-question-circle text-info help-icon pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+					</h1>
+			</section>
+  				<!-- Main content -->
+      <section class="content"  ng-controller="myCtrl">
+				<div class="row" ng-show="showAlert">
+					<div class="col-md-12">
+						<div class="box box-danger">
+							<div class="box-header with-border">
+								<i class="fa fa-warning"></i>
+		
+								<h3 class="box-title">Alerts</h3>
+							</div>
+							<div class="box-body">
+								<div class="row">
+									<div class="col-md-12">
+										<p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+									</div>
+									<div class="col-md-12">
+										<button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+										<button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+									</div>
+								</div>
+							</div>	
+						</div>	
+					</div>	
+				</div>
+        <div class="row p-l-0">
+          <div class="col-md-12">
+						<div class="row">
+							<div class="col-md-12">
+								
+								<div class="box box-info">
+									<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
+										<i class="fa fa-clock-o"></i> 
+										<h3 class="box-title">Pendings</h3>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
+									</div>
+									<!-- /.box-header -->
+									<!-- form start -->
+									<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
+										<h4 class="smtp-out-message text-orange"><i class="fa fa-hourglass-1"></i>  SMTP Out processing last done: 7 seconds ago.</h4>
+									  <div class="row"> 
+											<div class="col-md-12">
+												<div class="form-group">
+													<button class="btn btn-primary" type="button">
+														<i class="fa fa-clock-o"></i>
+														Delay 1 Hour
+													</button>
+													<button class="btn btn-primary" type="button">
+														<i class="fa fa-clock-o"></i>
+														Delay 1 Day
+													</button>
+													<button class="btn btn-danger" type="button"  ng-click="showAlert = true">
+														<i class="fa fa-trash-o"></i>
+														Remove Permanently 
+													</button>
+												</div> 	 
+											</div>	
+										</div>	
+										<table class="table table-striped table-hover" datatable dt-options="dtSmtpOptions" dt-column-defs="dtSmtpColumnDefs">
+										<thead>
+											<tr>
+												<!--<th class="no-sort"  name="name" width="30"></th>-->
+												<th class="no-sort">
+													<input type="checkbox" checkbox>
+												</th>	
+												<th class="text-capitalize">
+													First Attempted Mailing
+												</th>
+												<th class="text-capitalize">
+													Next Attempt
+												</th>
+												<th class="text-capitalize">
+													Mailbox ID
+												</th>
+												<th class="text-capitalize">
+													Message ID
+												</th>
+												<th class="text-capitalize">
+													Interaction ID
+												</th>
+												<th class="text-capitalize">
+													To Address 
+												</th>
+												<th class="text-capitalize">
+													Subject
+												</th>
+												<th class="text-capitalize">
+													#Errors 
+												</th>
+												<th class="no-sort">&nbsp;</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr id="row1" ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+												<td>
+														<input type="checkbox" checkbox>
+												</td>
+												<td>
+													3/14/2019 9:38:28 AM
+												</td>
+												<td>
+													3/14/2019 9:39:28 AM
+												</td>
+												<td>
+													11111
+												</td>
+												<td>
+													<a href="" class="text-primary">1030</a>
+												</td>
+												<td>
+													111122
+												</td>
+												<td>
+													<a href="" class="text-primary">Customer1@1to1service.com</a>
+												</td>
+												<td>
+													[ref#:4546-4545]This is not sending
+												</td>
+												<td>
+													<a href="" class="text-primary">1</a>
+												</td>
+												<td>
+													<a href="" class="text-primary">Modify</a>
+												</td>
+											</tr>
+										
+										</tbody>
+										</table>
+									</div>
+								</div> 
+							</div>                         
+						</div>
+					<!-- /.col -->
+						
+						<div class="row" ng-show="showAlert">
+							<div class="col-md-12">
+								<div class="box box-danger">
+									<div class="box-header with-border">
+										<i class="fa fa-warning"></i>
+				
+										<h3 class="box-title">Alerts</h3>
+									</div>
+									<div class="box-body">
+										<div class="row">
+											<div class="col-md-12">
+												<p>
+												All Agents, Departments and Topics That have this skill will lose this skill. 
+												</p>	
+												<p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+											</div>
+											<div class="col-md-12">
+												<button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+												<button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+											</div>
+										</div>
+									</div>	
+								</div>	
+							</div>	
+						</div>	
+          </div> 
+        </div>
+     	 </section>
+		</div>
+        <!-- /.content-wrapper -->
+        {% include common-footer.html %}
+        <!-- Control Sidebar -->
+		{% include right-panel-setting-menu.html %}
+		<!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    {% include common-javascript.html %}
+	   <!-- DataTables -->
+	<script type="text/ng-template" id="templates/deleteConfirmation.html">
+		<div class="deleteConfirmation">
+			<div ng-hide="isDeleting" >
+				<button type="button" class="icon-button button-delete" ng-click="startDelete()"><i class="fa fa-times-circle"></i></button>
+			</div>
+			<div ng-show="isDeleting" class="delete-row-confirm">
+				<button type="button" class="btn btn-danger btn-xs"  ng-click="confirm()">Confirm</button>
+				<button type="button" class="btn btn-link btn-xs" ng-click="cancel()">Cancel</button>
+			</div>
+		</div>
+	</script>
+ 
+<script>
+  var count = 1;
+  var i = 1;
+  angular.module('iService').directive('confirmDelete', function() {
+    return {
+      replace: true,
+      templateUrl: 'templates/deleteConfirmation.html',
+      scope: {
+        onConfirm: '&'
+      },
+      controller: function($scope) {
+        $scope.isDeleting = false;
+        $scope.startDelete = function() {
+          return $scope.isDeleting = true;
+        };
+        $scope.cancel = function() {
+          return $scope.isDeleting = false;
+        };
+        return $scope.confirm = function() {
+          return $scope.onConfirm(); // End of directive
+        };
+      }
+    };
+  });
+
+  angular.module('iService').controller('myCtrl', function ($scope, $log, $compile,$window , DTOptionsBuilder, DTColumnDefBuilder,)
+  {
+			$scope.dtSmtpOptions = DTOptionsBuilder
+					.newOptions().withOption('language', {
+						search: 'Filter Message'
+					}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+				$scope.dtSmtpColumnDefs = [
+					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px"),
+			 ];
+  });
+
+</script>
+</body>
+</html>
