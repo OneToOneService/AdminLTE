@@ -113,11 +113,6 @@ p.login-box-msg {
   z-index: 9999;
   padding: 3px 12px;
 }
-.sidebar-menu > li > a > span {
-  padding-left: 2px;
-  width: 90%;
-  float: right;
-}
 .sidebar-menu,
 .main-sidebar .user-panel,
 .sidebar-menu > li.header {
@@ -903,8 +898,19 @@ ul.timeline span.stack-icon .aqua {
   margin-bottom: -1px;
   border-bottom: 1px solid transparent !important;
 }
+.detail-g-borderright {
+  margin-right: -1px;
+  border-right: 1px solid transparent !important;
+}
+.detail-g-borderleft {
+  margin-left: -1px;
+  border-left: 1px solid transparent !important;
+}
 .detail-g-bordertop {
   border-top: 1px solid transparent !important;
+}
+.detail-g-part {
+  width: 50% !important;
 }
 .contact-detail .box-header > .fa,
 .contact-detail .box-header > .glyphicon,
@@ -2586,4 +2592,36 @@ label {
   right: -2px;
   top: 7px;
   font-size: 10px;
+}
+.account-update-box {
+  height: 325px;
+}
+.account-update-heading {
+  padding: 0px 0px 15px 0px;
+}
+ul.update-list {
+  margin: 10px 0px 15px 0px;
+}
+ul.update-list li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+ul.update-list li::before {
+  content: "\f096";
+  font-family: FontAwesome;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  margin-right: 10px;
+}
+.switchery-small {
+  margin-right: 5px;
+}
+.help-link {
+  font-size: 12px;
+  cursor: pointer;
+}
+.smtp-out-message {
+  margin: 5px 0px 15px 0px;
+  font-size: 16px;
 }

@@ -1,5 +1,5 @@
 ---
-title:  Segment - Customer Service
+title:  Customer Info - Account
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -26,17 +26,17 @@ title:  Segment - Customer Service
       <section class="content" ng-controller="myCtrl">
           <div class="row">
               <div class="col-md-12 form-group">
-                <button class="btn btn-primary pull-right" type="button" ng-click="showNewSegment(1)">
-                    New Segment
+                <button class="btn btn-primary pull-right" type="button" ng-click="showNewAccount(1)">
+                    New Account
                 </button>
               </div>	
-          </div>	
-          <div class="row" ng-show="newformsegment">
+          </div>
+          <div class="row" ng-show="newformaccount">
               <div class="col-md-12">
                 <div class="box box-primary">
                   <div class="box-header with-border">
                     <i class="fa fa-users"></i>
-                    <h3 class="box-title text-right">New Segment</h3>
+                    <h3 class="box-title text-right">New Account</h3>
                   </div>
                   <div class="box-body">
                     <section class="search-parameters">
@@ -44,7 +44,7 @@ title:  Segment - Customer Service
                         <div class="form-horizontal">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="col-sm-4 control-label text-left">Segment Name:</label>
+                              <label class="col-sm-4 control-label text-left">Account Name</label>
                               <div class="col-sm-8">
                                 <input type="text" class="form-control">
                               </div>
@@ -66,2274 +66,305 @@ title:  Segment - Customer Service
           <div class="nav-tabs-custom color-tab" ng-hide="newformsegment">
             <ul class="nav nav-tabs">
               <li class="active">
-                <a href="#tab_segment_details" data-toggle="tab">
+                <a href="#tab_account_summary" data-toggle="tab">
                   <i class="fa fa-ellipsis-h"></i>
-                  <span>Details</span>
+                  <span>Account Summary</span>
                 </a>
               </li>
               <li>
-                <a href="#tab_contact_properties" data-toggle="tab">
+                <a href="#tab_account_detail" data-toggle="tab">
                   <i class="fa fa-list-alt"></i>
-                  <span>Custom Properties</span>
-                </a>
-              </li>
-              <li>
-                <a href="#tab_mailboxes" data-toggle="tab">
-                  <i class="fa fa-inbox"></i>
-                  <span>Mailboxes</span>
-                </a>
-              </li>
-              <li>
-                <a href="#tab_auto_response" data-toggle="tab">
-                  <i class="fa fa-reply "></i>
-                  <span>Auto Responses</span>
-                </a>
-              </li>
-              <li>
-                <a href="#tab_stock_response" data-toggle="tab">
-                  <i class="fa fa-reply "></i>
-                  <span>Stock Responses</span>
-                </a>
-              </li>
-              <li>
-                <a href="#tab_topics" data-toggle="tab">
-                  <i class="fa fa-bars"></i>
-                  <span>Topics</span>
-                </a>
-              </li>
-              <li>
-                <a href="#tab_filters" data-toggle="tab">
-                  <i class="fa fa-filter"></i>
-                  <span>Filters</span>
+                  <span>Account Details</span>
                 </a>
               </li>
             </ul>
             <div class="tab-content box-bg-color">
-              <div class="tab-pane active" id="tab_segment_details">
-                <div class="box box-info">
-                  <div class="box-body">
-                    <div class="row form-horizontal">
+              <div class="tab-pane active" id="tab_account_summary">
+                  <div class="row form-horizontal">
                       <div class="col-md-6">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Name</label>
-                              <div class="col-sm-12">
-                                <input type="text" class="form-control" value="Sales">
-                              </div>
-                            </div>
-                          </div> 
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-                              <div class="col-sm-12">
-                                <textarea class="form-control" row="3"></textarea>
-                              </div>
-                            </div>
-                          </div> 
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Parent</label>
-                              <div class="col-sm-12">
-                                <select class="form-control">
-                                  <option>Salesforce</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div> 
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> Standard Segment
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                  <label>
-                                    <input type="checkbox"> Queue all unassigned interactions for same contact with Get Next
-                                  </label>
-                                </div>
-                            </div> 
-                          </div>
-                          <div class="col-md-12"  ng-controller="MailboxCtrl as ctrl">
-                            <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Mailbox</label>
-                              <div class="col-sm-12" ng-controller="Mailbox as ctrl">
-                                <ui-select ng-model="ctrl.mailbox.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox">
-                                  <ui-select-match placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name"></ui-select-match>
-                                  <ui-select-choices repeat="mailbox in ctrl.mailboxname | filter: $select.search">
-                                  <span ng-bind-html="mailbox.name | highlight: $select.search"></span>
-                                  <small ng-bind-html="mailbox.code | highlight: $select.search"></small>
-                                  </ui-select-choices>
-                                </ui-select>
-                              </div>
-                            </div>
-                          </div> 
-                        </div>
-                      </div> 
-                      <div class="col-md-6">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Topic Auto Response</label>
-                                <div class="col-sm-12">
-                                  <select class="form-control">
-                                    <option>-None-</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                  </select>
-                                </div>
-                              </div>
-                              </div> 
-                              <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Account Creation Message</label>
-                                <div class="col-sm-12">
-                                  <select class="form-control">
-                                    <option>-None-</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                  </select>
-                                </div>
-                              </div>
-                              </div> 
-                              <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default mailbox Notification Message</label>
-                                <div class="col-sm-12">
-                                  <select class="form-control">
-                                    <option>-None-</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                  </select>
-                                </div>
-                              </div>
-                              </div> 
-                              <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Find Answer Default Notification Message</label>
-                                <div class="col-sm-12">
-                                  <select class="form-control">
-                                    <option>-None-</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                  </select>
-                                </div>
-                              </div>
-                              </div> 
-                              <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Service Lavel</label>
-                                <div class="col-sm-12">
-                                  <select class="form-control">
-                                    <option>-None-</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                  </select>
-                                </div>
-                              </div>
-                              </div> 
-                          </div> 
-                        </div> 
-                      <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                      </div>
-                    </div>  
-                  </div>
-                </div>  
-              </div> 
-              <div class="tab-pane" id="tab_contact_properties">
-              
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box box-info">
-                      <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-                              <thead>
-                                <tr>
-                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                  <th class="text-capitalize">
-                                    Id
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Name
-                                  </th>
-                                  <th class="text-capitalize">
-                                      Type
-                                  </th>
-                                  <th class="text-capitalize">
-                                      Value Type
-                                  </th>
-                                  <th class="text-capitalize">
-                                      Group
-                                  </th>
-                                  <th class="text-capitalize">
-                                      Required
-                                  </th>
-                                  <th class="text-capitalize">
-                                        Shared
-                                  </th> 
-                                  <th class="text-capitalize">
-                                      Multi Line
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Multiple Values
-                                  </th>  
-                                  <th class="text-capitalize">
-                                      Customer Viewable 
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr id="row1" ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
-                                  <td>
-                                    111
-                                  </td>
-                                  <td>
-                                    Example one
-                                  </td>
-                                  <td>
-                                    --
-                                  </td>
-                                  <td>
-                                    --
-                                  </td> 
-                                  <td>
-                                    Owner List
-                                  </td> 
-                                  <td>
-                                    <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" />
-                                  </td> 
-                                  <td>
-                                    <input type="checkbox" ng-model="toggle.switch4" ui-switch="{ size: 'small' }" />
-                                  </td> 
-                                  <td>
-                                    <input type="checkbox" ng-model="toggle.switch5" ui-switch="{ size: 'small' }" />
-                                  </td> 
-                                  <td>
-                                    <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" />
-                                  </td> 
-                                  <td>
-                                     <input type="checkbox" ng-model="toggle.switch7" ui-switch="{ size: 'small' }" />
-                                  </td>  
-                                </tr>
-                              </tbody>
-                          </table>
-                      </div> 
-                    </div>   
-                  </div>  
-                </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
-                        New Contact Property
-                      </button>
-                      <button class="btn btn-primary" type="button" ng-click="showAlert = true">
-                        Delete Contact Property
-                      </button>
-                    </div>	
-                </div>
-                <div class="row" ng-show="showAlert">
-                  <div class="col-md-12">
-                    <div class="box box-danger">
-                      <div class="box-header with-border">
-                        <i class="fa fa-warning"></i>
-            
-                        <h3 class="box-title">Alerts</h3>
-                      </div>
-                      <div class="box-body">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <b> Deleting This will affect the following</b>
-                            <p>
-                                Number of contact property values of this property : <a href="">0</a>
-                            </p>
-                            <p>	
-                            All Contact Properties, Interaction properties and Service Lavel That have this Interaction Property will lose this values.
-                            </p> 
-                             <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
-                          </div>
-                          <div class="col-md-12">
-                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-                            <button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
-                          </div>
-                        </div>
-                      </div>	
-                    </div>	
-                  </div>	
-                </div>	
-                <div class="row" ng-show="formstep1">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <i class="fa fa-globe"></i>
-                        <h3 class="box-title text-right">New Contact Property</h3>
-                      </div>
-                      <div class="box-body">
-                        <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Propery Name:</label>
-                                  <div class="col-sm-8">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelForm(1)">Cancel</button>
-                                </div>	
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                    </div>
-                  </div>	
-                </div>
-                <div class="row" ng-show="formstep2">
-                    <div class="col-md-12">
-                      <div class="box box-primary">
-                        <div class="box-body">
+                        <div class="box box-primary">
+                          <div class="box-body ">
                             <div class="row">
-                              <div class="form-horizontal">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Property Name</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Property Type</label>
-                                    <div class="col-md-12">
-                                      <select class="form-control">
-                                          <optgroup label="mailbox">
-                                            <option>Case</option>
-                                            <option>Question</option>
-                                            <option>Answer</option>
-                                            <option>Find Answer</option>
-                                          </optgroup>
-                                          <optgroup label="Contact">
-                                            <option>Contact</option>
-                                          </optgroup>
-                                      </select>
-                                    </div>
-                                  </div>
-                                 
-                                   <div class="form-group">
-                                    <div class="col-md-12">
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox> Shared Property
-                                        </label> 
-                                      </div> 
-                                     
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox>Allow Multiple Values
-                                        </label> 
-                                        <div class="checkbox nested">
-                                              <label>
-                                                <input type="checkbox" checkbox checked="checked">Has Descriptions
-                                              </label> 
-                                              <div class="form-group">
-                                                <label class="col-md-12 control-label text-left">Property Name</label>
-                                                <div class="col-md-12">
-                                                  <select class="form-control">
-                                                    <option value="date">Date</option>
-                                                    <option value="int">Integer</option>
-                                                    <option value="number">Number</option>
-                                                    <option selected="selected" value="text">Text</option>
-                                                    <option value="detail3">Address Type</option>
-                                                    <option value="detail5">Article Use Code</option>
-                                                    <option value="detail2">Bool</option>
-                                                    <option value="detail1">Customer Type</option>
-                                                    <option value="detail7">Equipment Type List</option>
-                                                    <option value="detail13">increase decrease list</option>
-                                                    <option value="detail6">New or Change</option>
-                                                    <option value="detail9">Owner List</option>
-                                                    <option value="detail4">Phone Number Type</option>
-                                                    <option value="detail8">Priority List</option>
-                                                    <option value="detail12">Reason List</option>
-                                                    <option value="detail11">Team</option>
-                                                    <option value="detail10">Won or Lost</option>
-                                                  </select>  
-                                                </div>
-                                              </div>
-                                        </div>  
-                                      </div> 
-                                     
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Tenant Default Value:</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div> 
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Description</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Value Type</label>
-                                    <div class="col-md-12">
-                                      <select class="form-control">
-                                          <optgroup label="Value Types">
-                                            <option>Boolean</option>
-                                            <option>Date</option>
-                                            <option>Integer</option>
-                                            <option>Number</option>
-                                            <option>Text</option>
-                                          </optgroup>
-                                          <optgroup label="Lists">
-                                            <option>Customer Types</option>
-                                            <option>Priorities</option>
-                                          </optgroup>
-                                          <optgroup label="Based On Other Properties">
-                                            <option>Important Dates</option>
-                                          </optgroup>
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Group Name</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                  <div class="checkbox">
-                                      <label>
-                                       <input type="checkbox" checkbox>Multi-Line Values
-                                     </label> 
-                                  </div> 
-                                  <div class="checkbox">
-                                      <label>
-                                       <input type="checkbox" checkbox>Contact Viewable
-                                     </label> 
-                                     <div class="checkbox nested">
-                                         <label>
-                                           <input type="checkbox" checkbox checked="checked">Contact Editable
-                                         </label> 
-                                    </div>
-                                   </div> 
-                                   
-                                  <div class="checkbox">
-                                    <label>
-                                     <input type="checkbox" checkbox>mailbox Setting
-                                   </label> 
-                                  </div> 
-                                
-                                </div>
-                                   
-                                <div class="col-md-12 col-sm-12">
-                                  <button class="btn btn-primary pull-left" type="button">Save</button>
-                                </div>
-                                <div class="col-md-12">
-                                  <hr>
-                                </div> 
-                                 <div class="row">
-                                   <div class="col-md-12">
-                                    <h4 class="col-md-12">
-                                        This property is used in the following locations
-                                    </h4>
-                                  </div>  
-                                  <div class="col-md-12">
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Skills</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                        <span class="skill-item">None</span>
-                                      </div>	
-                                    </div>
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Topics</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                          <span class="skill-item">None</span>
-                                      </div>	
-                                    </div>
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Filters</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                          <span class="skill-item">None</span>
-                                      </div>	
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="nested-panel-heading skill-heading">
-                                          <h3 class="nested-title">Alerts</h3>
-                                        </div>
-                                        <div class="skill-list">
-                                            <span class="skill-item">None</span>
-                                        </div>	
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="nested-panel-heading skill-heading">
-                                          <h3 class="nested-title">Service Levels</h3>
-                                        </div>
-                                        <div class="skill-list">
-                                            <span class="skill-item">None</span>
-                                        </div>	
-                                    </div>
-                                  </div>  
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>	
-                </div>
-              </div> 
-              <div class="tab-pane" id="tab_interaction_properties">
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                      <button class="btn btn-primary" type="button" ng-click="showNewFormStepInteraction(1)">
-                         New Interaction Property
-                      </button>
-                      <button class="btn btn-primary" type="button" ng-click="showAlertInteraction = true">
-                        Delete Interaction Property
-                      </button>
-                    </div>	
-                </div>
-                <div class="row" ng-show="showAlertInteraction">
-                  <div class="col-md-12">
-                    <div class="box box-danger">
-                      <div class="box-header with-border">
-                        <i class="fa fa-warning"></i>
-            
-                        <h3 class="box-title">Alerts</h3>
-                      </div>
-                      <div class="box-body">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <p>	
-                              All Skills, Topics, Filters, Alerts and Service Lavel That have this Interaction Property will lose this values.
-                            </p> 
-                            <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
-                          </div>
-                          <div class="col-md-12">
-                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-                            <button type="button" class="btn btn-link" ng-click="showAlertInteraction = false">Cancel</button>
-                          </div>
-                        </div>
-                      </div>	
-                    </div>	
-                  </div>	
-                </div>	
-                <div class="row" ng-show="formstepInteraction1">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <i class="fa fa-globe"></i>
-                        <h3 class="box-title text-right">New Contact Property</h3>
-                      </div>
-                      <div class="box-body">
-                        <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Propery Name:</label>
-                                  <div class="col-sm-8">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelFormInteraction(1)">Cancel</button>
-                                </div>	
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                    </div>
-                  </div>	
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box box-info">
-                      <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-                              <thead>
-                                <tr>
-                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                  <th class="text-capitalize">
-                                    Id
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Interaction Property Name
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Type
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Shared
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr ng-click="toggleFormStepInteraction('rowinteraction1')" ng-class="{true: 'row-active', false: ''}[rowinteraction1]">
-                                  <td>
-                                    111
-                                  </td>
-                                  <td>
-                                  	Carrier Adjument Amount (AR)
-                                  </td>
-                                   <td>
-                                  	Case
-                                  </td>
-                                  <td>
-                                  	False
-                                  </td>
-                                </tr>
-                                <tr ng-click="toggleFormStepInteraction('rowinteraction2')" ng-class="{true: 'row-active', false: ''}[rowinteraction2]">
-                                  <td>
-                                    112
-                                  </td>
-                                  <td>
-                                    Follow Up Date
-                                  </td>
-                                  <td>
-                                    Answer
-                                  </td>
-                                  <td>
-                                    False
-                                  </td>
-                                </tr>
-                              </tbody>
-                          </table>
-                      </div> 
-                    </div>   
-                  </div>  
-                </div>
-                <div class="row" ng-show="formstepInteraction2">
-                    <div class="col-md-12">
-                      <div class="box box-primary">
-                        <div class="box-body">
-                            <div class="row">
-                              <div class="form-horizontal">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Property Name</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control" value="Carrier Adjument Amount (AR)">
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Property Type</label>
-                                    <div class="col-md-12">
-                                      <select class="form-control">
-                                          <option value="Case">Case</option>
-                                          <option value="Question">Question</option>
-                                          <option selected="selected" value="Answer">Answer</option>
-                                          <option value="FindAnswer">FindAnswer</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Value Type</label>
-                                    <div class="col-md-12">
-                                        <select class="form-control">
-                                        <option value="date">Date</option>
-                                        <option value="int">Integer</option>
-                                        <option value="number">Number</option>
-                                        <option selected="selected" value="text">Text</option>
-                                        <option value="detail3">Address Type</option>
-                                        <option value="detail5">Article Use Code</option>
-                                        <option value="detail2">Bool</option>
-                                        <option value="detail1">Customer Type</option>
-                                        <option value="detail7">Equipment Type List</option>
-                                        <option value="detail13">increase decrease list</option>
-                                        <option value="detail6">New or Change</option>
-                                        <option value="detail9">Owner List</option>
-                                        <option value="detail4">Phone Number Type</option>
-                                        <option value="detail8">Priority List</option>
-                                        <option value="detail12">Reason List</option>
-                                        <option value="detail11">Team</option>
-                                        <option value="detail10">Won or Lost</option>
-                                        <option value="property22">Branch Office (Property)</option>
-                                        <option value="property23">CellTrak (Property)</option>
-                                        <option value="property47">Contact View Only Property (Property)</option>
-                                        <option value="property6">Customer Type (Property)</option>
-                                        <option value="property30">Equipment Provided (Property)</option>
-                                        <option value="property25">Horizon (Property)</option>
-                                        <option value="property28">Horizon Insight (Property)</option>
-                                        <option value="property29">MAS200 (Property)</option>
-                                        <option value="property48">Multi value No Descr (Property)</option>
-                                        <option value="property27">PayChex (Property)</option>
-                                        <option value="property24">PayNet (Property)</option>
-                                        <option value="property4">Phone (Property)</option>
-                                        <option value="property26">Ultimate Pro (Property)</option>
-                                        <option value="login">Login (Email)</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <div class="col-md-12">
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox> Required
-                                        </label> 
-                                      </div> 
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox> Shared Property
-                                        </label> 
-                                      </div> 
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox>Multi-Line Values
-                                        </label> 
-                                      </div> 
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox>Allow Multiple Values
-                                        </label> 
-                                        <div class="checkbox nested">
-                                              <label>
-                                                <input type="checkbox" checkbox checked="checked">Has Descriptions
-                                              </label> 
-                                              <div class="form-group">
-                                                <label class="col-md-12 control-label text-left">Property Name</label>
-                                                <div class="col-md-12">
-                                                  <select class="form-control">
-                                                    <option value="date">Date</option>
-                                                    <option value="int">Integer</option>
-                                                    <option value="number">Number</option>
-                                                    <option selected="selected" value="text">Text</option>
-                                                    <option value="detail3">Address Type</option>
-                                                    <option value="detail5">Article Use Code</option>
-                                                    <option value="detail2">Bool</option>
-                                                    <option value="detail1">Customer Type</option>
-                                                    <option value="detail7">Equipment Type List</option>
-                                                    <option value="detail13">increase decrease list</option>
-                                                    <option value="detail6">New or Change</option>
-                                                    <option value="detail9">Owner List</option>
-                                                    <option value="detail4">Phone Number Type</option>
-                                                    <option value="detail8">Priority List</option>
-                                                    <option value="detail12">Reason List</option>
-                                                    <option value="detail11">Team</option>
-                                                    <option value="detail10">Won or Lost</option>
-                                                  </select>  
-                                                </div>
-                                              </div>
-                                        </div>  
-                                      </div> 
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox>Customer Viewable
-                                        </label> 
-                                        <div class="checkbox nested">
-                                            <label>
-                                              <input type="checkbox" checkbox checked="checked">Customer Editable
-                                            </label> 
-                                        </div>
-                                      </div> 
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12">
-                                  <button class="btn btn-primary pull-left" type="button">Save</button>
-                                </div>
-                               
-                                <div class="col-md-12">
-                                  <hr>
-                                </div> 
-                               
-                                <div class="row">
-                                  <div class="col-md-12">
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Skills That Uses This Interaction Property</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
-                                      </div>	
-                                    </div>
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Topics That Uses This Interaction Property</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                        <span class="skill-item"><a href="">Sales Prospecting</a> <span class="fa fa-close text-red"></span></span>
-                                        <span class="skill-item"><a href="">Follow Ups</a> <span class="fa fa-close text-red"></span></span>
-                                      </div>	
-                                    </div>
-                                    <div class="col-md-4">
-                                      <div class="nested-panel-heading skill-heading">
-                                        <h3 class="nested-title">Filters With Actions That Uses This Interaction Property</h3>
-                                      </div>
-                                      <div class="skill-list">
-                                        <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
-                                      </div>	
-                                    </div>
-                                  </div>  
-                                </div>
-                                 <div class="row">
-                                    <div class="col-md-12">
-                                      <div class="col-md-4">
-                                        <div class="nested-panel-heading skill-heading">
-                                          <h3 class="nested-title">Alerts With Actions That Uses This Interaction Property</h3>
-                                        </div>
-                                        <div class="skill-list">
-                                          <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
-                                        </div>	
-                                      </div>
-                                      <div class="col-md-4">
-                                        <div class="nested-panel-heading skill-heading">
-                                          <h3 class="nested-title">Service Levels That Uses This Interaction Property</h3>
-                                        </div>
-                                        <div class="skill-list">
-                                          <span class="skill-item"><a href="">None</a> <span class="fa fa-close text-red"></span></span>
-                                        </div>	
-                                      </div>
-                                    </div>  
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>	
-                </div>
-              </div> 
-              <div class="tab-pane" id="tab_mailboxes">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box box-info">
-                      <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable dt-options="dtMailboxOptions" dt-column-defs="dtMailboxColumnDefs">
-                              <thead>
-                                <tr>
-                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                  <th class="text-capitalize">
-                                    Id
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Mailbox Name
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Display Name
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Reply to Address
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Default Topic
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Errors
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr ng-click="toggleFormStepMailbox('rowmailbox1')" ng-class="{true: 'row-active', false: ''}[rowmailbox1]">
-                                  <td>
-                                    111
-                                  </td>
-                                  <td>
-                                    Sales
-                                  </td>
-                                  <td>
-                                    Sales
-                                  </td>
-                                  <td>
-                                    sales@example.com
-                                  </td> 
-                                  <td>
-                                     Sales
-                                  </td> 
-                                  <td>
-                                    1
-                                  </td>  
-                                </tr>
-                              </tbody>
-                          </table>
-                      </div> 
-                    </div>   
-                  </div>  
-                </div> 
-                <div class="row">
-                  <div class="col-md-12 form-group">
-                    <button class="btn btn-primary" type="button" ng-click="showNewFormStepMailbox(1)">
-                      New Mailbox
-                    </button>
-                    <button class="btn btn-primary" type="button" ng-click="showAlertMailbox = true">
-                      Delete Mailbox
-                    </button>
-                  </div>	
-                </div>
-                <div class="row" ng-show="showAlertMailbox">
-                  <div class="col-md-12">
-                    <div class="box box-danger">
-                      <div class="box-header with-border">
-                        <i class="fa fa-warning"></i>
-                        <h3 class="box-title">Alerts</h3>
-                      </div>
-                      <div class="box-body">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
-                          </div>
-                          <div class="col-md-12">
-                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-                            <button type="button" class="btn btn-link" ng-click="showAlertMailbox = false">Cancel</button>
-                          </div>
-                        </div>
-                      </div>	
-                    </div>	
-                  </div>	
-                </div>	
-                <div class="row" ng-show="formstepMailbox1">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <i class="fa fa-inbox"></i>
-                        <h3 class="box-title text-right">New Mailbox</h3>
-                      </div>
-                      <div class="box-body">
-                        <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-12 control-label text-left">POP Server Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-12 control-label text-left">User Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-12 control-label text-left">SMTP Server Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-12 control-label text-left">Password</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-12 col-sm-12">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelFormMailbox(1)">Cancel</button>
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                    </div>
-                  </div>	
-                </div>
-                
-                <div class="row" ng-show="formstepMailbox2">
-                  <div class="col-md-12"> 
-                    	<div class="box box-primary">
-                          
-                          <div class="box-body">
-                             <section class="box-content box-bg-color">
-                                <div class="row form-horizontal">
-                                  <div class="col-md-6">
-                                    <div class="box box-primary">
-                                      <div class="box-header with-border">
-                                        <h3 class="box-title text-right">Incoming Mail Configuration</h3>
-                                      </div>
-                                      <div class="box-body ">
-                                        <div class="row">
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Mail Server Name</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control" value="">
-                                              </div>
-                                            </div>
-                                            <div class="form-group">
-                                              <div class="radio col-md-6">
-                                                <label>
-                                                  <input type="radio" name="optionsRadios"> Use IMAP
-                                                </label>
-                                              </div>
-                                              <div class="radio col-md-6" >
-                                                <label>
-                                                  <input type="radio" name="optionsRadios">Use POP
-                                                </label>
-                                              </div>
-                                            </div>  
-                                            <div class="form-group bg-group">
-                                              <label class="col-md-12 control-label text-left">Encryption (optional) </label>
-                                              <div class="col-md-12">
-                                                
-                                                <div class="checkbox group-bg group-input detail-g-borderbottom group-input-checkbox">
-                                                    <label class="col-md-12 control-label text-left mbottom-15">
-                                                        If your mail server requires encryption, check the box below and set your port to the appropriate value.
-                                                    </label>
-                                                     <label>
-                                                    <input type="checkbox">Use SSL
-                                                  </label>
-                                                </div>
-                                                <div class="form-group group-bg group-input detail-g-bordertop">
-                                                    <label class="col-md-12 control-label text-left mbottom-15">if your mail server requires encryption, check the box below and set your port to the appropriate value.
-                                                    </label>
-                                                    <div class="col-md-4"></div><div class="col-md-4"><b>POP</b></div><div class="col-md-4"><b>IMAP</b></div>
-                                                    <div class="col-md-4"><b>Without SSL</b></div><div class="col-md-4">110</div><div class="col-md-4">143</div>
-                                                    <div class="col-md-4"><b>With SSL</b></div><div class="col-md-4">995</div><div class="col-md-4">993</div> 
-                                                </div>
-                                              </div>
-                                            </div>
-                                           
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Port Number</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control" value="">
-                                              </div>
-                                            </div>
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Username</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control" value="">
-                                              </div>
-                                            </div>
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Password</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control" value="">
-                                              </div>
-                                            </div>
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Filter</label>
-                                              <div class="col-md-12">
-                                                <select class="form-control">
-                                                  <option>Test Filter</option>
-                                                </select>  
-                                              </div>
-                                            </div>
-                                            <div class="form-group" ng-controller="TopicCtrl as ctrl">
-                                              <label for="inputPassword3" class="col-md-12 control-label text-left">Topic</label>
-                                              <div class="col-md-12">
-                                                <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
-                                                  <ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
-                                                  <ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
-                                                      <span ng-bind-html="color.Topic | highlight: $select.search"></span>
-                                                  </ui-select-choices>
-                                                </ui-select>
-                                              </div>
-                                            </div>
-                                          </div>  
-                                        </div>  
-                                      </div>  
-                                    </div>    
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="box box-primary">
-                                      <div class="box-header with-border">                                      
-                                        <h3 class="box-title text-right">SMTP Configuration</h3>
-                                      </div>
-                                      <div class="box-body">
-                                        <div class="row">
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Display Name</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control" value="">
-                                              </div>
-                                            </div>
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Reply To</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control" value="">
-                                              </div>
-                                            </div>
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">SMTP Server Name</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control" value="">
-                                              </div>
-                                            </div>
-                                            <div class="form-group bg-group">
-                                                <label class="col-md-12 control-label text-left">SMTP Authentication Settings (optional) </label>
-                                                <div class="col-md-12">
-                                                  <div class="checkbox group-bg group-input detail-g-borderbottom group-input-checkbox">
-                                                    <label>
-                                                      <input type="checkbox">Authenticate to SMTP Server
-                                                    </label>
-                                                  </div>
-                                                  <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop"> 
-                                                    <label class="col-md-12 control-label text-left group-input-label">Port Number</label>
-                                                    <div class="col-md-12">
-                                                      <input type="text" class="form-control">
-                                                    </div>
-                                                  </div>
-                                                  <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
-                                                    <label class="col-md-12 control-label text-left  group-input-label">Username</label>
-                                                    <div class="col-md-12">														
-                                                      <input type="text" class="form-control group-input-item">
-                                                     </div>
-                                                  </div>
-                                                  <div class="form-group group-bg group-input detail-g-bordertop">
-                                                    <label class="col-md-12 control-label text-left  group-input-label">Password</label>
-                                                    <div class="col-md-12">														
-                                                      <input type="text" class="form-control group-input-item">
-                                                      </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                          </div>  
-                                        </div>  
-                                      </div>  
-                                    </div>  
-                                  </div>
-                                  <div class="col-md-12">
-                                    <div class="form-group checkbox mbottom-15">
-                                      <label>
-                                        <input type="checkbox">Default Segment Mailbox
-                                      </label>
-                                    </div>
-                                  </div>  
-                                  <div class="col-md-12">
-                                      <button type="submit" class="btn btn-primary">Save</button>
-                                    </div>
-                                </div>   
-                             </section> 
-                          </div>
-                      </div>  
-                  </div>
-                  <div class="col-md-12">
-                     <div class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title text-right">Mailbox Configuration and Runtime Errors</h3>
-                          <button class="btn btn-primary btn-xs pull-right">Clear Errors</button>
-                        </div>
-                        <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable dt-options="dtConfigurationOptions" dt-column-defs="dtConfigurationColumnDefs">
-                              <thead>
-                                <tr>
-                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                  <th class="text-capitalize">
-                                    Date
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Error Message
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr ng-click="toggleFormStepAutoResponse('rowautoresponse1')" ng-class="{true: 'row-active', false: ''}[rowautoresponse1]">
-                                  <td>
-                                    10/13/2018
-                                  </td>
-                                  <td>
-                                    IMAP connect failed: Socket connection has been refused by remote.
-                                  </td>
-                                </tr>
-                              </tbody>
-                          </table>
-                        </div>  
-                     </div>  
-                  </div>  
-                </div>
-              </div> 
-              <div class="tab-pane" id="tab_auto_response">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box box-info">
-                      <div class="box-body table-responsive with-border">
-                          <table class="table table-striped table-hover" datatable dt-options="dtAutoresponsesOptions" dt-column-defs="dtAutoresponsesColumnDefs"> 
-                              <thead>
-                                <tr>
-                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                  <th class="text-capitalize">
-                                    Id
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Auto Response Name
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr ng-click="toggleFormStepAutoResponse('rowautoresponse1')" ng-class="{true: 'row-active', false: ''}[rowautoresponse1]">
-                                  <td>
-                                    111
-                                  </td>
-                                  <td>
-                                    Quote - Electronics
-                                  </td>
-                                </tr>
-                              </tbody>
-                          </table>
-                      </div> 
-                    </div>   
-                  </div>  
-                </div>
-                <div class="row">
-                  <div class="col-md-12 form-group">
-                    <button class="btn btn-primary" type="button" ng-click="showNewFormStepAutoResponse(1)">
-                      New Auto Response
-                    </button>
-                    <button class="btn btn-primary" type="button" ng-click="showAlertAutoResponse = true">
-                      Delete Auto Response
-                    </button>
-                  </div>	
-                </div>
-                <div class="row" ng-show="showAlertAutoResponse">
-                  <div class="col-md-12">
-                    <div class="box box-danger">
-                      <div class="box-header with-border">
-                        <i class="fa fa-warning"></i>
-                        <h3 class="box-title">Alerts</h3>
-                      </div>
-                      <div class="box-body">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
-                          </div>
-                          <div class="col-md-12">
-                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-                            <button type="button" class="btn btn-link" ng-click="showAlertAutoResponse = false">Cancel</button>
-                          </div>
-                        </div>
-                      </div>	
-                    </div>	
-                  </div>	
-                </div>	
-                <div class="row" ng-show="formstepAutoResponse1">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <i class="fa fa-reply"></i>
-                        <h3 class="box-title text-right">New Auto Response</h3>
-                      </div>
-                      <div class="box-body">
-                        <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Auto Response Name:</label>
-                                  <div class="col-sm-8">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelFormAutoResponse(1)">Cancel</button>
-                                </div>	
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                    </div>
-                  </div>	
-                </div>
-                <div class="row" ng-show="formstepAutoResponse2">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-body">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-md-12 control-label text-left">Name</label>
-                                  <div class="col-md-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-md-12 control-label text-left">Description</label>
-                                  <div class="col-md-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
                               <div class="col-md-12">
                                 <div class="form-group">
-                                  <label class="col-md-12 control-label text-left">
-                                      Html Response Body</label>
-                                  <div class="col-md-12">
-                                    <textarea class="form-control" ckeditor></textarea>
-                                  </div>
-                              </div>
-                              </div>
-                              <div class="col-md-12 col-sm-12">
-                                <button class="btn btn-primary pull-left" type="button">Save</button>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>	
-                </div>
-              </div>
-              <div class="tab-pane" id="tab_stock_response">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box box-info">
-                      <div class="box-body table-responsive with-border">
-                           <table class="table table-striped table-hover" datatable dt-options="dtStockresponsesOptions" dt-column-defs="dtStockresponsesColumnDefs">
-                            <thead>
-                              <tr>
-                                <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                <th class="text-capitalize">
-                                  Id
-                                </th>
-                                <th class="text-capitalize">
-                                  Name
-                                </th>
-                                <th class="text-capitalize">
-                                  Description
-                                </th>
-                                <th class="text-capitalize">
-                                    Response Type
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr ng-click="toggleFormStepStockResponse('rowstockresponse1')" ng-class="{true: 'row-active', false: ''}[row1]">
-                                <td>
-                                  1531
-                                </td>
-                                <td>
-                                  TV quotation
-                                </td>
-                                <td>
-                                  A stock TV quotation
-                                </td>
-                                <td>
-                                  Chat
-                                </td>
-                              </tr>
-                              <tr ng-click="toggleFormStepStockResponse('rowstockresponse2')" ng-class="{true: 'row-active', false: ''}[row2]">
-                                <td>
-                                  1534
-                                </td>
-                                <td>
-                                  General quote
-                                </td>
-                                <td>
-                                    A stock response for general quotation
-                                </td>
-                                <td>
-                                    Chat
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                      </div> 
-                    </div>   
-                  </div>  
-                </div>
-                <div class="row">
-                  <div class="col-md-12 form-group">
-                    <button class="btn btn-primary" type="button" ng-click="showNewFormStepStockResponse(1)">
-                      New Stock Response
-                    </button>
-                    <button class="btn btn-primary" type="button" ng-click="showAlertStockResponse = true">
-                      Delete Stock Response
-                    </button>
-                  </div>	
-                </div>
-                <div class="row" ng-show="showAlertStockResponse">
-                  <div class="col-md-12">
-                    <div class="box box-danger">
-                      <div class="box-header with-border">
-                        <i class="fa fa-warning"></i>
-                        <h3 class="box-title">Alerts</h3>
-                      </div>
-                      <div class="box-body">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
-                          </div>
-                          <div class="col-md-12">
-                            <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-                            <button type="button" class="btn btn-link" ng-click="showAlertStockResponse = false">Cancel</button>
-                          </div>
-                        </div>
-                      </div>	
-                    </div>	
-                  </div>	
-                </div>	
-                <div class="row" ng-show="formstepStockResponse1">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <i class="fa fa-reply"></i>
-                        <h3 class="box-title text-right">New Stock Response</h3>
-                      </div>
-                      <div class="box-body">
-                        <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Stock Response Name:</label>
-                                  <div class="col-sm-8">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <button type="button" class="btn btn-primary" ng-click="showNewFormStepStockResponse('2')">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelFormStockResponse(1)">Cancel</button>
-                                </div>	
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                    </div>
-                  </div>	
-                </div>
-                <div class="row" ng-show="formstepStockResponse2">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-body">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-md-12 control-label text-left">Name</label>
-                                  <div class="col-md-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type:</label>
+                                  <label class="col-sm-12 control-label text-left">Name</label>
                                   <div class="col-sm-12">
-                                    <select class="form-control">
-                                      <option>Chat</option>
-                                      <option>Email</option>
-                                    </select> 	 
+                                    <input type="text" class="form-control" value="IBM Corporate">
                                   </div>
                                 </div>
-												    	</div>
-                              <div class="col-md-6">
                                 <div class="form-group">
-                                  <label class="col-md-12 control-label text-left">Description</label>
-                                  <div class="col-md-12">
-                                    <input type="text" class="form-control">
+                                  <label class="col-sm-12 control-label text-left">Phone</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control" value="+40410000">
                                   </div>
                                 </div>
-                              </div>
-                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <label class="col-md-12 control-label text-left">
-                                      Html Response Body</label>
-                                  <div class="col-md-12">
-                                    <textarea class="form-control" ckeditor></textarea>
-                                  </div>
-                              </div>
-                              </div>
-                              <div class="col-md-12 col-sm-12">
-                                <button class="btn btn-primary pull-left" type="button">Save</button>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>	
-                </div>
-              </div> 
-              <div class="tab-pane" id="tab_topics">
-                <div class="row">
-                  <div class="col-md-12 form-group">
-                    <button class="btn btn-primary" type="button" ng-click="showNewForm = true;">
-                      New Topic
-                    </button>
-                  </div>	
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <!-- Profile Image -->
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <i class="fa fa-list-ul"></i>
-                        <h3 class="box-title text-right">Topic List</h3>
-                      </div>
-                      <div class="box-body search-criteria">
-                        <div class="checkbox">
-                          <label class="mright-15"><input type="checkbox" class="icheck">Include Deleted Topics</label> 
-                        </div>
-                        <div class="treeview without-numbers">
-                            <ul id="tree1" class="tree">
-                              <li><a href="#" class="selected"> e-shop -- All Topics </a>
-                                <ul>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> </li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div></li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div></li>
-                                  <li> <div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div></li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
-                                    <ul>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div></li>
-                                    </ul>
-                                  </li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
-                                    <ul>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div></li>
-                                    </ul>
-                                  </li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> </li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div></li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
-                                    <ul>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div></li>
-                                    </ul>
-                                  </li>
-                                </ul>
-                              </li>
-                            </ul>
-                        </div>
-                      </div>
-                  <!-- /.box-body -->
-                    </div>
-                  <!-- /.box -->
-                  </div>
-                  
-                  <div class="col-md-8 p-l-0" ng-show="showNewForm">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                          <i class="fa fa-list-ul"></i>
-                          <h3 class="box-title text-right">New Topic</h3>
-                        </div>
-                        <div class="box-body">
-                          <section class="search-parameters">
-                            <div class="row">
-                              <div class="form-horizontal">
-                                <div class="col-md-4">
-                                  <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Topic Name</label>
-                                    <div class="col-sm-12">
-                                      <input type="text" class="form-control">
-                                    </div>
+                                  <label class="col-sm-12 control-label text-left">Primary Contact</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control" value="">
                                   </div>
                                 </div>
-                                <div class="col-md-4">
-                                  <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Parent Topic</label>
-                                    <div class="col-sm-12">
-                                    <select class="form-control">
-                                      <option>--None--</option>
-                                    </select>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-4">
-                                  <label class="control-label col-md-12">&nbsp;</label>
-                                  <button type="button" class="btn btn-primary margin-r-5 mtop-5" ng-click="showNewFormStep2 = false; showNewForm = false;">Create</button>
-                                  <button type="button" class="btn btn-link mtop-5" ng-click="showNewForm = false;">Cancel</button>
-                                </div>
-                              </div>
-                            </div>
-                          </section>
-                        </div>
-                    </div>	
-                  </div>
-                  <div class="col-md-8 p-l-0" ng-hide="showNewFormStep2">
-                    <div class="box box-primary">
-                      <div class="box-body">
-                        <div class="box-content box-bg-color">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Topic Name</label>
-                              <input type="email" class="form-control">
-                            </div>
-                          </div>  
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Parent</label>
-                              <select class="form-control">
-                                <option>--Parent--</option>
-                              </select>  
-                            </div>
-                          </div> 
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Visibility</label>
-                              <select class="form-control">
-                                <option>Public</option>
-                                <option>Private</option>
-                                <option>Deleted</option>
-                              </select>  
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Auto Response</label>
-                              <select class="form-control">
-                                <option>--Segment Default--</option>
-                              </select>  
-                            </div>
-                          </div> 
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Agent Notification</label>
-                              <select class="form-control">
-                                <option>--Segment Default--</option>
-                              </select>  
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Ask A Question Filler</label>
-                              <select class="form-control">
-                                <option>--None--</option>
-                              </select>  
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Service Level</label>
-                              <select class="form-control">
-                                <option>--Segment Default--</option>
-                              </select>  
-                            </div>
-                          </div>
-                          <div class="clearfix"></div>
-                          <div class="col-md-6">
-                            <div class="box box-primary">
-                              <div class="box-header with-border">
-                                <h3 class="box-title text-right">Skills Required For Get Next</h3>
-                              </div>
-                              <div class="box-body custom-scroll">
                                 <div class="form-group">
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" checkbox> No Rout
-                                    </label>
+                                  <label class="col-sm-12 control-label text-left">Primary Contact Phone</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control" value="+40410000">
                                   </div>
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" checkbox>Sales
-                                    </label>
-                                  </div>
-                                </div>  
-                              </div>     
+                                </div>
+                              </div>  
                             </div>  
                           </div>  
-        
-                          <div class="col-md-6">
-                              <div class="box box-primary">
-                                <div class="box-header with-border">
-                                  <h3 class="box-title text-right">Interaction Properties</h3>
+                        </div>    
+                      </div>
+                      <div class="col-md-6">
+                        <div class="box box-primary">
+                          <div class="box-body account-update-box">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="nested-panel-heading skill-heading">
+                                  <h3 class="nested-title">Last Updated</h3>
+                                  <ul class="update-list">
+                                    <li><span>10/07/2016</span>
+                                      <span>Customer Email</span>
+                                      <span><a href="">Chacho</a>, <a href="">Micky</a></span>
+                                      <span><a href="">View</a>  </span>
+                                    </li>
+                                    <li><span>10/07/2016</span>
+                                      <span>Customer Email</span>
+                                      <span><a href="">Chacho</a>, <a href="">Micky</a></span>
+                                      <span><a href="">View</a>  </span>
+                                    </li>
+                                  </ul>
+                                  <h3 class="nested-title">Unresolved Questions</h3>
+                                  <ul class="update-list">
+                                    <li><span>10/07/2016</span>
+                                      <span>Jhon Doe</span>
+                                      <span><a href="">Chacho</a>, <a href="">What is status of my order</a></span>
+                                    </li>
+                                    <li><span>10/07/2016</span>
+                                      <span>Jhon Doe</span>
+                                      <span><a href="">Chacho</a>, <a href="">What is status of my order</a></span>
+                                    </li>
+                                  </ul>
                                 </div>
-                                <div class="box-body custom-scroll">
-                                  <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> isFollowUp (Answer)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox>isOpen (Answer)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> Follow Up Date (Answer)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox>Priority (Answer)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> No Rout
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox>Sales
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> Owner (Answer)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox>Prop1-Quantity (Question)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> Prop2-Weight (Question)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox>topic 1 property (Question)
-                                      </label>
-                                    </div>
-                                </div>     
                               </div>  
-                          </div> 
-                          <div class="col-md-12 col-sm-12">
-                            <button class="btn btn-primary pull-left" type="button">Save</button>
+                            </div>  
+                          </div>  
+                        </div>  
+                      </div>
+                      <div class="col-md-12">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                              <h3 class="box-title text-right"> Contacts Linked With This Account</h3>
+                              <button class="btn btn-primary btn-xs pull-right">Link Contacts</button>
+                            </div>
+                            <div class="box-body table-responsive with-border">
+                              <table class="table table-striped table-hover" datatable dt-options="dtContactOptions" dt-column-defs="dtContactColumnDefs">
+                                  <thead>
+                                    <tr>
+                                      <th>
+                                      </th>  
+                                      <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                      <th class="text-capitalize">
+                                        Name
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Email
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Address
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Work Phone
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <button class="icon-button button-delete" type="button">
+                                          <i class="fa fa-times-circle"></i>
+                                        </button>
+                                      </td>
+                                      <td>
+                                        Jhon Doe
+                                      </td>
+                                      <td>
+                                        john.doe@example.com
+                                      </td>
+                                      <td>
+                                        1243 Somewhere Blvd
+                                      </td>
+                                      <td>
+                                        +40-1000122
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <button class="icon-button button-delete" type="button">
+                                          <i class="fa fa-times-circle"></i>
+                                        </button>
+                                      </td>
+                                      <td>
+                                        Albert Metricman
+                                      </td>
+                                      <td>
+                                       albert.metricman@example.com
+                                      </td>
+                                      <td>
+                                        1243 Somewhere Blvd
+                                      </td>
+                                      <td>
+                                        +40-10001332
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                              </table>
+                            </div>  
+                        </div>  
+                      </div> 
+                    </div>
+               </div> 
+              <div class="tab-pane" id="tab_account_detail">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="box box-primary">
+                      <div class="box-body with-border">
+                        <div class="row">
+                          <div class="form-horizontal">
+                            <div class="col-md-5">
+                              <div class="form-group">
+                                <label class="col-md-12 control-label text-left">Your Full Name</label>
+                                <div class="col-md-12">
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-md-12 control-label text-left">Your Email</label>
+                                <div class="col-md-12">
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-md-12 control-label text-left">Account Type</label>
+                                <div class="col-md-12">
+                                  <select class="form-control">
+                                    <option value="">Select</option>
+                                  </select>  
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-md-12 control-label text-left">Account Type</label>
+                                <div class="col-md-12">
+                                  <select class="form-control">
+                                    <option value="">Select</option>
+                                  </select>  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-7">
+                              <div class="form-group bg-group">
+                                <label class="col-md-12 control-label text-left">&nbsp;</label>
+                                <div class="col-md-12">
+                                  <div class="form-group group-bg group-input detail-g-borderbottom">
+                                    <label class="col-md-12 control-label text-left group-input-label">Address 1</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                  <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
+                                    <label class="col-md-12 control-label text-left group-input-label">Address 2</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="group-bg-part">
+                                    <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop detail-g-borderright detail-g-part">
+                                      <label class="col-md-12 control-label text-left group-input-label">City</label>
+                                      <div class="col-md-12">
+                                        <input type="text" class="form-control">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="group-bg-part">
+                                    <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop detail-g-borderleft detail-g-part">
+                                      <label class="col-md-12 control-label text-left group-input-label">State/Province</label>
+                                      <div class="col-md-12">
+                                        <input type="text" class="form-control">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="group-bg-part">
+                                    <div class="form-group group-bg group-input detail-g-bordertop detail-g-borderright detail-g-part">
+                                      <label class="col-md-12 control-label text-left group-input-label">Postal Code</label>
+                                      <div class="col-md-12">
+                                        <input type="text" class="form-control">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="group-bg-part">
+                                    <div class="form-group group-bg group-input detail-g-bordertop detail-g-borderleft detail-g-part">
+                                      <label class="col-md-12 control-label text-left group-input-label">Country</label>
+                                      <div class="col-md-12">
+                                        <input type="text" class="form-control">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="nested-panel-heading skill-heading">
+                                <h3 class="nested-title">Technical Support</h3>
+                              </div>
+                              <div class="row">  
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Your Full Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                </div>  
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Your Full Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Your Full Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Your Full Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                </div>  
+                              </div>  
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                              <button class="btn btn-primary pull-left" type="button">Save</button>
+                            </div>
+                            <div class="clearfix"></div>
                           </div>
-                        </div>   
-                        </div>
-                      </div>  
-                    </div>  
+                        </div>  
+                      </div> 
+                    </div>   
                   </div>  
                 </div>
               </div> 
-              <div class="tab-pane" id="tab_filters">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="nav-tabs-custom">
-                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#filters" data-toggle="tab" aria-expanded="true">Filters</a></li>
-                        <li class=""><a href="#groups" data-toggle="tab" aria-expanded="false">Groups<br></a></li>
-                      </ul>
-                     
-                      <div class="tab-content"> 
-                        <div class="tab-pane active" id="filters">  
-
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="box box-info">
-                                  <div class="box-body table-responsive with-border">
-                                      <table class="table table-striped table-hover" datatable dt-options="dtFiltersOptions" dt-column-defs="dtFiltersponsesColumnDefs">
-                                          <thead>
-                                            <tr>
-                                              <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                              <th class="text-capitalize">
-                                                Id
-                                              </th>
-                                              <th class="text-capitalize">
-                                                Filter Name
-                                              </th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr ng-click="toggleFormStepFilter('rowfilter1')" ng-class="{true: 'row-active', false: ''}[rowfilter1]">
-                                              <td>
-                                                111
-                                              </td>
-                                              <td>
-                                                Message Filter
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                      </table>
-                                  </div> 
-                                </div>   
-                              </div>  
-                            </div>
-                            <div class="row">
-                              <div class="col-md-12 form-group">
-                                <button class="btn btn-primary" type="button" ng-click="showNewFormStepFilter(1)">
-                                  New Filter
-                                </button>
-                                <button class="btn btn-primary" type="button" ng-click="showAlertFilter = true">
-                                  Delete Filter
-                                </button>
-                              </div>	
-                            </div>
-                            <div class="row" ng-show="showAlertFilter">
-                              <div class="col-md-12">
-                                <div class="box box-danger">
-                                  <div class="box-header with-border">
-                                    <i class="fa fa-warning"></i>
-                                    <h3 class="box-title">Alerts</h3>
-                                  </div>
-                                  <div class="box-body">
-                                    <div class="row">
-                                      <div class="col-md-12">
-                                        <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
-                                      </div>
-                                      <div class="col-md-12">
-                                        <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-                                        <button type="button" class="btn btn-link" ng-click="showAlertFilter = false">Cancel</button>
-                                      </div>
-                                    </div>
-                                  </div>	
-                                </div>	
-                              </div>	
-                            </div>	
-                            <div class="row" ng-show="formstepFilter1">
-                              <div class="col-md-12">
-                                <div class="box box-primary">
-                                  <div class="box-header with-border">
-                                    <i class="fa fa-reply"></i>
-                                    <h3 class="box-title text-right">New Filter</h3>
-                                  </div>
-                                  <div class="box-body">
-                                    <section class="search-parameters">
-                                      <div class="row">
-                                        <div class="form-horizontal">
-                                          <div class="col-md-6">
-                                            <div class="form-group">
-                                              <label class="col-sm-4 control-label text-left">Filter Name:</label>
-                                              <div class="col-sm-8">
-                                                <input type="text" class="form-control">
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-md-6">
-                                            <div class="form-group">
-                                              <button type="button" class="btn btn-primary">Create</button>
-                                              <button type="button" class="btn btn-link" ng-click="cancelFormFilter(1)">Cancel</button>
-                                            </div>	
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </section>
-                                  </div>
-                                </div>
-                              </div>	
-                            </div>
-                            <div class="row" ng-show="formstepFilter2">
-                              <div class="col-md-12">
-                                <div class="box box-primary">
-                                  <div class="box-body">
-                                      <div class="row">
-                                        <div class="form-horizontal">
-                                          <div class="col-md-6">
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Name</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control">
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-md-6">
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Description</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control">
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-md-6">
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Expression</label>
-                                              <div class="col-md-12">
-                                                <input type="text" class="form-control">
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-sm-12">
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Match In</label>
-                                              <div class="row">
-                                                <div class="checkbox col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">Subject</label>
-                                                </div> 
-                                                <div class="checkbox  col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">Body</label>
-                                                </div>
-                                                <div class="checkbox  col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">Mailbox Name</label>
-                                                </div>
-                                                <div class="checkbox  col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">From</label>
-                                                </div>
-                                                <div class="checkbox  col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">Contact Properties</label>
-                                                </div>
-                                                <div class="checkbox  col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">Text Attachments</label>
-                                                </div>
-                                              </div>	
-                                            </div>	
-                                          </div>	
-                                          <div class="col-md-12">
-                                            <label class="control-label text-left">Filter Action</label>
-                                            <div class="clearfix"></div>
-                                            <section class="container-fluid search-parameters" id="action-container">
-                                              <fieldset class="row action">
-                                                <div class="panel panel-default col-xs-12 bg-gray-light">
-                                                  <div class="col-md-12 formstep box-bg-color" style="padding-top:15px;" ng-show="formActionStep1">
-                                                    <div class="col-md-10"> 
-                                                      <div class="row">
-                                                        <div class="col-md-6">
-                                                          <div class="form-group">
-                                                            <label class="col-sm-5 control-label text-left">Pick a step type </label>
-                                                            <div class="col-sm-7">
-                                                              <select class="form-control" id="" ng-change="showStepType();" ng-model="stepValue">
-                                                                <option value="choose">Choose A Type...</option>
-                                                                  <option value="adminForms">Admin Forms</option>
-                                                                  <option value="adminWebsites">Admin Websites</option>
-                                                                  <option value="captchaVerify">Captcha Verify</option>
-                                                                  <option value="chatCreate">Chat Create</option>
-                                                                  <option value="chatEnd">Chat End</option>
-                                                                  <option value="chatForward">Chat Forward</option>
-                                                                  <option value="chatGetNext">Chat Get Next</option>
-                                                                  <option value="chatKeepAlive">Chat Keep Alive</option>
-                                                                  <option value="chatSend">Chat Send</option>
-                                                                  <option value="chatToggleAvailability">Chat Toggle Availability</option>
-                                                                  <option value="mailboxEmail">Create mailbox Email</option>
-                                                                  <option value="note">Create Note</option>
-                                                                  <option value="ticket">Create Ticket/Ask A Question</option>
-                                                                  <option value="contactFindCreate">Find/Create Contact</option>
-                                                                  <option value="customerInfoDetails">Customer Info Set Details</option>
-                                                                  <option value="interactionHistoryProperties">Interaction Set Properties</option>
-                                                                  <option value="logout">Logout</option>
-                                                                  <option value="messageQueueGetApprove">Message Queue Get Approve</option>
-                                                                  <option value="messageQueueGetNext">Message Queue Get Next</option>
-                                                                  <option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
-                                                                  <option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
-                                                                  <option value="messageQueueQAReject">Message Queue QA Reject</option>
-                                                                  <option value="messageQueueChangeTopic">Message Queue Change Topic</option>
-                                                                  <option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
-                                                                  <option value="messageQueueSaveDraft">Message Queue Save Draft</option>
-                                                                  <option value="messageQueueAssign">Message Queue Assign To mailbox</option>
-                                                                  <option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
-                                                                  <option value="messageQueueForwardExternal">Message Queue Forward To External mailbox</option>
-                                                                  <option value="messageQueueSaveNote">Message Queue Save Note</option>
-                                                                  <option value="messageQueueSend">Message Queue Send</option>
-                                                                  <option value="myAccountSubscriptions">My Account Subscriptions</option>
-                                                                  <option value="myAccountDetails">My Account Details</option>
-                                                                  <option value="passwordResetSend">Password Reset Send</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>	
-                                                      <!--Step type action start-->
-                                                      <div class="row formstep box-bg-white" ng-show="subFormActionStepType1">
-                                                        <div class="col-md-12">
-                                                          <h4>Create mailbox Email</h4>
-                                                        </div>
-                                                        <hr>
-                                                        <div class="col-md-12">
-                                                          <div class="row">
-                                                            <div class="col-md-6">	
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Send As Secure Email <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="checkbox" class="form-control flat-red">	
-                                                                </div>																									
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">	
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Notification ID </label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Expect Customer Response</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="checkbox" class="form-control flat-red">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">From Mailbox ID</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">To Contact ID</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Contact Email Address </label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                </div>
-                                                              </div>
-                                                            </div>		
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Parent Interaction ID <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">CC</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">BCC</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Subject</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                </div>
-                                                              </div>
-                                                            </div>	
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Topic Id</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Add Reference Number To Subject Line</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="checkbox" class="form-control flat-red">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Generate Only A Plain Text Body</label>
-                                                                <div class="col-sm-8">
-                                                                    <input type="checkbox" class="form-control flat-red">
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Form Body <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-                                                                <div class="col-sm-12">
-                                                                  <textarea class="form-control" rows="5" placeholder="" id="mailboxEmailAction" name="mailboxEmailAction" ckeditor></textarea>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Note:</label>
-                                                                <div class="col-sm-8">
-                                                                  <textarea class="form-control" rows="5"></textarea>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Property Group <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                  <small  class="text-muted">
-                                                                  *Specified with $input ... -group'xxx'$
-                                                                  </small>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Full Creation Parameters (JSON) <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                  <a href="javascript:void(0)" ng-click="showFormat= !showFormat">Format</a>
-                                                                </div>
-                                                                <div class="col-md-12" ng-show="showFormat">
-                                                                    
-                                                                    <samp><i>details</i> := { "contactID": "string",  "inResponseToID": "string",
-                                                                          "segmentID": "string",
-                                                                          "mailboxID": "string",
-                                                                          "topicID": "string",
-                                                                          "destEmail": "string",
-                                                                          "cc": "string",
-                                                                          "bcc": "string",
-                                                                          "subject": "string",
-                                                                          "addSubjectRefNum": bool,
-                                                                          "body": "string",
-                                                                          "bodyHtml": "string",
-                                                                          "note": "string",
-                                                                          "autoGenerateHtmlIfMising": bool,
-                                                                          "action": number, //1 = mailbox Email, 2 = Secure Email
-                                                                          "notificationID": "string",
-                                                                          "expectingResponse": bool,
-                                                                          "properties": 
-                                                                          [ { "propertyID", "string",
-                                                                            "values":
-                                                                            [ { "description": "string",
-                                                                              "value": "string",
-                                                                              "valueDate": "/Date(date.getTime())/"
-                                                                            } ]
-                                                                          } ]
-                                                                        }</samp>
-                                                                                                                  </div>	
-                                                              </div>
-                                                            </div>	
-                                                            <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                <label class="col-sm-4 control-label text-left">Result Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control"  placeholder="">
-                                                                  <small  class="text-muted">
-                                                                    *Can be referenced in other steps as $result -id'name'$
-                                                                  </small>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <!--Step type action end-->
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                      <button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
-                                                      <button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
-                                                      <button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
-                                                          <i class="fa fa-times-circle text-red"></i>
-                                                      </button>
-                                                    </div>
-                                                  </div>
-
-                                                  <div class="col-md-12 formstep box-bg-color" style="padding-top:15px;" ng-show="formActionStep1">
-                                                    <div class="col-md-10"> 
-                                                      <div class="row">
-                                                        <div class="col-md-6">
-                                                          <div class="form-group">
-                                                            <label class="col-sm-5 control-label text-left">Pick a step type </label>
-                                                            <div class="col-sm-7">
-                                                              <select class="form-control" id="actionstep1">
-                                                                <option value="choose">Choose A Type...</option>
-                                                                  <option value="adminForms">Admin Forms</option>
-                                                                  <option value="adminWebsites">Admin Websites</option>
-                                                                  <option value="captchaVerify">Captcha Verify</option>
-                                                                  <option value="chatCreate">Chat Create</option>
-                                                                  <option value="chatEnd">Chat End</option>
-                                                                  <option value="chatForward">Chat Forward</option>
-                                                                  <option value="chatGetNext">Chat Get Next</option>
-                                                                  <option value="chatKeepAlive">Chat Keep Alive</option>
-                                                                  <option value="chatSend">Chat Send</option>
-                                                                  <option value="chatToggleAvailability">Chat Toggle Availability</option>
-                                                                  <option value="mailboxEmail">Create mailbox Email</option>
-                                                                  <option value="note">Create Note</option>
-                                                                  <option value="ticket">Create Ticket/Ask A Question</option>
-                                                                  <option value="contactFindCreate">Find/Create Contact</option>
-                                                                  <option value="customerInfoDetails">Customer Info Set Details</option>
-                                                                  <option value="interactionHistoryProperties">Interaction Set Properties</option>
-                                                                  <option value="logout">Logout</option>
-                                                                  <option value="messageQueueGetApprove">Message Queue Get Approve</option>
-                                                                  <option value="messageQueueGetNext">Message Queue Get Next</option>
-                                                                  <option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
-                                                                  <option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
-                                                                  <option value="messageQueueQAReject">Message Queue QA Reject</option>
-                                                                  <option value="messageQueueChangeTopic">Message Queue Change Topic</option>
-                                                                  <option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
-                                                                  <option value="messageQueueSaveDraft">Message Queue Save Draft</option>
-                                                                  <option value="messageQueueAssign">Message Queue Assign To mailbox</option>
-                                                                  <option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
-                                                                  <option value="messageQueueForwardExternal">Message Queue Forward To External mailbox</option>
-                                                                  <option value="messageQueueSaveNote">Message Queue Save Note</option>
-                                                                  <option value="messageQueueSend">Message Queue Send</option>
-                                                                  <option value="myAccountSubscriptions">My Account Subscriptions</option>
-                                                                  <option value="myAccountDetails">My Account Details</option>
-                                                                  <option value="passwordResetSend">Password Reset Send</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>		
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                      <button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
-                                                      <button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
-                                                      <button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
-                                                          <i class="fa fa-times-circle text-red"></i>
-                                                      </button>
-                                                    </div>		
-                                                  </div>
-                                                  
-                                                  
-                                                  <div class="row">
-                                                    <button class="btn btn-lg btn-link pull-left" type="button" ng-click="addStep();">
-                                                      <i class="fa fa-plus-circle text-light-blue"></i>
-                                                      Add Steps <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
-                                                    </button>
-                                                  </div>	
-                                                </div>
-                                              </fieldset>
-                                            </section>	
-                                          </div>
-                                          <div class="col-md-12 col-sm-12">
-                                            <button class="btn btn-primary pull-left" type="button">Save</button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div>	
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="groups">  
-                        </div> 
-                      </div>  
-                    </div>   
-                  </div> 
-                </div>  
-              </div>     
             </div>  
           </div> 
-
         <!-- /.row -->
         <!-- END ACCORDION & CAROUSEL-->
       </section>
@@ -2422,9 +453,9 @@ $(document).ready(function() {
 
     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
-        $scope.dtContactHistoryOptions = DTOptionsBuilder
+        $scope.dtContactOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
-					search: 'Filter Properties'
+					search: 'Filter Contacts'
 				})
 				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',
@@ -2436,255 +467,15 @@ $(document).ready(function() {
 					}
 				}]);
 
-        $scope.dtContactHistoryColumnDefs = [
-          DTColumnDefBuilder.newColumnDef(7).notVisible(),
-					DTColumnDefBuilder.newColumnDef(8).notVisible(),
-					DTColumnDefBuilder.newColumnDef(9).notVisible()
-          //DTColumnDefBuilder.newColumnDef(10).notVisible()
-				];
-
-
-        $scope.dtMailboxOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
-					search: 'Filter Mailboxes'
-				})
-				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-				}]);
-
-        $scope.dtAutoresponsesOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
-					search: 'Filter Auto Responses'
-				})
-				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-				}]);
-
-        $scope.dtStockresponsesOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
-					search: 'Filter Stock Responses'
-				})
-				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-				}]);
-
-        $scope.dtFiltersOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
-					search: 'Filter Filters'
-				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-				}]);
-				
-
-        $scope.dtConfigurationOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
-					search: 'Filter Errors'
-				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-				}]);
-        
-        $scope.showNewSegment = function(step){
-              $scope['newformsegment'] = !$scope['newformsegment'];
+        $scope.showNewAccount = function(step){
+              $scope['newformaccount'] = !$scope['newformaccount'];
         };
 
-        $scope.cancelFormSegment = function(){
-              $scope['newformsegment'] = false;
+        $scope.cancelFormAccount = function(){
+              $scope['newformaccount'] = false;
         };
-
-        $scope.cancelForm = function(step){
-				for(var i =1; i<=2; i++){
-					 $scope['formstep'+i] = false;
-        }
-		  	};		
-       
-		 	$scope.showNewFormStep = function(step){
-				for(var i =1; i<=2; i++){
-					if(i == step){
-						$scope['formstep'+i] = true;
-					}	   
-					else	
-						$scope['formstep'+i] = false;
-				}
-      }; 
-
-      $scope.toggleFormStep = function(segmentName){
-        for(var i =1; i<=2; i++){
-          $scope['row'+i] = false;  
-        }
-        $scope[segmentName] = !$scope[segmentName];
-          $scope['formstep'+2] = !$scope['formstep'+2];
-      };
-
-      $scope.toggleFormStepInteraction = function(segmentName){
-        for(var i =1; i<=2; i++){
-          $scope['rowinteraction'+i] = false;  
-        }
-        $scope[segmentName] = !$scope[segmentName];
-          $scope['formstepInteraction'+2] = !$scope['formstepInteraction'+2];
-      };
-
-     	$scope.showNewFormStepInteraction = function(step){
-				for(var i =1; i<=2; i++){
-					if(i == step){
-						$scope['formstepInteraction'+i] = true;
-					}	   
-					else	
-						$scope['formstepInteraction'+i] = false;
-				}
-      }; 
-
-      $scope.toggleFormStepMailbox = function(segmentName){
-        for(var i =1; i<=2; i++){
-          $scope['rowmailbox'+i] = false;  
-        }
-        $scope[segmentName] = !$scope[segmentName];
-          $scope['formstepMailbox'+2] = !$scope['formstepMailbox'+2];
-      };
-      $scope.showNewFormStepMailbox = function(step){
-				for(var i =1; i<=2; i++){
-					if(i == step){
-						$scope['formstepMailbox'+i] = true;
-					}	   
-					else	
-						$scope['formstepMailbox'+i] = false;
-				}
-      }; 
-
-      $scope.toggleFormStepAutoResponse = function(segmentName){
-        for(var i =1; i<=2; i++){
-          $scope['rowautoresponse'+i] = false;  
-        }
-        $scope[segmentName] = !$scope[segmentName];
-          $scope['formstepAutoResponse'+2] = !$scope['formstepAutoResponse'+2];
-      };
-
-      
-      $scope.showNewFormStepAutoResponse = function(step){
-				for(var i =1; i<=2; i++){
-					if(i == step){
-						$scope['formstepAutoResponse'+i] = true;
-					}	   
-					else	
-						$scope['formstepAutoResponse'+i] = false;
-				}
-      }; 
-
-      $scope.toggleFormStepStockResponse = function(segmentName){
-        for(var i =1; i<=2; i++){
-          $scope['rowstockresponse'+i] = false;  
-        }
-        $scope[segmentName] = !$scope[segmentName];
-          $scope['formstepStockResponse'+2] = !$scope['formstepStockResponse'+2];
-      };
-
-      
-      $scope.showNewFormStepStockResponse = function(step){
-				for(var i =1; i<=2; i++){
-					if(i == step){
-						$scope['formstepStockResponse'+i] = true;
-					}	   
-					else	
-						$scope['formstepStockResponse'+i] = false;
-				}
-      }; 
-
-      $scope.toggleFormStepFilter = function(segmentName){
-        for(var i =1; i<=2; i++){
-          $scope['rowfilter'+i] = false;  
-        }
-        $scope[segmentName] = !$scope[segmentName];
-          $scope['formstepFilter'+2] = !$scope['formstepFilter'+2];
-      };
-
-      
-      $scope.showNewFormStepFilter = function(step){
-				for(var i =1; i<=2; i++){
-					if(i == step){
-						$scope['formstepFilter'+i] = true;
-					}	   
-					else	
-						$scope['formstepFilter'+i] = false;
-				}
-      }; 
     });
 
-    angular.module('iService').controller('MailboxCtrl', function ($scope, $http, $timeout, $interval) {
-		var vm = this;
-			vm.availableMailboxes = [
-					{Mailbox: 'iService Support(support@1to1service.com)'},
-					{Mailbox: 'Sales Support (sales@1to1service.com)'},
-					{Mailbox: 'iService Criticle Support (criticle@1to1service.com)'},				
-			];
-			vm.multipleDemo = {};
-		});
-
-    angular.module('iService').controller('Mailbox', function ($scope, $http, $timeout, $interval) {
-			var vm = this;
-			vm.mailbox = {};
-			vm.mailboxname = [ 
-			   	{name: 'iService Support(support@1to1service.com)'},
-					{name: 'Sales Support (sales@1to1service.com)'},
-					{name: 'iService Criticle Support (criticle@1to1service.com)'},
-			];
-		});
-
-    angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
-		var vm = this;
-			vm.availableTopics = [
-					{Topic: 'e-shop -- All Topics(0)'},
-					{Topic: '.._Feedback (2)'},
-					{Topic: '.._Newsletter Subscription (0)'},
-					{Topic: '.._Spam (0)'},
-					{Topic: '.._Undeliverable (0)'},
-					{Topic: '..Account Questions (0)'},
-					{Topic: '....Orders (0)'},
-					{Topic: '....Refunds (0)'},
-					{Topic: '....Returns (0)'},
-					{Topic: '..Products(0)'},
-					{Topic: '....Audio-Video (0)'},
-					{Topic: '....Cameras (0)'},
-					{Topic: '....Cell Phones (0)'},
-					{Topic: '....Computers (0)'},
-					{Topic: '....Televisions(0)'},
-					{Topic: '..Shipping (0)'},
-					{Topic: '..Technical Support (0)'},
-					{Topic: '....Open Quotes (1)'}
-				
-			];
-			vm.multipleDemo = {};
-			vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
-					{Topic: '.._Feedback (2)'}];
-		});
  </script>  
 </body>
 </html>
