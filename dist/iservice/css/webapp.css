@@ -1247,9 +1247,6 @@ ul.timeline span.stack-icon .aqua {
   position: absolute;
   color: #5cb85c;
 }
-.icon-col {
-  width: 54px !important;
-}
 .icon-col button:first-child {
   padding-right: 0px;
 }
