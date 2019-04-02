@@ -613,7 +613,7 @@ ul.timeline span.stack-icon .aqua {
   margin-bottom: 15px;
 }
 .contact-summary .user-detail label.control-label {
-  padding-left: 54px;
+  padding-left: 40px;
   padding-top: 0px;
   text-align: left;
 }
@@ -2621,4 +2621,11 @@ ul.update-list li::before {
 .smtp-out-message {
   margin: 5px 0px 15px 0px;
   font-size: 16px;
+}
+/*account page*/
+.update-list .message-time {
+  margin-left: 15px;
+}
+.user-detail .user-initials {
+  background: #30a5ff;
 }
