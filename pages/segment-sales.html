@@ -153,7 +153,7 @@ title:  Segment Sales
                            
                         </div>
                       </div> 
-                      <div class="col-md-6">
+                      <div class="col-md-6" ng-show="toggle.switch3">
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group bg-group">
@@ -252,7 +252,7 @@ title:  Segment Sales
                             <div class="form-group">
                               <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" /> Enable Mail Retrieving
+                                  <input type="checkbox" ng-model="toggle.switch7" ui-switch="{ size: 'small' }" /> Enable Mail Retrieving
                                 </label>
                               </div>  
                             </div> 
@@ -1091,12 +1091,14 @@ title:  Segment Sales
                                         <div class="row">
                                           <div class="col-md-12">
                                             <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Mail Server Name</label>
+                                              <label class="col-md-12 control-label text-left">Mail Server Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
                                               <div class="col-md-12">
                                                 <input type="text" class="form-control" value="">
                                               </div>
                                             </div>
                                             <div class="form-group">
+
+                                                <label class="col-md-12 control-label text-left">Protocol <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
                                               <div class="radio col-md-6">
                                                 <label>
                                                   <input type="radio" name="optionsRadios"> Use IMAP
@@ -1108,55 +1110,26 @@ title:  Segment Sales
                                                 </label>
                                               </div>
                                             </div>  
-                                            <div class="form-group bg-group">
-                                              <label class="col-md-12 control-label text-left">Encryption (optional) </label>
-                                              <div class="col-md-12">
-                                                
-                                                <div class="checkbox group-bg group-input detail-g-borderbottom group-input-checkbox">
-                                                    <label class="col-md-12 control-label text-left mbottom-15">
-                                                        If your mail server requires encryption, check the box below and set your port to the appropriate value.
-                                                    </label>
-                                                     <label>
-                                                    <input type="checkbox">Use SSL
-                                                  </label>
-                                                </div>
-                                                <div class="form-group group-bg group-input detail-g-bordertop">
-                                                    <div class="col-md-4"></div><div class="col-md-4"><b>POP</b></div><div class="col-md-4"><b>IMAP</b></div>
-                                                    <div class="col-md-4"><b>Without SSL</b></div><div class="col-md-4">110</div><div class="col-md-4">143</div>
-                                                    <div class="col-md-4"><b>With SSL</b></div><div class="col-md-4">995</div><div class="col-md-4">993</div> 
-                                                </div>
-                                              </div>
-                                            </div>
-                                           
                                             <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Port Number</label>
+                                              <label class="col-md-12 control-label text-left">Username <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
                                               <div class="col-md-12">
                                                 <input type="text" class="form-control" value="">
                                               </div>
                                             </div>
                                             <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Username</label>
+                                              <label class="col-md-12 control-label text-left">Password <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
                                               <div class="col-md-12">
                                                 <input type="text" class="form-control" value="">
                                               </div>
                                             </div>
                                             <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Password</label>
+                                              <label class="col-md-12 control-label text-left">Port Number <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
                                               <div class="col-md-12">
                                                 <input type="text" class="form-control" value="">
-                                              </div>
-                                            </div>
-                                            <div class="form-group">
-                                              <label class="col-md-8 control-label text-left">Filter</label>
-                                              <label class="col-md-4 control-label text-right"><a href="#" class="help-link text-primary text-right">View</a></label>
-                                              <div class="col-md-12">
-                                                <select class="form-control">
-                                                  <option>Test Filter</option>
-                                                </select> 
                                               </div>
                                             </div>
                                             <div class="form-group" ng-controller="TopicCtrl as ctrl">
-                                              <label for="inputPassword3" class="col-md-12 control-label text-left">Topic</label>
+                                              <label for="inputPassword3" class="col-md-12 control-label text-left">Default Topic For Incoming Messages</label>
                                               <div class="col-md-12">
                                                 <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
                                                   <ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
@@ -1166,10 +1139,24 @@ title:  Segment Sales
                                                 </ui-select>
                                               </div>
                                             </div>
-
+                                            <h4>Optional Settings</h4>                                      
+                                            <div class="form-group">
+                                              <label class="col-md-8 control-label text-left">Filter</label>
+                                              <label class="col-md-4 control-label text-right"><a href="#" class="help-link text-primary text-right">View</a></label>
+                                              <div class="col-md-12">
+                                                <select class="form-control">
+                                                  <option>Test Filter</option>
+                                                </select> 
+                                              </div>
+                                            </div>
                                             <div class="form-group">
                                               <div class="col-md-12">
-                                                <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" /> Enable Mail Retrieving
+                                                <input type="checkbox" ng-model="toggle.switchmailretrive" ui-switch="{ size: 'small' }" /> User Encryption  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <div class="col-md-12">
+                                                <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" /> Enable Mail Retrieving  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
                                               </div>
                                             </div>
                                           </div>  
@@ -1186,24 +1173,30 @@ title:  Segment Sales
                                         <div class="row">
                                           <div class="col-md-12">
                                             <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Display Name</label>
+                                              <label class="col-md-12 control-label text-left">SMTP Server Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
                                               <div class="col-md-12">
                                                 <input type="text" class="form-control" value="">
                                               </div>
                                             </div>
                                             <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">Reply To</label>
+                                              <label class="col-md-12 control-label text-left">Display Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
                                               <div class="col-md-12">
                                                 <input type="text" class="form-control" value="">
                                               </div>
                                             </div>
                                             <div class="form-group">
-                                              <label class="col-md-12 control-label text-left">SMTP Server Name</label>
+                                              <label class="col-md-12 control-label text-left">Reply To <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
                                               <div class="col-md-12">
                                                 <input type="text" class="form-control" value="">
                                               </div>
                                             </div>
-                                            <div class="form-group bg-group">
+                                            <h4>Optional Settings</h4> 
+                                            <div class="form-group">
+                                              <div class="col-md-12">
+                                                <input type="checkbox" ng-model="toggle.switchsmtpauth" ui-switch="{ size: 'small' }" /> Use SMTP Authentication <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+                                              </div>
+                                            </div>
+                                            <div class="form-group bg-group" ng-show="toggle.switchsmtpauth">
                                                 <label class="col-md-12 control-label text-left">SMTP Authentication Settings (optional) </label>
                                                 <div class="col-md-12">
                                                   <div class="checkbox group-bg group-input detail-g-borderbottom group-input-checkbox">
@@ -1229,7 +1222,6 @@ title:  Segment Sales
                                                       <input type="text" class="form-control group-input-item">
                                                       </div>
                                                   </div>
-                                                    
                                                 </div>
                                               </div>
                                           </div>  
