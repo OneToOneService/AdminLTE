@@ -595,8 +595,17 @@ ul.timeline span.stack-icon .aqua {
   border-radius: 3px;
   margin: 5px 5px 5px 5px;
 }
+.contact-summary .company-detail {
+  font-size: 16px;
+  border-radius: 3px;
+  margin: 5px 5px 5px 5px;
+}
 .contact-summary .user-detail .user-name {
   margin-top: 44px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.contact-summary .company-name {
   font-size: 20px;
   font-weight: bold;
 }
@@ -615,6 +624,9 @@ ul.timeline span.stack-icon .aqua {
 .contact-summary .user-detail label.control-label {
   padding-left: 40px;
   padding-top: 0px;
+  text-align: left;
+}
+.contact-summary .company-detail label.control-label {
   text-align: left;
 }
 .contact-summary .user-detail .datarow {

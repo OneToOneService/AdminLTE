@@ -1,5 +1,5 @@
 ---
-title:  Customer Info Account
+title:  Account
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -19,856 +19,990 @@ title:  Customer Info Account
     <div class="content-wrapper">
      <section class="content-header">
 					<h1>
-							{{ page.title }}
-					</h1>
+              {{ page.title }}
+              <small>Company</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Customer Info</li>
+            <li class="active">Account</li>
+          </ol>
 			</section>
       <!-- Main content -->
       <section class="content" ng-controller="myCtrl">
-          <div class="nav-tabs-custom color-tab" ng-hide="newformsegment">
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a href="#tab_account_summary" data-toggle="tab">
-                  <i class="fa fa-ellipsis-h"></i>
-                  <span>Account Summary</span>
-                </a>
-              </li>
-              <li>
-                <a href="#tab_account_detail" data-toggle="tab">
-                  <i class="fa fa-list-alt"></i>
-                  <span>Account Details</span>
-                </a>
-              </li>
-              <li>
-                <a href="#tab_account_history" data-toggle="tab">
-                  <i class="fa fa-history"></i>
-                  <span>Account History</span>
-                </a>
-              </li>
-            </ul>
-            <div class="tab-content box-bg-color">
-              <div class="tab-pane active contact-summary" id="tab_account_summary">
-                  <div class="row form-horizontal">
-                      <div class="col-md-5">
-                        <div class="box box-primary">
-                          <div class="box-body">
-                            <div class="form-horizontal user-detail">
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <div class="user-initials round no-select">EC</div>
+        <div class="nav-tabs-custom color-tab-icon" ng-hide="newformsegment">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#tab_1" data-toggle="tab">
+                <i class="fa fa-navicon orange"></i>
+                <span>Summary</span>
+              </a>
+            </li>
+            <li>
+              <a href="#tab_2" data-toggle="tab">
+                <i class="fa fa-ellipsis-h blue"></i>
+                <span>Details</span>
+              </a>
+            </li>
+            <li>
+              <a href="#tab_4" data-toggle="tab">
+                <i class="fa fa-history green"></i>
+                <span>History</span>
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content box-bg-color">
+            <div class="tab-pane active contact-summary" id="tab_1">
+              <div class="row form-horizontal">
+                <div class="col-md-5">
+                  <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <i class="fa fa-users"></i>
+                      <h3 class="box-title">Company Information</h3>
+                    </div>
+                    <div class="box-body eq-container">
+                      <div class="form-horizontal company-detail">
+                        <div class="row">
+                          <div class="col-md-12 company-name">Example Company</div>
+                        </div>
+                        <div class="datarow row form-group">
+                          <label class="col-md-4 control-label">Address</label>
+                          <div class="text ng-binding col-md-7">PO Box 2231 <br> Champaign,IL 61825</div>
+                        </div>
+                        <div class="datarow row form-group">
+                          <label class="col-md-4 control-label">Phone Number</label>
+                          <div class="text ng-binding col-md-7">+217-398-6245</div>
+                        </div>
+                        <div class="datarow row form-groupj">
+                          <label class="col-md-4 control-label">Website</label>
+                          <div class="text ng-binding col-md-7">www.example.com</div>
+                        </div>
+                      </div>
+                    </div>  
+                  </div>    
+                </div>
+                <div class="col-md-7">
+                  <div class="box box-success">
+                    <div class="box-header with-border">
+                      <i class="fa fa-info"></i>
+                      <h3 class="box-title">Status Information</h3>
+                    </div>
+                    <div class="box-body right-container eq-container">
+                      <div class="row">
+                        <div class="col-xs-4 text-center report-counts"><h3 class="text-red">01</h3><span>Unassigned Questions</span></div>
+                        <div class="col-xs-4 text-center report-counts"><h3 class="text-blue">Jacob Smith</h3><span>Last Agent </span></div>
+                        <div class="col-xs-4 text-center report-counts"><h3 class="text-green">06</h3><span>Interactions Past Week </span></div>
+                      </div>
+                      <h3>Unresolved Questions <span class="text-muted">(1)</span></h3>
+                      <ul class="empty-list">
+                        <li>
+                            Best price on LG Plasma
+                          <div class="message-time">1 Days Ago</div>
+                        </li>
+                      </ul>
+                      <div class="view-more">
+                        <a class="btn btn-primary btn-xs pull-right">View 1 more</a>
+                      </div>
+                      <h3>Recent History</h3>
+                      <div>
+                        <div class="qa-message-list">
+                          <i class="fa fa-envelope bg-blue"></i>
+                          <div class="message-item">
+                            <div class="message-inner">
+                              <span class="time"><i class="fa fa-clock-o"></i> Just Now</span>
+                              <span class="time">
+                                <i class="fa fa-user-o"></i>
+                                Jacob Smith
+                              </span>
+                              <div class="message-header">Chat</div>
+                                I need help picking a camera
+                            </div>
+                          </div>
+                        </div>
+                        <div class="qa-message-list">
+                          <i class="fa fa-ticket bg-orange"></i>
+                          <div class="message-item">
+                            <div class="message-inner">
+                              <span class="time"><i class="fa fa-clock-o"></i> 2 Days ago</span>
+                              <span class="time">
+                                <i class="fa fa-user-o"></i>
+                                Alek Packard
+                              </span>
+                              <div class="message-header">Agent Ticket</div>
+                              Best price on LG Plasma
+                            </div>
+                          </div>
+                        </div>
+                        <div class="view-more">
+                          <a href="#tab_4" class="btn btn-primary btn-xs pull-right" data-toggle="tab">View all history</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="box box-primary">
+                      <div class="box-header with-border">
+                        <h3 class="box-title text-right"> Contacts Linked With This Account</h3>
+                        <button class="btn btn-primary btn-xs pull-right">Link Contacts</button>
+                      </div>
+                      <div class="box-body table-responsive with-border">
+                        <table class="table table-striped table-hover" datatable dt-options="dtContactOptions" dt-column-defs="dtContactColumnDefs">
+                          <thead>
+                            <tr>
+                              <th>
+                              </th>  
+                              <!--<th class="no-sort"  name="name" width="30"></th>-->
+                              <th class="text-capitalize">
+                                Name
+                              </th>
+                              <th class="text-capitalize">
+                                Email
+                              </th>
+                              <th class="text-capitalize">
+                                Address
+                              </th>
+                              <th class="text-capitalize">
+                                Work Phone
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <button class="icon-button button-delete" type="button">
+                                  <i class="fa fa-times-circle"></i>
+                                </button>
+                              </td>
+                              <td>
+                                John Doe
+                              </td>
+                              <td>
+                                john.doe@example.com
+                              </td>
+                              <td>
+                                1243 Somewhere Blvd
+                              </td>
+                              <td>
+                                +40-1000122
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <button class="icon-button button-delete" type="button">
+                                  <i class="fa fa-times-circle"></i>
+                                </button>
+                              </td>
+                              <td>
+                                Albert Metricman
+                              </td>
+                              <td>
+                                albert.metricman@example.com
+                              </td>
+                              <td>
+                                1243 Somewhere Blvd
+                              </td>
+                              <td>
+                                +40-10001332
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>  
+                  </div>  
+                </div> 
+              </div>
+            </div> 
+            <div class="tab-pane contact-detail" id="tab_2" ng-controller="myCtrlDetail">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 panel-group">
+                  <div class="box box-info">
+                    <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment1')">
+                      <h3 class="box-title">Contact Information</h3>
+                      <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment1}"></span>
+                    </div>
+                    <div class="box-body in collapse" uib-collapse="segment1">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                          <div>
+                            <div class="form-group floating-label">
+                              <input type="text" value="">
+                              <label>First Name</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label">
+                              <input value="" type="text">
+                              <label>Middle Initial</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label">
+                              <input type="text" value="">
+                              <label>Last Name</label>
+                            </div>
+                          </div>
+                          <div class="form-group floating-label multiple">
+                            <label>Phone</label>
+                            <div class="float-btn-group">
+                              <button class="margin-5 icon-button button-delete" type="button">
+                                <i class="fa fa-times-circle"></i>
+                              </button>
+                              <select><option label="Fax" value="string:Fax" selected="selected">Fax</option><option label="Home" value="string:Home">Home</option><option label="Mobile" value="string:Mobile">Mobile</option><option label="Work" value="string:Work">Work</option></select>
+                              <input value="" type="text">
+                            </div>
+                            <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+                              <i class="fa fa-plus-circle"></i>
+                            </button>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label multiple">
+                              <label>Address</label>
+                              <div class="float-btn-group">
+                                <button class="margin-5 icon-button button-delete" type="button">
+                                  <i class="fa fa-times-circle"></i>
+                                </button>
+                                <select><option label="Home" value="string:Home" selected="selected">Home</option><option label="Work" value="string:Work">Work</option></select><textarea ng-model="value.value"></textarea>
+                              </div>
+                              <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+                                <i class="fa fa-plus-circle"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label multiple">
+                              <label>Customer Type</label>
+                              <div class="float-btn-group">
+                                <button class="margin-5 icon-button button-delete" type="button">
+                                  <i class="fa fa-times-circle"></i>
+                                </button>
+                                <select><option label="Agent" value="string:Agent" selected="selected">Agent</option><option label="Customer" value="string:Customer">Customer</option><option label="Spam" value="string:Spam">Spam</option><option label="Vendor" value="string:Vendor">Vendor</option><option label="-- select a value --" value="string:">-- select a value --</option></select>
+                              </div>
+                              <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+                                <i class="fa fa-plus-circle"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label">
+                              <input type="text" value="">
+                              <label>Company</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                          <div class="ng-scope">
+                            <div class="form-group floating-label ng-scope property-job-title">
+                              <input type="text" value="">
+                              <label class="ng-binding">Job Title</label>
+                            </div>
+                          </div>
+                          <div class="ng-scope">
+                            <div class="form-group floating-label group-bg detail-g-borderbottom">
+                              <input type="text" value="">
+                              <label class="ng-binding">Address1</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">Address2</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">City</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">State</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">Postal Code</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label group-bg detail-g-bordertop">
+                              <input type="text" value="">
+                              <label class="ng-binding">Country</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-group floating-label multiple">
+                          <label>Logins</label>
+                          <div class="float-btn-group">
+                            <button class="margin-5 icon-button button-delete" type="button">
+                              <i class="fa fa-times-circle"></i>
+                            </button>
+                            <select>
+                              <option value="Email" selected="selected">Email</option>
+                              <option value="Bounced">Bounced</option>
+                              <option value=""></option>
+                            </select>
+                            <span class="ng-binding ng-hide">Email</span>
+                            <input type="text" value="">
+                          </div>
+                          <div class="float-btn-group">
+                            <button class="margin-5 icon-button button-delete" type="button">
+                              <i class="fa fa-times-circle"></i>
+                            </button>
+                            <select>
+                              <option value="Email" selected="selected">Email</option>
+                              <option value="Bounced">Bounced</option>
+                              <option value=""></option>
+                            </select>
+                            <input type="text" value="">
+                          </div>
+                          <button class="margin-5 icon-button button-add-row" type="button">
+                            <i class="fa fa-plus-circle"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+                      <strong>…</strong>
+                    </button>
+                  </div>
+                  <div class="box box-success">
+                    <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment3')">
+                      <h3 class="box-title ng-binding">Segment1</h3>
+                      <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment3}"></span>
+                    </div>
+                    <div class="box-body in collapse" uib-collapse="segment3">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                          <div>
+                            <div class="form-group floating-label property-text">
+                              <input type="text" value="">
+                              <label>Text</label>
+                            </div>
+                          </div><div>
+                            <div class="form-group floating-label property-date">
+                              <input type="text" value="">
+                              <label>Date</label>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="form-group floating-label property-additional-detail">
+                              <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="detail1a" value="string:detail1a">detail1a</option><option label="detail1b" value="string:detail1b">detail1b</option><option label="detail1c" value="string:detail1c">detail1c</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                              <label>Additional Detail</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                          <div>
+                            <div class="form-group floating-label property-existing-phone-property">
+                              <select class="ng-pristine ng-untouched ng-valid ng-empty"><option value="string:"></option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                              <label>Existing Phone Property</label>
+                            </div>
+                          </div><div>
+                            <div class="form-group floating-label property-svc-level-5-min">
+                              <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="False" value="string:False">False</option><option label="True" value="string:True">True</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                              <label>Svc Level 5 Min</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-group floating-label multiple ng-hide">
+                          <label>Logins</label>
+                          <button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
+                            <i class="fa fa-plus-circle"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-default btn-xs margin-5 ng-hide" ng-show="isCollapsed(segment.name)">
+                      <strong>…</strong>
+                    </button>
+                  </div>
+                  <div class="box box-danger">
+                    <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment4')">
+                      <h3 class="box-title ng-binding">Segment2</h3>
+                      <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment4}"></span>
+                    </div>
+                    <div class="box-body in collapse" uib-collapse="segment4">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                          <div>
+                            <div class="form-group floating-label property-s2only">
+                              <input type="text" value="">
+                              <label>s2only</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-group floating-label multiple ng-hide">
+                          <label>Logins</label>
+                          <button class="margin-5 icon-button button-add-row" type="button">
+                            <i class="fa fa-plus-circle"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+                      <strong>…</strong>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="button" ng-click="">
+                Save
+              </button>
+            </div>
+            <div class="tab-pane" id="tab_3">
+              <div class="row" id="chrono-view">
+                <div class="col-md-12">
+                  <!-- Custom Tabs -->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="box box-info">
+                        <div class="box-header with-border">
+                          <i class="fa fa-history"></i>
+                          <h3 class="box-title head-title-padding">Contact History</h3>
+                          <div class="btn-group pull-right" id="realtime" data-toggle="btn-toggle">
+                            <a class="btn btn-primary active" data-toggle="on" href="javascript:void(0)">Chronological View</a>
+                            <a class="btn btn-default " data-toggle="off" href="javascript:void(0)" onclick="showcase();">Case View</a>
+                          </div>
+                          <div class="pull-right show-notifications">
+                              <label class="incoming-ques">Show Notifications <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" /></label>
+                            </div>                            
+                        </div>
+                      <!-- /.box-header -->
+                      <!-- form start -->
+                        <div class="box-body table-responsive">
+                          <table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                            <thead>
+                              <tr>
+                                <th class="no-sort" name="name"></th>
+                                <th class="text-capitalize">
+                                  Subject
+                                </th>
+                                <th class="text-capitalize">
+                                  Topic
+                                </th>
+                                <th class="text-capitalize">
+                                  Status
+                                </th>
+                                <th class="text-capitalize">
+                                  Type
+                                </th>
+                                <th class="text-capitalize">
+                                  Username
+                                </th>
+                                <th class="text-capitalize">
+                                  Properties
+                                </th>
+                                <th class="text-capitalize">
+                                  Date
+                                </th>
+                                <td style="display:none;">
+                                    &nbsp;
+                                  </td>	
+                                  <td style="display:none;">
+                                    &nbsp;
+                                  </td>
+                                  <td style="display:none;">
+                                    &nbsp;
+                                  </td>
+                                  <td style="display:none;">
+                                    &nbsp;
+                                  </td>
+                                  <td style="display:none;">
+                                    &nbsp;
+                                  </td>
+                                  <td style="display:none;">
+                                    &nbsp;
+                                  </td>
+                              </tr>
+                            </thead>  
+                            <tbody>
+                              <tr id="row1">
+                                <td name="name">
+                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
+                                      <i class="fa fa-plus-circle" ng-show="!row1"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
+                                  </button>
+                                </td>
+                                <td class="subject-col-width">
+                                  [ref#: 42733-42733] I need help picking a camera
+                                </td>
+                                <td ng-show="!row1">
+                                  All Topics
+                                </td>
+                                <td ng-show="!row1">
+                                  <small class="bg-green-active label">Resolved</small>
+                                </td>
+                                <td ng-show="!row1"> 
+                                  <small class="label bg-blue disabled label-with-icon">
+                                    <i class="fa fa-comments"></i>Chat
+                                  </small>
+                                </td>
+                                <td ng-show="!row1">
+                                Jacob Smith
+                                </td>
+                                <td ng-show="!row1">
+                                  <b>Urgency Level</b> : High 
+                                  <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                </td>
+                                <td  ng-show="!row1">
+                                    2016-07-18 9:36:26 AM
+                                </td>
+                                <td col-span="" ng-show="row1">
+                                    &nbsp;
+                                </td>	
+                                <td col-span="" ng-show="row1">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row1">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row1">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row1">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row1">
+                                  &nbsp;
+                                </td>
+
+                              </tr>
+                              <tr id="row2">
+                                <td name="name">
+                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
+                                      <i class="fa fa-plus-circle" ng-show="!row2"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
+                                  </button>
+                                </td>
+                                <td>
+                                  [ref#: 6680-6680] Return policy
+                                </td>
+                                <td ng-show="!row2">
+                                  Returns
+                                </td>
+                                <td ng-show="!row2">
+                                  <small class="bg-green-active label">Resolved</small>
+                                </td>
+                                <td ng-show="!row2">
+                                  <small class="label label-with-icon bg-blue">
+                                    <i class="fa fa-envelope"></i>
+                                    Customer Email
+                                  </small>
+                                </td>
+                                <td ng-show="!row2">
+                                  Jacob Smith
+                                </td>
+                                <td ng-show="!row2">
+                                  <b>Urgency Level</b> : High
+                                  <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                </td>
+                                <td ng-show="!row2">
+                                  2016-07-18 9:36:26 AM
+                                </td>
+                                <td col-span="" ng-show="row2">
+                                    &nbsp;
+                                </td>	
+                                <td col-span="" ng-show="row2">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row2">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row2">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row2">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row2">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr id="row3">
+                                <td name="name">
+                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
+                                      <i class="fa fa-plus-circle" ng-show="!row3"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
+                                  </button>
+                                </td>
+                                <td>
+                                  [ref#: 42912-42912] Best price on LG Plasma
+                                </td>
+                                <td ng-show="!row3">
+                                  Open Quotes
+                                </td>
+                                <td ng-show="!row3">
+                                  <small class="bg-red-disabled label">Queued</small>
+                                </td>
+                                <td ng-show="!row3">
+                                  <small class="label label-with-icon bg-blue">
+                                    <i class="fa fa-ticket"></i>
+                                    Agent Ticket
+                                  </small>
+                                </td>
+                                <td ng-show="!row3">
+                                  Alek Packard
+                                </td>
+                                <td ng-show="!row3">
+                                    <b>Urgency Level</b> : High
+                                  <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row3')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                </td>
+                                <td ng-show="!row3">
+                                  2016-07-18 9:36:26 AM
+                                </td>
+
+                                <td col-span="" ng-show="row3">
+                                    &nbsp;
+                                </td>	
+                                <td col-span="" ng-show="row3">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row3">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row3">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row3">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row3">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr id="row4">
+                                <td name="name">
+                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
+                                      <i class="fa fa-plus-circle" ng-show="!row4"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
+                                  </button>
+                                </td>
+                                <td>
+                                  [ref#: 42883-42883] Need a travel camera
+                                </td>
+                                <td ng-show="!row4">
+                                    To Quote
+                                </td>
+                                <td ng-show="!row4">
+                                  <small class="bg-green-active label">Resolved</small>
+                                </td>
+                                <td ng-show="!row4">
+                                  <small class="label bg-blue"> 
+                                    <span class="fa-stack stack-icon-label">
+                                    <i class="fa fa-user"></i>
+                                    <i class="fa fa-ticket"></i> 
+                                  </span> Customer Ticket
+                                  </small>
+                                </td>
+                                <td ng-show="!row4">
+                                  Alek Packard
+                                </td>
+                                <td ng-show="!row4">
+                                  <b>Urgency Level</b>: High 
+                                  <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row4')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                </td>
+                                <td ng-show="!row4">
+                                  2016-07-18 9:36:26 AM
+                                </td>
+                                <td col-span="" ng-show="row4">
+                                    &nbsp;
+                                </td>	
+                                <td col-span="" ng-show="row4">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row4">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row4">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row4">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row4">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <!-- /.row -->
+                          <div class="modal fade" id="modal-default">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                  <h4 class="modal-title">Properties</h4>
                                 </div>
-                                <div class="col-md-8 user-name">Example Company</div>
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                      <label for="urgency">Urgency</label>
+                                      <input type="text" class="form-control" id="urgency" value="High">													  </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                      <label for="exampleInputEmail1">isOpen</label>
+                                      <select class="form-control">
+                                        <option>TRUE</option>
+                                        <option>FALSE</option>
+                                      </select>
+                                      </div>
+                                    </div>
+                                  </div>		
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
                               </div>
-                              <div class="datarow row form-group">
-                                <label class="col-md-5 control-label">Company</label>
-                                <div class="text ng-binding col-md-7">Example Company, Inc.</div>
-                              </div>
-                              <div class="datarow row form-group">
-                                <label class="col-md-5 control-label">Phone</label>
-                                <div class="text ng-binding col-md-7">+40-12121212</div>
-                              </div>
-                              <div class="datarow row form-group">
-                                <label class="col-md-5 control-label">Primary Contact</label>
-                                <div class="text ng-binding col-md-7">John Doe</div>
-                              </div>
-                              <div class="datarow row form-groupj">
-                                <label class="col-md-5 control-label">Primary Contact Phone</label>
-                                <div class="text ng-binding col-md-7">312-555-5555</div>
-                              </div>
+                            <!-- /.modal-content -->
                             </div>
-                          </div>  
-                        </div>    
-                      </div>
-                      <div class="col-md-7">
-                        <div class="box box-primary">
-                          <div class="box-body account-update-box">
-                            <div class="col-md-12">
-                              <div class="nested-panel-heading skill-heading">
-                                <h3 class="nested-title">Last Updated</h3>
-                                <ul class="update-list">
-                                  <li>
-                                    <span>Customer Email</span>
-                                    <span><a href="">Chacho</a>, <a href="">Micky</a></span>
-                                    <span><a href="">View</a>  </span>
-                                    <div class="message-time">1 Days Ago</div>
-                                  </li>
-                                  <li>
-                                    <span>Customer Email</span>
-                                    <span><a href="">Chacho</a>, <a href="">Micky</a></span>
-                                    <span><a href="">View</a>  </span>
-                                    <div class="message-time">30 Minutes Ago</div>
-                                  </li>
-                                </ul>
-                                <h3 class="nested-title">Unresolved Questions</h3>
-                                <ul class="update-list">
-                                  <li>
-                                      Best price on LG Plasma
-                                    <div class="message-time">30 Minutes Ago</div>
-                                  </li>
-                                  <li><span>Please provide help in returning the item</span>
-                                    <div class="message-time">1 HOur Ago</div>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>  
-                          </div>  
-                        </div>  
-                      </div>
-                      <div class="col-md-12">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                              <h3 class="box-title text-right"> Contacts Linked With This Account</h3>
-                              <button class="btn btn-primary btn-xs pull-right">Link Contacts</button>
-                            </div>
-                            <div class="box-body table-responsive with-border">
-                              <table class="table table-striped table-hover" datatable dt-options="dtContactOptions" dt-column-defs="dtContactColumnDefs">
-                                  <thead>
-                                    <tr>
-                                      <th>
-                                      </th>  
-                                      <!--<th class="no-sort"  name="name" width="30"></th>-->
-                                      <th class="text-capitalize">
-                                        Name
-                                      </th>
-                                      <th class="text-capitalize">
-                                        Email
-                                      </th>
-                                      <th class="text-capitalize">
-                                        Address
-                                      </th>
-                                      <th class="text-capitalize">
-                                        Work Phone
-                                      </th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td>
-                                        <button class="icon-button button-delete" type="button">
-                                          <i class="fa fa-times-circle"></i>
-                                        </button>
-                                      </td>
-                                      <td>
-                                        John Doe
-                                      </td>
-                                      <td>
-                                        john.doe@example.com
-                                      </td>
-                                      <td>
-                                        1243 Somewhere Blvd
-                                      </td>
-                                      <td>
-                                        +40-1000122
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <button class="icon-button button-delete" type="button">
-                                          <i class="fa fa-times-circle"></i>
-                                        </button>
-                                      </td>
-                                      <td>
-                                        Albert Metricman
-                                      </td>
-                                      <td>
-                                       albert.metricman@example.com
-                                      </td>
-                                      <td>
-                                        1243 Somewhere Blvd
-                                      </td>
-                                      <td>
-                                        +40-10001332
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                              </table>
-                            </div>  
-                        </div>  
+                            <!-- /.modal-dialog -->
+                          </div>
+                          <!-- /.modal -->
+                        </div>
                       </div> 
                     </div>
-               </div> 
-              <div class="tab-pane" id="tab_account_detail">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box box-primary">
-                      <div class="box-body with-border">
-                        <div class="row">
-                          <div class="form-horizontal">
-                            <div class="col-md-5">
-                              <div class="form-group">
-                                <label class="col-md-12 control-label text-left">Your Full Name</label>
-                                <div class="col-md-12">
-                                  <input type="text" class="form-control">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="col-md-12 control-label text-left">Your Email</label>
-                                <div class="col-md-12">
-                                  <input type="text" class="form-control">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="col-md-12 control-label text-left">Account Type</label>
-                                <div class="col-md-12">
-                                  <select class="form-control">
-                                    <option value="">Select</option>
-                                  </select>  
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="col-md-12 control-label text-left">Account Type</label>
-                                <div class="col-md-12">
-                                  <select class="form-control">
-                                    <option value="">Select</option>
-                                  </select>  
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-7">
-                              <div class="form-group bg-group">
-                                <label class="col-md-12 control-label text-left">&nbsp;</label>
-                                <div class="col-md-12">
-                                  <div class="form-group group-bg group-input detail-g-borderbottom">
-                                    <label class="col-md-12 control-label text-left group-input-label">Address 1</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                  <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
-                                    <label class="col-md-12 control-label text-left group-input-label">Address 2</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                  
-                                  <div class="group-bg-part">
-                                    <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop detail-g-borderright detail-g-part">
-                                      <label class="col-md-12 control-label text-left group-input-label">City</label>
-                                      <div class="col-md-12">
-                                        <input type="text" class="form-control">
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="group-bg-part">
-                                    <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop detail-g-borderleft detail-g-part">
-                                      <label class="col-md-12 control-label text-left group-input-label">State/Province</label>
-                                      <div class="col-md-12">
-                                        <input type="text" class="form-control">
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="group-bg-part">
-                                    <div class="form-group group-bg group-input detail-g-bordertop detail-g-borderright detail-g-part">
-                                      <label class="col-md-12 control-label text-left group-input-label">Postal Code</label>
-                                      <div class="col-md-12">
-                                        <input type="text" class="form-control">
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="group-bg-part">
-                                    <div class="form-group group-bg group-input detail-g-bordertop detail-g-borderleft detail-g-part">
-                                      <label class="col-md-12 control-label text-left group-input-label">Country</label>
-                                      <div class="col-md-12">
-                                        <input type="text" class="form-control">
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-12">
-                              <div class="nested-panel-heading skill-heading">
-                                <h3 class="nested-title">Technical Support</h3>
-                              </div>
-                              <div class="row">  
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Your Full Name</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                </div>  
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Your Full Name</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Your Full Name</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Your Full Name</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                                </div>  
-                              </div>  
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                              <button class="btn btn-primary pull-left" type="button">Save</button>
-                            </div>
-                            <div class="clearfix"></div>
-                          </div>
-                        </div>  
-                      </div> 
-                    </div>   
-                  </div>  
+                    <div class="col-md-4">
+                    </div>
+                  </div>                         
                 </div>
-              </div> 
-
-              <div class="tab-pane" id="tab_account_history">
-                <div class="row" id="chrono-view">
-                  <div class="col-md-12">
-                    <!-- Custom Tabs -->
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="box box-info">
-                          <div class="box-header with-border">
-                            <i class="fa fa-history"></i>
-                            <h3 class="box-title head-title-padding">Contact History</h3>
-
-                            <div class="btn-group pull-right" id="realtime" data-toggle="btn-toggle">
-                              <a class="btn btn-primary active" data-toggle="on" href="javascript:void(0)">Chronological View</a>
-                              <a class="btn btn-default " data-toggle="off" href="javascript:void(0)" onclick="showcase();">Case View</a>
-                            </div>
-                            <div class="pull-right show-notifications">
-                                <label class="incoming-ques">Show Notifications <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" /></label>
-                              </div>                            
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+              <div class="row" id="case-view" style="display:none;">
+                <div class="col-md-12">
+                  <!-- Custom Tabs -->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="box box-info">
+                        <div class="box-header with-border">
+                          <i class="fa fa-history"></i>
+                          <h3 class="box-title head-title-padding">Contact History</h3>
+                          <div class="btn-group pull-right" data-toggle="btn-toggle">
+                            <a class="btn btn-default" data-toggle="on" href="javascript:void(0)" onclick="showchronological();">Chronological View</a>
+                            <a class="btn btn-primary active" data-toggle="off" href="javascript:void(0)">Case View</a>
                           </div>
+                            <div class="pull-right show-notifications">
+                              <label class="incoming-ques">Show Notifications <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" /></label>
+                            </div>  
+                        </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                          <div class="box-body table-responsive">
-                            <table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-                              <thead>
-                                <tr>
-                                  <th class="no-sort" name="name"></th>
-                                  <th class="text-capitalize">
-                                    Subject
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Topic
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Status
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Type
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Username
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Properties
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Date
-                                  </th>
+                        <div class="box-body table-responsive" >
+                          <table id="contactHistoryTable" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                            <thead>
+                              <tr>
+                                <th class="no-sort"><div class="icon-col"></div></th>
+                                <th class="text-capitalize">
+                                  Subject 
+                                </th>
+                                <th class="text-capitalize">
+                                  Case Topic
+                                </th>
+                                <th class="text-capitalize">
+                                  Case Status
+                                </th>
+                                <th class="text-capitalize">
+                                  Case Properties
+                                </th>
+                                <th class="text-capitalize">
+                                  Date
+                                </th>
+                                <td style="display:none;">
+                                    &nbsp;
+                                  </td>	
                                   <td style="display:none;">
-                                      &nbsp;
-                                    </td>	
-                                    <td style="display:none;">
-                                      &nbsp;
-                                    </td>
-                                    <td style="display:none;">
-                                      &nbsp;
-                                    </td>
-                                    <td style="display:none;">
-                                      &nbsp;
-                                    </td>
-                                    <td style="display:none;">
-                                      &nbsp;
-                                    </td>
-                                    <td style="display:none;">
-                                      &nbsp;
-                                    </td>
-                                </tr>
-                              </thead>  
-                              <tbody>
-                                <tr id="row1">
-                                  <td name="name">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
-                                        <i class="fa fa-plus-circle" ng-show="!row1"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
-                                    </button>
-                                  </td>
-                                  <td class="subject-col-width">
-                                    [ref#: 42733-42733] I need help picking a camera
-                                  </td>
-                                  <td ng-show="!row1">
-                                    All Topics
-                                  </td>
-                                  <td ng-show="!row1">
-                                    <small class="bg-green-active label">Resolved</small>
-                                  </td>
-                                  <td ng-show="!row1"> 
-                                    <small class="label bg-blue disabled label-with-icon">
-                                      <i class="fa fa-comments"></i>Chat
-                                    </small>
-                                  </td>
-                                  <td ng-show="!row1">
-                                  Jacob Smith
-                                  </td>
-                                  <td ng-show="!row1">
-                                    <b>Urgency Level</b> : High 
-                                    <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                  </td>
-                                  <td  ng-show="!row1">
-                                      2016-07-18 9:36:26 AM
-                                  </td>
-                                  <td col-span="" ng-show="row1">
-                                      &nbsp;
-                                  </td>	
-                                  <td col-span="" ng-show="row1">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row1">
                                     &nbsp;
                                   </td>
-                                  <td col-span="" ng-show="row1">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row1">
-                                    &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row1">
-                                    &nbsp;
-                                  </td>
-
-                                </tr>
-                                <tr id="row2">
-                                  <td name="name">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
-                                        <i class="fa fa-plus-circle" ng-show="!row2"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
-                                    </button>
-                                  </td>
-                                  <td>
-                                    [ref#: 6680-6680] Return policy
-                                  </td>
-                                  <td ng-show="!row2">
-                                    Returns
-                                  </td>
-                                  <td ng-show="!row2">
-                                    <small class="bg-green-active label">Resolved</small>
-                                  </td>
-                                  <td ng-show="!row2">
-                                    <small class="label label-with-icon bg-blue">
-                                      <i class="fa fa-envelope"></i>
-                                      Customer Email
-                                    </small>
-                                  </td>
-                                  <td ng-show="!row2">
-                                    Jacob Smith
-                                  </td>
-                                  <td ng-show="!row2">
-                                    <b>Urgency Level</b> : High
-                                    <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                  </td>
-                                  <td ng-show="!row2">
-                                    2016-07-18 9:36:26 AM
-                                  </td>
-                                  <td col-span="" ng-show="row2">
-                                      &nbsp;
-                                  </td>	
-                                  <td col-span="" ng-show="row2">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row2">
-                                    &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row2">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row2">
-                                    &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row2">
-                                    &nbsp;
-                                  </td>
-                                </tr>
-                                <tr id="row3">
-                                  <td name="name">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
-                                        <i class="fa fa-plus-circle" ng-show="!row3"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
-                                    </button>
-                                  </td>
-                                  <td>
-                                    [ref#: 42912-42912] Best price on LG Plasma
-                                  </td>
-                                  <td ng-show="!row3">
-                                    Open Quotes
-                                  </td>
-                                  <td ng-show="!row3">
-                                    <small class="bg-red-disabled label">Queued</small>
-                                  </td>
-                                  <td ng-show="!row3">
-                                    <small class="label label-with-icon bg-blue">
-                                      <i class="fa fa-ticket"></i>
-                                      Agent Ticket
-                                    </small>
-                                  </td>
-                                  <td ng-show="!row3">
-                                    Alek Packard
-                                  </td>
-                                  <td ng-show="!row3">
-                                      <b>Urgency Level</b> : High
-                                    <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row3')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                  </td>
-                                  <td ng-show="!row3">
-                                    2016-07-18 9:36:26 AM
-                                  </td>
-
-                                  <td col-span="" ng-show="row3">
-                                      &nbsp;
-                                  </td>	
-                                  <td col-span="" ng-show="row3">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row3">
-                                    &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row3">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row3">
-                                    &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row3">
-                                    &nbsp;
-                                  </td>
-                                </tr>
-                                <tr id="row4">
-                                  <td name="name">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
-                                        <i class="fa fa-plus-circle" ng-show="!row4"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
-                                    </button>
-                                  </td>
-                                  <td>
-                                    [ref#: 42883-42883] Need a travel camera
-                                  </td>
-                                  <td ng-show="!row4">
-                                      To Quote
-                                  </td>
-                                  <td ng-show="!row4">
-                                    <small class="bg-green-active label">Resolved</small>
-                                  </td>
-                                  <td ng-show="!row4">
-                                    <small class="label bg-blue"> 
-                                      <span class="fa-stack stack-icon-label">
-                                      <i class="fa fa-user"></i>
-                                      <i class="fa fa-ticket"></i> 
-                                    </span> Customer Ticket
-                                    </small>
-                                  </td>
-                                  <td ng-show="!row4">
-                                    Alek Packard
-                                  </td>
-                                  <td ng-show="!row4">
-                                    <b>Urgency Level</b>: High 
-                                    <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row4')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                  </td>
-                                  <td ng-show="!row4">
-                                    2016-07-18 9:36:26 AM
-                                  </td>
-                                  <td col-span="" ng-show="row4">
-                                      &nbsp;
-                                  </td>	
-                                  <td col-span="" ng-show="row4">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row4">
-                                    &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row4">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row4">
-                                    &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row4">
-                                    &nbsp;
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <!-- /.row -->
-                            <div class="modal fade" id="modal-default">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Properties</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                    <div class="row">
-                                      <div class="col-md-6">
-                                        <div class="form-group">
-                                        <label for="urgency">Urgency</label>
-                                        <input type="text" class="form-control" id="urgency" value="High">													  </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                        <div class="form-group">
-                                        <label for="exampleInputEmail1">isOpen</label>
-                                        <select class="form-control">
-                                          <option>TRUE</option>
-                                          <option>FALSE</option>
-                                        </select>
-                                        </div>
-                                      </div>
-                                    </div>		
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                  </div>
-                                </div>
-                              <!-- /.modal-content -->
-                              </div>
-                              <!-- /.modal-dialog -->
-                            </div>
-                            <!-- /.modal -->
-                          </div>
-                        </div> 
-                      </div>
-                      <div class="col-md-4">
-                      </div>
-                    </div>                         
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-				        <div class="row" id="case-view" style="display:none;">
-                  <div class="col-md-12">
-                    <!-- Custom Tabs -->
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="box box-info">
-                          <div class="box-header with-border">
-                            <i class="fa fa-history"></i>
-                            <h3 class="box-title head-title-padding">Contact History</h3>
-                            <div class="btn-group pull-right" data-toggle="btn-toggle">
-                              <a class="btn btn-default" data-toggle="on" href="javascript:void(0)" onclick="showchronological();">Chronological View</a>
-                              <a class="btn btn-primary active" data-toggle="off" href="javascript:void(0)">Case View</a>
-                            </div>
-                             <div class="pull-right show-notifications">
-                                <label class="incoming-ques">Show Notifications <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" /></label>
-                              </div>  
-                          </div>
-                          <!-- /.box-header -->
-                          <!-- form start -->
-                          <div class="box-body table-responsive" >
-                            <table id="contactHistoryTable" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-                              <thead>
-                                <tr>
-                                  <th class="no-sort"><div class="icon-col"></div></th>
-                                  <th class="text-capitalize">
-                                    Subject 
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Case Topic
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Case Status
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Case Properties
-                                  </th>
-                                  <th class="text-capitalize">
-                                    Date
-                                  </th>
                                   <td style="display:none;">
-                                      &nbsp;
-                                   </td>	
-                                   <td style="display:none;">
-                                      &nbsp;
-                                   </td>
-                                   <td style="display:none;">
-                                     &nbsp;
-                                   </td>
-                                   <td style="display:none;">
-                                      &nbsp;
-                                   </td>
-                                </tr>
-                              </thead>  
-                              <tbody>
-                                <tr id="row5">
-                                  <td>
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row5')">
-                                          <i class="fa fa-plus-circle" ng-show="!row5"></i>
-                                          <i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
-                                      </button>
+                                    &nbsp;
                                   </td>
-                                  <td>
-                                    [ref#: 42733-42733] I need help picking a camera
+                                  <td style="display:none;">
+                                    &nbsp;
                                   </td>
-                                  <td ng-show="!row5">
-                                    All Topics
+                              </tr>
+                            </thead>  
+                            <tbody>
+                              <tr id="row5">
+                                <td>
+                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row5')">
+                                        <i class="fa fa-plus-circle" ng-show="!row5"></i>
+                                        <i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
+                                    </button>
+                                </td>
+                                <td>
+                                  [ref#: 42733-42733] I need help picking a camera
+                                </td>
+                                <td ng-show="!row5">
+                                  All Topics
+                                </td>
+                                <td ng-show="!row5">
+                                  <small class="bg-green-active label">Resolved</small>
+                                </td>
+                                
+                                <td ng-show="!row5">
+                                --
+                                </td>
+                                <td ng-show="!row5">
+                                  2016-07-18 9:36:26 AM
+                                </td>
+                                  <td col-span="" ng-show="row5">
+                                      &nbsp;
+                                  </td>	
+                                  <td col-span="" ng-show="row5">
+                                      &nbsp;
                                   </td>
-                                  <td ng-show="!row5">
-                                    <small class="bg-green-active label">Resolved</small>
+                                  <td col-span="" ng-show="row5">
+                                    &nbsp;
+                                  </td>
+                                  <td col-span="" ng-show="row5">
+                                      &nbsp;
+                                  </td>
+                              </tr>
+                              <tr id="row6">
+                                <td>
+                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row6')">
+                                      <i class="fa fa-plus-circle" ng-show="!row6"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="row6" ng-cloak></i>
+                                  </button>
+                                </td>
+                                <td>
+                                  [ref#: 6680-6680] Return policy
+                                </td>
+                                <td ng-show="!row6">
+                                  Returns
+                                </td>
+                                <td ng-show="!row6">
+                                  <small class="bg-green-active label">Resolved</small>
+                                </td>
+                                
+                                <td ng-show="!row6">
+                                --
+                                </td>
+                                <td ng-show="!row6">
+                                  2016-07-18 9:36:26 AM
+                                </td>
+                                  <td col-span="" ng-show="row6">
+                                      &nbsp;
+                                  </td>	
+                                  <td col-span="" ng-show="row6">
+                                      &nbsp;
+                                  </td>
+                                  <td col-span="" ng-show="row6">
+                                    &nbsp;
+                                  </td>
+                                  <td col-span="" ng-show="row6">
+                                      &nbsp;
                                   </td>
                                   
-                                  <td ng-show="!row5">
-                                  --
-                                  </td>
-                                  <td ng-show="!row5">
-                                    2016-07-18 9:36:26 AM
-                                  </td>
-                                   <td col-span="" ng-show="row5">
-                                       &nbsp;
-                                    </td>	
-                                    <td col-span="" ng-show="row5">
-                                       &nbsp;
-                                    </td>
-                                    <td col-span="" ng-show="row5">
-                                      &nbsp;
-                                    </td>
-                                    <td col-span="" ng-show="row5">
-                                       &nbsp;
-                                    </td>
-                                </tr>
-                                <tr id="row6">
-                                  <td>
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row6')">
-                                        <i class="fa fa-plus-circle" ng-show="!row6"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row6" ng-cloak></i>
-                                    </button>
-                                  </td>
-                                  <td>
-                                    [ref#: 6680-6680] Return policy
-                                  </td>
-                                  <td ng-show="!row6">
-                                    Returns
-                                  </td>
-                                  <td ng-show="!row6">
-                                    <small class="bg-green-active label">Resolved</small>
-                                  </td>
-                                  
-                                  <td ng-show="!row6">
-                                  --
-                                  </td>
-                                  <td ng-show="!row6">
-                                    2016-07-18 9:36:26 AM
-                                  </td>
-                                   <td col-span="" ng-show="row6">
-                                       &nbsp;
-                                    </td>	
-                                    <td col-span="" ng-show="row6">
-                                       &nbsp;
-                                    </td>
-                                    <td col-span="" ng-show="row6">
-                                      &nbsp;
-                                    </td>
-                                    <td col-span="" ng-show="row6">
-                                       &nbsp;
-                                    </td>
-                                   
-                                </tr>
-                                <tr id="row7">
-                                  <td class="icon-col">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row7')">
-                                        <i class="fa fa-plus-circle" ng-show="!row7"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row7" ng-cloak></i>
-                                    </button>
-                                    <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
-                                        <i class="fa fa-envelope-open"></i>
-                                    </button>
-                                  </td>
-                                  <td>
-                                    [ref#: 42912-42912] Best price on LG Plasma
-                                  </td>
-                                  <td ng-show="!row7">
-                                    Open Quotes
-                                  </td>
-                                  <td ng-show="!row7">
-                                    <small class="bg-red-disabled label">Queued</small>
-                                  </td>
-                                  <td ng-show="!row7">
-                                    --
-                                  </td>
-                                  <td ng-show="!row7">
-                                    2016-07-18 9:36:26 AM
-                                  </td>
-
-                                  <td col-span="" ng-show="row7">
-                                      &nbsp;
-                                  </td>	
-                                  <td col-span="" ng-show="row7">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row7">
-                                    &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row7">
-                                      &nbsp;
-                                  </td>
-                                </tr>
-                                <tr id="row8">
-                                  <td class="icon-col">
-                                    <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row8')">
-                                        <i class="fa fa-plus-circle" ng-show="!row8"></i>
-                                        <i class="fa fa-minus-circle ng-hide" ng-show="row8" ng-cloak></i>
-                                    </button>
-                                    <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
+                              </tr>
+                              <tr id="row7">
+                                <td class="icon-col">
+                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row7')">
+                                      <i class="fa fa-plus-circle" ng-show="!row7"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="row7" ng-cloak></i>
+                                  </button>
+                                  <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
                                       <i class="fa fa-envelope-open"></i>
-                                    </button>
-                                  </td>
-                                  <td>
-                                    [ref#: 42883-42883] Need a travel camera
-                                  </td>
-                                  <td ng-show="!row8">
-                                    To Quote
-                                  </td>
-                                  <td ng-show="!row8">
-                                    <small class="bg-green-active label">Resolved</small>
-                                  </td>
-                                  <td ng-show="!row8">
+                                  </button>
+                                </td>
+                                <td>
+                                  [ref#: 42912-42912] Best price on LG Plasma
+                                </td>
+                                <td ng-show="!row7">
+                                  Open Quotes
+                                </td>
+                                <td ng-show="!row7">
+                                  <small class="bg-red-disabled label">Queued</small>
+                                </td>
+                                <td ng-show="!row7">
                                   --
-                                  </td>
-                                  <td ng-show="!row8">
-                                    2016-07-18 9:36:26 AM
-                                  </td>
-                                  <td col-span="" ng-show="row8">
-                                      &nbsp;
-                                  </td>	
-                                  <td col-span="" ng-show="row8">
-                                      &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row8">
+                                </td>
+                                <td ng-show="!row7">
+                                  2016-07-18 9:36:26 AM
+                                </td>
+
+                                <td col-span="" ng-show="row7">
                                     &nbsp;
-                                  </td>
-                                  <td col-span="" ng-show="row8">
-                                      &nbsp;
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div> 
-                      </div>
-                      <div class="col-md-4">
-                      </div>
-                    </div>                         
-                  </div>
-                    <!-- /.col -->
+                                </td>	
+                                <td col-span="" ng-show="row7">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row7">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row7">
+                                    &nbsp;
+                                </td>
+                              </tr>
+                              <tr id="row8">
+                                <td class="icon-col">
+                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row8')">
+                                      <i class="fa fa-plus-circle" ng-show="!row8"></i>
+                                      <i class="fa fa-minus-circle ng-hide" ng-show="row8" ng-cloak></i>
+                                  </button>
+                                  <button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
+                                    <i class="fa fa-envelope-open"></i>
+                                  </button>
+                                </td>
+                                <td>
+                                  [ref#: 42883-42883] Need a travel camera
+                                </td>
+                                <td ng-show="!row8">
+                                  To Quote
+                                </td>
+                                <td ng-show="!row8">
+                                  <small class="bg-green-active label">Resolved</small>
+                                </td>
+                                <td ng-show="!row8">
+                                --
+                                </td>
+                                <td ng-show="!row8">
+                                  2016-07-18 9:36:26 AM
+                                </td>
+                                <td col-span="" ng-show="row8">
+                                    &nbsp;
+                                </td>	
+                                <td col-span="" ng-show="row8">
+                                    &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row8">
+                                  &nbsp;
+                                </td>
+                                <td col-span="" ng-show="row8">
+                                    &nbsp;
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div> 
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                  </div>                         
                 </div>
-                <!-- /.row -->
+                  <!-- /.col -->
               </div>
-            </div>  
-          </div> 
+              <!-- /.row -->
+            </div>
+          </div>  
+        </div> 
         <!-- /.row -->
         <!-- END ACCORDION & CAROUSEL-->
       </section>
@@ -1412,6 +1546,18 @@ title:  Customer Info Account
       
    </script>
    <script>
+      
+      $('.eq-container').each(function(){  
+        var highestBox = 0;
+        $('.eq-container', this).each(function(){
+          // If this box is higher than the cached highest then store it
+          if($(this).height() > highestBox) {
+            highestBox = $(this).height(); 
+          }
+        });  
+
+        $('.eq-container',this).height(highestBox);
+      }); 
       app.controller('myCtrlDetail', function ($scope) {
           $scope.toggleSegmentCollapsedState = function (segmentName)
           { 
