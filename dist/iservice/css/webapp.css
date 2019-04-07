@@ -2499,6 +2499,7 @@ body > .ui-select-bootstrap.open {
 }
 .group-input .group-input-item {
   height: 28px;
+  padding: 0px 12px !important;
 }
 .group-input .group-input-label {
   font-weight: normal;
