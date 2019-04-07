@@ -17,17 +17,17 @@ title:  Account
     {% include common-menu.html %}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-     <section class="content-header">
-					<h1>
-              {{ page.title }}
-              <small>Company</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Customer Info</li>
-            <li class="active">Account</li>
-          </ol>
-			</section>
+      <section class="content-header">
+        <h1>
+            {{ page.title }}
+            <small>Company</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Customer Info</li>
+          <li class="active"> {{ page.title }}</li>
+        </ol>
+		  </section>
       <!-- Main content -->
       <section class="content" ng-controller="myCtrl">
         <div class="nav-tabs-custom color-tab-icon" ng-hide="newformsegment">
@@ -45,7 +45,7 @@ title:  Account
               </a>
             </li>
             <li>
-              <a href="#tab_4" data-toggle="tab">
+              <a href="#tab_3" data-toggle="tab">
                 <i class="fa fa-history green"></i>
                 <span>History</span>
               </a>
@@ -60,10 +60,10 @@ title:  Account
                       <i class="fa fa-users"></i>
                       <h3 class="box-title">Company Information</h3>
                     </div>
-                    <div class="box-body eq-container">
-                      <div class="form-horizontal company-detail">
+                    <div class="box-body">
+                      <div class="form-horizontal company-detail eq-container">
                         <div class="row">
-                          <div class="col-md-12 company-name">Example Company</div>
+                          <div class="col-md-12 company-name">Example Company, Inc.</div>
                         </div>
                         <div class="datarow row form-group">
                           <label class="col-md-4 control-label">Address</label>
@@ -87,56 +87,58 @@ title:  Account
                       <i class="fa fa-info"></i>
                       <h3 class="box-title">Status Information</h3>
                     </div>
-                    <div class="box-body right-container eq-container">
-                      <div class="row">
-                        <div class="col-xs-4 text-center report-counts"><h3 class="text-red">01</h3><span>Unassigned Questions</span></div>
-                        <div class="col-xs-4 text-center report-counts"><h3 class="text-blue">Jacob Smith</h3><span>Last Agent </span></div>
-                        <div class="col-xs-4 text-center report-counts"><h3 class="text-green">06</h3><span>Interactions Past Week </span></div>
-                      </div>
-                      <h3>Unresolved Questions <span class="text-muted">(1)</span></h3>
-                      <ul class="empty-list">
-                        <li>
-                            Best price on LG Plasma
-                          <div class="message-time">1 Days Ago</div>
-                        </li>
-                      </ul>
-                      <div class="view-more">
-                        <a class="btn btn-primary btn-xs pull-right">View 1 more</a>
-                      </div>
-                      <h3>Recent History</h3>
-                      <div>
-                        <div class="qa-message-list">
-                          <i class="fa fa-envelope bg-blue"></i>
-                          <div class="message-item">
-                            <div class="message-inner">
-                              <span class="time"><i class="fa fa-clock-o"></i> Just Now</span>
-                              <span class="time">
-                                <i class="fa fa-user-o"></i>
-                                Jacob Smith
-                              </span>
-                              <div class="message-header">Chat</div>
-                                I need help picking a camera
-                            </div>
-                          </div>
+                    <div class="box-body right-container">
+                      <div class="eq-container"> 
+                        <div class="row">
+                          <div class="col-xs-4 text-center report-counts"><h3 class="text-red">01</h3><span>Unassigned Questions</span></div>
+                          <div class="col-xs-4 text-center report-counts"><h3 class="text-blue">Jacob Smith</h3><span>Last Agent </span></div>
+                          <div class="col-xs-4 text-center report-counts"><h3 class="text-green">06</h3><span>Interactions Past Week </span></div>
                         </div>
-                        <div class="qa-message-list">
-                          <i class="fa fa-ticket bg-orange"></i>
-                          <div class="message-item">
-                            <div class="message-inner">
-                              <span class="time"><i class="fa fa-clock-o"></i> 2 Days ago</span>
-                              <span class="time">
-                                <i class="fa fa-user-o"></i>
-                                Alek Packard
-                              </span>
-                              <div class="message-header">Agent Ticket</div>
+                        <h3>Unresolved Questions <span class="text-muted">(1)</span></h3>
+                        <ul class="empty-list">
+                          <li>
                               Best price on LG Plasma
+                            <div class="message-time">1 Days Ago</div>
+                          </li>
+                        </ul>
+                        <div class="view-more">
+                          <a class="btn btn-primary btn-xs pull-right">View 1 more</a>
+                        </div>
+                        <h3>Recent History</h3>
+                        <div>
+                          <div class="qa-message-list">
+                            <i class="fa fa-envelope bg-blue"></i>
+                            <div class="message-item">
+                              <div class="message-inner">
+                                <span class="time"><i class="fa fa-clock-o"></i> Just Now</span>
+                                <span class="time">
+                                  <i class="fa fa-user-o"></i>
+                                  Jacob Smith
+                                </span>
+                                <div class="message-header">Chat</div>
+                                  I need help picking a camera
+                              </div>
                             </div>
                           </div>
+                          <div class="qa-message-list">
+                            <i class="fa fa-ticket bg-orange"></i>
+                            <div class="message-item">
+                              <div class="message-inner">
+                                <span class="time"><i class="fa fa-clock-o"></i> 2 Days ago</span>
+                                <span class="time">
+                                  <i class="fa fa-user-o"></i>
+                                  Alek Packard
+                                </span>
+                                <div class="message-header">Agent Ticket</div>
+                                Best price on LG Plasma
+                              </div>
+                            </div>
+                          </div>
+                          <div class="view-more">
+                            <a href="#tab_4" class="btn btn-primary btn-xs pull-right" data-toggle="tab">View all history</a>
+                          </div>
                         </div>
-                        <div class="view-more">
-                          <a href="#tab_4" class="btn btn-primary btn-xs pull-right" data-toggle="tab">View all history</a>
-                        </div>
-                      </div>
+                      </div>  
                     </div>
                   </div>
                 </div>
@@ -218,7 +220,7 @@ title:  Account
                 <div class="col-xs-12 col-sm-12 panel-group">
                   <div class="box box-info">
                     <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment1')">
-                      <h3 class="box-title">Contact Information</h3>
+                      <h3 class="box-title">Account Information</h3>
                       <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment1}"></span>
                     </div>
                     <div class="box-body in collapse" uib-collapse="segment1">
@@ -227,19 +229,7 @@ title:  Account
                           <div>
                             <div class="form-group floating-label">
                               <input type="text" value="">
-                              <label>First Name</label>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label">
-                              <input value="" type="text">
-                              <label>Middle Initial</label>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label">
-                              <input type="text" value="">
-                              <label>Last Name</label>
+                              <label>Account Name</label>
                             </div>
                           </div>
                           <div class="form-group floating-label multiple">
@@ -254,20 +244,6 @@ title:  Account
                             <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
                               <i class="fa fa-plus-circle"></i>
                             </button>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label multiple">
-                              <label>Address</label>
-                              <div class="float-btn-group">
-                                <button class="margin-5 icon-button button-delete" type="button">
-                                  <i class="fa fa-times-circle"></i>
-                                </button>
-                                <select><option label="Home" value="string:Home" selected="selected">Home</option><option label="Work" value="string:Work">Work</option></select><textarea ng-model="value.value"></textarea>
-                              </div>
-                              <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
-                                <i class="fa fa-plus-circle"></i>
-                              </button>
-                            </div>
                           </div>
                           <div>
                             <div class="form-group floating-label multiple">
@@ -286,17 +262,11 @@ title:  Account
                           <div>
                             <div class="form-group floating-label">
                               <input type="text" value="">
-                              <label>Company</label>
+                              <label>Website</label>
                             </div>
                           </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                          <div class="ng-scope">
-                            <div class="form-group floating-label ng-scope property-job-title">
-                              <input type="text" value="">
-                              <label class="ng-binding">Job Title</label>
-                            </div>
-                          </div>
                           <div class="ng-scope">
                             <div class="form-group floating-label group-bg detail-g-borderbottom">
                               <input type="text" value="">
@@ -333,37 +303,6 @@ title:  Account
                               <label class="ng-binding">Country</label>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="form-group floating-label multiple">
-                          <label>Logins</label>
-                          <div class="float-btn-group">
-                            <button class="margin-5 icon-button button-delete" type="button">
-                              <i class="fa fa-times-circle"></i>
-                            </button>
-                            <select>
-                              <option value="Email" selected="selected">Email</option>
-                              <option value="Bounced">Bounced</option>
-                              <option value=""></option>
-                            </select>
-                            <span class="ng-binding ng-hide">Email</span>
-                            <input type="text" value="">
-                          </div>
-                          <div class="float-btn-group">
-                            <button class="margin-5 icon-button button-delete" type="button">
-                              <i class="fa fa-times-circle"></i>
-                            </button>
-                            <select>
-                              <option value="Email" selected="selected">Email</option>
-                              <option value="Bounced">Bounced</option>
-                              <option value=""></option>
-                            </select>
-                            <input type="text" value="">
-                          </div>
-                          <button class="margin-5 icon-button button-add-row" type="button">
-                            <i class="fa fa-plus-circle"></i>
-                          </button>
                         </div>
                       </div>
                     </div>
@@ -1547,17 +1486,6 @@ title:  Account
    </script>
    <script>
       
-      $('.eq-container').each(function(){  
-        var highestBox = 0;
-        $('.eq-container', this).each(function(){
-          // If this box is higher than the cached highest then store it
-          if($(this).height() > highestBox) {
-            highestBox = $(this).height(); 
-          }
-        });  
-
-        $('.eq-container',this).height(highestBox);
-      }); 
       app.controller('myCtrlDetail', function ($scope) {
           $scope.toggleSegmentCollapsedState = function (segmentName)
           { 
@@ -1741,6 +1669,7 @@ title:  Account
 				{name: 'Justin Time (justin.time@example.com)', code: 'JT'},
 			];
 		});
-  </script> 
+
+ </script> 
 </body>
 </html>

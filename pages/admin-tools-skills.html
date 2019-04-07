@@ -1,5 +1,5 @@
 ---
-title: Admin Tools Skills
+title: Skills
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -19,8 +19,13 @@ title: Admin Tools Skills
             <!-- Content Header (Page header) -->
 			<section class="content-header">
 					<h1>
-						{{ page.title }} <i class="fa fa-question-circle text-info help-icon pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+						{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
 					</h1>
+					<ol class="breadcrumb">
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li class="active">Admin Tools</li>
+						<li class="active">{{ page.title }}</li>
+					</ol>
 			</section>
   				<!-- Main content -->
        <section class="content"  ng-controller="myCtrl">
@@ -148,8 +153,8 @@ title: Admin Tools Skills
 											<div class="form-horizontal">
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="col-sm-4 control-label text-left">Skill Name</label>
-														<div class="col-sm-8">
+														<label class="col-sm-3 control-label text-left">Skill Name</label>
+														<div class="col-sm-9">
 															<input type="text" class="form-control">
 														</div>
 													</div>
@@ -227,9 +232,17 @@ title: Admin Tools Skills
 														<h3 class="nested-title">Topics That Require This Skill</h3>
 													</div>
 													<div class="skill-list">
-														 <span class="skill-item"><a href="">Sales Prospecting</a> <span class="fa fa-close text-red"></span></span>
-														 <span class="skill-item"><a href="">Follow Ups</a> <span class="fa fa-close text-red"></span></span>
-														 <span class="skill-item"><a href="">_Spam</a> <span class="fa fa-close text-red"></span></span>
+														<div class="list-headings">Segment1</div>
+														<div class="segment-item">
+														 	<span class="skill-item"><a href="">All Topics</a><a href="">Sales Prospecting</a> <span class="fa fa-close text-red"></span></span>
+														</div>
+														<div class="segment-item"> 
+														 <span class="skill-item"><a href="">All Topics</a><a href="">Follow Ups</a> <span class="fa fa-close text-red"></span></span>
+														</div>
+														<div class="list-headings">Segment2</div>
+														<div class="segment-item">
+														 <span class="skill-item"><a href="">All Topics</a><a href="">_Spam</a> <span class="fa fa-close text-red"></span></span>
+														</div> 
 													</div>	
 												</div>
 												<div class="col-md-4">

@@ -1,5 +1,5 @@
 ---
-title: Customer Info - Contact
+title: Contact
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -23,8 +23,12 @@ title: Customer Info - Contact
         <h1>
           {{ page.title }}
         </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Customer Info</li>
+          <li class="active"> {{ page.title }}</li>
+        </ol>
       </section>
-
       <!-- Main content -->
       <section class="content">
         <!-- START CUSTOM TABS -->

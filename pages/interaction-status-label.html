@@ -1,5 +1,5 @@
 ---
-title: Interaction Type and Status Icons
+title: Interaction Status Label
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -16,7 +16,12 @@ title: Interaction Type and Status Icons
             <section class="content-header">
                 <h1>
                     {{ page.title }}
-                </h1>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li class="active">Pages</li>
+					<li class="active"> {{ page.title }}</li>
+				</ol>
             </section>
   			<!-- Main content -->
             <section class="content">
@@ -49,7 +54,7 @@ title: Interaction Type and Status Icons
 											<tbody>
 												<tr> 
 													<td>&nbsp;</td>
-													<td col-span="2">System Generated Responses(auto response)</td>
+													<td col-span="2">System Generated Responses(Notifications)</td>
 												</tr>
 												<tr>
 													<td>
@@ -77,10 +82,10 @@ title: Interaction Type and Status Icons
 													<td>
 														<small class="bg-gray-disabled label label-with-icon">
 														<i class="fa fa-reply "></i>
-														Auto Response</small>
+														Notification</small>
 													</td>
 													<td>
-														<i class="bg-gray-disabled fa fa-reply fa-icon-label" uib-tooltip="Auto Response" tooltip-placement="left"></i>
+														<i class="bg-gray-disabled fa fa-reply fa-icon-label" uib-tooltip="Notifications" tooltip-placement="left"></i>
 													</td>
 												</tr>
 												<tr>

@@ -7,31 +7,31 @@ title: Treeview
     {% include common-head.html %}
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
-        {% include common-header.html %}
-        {% include common-menu.html %}
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    {{ page.title }}
-                </h1>
-            </section>
-
+  <div class="wrapper">
+		{% include common-header.html %}
+		{% include common-menu.html %}
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+						{{ page.title }}
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li class="active">Pages</li>
+					<li class="active">{{ page.title }}</li>
+				</ol>
+			</section>
               <!-- Main content -->
 			<section class="content">
-
 			  <div class="row">
 					<div class="col-md-4 treeview">
 						<ul id="tree1">
 							<p class="well" style="height:135px;"><strong>Initialization no parameters</strong>
-
 								<br /> <code>$('#tree1').treed();</code>
-
 							</p>
 							<li><a href="#">TECH</a>
-
 								<ul>
 									<li>Company Maintenance</li>
 									<li>Employees

@@ -1,5 +1,5 @@
 ---
-title: Admin Tools Agents
+title: Agents
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -11,16 +11,27 @@ title: Admin Tools Agents
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+  <div class="wrapper">
         {% include common-header.html %}
         {% include common-menu.html %}
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
+				<!-- Content Wrapper. Contains page content -->
+		
+    <div class="content-wrapper">
+						<!-- Content Header (Page header) -->
+			<div class="col-md-12">
+					<a href="/pages/developers-admin-tools-agents.html" class="pull-right developer-html" >Developers html</a>	
+			</div>			
+			<div class="clearfix"></div>	
 			<section class="content-header">
 				<h1>
-						{{ page.title }} <i class="fa fa-question-circle text-info help-icon pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> <a href="/pages/developers-admin-tools-agents.html" class="pull-right developer-html" >Developers html</a>		</h1>
+					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h1>
+					<ol class="breadcrumb">
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li class="active">Admin Tools</li>
+						<li class="active">{{ page.title }}</li>
+					</ol>
 			</section>
+
   				<!-- Main content -->
       <section class="content"  ng-controller="myCtrl">
 				<div class="row p-l-0">

@@ -17,7 +17,16 @@ title:  My Messages To Approve
     {% include common-menu.html %}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
+      <section class="content-header">
+        <h1>
+            {{ page.title }}
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">My Work Queues</li>
+          <li class="active">{{ page.title }}</li>
+        </ol>
+      </section>
       <!-- Main content -->
       <section class="content">
         <!-- START CUSTOM TABS -->
@@ -28,8 +37,8 @@ title:  My Messages To Approve
               <div class="col-md-12" ng-controller="myCtrl">
                 <div class="box box-info" id="inbox-list">
                   <div class="box-header with-border" ng-click="isCollapsedInboxList = !isCollapsedInboxList" ng-init="isCollapsedInboxList = false;">
-                    <i class="fa  fa-inbox"></i>
-                    <h3 class="box-title head-title-padding">My Message To Approve</h3>
+                    <i class="fa fa-inbox"></i>
+                    <h3 class="box-title head-title-padding">Message List</h3>
                     <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedInboxList}"></span>
                   </div>
                   <!-- /.box-header -->

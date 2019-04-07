@@ -1,5 +1,5 @@
 ---
-title: Pagination
+title: Paginations
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -14,9 +14,14 @@ title: Pagination
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1>
-                    {{ page.title }}
-                </h1>
+              <h1>
+                  {{ page.title }}
+              </h1>
+              <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Pages</li>
+                <li class="active"> {{ page.title }}</li>
+              </ol>
             </section>
 
             <!-- Main content -->

@@ -132,19 +132,19 @@ p.login-box-msg {
   position: relative;
   border: 1px solid #d2d6de;
   /*&.multiple label,
-    input:focus + label,
-    textarea:focus + label,
-    input.ng-not-empty + label,
-    select + label,
-	.focus + input + label
-    {
-        opacity: 1;
-        font-weight: normal;
-        top: -2px;
-        transform: none;
-        font-size: unset;
-        color: @input-border-focus;
-    }*/
+     input:focus + label,
+     textarea:focus + label,
+     input.ng-not-empty + label,
+     select + label,
+     .focus + input + label
+     {
+         opacity: 1;
+         font-weight: normal;
+         top: -2px;
+         transform: none;
+         font-size: unset;
+         color: @input-border-focus;
+     }*/
 }
 .floating-label.multiple {
   height: auto;
@@ -600,6 +600,9 @@ ul.timeline span.stack-icon .aqua {
   border-radius: 3px;
   margin: 5px 5px 5px 5px;
 }
+.contact-summary .company-detail .text {
+  padding-top: 7px;
+}
 .contact-summary .user-detail .user-name {
   margin-top: 44px;
   font-size: 20px;
@@ -608,6 +611,7 @@ ul.timeline span.stack-icon .aqua {
 .contact-summary .company-name {
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 .contact-summary .form-group .text {
   overflow: hidden;
@@ -723,6 +727,9 @@ ul.timeline span.stack-icon .aqua {
   font-weight: 700;
   line-height: 1.1;
 }
+.qa-message-list:nth-last-child(2) .message-item::before {
+  border: 0px;
+}
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -739,6 +746,7 @@ ul.timeline span.stack-icon .aqua {
   margin-left: 40px;
   margin-top: -12px;
   position: relative;
+  background-color: #f7f7f7 !important;
 }
 .message-item i {
   display: inline-block;
@@ -754,7 +762,6 @@ ul.timeline span.stack-icon .aqua {
   opacity: 0.7;
 }
 .message-item .message-inner {
-  background: #ffffff;
   border: 1px solid #d2d6de;
   border-radius: 3px;
   padding: 0px 10px 10px 10px;
@@ -775,7 +782,7 @@ ul.timeline span.stack-icon .aqua {
   width: 0;
 }
 .message-item .message-inner:after {
-  border-right: 10px solid #ffffff;
+  border-right: 10px solid #f7f7f7;
   border-style: solid;
   border-width: 10px;
   color: rgba(0, 0, 0, 0);
@@ -790,8 +797,11 @@ ul.timeline span.stack-icon .aqua {
 .message-item .timeline-footer {
   padding-top: 10px;
 }
+.message-item .message-inner span.time i {
+  top: 3px;
+}
 .message-item::before {
-  background: #ffffff;
+  background: #f7f7f7;
   border-radius: 2px;
   bottom: -32px;
   border: 0.5px solid #d2d6de;
@@ -2027,12 +2037,22 @@ tr.bg-customer-reply td {
 .skill-heading {
   padding: 15px 0px 15px 0px;
 }
+.skill-list .list-headings {
+  font-weight: 400;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
 .skill-list .skill-item {
   border-radius: .25em;
   padding: .2em .0em .3em;
   line-height: 1;
   margin: 0px 8px 8px 0px;
   display: block;
+}
+.skill-item a + a:before {
+  padding: 0 5px;
+  color: gray;
+  content: "--\00a0";
 }
 .skill-item .fa-close {
   margin-left: 5px;
@@ -2640,4 +2660,10 @@ ul.update-list li::before {
 }
 .user-detail .user-initials {
   background: #30a5ff;
+}
+.eq-container {
+  height: 528px;
+}
+.in-row-btn {
+  margin-top: 26px;
 }

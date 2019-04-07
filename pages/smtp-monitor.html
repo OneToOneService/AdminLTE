@@ -18,9 +18,14 @@ title: SMTP Out Monitor
 			<div class="content-wrapper">
 					<!-- Content Header (Page header) -->
 		<section class="content-header">
-				<h1>
-					{{ page.title }} <i class="fa fa-question-circle text-info help-icon pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
-				</h1>
+			<h1>
+				{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li class="active">Other Tools</li>
+				<li class="active">{{ page.title }}</li>
+			</ol>
 		</section>
 				<!-- Main content -->
 		<section class="content"  ng-controller="myCtrl">

@@ -1,5 +1,5 @@
 ---
-title: Customer Info Contact History
+title: History Chronological View
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -17,7 +17,12 @@ title: Customer Info Contact History
             <section class="content-header">
                 <h1>
                     {{ page.title }}
-                </h1>
+								</h1>
+								<ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Page Components</li>
+                    <li class="active"> {{ page.title }}</li>
+                </ol>
             </section>
   <!-- Main content -->
             <section class="content">
