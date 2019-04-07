@@ -281,7 +281,7 @@ title: Manage Messages Tree View
 																					<label class="col-sm-2 control-label text-left">From</label>
 																					<div class="col-sm-10" ng-controller="FromEmail as ctrl"> 
 																						<ui-select ng-model="ctrl.agent.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-																							<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name"></ui-select-match>
+																							<ui-select-match placeholder="Select or search for a mailbox..." ng-bind="$select.selected.name"></ui-select-match>
 																							<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
 																							<span ng-bind-html="agent.name | highlight: $select.search"></span>
 																							<small ng-bind-html="agent.code | highlight: $select.search"></small>
@@ -1376,10 +1376,9 @@ title: Manage Messages Tree View
 			var vm = this;
 			vm.agent = {};
 			vm.agentname = [ 
-				{name: 'Alek Packard (alek.packard@example.com)', code: 'AP'},
-				{name: 'Jacob Smith (jacob.smith@example.com)', code: 'JS'},
-				{name: 'Jonie Hewlett (jonie.hewlett@example.com)', code: 'JH'},
-				{name: 'Justin Time (justin.time@example.com)', code: 'JT'},
+				{name: 'Customer Support (support@example.com)', code: ''},
+				{name: 'Sales (Sales@example.com)', code: ''},
+				{name: 'Technical Support (technicalsupport@example.com)', code: ''},
 			];
 		});
 </script>
