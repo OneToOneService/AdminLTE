@@ -2671,3 +2671,6 @@ ul.update-list li::before {
 .mright-0 {
   margin-right: 0px !important;
 }
+.toggle-control {
+  margin-top: 26px;
+}

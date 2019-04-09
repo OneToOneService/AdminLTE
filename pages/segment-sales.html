@@ -1304,6 +1304,15 @@ title:  Segment Sales
                                   <th class="text-capitalize">
                                     Notification Name
                                   </th>
+                                  <th class="text-capitalize">
+                                    Description
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Notification Type
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Use No-Reply
+                                  </th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -1313,6 +1322,15 @@ title:  Segment Sales
                                   </td>
                                   <td>
                                     Quote - Electronics
+                                  </td>
+                                  <td>
+                                    Quote
+                                  </td>
+                                  <td>
+                                    Agent Notification
+                                  </td>
+                                  <td ng-click="$event.stopPropagation()">
+                                     <input type="checkbox" ng-model="toggle.switchnoreply1" ui-switch="{ size: 'small' }" />
                                   </td>
                                 </tr>
                               </tbody>
@@ -1403,6 +1421,29 @@ title:  Segment Sales
                                   <label class="col-md-12 control-label text-left">Description</label>
                                   <div class="col-md-12">
                                     <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <div class="col-md-12 toggle-control">
+                                      <input type="checkbox" ng-model="toggle.switchnoreply" ui-switch="{ size: 'small' }" /> Use No-Reply From Address
+                                  </div>  
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="col-md-12 control-label text-left">Notification Type</label>
+                                  <div class="col-md-12">
+                                    <select class="form-control">
+                                      <option value="">Agent Notification</option>
+                                      <option value="">Alert</option>
+                                      <option value="">Contact Creation</option>
+                                      <option value="">Find Answers Article Notification</option>
+                                      <option value="">Message Acknowledgment</option>
+                                      <option value="">Password Reset</option>
+                                      <option value="">Secure Message Notification</option>
+                                    </select>
                                   </div>
                                 </div>
                               </div>
