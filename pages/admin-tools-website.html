@@ -409,7 +409,7 @@ title: Websites Settings
 																			<div class="checkbox group-bg group-input detail-g-bordertop" ng-show="cssOverride.inputName.length > 0">
 																				<label>
 																					<input type="checkbox" ng-model="toggle.switch2" ui-switch="{ size: 'small' }" />
-																					Also Include Standard CSS <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+																					Exclude standard CSS <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
 																				</label>
 																			</div>
 																		</div>
@@ -428,7 +428,7 @@ title: Websites Settings
 																			<div class="form-group">
 																				<label class="col-sm-12 control-label text-left">Outbound Mailbox <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
 																				<div class="col-sm-12">
-																					<select class="form-control">
+																					<select class="form-control select2" >
 																						<option>QA2 - Second Segment -- "QA2"</option>
 																					</select>	
 																				</div>
@@ -438,7 +438,7 @@ title: Websites Settings
 																			<div class="form-group">
 																				<label class="col-sm-12 control-label text-left">Password Reset Notification Template <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
 																				<div class="col-sm-12">
-																					<select class="form-control">
+																					<select class="form-control select2">
 																						<option>QA2 - Password Reset </option>
 																					</select>	
 																				</div>
@@ -527,7 +527,7 @@ title: Websites Settings
 
   angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder,)
   {
-		
+		  $(".select2").select2();
 			$scope.domains = [{'title':'example1.com'},{'title':'example1.com'}];
 			$scope.adddomain = function() {
 				$scope.domains.push({'title': $scope.newdomain, 'done':false})
