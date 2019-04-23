@@ -1790,6 +1790,7 @@ title: Contact
     angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
+      vm.agentselected = {selected : "Alek Packard"};
 			vm.agentname = [ 
 				{name: 'Alek Packard (alek.packard@example.com)', code: 'AP'},
 				{name: 'Jacob Smith (jacob.smith@example.com)', code: 'JS'},
@@ -1829,8 +1830,7 @@ title: Contact
 				return out;
 			};
 		});
-
-		app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+    app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.segmentObj = {
 				'1' : { name: '-Default Mail Box-(customer@1to1service.com)', segmentname: 'QA' },
@@ -1838,23 +1838,38 @@ title: Contact
 				'3' : { name: '-Default Mail Box- (customer@1to1service.com)', segmentname: 'QA2- Second Segment' },
 				'4' : { name: 'Push Bullet (qa@1to1service.com)', segmentname: 'QA2- Second Segment' },
 			};
+			vm.segmentselected = {selected : "Push Bullet"};
+				vm.segment = [
+					{ name: '-Default Mail Box-(customer@1to1service.com)', segmentname: 'QA' },
+					{ name: 'Push Bullet (qa@1to1service.com)', segmentname: 'QA' },
+					{ name: '-Default Mail Box- (customer@1to1service.com)', segmentname: 'QA2- Second Segment' },
+					{ name: 'Push Bullet (qa@1to1service.com)',  segmentname: 'QA2- Second Segment' },
+				];
+			});
 
-			vm.segment = [
-				{ name: '-Default Mail Box-(customer@1to1service.com)', segmentname: 'QA' },
-				{ name: 'Push Bullet (qa@1to1service.com)', segmentname: 'QA' },
-				{ name: '-Default Mail Box- (customer@1to1service.com)', segmentname: 'QA2- Second Segment' },
-				{ name: 'Push Bullet (qa@1to1service.com)',  segmentname: 'QA2- Second Segment' },
-			];
-		});
-     angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
-			var vm = this;
-			vm.agent = {};
-			vm.agentname = [ 
-				{name: 'Customer Support (support@example.com)', code: ''},
-				{name: 'Sales (Sales@example.com)', code: ''},
-				{name: 'Technical Support (technicalsupport@example.com)', code: ''},
-			];
-		});
+			angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {
+				var vm = this;
+				vm.agent = {};
+				vm.agentselected = {selected : "Alek Packard"};
+				vm.agentname = [ 
+					{name: 'Alek Packard', code: 'AP'},
+					{name: 'Jacob Smith', code: 'JS'},
+					{name: 'Jonie Hewlett', code: 'JH'},
+					{name: 'Justin Time', code: 'JT'},
+				];
+			});
+
+			angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+				var vm = this;
+				vm.agent = {};
+				vm.agentselected = {selected : "--Default MailBox--"};
+				vm.agentname = [ 
+					{name: '--Default MailBox--', code: ''},
+					{name: 'Customer Support (support@example.com)', code: ''},
+					{name: 'Sales (Sales@example.com)', code: ''},
+					{name: 'Technical Support (technicalsupport@example.com)', code: ''},
+				];
+			});
   </script>
 </body>
 </html>

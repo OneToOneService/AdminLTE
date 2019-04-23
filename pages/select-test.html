@@ -55,7 +55,7 @@ title: Action Mode
 					}
 
 
-					.ui-select-container[theme="selectize"] input.ui-select-search-hidden{
+					.ui-select-container[theme="select2"] input.ui-select-search-hidden{
 						opacity: 0;
 						height: 0;
 						min-height: 0;
@@ -76,7 +76,7 @@ title: Action Mode
                 <div class="row">
                     <div class="col-md-12">
 							<div class="ng-cloak" ng-controller="DemoCtrl as ctrl">
-									<ui-select ng-model="ctrl.country.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a country">
+									<ui-select ng-model="ctrl.country.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a country">
 									  <ui-select-match placeholder="Select or search a country in the list..." ng-bind="$select.selected.name"></ui-select-match>
 									  <ui-select-choices repeat="country in ctrl.countries | filter: $select.search">
 										<span ng-bind-html="country.name | highlight: $select.search"></span>

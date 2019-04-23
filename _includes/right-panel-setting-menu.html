@@ -105,6 +105,25 @@
                 </a>
                 <ul class="treeview-menu">
                   <li>
+                    <a ng-click="newsegment = !newsegment;" ng-init="newsegment=true;">
+                      <i class="fa fa-circle-o"></i> 
+                      New Segment
+                    </a>
+                    <div class="new-segment-container" uib-collapse="newsegment">
+                      <div class="segment-container">
+                        <h3>New Segment</h3>
+                        <div class="form-group">
+                          <label class="control-label">Enter Segment Name</label>
+                          <input type="email" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm" onclick="location.href = '/pages/new-segment.html';" >Create Segment</button>
+                        <button type="submit" class="btn btn-link btn-sm">Cancel</button>
+                        </div> 
+                      </div>  
+                    </div>  
+                  </li>
+                  <li>
                     <a  href="/pages/segment-sales.html">
                       <i class="fa fa-circle-o"></i> 
                       Sales

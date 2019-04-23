@@ -55,8 +55,8 @@ title: Manage Messages List View
 											</div>
 											<div class="form-group" ng-controller="TopicCtrl as ctrl">
 												<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
-												<div class="col-sm-8">
-													<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+												<div class="col-sm-8" ng-cloak>
+													<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
 														<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
 														<ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
 																<span ng-bind-html="color.Topic | highlight: $select.search"></span>
@@ -140,8 +140,8 @@ title: Manage Messages List View
 																			<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
 																				<div class="btn-list-options form-group" ng-show="selectAgent">
 																					<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
-																						<ui-select ng-model="ctrl.agent.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-																							<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name"></ui-select-match>
+																						<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+																							<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 																							<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
 																							<span ng-bind-html="agent.name | highlight: $select.search"></span>
 																							<small ng-bind-html="agent.code | highlight: $select.search"></small>
@@ -156,8 +156,8 @@ title: Manage Messages List View
 																				<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
 																				<div class="btn-list-options form-group" ng-show="forwardSegment" >
 																						<div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
-																							<ui-select ng-model="ctrl.segment.selected" theme="selectize" title="Choose a segment">
-																								<ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name"></ui-select-match>
+																							<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+																								<ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 																								<ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
 																									<span ng-bind-html="item.name | highlight: $select.search"></span>
 																								</ui-select-choices>
@@ -241,11 +241,11 @@ title: Manage Messages List View
 																						<div class="form-group">
 																							<label class="col-sm-2 control-label text-left">From</label>
 																							<div class="col-sm-10" ng-controller="FromEmail as ctrl"> 
-																								<ui-select ng-model="ctrl.agent.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-																									<ui-select-match placeholder="Select or search for a mailbox..." ng-bind="$select.selected.name"></ui-select-match>
+																								 <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="min-width: 300px;" title="Single property binding with async data">
+																									<ui-select-match placeholder="Select or search for a mailbox..." ng-bind="$select.selected.name|| $select.selected"></ui-select-match>
 																									<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+																									<div ng-bind-html="person.name | highlight: $select.search"></div>
 																									<span ng-bind-html="agent.name | highlight: $select.search"></span>
-																									<small ng-bind-html="agent.code | highlight: $select.search"></small>
 																									</ui-select-choices>
 																								</ui-select>
 																							</div>
@@ -1467,6 +1467,8 @@ title: Manage Messages List View
 		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
+
+			vm.agentselected = {selected : "Alek Packard"};
 			vm.agentname = [ 
 				{name: 'Alek Packard', code: 'AP'},
 				{name: 'Jacob Smith', code: 'JS'},
@@ -1543,7 +1545,7 @@ title: Manage Messages List View
 				'3' : { name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
 				'4' : { name: 'Push Bullet', segmentname: 'QA2- Second Segment' },
 			};
-
+            vm.segmentselected = {selected : "Push Bullet"};
 			vm.segment = [
 				{ name: '-Default Mail Box-', segmentname: 'QA' },
 				{ name: 'Push Bullet', segmentname: 'QA' },
@@ -1551,10 +1553,23 @@ title: Manage Messages List View
 				{ name: 'Push Bullet',  segmentname: 'QA2- Second Segment' },
 			];
 		});
-		 angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+		angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
+			vm.agentselected = {selected : "Alek Packard"};
 			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
+		angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentselected = {selected : "--Default MailBox--"};
+			vm.agentname = [ 
+				{name: '--Default MailBox--', code: ''},
 				{name: 'Customer Support (support@example.com)', code: ''},
 				{name: 'Sales (Sales@example.com)', code: ''},
 				{name: 'Technical Support (technicalsupport@example.com)', code: ''},

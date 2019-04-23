@@ -622,6 +622,7 @@ title: Manage Chats
 		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
+			vm.agentselected = {selected : "Alek Packard"};
 			vm.agentname = [ 
 				{name: 'Alek Packard', code: 'AP'},
 				{name: 'Jacob Smith', code: 'JS'},
@@ -670,7 +671,7 @@ title: Manage Chats
 				'3' : { name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
 				'4' : { name: 'Push Bullet', segmentname: 'QA2- Second Segment' },
 			};
-
+      vm.segmentselected = {selected : "Push Bullet"};
 			vm.segment = [
 				{ name: '-Default Mail Box-', segmentname: 'QA' },
 				{ name: 'Push Bullet', segmentname: 'QA' },
@@ -681,6 +682,7 @@ title: Manage Chats
 		angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
+			vm.agentselected = {selected : "Alek Packard"};
 			vm.agentname = [ 
 				{name: 'Alek Packard', code: 'AP'},
 				{name: 'Jacob Smith', code: 'JS'},
@@ -688,10 +690,12 @@ title: Manage Chats
 				{name: 'Justin Time', code: 'JT'},
 			];
 		});
-        angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+		angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
+			vm.agentselected = {selected : "--Default MailBox--"};
 			vm.agentname = [ 
+				{name: '--Default MailBox--', code: ''},
 				{name: 'Customer Support (support@example.com)', code: ''},
 				{name: 'Sales (Sales@example.com)', code: ''},
 				{name: 'Technical Support (technicalsupport@example.com)', code: ''},

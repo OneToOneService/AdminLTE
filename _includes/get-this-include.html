@@ -41,8 +41,8 @@
               <a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
               <div class="btn-list-options form-group" ng-show="selectAgent">
                 <div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
-                  <ui-select ng-model="ctrl.agent.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-                    <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name"></ui-select-match>
+                  <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+                    <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                     <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
                       <span ng-bind-html="agent.name | highlight: $select.search"></span>
                       <small ng-bind-html="agent.code | highlight: $select.search"></small>
@@ -57,8 +57,8 @@
               <a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
               <div class="btn-list-options form-group" ng-show="forwardSegment">
                 <div class="ng-cloak" ng-controller="DemoCtrl as ctrl">
-                  <ui-select ng-model="ctrl.segment.selected" theme="selectize" title="Choose a segment">
-                    <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name"></ui-select-match>
+                  <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+                    <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                     <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
                       <span ng-bind-html="item.name | highlight: $select.search"></span>
                     </ui-select-choices>

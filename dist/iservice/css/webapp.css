@@ -2681,3 +2681,52 @@ ul.update-list li::before {
 .btn-delete:hover {
   opacity: 0.75;
 }
+.select2-container .select2-choice,
+.select2-container-multi .select2-choices {
+  border-bottom-color: transparent;
+  border-radius: 0px !important;
+  background-color: white !important;
+  background-image: none !important;
+  border: 1px solid #cccccc !important;
+  height: 32px !important;
+  line-height: 32px !important;
+}
+.select2-container-multi .select2-choices .select2-search-field input {
+  height: 28px;
+  font-family: inherit;
+}
+.select2-container:after {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  display: block;
+  width: 0;
+  height: 0;
+  margin-top: -3px;
+  border-color: gray transparent transparent transparent;
+  border-style: solid;
+  border-width: 6px 3px 0 3px;
+  content: ' ';
+}
+.box-title a {
+  text-transform: capitalize;
+}
+.new-segment-container {
+  background: white;
+  width: calc(100% - 5px);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.new-segment-container .segment-container {
+  padding: 10px;
+}
+.new-segment-container h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+.new-segment-container .control-label {
+  color: #333333;
+}

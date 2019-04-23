@@ -234,8 +234,8 @@ title:  Sales Settings
                             <div class="form-group">
                               <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Mailbox</label>
                               <div class="col-sm-12" ng-controller="Mailbox as ctrl">
-                                <ui-select ng-model="ctrl.mailbox.selected" theme="selectize" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox">
-                                  <ui-select-match placeholder="Select or search for a mailbox in the list..." ng-bind="$select.selected.name"></ui-select-match>
+                                <ui-select ng-model="ctrl.mailboxselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox">
+                                  <ui-select-match placeholder="Select or search for a mailbox in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                                   <ui-select-choices repeat="mailbox in ctrl.mailboxname | filter: $select.search">
                                   <span ng-bind-html="mailbox.name | highlight: $select.search"></span>
                                   <small ng-bind-html="mailbox.code | highlight: $select.search"></small>
@@ -1657,7 +1657,7 @@ title:  Sales Settings
                       </div>
                       <div class="box-body search-criteria">
                         <div class="checkbox">
-                          <label class="mright-15"><input type="checkbox" class="icheck">Include Deleted Topics</label> 
+                          <label class="mright-15"><input type="checkbox" class="icheck" ng-model="toggle.switchdeletedtopic" ui-switch="{ size: 'small' }" >Show Deleted Topics</label> 
                         </div>
                         <div class="treeview without-numbers">
                             <ul id="tree1" class="tree">
@@ -1786,7 +1786,7 @@ title:  Sales Settings
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>Customer Ticket Filler</label>
+                              <label>Customer Ticket Filter</label>
                               <select class="form-control">
                                 <option>--None--</option>
                               </select>  
@@ -1810,7 +1810,7 @@ title:  Sales Settings
                                 <div class="form-group">
                                   <div class="checkbox">
                                     <label>
-                                      <input type="checkbox" checkbox> No Rout
+                                      <input type="checkbox" checkbox> No Route
                                     </label>
                                   </div>
                                   <div class="checkbox">
