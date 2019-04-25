@@ -2730,3 +2730,6 @@ ul.update-list li::before {
 .new-segment-container .control-label {
   color: #333333;
 }
+.box-tools .btn {
+  margin: 0px 3px 0px 3px;
+}

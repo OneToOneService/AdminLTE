@@ -47,17 +47,88 @@ title: Live Chat
 													<!-- DIRECT CHAT -->
 												<div class="box box-warning direct-chat direct-chat-warning">
 														<div class="box-header with-border">
-															<h3 class="box-title"><i class="fa fa-comments"></i> Chat Dialog</h3>	
+															<h3 class="box-title"><i class="fa fa-reply"></i> Chat Dialog</h3>	
 															<div class="box-tools pull-right">
 																<button class="btn btn-xs btn-danger ng-scope hidden-xs hidden-sm" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
 																	<i class="fa fa-fw fa-close"></i>
 																	End
 																</button>
-																<button type="button" class="btn btn-primary btn-xs">
-																	<i class="fa fa-mail-forward"></i>
-																	Forward
-																</button>
-																<button type="button" class="btn btn-primary btn-xs"><i class="fa fa-fw fa-arrows-alt"></i>Change Topic</button>
+																<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																	<button type="button" class="btn btn-primary btn-xs" uib-dropdown-toggle>
+																		<i class="fa fa-mail-forward"></i>
+																		Forward
+																	</button>
+																	<ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+																		<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
+																			<div class="btn-list-options form-group" ng-show="selectAgent">
+																				<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
+																					<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+																						<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																						<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+																						<span ng-bind-html="agent.name | highlight: $select.search"></span>
+																						<small ng-bind-html="agent.code | highlight: $select.search"></small>
+																						</ui-select-choices>
+																					</ui-select>
+																				</div>	  
+																				<button class="btn btn-primary btn-xs">Assign To Agent</button>
+																			</div>    
+																		</li>
+																		<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+																		<li ng-class="{'option-selected' : forwardSegment}">
+																			<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
+																			<div class="btn-list-options form-group" ng-show="forwardSegment" >
+																					<div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
+																						<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+																							<ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																							<ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+																								<span ng-bind-html="item.name | highlight: $select.search"></span>
+																							</ui-select-choices>
+																						</ui-select>
+																					</div>
+																				<button class="btn btn-primary btn-xs">Forward Now</button> 
+																			</div>   
+																		</li>
+																		<li ng-class="{'option-selected' : forwardExternalSegment}">
+																			<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Segment</a>
+																			<div class="btn-list-options form-group" ng-show="forwardExternalSegment">
+																					<p>This segment has no external
+																					agent notifications.</p>
+																			</div>    
+																		</li>
+																	</ul>
+																</div>
+                  							<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																		<button class="btn btn-xs btn-primary" title="Spam"  uib-dropdown-toggle>
+																			<i class="fa  fa-arrows-alt"></i>
+																			Change Topic
+																			<span class="caret"></span>
+																		</button>
+
+																		<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																			<li>
+																				<select class="changetopicselect form-control" multiple>
+																					<option>e-shop -- All Topics(0)</option>
+																					<option>.._Feedback (2)</option>
+																					<option>.._Newsletter Subscription (0)</option>
+																					<option>.._Spam (0)</option>
+																					<option>.._Undeliverable (0)</option>
+																					<option>..Account Questions (0)</option>
+																					<option>....Orders (0)</option>
+																					<option>....Refunds (0)</option>
+																					<option>....Returns (0)</option>
+																					<option>..Products(0)</option>
+																					<option>....Audio-Video (0)</option>
+																					<option>....Cameras (0)</option>
+																					<option>....Cell Phones (0)</option>
+																					<option>....Computers (0)</option>
+																					<option>....Televisions(0)</option>
+																					<option>..Shipping (0)</option>
+																					<option>..Technical Support (0)</option>
+																					<option>....Open Quotes (1)</option>
+																				</select>
+																			</li>
+																		</ul>
+																	</div>
 															</div>
 														</div>
 															<!-- /.box-header -->
@@ -76,7 +147,7 @@ title: Live Chat
 																		Is this template really for free? That's unbelievable!
 																	</div>
 																	<div class="clearfix"> </div> 
-																	<span class="direct-chat-timestamp pull-left">23 Jan 2:10 pm</span>
+																	<span class="direct-chat-timestamp pull-left">5 min ago</span>
 																	<!-- /.direct-chat-text -->
 																</div>
 																<!-- /.direct-chat-msg -->
@@ -94,7 +165,7 @@ title: Live Chat
 																	</div>
 																
 																	<div class="clearfix"></div>
-																	<span class="direct-chat-timestamp pull-right">23 Jan 2:05 pm</span>
+																	<span class="direct-chat-timestamp pull-right">3 min ago</span>
 																	<!-- /.direct-chat-text -->
 																</div>
 																<!-- /.direct-chat-msg -->
@@ -111,16 +182,13 @@ title: Live Chat
 																		Working with AdminLTE on a great new app! Wanna join?
 																	</div>
 																	<div class="clearfix"></div>
-																	<span class="direct-chat-timestamp pull-left">23 Jan 5:37 pm</span>
+																	<span class="direct-chat-timestamp pull-left">2 min ago</span>
 																	
 																	<!-- /.direct-chat-text -->
 																</div>
 															<!-- /.direct-chat-msg -->
 															<!-- Message to the right -->
 															<div class="direct-chat-msg right">
-																<div class="direct-chat-info clearfix">
-																	<span class="direct-chat-name pull-right">Sarah Bullock</span>
-																</div>
 																<!-- /.direct-chat-info -->
 																<img class="direct-chat-img" src="/dist/img/user3-128x128.jpg" alt="message user image">
 																<!-- /.direct-chat-img -->
@@ -128,7 +196,7 @@ title: Live Chat
 																	I would love to.
 																</div>
 																<div class="clearfix"></div> 
-																<span class="direct-chat-timestamp pull-right">23 Jan 6:10 pm</span>
+																<span class="direct-chat-timestamp pull-right">now</span>
 																
 																<!-- /.direct-chat-text -->
 															</div>
@@ -224,7 +292,7 @@ title: Live Chat
 																				Kenneth M.
 																				<small class="contacts-list-date pull-right">1/4/2015</small>
 																			</span>
-																		<span class="contacts-list-msg">Never mind I found...</span>
+																	   	<span class="contacts-list-msg">Never mind I found...</span>
 																		</div>
 																		<!-- /.contacts-list-info -->
 																	</a>
@@ -250,51 +318,45 @@ title: Live Chat
 													<!--/.direct-chat -->
 												</div>
 											</div>		
-											<div class="col-md-4">	
-												<div class="box box-primary">
-													<div class="box-header with-border">
-														<h3 class="box-title">Selected Chat Customer Info</h3>
-													</div>
-													<div class="box-body">
-														<div class="nav-tabs-custom">
-															<ul class="nav nav-tabs">
-																<li><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-															</ul>
-															<div class="tab-content">
-																<div class="tab-pane active" id="tab_1">
-																	<div class="row " id="stock-responses">
-																		<div class="col-xs-12 stock-responses">
-																			<div>
-																				<input type="text" class="form-control" placeholder="Keyword Search">
+											<div class="col-md-4">
+												<div class="nav-tabs-custom">	
+													<ul class="nav nav-tabs">
+														<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+													</ul>
+													<div class="tab-content">
+														<div class="tab-pane active" id="tab_1">
+															<div class="row " id="stock-responses">
+																<div class="col-xs-12 stock-responses">
+																	<div>
+																		<div class="input-group">
+																			<input type="search" class="form-control input-sm">
+																			<div class="input-group-addon">
+																				<i class="fa fa-fw fa-search"></i>
 																			</div>
-																			<ul class="list-unstyled segment-variable-list">
-																				<li class="section-label">Segment Responses
-																					<ul class="segment-variables">
-																					<li class="section-var-link">Chat Closing</li>
-																					<li class="section-var-link">Chat Opening</li>
-																					<li class="section-var-link">Chat Wait</li>
-																					<li class="section-var-link">iService Website</li>
-																					</ul>
-																				</li>
-																			</ul>
-																			<ul class="list-unstyled segment-variable-list">
-																				<li class="section-label">Agent Response
-																					<ul class="segment-variables">
-																					<li class="section-var-link">Test</li>
-																					
-																					</ul>
-																				</li>
-																			</ul>
 																		</div>
 																	</div>
+																	<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">Segment Responses
+																			<ul class="segment-variables">
+																			<li class="section-var-link">Chat Closing</li>
+																			<li class="section-var-link">Chat Opening</li>
+																			<li class="section-var-link">Chat Wait</li>
+																			<li class="section-var-link">iService Website</li>
+																			</ul>
+																		</li>
+																	</ul>
+																	<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">Agent Response
+																			<ul class="segment-variables">
+																			<li class="section-var-link">Test</li>
+																			</ul>
+																		</li>
+																	</ul>
 																</div>
-																
 															</div>
-														<!-- /.tab-content -->
-														</div>			
+														</div>
 													</div>
-												</div>
-												
+                        </div>
 											</div>				
 										</div>
 									</div>	
@@ -322,11 +384,67 @@ title: Live Chat
     var i = 1;
     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
-      
-    });
+
+		});
+      angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+
+			vm.agentselected = {selected : "Alek Packard"};
+			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
+	    
+		angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+				var vm = this;
+				vm.availableTopics = [
+						{Topic: 'e-shop -- All Topics(0)'},
+						{Topic: '.._Feedback (2)'},
+						{Topic: '.._Newsletter Subscription (0)'},
+						{Topic: '.._Spam (0)'},
+						{Topic: '.._Undeliverable (0)'},
+						{Topic: '..Account Questions (0)'},
+						{Topic: '....Orders (0)'},
+						{Topic: '....Refunds (0)'},
+						{Topic: '....Returns (0)'},
+						{Topic: '..Products(0)'},
+						{Topic: '....Audio-Video (0)'},
+						{Topic: '....Cameras (0)'},
+						{Topic: '....Cell Phones (0)'},
+						{Topic: '....Computers (0)'},
+						{Topic: '....Televisions(0)'},
+						{Topic: '..Shipping (0)'},
+						{Topic: '..Technical Support (0)'},
+						{Topic: '....Open Quotes (1)'}
+					
+				];
+			vm.multipleDemo = {};
+			vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
+						{Topic: '.._Feedback (2)'}];
+			});
+			app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.segmentObj = {
+				'1' : { name: '-Default Mail Box-', segmentname: 'QA' },
+				'2' : { name: 'Push Bullet', segmentname: 'QA' },
+				'3' : { name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
+				'4' : { name: 'Push Bullet', segmentname: 'QA2- Second Segment' },
+			};
+      vm.segmentselected = {selected : "Push Bullet"};
+			vm.segment = [
+				{ name: '-Default Mail Box-', segmentname: 'QA' },
+				{ name: 'Push Bullet', segmentname: 'QA' },
+				{ name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
+				{ name: 'Push Bullet',  segmentname: 'QA2- Second Segment' },
+			];
+		});
+    
 
 
   </script>
 </body>
 </html>
-m
