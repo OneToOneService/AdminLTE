@@ -2733,3 +2733,6 @@ ul.update-list li::before {
 .box-tools .btn {
   margin: 0px 3px 0px 3px;
 }
+.btn-new-segment {
+  margin: 15px 0px 8px 15px;
+}

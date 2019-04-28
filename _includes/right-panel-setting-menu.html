@@ -105,10 +105,7 @@
                 </a>
                 <ul class="treeview-menu">
                   <li>
-                    <a ng-click="newsegment = !newsegment;" ng-init="newsegment=true;">
-                      <i class="fa fa-circle-o"></i> 
-                      New Segment
-                    </a>
+                    <button class="btn btn-primary btn-xs btn-new-segment" ng-click="newsegment = !newsegment;" ng-init="newsegment=true;">Create New Segment</button>
                     <div class="new-segment-container" uib-collapse="newsegment">
                       <div class="segment-container">
                         <h3>New Segment</h3>
@@ -118,7 +115,7 @@
                         </div>
                         <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-sm" onclick="location.href = '/pages/new-segment.html';" >Create Segment</button>
-                        <button type="submit" class="btn btn-link btn-sm">Cancel</button>
+                        <button type="submit" class="btn btn-link btn-sm" ng-click="newsegment = !newsegment;">Cancel</button>
                         </div> 
                       </div>  
                     </div>  
