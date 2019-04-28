@@ -1,0 +1,77 @@
+.sidebar-menu-right {
+	list-style: none;
+	margin: 0;
+    padding: 0;
+    .treeview-menu .treeview-menu {
+        padding-left: 20px;
+    }
+}
+
+
+.sidebar-menu-right>li {
+	position: relative;
+	margin: 0;
+	padding: 0
+}
+
+.sidebar-menu-right>li>a {
+	padding: 12px 5px 12px 15px;
+    display: block;
+    position: relative;
+}
+
+.sidebar-menu-right>li>a>.fa,
+.sidebar-menu-right>li>a>.glyphicon,
+.sidebar-menu-right>li>a>.ion {
+	width: 20px
+}
+
+.sidebar-menu-right>li .label,
+.sidebar-menu-right>li .badge {
+	margin-right: 5px
+}
+
+.sidebar-menu-right>li .badge {
+	margin-top: 3px
+}
+
+.sidebar-menu-right li.header {
+	padding: 10px 25px 10px 15px;
+	font-size: 12px
+}
+
+.sidebar-menu-right li>a>.fa-angle-left,
+.sidebar-menu-right li>a>.pull-right-container>.fa-angle-left {
+	width: auto;
+	height: auto;
+	padding: 0;
+	margin-right: 10px;
+	-webkit-transition: transform .5s ease;
+	-o-transition: transform .5s ease;
+	transition: transform .5s ease
+}
+
+.sidebar-menu-right li>a>.fa-angle-left {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	margin-top: -8px
+}
+
+.sidebar-menu-right .menu-open>a>.fa-angle-left,
+.sidebar-menu-right .menu-open>a>.pull-right-container>.fa-angle-left {
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg)
+}
+
+.sidebar-menu-right .active>.treeview-menu {
+	display: block
+}
+.sidebar-menu-right li>a>.pull-right-container {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -7px;
+}

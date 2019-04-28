@@ -357,6 +357,9 @@ p.login-box-msg {
   margin-left: -5px;
   font-size: 30px;
 }
+.logo-mini svg {
+  margin-right: 12px;
+}
 .login-logo svg {
   width: 30px;
   height: 37px;
@@ -2735,4 +2738,20 @@ ul.update-list li::before {
 }
 .btn-new-segment {
   margin: 15px 0px 8px 15px;
+}
+.skin-black .logo-lg svg,
+.skin-black-light .logo-lg svg,
+.skin-black-light .logo-mini svg,
+.skin-black .logo-mini svg {
+  fill: #3c8dbc;
+}
+.skin-black-light.sidebar-mini.sidebar-collapse .user-panel .btn {
+  margin-top: 15px;
+  color: #dd4b39;
+  font-size: 14px;
+  margin-right: -7px;
+}
+.skin-black.sidebar-mini.sidebar-collapse .user-panel .btn {
+  margin-top: 15px;
+  font-size: 14px;
 }
