@@ -2745,7 +2745,8 @@ ul.update-list li::before {
 .skin-black .logo-mini svg {
   fill: #3c8dbc;
 }
-.skin-black-light.sidebar-mini.sidebar-collapse .user-panel .btn {
+.skin-black-light.sidebar-mini.sidebar-collapse .user-panel .btn,
+.skin-blue-light.sidebar-mini.sidebar-collapse .user-panel .btn {
   margin-top: 15px;
   color: #dd4b39;
   font-size: 14px;
@@ -2754,4 +2755,13 @@ ul.update-list li::before {
 .skin-black.sidebar-mini.sidebar-collapse .user-panel .btn {
   margin-top: 15px;
   font-size: 14px;
+}
+.message-body-container {
+  width: 100%;
+  overflow: auto;
+  height: 300px;
+}
+.variable-responses .option-list {
+  height: 250px;
+  overflow: auto;
 }
