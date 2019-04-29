@@ -78,11 +78,11 @@ title: Manage Open Quotes
 										</tr>
 									</thead>
 									<tbody>
-										<tr id="row3">
+										<tr id="openquoterow1">
 											<td name="name" class="icon-col">
-												<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
-													<i class="fa fa-plus-circle" ng-show="!row1"></i>
-													<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
+												<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowQuote('openquoterow1')">
+													<i class="fa fa-plus-circle" ng-show="!openquoterow1"></i>
+													<i class="fa fa-minus-circle ng-hide" ng-show="openquoterow1" ng-cloak></i>
 												</button>
 											</td>
 											<td>
@@ -113,11 +113,11 @@ title: Manage Open Quotes
 												This is the best price we will have on this camera all year.
 											</td>
 										</tr>
-										<tr id="row2">
+										<tr id="openquoterow2">
 												<td name="name" class="icon-col">
-													<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
-														<i class="fa fa-plus-circle" ng-show="!row2"></i>
-														<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
+													<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowQuote('openquoterow2')">
+														<i class="fa fa-plus-circle" ng-show="!openquoterow2"></i>
+														<i class="fa fa-minus-circle ng-hide" ng-show="openquoterow2" ng-cloak></i>
 													</button>
 												</td>
 												<td>
@@ -161,7 +161,7 @@ title: Manage Open Quotes
 		</div>
 
   <!--expanded row content start-->
-	<script id="expandedrow" type="text/ng-template">
+	<script id="expandedrowquote" type="text/ng-template">
 		<div class="box box-info with-border">
 			<div class="box-body table-responsive">
 				<div class="nav-tabs-custom color-tab-icon">
@@ -187,245 +187,271 @@ title: Manage Open Quotes
 					</ul>
 					<div class="tab-content box-bg-color">
 						<div class="tab-pane contact-summary active" id="tab_messagedetail">
-						  
 							<!--Message history-->
 							{% include open-quote-detail-tab.html %}
 							<!--Message history-->
+              <div class="row">
+								<div class="col-md-12">
+								<!--agent email start-->
+								{% include agent-email-include.html %}
+								<!--agent email end-->
+								<!--create note start-->
+								{% include create-note-include.html %}
+								<!--create note end-->
+								</div>
+							</div>
 						</div>
 						<div class="tab-pane" id="tab_history">
-							<div class="row" id="chrono-view" ng-show="crono" ng-init="crono = true;">
-								<div class="col-md-12">
-									<!-- Custom Tabs -->
-									<div class="row">
-										<div class="col-md-12">
-											<div class="box box-info">
-												<div class="box-header with-border">
-													<i class="fa fa-history"></i>
-													<h3 class="box-title head-title-padding">Contact History</h3>
-													<div class="btn-group pull-right" id="realtime" data-toggle="btn-toggle">
-														<a class="btn btn-primary active" data-toggle="on" href="javascript:void(0)" ng-click="showcrono()">Chronological View</a>
-														<a class="btn btn-default " data-toggle="off" href="javascript:void(0)" ng-click="showcase();">Case View</a>
+							<div class="row" id="chrono-view">
+									<div class="col-md-12">
+										<!-- Custom Tabs -->
+										<div class="row">
+											<div class="col-md-12">
+												<div class="box box-info">
+													<div class="box-header with-border">
+														<i class="fa fa-history"></i>
+														<h3 class="box-title head-title-padding">Contact History</h3>
+
+														<div class="btn-group pull-right" id="realtime" data-toggle="btn-toggle">
+															<a class="btn btn-primary active" data-toggle="on" href="javascript:void(0)">Chronological View</a>
+															<a class="btn btn-default " data-toggle="off" href="javascript:void(0)" onclick="showcase();">Case View</a>
+														</div>
+														<div class="pull-right show-notifications">
+																<label class="incoming-ques">Show Notifications <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" /></label>
+															</div>                            
 													</div>
-													<div class="pull-right show-notifications">
-															<label class="incoming-ques">Show Notifications <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" /></label>
-													 </div> 
-												</div>
 												<!-- /.box-header -->
 												<!-- form start -->
-												<div class="box-body table-responsive">
-													<table id="historyTabCaseView" class="table  table-striped table-hover" datatable dt-options="dtContactHistoryOptions">
-														<thead>
-															<tr>
-																<th class="no-sort" name="name"></th>
-																<th class="text-capitalize">
-																	Subject
-																</th>
-																<th class="text-capitalize">
-																	Topic
-																</th>
-																<th class="text-capitalize">
-																	Status
-																</th>
-																<th class="text-capitalize">
-																	Type
-																</th>
-																<th class="text-capitalize">
-																	Username
-																</th>
-																<th class="text-capitalize">
-																	Properties
-																</th>
-																<th class="text-capitalize">
-																	Date
-																</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr id="historyrow12">
-																<td name="name">
-																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowHistory('historyrow12')">
-																		<i class="fa fa-plus-circle" ng-show="!historyrow12"></i>
-																		<i class="fa fa-minus-circle ng-hide" ng-show="historyrow12" ng-cloak></i>
-																	</button>
-																</td>
-																<td>
-																	[ref#: 42733-42733] I need help picking a camera
-																</td>
-																<td>
-																	All Topics
-																</td>
-																<td>
-																	<small class="bg-green-active label">Resolved</small>
-																</td>
-																<td>
-																	<small class="label bg-blue disabled label-with-icon">
-																		<i class="fa fa-comments"></i>Chat
-																	</small>
-																</td>
-																<td>
+													<div class="box-body table-responsive">
+														<table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+															<thead>
+																<tr>
+																	<th class="no-sort" name="name"></th>
+																	<th class="text-capitalize">
+																		Subject
+																	</th>
+																	<th class="text-capitalize">
+																		Topic
+																	</th>
+																	<th class="text-capitalize">
+																		Status
+																	</th>
+																	<th class="text-capitalize">
+																		Type
+																	</th>
+																	<th class="text-capitalize">
+																		Username
+																	</th>
+																	<th class="text-capitalize">
+																		Properties
+																	</th>
+																	<th class="text-capitalize">
+																		Date
+																	</th>
+																	<td style="display:none;">
+																			&nbsp;
+																		</td>	
+																		<td style="display:none;">
+																			&nbsp;
+																		</td>
+																		<td style="display:none;">
+																			&nbsp;
+																		</td>
+																		<td style="display:none;">
+																			&nbsp;
+																		</td>
+																		<td style="display:none;">
+																			&nbsp;
+																		</td>
+																		<td style="display:none;">
+																			&nbsp;
+																		</td>
+																</tr>
+															</thead>  
+															<tbody>
+																<tr id="row1">
+																	<td name="name">
+																		<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
+																				<i class="fa fa-plus-circle" ng-show="!row1"></i>
+																				<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
+																		</button>
+																	</td>
+																	<td class="subject-col-width">
+																		[ref#: 42733-42733] I need help picking a camera
+																	</td>
+																	<td>
+																		All Topics
+																	</td>
+																	<td>
+																		<small class="bg-green-active label">Resolved</small>
+																	</td>
+																	<td> 
+																		<small class="label bg-blue disabled label-with-icon">
+																			<i class="fa fa-comments"></i>Chat
+																		</small>
+																	</td>
+																	<td>
 																	Jacob Smith
-																</td>
-																<td>
-																	<b>Urgency Level</b> : High
-																	<a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow12')"><i class="fa fa-fw fa-pencil"></i></a>
-																</td>
-																<td>
-																	2016-07-18 9:36:26 AM
-																</td>
-															</tr>
-															<tr id="historyrow13">
-																<td name="name">
-																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowHistory('historyrow13')">
-																		<i class="fa fa-plus-circle" ng-show="!historyrow13"></i>
-																		<i class="fa fa-minus-circle ng-hide" ng-show="historyrow13" ng-cloak></i>
-																	</button>
-																</td>
-																<td>
-																	[ref#: 6680-6680] Return policy
-																</td>
-																<td>
-																	Returns
-																</td>
-																<td>
-																	<small class="bg-green-active label">Resolved</small>
-																</td>
-																<td>
-																	<small class="label label-with-icon bg-blue">
-																		<i class="fa fa-envelope"></i>
-																		Customer Email
-																	</small>
-																</td>
-																<td>
-																	Jacob Smith
-																</td>
-																<td>
-																	<b>Urgency Level</b> : High
-																	<a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow13')"><i class="fa fa-fw fa-pencil"></i></a>
-																</td>
-																<td>
-																	2016-07-18 9:36:26 AM
-																</td>
-															</tr>
-															<tr id="historyrow14">
-																<td name="name">
-																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowHistory('historyrow14')">
-																		<i class="fa fa-plus-circle" ng-show="!historyrow14"></i>
-																		<i class="fa fa-minus-circle ng-hide" ng-show="historyrow14" ng-cloak></i>
-																	</button>
-																</td>
-																<td>
-																	[ref#: 42912-42912] Best price on LG Plasma
-																</td>
-																<td>
-																	Open Quotes
-																</td>
-																<td>
-																	<small class="bg-red-disabled label">Queued</small>
-																</td>
-																<td>
-																	<small class="label label-with-icon bg-blue">
-																		<i class="fa fa-ticket"></i>
-																		Agent Ticket
-																	</small>
-																</td>
-																<td>
-																	Alek Packard
-																</td>
-																<td>
-																	<b>Urgency Level</b> : High
-																	<a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow15')"><i class="fa fa-fw fa-pencil"></i></a>
-																</td>
-																<td>
-																	2016-07-18 9:36:26 AM
-																</td>
-															</tr>
-															<tr id="historyrow16">
-																<td name="name">
-																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowHistory('historyrow16')">
-																		<i class="fa fa-plus-circle" ng-show="!historyrow16"></i>
-																		<i class="fa fa-minus-circle ng-hide" ng-show="historyrow16" ng-cloak></i>
-																	</button>
-																</td>
-																<td>
-																	[ref#: 42883-42883] Need a travel camera
-																</td>
-																<td>
-																	To Quote
-																</td>
-																<td>
-																	<small class="bg-green-active label">Resolved</small>
-																</td>
-																<td>
-																	<small class="label bg-blue">
-																		<span class="fa-stack stack-icon-label">
-																			<i class="fa fa-user"></i>
+																	</td>
+																	<td>
+																		<b>Urgency Level</b> : High 
+																		<!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>-->
+																	</td>
+																	<td>
+																			2016-07-18 9:36:26 AM
+																	</td>
+																</tr>
+																<tr id="row2">
+																	<td name="name">
+																		<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
+																				<i class="fa fa-plus-circle" ng-show="!row2"></i>
+																				<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
+																		</button>
+																	</td>
+																	<td>
+																		[ref#: 6680-6680] Return policy
+																	</td>
+																	<td>
+																		Returns
+																	</td>
+																	<td>
+																		<small class="bg-green-active label">Resolved</small>
+																	</td>
+																	<td>
+																		<small class="label label-with-icon bg-blue">
+																			<i class="fa fa-envelope"></i>
+																			Customer Email
+																		</small>
+																	</td>
+																	<td>
+																		Jacob Smith
+																	</td>
+																	<td>
+																		<b>Urgency Level</b> : High
+																		<!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>-->
+																	</td>
+																	<td>
+																		2016-07-18 9:36:26 AM
+																	</td>
+																</tr>
+																<tr id="row3">
+																	<td name="name">
+																		<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
+																				<i class="fa fa-plus-circle" ng-show="!row3"></i>
+																				<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
+																		</button>
+																	</td>
+																	<td>
+																		[ref#: 42912-42912] Best price on LG Plasma
+																	</td>
+																	<td>
+																		Open Quotes
+																	</td>
+																	<td>
+																		<small class="bg-red-disabled label">Queued</small>
+																	</td>
+																	<td>
+																		<small class="label label-with-icon bg-blue">
 																			<i class="fa fa-ticket"></i>
+																			Agent Ticket
+																		</small>
+																	</td>
+																	<td>
+																		Alek Packard
+																	</td>
+																	<td>
+																			<b>Urgency Level</b> : High
+																		<!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row3')"><i class="fa fa-fw fa-pencil"></i></a>-->
+																	</td>
+																	<td>
+																		2016-07-18 9:36:26 AM
+																	</td>
+																</tr>
+																<tr id="row4">
+																	<td name="name">
+																		<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
+																				<i class="fa fa-plus-circle" ng-show="!row4"></i>
+																				<i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
+																		</button>
+																	</td>
+																	<td>
+																		[ref#: 42883-42883] Need a travel camera
+																	</td>
+																	<td>
+																			To Quote
+																	</td>
+																	<td>
+																		<small class="bg-green-active label">Resolved</small>
+																	</td>
+																	<td>
+																		<small class="label bg-blue"> 
+																			<span class="fa-stack stack-icon-label">
+																			<i class="fa fa-user"></i>
+																			<i class="fa fa-ticket"></i> 
 																		</span> Customer Ticket
-																	</small>
-																</td>
-																<td>
-																	Alek Packard
-																</td>
-																<td>
-																	<b>Urgency Level</b>: High
-																	<a href="javascript:void(0)" ng-click="togglePropertyRowHistory('historyrow16')"><i class="fa fa-fw fa-pencil"></i></a>
-																</td>
-																<td>
-																	2016-07-18 9:36:26 AM
-																</td>
-															</tr>
-														</tbody>
-													</table>
-													<!-- /.row -->
-													<div class="modal fade" id="modal-default">
-														<div class="modal-dialog">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																		<span aria-hidden="true">&times;</span>
-																	</button>
-																	<h4 class="modal-title">Properties</h4>
-																</div>
-																<div class="modal-body">
-																	<div class="row">
-																		<div class="col-md-6">
-																			<div class="form-group">
+																		</small>
+																	</td>
+																	<td>
+																		Alek Packard
+																	</td>
+																	<td>
+																		<b>Urgency Level</b>: High 
+																		<!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row4')"><i class="fa fa-fw fa-pencil"></i></a>-->
+																	</td>
+																	<td>
+																		2016-07-18 9:36:26 AM
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+														<!-- /.row -->
+														<div class="modal fade" id="modal-default">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			<span aria-hidden="true">&times;</span></button>
+																		<h4 class="modal-title">Properties</h4>
+																	</div>
+																	<div class="modal-body">
+																		<div class="row">
+																			<div class="col-md-6">
+																				<div class="form-group">
 																				<label for="urgency">Urgency</label>
-																				<input type="text" class="form-control" id="urgency" value="High">
+																				<input type="text" class="form-control" id="urgency" value="High">													  </div>
 																			</div>
-																		</div>
-																		<div class="col-md-6">
-																			<div class="form-group">
+																			<div class="col-md-6">
+																				<div class="form-group">
 																				<label for="exampleInputEmail1">isOpen</label>
 																				<select class="form-control">
 																					<option>TRUE</option>
 																					<option>FALSE</option>
 																				</select>
+																				</div>
 																			</div>
-																		</div>
+																		</div>		
+																	</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+																		<button type="button" class="btn btn-primary">Save changes</button>
 																	</div>
 																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-																	<button type="button" class="btn btn-primary">Save changes</button>
-																</div>
-															</div>
 															<!-- /.modal-content -->
+															</div>
+															<!-- /.modal-dialog -->
 														</div>
-														<!-- /.modal-dialog -->
+														<!-- /.modal -->
 													</div>
-													<!-- /.modal -->
-												</div>
+												</div> 
 											</div>
-										</div>
-										<div class="col-md-4">
-										</div>
+											<div class="col-md-4">
+											</div>
+										</div>                         
 									</div>
-								</div>
-								<!-- /.col -->
+									<!-- /.col -->
 							</div>
 							<!-- /.row -->
-							<div class="row" id="case-view" ng-show="case" ng-init="case = false;">
+							<div class="row" id="case-view" style="display:none;">
 								<div class="col-md-12">
 									<!-- Custom Tabs -->
 									<div class="row">
@@ -435,22 +461,22 @@ title: Manage Open Quotes
 													<i class="fa fa-history"></i>
 													<h3 class="box-title head-title-padding">Contact History</h3>
 													<div class="btn-group pull-right" data-toggle="btn-toggle">
-														<a class="btn btn-default" data-toggle="on" href="javascript:void(0)" ng-click="showcrono()">Chronological View</a>
-														<a class="btn btn-primary active" data-toggle="off" href="javascript:void(0)" ng-click="showcase()">Case View</a>
+														<a class="btn btn-default" data-toggle="on" href="javascript:void(0)" onclick="showchronological();">Chronological View</a>
+														<a class="btn btn-primary active" data-toggle="off" href="javascript:void(0)">Case View</a>
 													</div>
-													<div class="pull-right show-notifications">
+														<div class="pull-right show-notifications">
 															<label class="incoming-ques">Show Notifications <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" /></label>
-													 </div> 
+														</div>  
 												</div>
 												<!-- /.box-header -->
 												<!-- form start -->
-												<div class="box-body table-responsive">
-													<table id="messageHistoryTable" class="table  table-striped table-hover">
+												<div class="box-body table-responsive" >
+													<table id="contactHistoryTable" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
 														<thead>
 															<tr>
 																<th class="no-sort"><div class="icon-col"></div></th>
 																<th class="text-capitalize">
-																	Subject
+																	Subject 
 																</th>
 																<th class="text-capitalize">
 																	Case Topic
@@ -464,88 +490,138 @@ title: Manage Open Quotes
 																<th class="text-capitalize">
 																	Date
 																</th>
+																<td style="display:none;">
+																		&nbsp;
+																	</td>	
+																	<td style="display:none;">
+																		&nbsp;
+																	</td>
+																	<td style="display:none;">
+																		&nbsp;
+																	</td>
+																	<td style="display:none;">
+																		&nbsp;
+																	</td>
 															</tr>
-														</thead>
+														</thead>  
 														<tbody>
-															<tr id="inboxrow13">
+															<tr id="row5">
 																<td>
-																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowInbox('inboxrow13')">
-																		<i class="fa fa-plus-circle" ng-show="!inboxrow13"></i>
-																		<i class="fa fa-minus-circle ng-hide" ng-show="inboxrow13" ng-cloak></i>
-																	</button>
+																		<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row5')">
+																				<i class="fa fa-plus-circle" ng-show="!row5"></i>
+																				<i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
+																		</button>
 																</td>
 																<td>
 																	[ref#: 42733-42733] I need help picking a camera
 																</td>
-																<td>
+																<td ng-show="!row5">
 																	All Topics
 																</td>
-																<td>
+																<td ng-show="!row5">
 																	<small class="bg-green-active label">Resolved</small>
 																</td>
-
-																<td>
-																	--
+																
+																<td ng-show="!row5">
+																--
 																</td>
-																<td>
+																<td ng-show="!row5">
 																	2016-07-18 9:36:26 AM
 																</td>
+																	<td col-span="" ng-show="row5">
+																			&nbsp;
+																	</td>	
+																	<td col-span="" ng-show="row5">
+																			&nbsp;
+																	</td>
+																	<td col-span="" ng-show="row5">
+																		&nbsp;
+																	</td>
+																	<td col-span="" ng-show="row5">
+																			&nbsp;
+																	</td>
 															</tr>
-															<tr id="inboxrow14">
+															<tr id="row6">
 																<td>
-																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowInbox('inboxrow14')">
-																		<i class="fa fa-plus-circle" ng-show="!inboxrow14"></i>
-																		<i class="fa fa-minus-circle ng-hide" ng-show="inboxrow14" ng-cloak></i>
+																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row6')">
+																			<i class="fa fa-plus-circle" ng-show="!row6"></i>
+																			<i class="fa fa-minus-circle ng-hide" ng-show="row6" ng-cloak></i>
 																	</button>
 																</td>
 																<td>
 																	[ref#: 6680-6680] Return policy
 																</td>
-																<td>
+																<td ng-show="!row6">
 																	Returns
 																</td>
-																<td>
+																<td ng-show="!row6">
 																	<small class="bg-green-active label">Resolved</small>
 																</td>
-
-																<td>
-																	--
+																
+																<td ng-show="!row6">
+																--
 																</td>
-																<td>
+																<td ng-show="!row6">
 																	2016-07-18 9:36:26 AM
 																</td>
+																	<td col-span="" ng-show="row6">
+																			&nbsp;
+																	</td>	
+																	<td col-span="" ng-show="row6">
+																			&nbsp;
+																	</td>
+																	<td col-span="" ng-show="row6">
+																		&nbsp;
+																	</td>
+																	<td col-span="" ng-show="row6">
+																			&nbsp;
+																	</td>
+																	
 															</tr>
-															<tr id="inboxrow15">
+															<tr id="row7">
 																<td class="icon-col">
-																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowInbox('inboxrow15')">
-																		<i class="fa fa-plus-circle" ng-show="!inboxrow15"></i>
-																		<i class="fa fa-minus-circle ng-hide" ng-show="inboxrow15" ng-cloak></i>
+																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row7')">
+																			<i class="fa fa-plus-circle" ng-show="!row7"></i>
+																			<i class="fa fa-minus-circle ng-hide" ng-show="row7" ng-cloak></i>
 																	</button>
 																	<button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
-																		<i class="fa fa-envelope-open"></i>
+																			<i class="fa fa-envelope-open"></i>
 																	</button>
 																</td>
 																<td>
 																	[ref#: 42912-42912] Best price on LG Plasma
 																</td>
-																<td>
+																<td ng-show="!row7">
 																	Open Quotes
 																</td>
-																<td>
+																<td ng-show="!row7">
 																	<small class="bg-red-disabled label">Queued</small>
 																</td>
-																<td>
+																<td ng-show="!row7">
 																	--
 																</td>
-																<td>
-																	3 Days ago
+																<td ng-show="!row7">
+																	2016-07-18 9:36:26 AM
+																</td>
+
+																<td col-span="" ng-show="row7">
+																		&nbsp;
+																</td>	
+																<td col-span="" ng-show="row7">
+																		&nbsp;
+																</td>
+																<td col-span="" ng-show="row7">
+																	&nbsp;
+																</td>
+																<td col-span="" ng-show="row7">
+																		&nbsp;
 																</td>
 															</tr>
-															<tr id="inboxrow16">
+															<tr id="row8">
 																<td class="icon-col">
-																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowInbox('inboxrow16')">
-																		<i class="fa fa-plus-circle" ng-show="!inboxrow16"></i>
-																		<i class="fa fa-minus-circle ng-hide" ng-show="inboxrow16" ng-cloak></i>
+																	<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowCase('row8')">
+																			<i class="fa fa-plus-circle" ng-show="!row8"></i>
+																			<i class="fa fa-minus-circle ng-hide" ng-show="row8" ng-cloak></i>
 																	</button>
 																	<button class="btn btn-xs btn-link text-default open-message" uib-tooltip="Case includes unresolved questions" tooltip-placement="right">
 																		<i class="fa fa-envelope-open"></i>
@@ -554,33 +630,44 @@ title: Manage Open Quotes
 																<td>
 																	[ref#: 42883-42883] Need a travel camera
 																</td>
-																<td>
+																<td ng-show="!row8">
 																	To Quote
 																</td>
-																<td>
+																<td ng-show="!row8">
 																	<small class="bg-green-active label">Resolved</small>
 																</td>
-																<td>
-																	--
+																<td ng-show="!row8">
+																--
 																</td>
-																<td>
+																<td ng-show="!row8">
 																	2016-07-18 9:36:26 AM
+																</td>
+																<td col-span="" ng-show="row8">
+																		&nbsp;
+																</td>	
+																<td col-span="" ng-show="row8">
+																		&nbsp;
+																</td>
+																<td col-span="" ng-show="row8">
+																	&nbsp;
+																</td>
+																<td col-span="" ng-show="row8">
+																		&nbsp;
 																</td>
 															</tr>
 														</tbody>
 													</table>
 												</div>
-											</div>
+											</div> 
 										</div>
 										<div class="col-md-4">
 										</div>
-									</div>
+									</div>                         
 								</div>
-								<!-- /.col -->
+									<!-- /.col -->
 							</div>
 							<!-- /.row -->
 						</div>
-						<!-- /.tab-pane -->
 						<div class="tab-pane" id="tab_contactdetail">
 							<div class="row">
 								<div class="col-xs-12 col-sm-9 panel-group">
@@ -893,19 +980,23 @@ title: Manage Open Quotes
 				</div>
 			</div>
 		</div>
+		
+
+		<!--form data end-->
+
 	</script>
-	 <!--expanded row content start-->
-	 <script id="expandedrowviewmode" type="text/ng-template">
-		<!--form data start-->
-		<div class="row" ng-hide="hidetrue">
+	
+	<script id="expandedrow" type="text/ng-template">
+		<!--form data start-->	
+		<div class="row" ng-hide="hidetrue"> 
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12">
-						<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to Jhon Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+						<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send agent email as reply to this interaction" tooltip-placement="bottom" ng-click="show('agentemail')">
 							<i class="fa fa-envelope"></i>
 							Agent email
 						</button>
-						<button class="btn  btn-success margin-r-5" uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
+						<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
 							<i class="fa fa-pencil-square-o"></i>
 							Note
 						</button>
@@ -923,74 +1014,78 @@ title: Manage Open Quotes
 							</button>
 							<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
 								<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
-									<a href="" ng-click="isStatusAuditSectionExpanded = !isStatusAuditSectionExpanded">Show Status Audit</a>
+								<a href="" ng-click="isStatusAuditSectionExpanded = !isStatusAuditSectionExpanded">Show Status Audit</a>
 								</li>
 								<li role="menuitem"><a href="#">Show Full Case</a></li>
 								<li role="menuitem"><a href="#">Print</a></li>
 								<li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
 							</ul>
 						</div>
+						<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom" ng-click="show('getthis')">
+							<i class="fa fa-sign-in"></i>
+							Get This
+						</button>
 					</div>
 					<div class="col-md-12 mtop-15">
 						<div class="box status-box" style="display:none">
-							<div class="box-header with-border">
-								<h3 class="box-title">Status Audit</h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
-								</div>
-							</div>
-							<div class="box-body table-responsive">
-								<table id="example" class="table  table-striped table-hover">
-									<thead>
-										<tr>
-											<th class="text-capitalize">
-												Time
-											</th>
-											<th class="text-capitalize">
-												Modifier
-											</th>
-											<th class="text-capitalize">
-												Status
-											</th>
-											<th class="text-capitalize">
-												Action
-											</th>
-											<th class="text-capitalize">
-												Assigned To
-											</th>
-											<th class="text-capitalize">
-												Topic
-											</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>
-												11/11/2017 12:19:20PM
-											</td>
-											<td>
-												Jaswantchouhan
-											</td>
-											<td>
-												<small class="label label-success">Resolved</small>
-											</td>
-											<td>
-												Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
-											</td>
-											<td>
-												Jaswantchouhan
-											</td>
-											<td>
-												JC - Segment- All Topic - To- Quote - Open Quotes
-											</td>
-										</tr>
-									</tbody>
-								</table>
+						<div class="box-header with-border">
+							<h3 class="box-title">Status Audit</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
 							</div>
 						</div>
+						<div class="box-body table-responsive">
+							<table id="example2" class="table table-striped table-hover">
+								<thead>
+									<tr>
+										<th class="text-capitalize">
+										Time 
+										</th>
+										<th class="text-capitalize">
+										Modifier
+										</th>
+										<th class="text-capitalize">
+										Status
+										</th>
+										<th class="text-capitalize">
+										Action
+										</th>
+										<th class="text-capitalize">
+										Assigned To
+										</th>
+										<th class="text-capitalize">
+										Topic
+										</th>
+									</tr>
+								</thead>  
+								<tbody>
+									<tr>
+										<td>
+										11/11/2017 12:19:20PM
+										</td>
+										<td>
+										Jaswantchouhan
+										</td>
+										<td>
+										<small class="label label-success">Resolved</small>
+										</td>
+										<td>
+										Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+										</td>
+										<td>
+										Jaswantchouhan
+										</td>
+										<td>
+										JC - Segment- All Topic - To- Quote - Open Quotes
+										</td>
+									</tr>
+								</tbody>
+							</table>  
+						</div>
+						</div>
 					</div>
-				</div>
-			 <div class="row">
+				</div>								
+				<div class="row">
 					<div class="col-md-12">
 						<div class="nav-tabs-custom">
 							<ul class="nav nav-tabs">
@@ -1014,7 +1109,7 @@ title: Manage Open Quotes
 													</div>	
 													<div class="clear"></div>
 													<div class="pull-right"> 
-														<div><b>Interaction ID : </b>4645646</div>
+														<div>Interaction ID : 4645646</div>
 														<div><b> Segment / Topic : </b>All Topic</div>
 														<div><b> Resolved By:</b>Alek Packard</div>
 														<div><b> Approved By:</b>&nbsp;</div>									
@@ -1061,7 +1156,7 @@ title: Manage Open Quotes
 													<input type="text" class="form-control pull-right">
 												</div>
 											</div>  
-											<div class="form-group">    
+										 <div class="form-group">    
 												<label class="col-md-12 control-label control-label text-left">Team</label>
 												<div class="col-sm-12">
 													<div class="simple-label multiple">
@@ -1124,8 +1219,9 @@ title: Manage Open Quotes
 				</div>
 			</div>
 		</div>
+		<!--form data end-->
 		<!--agent email start-->
-		{% include agent-email-include.html %}
+		{% include agent-email-include.html %}    
 		<!--agent email end-->
 		<!--create note start-->
 		{% include create-note-include.html %}
@@ -1136,8 +1232,11 @@ title: Manage Open Quotes
 		<!--forward start-->
 		{% include forward-copy-include.html %}
 		<!--forward end-->
-		<!--form data end-->
-	</script>
+		<!--Get this-->
+		{% include get-this-include.html %}
+		<!--Get thisa-->
+	</script>	
+	 <!--expanded row content end-->
 
 	<script id="expandedrow2" type="text/ng-template">
 		<!--form data start-->	
@@ -1398,7 +1497,251 @@ title: Manage Open Quotes
         <!-- Add the sidebar's background. This div must be placed
              immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
-    </div>
+		</div>
+		
+		<script id="expandedrowviewmode" type="text/ng-template">
+      <!--form data start-->
+      <div class="row" ng-hide="hidetrue">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to Jhon Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+                <i class="fa fa-envelope"></i>
+                Agent email
+              </button>
+              <button class="btn  btn-success margin-r-5" uib-tooltip="Add note to case" tooltip-placement="bottom" ng-click="show('createnote')">
+                <i class="fa fa-pencil-square-o"></i>
+                Note
+              </button>
+              <button class="btn  btn-warning margin-r-5" uib-tooltip="Create ticket in reply to this interaction" tooltip-placement="bottom" ng-click="show('createticket')">
+                <i class="fa fa-ticket"></i>
+                Ticket
+              </button>
+              <button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show('forwardcopy')">
+                <i class="fa fa-mail-forward"></i>
+                Forward Copy
+              </button>
+              <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                  <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                  <li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+                    <a href="" ng-click="isStatusAuditSectionExpanded = !isStatusAuditSectionExpanded">Show Status Audit</a>
+                  </li>
+                  <li role="menuitem"><a href="#">Show Full Case</a></li>
+                  <li role="menuitem"><a href="#">Print</a></li>
+                  <li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-12 mtop-15">
+              <div class="box status-box" style="display:none">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Status Audit</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body table-responsive">
+                  <table id="example" class="table  table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th class="text-capitalize">
+                          Time
+                        </th>
+                        <th class="text-capitalize">
+                          Modifier
+                        </th>
+                        <th class="text-capitalize">
+                          Status
+                        </th>
+                        <th class="text-capitalize">
+                          Action
+                        </th>
+                        <th class="text-capitalize">
+                          Assigned To
+                        </th>
+                        <th class="text-capitalize">
+                          Topic
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          11/11/2017 12:19:20PM
+                        </td>
+                        <td>
+                          Jaswantchouhan
+                        </td>
+                        <td>
+                          <small class="label label-success">Resolved</small>
+                        </td>
+                        <td>
+                          Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+                        </td>
+                        <td>
+                          Jaswantchouhan
+                        </td>
+                        <td>
+                          JC - Segment- All Topic - To- Quote - Open Quotes
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+         <div class="row">
+						<div class="col-md-12">
+							<div class="nav-tabs-custom">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+									<li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_detail_1">
+										<div class="row">
+												<div class="message-box-header">
+                          <div class="col-md-12">
+                            <span class="user">
+                              <img src="/dist/img/agent.png">
+                              <b>Agent</b>
+                            </span>
+                            <div class="message-info">
+                              <b>From:</b> john.doe@example.com<br>
+                              <b>To:</b> alek.packard@1to1service.com<br>
+                              <b>CC:</b> justin.time@1to1service.com<br>
+                              <b>BCC:</b> jonie.hewlett@1to1service.com<br>
+                            </div>	
+                            <div class="clear"></div>
+                            <div class="pull-right"> 
+                              <div><b>Interaction ID : </b>4645646</div>
+                              <div><b> Segment / Topic : </b>All Topic</div>
+                              <div><b> Resolved By:</b>Alek Packard</div>
+                              <div><b> Approved By:</b>&nbsp;</div>									
+                              <small class="bg-green-active label">Resolved</small>
+                            </div>
+                          </div>
+													<div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+												</div>
+										</div>	
+									</div>
+									<div class="tab-pane" id="tab_property_2">
+										<div class="row form-horizontal">
+											<div class="col-md-4">
+												<h4>Case Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Delivery Date</label>
+													<div class="col-sm-12">
+														<div class="input-group date">
+															<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+																<i class="fa fa-calendar"></i>
+															</div>
+															<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+														</div>
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Detail</label>
+													<div class="col-sm-12">
+														<textarea class="form-control" rows="3"></textarea>
+													</div>
+												</div> 
+											</div> 
+											<div class="col-md-4">
+												<h4>Question Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Quantity</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Team</label>
+													<div class="col-sm-12">
+														<div class="simple-label multiple">
+															<div class="float-btn-group">
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<input type="text" class="form-control">
+															</div>
+															<div class="float-btn-group">
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<input type="text" class="form-control">
+															</div>
+															<div class="float-btn-group">
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<input type="text" class="form-control">
+															</div>
+															<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+														</div>
+													</div>
+												</div>   
+											</div> 
+											<div class="col-md-4">
+												<h4>Answer Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Priority</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>High</option>
+																<option>Low</option>
+														</select>    
+													</div>
+												</div> 
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">isOpen</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>True</option>
+																<option>False</option>
+														</select>    
+													</div>
+												</div>  
+											</div>    
+											<div class="col-md-12">
+												<button type="submit" class="btn btn-primary">Save</button>
+											</div>
+										</div>    
+									</div>
+								</div>	
+							</div>
+						</div>	
+					</div>	
+					<div class="message-box">
+						<div class="message-box-body"> 
+							<div class="clear"></div>
+							<div>										   
+								<p>Hello,<br>
+									I'm looking for a flat screen. Any suggestions?
+								</p>
+							</div>
+						</div>
+					</div>
+        </div>
+      </div>
+      <!--agent email start-->
+      {% include agent-email-include.html %}
+      <!--agent email end-->
+      <!--create note start-->
+      {% include create-note-include.html %}
+      <!--create note end-->
+      <!--create ticket start-->
+      {% include create-ticket-include.html %}
+      <!--create ticket end-->
+      <!--forward start-->
+      {% include forward-copy-include.html %}
+      <!--forward end-->
+      <!--form data end-->
+    </script>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
 	   <!-- DataTables -->
@@ -1423,7 +1766,19 @@ title: Manage Open Quotes
 	  	$('.custom-scroll').slimScroll({
 			height: '150px'
 		});
+
+		
 }); 
+function showchronological(){
+				alert("");
+				$('#case-view').hide();
+				$('#chrono-view').show();
+			}
+
+			function showcase(){alert("dd");
+				$('#case-view').show();
+				$('#chrono-view').hide();
+			}
 </script>
 
 <script>
@@ -1484,7 +1839,7 @@ title: Manage Open Quotes
 			];
       $scope.toggleRow = function (segmentName)
       {
-        $scope['getthis'] = true;
+       // $scope['getthis'] = true;
         for(var i = 1; i <= 15; i++)
         {
           if(!$scope[segmentName])
@@ -1502,16 +1857,62 @@ title: Manage Open Quotes
           removeFunction(segmentName);
         }
       };
-      $scope.showcase = function ()
-      {
-        $scope['case'] = true;
-        $scope['crono'] = false;
-      }
 
-      $scope.showcrono = function ()
+			$scope.toggleRowCase = function (segmentName)
+			{ 
+				for(var i = 1; i<=8;i++){
+					if(!$scope[segmentName]){
+						removeFunction(segmentName);
+						$scope['row'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunctionCase(segmentName);
+				}else{
+					removeFunction(segmentName);
+				}
+			};
+
+			function myCreateFunctionCase(row) {
+				var innerHTML = document.getElementById('expandedrow').innerHTML;
+        angular.element('#'+row).after($compile('<tr id="row_1" class="bg-customer-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded1 = false;" ng-show="showexpanded1"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded1" ng-click="showexpanded1 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-green-active label">Resolved</small></td><td>--</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow').innerHTML+'</td></tr><tr id="row_2" class="expandedrowcontent bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-red label">Unsent</small></td><td>--</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontent bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="5" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>')($scope));
+				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			}
+
+
+			$scope.toggleRowQuote = function (segmentName)
       {
-        $scope['case'] = false;
-        $scope['crono'] = true;
+        $scope['getthisquote'] = true;
+        for(var i = 1; i <= 15; i++)
+        {
+          if(!$scope[segmentName])
+          {
+            removeFunction(segmentName);
+            $scope['quoterow' + i] = false;
+          }
+        }
+        $scope[segmentName] = !$scope[segmentName];
+        if($scope[segmentName])
+        {
+          myCreateFunctionQuote(segmentName);
+        } else
+        {
+          removeFunctionQuote(segmentName);
+        }
+      };
+			
+
+			function myCreateFunctionQuote(row) {
+				var innerHTML = document.getElementById('expandedrow').innerHTML;
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontentquote bg-customer-reply rowborder"><td class="white-bg">&nbsp;</td><td colspan="7">'+document.getElementById('expandedrowquote').innerHTML+'</td></tr>')($scope));
+			   //<tr id="row_2" class="bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td style="width:auto;"><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span>Feedback provided</td><td>Feed Account</td><td>Feedback Account</td><td><small class="bg-black disabled label">2018-08-03 11:59:44 AM</small></td><td>Jacob Smith	</td><td>All Topic</td></tr><tr class="bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>
+				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			}
+
+      function removeFunctionQuote(row)
+      {
+        angular.element('.expandedrowcontentquote').remove();
       }
 
       function myCreateFunction(row) {
@@ -1538,6 +1939,21 @@ title: Manage Open Quotes
           count = count + 1;
         }
       };
+
+			$scope.showquote = function (action)
+      {
+        $scope.getthisquote = false;
+        $scope[action] = !$scope[action];
+        if(count == 1)
+        {
+          //$('.custom-scroll').slimScroll({
+          //  height: '250px'
+          //});
+          count = count + 1;
+        }
+      };
+
+
       $scope.messageDetailTab = function ()
       {
         $scope.cancelall();
@@ -1564,6 +1980,7 @@ title: Manage Open Quotes
       $scope.cancel = function (action)
       {
         $scope.hidetrue = false;
+				$scope.getthisquote = true; //to show qoute default data
         $scope[action] = !$scope[action];
       };
 
@@ -1656,6 +2073,7 @@ title: Manage Open Quotes
       {
         $scope[segmentName] = !$scope[segmentName];
       };
+
     });
     angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;

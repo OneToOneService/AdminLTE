@@ -1,4 +1,4 @@
-<div class="row" ng-show="getthis">  
+<div class="row" ng-show="getthisquote">  
     <div class="col-md-12 form-horizontal"> 
         <div class="col-md-12 form-action">
             <div class="form-group">
@@ -18,7 +18,7 @@
                                         <small ng-bind-html="agent.code | highlight: $select.search"></small>
                                         </ui-select-choices>
                                     </ui-select>
-							    </div>	  
+							                   </div>	  
                                 <button class="btn btn-primary btn-xs">Assign To Agent</button>
                             </div>    
                         </li>
@@ -46,19 +46,19 @@
                         </li>
                     </ul>
                 </div>
-                <button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to John Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+                <button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to John Doe" tooltip-placement="bottom" ng-click="showquote('agentemail')">
                     <i class="fa fa-envelope"></i>
                     Agent email
                 </button>
-                <button class="btn  btn-success margin-r-5" uib-tooltip="Add note to quote" tooltip-placement="bottom" ng-click="show('createnote')">
+                <button class="btn  btn-success margin-r-5" uib-tooltip="Add note to quote" tooltip-placement="bottom" ng-click="showquote('createnote')">
                     <i class="fa fa-pencil-square-o"></i>
                     Note
                 </button>
-                <button class="btn btn-danger btn-delete margin-r-5" uib-tooltip="Close quote" tooltip-placement="bottom" ng-click="show('createnote')">
+                <button class="btn btn-danger btn-delete margin-r-5" uib-tooltip="Close quote" tooltip-placement="bottom" ng-click="showquote('close')">
                     <i class="fa fa-close"></i>
                     Close
                  </button>
-                <button class="btn btn-link" ng-click="cancel('getthis')">Cancel</button>
+               
             </div>
             <div class="row">
                <!-- Custom Tabs -->
