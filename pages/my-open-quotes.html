@@ -155,10 +155,135 @@ title: My Open Quotes
 							</div> 
 						</div>                         
 					</div>
+
+					<div class="row">
+							<div class="col-md-12">
+								<div class="box box-info">
+									<div class="box-header with-border" ng-click="isCollapsedFormequote = !isCollapsedFormequote">
+										<i class="fa fa-file-text-o"></i>
+										<h3 class="box-title">Topic : Electronic Quote</h3>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedFormequote}" ng-init="isCollapsedFormequote = false;"></span>
+									</div>
+									<!-- /.box-header -->
+									<!-- form start -->
+									<div class="box-body table-responsive" uib-collapse="isCollapsedFormequote">
+										<table class="table table-striped table-hover" datatable dt-options="dtQuotesOptions" dt-column-defs="dtQuotesColumnDefs">
+										<thead>
+											<tr>
+												<th class="no-sort"  name="name">
+													&nbsp;
+												</th>
+												<th class="text-capitalize">
+													Contact Email
+												</th>
+												<th class="text-capitalize">
+													When Quoted
+												</th>
+												<th class="text-capitalize">
+													Quote Number
+												</th>
+												<th class="text-capitalize">
+													Item Number
+												</th>
+												<th class="text-capitalize">
+													Quantity
+												</th>
+												<th class="text-capitalize">
+													Total Price
+												</th>
+												<th class="text-capitalize">
+													Item Description
+												</th>
+												<th class="text-capitalize">
+													Item Url
+												</th>
+												<th class="text-capitalize">
+													Agent Comment
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr id="openquoterow3">
+												<td name="name" class="icon-col">
+													<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowQuote('openquoterow3')">
+														<i class="fa fa-plus-circle" ng-show="!openquoterow3"></i>
+														<i class="fa fa-minus-circle ng-hide" ng-show="openquoterow3" ng-cloak></i>
+													</button>
+												</td>
+												<td>
+													howard.smith@example.net
+												</td>
+												<td>
+													3 Days ago
+												</td>
+												<td>
+													E45646
+												</td>
+												<td>
+													CAA56465
+												</td>
+												<td>
+													1
+												</td>
+												<td>
+													$355.60
+												</td>
+												<td>
+													Canon EOS Rebel T6
+												</td>
+												<td>
+													--
+												</td>
+												<td>
+													This is the best price we will have on this camera all year.
+												</td>
+											</tr>
+											<tr id="openquoterow4">
+													<td name="name" class="icon-col">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowQuote('openquoterow4')">
+															<i class="fa fa-plus-circle" ng-show="!openquoterow4"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="openquoterow4" ng-cloak></i>
+														</button>
+													</td>
+													<td>
+														julie.persuavia@example.com
+													</td>
+													<td>
+														2 Days ago
+													</td>
+													<td>
+														A45646
+													</td>
+													<td>
+														AA56465
+													</td>
+													<td>
+														1
+													</td>
+													<td>
+														$355.60
+													</td>
+													<td>
+														Canon VIXIA HF R800 Camcorder (Black) with Accessory Kit
+													</td>
+													<td>
+														--
+													</td>
+													<td>
+														This price includes free shipping and the standard product warranty.
+													</td>
+												</tr>
+										
+										</tbody>
+										</table>
+									</div>
+								</div> 
+							</div>                         
+						</div>
 				</div> 
 			</div>
-			</section>
-		</div>
+		</section>
+	</div>
 
   <!--expanded row content start-->
 	<script id="expandedrowquote" type="text/ng-template">
@@ -198,6 +323,7 @@ title: My Open Quotes
 								<!--create note start-->
 								{% include create-note-include.html %}
 								<!--create note end-->
+								{% include close-open-quote-include.html %}
 								</div>
 							</div>
 						</div>
@@ -1770,12 +1896,12 @@ title: My Open Quotes
 		
 }); 
 function showchronological(){
-				alert("");
+				
 				$('#case-view').hide();
 				$('#chrono-view').show();
 			}
 
-			function showcase(){alert("dd");
+			function showcase(){
 				$('#case-view').show();
 				$('#chrono-view').hide();
 			}
@@ -1888,8 +2014,8 @@ function showchronological(){
         {
           if(!$scope[segmentName])
           {
-            removeFunction(segmentName);
-            $scope['quoterow' + i] = false;
+            removeFunctionQuote(segmentName);
+            $scope['openquoterow' + i] = false;
           }
         }
         $scope[segmentName] = !$scope[segmentName];

@@ -62,212 +62,189 @@
             </div>
             <div class="row">
                <!-- Custom Tabs -->
-               <div class="nav-tabs-custom">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab_detail" data-toggle="tab"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span></a></li>
-                        <li><a href="#tab_interaction" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span></a> </li>
-                        <li><a href="#tab_variables" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i> <span>Variables & Stock Responses</span></a> </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab_detail">
-                            <div class="row">
-                               <div class="message-box-header">
-								  <div class="col-md-12">
-									<div class="pull-left"> 
-                                      <h4>Details</h4>
-                                      <div class="row">
-                                        <div class="col-md-6"> <b>Interaction Id</b>:114576</div>
-                                        <div class="col-md-6"> <b>Type</b>:Ticket</div>
-                                        <div class="col-md-6"> <b>From</b>:John.doe@example.com</div>
-                                        <div class="col-md-6"> <b>Segment</b>:Sales Segment</div>
-                                        <div class="col-md-6"><b>Topic</b>: Open Quotes</div>
-                                        <div class="col-md-6"><b>Status</b>: Queued</div>
-                                      </div>
-									</div>
-								  </div>
-								  <div class="col-md-12 mtop-15"><b><i class="fa fa-paperclip attachment-icon"></i></b> : <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
-								</div>
-                            </div>    
-                        </div>
-                        <div class="tab-pane" id="tab_interaction">
-                            <div class="row form-horizontal">
-                                <div class="col-md-4">
-                                    <h4>Case Properties</h4>
-                                    <div class="form-group">    
-                                        <label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control pull-right">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">    
-                                        <label class="col-md-12 control-label text-left">Delivery Date</label>
-                                        <div class="col-sm-12">
-                                            <div class="input-group date">
-                                                <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
-                                                    <i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
-                                            </div>
-                                        </div>
-                                    </div>  
-                                    <div class="form-group">    
-                                        <label class="col-md-12 control-label text-left">Detail</label>
-                                        <div class="col-sm-12">
-                                           <textarea class="form-control" rows="3"></textarea>
-                                        </div>
-                                    </div> 
-                                </div> 
-                                <div class="col-md-4">
-                                    <h4>Question Properties</h4>
-                                    <div class="form-group">    
-                                        <label class="col-md-12 control-label control-label text-left">Quantity</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control pull-right">
-                                        </div>
-                                    </div>  
-                                    <div class="form-group">    
-                                        <label class="col-md-12 control-label control-label text-left">Team</label>
-                                        <div class="col-sm-12">
-											<div class="simple-label multiple">
-												<div class="float-btn-group">
-													<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-													<input type="text" class="form-control">
-												</div>
-												<div class="float-btn-group">
-													<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-													<input type="text" class="form-control">
-												</div>
-												<div class="float-btn-group">
-													<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-													<input type="text" class="form-control">
-												</div>
-												<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
-											</div>
-										</div>
-                                    </div>  
-                                </div> 
-                                <div class="col-md-4">
-                                    <h4>Answer Properties</h4>
-                                    <div class="form-group">    
-                                        <label class="col-md-12 control-label text-left">Priority</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control">
-                                                    <option>High</option>
-                                                    <option>Low</option>
-                                            </select>    
-                                        </div>
-                                    </div> 
-                                    <div class="form-group">    
-                                        <label class="col-md-12 control-label text-left">isOpen</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control">
-                                                    <option>True</option>
-                                                    <option>False</option>
-                                            </select>    
-                                        </div>
-                                    </div>  
-                                </div>    
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary">Save</button>
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_detail" data-toggle="tab"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span></a></li>
+                    <li><a href="#tab_interaction" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span></a> </li>
+                    <li><a href="#tab_variables" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i> <span>Variables & Stock Responses</span></a> </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_detail">
+                        <div class="row">
+                            <div class="message-box-header">
+                            <div class="col-md-12">
+                              <div class="pull-left"> 
+                                  <h4>Details</h4>
+                                  <div class="row">
+                                    <div class="col-md-6"> <b>Interaction Id</b>:114576</div>
+                                    <div class="col-md-6"> <b>Type</b>:Ticket</div>
+                                    <div class="col-md-6"> <b>From</b>:John.doe@example.com</div>
+                                    <div class="col-md-6"> <b>Segment</b>:Sales Segment</div>
+                                    <div class="col-md-6"><b>Topic</b>: Open Quotes</div>
+                                    <div class="col-md-6"><b>Status</b>: Queued</div>
+                                  </div>
                                 </div>
-                            </div>    
-                        </div>
-
-                        <div class="tab-pane" id="tab_variables">
-                            <div class="row">
-								<div class="col-md-5">   
-									<div class="btn-group pull-left" data-toggle="btn-toggle">
-										<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
-										<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
-									</div>
-								</div>   
-								<div class="col-md-7  pull-right"  ng-show="customform">
-									<div class="form-group">
-										<label for="filtervariable" class="col-md-5 control-label text-right">Filter Variables</label>
-										<div class="col-md-7">
-											<input type="text" id="filtervariable" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-7 pull-right"  ng-hide="customform">
-									<div class="form-group">
-										<label for="filterstockresponses" class="col-md-5 control-label text-right">Filter Stock Responses</label>
-										<div class="col-md-7">
-											<input type="text" id="filterstockresponses" class="form-control">
-										</div>
-									</div>
-								</div>
-                                <div class="col-xs-12 variable-responses" ng-show="customform">
-                                   
-                                    <div class="option-list custom-scroll">
-                                        <ul class="list-unstyled segment-variable-list">
-                                            <li class="section-label">Contact
-                                            <ul class="segment-variables">
-                                                <li class="section-var-link">Name</li>
-                                                <li class="segment-lable">Global
-                                                    <ul>
-                                                    <li class="section-var-link">Address1</li>
-                                                    <li class="section-var-link">Address2</li>
-                                                    <li class="section-var-link">City</li>
-                                                    <li class="section-var-link">Country</li>
-                                                    <li class="section-var-link">Company</li>
-                                                    </ul>
-                                                </li>
-                                                <li class="segment-lable">JC Segment
-                                                    <ul>
-                                                    <li class="section-var-link">Contact View Only Property</li>
-                                                    <li class="section-var-link">Contact Viewable and Editable Property</li>
-                                                    <li class="section-var-link">Multi value No Descr</li>
-                                                    <li class="section-var-link">Shared Property from JC - cust can't see</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            </li>
-                                        </ul>
-                                        <ul class="list-unstyled segment-variable-list">
-                                            <li class="section-label">Answer
-                                                <ul class="segment-variables">
-                                                    <li class="section-var-link">Email</li>
-                                                    <li class="section-var-link">Reference Number</li>
-                                                    <li class="section-var-link">Original Date</li>
-                                                    <li class="section-var-link">Original Time</li>
-                                                    <li class="section-var-link">Subject</li>
-                                                    <li class="section-var-link">Original Body</li>
-                                                    <li class="section-var-link">Quoted Question</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>    
-                                </div>
-                                <div class="col-xs-12 variable-responses" ng-hide="customform">
-                                   
-                                    <div class="option-list custom-scroll">
-                                        <ul class="list-unstyled segment-variable-list">
-                                                <li class="section-label">Segment Responses
-                                                <ul class="segment-variables">
-                                                    <li class="section-var-link">Chat Closing</li>
-                                                    <li class="section-var-link">Chat Opening</li>
-                                                    <li class="section-var-link">Chat Wait</li>
-                                                    <li class="section-var-link">iService Website</li>
-                                                </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="list-unstyled segment-variable-list">
-                                                <li class="section-label">Agent Response
-                                                    <ul class="segment-variables">
-                                                        <li class="section-var-link">Test</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                      
-                                     </div>    
-                                </div>
+                              </div>
+                              <div class="col-md-12 mtop-15"><b><i class="fa fa-paperclip attachment-icon"></i></b> : <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
                             </div>
-                         </div>
-                    </div>    
-                    <!-- /.tab-content -->
-                </div>
-                <!-- nav-tabs-custom -->  
+                        </div>    
+                    </div>
+                    <div class="tab-pane" id="tab_interaction">
+                      <h4>Case Properties (#45646)</h4>
+                      <div class="row form-horizontal">
+                        <div class="col-md-4">
+                          <div class="form-group">    
+                            <label class="col-md-12 control-label text-left">Quote Number</label>
+                            <div class="col-sm-12">
+                              <input type="text" class="form-control pull-right">
+                            </div>
+                          </div>
+                          <div class="form-group">    
+                            <label class="col-md-12 control-label text-left required">Quantity<span class="required">(Required)</span></label>
+                            <div class="col-sm-12">
+                              <input type="text" class="form-control pull-right" value="1">
+                            </div>
+                          </div>
+                          <div class="form-group">    
+                            <label class="col-md-12 control-label text-left required">Item Number<span class="required">(Required)</span></label>
+                            <div class="col-sm-12">
+                              <input type="text" class="form-control pull-right" value="1">
+                            </div>
+                          </div>
+                        </div> 
+                        <div class="col-md-4">
+                          <div class="form-group">    
+                              <label class="col-md-12 control-label text-left required">Item Description<span class="required">(Required)</span></label>
+                              <div class="col-sm-12">
+                                <input type="text" class="form-control pull-right" value="1">
+                              </div>
+                            </div>
+                            <div class="form-group">    
+                              <label class="col-md-12 control-label text-left required">Unit Price<span class="required">(Required)</span></label>
+                              <div class="col-sm-12">
+                                <input type="text" class="form-control pull-right" value="1">
+                              </div>
+                            </div>
+                            <div class="form-group">    
+                              <label class="col-md-12 control-label text-left required">Total Price<span class="required">(Required)</span></label>
+                              <div class="col-sm-12">
+                                <input type="text" class="form-control pull-right" value="1">
+                              </div>
+                            </div>
+                        </div>  
+                        <div class="col-md-4">
+                          <div class="form-group">    
+                            <label class="col-md-12 control-label text-left">Agent Comment</label>
+                            <div class="col-sm-12">
+                              <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                          </div> 
+                          <div class="form-group">    
+                            <label class="col-md-12 control-label text-left">Wrap Code</label>
+                            <div class="col-sm-12">
+                              <select class="form-control"><option>--Select Value--</option></select>
+                            </div>
+                          </div>
+                        </div>  
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                      </div>    
+                    </div>
+
+                    <div class="tab-pane" id="tab_variables">
+                        <div class="row">
+                          <div class="col-md-5">   
+                            <div class="btn-group pull-left" data-toggle="btn-toggle">
+                              <a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
+                              <a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+                            </div>
+                          </div>   
+                          <div class="col-md-7  pull-right"  ng-show="customform">
+                            <div class="form-group">
+                              <label for="filtervariable" class="col-md-5 control-label text-right">Filter Variables</label>
+                              <div class="col-md-7">
+                                <input type="text" id="filtervariable" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-7 pull-right"  ng-hide="customform">
+                            <div class="form-group">
+                              <label for="filterstockresponses" class="col-md-5 control-label text-right">Filter Stock Responses</label>
+                              <div class="col-md-7">
+                                <input type="text" id="filterstockresponses" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 variable-responses" ng-show="customform">
+                            <div class="option-list custom-scroll">
+                                <ul class="list-unstyled segment-variable-list">
+                                    <li class="section-label">Contact
+                                    <ul class="segment-variables">
+                                        <li class="section-var-link">Name</li>
+                                        <li class="segment-lable">Global
+                                            <ul>
+                                            <li class="section-var-link">Address1</li>
+                                            <li class="section-var-link">Address2</li>
+                                            <li class="section-var-link">City</li>
+                                            <li class="section-var-link">Country</li>
+                                            <li class="section-var-link">Company</li>
+                                            </ul>
+                                        </li>
+                                        <li class="segment-lable">JC Segment
+                                            <ul>
+                                            <li class="section-var-link">Contact View Only Property</li>
+                                            <li class="section-var-link">Contact Viewable and Editable Property</li>
+                                            <li class="section-var-link">Multi value No Descr</li>
+                                            <li class="section-var-link">Shared Property from JC - cust can't see</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled segment-variable-list">
+                                    <li class="section-label">Answer
+                                        <ul class="segment-variables">
+                                            <li class="section-var-link">Email</li>
+                                            <li class="section-var-link">Reference Number</li>
+                                            <li class="section-var-link">Original Date</li>
+                                            <li class="section-var-link">Original Time</li>
+                                            <li class="section-var-link">Subject</li>
+                                            <li class="section-var-link">Original Body</li>
+                                            <li class="section-var-link">Quoted Question</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>    
+                          </div>
+                          <div class="col-xs-12 variable-responses" ng-hide="customform">
+                              <div class="option-list custom-scroll">
+                                  <ul class="list-unstyled segment-variable-list">
+                                          <li class="section-label">Segment Responses
+                                          <ul class="segment-variables">
+                                              <li class="section-var-link">Chat Closing</li>
+                                              <li class="section-var-link">Chat Opening</li>
+                                              <li class="section-var-link">Chat Wait</li>
+                                              <li class="section-var-link">iService Website</li>
+                                          </ul>
+                                          </li>
+                                      </ul>
+                                      <ul class="list-unstyled segment-variable-list">
+                                          <li class="section-label">Agent Response
+                                              <ul class="segment-variables">
+                                                  <li class="section-var-link">Test</li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                
+                                </div>    
+                          </div>
+                        </div>
+                      </div>
+                </div>    
+                <!-- /.tab-content -->
+              </div>
+              <!-- nav-tabs-custom -->  
             </div>
         </div>    
     </div> 
@@ -280,204 +257,203 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="quotebody">
                     <div class="form-group message-body-container">
-                            <table align="center" cellpadding="0" cellspacing="0" width="100%" style="background: #e8e6e6">
-                                    <tbody>
+                      <table align="center" cellpadding="0" cellspacing="0" width="100%" style="background: #e8e6e6">
+                          <tbody>
+                              <tr>
+                                <td align="left" valign="top" width="100%">
+                                  <center>
+                                    <table cellspacing="0" cellpadding="0" width="100%" bgcolor="#e8e6e6">
+                                      <tbody>
                                         <tr>
-                                          <td align="left" valign="top" width="100%">
-                                            <center>
-                                              <table cellspacing="0" cellpadding="0" width="100%" bgcolor="#e8e6e6">
-                                                <tbody>
-                                                  <tr>
-                                                  <td width="100%" height="80" valign="top" style="text-align: center; vertical-align: middle">
-                                                    <center>
-                                                      <table cellpadding="0" cellspacing="0" width="600" style="height: 80px; background: #194576">
+                                        <td width="100%" height="80" valign="top" style="text-align: center; vertical-align: middle">
+                                          <center>
+                                            <table cellpadding="0" cellspacing="0" width="600" style="height: 80px; background: #194576">
+                                              <tbody><tr>
+                                                <td style="vertical-align: middle; padding-left: 12px">
+                                                  <img src="https://image.ibb.co/jHwYtS/eshoplogo.png" alt="logo" border="0">
+                                                </td>
+                                              </tr>
+                                            </tbody></table>
+                                          </center>
+                                        </td>
+                                      </tr>
+                                    </tbody></table>
+                                  </center>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="center" valign="top" width="100%" style="background-color: #e8e6e6; padding-bottom: 5px">
+                                  <center>
+                                    <table cellspacing="0" cellpadding="0" width="600" style="background: #fff; line-height: 21px">
+                                      <tbody><tr>
+                                        <td style="padding: 10px 15px 0px; text-align: left; color: #777"> <br>
+                                          <span style="font-size: 14px; font-weight: bold; color: #333333">Your eShop product quote is below</span>
+                                          <br>  <br>
+                            Thanks for requesting a price quote from eShop. All quotes are valid for 30 days, unless otherwise stated in the quotation.  If you have any questions please contact us at 217-555-5555 during business hours (7am – 7pm ET), or reply to this email with your question. You can also chat with one of our sales specialists during normal business hours by <a href="https://qa.iServiceCRM.com/f/chat" style="color: #2b23c6">clicking here.</a> 
+                            
+                                          <br><br>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td style="border: 1px solid #e5e5e5; background: #fff; border-right: 0px; border-left: 0px">
+                                          <table cellpadding="0" cellspacing="0" width="100%" style="line-height: 21px">
+                                            <tbody><tr>
+                                              <td style="vertical-align: top; width: 278px; padding-right: 15px; padding-left: 15px; border-right: 1px solid #e5e5e5">
+                                                <table cellpadding="0" cellspacing="0" width="100%">
+                                                  <tbody><tr>
+                                                    <td>
+                                                      <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse: separate !important; color: #777">
                                                         <tbody><tr>
-                                                          <td style="vertical-align: middle; padding-left: 12px">
-                                                            <img src="https://image.ibb.co/jHwYtS/eshoplogo.png" alt="logo" border="0">
+                                                          <td>
+                                                            <span style="color: #26a4d3; font-size: 14px; font-weight: bold; padding: 5px 0">Quote Number: </span><br>3250<br>
+                                                            <span style="color: #26a4d3; font-size: 14px; font-weight: bold; padding: 5px 0">Quote Date: </span><br>2/12/2019<br>
                                                           </td>
                                                         </tr>
                                                       </tbody></table>
-                                                    </center>
-                                                  </td>
-                                                </tr>
-                                              </tbody></table>
-                                            </center>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td align="center" valign="top" width="100%" style="background-color: #e8e6e6; padding-bottom: 5px">
-                                            <center>
-                                              <table cellspacing="0" cellpadding="0" width="600" style="background: #fff; line-height: 21px">
-                                                <tbody><tr>
-                                                  <td style="padding: 10px 15px 0px; text-align: left; color: #777"> <br>
-                                                   <span style="font-size: 14px; font-weight: bold; color: #333333">Your eShop product quote is below</span>
-                                                   <br>  <br>
-                                      Thanks for requesting a price quote from eShop. All quotes are valid for 30 days, unless otherwise stated in the quotation.  If you have any questions please contact us at 217-555-5555 during business hours (7am – 7pm ET), or reply to this email with your question. You can also chat with one of our sales specialists during normal business hours by <a href="https://qa.iServiceCRM.com/f/chat" style="color: #2b23c6">clicking here.</a> 
-                                      
-                                                   <br><br>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td style="border: 1px solid #e5e5e5; background: #fff; border-right: 0px; border-left: 0px">
-                                                    <table cellpadding="0" cellspacing="0" width="100%" style="line-height: 21px">
-                                                      <tbody><tr>
-                                                        <td style="vertical-align: top; width: 278px; padding-right: 15px; padding-left: 15px; border-right: 1px solid #e5e5e5">
-                                                          <table cellpadding="0" cellspacing="0" width="100%">
-                                                            <tbody><tr>
-                                                              <td>
-                                                                <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse: separate !important; color: #777">
-                                                                  <tbody><tr>
-                                                                    <td>
-                                                                      <span style="color: #26a4d3; font-size: 14px; font-weight: bold; padding: 5px 0">Quote Number: </span><br>3250<br>
-                                                                      <span style="color: #26a4d3; font-size: 14px; font-weight: bold; padding: 5px 0">Quote Date: </span><br>2/12/2019<br>
-                                                                    </td>
-                                                                  </tr>
-                                                                </tbody></table>
-                                                              </td>
-                                                            </tr>
-                                                          </tbody></table>
-                                                        </td>
-                                                        <td style="vertical-align: top; width: 278px; padding-left: 15px">
-                                                          <table cellpadding="0" cellspacing="0" width="100%" style="line-height: 21px">
-                                                            <tbody><tr>
-                                                              <td>
-                                                                <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse: separate !important; color: #777">
-                                                                  <tbody><tr>
-                                                                    <td>
-                                                                      <span style="color: #26a4d3; font-size: 14px; font-weight: bold; padding: 5px 0">Quote Total:</span><br>
-                                                                      $ 423.75</td>
-                                                                  </tr>
-                                                                </tbody></table>
-                                                              </td>
-                                                            </tr>
-                                                          </tbody></table>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody></table>
-                                                  </td>
-                                                </tr>
-                                              </tbody></table>
-                                            </center>
-                                          </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                          <td align="center" valign="top" width="100%">
-                                            <center>
-                                              <table cellpadding="0" cellspacing="0" width="600" style="background-color: #ffffff; line-height: 21px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5">
+                                                    </td>
+                                                  </tr>
+                                                </tbody></table>
+                                              </td>
+                                              <td style="vertical-align: top; width: 278px; padding-left: 15px">
+                                                <table cellpadding="0" cellspacing="0" width="100%" style="line-height: 21px">
                                                   <tbody><tr>
-                                                    <td style="padding-left: 15px; padding-right: 15px">
-                                                      <table cellspacing="0" cellpadding="0" width="100%">
+                                                    <td>
+                                                      <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse: separate !important; color: #777">
                                                         <tbody><tr>
-                                                          <td width="100" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
-                                                             Qty.
-                                                          </td>
-                                                          <td width="100" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
-                                                            Item No.
-                                                          </td>
-                                                          <td width="200" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
-                                                            Desc.
-                                                          </td>
-                                                          <td width="100" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
-                                                            Unit Price
-                                                          </td>
-                                                          <td width="97" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
-                                                            Total Price
-                                                          </td>
+                                                          <td>
+                                                            <span style="color: #26a4d3; font-size: 14px; font-weight: bold; padding: 5px 0">Quote Total:</span><br>
+                                                            $ 423.75</td>
                                                         </tr>
-                                                        <tr>
-                                                         
-                                                          <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">
-                                                           1 
-                                                            </td>
-                                                            <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">
-                                                            1756
-                                                            </td>
-                                                            <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">
-                                                              Canon EOS Rebel T6
-                                                            </td>
-                                                            <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">
-                                                              $ 399
-                                                            </td>
-                                                            <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $ 423.75</td>
-                                                          </tr>  
                                                       </tbody></table>
                                                     </td>
                                                   </tr>
-                                      
-                                              </tbody></table>
-                                            </center>
+                                                </tbody></table>
+                                              </td>
+                                            </tr>
+                                          </tbody></table>
+                                        </td>
+                                      </tr>
+                                    </tbody></table>
+                                  </center>
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td align="center" valign="top" width="100%">
+                                  <center>
+                                    <table cellpadding="0" cellspacing="0" width="600" style="background-color: #ffffff; line-height: 21px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5">
+                                        <tbody><tr>
+                                          <td style="padding-left: 15px; padding-right: 15px">
+                                            <table cellspacing="0" cellpadding="0" width="100%">
+                                              <tbody><tr>
+                                                <td width="100" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
+                                                    Qty.
+                                                </td>
+                                                <td width="100" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
+                                                  Item No.
+                                                </td>
+                                                <td width="200" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
+                                                  Desc.
+                                                </td>
+                                                <td width="100" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
+                                                  Unit Price
+                                                </td>
+                                                <td width="97" style="text-align: left; border-bottom: 1px solid #cccccc; color: #4d4d4d; font-weight: 700; padding-bottom: 5px">
+                                                  Total Price
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                
+                                                <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">
+                                                  1 
+                                                  </td>
+                                                  <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">
+                                                  1756
+                                                  </td>
+                                                  <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">
+                                                    Canon EOS Rebel T6
+                                                  </td>
+                                                  <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">
+                                                    $ 399
+                                                  </td>
+                                                  <td style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $ 423.75</td>
+                                                </tr>  
+                                            </tbody></table>
                                           </td>
                                         </tr>
-                                         
-                                         <tr>
-                                          <td align="center" valign="top" width="100%">
-                                            <center>
-                                              <table cellpadding="0" cellspacing="0" width="600" style="background: #fff">
-                                                  <tbody><tr>
-                                                    <td style="padding: 20px 15px 20px 15px">
-                                                      <table cellspacing="0" cellpadding="0" width="100%" style="line-height: 21px">
-                                                        <tbody><tr>
-                                                          <td width="300" style="color: #26a4d3; font-size: 16px; font-weight: bold; text-align: left">
-                                                             Agent Comments
-                                                          </td>
-                                                         </tr>
-                                                         <tr>
-                                                           <td style="text-align: left; color: #777"><span style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">This is the best price we will have on this camera all year.</span></td>
-                                                         </tr>
-                                                      </tbody></table>
-                                                    </td>
-                                                  </tr>
-                                      
-                                              </tbody></table>
-                                            </center>
+                            
+                                    </tbody></table>
+                                  </center>
+                                </td>
+                              </tr>
+                                
+                                <tr>
+                                <td align="center" valign="top" width="100%">
+                                  <center>
+                                    <table cellpadding="0" cellspacing="0" width="600" style="background: #fff">
+                                        <tbody><tr>
+                                          <td style="padding: 20px 15px 20px 15px">
+                                            <table cellspacing="0" cellpadding="0" width="100%" style="line-height: 21px">
+                                              <tbody><tr>
+                                                <td width="300" style="color: #26a4d3; font-size: 16px; font-weight: bold; text-align: left">
+                                                    Agent Comments
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="text-align: left; color: #777"><span style="padding-top: 20px; text-align: left; vertical-align: top; color: #777">This is the best price we will have on this camera all year.</span></td>
+                                                </tr>
+                                            </tbody></table>
                                           </td>
                                         </tr>
-                                        
-                                        <tr>
-                                          <td align="center" valign="top" width="100%" style="background: #e8e6e6; height: 100px">
-                                            <center>
-                                              <table cellspacing="0" cellpadding="0" width="600" style="background: #26a4d3; color: #fff; line-height: 21px">
-                                                <tbody><tr>
-                                                  <td style="padding: 25px 25px 0px 25px; font-size: 18px; font-weight: 700px">
-                                                   Please Note
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td style="padding: 10px 25px 0px">
-                                                    <ul style="padding: 0; margin: 15px">
-                                                       <li>We accept credit cards (Mastercard, VISA, American Express, Discover, and Diners Club International), PayPal, and Bitcoin payment methods.</li>
-                                                       <li>A delivery date will be established after payment is confirmed. </li>
-                                                       <li>Configuration changes to the product quoted will require a new price quote. </li>
-                                                       <li>We guarantee the lowest price on any product we sell. Period.</li>
-                                                    </ul>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td style="font-size: 18px; font-weight: bold; text-align: center; color: #fff">YOUR FEEDBACK IS IMPORTANT TO US</td>
-                                                </tr>
-                                                <tr>
-                                                  <td style="font-size: 14px; text-align: center; color: #89d2ea; padding-bottom: 50px">Let us know how we're doing.</td>
-                                                </tr>
-                                                <tr>
-                                                  <td style="font-size: 14px; text-align: center; color: #fff; background: #292828; padding: 15px">
-                                                    <a href="" style="margin-right: 15px; display: inline-block"><img src="https://image.ibb.co/mcUoLS/facebook.png"></a>
-                                                    <a href="" style="margin-right: 15px; display: inline-block"><img src="https://image.ibb.co/h8NVZn/twitter.png"></a>
-                                                    <a href="" style="margin-right: 15px; display: inline-block"><img src="https://image.ibb.co/hQReS7/linkedin.png"></a>
-                                                    <a href="" style="display: inline-block"><img src="https://image.ibb.co/fOjYn7/instagram.png"></a>
-                                                 </td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                                        </center>
-                                            
-                                    </td>
-                                </tr>
-                             </tbody>
-                        </table>
+                            
+                                    </tbody></table>
+                                  </center>
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td align="center" valign="top" width="100%" style="background: #e8e6e6; height: 100px">
+                                  <center>
+                                    <table cellspacing="0" cellpadding="0" width="600" style="background: #26a4d3; color: #fff; line-height: 21px">
+                                      <tbody><tr>
+                                        <td style="padding: 25px 25px 0px 25px; font-size: 18px; font-weight: 700px">
+                                          Please Note
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td style="padding: 10px 25px 0px">
+                                          <ul style="padding: 0; margin: 15px">
+                                              <li>We accept credit cards (Mastercard, VISA, American Express, Discover, and Diners Club International), PayPal, and Bitcoin payment methods.</li>
+                                              <li>A delivery date will be established after payment is confirmed. </li>
+                                              <li>Configuration changes to the product quoted will require a new price quote. </li>
+                                              <li>We guarantee the lowest price on any product we sell. Period.</li>
+                                          </ul>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td style="font-size: 18px; font-weight: bold; text-align: center; color: #fff">YOUR FEEDBACK IS IMPORTANT TO US</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="font-size: 14px; text-align: center; color: #89d2ea; padding-bottom: 50px">Let us know how we're doing.</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="font-size: 14px; text-align: center; color: #fff; background: #292828; padding: 15px">
+                                          <a href="" style="margin-right: 15px; display: inline-block"><img src="https://image.ibb.co/mcUoLS/facebook.png"></a>
+                                          <a href="" style="margin-right: 15px; display: inline-block"><img src="https://image.ibb.co/h8NVZn/twitter.png"></a>
+                                          <a href="" style="margin-right: 15px; display: inline-block"><img src="https://image.ibb.co/hQReS7/linkedin.png"></a>
+                                          <a href="" style="display: inline-block"><img src="https://image.ibb.co/fOjYn7/instagram.png"></a>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                              </center>
+                                  
+                          </td>
+                      </tr>
+                    </tbody>
+                      </table>
                     </div>
-                </div>
-                								   
+                </div>							   
             </div>
         </div>
     </div>
