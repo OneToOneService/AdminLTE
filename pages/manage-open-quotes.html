@@ -1,5 +1,5 @@
 ---
-title: My Open Quotes
+title: Manage Open Quotes
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -23,7 +23,7 @@ title: My Open Quotes
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">My Work Queues</li>
+					<li class="active">Manage Work Queues</li>
 					<li class="active">{{ page.title }}</li>
 				</ol>
 			</section>
@@ -53,6 +53,9 @@ title: My Open Quotes
 											</th>
 											<th class="text-capitalize">
 												When Quoted
+											</th>
+											<th class="text-capitalize">
+												Assigned To
 											</th>
 											<th class="text-capitalize">
 												Quote Number
@@ -92,6 +95,9 @@ title: My Open Quotes
 												3 Days ago
 											</td>
 											<td>
+												jacob.smith@1to1Service.com
+											</td>
+											<td>
 										  	E45646
 											</td>
 											<td>
@@ -121,16 +127,17 @@ title: My Open Quotes
 													</button>
 												</td>
 												<td>
-													jacob.smith@example.com
+													howard.smith@example.net	
 												</td>
 												<td>
 													2 Days ago
 												</td>
+												<td>jacob.smith@1to1Service.com</td>
 												<td>
 													E45646
 												</td>
 												<td>
-													CAA56465
+													A56465
 												</td>
 												<td>
 													1
@@ -148,6 +155,42 @@ title: My Open Quotes
 													This price includes free shipping and the standard product warranty.
 												</td>
 											</tr>
+											<tr id="openquoterow5">
+													<td name="name" class="icon-col">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRowQuote('openquoterow5')">
+															<i class="fa fa-plus-circle" ng-show="!openquoterow5"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="openquoterow5" ng-cloak></i>
+														</button>
+													</td>
+													<td>
+														robert.williams@example.net
+													</td>
+													<td>
+														4 Days ago
+													</td>
+													<td>	alek.packard@1to1Service.com</td>
+													<td>
+														D45646
+													</td>
+													<td>
+														AAA56465
+													</td>
+													<td>
+														1
+													</td>
+													<td>
+														$255.60
+													</td>
+													<td>
+														Canon VIXIA HF R800 Camcorder Accessory Kit
+													</td>
+													<td>
+														--
+													</td>
+													<td>
+														This price includes free shipping and the standard product warranty.
+													</td>
+												</tr>
 									
 									</tbody>
 									</table>
@@ -178,6 +221,9 @@ title: My Open Quotes
 												</th>
 												<th class="text-capitalize">
 													When Quoted
+												</th>
+												<th class="text-capitalize">
+													Assigned To
 												</th>
 												<th class="text-capitalize">
 													Quote Number
@@ -216,6 +262,7 @@ title: My Open Quotes
 												<td>
 													3 Days ago
 												</td>
+												<td>stacey.muffilson@1to1Service.com</td>
 												<td>
 													E45646
 												</td>
@@ -251,6 +298,7 @@ title: My Open Quotes
 													<td>
 														2 Days ago
 													</td>
+													<td>jacob.smith@1to1Service.com</td>
 													<td>
 														A45646
 													</td>
@@ -284,7 +332,6 @@ title: My Open Quotes
 			</div>
 		</section>
 	</div>
-
   <!--expanded row content start-->
 	<script id="expandedrowquote" type="text/ng-template">
 		<div class="box box-info with-border">
@@ -1927,9 +1974,9 @@ function showchronological(){
 
 				$scope.dtQuotesColumnDefs = [
 				  DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px"),
-					DTColumnDefBuilder.newColumnDef(7).notVisible(),
 					DTColumnDefBuilder.newColumnDef(8).notVisible(),
-					DTColumnDefBuilder.newColumnDef(9).notVisible()
+					DTColumnDefBuilder.newColumnDef(9).notVisible(),
+					DTColumnDefBuilder.newColumnDef(10).notVisible()
 				];
 			
       $scope.dtInboxOptions = DTOptionsBuilder
