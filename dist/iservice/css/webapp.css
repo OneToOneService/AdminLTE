@@ -2763,3 +2763,6 @@ ul.update-list li::before {
   height: 250px;
   overflow: auto;
 }
+.criteria-form {
+  margin-bottom: 45px;
+}
