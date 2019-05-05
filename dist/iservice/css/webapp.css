@@ -2691,8 +2691,8 @@ ul.update-list li::before {
   background-color: white !important;
   background-image: none !important;
   border: 1px solid #cccccc !important;
-  height: 32px !important;
-  line-height: 32px !important;
+  height: 34px !important;
+  line-height: 34px !important;
 }
 .select2-container-multi .select2-choices .select2-search-field input {
   height: 28px;
@@ -2765,4 +2765,9 @@ ul.update-list li::before {
 }
 .criteria-form {
   margin-bottom: 45px;
+}
+.select2-container .select2-choice .select2-arrow,
+.select2-container .select2-choice .select2-arrow b {
+  background: none !important;
+  border-left: 0px !important;
 }
