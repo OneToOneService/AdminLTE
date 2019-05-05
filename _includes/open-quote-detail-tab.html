@@ -2,8 +2,8 @@
     <div class="col-md-12 form-horizontal"> 
         <div class="col-md-12 form-action">
             <div class="form-group">
-                <div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-                    <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+                <div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick" ng-show="getthis">
+                    <button type="button" class="btn btn-primary" uib-dropdown-toggle >
                         <i class="fa fa-mail-forward"></i>
                         Forward
                     </button>
@@ -54,11 +54,26 @@
                     <i class="fa fa-pencil-square-o"></i>
                     Note
                 </button>
-                <button class="btn btn-danger btn-delete margin-r-5" uib-tooltip="Close quote" tooltip-placement="bottom" ng-click="showquote('close')">
+                <button class="btn btn-danger btn-delete margin-r-5" uib-tooltip="Close quote" tooltip-placement="bottom" ng-click="showquote('close')" ng-show="getthis">
                     <i class="fa fa-close"></i>
                     Close
                  </button>
-               
+                 <button class="btn btn-link"  ng-click="getthis = false; openqoute =false;" ng-show="getthis && openquote">
+                  Cancel
+               </button>
+                 <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                  <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                    <li role="menuitem"><a href="#">Print</a></li>
+                    <li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
+                  </ul>
+                </div>
+                <button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this…" tooltip-placement="bottom" ng-hide="getthis" ng-init="getthis = false;" ng-click="getthis = true;">
+                  <i class="fa fa-sign-in"></i>
+                  Get This
+                </button>
             </div>
             <div class="row">
                <!-- Custom Tabs -->
@@ -66,7 +81,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_detail" data-toggle="tab"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span></a></li>
                     <li><a href="#tab_interaction" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span></a> </li>
-                    <li><a href="#tab_variables" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i> <span>Variables & Stock Responses</span></a> </li>
+                    <li ng-show="quoteoptionvariable"><a href="#tab_variables" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i> <span>Variables & Stock Responses</span></a> </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_detail">

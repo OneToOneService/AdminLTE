@@ -2081,6 +2081,8 @@ function showchronological(){
 				angular.element('#'+row).after($compile('<tr class="expandedrowcontentquote bg-customer-reply rowborder"><td class="white-bg">&nbsp;</td><td colspan="7">'+document.getElementById('expandedrowquote').innerHTML+'</td></tr>')($scope));
 			   //<tr id="row_2" class="bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td style="width:auto;"><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span>Feedback provided</td><td>Feed Account</td><td>Feedback Account</td><td><small class="bg-black disabled label">2018-08-03 11:59:44 AM</small></td><td>Jacob Smith	</td><td>All Topic</td></tr><tr class="bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>
 				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				$scope.getthis = false;
+				$scope.openquote = true;
 			}
 
       function removeFunctionQuote(row)

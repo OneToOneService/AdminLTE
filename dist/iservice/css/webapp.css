@@ -2758,8 +2758,6 @@ ul.update-list li::before {
 }
 .message-body-container {
   width: 100%;
-  overflow: auto;
-  height: 300px;
 }
 .variable-responses .option-list {
   height: 250px;
