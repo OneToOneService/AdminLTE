@@ -304,7 +304,7 @@ title: Mailing Lists
 										<div class="tab-pane" id="tab_2">
 											<div class="row">
 												<div class="col-md-6">
-													<h4 class="smtp-out-message"> Number of contacts subscribed to this list - <span class=" text-orange"><b>1234</b></span></h4>
+													<h4 class="smtp-out-message"> Number of contacts subscribed to this list : <span class=" text-orange"><b>1234</b></span></h4>
 												</div>
 												<div class="col-md-6 text-right">
 													<div class="form-group" ng-show="!contactsearch">
@@ -733,9 +733,13 @@ title: Mailing Lists
 														<button class="btn btn-primary" type="button" ng-click="contactsearch = !contactsearch" ng-init="contactsearch = false">
 															Subscribe Selected
 														</button>
+														<span>Add only selected contacts to the mailing list.</span> 
+														 <br><br>
+													
 														<button class="btn btn-primary" type="button">
 															Subscribe All
-														</button>
+														</button> 
+														<span>Add all <span class="text-orange">(1234)</span> contacts from this search to this mailing list.</span>
 													</div>
 												</div>
 
@@ -747,6 +751,7 @@ title: Mailing Lists
 														<button class="btn btn-primary" type="button">
 															Unsubscribe All
 														</button>
+													
 													</div>
 												</div>
 	
@@ -890,7 +895,7 @@ title: Mailing Lists
 			
 				$scope.dtSubscriberOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
-					search: 'Filter Subscribers'
+					search: 'Filter Unsubscribes'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
 					extend: 'colvis',
@@ -905,7 +910,7 @@ title: Mailing Lists
 				
 				$scope.dtUnSubscriberOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
-					search: 'Filter Unsubscribes'
+					search: 'Filter Subscribers '
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
 					extend: 'colvis',
