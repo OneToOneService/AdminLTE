@@ -2763,7 +2763,8 @@ ul.update-list li::before {
   height: 250px;
   overflow: auto;
 }
-.criteria-form {
+.criteria-form,
+.campaign-form {
   margin-bottom: 45px;
 }
 .select2-container .select2-choice .select2-arrow,
