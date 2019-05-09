@@ -351,7 +351,7 @@ title:  Sales Settings
                         New Contact Property
                       </button>
                       <button class="btn btn-danger btn-delete" type="button" ng-click="showAlert = true">
-                        Delete Contact Property
+                        Delete Contact Property...
                       </button>
                     </div>	
                 </div>
@@ -617,7 +617,7 @@ title:  Sales Settings
                          New Interaction Property
                       </button>
                       <button class="btn btn-danger btn-delete" type="button" ng-click="showAlertInteraction = true">
-                        Delete Interaction Property
+                        Delete Interaction Property...
                       </button>
                     </div>	
                 </div>
@@ -993,7 +993,7 @@ title:  Sales Settings
                       New Mailbox
                     </button>
                     <button class="btn btn-danger btn-delete" type="button" ng-click="showAlertMailbox = true">
-                      Delete Mailbox
+                      Delete Mailbox...
                     </button>
                   </div>	
                 </div>
@@ -1126,7 +1126,7 @@ title:  Sales Settings
                                       <div class="form-group" ng-controller="TopicCtrl as ctrl">
                                         <label for="inputPassword3" class="col-md-12 control-label text-left">Default Topic For Incoming Messages <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="This is the default topic assigned to email retrieved from this mailbox. You can use a filter to change the topic and take other actions on the messages."></i></label>
                                         <div class="col-md-12">
-                                          <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+                                          <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
                                             <ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
                                             <ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
                                                 <span ng-bind-html="color.Topic | highlight: $select.search"></span>
@@ -1338,7 +1338,7 @@ title:  Sales Settings
                       New Notification
                     </button>
                     <button class="btn btn-danger btn-delete" type="button" ng-click="showAlertAutoResponse = true">
-                      Delete Notification
+                      Delete Notification...
                     </button>
                   </div>	
                 </div>
@@ -1523,7 +1523,7 @@ title:  Sales Settings
                       New Stock Response
                     </button>
                     <button class="btn btn-danger btn-delete" type="button" ng-click="showAlertStockResponse = true">
-                      Delete Stock Response
+                      Delete Stock Response...
                     </button>
                   </div>	
                 </div>
@@ -1934,7 +1934,7 @@ title:  Sales Settings
                                   New Filter
                                 </button>
                                 <button class="btn btn-danger btn-delete" type="button" ng-click="showAlertFilter = true">
-                                  Delete Filter
+                                  Delete Filter...
                                 </button>
                               </div>	
                             </div>
