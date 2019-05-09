@@ -1654,6 +1654,10 @@ ul.bookmark-list li a:first-child {
 .row-active {
   background: #3c8dbc !important;
   color: #ffffff;
+  cursor: default;
+}
+.row-default {
+  cursor: pointer;
 }
 /*form admin tools start*/
 .stepwizard-step p {
