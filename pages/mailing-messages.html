@@ -227,7 +227,7 @@ title: Mailing Messages
 													</div>
 													<div class="col-md-6">
 														<div class="form-group" ng-controller="TopicCtrl as ctrl">
-															<label for="inputPassword3" class="col-sm-12 control-label text-left">Topic</label>
+															<label for="inputPassword3" class="col-sm-12 control-label text-left"></label>
 															<div class="col-sm-12">
 																<ui-select ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false">
 																	<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
@@ -242,7 +242,7 @@ title: Mailing Messages
 														<div class="form-group">
 															<div class="checkbox">
 																<label>
-																	<input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" />  Include Reference Number In Subject Line
+																	<input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" />  Include #Ref Number In Subject Line
 																</label>
 															</div>
 														</div>

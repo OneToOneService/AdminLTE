@@ -173,9 +173,17 @@ title: User Types
 										<h3 class="box-title">Alerts</h3>
 									</div>
 									<div class="box-body">
-										<div class="row">
+										<div class="row form-horizontal">
 											<div class="col-md-12">
 												<p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="col-md-12 control-label text-left">Replacement User Type</label>
+													<div class="col-md-12">
+														<select  class="form-control" ><option label="Administrator" value="string:5">Administrator</option><option label="Anonymous" value="string:1">Anonymous</option><option label="CSR" value="string:3">CSR</option><option label="CSR Manager" value="string:4">CSR Manager</option><option label="Customer" value="string:2">Customer</option><option label="QA CSR2" value="string:7">QA CSR2</option><option label="QA Manager" value="string:8">QA Manager</option><option label="Super User" value="string:6">Super User</option></select>
+													</div>
+												</div>	
 											</div>
 											<div class="col-md-12">
 												<button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
