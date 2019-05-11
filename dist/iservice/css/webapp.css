@@ -2776,3 +2776,6 @@ ul.update-list li::before {
   background: none !important;
   border-left: 0px !important;
 }
+.delete-campaign {
+  margin-top: 28px;
+}
