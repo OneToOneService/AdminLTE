@@ -2779,3 +2779,6 @@ ul.update-list li::before {
 .delete-campaign {
   margin-top: 28px;
 }
+.form-group p.input-text {
+  margin: 0px;
+}

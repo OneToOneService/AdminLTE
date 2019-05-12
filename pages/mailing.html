@@ -1,0 +1,493 @@
+---
+title: Mailings
+---
+<!DOCTYPE html>
+<html ng-app="iService">
+<head>
+    {% include common-head.html %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+        {% include common-header.html %}
+        {% include common-menu.html %}
+				<!-- Content Wrapper. Contains page content -->
+		
+    <div class="content-wrapper">
+						<!-- Content Header (Page header) -->
+			<div class="clearfix"></div>	
+			<section class="content-header">
+				<h1>
+					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h1>
+					<ol class="breadcrumb">
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li class="active">Mass Mailing</li>
+						<li class="active">{{ page.title }}</li>
+					</ol>
+			</section>
+
+  				<!-- Main content -->
+      <section class="content"  ng-controller="myCtrl">
+				<div class="row p-l-0">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="box box-info">
+									<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
+										<i class="fa fa-envelope"></i>
+										<h3 class="box-title head-title-padding">Mailing Lists</h3>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
+									</div>
+									<!-- /.box-header -->
+									<!-- form start -->
+									<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
+										<table class="table table-striped table-hover" datatable dt-options="dtMailingListsOptions" dt-column-defs="dtMailingListsColumnDefs">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th class="text-capitalize">
+													Mailing Name
+												</th>
+												<th class="text-capitalize">
+													Description
+												</th>
+												<th class="text-capitalize">
+												  Topic
+												</th>
+												<th class="text-capitalize">
+												  List
+												</th>
+												<th class="text-capitalize">
+												   Message
+												</th>
+												<th class="text-capitalize">
+													Mailbox
+												</th>
+												<th class="text-capitalize">
+												  Last Emailed
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+												<th>12</th>
+												<td class="text-capitalize">
+													Coupon delivery  
+												</td>
+												<td class="text-capitalize">
+													Used to deliver coupons to customers
+												</td>
+												<td class="text-capitalize">
+													Sales 
+												</td>
+												<td>
+													Customer Notices 
+												</td>
+												<td class="text-capitalize">
+													Coupons available
+												</td>
+												<td class="text-capitalize">
+												  Sales 
+												</td>
+												<td class="text-capitalize">
+												 2019-04-12 12:45 PM
+												</td>
+											</tr>
+											  
+											<tr ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
+												<th>14</th>
+												<td class="text-capitalize">
+													Employee policy
+												</td>
+												<td class="text-capitalize">
+													For sending policy updates to all staff
+												</td>
+												<td class="text-capitalize">
+													HR Notices
+												</td>
+												<td>
+													Human Resources
+												</td>
+												<td class="text-capitalize">
+													New policies
+												</td>
+												<td class="text-capitalize">
+													HR
+												</td>
+												<td class="text-capitalize">
+												 2019-04-15 11:40 PM
+												</td>
+											</tr>
+										</tbody>
+										</table>
+									</div>
+								</div> 
+							</div>                         
+						</div>
+					<!-- /.col -->
+						<div class="row">
+								<div class="col-md-12 form-group">
+									<button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
+											New Mailing
+									</button>
+									<button class="btn btn-danger btn-delete" type="button" ng-click="showAlert = true">
+											Delete Mailing...
+										</button>
+								</div>	
+						</div>	
+
+						<div class="row" ng-show="showAlert">
+							<div class="col-md-12">
+								<div class="box box-danger">
+									<div class="box-header with-border">
+										<i class="fa fa-warning"></i>
+										<h3 class="box-title">Alerts</h3>
+									</div>
+									<div class="box-body">
+										<div class="row">
+											<div class="col-md-12">
+												<p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+											</div>
+											<div class="col-md-12">
+												<button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+												<button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+											</div>
+										</div>
+									</div>	
+								</div>	
+							</div>	
+						</div>	
+						<div class="row" ng-show="formstep1">
+								<div class="col-md-12">
+									<div class="box box-primary">
+										<div class="box-header with-border">
+											<i class="fa fa-envelope"></i>
+											<h3 class="box-title text-right">New Mailing</h3>
+										</div>
+										<div class="box-body">
+											<section class="search-parameters">
+												<div class="row">
+													<div class="form-horizontal">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Mailing Name</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control">
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control">
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4 in-row-btn">
+															<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
+															<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+														</div>
+													</div>
+												</div>
+											</section>
+										</div>
+									</div>
+								</div>	
+						</div>
+						<div class="row" ng-show="formstep2">
+							<div class="col-md-12">
+								<div class="box box-primary">
+									<div class="box-header with-border">
+										<i class="fa fa-envelope"></i>
+										<h3 class="box-title text-right">Mailing Configuration</h3>
+									</div>	
+									<div class="box-body">
+										<section class="box-content box-bg-color">
+											<div class="row">
+												<div class="form-horizontal">
+														<div class="col-md-5">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Mailing Name</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control">
+																</div>
+															</div>
+														</div>
+														<div class="col-md-5">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control">
+																</div>
+															</div>
+														</div>
+														<div class="col-md-2 in-row-btn">
+															<button type="button" class="btn btn-primary">Save</button>
+														</div>
+												</div>
+											</div>	
+											<div class="row">
+												<div class="col-md-6">
+													<div class="box box-info">
+														<div class="box-header with-border">
+																<h3 class="box-title">Setup Your Mailing</h3>
+														</div>
+														<div class="box-body">
+                              <div class="row">
+																<div class="form-horizontal">
+																	<div class="col-md-12">
+																		<h4>Message Recipients</h4>
+																		<div class="form-group">
+																			<label class="col-sm-12 control-label text-left">Select Your Mailing List</label>
+																			<div class="col-sm-12">
+																				<select class="form-control">
+																					<option>--Select--</option>
+																					<option>Customer Notice</option>
+																					<option>Employee</option>
+																					<option>Sales Prospecting</option>		
+																				</select>	
+																			</div>
+																		</div>
+																		<h4>Your Message</h4>
+																		<div class="form-group">
+																			<label class="col-sm-12 control-label text-left">Select Your Message</label>
+																			<div class="col-sm-12">
+																				<select class="form-control">
+																					 <option>Free Shipping Offer</option>
+																					 <option>Monthly Discount</option>
+																				</select>	
+																			</div>
+																		</div>
+																		<h4>Sender Information</h4>
+																		<div class="form-group">
+																			<label class="col-sm-12 control-label text-left">Message Topic</label>
+																			<div class="col-sm-12">
+																				<input type="text" class="form-control" disabled value="Customer Service - All Topic">
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label class="col-sm-12 control-label text-left">From Mailbox</label>
+																			<div class="col-sm-12">
+																					<select class="form-control">
+																						<option>--Select Mailbox--</option>
+																						<option>"Pushbullet" &lt;customer1@1to1service.com&gt;</option>
+																					</select>	
+																			</div>
+																		</div>
+																	</div>
+																</div>	
+															</div>
+															<div class="row">
+																<div class="col-md-12 col-sm-12">
+																	<button class="btn btn-primary pull-left" type="button">Save Setup</button>
+																</div>
+															</div>	
+														</div>	
+													</div>		
+												</div>
+												<div class="col-md-6">
+													<div class="box box-info">
+														<div class="box-header with-border">
+																<h3 class="box-title">Send Your Mailing</h3>
+														</div>
+														<div class="box-body">
+															<div class="row">
+																<div class="form-horizontal">
+																	<div class="col-md-12">
+																		<h4>Limit Your Recipients</h4>
+																		<div class="form-group">
+																			<label class="col-sm-12 control-label text-left">Select A Criteria</label>
+																			<div class="col-sm-12">
+																				<select class="form-control" ng-change="changecriteria()" ng-model="criteriaselected">
+																						<option value="">--None--</option>
+																						<option value="test list">Test List</option>
+																						<option value="internal only">Internal Only</option>
+																				</select>	
+																				<p class="input-text"> To send your message to all contacts on the selected list, choose --None-- for your criteria.</p>
+																			</div>
+																		</div>
+																		<div class="form-group" ng-show="showmailing">
+																			<label class="col-sm-12 control-label text-left">Enter a label for this criteria to be shown in reports</label>
+																			<div class="col-sm-12">
+																				<input type="text" class="form-control" value="">
+																			</div>
+																		</div>
+																		<h4>Send Your Message</h4>
+																		<p class="input-text"> You will have an opportunity to preview the number of recipients after clicking Send Mailing.</p>
+																		<button ng-hide="sendconfirm" class="btn btn-primary" type="button" ng-click="sendconfirm = true;">Send Mailing</button>
+																		<p class="input-text" ng-show="sendconfirm">Click Confirm to send mailing to <span class="text-orange">12 contacts</span> on list, or Cancel to abort.</p>
+																		<button ng-show="sendconfirm" class="btn btn-primary" type="button" >Confirm Send</button>
+																		<button ng-show="sendconfirm" class="btn btn-link" type="button" ng-click="sendconfirm = false;">Cancel</button>
+																	</div>
+																</div>	
+															</div>
+														</div>	
+													</div>	
+												</div>	 
+											</div>
+										</section>	
+									</div>	
+								</div>	 
+							</div>
+						</div>
+					</div> 
+				</div>
+     	</section>
+		</div>
+        <!-- /.content-wrapper -->
+    {% include common-footer.html %}
+        <!-- Control Sidebar -->
+		{% include right-panel-setting-menu.html %}
+		<!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    {% include common-javascript.html %}
+       <!-- DataTables -->
+  <script>
+	$(document).ready(function() {
+    // DataTable
+	  	$('.custom-scroll').slimScroll({
+			height: '325px'
+		});
+	}); 
+	</script>
+	<script>
+	var count = 1;
+	var i = 1;
+	var app =  angular.module('iService');
+	app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+	{ 
+				$scope.changecriteria = function () {
+			    if($scope.criteriaselected !=''){
+						  $scope.showmailing= true;
+					}else{
+					  	$scope.showmailing= false;
+					}
+				};	 
+				$scope.dtMailingListsOptions = DTOptionsBuilder
+						.newOptions()
+						.withOption('language', {
+							search: 'Filter Mailing Lists'
+						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+				$scope.toggle = {};
+
+				$scope.formItemList = [];
+			
+				$scope.dtSubscriberOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Unsubscribes'
+				})
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+				
+				$scope.dtUnSubscriberOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Subscribers '
+				})
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+				$scope.dtSearchOptions = DTOptionsBuilder
+						.newOptions()
+						.withOption('language', {
+							search: 'Filter Search Results'
+						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+
+				$scope.cancelForm = function(step){
+					for(var i =1; i<=2; i++){
+						if(i == step){
+						$scope['formstep'+i] = true;
+						}	   
+						else	
+						$scope['formstep'+i] = false;
+					}
+				};		
+
+				$scope.showNewFormStep = function(step){
+					for(var i =1; i<=2; i++){
+						if(i == step){
+						$scope['formstep'+i] = true;
+						}	   
+						else	
+						$scope['formstep'+i] = false;
+				}
+
+		};
+		
+		$scope.toggleFormStep = function(segmentName){
+			for(var i =1; i<=2; i++){
+				$scope['row'+i] = false;  
+			}
+			$scope[segmentName] = !$scope[segmentName];
+				$scope['formstep'+2] = !$scope['formstep'+2];
+		};
+
+		$scope.toggleFormStepResponse = function(segmentName){
+			for(var i =1; i<=4; i++){
+				$scope['rowresponse'+i] = false;  
+			}
+			$scope[segmentName] = !$scope[segmentName];
+				$scope['formstepresponse'+4] = !$scope['formstepresponse'+4];
+		};
+
+		$scope.showNewFormResponse = function(){
+			$scope['formstepresponse'+4] = true;
+		};
+       
+		$scope.customForm = function(){
+			$scope.customform = true;
+		}
+		$scope.builtinForm = function(){
+			$scope.customform = false;
+		}
+	});
+	app.controller('myCtrlDetail', function ($scope) {
+      
+	  $scope.toggleSegmentCollapsedState = function (segmentName)
+	  { 
+		$scope[segmentName] = !$scope[segmentName];
+	  };
+    });
+
+	</script>
+</body>
+</html>
