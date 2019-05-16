@@ -256,7 +256,7 @@ title: Mailing Campaigns
 																	<table class="table table-striped table-hover" datatable dt-options="dtCampaignMessageOptions" dt-column-defs="dtCampaignMessageColumnDefs">
 																	<thead>
 																		<tr>
-																			<th class="no-sort"  name="name" width="30"></th>
+																		
 																			<th class="text-capitalize">
 																				Waiting Period Before Sending (In Days)
 																			</th>
@@ -266,15 +266,11 @@ title: Mailing Campaigns
 																			<th class="text-capitalize">
 																				Mailbox To Send From
 																			</th>
+																			<th class="icon-col no-sort"  name="name"></th>
 																		</tr>
 																	</thead>
 																	<tbody>
-																		<tr>
-																			<th class="no-sort"  name="name" width="30">
-																				<button class="icon-button button-delete" type="button">
-																					<i class="fa fa-times-circle"></i>
-																				</button>
-																			</th>
+																		<tr id="editrow1">
 																			<td class="text-capitalize">
 																				0
 																			</td>
@@ -284,13 +280,16 @@ title: Mailing Campaigns
 																			<td class="text-capitalize">
 																				Sales
 																			</td>
-																		</tr>
-																		<tr>
-																			<th class="no-sort"  name="name" width="30">
-																				<button class="icon-button button-delete" type="button">
+																			<td class="icon-col no-sort"  name="name" width="30">
+																				<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit message" ng-click="showedit('editrow1')">
+																						<i class="fa fa-pencil"></i>
+																					</button>
+																				<button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
 																					<i class="fa fa-times-circle"></i>
 																				</button>
-																			</th>
+																			</td>
+																		</tr>
+																		<tr>
 																			<td class="text-capitalize">
 																				7
 																			</td>
@@ -299,6 +298,14 @@ title: Mailing Campaigns
 																			</td>
 																			<td class="text-capitalize">
 																				Sales
+																			</td>
+																			<td class="icon-col no-sort"  name="name" width="30" id="editrow2">
+																				<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit message" ng-click="showedit('editrow2')">
+																						<i class="fa fa-pencil"></i>
+																					</button>
+																				<button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
+																					<i class="fa fa-times-circle"></i>
+																				</button>
 																			</td>
 																		</tr>
 																	</tbody>
