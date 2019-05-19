@@ -1911,12 +1911,18 @@ title:  Sales Settings
                                               <th class="text-capitalize">
                                                 Filter Name
                                               </th>
+                                              <th class="text-capitalize">
+                                                Description
+                                              </th>
                                             </tr>
                                           </thead>
                                           <tbody>
                                             <tr ng-click="toggleFormStepFilter('rowfilter1')" ng-class="{true: 'row-active', false: ''}[rowfilter1]">
                                               <td>
                                                 111
+                                              </td>
+                                              <td>
+                                                Message Filter
                                               </td>
                                               <td>
                                                 Message Filter
@@ -1972,7 +1978,7 @@ title:  Sales Settings
                                         <div class="form-horizontal">
                                           <div class="col-md-6">
                                             <div class="form-group">
-                                              <label class="col-sm-4 control-label text-left">Filter Name:</label>
+                                              <label class="col-sm-4 control-label text-left">Filter Name</label>
                                               <div class="col-sm-8">
                                                 <input type="text" class="form-control">
                                               </div>
@@ -2379,6 +2385,184 @@ title:  Sales Settings
                             </div>
                         </div>
                         <div class="tab-pane" id="groups">  
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="box box-info">
+                                <div class="box-body table-responsive with-border">
+                                    <table class="table table-striped table-hover" datatable dt-options="dtGroupOptions" dt-column-defs="dtGroupColumnDefs">
+                                        <thead>
+                                          <tr>
+                                            <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                            <th class="text-capitalize">
+                                              Id
+                                            </th>
+                                            <th class="text-capitalize">
+                                              Group Name
+                                            </th>
+                                            <th class="text-capitalize">
+                                              Description
+                                            </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr ng-click="toggleFormStepGroup('rowgroup1')" ng-class="{true: 'row-active', false: ''}[rowgroup1]">
+                                            <td>
+                                              111
+                                            </td>
+                                            <td>
+                                              Test filter group
+                                            </td>
+                                            <td>
+                                              Test filter group
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
+                                </div> 
+                              </div>   
+                            </div>  
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 form-group">
+                              <button class="btn btn-primary" type="button" ng-click="showNewFormStepGroup(1)">
+                                New Filter Group
+                              </button>
+                              <button class="btn btn-danger btn-delete" type="button" ng-click="showAlertGroup = true">
+                                Delete  Filter Group...
+                              </button>
+                            </div>	
+                          </div>
+                          <div class="row" ng-show="showAlertGroup">
+                            <div class="col-md-12">
+                              <div class="box box-danger">
+                                <div class="box-header with-border">
+                                  <i class="fa fa-warning"></i>
+                                  <h3 class="box-title">Alerts</h3>
+                                </div>
+                                <div class="box-body">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+                                    </div>
+                                    <div class="col-md-12">
+                                      <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+                                      <button type="button" class="btn btn-link" ng-click="showAlertFilter = false">Cancel</button>
+                                    </div>
+                                  </div>
+                                </div>	
+                              </div>	
+                            </div>	
+                          </div>	
+                          <div class="row" ng-show="formstepGroup1">
+                            <div class="col-md-12">
+                              <div class="box box-primary">
+                                <div class="box-header with-border">
+                                  <i class="fa fa-reply"></i>
+                                  <h3 class="box-title text-right">Group Filter</h3>
+                                </div>
+                                <div class="box-body">
+                                  <section class="search-parameters">
+                                    <div class="row">
+                                      <div class="form-horizontal">
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label class="col-sm-4 control-label text-left">Group Name</label>
+                                            <div class="col-sm-8">
+                                              <input type="text" class="form-control">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="col-md-2">
+                                          <div class="form-group">
+                                            <button type="button" class="btn btn-primary">Create</button>
+                                            <button type="button" class="btn btn-link" ng-click="cancelFormGroup(1)">Cancel</button>
+                                          </div>	
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </section>
+                                </div>
+                              </div>
+                            </div>	
+                          </div>
+                          <div class="row" ng-show="formstepGroup2">
+                            <div class="col-md-12">
+                              <div class="box box-primary">
+                                <div class="box-body">
+                                    <div class="row">
+                                      <div class="form-horizontal">
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label class="col-md-12 control-label text-left">Name</label>
+                                            <div class="col-md-12">
+                                              <input type="text" class="form-control">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label class="col-md-12 control-label text-left">Description</label>
+                                            <div class="col-md-12">
+                                              <input type="text" class="form-control">
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <div class="checkbox">
+                                              <label>
+                                                 <input type="checkbox" checkbox> Always Run All Filters
+                                              </label> 
+                                            </div> 
+                                          </div>    
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-xs-5">
+
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label text-left">Included Filters</label>
+                                                <div class="col-md-12">
+                                                  <select class="form-control" id ="features" name="Features[]" multiple="multiple" style="height:200px;">
+                                                      <option value="2">Row 2</option>  
+                                                      <option value="4">Row 4</option>  
+                                                      <option value="5">Row 5</option>  
+                                                      <option value="6">Row 6</option>  
+                                                      <option value="7">Row 7</option>  
+                                                      <option value="8">Row 8</option>  
+                                                      <option value="9">Row 9</option> 
+                                                    </select>
+                                                </div>
+                                              </div>
+                                          
+                                        </div>
+                                        <div class="col-xs-2 dual-multi-select-btn-block">
+                                            <button type="button" id="multiselect_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                                            <button type="button" id="multiselect_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                                            <button type="button" id="multiselect_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                                            <button type="button" id="multiselect_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                                        </div>
+                                        <div class="col-xs-5">
+                                          <div class="form-group">
+                                            <label class="col-md-12 control-label text-left">Available Filters</label>
+                                            <div class="col-md-12">
+                                              <select class="form-control" name="FeatureCodes[]" size="9" id="selected_features" multiple="multiple" style="height:200px;">
+                                                  <option value="1">Row 1</option>  
+                                                  <option value="3">Row 3</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12">
+                                          <button class="btn btn-primary pull-left" type="button">Save</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>	
+                          </div>
                         </div> 
                       </div>  
                     </div>   
@@ -2552,6 +2736,20 @@ $(document).ready(function() {
 						return headCell.dataset.noColVis === undefined;
 					}
 				}]);
+
+
+        $scope.dtGroupOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Groups'
+				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
 				
 
         $scope.dtConfigurationOptions = DTOptionsBuilder
@@ -2680,6 +2878,14 @@ $(document).ready(function() {
           $scope['formstepFilter'+2] = !$scope['formstepFilter'+2];
       };
 
+      $scope.toggleFormStepGroup = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowGroup'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepGroup'+2] = !$scope['formstepGroup'+2];
+      };
+
       
       $scope.showNewFormStepFilter = function(step){
 				for(var i =1; i<=2; i++){
@@ -2688,6 +2894,16 @@ $(document).ready(function() {
 					}	   
 					else	
 						$scope['formstepFilter'+i] = false;
+				}
+      }; 
+
+      $scope.showNewFormStepGroup = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepGroup'+i] = true;
+					}	   
+					else	
+						$scope['formstepGroup'+i] = false;
 				}
       }; 
     });

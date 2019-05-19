@@ -2787,3 +2787,14 @@ ul.update-list li::before {
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
   border: none !important;
 }
+.dual-multi-select-btn-block {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 45px;
+}
+.dual-multi-select-btn-block .btn-block {
+  width: 50px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
