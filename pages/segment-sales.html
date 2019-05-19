@@ -2446,7 +2446,7 @@ title:  Sales Settings
                                     </div>
                                     <div class="col-md-12">
                                       <button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-                                      <button type="button" class="btn btn-link" ng-click="showAlertFilter = false">Cancel</button>
+                                      <button type="button" class="btn btn-link" ng-click="showAlertGroup = false">Cancel</button>
                                     </div>
                                   </div>
                                 </div>	
@@ -2777,8 +2777,18 @@ $(document).ready(function() {
 				for(var i =1; i<=2; i++){
 					 $scope['formstep'+i] = false;
         }
-		  	};		
-       
+		  	};	
+
+        $scope.cancelFormGroup = function(step){
+          for(var i =1; i<=2; i++){
+            $scope['formstepGroup'+i] = false;
+          }
+		  	};  
+        $scope.cancelFormFilter = function(step){
+          for(var i =1; i<=2; i++){
+            $scope['formstepFilter'+i] = false;
+          }
+		  	};
 		 	$scope.showNewFormStep = function(step){
 				for(var i =1; i<=2; i++){
 					if(i == step){
