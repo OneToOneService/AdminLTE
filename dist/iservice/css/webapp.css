@@ -2798,3 +2798,6 @@ ul.update-list li::before {
   margin: 0 auto;
   margin-bottom: 5px;
 }
+.vpicker {
+  margin-top: 20px;
+}

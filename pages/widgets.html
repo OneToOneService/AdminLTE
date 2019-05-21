@@ -187,9 +187,18 @@ title: Widget
                     <div class="input-group-addon" ng-click="isDatepickerOpen = !isDatepickerOpen">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpen = !isDatepickerOpen" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpen" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                    <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpen = !isDatepickerOpen" uib-datepicker-popup="yyyy-MM-dd" ng-model="date" is-open="isDatepickerOpen" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
                   </div>
                 </div>
+
+                <div class="col-md-4">
+                    <div class="input-group date">
+                      <div class="input-group-addon" ng-click="isDatepickerTimeOpen = !isDatepickerTimeOpen">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="text" class="form-control pull-right" ng-focus="isDatepickerTimeOpen = !isDatepickerTimeOpen" uib-datepicker-popup="yyyy-MM-dd hh:mm" ng-model="datetime" is-open="isDatepickerTimeOpen" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                    </div>
+                  </div>
               </div>
             </div>
           </div>

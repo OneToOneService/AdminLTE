@@ -877,7 +877,7 @@ title: Agent Settings
 																				<div class="form-horizontal">
 																					<div class="col-md-6">
 																						<div class="form-group">
-																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Name:</label>
+																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Name</label>
 																							<div class="col-sm-12">
 																								<input type="text" class="form-control">
 																							</div>
@@ -885,7 +885,7 @@ title: Agent Settings
 																					</div>
 																					<div class="col-md-6">
 																						<div class="form-group">
-																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type:</label>
+																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type</label>
 																							<div class="col-sm-12">
 																								<select class="form-control">
 																										<option>Chat</option>
@@ -896,22 +896,78 @@ title: Agent Settings
 																					</div>
 																					<div class="col-md-6">
 																						<div class="form-group">
-																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Description:</label>
+																							<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
 																							<div class="col-sm-12">
 																								<input type="text" class="form-control">
 																							</div>
 																						</div>
 																					</div>
-																					<div class="col-md-12">
+																					<div class="col-md-8">
 																						<div class="form-group">
 																							<label for="inputPassword3" class="col-sm-4 control-label text-left">
-																							Html Response Body:</label>
+																							Html Response Body</label>
 																							<div class="col-sm-12 text-editor-container">
-																							<textarea id="editor1" class="form-control" rows="5" placeholder="" ckeditor>
+																							  <textarea id="editor1" class="form-control" rows="5" placeholder="" ckeditor>
 																							</textarea>
 																							</div>
 																						</div>
 																					</div> 
+																					<div class="col-md-4 vpicker">
+																					<div class="nav-tabs-custom">
+																							<ul class="nav nav-tabs">
+																									<li class="active"><a href="#tab_variablepicker" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>         
+																							</ul>
+																							<div class="tab-content">
+																								<div class="tab-pane active" id="tab_variablepicker">
+																										<div class="row custom-scroll">
+																												<div class="col-xs-12 variable-responses">
+																														<div>
+																																<input type="text" class="form-control" placeholder="Filter Variables">
+																														</div>
+																														<ul class="list-unstyled segment-variable-list">
+																																<li class="section-label">Contact
+																																		<ul class="segment-variables">
+																																				<li class="section-var-link">Name</li>
+																																				<li class="segment-lable">Global
+																																						<ul>
+																																						<li class="section-var-link">Address1</li>
+																																						<li class="section-var-link">Address2</li>
+																																						<li class="section-var-link">City</li>
+																																						<li class="section-var-link">Country</li>
+																																						<li class="section-var-link">Company</li>
+																																						</ul>
+																																				</li>
+																																				<li class="segment-lable">JC Segment
+																																						<ul>
+																																						<li class="section-var-link">Contact View Only Property</li>
+																																						<li class="section-var-link">Contact Viewable and Editable Property</li>
+																																						<li class="section-var-link">Multi value No Descr</li>
+																																						<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																																						</ul>
+																																				</li>
+																																		</ul>
+																																</li>
+																														</ul>
+																														<ul class="list-unstyled segment-variable-list">
+																																<li class="section-label">Answer
+																																<ul class="segment-variables">
+																																		<li class="section-var-link">Email</li>
+																																		<li class="section-var-link">Reference Number</li>
+																																		<li class="section-var-link">Original Date</li>
+																																		<li class="section-var-link">Original Time</li>
+																																		<li class="section-var-link">Subject</li>
+																																		<li class="section-var-link">Original Body</li>
+																																		<li class="section-var-link">Quoted Question</li>
+																																</ul>
+																																</li>
+																														</ul>
+																												</div>
+																										</div>
+																								</div>
+																							</div>
+																							<!-- /.tab-content -->
+																						</div>
+																					</div>	
 																					<div class="col-md-12">
 																						<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Save</button>
 																					</div>	
