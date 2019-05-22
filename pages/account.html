@@ -73,7 +73,7 @@ title:  Account
                           <label class="col-md-4 control-label">Phone Number</label>
                           <div class="text ng-binding col-md-7">+217-398-6245</div>
                         </div>
-                        <div class="datarow row form-groupj">
+                        <div class="datarow row form-group">
                           <label class="col-md-4 control-label">Website</label>
                           <div class="text ng-binding col-md-7">www.example.com</div>
                         </div>
@@ -359,7 +359,7 @@ title:  Account
                         </div>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-default btn-xs margin-5 ng-hide" ng-show="isCollapsed(segment.name)">
+                    <button type="button" class="btn btn-default btn-xs margin-5 ng-hide" ng-show="isCollapsed">
                       <strong>…</strong>
                     </button>
                   </div>
@@ -446,161 +446,145 @@ title:  Account
                                 <th class="text-capitalize">
                                   Date
                                 </th>
-                                <td style="display:none;">
-                                    &nbsp;
-                                  </td>	
-                                  <td style="display:none;">
-                                    &nbsp;
-                                  </td>
-                                  <td style="display:none;">
-                                    &nbsp;
-                                  </td>
-                                  <td style="display:none;">
-                                    &nbsp;
-                                  </td>
-                                  <td style="display:none;">
-                                    &nbsp;
-                                  </td>
-                                  <td style="display:none;">
-                                    &nbsp;
-                                  </td>
+                                
                               </tr>
                             </thead>  
                             <tbody>
-                              <tr id="row1">
-                                <td name="name">
-                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
-                                      <i class="fa fa-plus-circle" ng-show="!row1"></i>
-                                      <i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
-                                  </button>
-                                </td>
-                                <td class="subject-col-width">
-                                  [ref#: 42733-42733] I need help picking a camera
-                                </td>
-                                <td>
-                                  All Topics
-                                </td>
-                                <td>
-                                  <small class="bg-green-active label">Resolved</small>
-                                </td>
-                                <td> 
-                                  <small class="label bg-blue disabled label-with-icon">
-                                    <i class="fa fa-comments"></i>Chat
-                                  </small>
-                                </td>
-                                <td>
-                                Jacob Smith
-                                </td>
-                                <td>
-                                  <b>Urgency Level</b> : High 
-                                  <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                </td>
-                                <td>
-                                    2016-07-18 9:36:26 AM
-                                </td>
-                              </tr>
-                              <tr id="row2">
-                                <td name="name">
-                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
-                                      <i class="fa fa-plus-circle" ng-show="!row2"></i>
-                                      <i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
-                                  </button>
-                                </td>
-                                <td>
-                                  [ref#: 6680-6680] Return policy
-                                </td>
-                                <td>
-                                  Returns
-                                </td>
-                                <td>
-                                  <small class="bg-green-active label">Resolved</small>
-                                </td>
-                                <td>
-                                  <small class="label label-with-icon bg-blue">
-                                    <i class="fa fa-envelope"></i>
-                                    Customer Email
-                                  </small>
-                                </td>
-                                <td>
-                                  Jacob Smith
-                                </td>
-                                <td>
-                                  <b>Urgency Level</b> : High
-                                  <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                </td>
-                                <td>
-                                  2016-07-18 9:36:26 AM
-                                </td>
-                              </tr>
-                              <tr id="row3">
-                                <td name="name">
-                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
-                                      <i class="fa fa-plus-circle" ng-show="!row3"></i>
-                                      <i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
-                                  </button>
-                                </td>
-                                <td>
-                                  [ref#: 42912-42912] Best price on LG Plasma
-                                </td>
-                                <td>
-                                  Open Quotes
-                                </td>
-                                <td>
-                                  <small class="bg-red-disabled label">Queued</small>
-                                </td>
-                                <td>
-                                  <small class="label label-with-icon bg-blue">
-                                    <i class="fa fa-ticket"></i>
-                                    Agent Ticket
-                                  </small>
-                                </td>
-                                <td>
-                                  Alek Packard
-                                </td>
-                                <td>
-                                    <b>Urgency Level</b> : High
-                                  <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row3')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                </td>
-                                <td>
-                                  2016-07-18 9:36:26 AM
-                                </td>
-                              </tr>
-                              <tr id="row4">
-                                <td name="name">
-                                  <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
-                                      <i class="fa fa-plus-circle" ng-show="!row4"></i>
-                                      <i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
-                                  </button>
-                                </td>
-                                <td>
-                                  [ref#: 42883-42883] Need a travel camera
-                                </td>
-                                <td>
-                                    To Quote
-                                </td>
-                                <td>
-                                  <small class="bg-green-active label">Resolved</small>
-                                </td>
-                                <td>
-                                  <small class="label bg-blue"> 
-                                    <span class="fa-stack stack-icon-label">
-                                    <i class="fa fa-user"></i>
-                                    <i class="fa fa-ticket"></i> 
-                                  </span> Customer Ticket
-                                  </small>
-                                </td>
-                                <td>
-                                  Alek Packard
-                                </td>
-                                <td>
-                                  <b>Urgency Level</b>: High 
-                                  <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row4')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                </td>
-                                <td>
-                                  2016-07-18 9:36:26 AM
-                                </td>
-                              </tr>
-                            </tbody>
+                                <tr id="row1">
+                                    <td name="name">
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
+                                          <i class="fa fa-plus-circle" ng-show="!row1"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
+                                      </button>
+                                    </td>
+                                    <td class="subject-col-width">
+                                      [ref#: 42733-42733] I need help picking a camera
+                                    </td>
+                                    <td>
+                                      All Topics
+                                    </td>
+                                    <td>
+                                      <small class="bg-green-active label">Resolved</small>
+                                    </td>
+                                    <td> 
+                                      <small class="label bg-blue disabled label-with-icon">
+                                        <i class="fa fa-comments"></i>Chat
+                                      </small>
+                                    </td>
+                                    <td>
+                                    Jacob Smith
+                                    </td>
+                                    <td>
+                                      <b>Urgency Level</b> : High 
+                                      <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                    </td>
+                                    <td>
+                                        2016-07-18 9:36:26 AM
+                                    </td>
+                                   
+                                  </tr>
+                                  <tr id="row2">
+                                    <td name="name">
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
+                                          <i class="fa fa-plus-circle" ng-show="!row2"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
+                                      </button>
+                                    </td>
+                                    <td>
+                                      [ref#: 6680-6680] Return policy
+                                    </td>
+                                    <td>
+                                      Returns
+                                    </td>
+                                    <td>
+                                      <small class="bg-green-active label">Resolved</small>
+                                    </td>
+                                    <td>
+                                      <small class="label label-with-icon bg-blue">
+                                        <i class="fa fa-envelope"></i>
+                                        Customer Email
+                                      </small>
+                                    </td>
+                                    <td>
+                                      Jacob Smith
+                                    </td>
+                                    <td>
+                                      <b>Urgency Level</b> : High
+                                      <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                    </td>
+                                    <td>
+                                      2016-07-18 9:36:26 AM
+                                    </td>
+                                  </tr>
+                                  <tr id="row3">
+                                    <td name="name">
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
+                                          <i class="fa fa-plus-circle" ng-show="!row3"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
+                                      </button>
+                                    </td>
+                                    <td>
+                                      [ref#: 42912-42912] Best price on LG Plasma
+                                    </td>
+                                    <td>
+                                      Open Quotes
+                                    </td>
+                                    <td>
+                                      <small class="bg-red-disabled label">Queued</small>
+                                    </td>
+                                    <td>
+                                      <small class="label label-with-icon bg-blue">
+                                        <i class="fa fa-ticket"></i>
+                                        Agent Ticket
+                                      </small>
+                                    </td>
+                                    <td>
+                                      Alek Packard
+                                    </td>
+                                    <td>
+                                        <b>Urgency Level</b> : High
+                                      <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row3')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                    </td>
+                                    <td>
+                                      2016-07-18 9:36:26 AM
+                                    </td>
+                                  </tr>
+                                  <tr id="row4">
+                                    <td name="name">
+                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
+                                          <i class="fa fa-plus-circle" ng-show="!row4"></i>
+                                          <i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
+                                      </button>
+                                    </td>
+                                    <td>
+                                      [ref#: 42883-42883] Need a travel camera
+                                    </td>
+                                    <td>
+                                        To Quote
+                                    </td>
+                                    <td>
+                                      <small class="bg-green-active label">Resolved</small>
+                                    </td>
+                                    <td>
+                                      <small class="label bg-blue"> 
+                                        <span class="fa-stack stack-icon-label">
+                                        <i class="fa fa-user"></i>
+                                        <i class="fa fa-ticket"></i> 
+                                      </span> Customer Ticket
+                                      </small>
+                                    </td>
+                                    <td>
+                                      Alek Packard
+                                    </td>
+                                    <td>
+                                      <b>Urgency Level</b>: High 
+                                      <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row4')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                    </td>
+                                    <td>
+                                      2016-07-18 9:36:26 AM
+                                    </td>
+                                 </tr>
+                             </tbody>
                           </table>
                           <!-- /.row -->
                           <div class="modal fade" id="modal-default">
@@ -1123,7 +1107,7 @@ title:  Account
       <!--forward end-->
       <!--Get this-->
       {% include get-this-include.html %}
-      <!--Get thisa-->
+      <!--Get this-->
     </script>	
      <!--expanded row content end-->
     <script id="expandedrow2" type="text/ng-template">
@@ -1576,14 +1560,14 @@ title:  Account
 				'1' : { name: '-Default Mail Box-(customer@1to1service.com)', segmentname: 'QA' },
 				'2' : { name: 'Push Bullet (qa@1to1service.com)', segmentname: 'QA' },
 				'3' : { name: '-Default Mail Box- (customer@1to1service.com)', segmentname: 'QA2- Second Segment' },
-				'4' : { name: 'Push Bullet (qa@1to1service.com)', segmentname: 'QA2- Second Segment' },
+				'4' : { name: 'Push Bullet (qa@1to1service.com)', segmentname: 'QA2- Second Segment' }
 			};
       vm.segmentselected = {selected : "Push Bullet"};
 			vm.segment = [
 				{ name: '-Default Mail Box-(customer@1to1service.com)', segmentname: 'QA' },
 				{ name: 'Push Bullet (qa@1to1service.com)', segmentname: 'QA' },
 				{ name: '-Default Mail Box- (customer@1to1service.com)', segmentname: 'QA2- Second Segment' },
-				{ name: 'Push Bullet (qa@1to1service.com)',  segmentname: 'QA2- Second Segment' },
+				{ name: 'Push Bullet (qa@1to1service.com)',  segmentname: 'QA2- Second Segment' }
 			];
 		});
 
@@ -1595,7 +1579,7 @@ title:  Account
 				{name: 'Alek Packard', code: 'AP'},
 				{name: 'Jacob Smith', code: 'JS'},
 				{name: 'Jonie Hewlett', code: 'JH'},
-				{name: 'Justin Time', code: 'JT'},
+				{name: 'Justin Time', code: 'JT'}
 			];
 		});
 
@@ -1607,7 +1591,7 @@ title:  Account
 				{name: '--Default MailBox--', code: ''},
 				{name: 'Customer Support (support@example.com)', code: ''},
 				{name: 'Sales (Sales@example.com)', code: ''},
-				{name: 'Technical Support (technicalsupport@example.com)', code: ''},
+				{name: 'Technical Support (technicalsupport@example.com)', code: ''}
 			];
 		});
 
