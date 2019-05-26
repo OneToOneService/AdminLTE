@@ -229,6 +229,9 @@ p.login-box-msg {
 .button-delete {
   color: #dd4b39;
 }
+.button-delete:focus {
+  outline: none;
+}
 .floating-textarea {
   min-height: 30px;
   max-height: 260px;
@@ -2800,4 +2803,16 @@ ul.update-list li::before {
 }
 .vpicker {
   margin-top: 20px;
+}
+.campign-col {
+  width: 120px;
+}
+.campaign-btn {
+  margin-top: 22px;
+}
+.table-hover > tbody > tr.campign-editrow {
+  background: #f7f7f7;
+}
+.table-hover > tbody > tr.campign-editrow:hover {
+  background: #f7f7f7;
 }

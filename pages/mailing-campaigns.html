@@ -256,7 +256,7 @@ title: Mailing Campaigns
 																	<table class="table table-striped table-hover" datatable dt-options="dtCampaignMessageOptions" dt-column-defs="dtCampaignMessageColumnDefs">
 																	<thead>
 																		<tr>
-																			<th class="text-capitalize">
+																			<th class="text-capitalize campign-col">
 																				Waiting Period Before Sending (In Days)
 																			</th>
 																			<th class="text-capitalize">
@@ -265,11 +265,11 @@ title: Mailing Campaigns
 																			<th class="text-capitalize">
 																				Mailbox To Send From
 																			</th>
-																			<th class="icon-col no-sort"  name="name"></th>
+																			<th class="campign-col"  name="name"></th>
 																		</tr>
 																	</thead>
 																	<tbody>
-																		<tr id="editrow1" ng-show="!showedit1">
+																		<tr id="editrow1">
 																			<td class="text-capitalize">
 																				0
 																			</td>
@@ -280,15 +280,17 @@ title: Mailing Campaigns
 																				Sales
 																			</td>
 																			<td class="icon-col no-sort"  name="name" width="30">
-																				<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit message" ng-click="showedit('1')">
-																						<i class="fa fa-pencil"></i>
+																				<div  ng-show="!showedit1">
+																					<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit message" ng-click="showedit('1')">
+																							<i class="fa fa-pencil"></i>
+																						</button>
+																					<button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
+																						<i class="fa fa-times-circle"></i>
 																					</button>
-																				<button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-																					<i class="fa fa-times-circle"></i>
-																				</button>
+																				</div>
 																			</td>
 																		</tr>
-																		<tr id="editrow2" ng-show="!showedit2">
+																		<tr id="editrow2">
 																			<td class="text-capitalize">
 																				7
 																			</td>
@@ -299,60 +301,60 @@ title: Mailing Campaigns
 																				Sales
 																			</td>
 																			<td class="icon-col no-sort"  name="name" width="30" id="editrow2">
-																				<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit message" ng-click="showedit('2')">
-																						<i class="fa fa-pencil"></i>
+																				<div  ng-show="!showedit2">
+																					<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit message" ng-click="showedit('2')">
+																							<i class="fa fa-pencil"></i>
+																						</button>
+																					<button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
+																						<i class="fa fa-times-circle"></i>
 																					</button>
-																				<button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-																					<i class="fa fa-times-circle"></i>
-																				</button>
+																				</div>	
 																			</td>
 																		</tr>
 																	</tbody>
 																	</table>
 																</div>	
 														  </div>	
-															
-															<div class="container-fluid search-parameters">
-																<div class="row action">
-																	<div class="panel panel-default col-xs-12 bg-gray-light">
-																			<div class="form-horizontal mtop-15">
-																				<div class="col-md-3">
-																					<div class="form-group">
-																						<label for="inputPassword3" class="col-md-12 control-label text-left">Day Offset</label>
-																						<div class="col-sm-12">
-																							<input type="text" class="form-control">
-																						</div>
-																					</div>
-																				</div>
-																				<div class="col-md-4">
-																					<div class="form-group">
-																						<label for="inputPassword3" class="col-md-12 control-label text-left">Message</label>
-																						<div class="col-sm-12">
-																							<input type="text" class="form-control">
-																						</div>
-																					</div>
-																				</div>
-																				<div class="col-md-4 col-xs-11">
-																					<div class="form-group">
-																						<label for="inputPassword3" class="col-md-12 control-label text-left">Mailbox</label>
-																						<div class="col-sm-12">
-																							<select class="form-control">
-																								<option value="">Push Bullet (customer1@1to1service.com)</option>
-																							</select>
-																						</div>
-																					</div>
-																				</div>
-																				<div class="col-md-1 col-xs-1">
-																					<button class="icon-button button-delete delete-campaign" type="button">
-																						<i class="fa fa-times-circle"></i>
-																					</button>
+														
+															<div class="panel panel-default col-xs-12 bg-gray-light" ng-show="showaddanothermessage">
+																<div class="row">
+																	<div class="form-horizontal mtop-15">
+																		<div class="col-md-3">
+																			<div class="form-group">
+																				<label for="inputPassword3" class="col-md-12 control-label text-left">Day Offset</label>
+																				<div class="col-sm-12">
+																					<input type="text" class="form-control">
 																				</div>
 																			</div>
+																		</div>
+																		<div class="col-md-4">
+																			<div class="form-group">
+																				<label for="inputPassword3" class="col-md-12 control-label text-left">Message</label>
+																				<div class="col-sm-12">
+																					<input type="text" class="form-control">
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-md-4 col-xs-11">
+																			<div class="form-group">
+																				<label for="inputPassword3" class="col-md-12 control-label text-left">Mailbox</label>
+																				<div class="col-sm-12">
+																					<select class="form-control">
+																						<option value="">Push Bullet (customer1@1to1service.com)</option>
+																					</select>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-md-1 col-xs-1">
+																			<button class="icon-button button-delete delete-campaign" type="button" ng-click="showaddanothermessage = false;">
+																				<i class="fa fa-times-circle"></i>
+																			</button>
+																		</div>
 																	</div>
-																</div>
-														  </div>	
+																</div>	
+															</div>
 															<div class="row">
-																<button class="btn btn-lg btn-link" type="button">
+																<button class="btn btn-lg btn-link" type="button" ng-click="showaddanothermessage = true;">
 																<i class="fa fa-plus-circle text-light-blue"></i>
 																Add another message to campaign
 																</button>
@@ -912,47 +914,44 @@ title: Mailing Campaigns
      	</section>
 		</div>
 		<script id="editrow" type="text/ng-template">
-			<div class="row">
-					<div class="form-horizontal mtop-15">
-							<div class="col-md-3">
-								<div class="form-group">
-									<label for="inputPassword3" class="col-md-12 control-label text-left">Day Offset</label>
-									<div class="col-sm-12">
-										<input type="text" class="form-control">
-									</div>
+				<tr class="campign-editrow">
+					<td>
+							<div class="form-group">
+								<label for="inputPassword3" class="control-label text-left">Day Offset</label>
+								<div>
+									<input type="text" class="form-control">
 								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="inputPassword3" class="col-md-12 control-label text-left">Message</label>
-									<div class="col-sm-12">
-										<input type="text" class="form-control">
-									</div>
+					</td>
+					<td>   
+							<div class="form-group">
+								<label for="inputPassword3" class="control-label text-left">Message</label>
+								<div>
+									<input type="text" class="form-control" value="Thanks For Joining The Customer Campaign.">
 								</div>
 							</div>
-							<div class="col-md-3 col-xs-12">
-								<div class="form-group">
-									<label for="inputPassword3" class="col-md-12 control-label text-left">Mailbox</label>
-									<div class="col-sm-12">
-										<select class="form-control">
-											<option value="">Push Bullet (customer1@1to1service.com)</option>
-										</select>
-									</div>
+					</td>
+					<td>	
+							<div class="form-group">
+								<label for="inputPassword3" class="control-label text-left">Mailbox</label>
+								<div>
+									<select class="form-control">
+										<option value="">Sales (sales@1to1service.com)</option>
+									</select>
 								</div>
 							</div>
-							<div class="col-md-2 col-xs-2">
-								<button class="btn btn-primary btn-sm" type="button">
-									Save
-								</button>
-								<button class="btn btn-link btn-sm" type="button" ng-click="canceledit(1)">
-										Cancel
-								</button>
-								<button class="icon-button button-delete delete-campaign" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove message">
-									<i class="fa fa-times-circle"></i>
-								</button>
-							</div>
-						</div>
-			</div>	
+					</td>
+					<td>	
+						<div class="campaign-btn">	
+							<button class="btn btn-primary btn-sm" type="button">
+								Save
+							</button>
+							<button class="btn btn-link btn-sm" type="button" ng-click="canceledit()">
+								Cancel
+							</button>
+						</div>	
+					</td>	
+				</tr>	
 		</script>
         <!-- /.content-wrapper -->
     {% include common-footer.html %}
@@ -1011,14 +1010,17 @@ title: Mailing Campaigns
 
 				
 			 $scope.showedit = function(rownumber){
+				$scope.canceledit(); 
         var innerHTML = document.getElementById('editrow').innerHTML;
 				$scope['showedit'+rownumber] = true; 
-        angular.element('#editrow' + rownumber).after($compile('<tr class="editrow'+rownumber+'"><td colspan="4">'+innerHTML+'<td></tr>')($scope));
+        angular.element('#editrow' + rownumber).after($compile(innerHTML)($scope));
        };
 
 			 $scope.canceledit = function(rownumber){
-				$scope['showedit'+rownumber] = false; 
-        angular.element('#editrow' + rownumber).remove();
+				 for(var i=1;i<=2;i++){
+					$scope['showedit'+i] = false; 
+				 }
+        angular.element('.campign-editrow').remove();
        };
 				$scope.toggle = {};
 
