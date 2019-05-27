@@ -2603,67 +2603,26 @@ title:  Sales Settings
                                           </div>    
                                         </div>
                                         <div class="clearfix"></div>
-                                        <div class="col-xs-5">
-
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label text-left">Included Filters</label>
-                                                <div class="col-md-12">
-                                                  <select class="form-control" id ="features" name="Features[]" multiple="multiple" style="height:200px;">
-                                                      <option value="2">Row 2</option>  
-                                                      <option value="4">Row 4</option>  
-                                                      <option value="5">Row 5</option>  
-                                                      <option value="6">Row 6</option>  
-                                                      <option value="7">Row 7</option>  
-                                                      <option value="8">Row 8</option>  
-                                                      <option value="9">Row 9</option> 
-                                                    </select>
-                                                </div>
+                                     
+                                        <div class="col-md-12" ng-controller="SimpleDemoController"> 
+                                          <div class="filtergroup row">
+                                            <button type="button" class="btn btn-link arrow"><i class="fa fa-arrows-h"></i></button>
+                                            <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
+                                              <label class="control-label text-left">{% raw %}{{(listName == 'Availablefilter') ? 'Available Filter' : 'Included Filter'}}{% endraw %}</label>
+                                              <div class="col-md-12 filter-box">
+                                                  <ul dnd-list="list">
+                                                      <li ng-repeat="item in list"
+                                                          dnd-draggable="item"
+                                                          dnd-moved="list.splice($index, 1)"
+                                                          dnd-effect-allowed="move"
+                                                          dnd-selected="models.selected = item"
+                                                          ng-class="{'selected': models.selected === item}">
+                                                          {% raw %}{{item.label}}{% endraw %}
+                                                      </li>
+                                                  </ul>
                                               </div>
-                                          
-                                        </div>
-                                        <div class="col-xs-2 dual-multi-select-btn-block">
-                                            <button type="button" id="multiselect_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
-                                            <button type="button" id="multiselect_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
-                                            <button type="button" id="multiselect_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
-                                            <button type="button" id="multiselect_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
-                                        </div>
-                                        <div class="col-xs-5">
-                                          <div class="form-group">
-                                            <label class="col-md-12 control-label text-left">Available Filters</label>
-                                            <div class="col-md-12">
-                                              <select class="form-control" name="FeatureCodes[]" size="9" id="selected_features" multiple="multiple" style="height:200px;">
-                                                  <option value="1">Row 1</option>  
-                                                  <option value="3">Row 3</option>
-                                                </select>
                                             </div>
                                           </div>
-                                        </div>
-                                        <div class="col-md-12" ng-controller="SimpleDemoController"> 
-                                          
-                                            {% raw %}{{models.lists}}{% endraw %}
-                                        <div class="simpleDemo row">
-                                          <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
-                                              <div class="panel panel-info">
-                                                  <div class="panel-heading">
-                                                      <h3 class="panel-title">{% raw %}{{listName}}{% endraw %}</h3>
-                                                  </div>
-                                                  <div class="panel-body">
-                                                      <ul dnd-list="list">
-                                                          <li ng-repeat="item in list"
-                                                              dnd-draggable="item"
-                                                              dnd-moved="list.splice($index, 1)"
-                                                              dnd-effect-allowed="move"
-                                                              dnd-selected="models.selected = item"
-                                                              ng-class="{'selected': models.selected === item}"
-                                                              >
-                                                              {% raw %}{{item.label}}{% endraw %}
-                                                          </li>
-                                                      </ul>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                        </div>
-                                
                                         </div>
                                         <div class="col-md-12 col-sm-12">
                                           <button class="btn btn-primary pull-left" type="button">Save</button>
@@ -3083,13 +3042,14 @@ $(document).ready(function() {
 
       $scope.models = {
           selected: null,
-          lists: {"availablefilter": [], "includedfilter": []}
+          lists: {"Availablefilter": [], "Includedfilter": []},
+
       };
 
       // Generate initial model
       for (var i = 1; i <= 3; ++i) {
-          $scope.models.lists.availablefilter.push({label: "Item A" + i});
-          $scope.models.lists.includedfilter.push({label: "Item B" + i});
+          $scope.models.lists.Availablefilter.push({label: "Item A" + i});
+          $scope.models.lists.Includedfilter.push({label: "Item B" + i});
       }
 
       // Model to JSON for demo purpose
