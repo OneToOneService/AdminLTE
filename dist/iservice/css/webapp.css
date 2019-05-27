@@ -2820,9 +2820,15 @@ ul.update-list li::before {
  * The dnd-list should always have a min-height,
  * otherwise you can't drop to it once it's empty
  */
-.simpleDemo ul[dnd-list] {
+.filtergroup ul[dnd-list] {
   min-height: 42px;
   padding-left: 0px;
+}
+.filtergroup .arrow {
+  width: 36px;
+  position: absolute;
+  left: calc(50% - 18px);
+  top: 47%;
 }
 /**
  * The dndDraggingSource class will be applied to
@@ -2830,7 +2836,7 @@ ul.update-list li::before {
  * sense to hide it to give the user the feeling
  * that he's actually moving it.
  */
-.simpleDemo ul[dnd-list] .dndDraggingSource {
+.filtergroup ul[dnd-list] .dndDraggingSource {
   display: none;
 }
 /**
@@ -2838,24 +2844,39 @@ ul.update-list li::before {
  * added to the dnd-list while the user is dragging
  * over it.
  */
-.simpleDemo ul[dnd-list] .dndPlaceholder {
-  background-color: #ddd;
+.filtergroup ul[dnd-list] .dndPlaceholder {
+  background-color: #cccccc;
   display: block;
   min-height: 42px;
 }
-.simpleDemo ul[dnd-list] li {
-  background-color: #fff;
-  border: 1px solid #ddd;
+.filtergroup ul[dnd-list] li {
+  background-color: white;
+  border: 1px solid #cccccc;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
+  cursor: move;
+  /* fallback: no `url()` support or images disabled */
+  cursor: url(images/grab.cur);
+  /* fallback: Internet Explorer */
+  cursor: -webkit-grab;
+  /* Chrome 1-21, Safari 4+ */
+  cursor: -moz-grab;
+  /* Firefox 1.5-26 */
+  cursor: grab;
+  /* W3C standards syntax, should come least */
 }
-/**
- * Show selected elements in green
- */
-.simpleDemo ul[dnd-list] li.selected {
-  background-color: #dff0d8;
-  color: #3c763d;
+.filtergroup ul[dnd-list] li.selected {
+  background-color: #f7f7f7;
+}
+.filtergroup .filter-box {
+  padding: 15px;
+  border: 1px solid #cccccc;
+  margin-bottom: 15px;
+  min-height: 400px;
+}
+.filtergroup .filter-box ul[dnd-list] {
+  margin-bottom: 0px;
 }
