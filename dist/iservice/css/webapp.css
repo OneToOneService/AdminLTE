@@ -1745,6 +1745,7 @@ label .icheckbox_square-blue {
 }
 .dropdown-menu {
   z-index: 99999;
+  min-width: 400px !important;
 }
 .dropdown-menu-btn-option > li {
   padding: 3px 8px;
@@ -1884,7 +1885,7 @@ label .icheckbox_square-blue {
   width: 100%;
 }
 .dropdown-forward {
-  min-width: 300px;
+  min-width: 400px;
   max-width: 420px;
   width: 100%;
 }
@@ -2879,4 +2880,10 @@ ul.update-list li::before {
 }
 .filtergroup .filter-box ul[dnd-list] {
   margin-bottom: 0px;
+}
+table.dataTable {
+  width: 100% !important;
+}
+.dataTables_wrapper .row .col-sm-6 {
+  width: 35% !important;
 }
