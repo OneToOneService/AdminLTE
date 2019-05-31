@@ -14,62 +14,54 @@
   <!-- Tab panes -->
   <div class="tab-content">
      <!-- Home tab content -->
-    <div class="tab-pane right-menu-tab active" id="control-sidebar-builtinforms-tab">
-      <section class="sidebar right-menu">
-        <ul class="sidebar-menu tree" admin-lte-tree>
-          <li class="treeview active">
-            <a  href="#">
+    <div class="tab-pane right-menu-tab sidebar-menu active" id="control-sidebar-builtinforms-tab">
+        <div class="form-group">
+          <label class="control-sidebar-subheading">
               <span class="fa-stack new-account-icon">
                 <i class="fa fa-envelope-o"></i>
                 <i class="fa fa-users icon-plus"></i> 
               </span>
               <span>Mass Mailing</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class=" treeview-menu">
-              <li>
-                <a  href="/pages/mailing-list.html">
-                  <i class="fa fa-circle-o"></i> 
-                  Mailing Lists
-                </a>
-              </li>
-              <li>
-                <a  href="/pages/mailing-criteria.html">
-                  <i class="fa fa-circle-o"></i> 
-                  Criteria
-                </a>
-              </li>
-              <li>
-                <a  href="/pages/mailing-messages.html">
-                  <i class="fa fa-circle-o"></i> 
-                  Messages
-                </a>
-              </li>
-              <li>
-                <a  href="/pages/mailing.html">
-                  <i class="fa fa-circle-o"></i> 
-                  Mailings
-                </a>
-              </li>
-              <li>
-                <a  href="/pages/mailing-campaigns.html">
-                  <i class="fa fa-circle-o"></i> 
-                  Campaigns
-                </a>
-              </li>
-            </ul>	
-          </li>
-          <li class="active treeview">
-            <a  href="#">
+          </label>
+          <ul class="treeview-menu">
+            <li>
+              <a  href="/pages/mailing-list.html">
+                <i class="fa fa-circle-o"></i> 
+                Mailing Lists
+              </a>
+            </li>
+            <li>
+              <a  href="/pages/mailing-criteria.html">
+                <i class="fa fa-circle-o"></i> 
+                Criteria
+              </a>
+            </li>
+            <li>
+              <a  href="/pages/mailing-messages.html">
+                <i class="fa fa-circle-o"></i> 
+                Messages
+              </a>
+            </li>
+            <li>
+              <a  href="/pages/mailing.html">
+                <i class="fa fa-circle-o"></i> 
+                Mailings
+              </a>
+            </li>
+            <li>
+              <a  href="/pages/mailing-campaigns.html">
+                <i class="fa fa-circle-o"></i> 
+                Campaigns
+              </a>
+            </li>
+          </ul>	
+        </div>
+        <div class="form-group">
+          <label class="control-sidebar-subheading">
               <i class="fa fa-wrench"></i> 
               Other Tools
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu" style="display: block;">
+          </label>
+           <ul class="treeview-menu" style="display: block;">
               <li>
                 <a  href="/pages/alerts.html">
                   <i class="fa fa-circle-o"></i> 
@@ -89,123 +81,111 @@
                 </a>
               </li>
             </ul>	
-          </li>
-        </ul>  
-    </section>  
+        </div>
     </div>
 
-    <div class="tab-pane right-menu-tab" id="control-sidebar-myforms-tab">
+    <div class="tab-pane right-menu-tab sidebar-menu" id="control-sidebar-myforms-tab">
        
     </div>
     <!-- /.tab-pane -->
-    <div class="tab-pane right-menu-tab" id="control-sidebar-tenantsetting-tab">
-        <section class="sidebar right-menu">
-            <ul class="sidebar-menu tree" admin-lte-tree>
-              <li class="treeview active">
-                <a  href="#">
-                  <i class="fa fa-code-fork"></i> 
-                  Segment Settings
-                  <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </span>
-                </a>
-                <ul class="treeview-menu">
-                  <li>
-                    <button class="btn btn-primary btn-xs btn-new-segment" ng-click="newsegment = !newsegment;" ng-init="newsegment=true;">Create New Segment</button>
-                    <div class="new-segment-container" uib-collapse="newsegment">
-                      <div class="segment-container">
-                        <h3>New Segment</h3>
-                        <div class="form-group">
-                          <label class="control-label">Enter Segment Name</label>
-                          <input type="email" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-sm" onclick="location.href = '/pages/new-segment.html';" >Create Segment</button>
-                        <button type="submit" class="btn btn-link btn-sm" ng-click="newsegment = !newsegment;">Cancel</button>
-                        </div> 
-                      </div>  
-                    </div>  
-                  </li>
-                  <li>
-                    <a  href="/pages/segment-sales.html">
-                      <i class="fa fa-circle-o"></i> 
-                      Sales
-                    </a>
-                  </li>
-                  <li>
-                    <a  href="/pages/segment-hr.html">
-                      <i class="fa fa-circle-o"></i> 
-                      Human Resources
-                    </a>
-                  </li>
-                  <li>
-                    <a  href="/pages/segment-customer-service.html">
-                      <i class="fa fa-circle-o"></i> 
-                      Customer Service
-                    </a>
-                  </li>
-                </ul>	
-              </li>
-              <li class="treeview active">
-                  <a href="#">
-                    <i class="fa fa-gear"></i>  <span>Tenant Settings</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li>
-                      <a  href="/pages/agents.html">
-                        <i class="fa fa-circle-o"></i> 
-                        Agents
-                      </a>
-                    </li>
-                    <li>
-                      <a  href="/pages/departments.html">
-                        <i class="fa fa-circle-o"></i> 
-                        Departments
-                      </a>
-                    </li>
-                    <li>
-                      <a  href="/pages/lists.html">
-                        <i class="fa fa-circle-o"></i> 
-                        Lists
-                      </a>
-                    </li>
-                    <li>
-                      <a  href="/pages/openid.html">
-                        <i class="fa fa-circle-o"></i> 
-                        OpenID
-                      </a>
-                    </li>
-                    <li>
-                      <a  href="/pages/service-levels.html">
-                        <i class="fa fa-circle-o"></i> 
-                        Service Levels
-                      </a>
-                    </li>
-                    <li>
-                      <a  href="/pages/skills.html">
-                        <i class="fa fa-circle-o"></i> 
-                        Skills
-                      </a>
-                    </li>
-                    <li>
-                      <a  href="/pages/user-types.html">
-                        <i class="fa fa-circle-o"></i> 
-                        User Types
-                      </a>
-                    </li>
-                    <li>
-                      <a  href="/pages/websites.html">
-                        <i class="fa fa-circle-o"></i> 
-                        Websites
-                      </a>
-                    </li>
-                  </ul>
-              </li>
-            </ul>  
-        </section>   
+    <div class="tab-pane right-menu-tab sidebar-menu" id="control-sidebar-tenantsetting-tab">
+      <div class="form-group">
+        <label class="control-sidebar-subheading">
+            <i class="fa fa-code-fork"></i> 
+            Segment Settings
+        </label>
+        <ul class="treeview-menu">
+          <li>
+            <button class="btn btn-primary btn-xs btn-new-segment" ng-click="newsegment = !newsegment;" ng-init="newsegment=true;">Create New Segment</button>
+            <div class="new-segment-container" uib-collapse="newsegment">
+              <div class="segment-container">
+                <h3>New Segment</h3>
+                <div class="form-group">
+                  <label class="control-label">Enter Segment Name</label>
+                  <input type="email" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-sm" onclick="location.href = '/pages/new-segment.html';" >Create Segment</button>
+                <button type="submit" class="btn btn-link btn-sm" ng-click="newsegment = !newsegment;">Cancel</button>
+                </div> 
+              </div>  
+            </div>  
+          </li>
+          <li>
+            <a  href="/pages/segment-sales.html">
+              <i class="fa fa-circle-o"></i> 
+              Sales
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/segment-hr.html">
+              <i class="fa fa-circle-o"></i> 
+              Human Resources
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/segment-customer-service.html">
+              <i class="fa fa-circle-o"></i> 
+              Customer Service
+            </a>
+          </li>
+        </ul>	
+      </div>
+      <div class="form-group">
+        <label class="control-sidebar-subheading">
+           <i class="fa fa-gear"></i>Tenant Settings
+        </label>
+        <ul class="treeview-menu">
+          <li>
+            <a  href="/pages/agents.html">
+              <i class="fa fa-circle-o"></i> 
+              Agents
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/departments.html">
+              <i class="fa fa-circle-o"></i> 
+              Departments
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/lists.html">
+              <i class="fa fa-circle-o"></i> 
+              Lists
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/openid.html">
+              <i class="fa fa-circle-o"></i> 
+              OpenID
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/service-levels.html">
+              <i class="fa fa-circle-o"></i> 
+              Service Levels
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/skills.html">
+              <i class="fa fa-circle-o"></i> 
+              Skills
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/user-types.html">
+              <i class="fa fa-circle-o"></i> 
+              User Types
+            </a>
+          </li>
+          <li>
+            <a  href="/pages/websites.html">
+              <i class="fa fa-circle-o"></i> 
+              Websites
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
      
     <!-- Settings tab content -->
