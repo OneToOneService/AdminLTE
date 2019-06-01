@@ -453,15 +453,15 @@ title:  Sales Settings
                                         </label> 
                                       </div> 
                                      
-                                      <div class="checkbox">
+                                      <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[showgroup]">
                                          <label>
-                                          <input type="checkbox" checkbox>Allow Multiple Values
+                                          <input type="checkbox" checkbox  ng-model="showgroup">Allow Multiple Values
                                         </label> 
-                                        <div class="checkbox nested">
+                                        <div class="checkbox nested" ng-show="showgroup">
                                               <label>
-                                                <input type="checkbox" checkbox checked="checked">Has Descriptions
+                                                <input type="checkbox" checkbox checked="checked" ng-model="showdescriptionvalue">Has Descriptions
                                               </label> 
-                                              <div class="form-group">
+                                              <div class="form-group" ng-show="showdescriptionvalue">
                                                 <label class="col-md-12 control-label text-left">Value Description Type</label>
                                                 <div class="col-md-12">
                                                   <select class="form-control">
@@ -485,7 +485,7 @@ title:  Sales Settings
                                                   </select>  
                                                 </div>
                                               </div>
-                                        </div>  
+                                        </div> 
                                       </div> 
                                      
                                     </div>
@@ -536,11 +536,11 @@ title:  Sales Settings
                                        <input type="checkbox" checkbox>Multi-Line Values
                                      </label> 
                                   </div> 
-                                  <div class="checkbox">
+                                  <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[showcontacteditable]">
                                       <label>
-                                       <input type="checkbox" checkbox>Contact Viewable
+                                       <input type="checkbox" checkbox ng-model="showcontacteditable">Contact Viewable
                                      </label> 
-                                     <div class="checkbox nested">
+                                     <div class="checkbox nested" ng-show="showcontacteditable">
                                          <label>
                                            <input type="checkbox" checkbox checked="checked">Contact Editable
                                          </label> 
