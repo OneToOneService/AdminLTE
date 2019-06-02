@@ -157,7 +157,7 @@ title:  Sales Settings
                             <div class="form-group bg-group">
                               <label class="col-md-12 control-label text-left">Default Notifications</label>
                               <div class="col-md-12">
-                                <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop"> 
+                                <div class="form-group group-bg group-input detail-g-borderbottom"> 
                                   <label class="col-md-12 control-label text-left group-input-label">Topic Notification</label>
                                   <div class="col-md-12">
                                     <select class="form-control">
@@ -395,19 +395,25 @@ title:  Sales Settings
                         <section class="search-parameters">
                           <div class="row">
                             <div class="form-horizontal">
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Property Name</label>
-                                  <div class="col-sm-8">
+                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Property Name</label>
+                                  <div class="col-sm-12">
                                     <input type="text" class="form-control">
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelForm(1)">Cancel</button>
-                                </div>	
+                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-4 in-row-btn">
+                                <button type="button" class="btn btn-primary margin-r-5">Create</button>
+                                <button type="button" class="btn btn-link" ng-click="cancelForm(1)">Cancel</button>
                               </div>
                             </div>
                           </div>
@@ -425,6 +431,12 @@ title:  Sales Settings
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label class="col-md-12 control-label text-left">Property Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Description</label>
                                     <div class="col-md-12">
                                       <input type="text" class="form-control">
                                     </div>
@@ -490,20 +502,15 @@ title:  Sales Settings
                                      
                                     </div>
                                   </div>
+                                 
+                                </div>
+                                <div class="col-md-6">
                                   <div class="form-group">
                                     <label class="col-md-12 control-label text-left">Tenant Default Value</label>
                                     <div class="col-md-12">
                                       <input type="text" class="form-control">
                                     </div>
                                   </div> 
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">Description</label>
-                                    <div class="col-md-12">
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
                                   <div class="form-group">
                                     <label class="col-md-12 control-label text-left">Value Type</label>
                                     <div class="col-md-12">
@@ -655,25 +662,31 @@ title:  Sales Settings
                       </div>
                       <div class="box-body">
                         <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Propery Name:</label>
-                                  <div class="col-sm-8">
-                                    <input type="text" class="form-control">
+                            <div class="row">
+                              <div class="form-horizontal">
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Property Name</label>
+                                    <div class="col-sm-12">
+                                      <input type="text" class="form-control">
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelFormInteraction(1)">Cancel</button>
-                                </div>	
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+                                    <div class="col-sm-12">
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4 in-row-btn">
+                                  <button type="button" class="btn btn-primary margin-r-5">Create</button>
+                                  <button type="button" class="btn btn-link" ng-click="cancelFormInteraction(2)">Cancel</button>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </section>
+                          </section>
                       </div>
                     </div>
                   </div>	
@@ -1374,15 +1387,23 @@ title:  Sales Settings
                         <section class="search-parameters">
                           <div class="row">
                             <div class="form-horizontal">
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Notification Name</label>
-                                  <div class="col-sm-8">
+                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Notification Name</label>
+                                  <div class="col-sm-12">
                                     <input type="text" class="form-control">
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-4 in-row-btn">
                                 <div class="form-group">
                                   <button type="button" class="btn btn-primary">Create</button>
                                   <button type="button" class="btn btn-link" ng-click="cancelFormAutoResponse(1)">Cancel</button>
@@ -1559,15 +1580,23 @@ title:  Sales Settings
                         <section class="search-parameters">
                           <div class="row">
                             <div class="form-horizontal">
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
-                                  <label class="col-sm-4 control-label text-left">Stock Response Name:</label>
-                                  <div class="col-sm-8">
+                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Stock Response Name</label>
+                                  <div class="col-sm-12">
                                     <input type="text" class="form-control">
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+                                  <div class="col-sm-12">
+                                    <input type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-4 in-row-btn">
                                 <div class="form-group">
                                   <button type="button" class="btn btn-primary" ng-click="showNewFormStepStockResponse('2')">Create</button>
                                   <button type="button" class="btn btn-link" ng-click="cancelFormStockResponse(1)">Cancel</button>
@@ -2054,22 +2083,30 @@ title:  Sales Settings
                               <div class="col-md-12">
                                 <div class="box box-primary">
                                   <div class="box-header with-border">
-                                    <i class="fa fa-reply"></i>
+                                    <i class="fa fa-filter"></i>
                                     <h3 class="box-title text-right">New Filter</h3>
                                   </div>
                                   <div class="box-body">
                                     <section class="search-parameters">
                                       <div class="row">
                                         <div class="form-horizontal">
-                                          <div class="col-md-6">
+                                          <div class="col-md-4">
                                             <div class="form-group">
-                                              <label class="col-sm-4 control-label text-left">Filter Name</label>
-                                              <div class="col-sm-8">
+                                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Filter Name</label>
+                                              <div class="col-sm-12">
                                                 <input type="text" class="form-control">
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="col-md-6">
+                                          <div class="col-md-4">
+                                            <div class="form-group">
+                                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+                                              <div class="col-sm-12">
+                                                <input type="text" class="form-control">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-4 in-row-btn">
                                             <div class="form-group">
                                               <button type="button" class="btn btn-primary">Create</button>
                                               <button type="button" class="btn btn-link" ng-click="cancelFormFilter(1)">Cancel</button>
@@ -2542,23 +2579,34 @@ title:  Sales Settings
                             <div class="col-md-12">
                               <div class="box box-primary">
                                 <div class="box-header with-border">
-                                  <i class="fa fa-reply"></i>
+                                  <span class="fa-stack new-account-icon">
+                                    <i class="fa fa-connectdevelop"></i>
+                                    <i class="fa fa-filter icon-plus"></i> 
+                                  </span>
                                   <h3 class="box-title text-right">Group Filter</h3>
                                 </div>
                                 <div class="box-body">
                                   <section class="search-parameters">
                                     <div class="row">
                                       <div class="form-horizontal">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                           <div class="form-group">
-                                            <label class="col-sm-4 control-label text-left">Group Name</label>
-                                            <div class="col-sm-8">
+                                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Group Name</label>
+                                            <div class="col-sm-12">
+                                              <input type="text" class="form-control">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+                                            <div class="col-sm-12">
                                               <input type="text" class="form-control">
                                             </div>
                                           </div>
                                         </div>
                                       
-                                        <div class="col-md-2">
+                                        <div class="col-md-4 in-row-btn">
                                           <div class="form-group">
                                             <button type="button" class="btn btn-primary">Create</button>
                                             <button type="button" class="btn btn-link" ng-click="cancelFormGroup(1)">Cancel</button>

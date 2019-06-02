@@ -151,19 +151,25 @@ title: Skills Settings
 									<section class="search-parameters">
 										<div class="row">
 											<div class="form-horizontal">
-												<div class="col-md-6">
+												<div class="col-md-4">
 													<div class="form-group">
-														<label class="col-sm-3 control-label text-left">Skill Name</label>
-														<div class="col-sm-9">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Skill Name</label>
+														<div class="col-sm-12">
 															<input type="text" class="form-control">
 														</div>
 													</div>
 												</div>
-												<div class="col-md-6">
+												<div class="col-md-4">
 													<div class="form-group">
-														<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
-														<button type="button" class="btn btn-link">Cancel</button>
-													</div>	
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+														<div class="col-sm-12">
+															<input type="text" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="col-md-4 in-row-btn">
+													<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
+													<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
 												</div>
 											</div>
 										</div>

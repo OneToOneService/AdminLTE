@@ -167,25 +167,31 @@ title: Service Level Settings
 								</div>
 								<div class="box-body">
 									<section class="search-parameters">
-										<div class="row">
-											<div class="form-horizontal">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="col-sm-4 control-label text-left">Service Level Name</label>
-														<div class="col-sm-8">
-															<input type="text" class="form-control">
+											<div class="row">
+												<div class="form-horizontal">
+													<div class="col-md-4">
+														<div class="form-group">
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Service Level Name</label>
+															<div class="col-sm-12">
+																<input type="text" class="form-control">
+															</div>
 														</div>
 													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
-														<button type="button" class="btn btn-link">Cancel</button>
-													</div>	
+													<div class="col-md-4">
+														<div class="form-group">
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+															<div class="col-sm-12">
+																<input type="text" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4 in-row-btn">
+														<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
+														<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+													</div>
 												</div>
 											</div>
-										</div>
-									</section>
+										</section>
 								</div>
 							</div>
 						</div>	
