@@ -457,52 +457,6 @@ title:  Sales Settings
                                       </select>
                                     </div>
                                   </div>
-                                   <div class="form-group">
-                                    <div class="col-md-12">
-                                      <div class="checkbox">
-                                         <label>
-                                          <input type="checkbox" checkbox> Shared Property
-                                        </label> 
-                                      </div> 
-                                     
-                                      <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[showgroup]">
-                                         <label>
-                                          <input type="checkbox" checkbox  ng-model="showgroup">Allow Multiple Values
-                                        </label> 
-                                        <div class="checkbox nested" ng-show="showgroup">
-                                              <label>
-                                                <input type="checkbox" checkbox checked="checked" ng-model="showdescriptionvalue">Has Descriptions
-                                              </label> 
-                                              <div class="form-group" ng-show="showdescriptionvalue">
-                                                <label class="col-md-12 control-label text-left">Value Description Type</label>
-                                                <div class="col-md-12">
-                                                  <select class="form-control">
-                                                    <option value="date">Date</option>
-                                                    <option value="int">Integer</option>
-                                                    <option value="number">Number</option>
-                                                    <option selected="selected" value="text">Text</option>
-                                                    <option value="detail3">Address Type</option>
-                                                    <option value="detail5">Article Use Code</option>
-                                                    <option value="detail2">Bool</option>
-                                                    <option value="detail1">Customer Type</option>
-                                                    <option value="detail7">Equipment Type List</option>
-                                                    <option value="detail13">increase decrease list</option>
-                                                    <option value="detail6">New or Change</option>
-                                                    <option value="detail9">Owner List</option>
-                                                    <option value="detail4">Phone Number Type</option>
-                                                    <option value="detail8">Priority List</option>
-                                                    <option value="detail12">Reason List</option>
-                                                    <option value="detail11">Team</option>
-                                                    <option value="detail10">Won or Lost</option>
-                                                  </select>  
-                                                </div>
-                                              </div>
-                                        </div> 
-                                      </div> 
-                                     
-                                    </div>
-                                  </div>
-                                 
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-group">
@@ -538,23 +492,81 @@ title:  Sales Settings
                                       <input type="text" class="form-control">
                                     </div>
                                   </div>
-                                  <div class="checkbox">
-                                      <label>
-                                       <input type="checkbox" checkbox>Multi-Line Values
-                                     </label> 
-                                  </div> 
-                                  <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[showcontacteditable]">
-                                      <label>
-                                       <input type="checkbox" checkbox ng-model="showcontacteditable">Contact Viewable
-                                     </label> 
-                                     <div class="checkbox nested" ng-show="showcontacteditable">
-                                         <label>
-                                           <input type="checkbox" checkbox checked="checked">Contact Editable
-                                         </label> 
-                                    </div>
-                                   </div> 
+                                                           
                                 </div>
-                                   
+
+                                <h4 class="col-md-12">Optional Settings</h4>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                      <div class="checkbox">
+                                          <label>
+                                              <input type="checkbox" class="icheck" ng-model="toggle.required" ui-switch="{ size: 'small' }"> Required Property
+                                          </label> 
+                                        </div> 
+                                        <div class="checkbox">
+                                           <label>
+                                            <input type="checkbox" class="icheck" ng-model="toggle.sharedproperty" ui-switch="{ size: 'small' }"> Shared Property
+                                          </label> 
+                                        </div> 
+                                        <div class="checkbox">
+                                          <label>
+                                           <input type="checkbox" class="icheck" ng-model="toggle.multiline" ui-switch="{ size: 'small' }">Multi-Line Values
+                                         </label> 
+                                      </div> 
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[toggle.showgroup]" >
+                                            <label>
+                                            <input type="checkbox" class="icheck" ng-model="toggle.showgroup" ui-switch="{ size: 'small' }">Allow Multiple Values
+                                          </label> 
+                                          <div class="checkbox nested" ng-show="toggle.showgroup">
+                                                <label>
+                                                  <input type="checkbox" class="icheck" ng-model="toggle.showdescriptionvalue" ui-switch="{ size: 'small' }" ng-model="toggle.showdescriptionvalue">Has Descriptions
+                                                </label> 
+                                                <div class="form-group" ng-show="toggle.showdescriptionvalue">
+                                                  <label class="col-md-12 control-label text-left">Value Description Type</label>
+                                                  <div class="col-md-12">
+                                                    <select class="form-control">
+                                                      <option value="date">Date</option>
+                                                      <option value="int">Integer</option>
+                                                      <option value="number">Number</option>
+                                                      <option selected="selected" value="text">Text</option>
+                                                      <option value="detail3">Address Type</option>
+                                                      <option value="detail5">Article Use Code</option>
+                                                      <option value="detail2">Bool</option>
+                                                      <option value="detail1">Customer Type</option>
+                                                      <option value="detail7">Equipment Type List</option>
+                                                      <option value="detail13">increase decrease list</option>
+                                                      <option value="detail6">New or Change</option>
+                                                      <option value="detail9">Owner List</option>
+                                                      <option value="detail4">Phone Number Type</option>
+                                                      <option value="detail8">Priority List</option>
+                                                      <option value="detail12">Reason List</option>
+                                                      <option value="detail11">Team</option>
+                                                      <option value="detail10">Won or Lost</option>
+                                                    </select>  
+                                                  </div>
+                                                </div>
+                                          </div> 
+                                        </div> 
+                                        
+                                        <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[toggle.showcontviewable]">
+                                            <label>
+                                            <input type="checkbox" class="icheck"  ui-switch="{ size: 'small' }" ng-model="toggle.showcontviewable">Contact Viewable
+                                            </label> 
+                                            <div class="checkbox nested" ng-show="toggle.showcontviewable">
+                                              <label>
+                                                <input type="checkbox" checkbox checked="checked" class="icheck"  ui-switch="{ size: 'small' }" ng-model="toggle.showcontacteditable">Contact Editable
+                                              </label> 
+                                            </div>
+                                        </div> 
+                                    </div>                              
+                                </div>
+                                
+
+
                                 <div class="col-md-12 col-sm-12">
                                   <button class="btn btn-primary pull-left" type="button">Save</button>
                                 </div>
@@ -833,7 +845,7 @@ title:  Sales Settings
                                         </label> 
                                         <div class="checkbox nested">
                                               <label>
-                                                <input type="checkbox" checkbox checked="checked">Has Descriptions
+                                                <input type="checkbox" checkbox checked="checked">Use Description For Each Value
                                               </label> 
                                               <div class="form-group">
                                                 <label class="col-md-12 control-label text-left">Value Description Type</label>
@@ -2153,21 +2165,21 @@ title:  Sales Settings
                                             <div class="form-group">
                                               <label class="col-md-12 control-label text-left">Match In</label>
                                               <div class="row">
-                                                <div class="checkbox col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">Subject</label>
-                                                </div> 
                                                 <div class="checkbox  col-md-3">
                                                   <label><input type="checkbox" class="flat-red">Body</label>
                                                 </div>
                                                 <div class="checkbox  col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">Mailbox Name</label>
+                                                  <label><input type="checkbox" class="flat-red">Contact Properties</label>
                                                 </div>
                                                 <div class="checkbox  col-md-3">
                                                   <label><input type="checkbox" class="flat-red">From</label>
                                                 </div>
                                                 <div class="checkbox  col-md-3">
-                                                  <label><input type="checkbox" class="flat-red">Contact Properties</label>
-                                                </div>
+                                                  <label><input type="checkbox" class="flat-red">Mailbox Name</label>
+                                                </div>     
+                                                <div class="checkbox col-md-3">
+                                                  <label><input type="checkbox" class="flat-red">Subject</label>
+                                                </div> 
                                                 <div class="checkbox  col-md-3">
                                                   <label><input type="checkbox" class="flat-red">Text Attachments</label>
                                                 </div>
@@ -2646,7 +2658,7 @@ title:  Sales Settings
                                           <div class="form-group">
                                             <div class="checkbox">
                                               <label>
-                                                 <input type="checkbox" checkbox> Always Run All Filters
+                                                 <input type="checkbox" class="icheck" ng-model="toggle.required" ui-switch="{ size: 'small' }"> Always Run All Filters
                                               </label> 
                                             </div> 
                                           </div>    
@@ -2657,7 +2669,7 @@ title:  Sales Settings
                                           <div class="filtergroup row">
                                             <button type="button" class="btn btn-link arrow"><i class="fa fa-arrows-h"></i></button>
                                             <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
-                                              <label class="control-label text-left">{% raw %}{{(listName == 'Availablefilter') ? 'Available Filter (Drage filters to add them to the group)' : 'Included Filter'}}{% endraw %}</label>
+                                              <label class="control-label text-left">{% raw %}{{(listName == 'Availablefilter') ? 'Available Filters (Drag filters to add them to the group)' : 'Included Filters'}}{% endraw %}</label>
                                               <div class="col-md-12 filter-box">
                                                   <ul dnd-list="list">
                                                       <li ng-repeat="item in list"

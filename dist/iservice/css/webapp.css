@@ -2921,3 +2921,8 @@ table.dataTable {
 .groupbg-checkbox .nested {
   padding-right: 15px;
 }
+.form-horizontal .checkbox,
+.form-horizontal .radio {
+  clear: both;
+  margin-bottom: 8px;
+}
