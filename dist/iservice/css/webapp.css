@@ -2930,3 +2930,6 @@ table.dataTable {
   max-height: 350px;
   overflow-y: scroll;
 }
+.data-label {
+  font-size: 16px;
+}
