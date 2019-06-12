@@ -31,194 +31,194 @@ title: New Account
       <!-- Main content -->
       <section class="content" ng-controller="myCtrl">
         <div class="row">
-                <div class="col-xs-12 col-sm-12 panel-group">
-                  <div class="box box-info">
-                    <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment1')">
-                      <h3 class="box-title">Account Information</h3>
-                      <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment1}"></span>
-                    </div>
-                    <div class="box-body in collapse" uib-collapse="segment1">
-                      <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                          <div>
-                            <div class="form-group floating-label">
-                              <input type="text" value="">
-                              <label>Account Name</label>
-                            </div>
-                          </div>
-                          <div class="form-group floating-label multiple">
-                            <label>Phone</label>
-                            <div class="float-btn-group">
-                              <button class="margin-5 icon-button button-delete" type="button">
-                                <i class="fa fa-times-circle"></i>
-                              </button>
-                              <select><option label="Fax" value="string:Fax" selected="selected">Fax</option><option label="Home" value="string:Home">Home</option><option label="Mobile" value="string:Mobile">Mobile</option><option label="Work" value="string:Work">Work</option></select>
-                              <input value="" type="text">
-                            </div>
-                            <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
-                              <i class="fa fa-plus-circle"></i>
-                            </button>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label multiple">
-                              <label>Account Type</label>
-                              <div class="float-btn-group">
-                                <button class="margin-5 icon-button button-delete" type="button">
-                                  <i class="fa fa-times-circle"></i>
-                                </button>
-                                <select>
-                                  <option label="Customer" value="">Customer</option>
-                                  <option label="Vendor" value="">Vendor</option>
-                                </select>
-                              </div>
-                              <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
-                                <i class="fa fa-plus-circle"></i>
-                              </button>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label">
-                              <input type="text" value="">
-                              <label>Website</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                          <div class="ng-scope">
-                            <div class="form-group floating-label group-bg detail-g-borderbottom">
-                              <input type="text" value="">
-                              <label class="ng-binding">Address1</label>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
-                              <input type="text" value="">
-                              <label class="ng-binding">Address2</label>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
-                              <input type="text" value="">
-                              <label class="ng-binding">City</label>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
-                              <input type="text" value="">
-                              <label class="ng-binding">State</label>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
-                              <input type="text" value="">
-                              <label class="ng-binding">Postal Code</label>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label group-bg detail-g-bordertop">
-                              <input type="text" value="">
-                              <label class="ng-binding">Country</label>
-                            </div>
-                          </div>
-                        </div>
+          <div class="col-xs-12 col-sm-12 panel-group">
+            <div class="box box-info">
+              <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment1')">
+                <h3 class="box-title">Account Information</h3>
+                <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment1}"></span>
+              </div>
+              <div class="box-body in collapse" uib-collapse="segment1">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div>
+                      <div class="form-group floating-label">
+                        <input type="text" value="">
+                        <label>Account Name</label>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
-                      <strong>…</strong>
-                    </button>
-                  </div>
-                  <div class="box box-success">
-                    <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment3')">
-                      <h3 class="box-title ng-binding">Segment1</h3>
-                      <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment3}"></span>
-                    </div>
-                    <div class="box-body in collapse" uib-collapse="segment3">
-                      <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                          <div>
-                            <div class="form-group floating-label property-text">
-                              <input type="text" value="">
-                              <label>Text</label>
-                            </div>
-                          </div><div>
-                            <div class="form-group floating-label property-date">
-                              <input type="text" value="">
-                              <label>Date</label>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="form-group floating-label property-additional-detail">
-                              <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="detail1a" value="string:detail1a">detail1a</option><option label="detail1b" value="string:detail1b">detail1b</option><option label="detail1c" value="string:detail1c">detail1c</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
-                              <label>Additional Detail</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                          <div>
-                            <div class="form-group floating-label property-existing-phone-property">
-                              <select class="ng-pristine ng-untouched ng-valid ng-empty"><option value="string:"></option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
-                              <label>Existing Phone Property</label>
-                            </div>
-                          </div><div>
-                            <div class="form-group floating-label property-svc-level-5-min">
-                              <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="False" value="string:False">False</option><option label="True" value="string:True">True</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
-                              <label>Svc Level 5 Min</label>
-                            </div>
-                          </div>
-                        </div>
+                    <div class="form-group floating-label multiple">
+                      <label>Phone</label>
+                      <div class="float-btn-group">
+                        <button class="margin-5 icon-button button-delete" type="button">
+                          <i class="fa fa-times-circle"></i>
+                        </button>
+                        <select><option label="Fax" value="string:Fax" selected="selected">Fax</option><option label="Home" value="string:Home">Home</option><option label="Mobile" value="string:Mobile">Mobile</option><option label="Work" value="string:Work">Work</option></select>
+                        <input value="" type="text">
                       </div>
-                      <div>
-                        <div class="form-group floating-label multiple ng-hide">
-                          <label>Logins</label>
-                          <button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
-                            <i class="fa fa-plus-circle"></i>
+                      <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+                        <i class="fa fa-plus-circle"></i>
+                      </button>
+                    </div>
+                    <div>
+                      <div class="form-group floating-label multiple">
+                        <label>Account Type</label>
+                        <div class="float-btn-group">
+                          <button class="margin-5 icon-button button-delete" type="button">
+                            <i class="fa fa-times-circle"></i>
                           </button>
+                          <select>
+                            <option label="Customer" value="">Customer</option>
+                            <option label="Vendor" value="">Vendor</option>
+                          </select>
                         </div>
+                        <button class="margin-5 icon-button button-add-row" type="button" ng-show="!property.isReadOnly" ng-click="addValue(property)">
+                          <i class="fa fa-plus-circle"></i>
+                        </button>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-default btn-xs margin-5 ng-hide" ng-show="isCollapsed(segment.name)">
-                      <strong>…</strong>
-                    </button>
+                    <div>
+                      <div class="form-group floating-label">
+                        <input type="text" value="">
+                        <label>Website</label>
+                      </div>
+                    </div>
                   </div>
-                  <div class="box box-danger">
-                    <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment4')">
-                      <h3 class="box-title ng-binding">Segment2</h3>
-                      <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment4}"></span>
-                    </div>
-                    <div class="box-body in collapse" uib-collapse="segment4">
-                      <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                          <div>
-                            <div class="form-group floating-label property-s2only">
-                              <input type="text" value="">
-                              <label>s2only</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                        </div>
-                      </div>
-                      <div>
-                        <div class="form-group floating-label multiple ng-hide">
-                          <label>Logins</label>
-                          <button class="margin-5 icon-button button-add-row" type="button">
-                            <i class="fa fa-plus-circle"></i>
-                          </button>
-                        </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="ng-scope">
+                      <div class="form-group floating-label group-bg detail-g-borderbottom">
+                        <input type="text" value="">
+                        <label class="ng-binding">Address1</label>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
-                      <strong>…</strong>
+                    <div>
+                      <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                        <input type="text" value="">
+                        <label class="ng-binding">Address2</label>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                        <input type="text" value="">
+                        <label class="ng-binding">City</label>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                        <input type="text" value="">
+                        <label class="ng-binding">State</label>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="form-group floating-label group-bg detail-g-borderbottom detail-g-bordertop">
+                        <input type="text" value="">
+                        <label class="ng-binding">Postal Code</label>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="form-group floating-label group-bg detail-g-bordertop">
+                        <input type="text" value="">
+                        <label class="ng-binding">Country</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+                <strong>…</strong>
+              </button>
+            </div>
+            <div class="box box-success">
+              <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment3')">
+                <h3 class="box-title ng-binding">Segment1</h3>
+                <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment3}"></span>
+              </div>
+              <div class="box-body in collapse" uib-collapse="segment3">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div>
+                      <div class="form-group floating-label property-text">
+                        <input type="text" value="">
+                        <label>Text</label>
+                      </div>
+                    </div><div>
+                      <div class="form-group floating-label property-date">
+                        <input type="text" value="">
+                        <label>Date</label>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="form-group floating-label property-additional-detail">
+                        <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="detail1a" value="string:detail1a">detail1a</option><option label="detail1b" value="string:detail1b">detail1b</option><option label="detail1c" value="string:detail1c">detail1c</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                        <label>Additional Detail</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div>
+                      <div class="form-group floating-label property-existing-phone-property">
+                        <select class="ng-pristine ng-untouched ng-valid ng-empty"><option value="string:"></option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                        <label>Existing Phone Property</label>
+                      </div>
+                    </div><div>
+                      <div class="form-group floating-label property-svc-level-5-min">
+                        <select class="ng-pristine ng-untouched ng-valid ng-empty"><option label="False" value="string:False">False</option><option label="True" value="string:True">True</option><option label="-- select a value --" value="string:" selected="selected">-- select a value --</option></select>
+                        <label>Svc Level 5 Min</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="form-group floating-label multiple ng-hide">
+                    <label>Logins</label>
+                    <button class="margin-5 icon-button button-add-row" type="button" ng-click="AddLoginClick()">
+                      <i class="fa fa-plus-circle"></i>
                     </button>
                   </div>
                 </div>
               </div>
-              <button class="btn btn-primary" type="button" ng-click="">
-                Create Account
+              <button type="button" class="btn btn-default btn-xs margin-5 ng-hide" ng-show="isCollapsed(segment.name)">
+                <strong>…</strong>
               </button>
-              <button class="btn btn-link" type="button" ng-click="">
-                Cancel
+            </div>
+            <div class="box box-danger">
+              <div class="box-header with-border" ng-click="toggleSegmentCollapsedState('segment4')">
+                <h3 class="box-title ng-binding">Segment2</h3>
+                <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right expanded" ng-class="{'chevron-expand-indicator_expanded': !segment4}"></span>
+              </div>
+              <div class="box-body in collapse" uib-collapse="segment4">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div>
+                      <div class="form-group floating-label property-s2only">
+                        <input type="text" value="">
+                        <label>s2only</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                  </div>
+                </div>
+                <div>
+                  <div class="form-group floating-label multiple ng-hide">
+                    <label>Logins</label>
+                    <button class="margin-5 icon-button button-add-row" type="button">
+                      <i class="fa fa-plus-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-default btn-xs margin-5 ng-hide">
+                <strong>…</strong>
               </button>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="button" ng-click="">
+          Create Account
+        </button>
+        <button class="btn btn-link" type="button" ng-click="">
+          Cancel
+        </button>
       </section>
     </div>
    
