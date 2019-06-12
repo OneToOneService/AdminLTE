@@ -143,7 +143,7 @@ title:  Sales Settings
                             <div class="form-group">
                               <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" /> This Segment Manages Interactions (Standard Segment)
+                                  <iservice-switch switched="toggle.switch3" /> This Segment Manages Interactions (Standard Segment)
                                 </label>
                               </div>
                             </div> 
@@ -241,7 +241,7 @@ title:  Sales Settings
                             <div class="form-group">
                               <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" />Queue all unassigned interactions for same contact with Get Next
+                                    <iservice-switch switched="toggle.switch6" />Queue all unassigned interactions for same contact with Get Next
                                 </label>
                               </div>  
                             </div>
@@ -250,7 +250,7 @@ title:  Sales Settings
                             <div class="form-group">
                               <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" ng-model="toggle.switch7" ui-switch="{ size: 'small' }" /> Enable Mail Retrieving
+                                  <iservice-switch switched="toggle.switch7" /> Enable Mail Retrieving
                                 </label>
                               </div>  
                             </div> 
@@ -324,19 +324,19 @@ title:  Sales Settings
                                     Owner List
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch3" />
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch4" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch4" />
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch5" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch5" />
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch6" />
                                   </td> 
                                   <td>
-                                     <input type="checkbox" ng-model="toggle.switch7" ui-switch="{ size: 'small' }" />
+                                     <iservice-switch switched="toggle.switch7" />
                                   </td>  
                                 </tr>
                               </tbody>
@@ -500,17 +500,17 @@ title:  Sales Settings
                                    <div class="form-group">
                                       <div class="checkbox">
                                           <label>
-                                              <input type="checkbox" class="icheck" ng-model="toggle.required" ui-switch="{ size: 'small' }"> Required Property
+                                              <iservice-switch switched="toggle.required" /> Required Property
                                           </label> 
                                         </div> 
                                         <div class="checkbox">
                                            <label>
-                                            <input type="checkbox" class="icheck" ng-model="toggle.sharedproperty" ui-switch="{ size: 'small' }"> Shared Property
+                                            <iservice-switch switched="toggle.sharedproperty" /> Shared Property
                                           </label> 
                                         </div> 
                                         <div class="checkbox">
                                           <label>
-                                           <input type="checkbox" class="icheck" ng-model="toggle.multiline" ui-switch="{ size: 'small' }">Multi-Line Values
+                                           <iservice-switch switched="toggle.multiline" />Multi-Line Values
                                          </label> 
                                       </div> 
                                   </div>
@@ -519,11 +519,11 @@ title:  Sales Settings
                                     <div class="form-group">
                                         <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[toggle.showgroup]" >
                                             <label>
-                                            <input type="checkbox" class="icheck" ng-model="toggle.showgroup" ui-switch="{ size: 'small' }">Allow Multiple Values
+                                            <iservice-switch switched="toggle.showgroup" />Allow Multiple Values
                                           </label> 
                                           <div class="checkbox nested" ng-show="toggle.showgroup">
                                                 <label>
-                                                  <input type="checkbox" class="icheck" ng-model="toggle.showdescriptionvalue" ui-switch="{ size: 'small' }" ng-model="toggle.showdescriptionvalue">Has Descriptions
+                                                  <iservice-switch switched="toggle.showdescriptionvalue" />Has Descriptions
                                                 </label> 
                                                 <div class="form-group" ng-show="toggle.showdescriptionvalue">
                                                   <label class="col-md-12 control-label text-left">Value Description Type</label>
@@ -554,11 +554,11 @@ title:  Sales Settings
                                         
                                         <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[toggle.showcontviewable]">
                                             <label>
-                                            <input type="checkbox" class="icheck"  ui-switch="{ size: 'small' }" ng-model="toggle.showcontviewable">Contact Viewable
+                                              <iservice-switch switched="toggle.showcontviewable" />Contact Viewable
                                             </label> 
                                             <div class="checkbox nested" ng-show="toggle.showcontviewable">
                                               <label>
-                                                <input type="checkbox" checkbox checked="checked" class="icheck"  ui-switch="{ size: 'small' }" ng-model="toggle.showcontacteditable">Contact Editable
+                                                <iservice-switch switched="toggle.showcontacteditable" />Contact Editable
                                               </label> 
                                             </div>
                                         </div> 
@@ -1000,7 +1000,7 @@ title:  Sales Settings
                                      Sales
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch1" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch1" />
                                   </td> 
                                   <td>
                                     1
@@ -1171,12 +1171,12 @@ title:  Sales Settings
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <input type="checkbox" ng-model="toggle.switchmailretrive" ui-switch="{ size: 'small' }" /> User Encryption  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
+                                          <iservice-switch switched="toggle.switchmailretrive" /> User Encryption  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" /> Enable Mail Retrieving  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enable this setting to allow access to the mailbox. When disabled, this mailbox will be skipped by the mail popper."></i>
+                                          <iservice-switch switched="toggle.switch3" /> Enable Mail Retrieving  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enable this setting to allow access to the mailbox. When disabled, this mailbox will be skipped by the mail popper."></i>
                                         </div>
                                       </div>
                                     </div>  
@@ -1213,7 +1213,7 @@ title:  Sales Settings
                                       <h4>Optional Settings</h4> 
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <input type="checkbox" ng-model="toggle.switchsmtpauth" ui-switch="{ size: 'small' }" /> Use SMTP Authentication <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i>
+                                          <iservice-switch switched="toggle.switchsmtpauth" /> Use SMTP Authentication <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i>
                                         </div>
                                       </div>
                                       <div class="form-group bg-group" ng-show="toggle.switchsmtpauth">
@@ -1348,7 +1348,7 @@ title:  Sales Settings
                                     Agent Notification
                                   </td>
                                   <td ng-click="$event.stopPropagation()">
-                                     <input type="checkbox" ng-model="toggle.switchnoreply1" ui-switch="{ size: 'small' }" />
+                                     <iservice-switch switched="toggle.switchnoreply1" />
                                   </td>
                                 </tr>
                               </tbody>
@@ -1453,7 +1453,7 @@ title:  Sales Settings
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <div class="col-md-12 toggle-control">
-                                      <input type="checkbox" ng-model="toggle.switchnoreply" ui-switch="{ size: 'small' }" /> Use No-Reply From Address
+                                      <iservice-switch switched="toggle.switchnoreply" /> Use No-Reply From Address
                                   </div>  
                                 </div>
                               </div>
@@ -1776,7 +1776,7 @@ title:  Sales Settings
                       </div>
                       <div class="box-body search-criteria">
                         <div class="checkbox">
-                          <label class="mright-15"><input type="checkbox" class="icheck" ng-model="toggle.switchdeletedtopic" ui-switch="{ size: 'small' }" >Show Deleted Topics</label> 
+                          <label class="mright-15"><iservice-switch switched="toggle.switchdeletedtopic" />Show Deleted Topics</label> 
                         </div>
                         <div class="treeview without-numbers">
                             <ul id="tree1" class="tree">
@@ -2658,7 +2658,7 @@ title:  Sales Settings
                                           <div class="form-group">
                                             <div class="checkbox">
                                               <label>
-                                                 <input type="checkbox" class="icheck" ng-model="toggle.required" ui-switch="{ size: 'small' }"> Always Run All Filters
+                                                 <iservice-switch switched="toggle.required" /> Always Run All Filters
                                               </label> 
                                             </div> 
                                           </div>    

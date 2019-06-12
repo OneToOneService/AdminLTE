@@ -1,0 +1,64 @@
+// Switch widget from Fiddle http://jsfiddle.net/ProLoser/bM4C9/
+// https://github.com/abpetkov/switchery/issues/13
+
+// TODO: Revise this setting with Scott. Are we permanently globally setting switches color to blue?
+@switch-background-color: #00a7d0;
+@switch-disabled-color: #b5bbc8; // Grayish color
+
+// This is the name of the directive in the system. If changed later please change this CSS declaration accordingly
+iservice-switch
+{
+    display: contents;
+}
+
+.switch
+{
+    vertical-align: middle;
+    user-select: none;
+    margin: 0 2px;
+}
+
+.switch.disabled
+{
+    opacity: .5;
+}
+
+.switch input
+{
+    display: none;
+}
+
+.switch i
+{
+    display: inline-block;
+    cursor: pointer;
+    padding-right: 20px;
+    transition: all ease 0.4s;
+    border-radius: 20px;
+    border: 1px solid @switch-disabled-color;
+    box-shadow: inset 0 0 1px rgba(0,0,0,.5), inset 0 0 40px @switch-disabled-color;
+}
+
+.switch.disabled i
+{
+    cursor: not-allowed;
+}
+
+.switch i:before
+{
+    display: block;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+
+.switch :checked + i
+{
+    padding-right: 0;
+    padding-left: 20px;
+    border: 1px solid @switch-background-color;
+    box-shadow: inset 0 0 2px rgba(0,0,0,.5), inset 0 0 40px @switch-background-color;
+}

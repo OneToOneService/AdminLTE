@@ -218,7 +218,7 @@
     };
   }
 
-  function directiveIserviceInput($window, $parse, $timeout)
+  function directiveIserviceInput()
   {
     var checkBoxOptions = {
       checkboxClass: 'icheckbox_square-blue'
@@ -232,36 +232,16 @@
       require: '?ngModel',
       link: function ($scope, elem, attr, ngModel)
       {
-        var isCheckBox = false,
-          switcheryOptions,
-          switcher;
+        var isCheckBox = false;
+
+        // The iservice-switch marker attribute disables this directive handling. It's used by the Switch directive
+        if(attr.iserviceSwitch !== undefined)
+          return;
 
         switch(attr.type)
         {
           case 'checkbox':
-            if(attr.uiSwitch !== undefined)
-            {
-              switcheryOptions = $parse(attr.uiSwitch)($scope) || {};
-
-              switcheryOptions.color = '#00a7d0';
-
-              attr.$observe('disabled', function (value)
-              {
-                if(!switcher)
-                  return;
-
-                if(value)
-                  switcher.disable();
-                else
-                  switcher.enable();
-              });
-
-              initializeSwitch();
-
-              return;
-            }
-            else
-              isCheckBox = true;
+            isCheckBox = true;
 
             elem.iCheck(checkBoxOptions);
 
@@ -278,36 +258,6 @@
             return;
         }
 
-        function initializeSwitch()
-        {
-          $timeout(function ()
-          {
-            // Remove any old switcher
-            if(switcher)
-              angular.element(switcher.switcher).remove();
-
-            // (re)create switcher to reflect latest state of the checkbox element
-            switcher = new $window.Switchery(elem[0], switcheryOptions);
-
-            var element = switcher.element;
-
-            element.checked = ngModel.$modelValue;
-
-            if(attr.disabled)
-              switcher.disable();
-
-            switcher.setPosition(false);
-
-            $scope.$watch(function ()
-            {
-              return ngModel.$modelValue;
-            }, function ()
-              {
-                switcher.setPosition(false);
-              });
-          });
-        }
-
         if(attr.ngClick)
         {
           elem.on('ifClicked', function ()
@@ -322,7 +272,6 @@
           {
             v ? elem.iCheck('disable') : elem.iCheck('enable');
           });
-          //$scope.$watch(attr.ngDisabled,
         }
 
         if(ngModel)
@@ -357,6 +306,21 @@
             $scope.$apply(applyExpression);
           });
         }
+      }
+    };
+  }
+
+  function directiveIserviceSwitch()
+  {
+    return {
+      restrict: 'E',
+      // The switched attribute is mandatory and it's what gets bound to ng-model, while The disabled attribute
+      // is optional, so I made two templates to cater for that
+      // iservice-switch is a marker attribute to disable our handling for check boxes
+      template: function (element, attrs)
+      {
+        return '<label class="switch"><input type="checkbox" ng-model="' +
+          attrs.switched + '" iservice-switch /><i></i></label>';
       }
     };
   }
@@ -741,6 +705,7 @@
           element.tree();
         }
       };
-    }]).directive('input', ['$window', '$parse', '$timeout', directiveIserviceInput])
+    }]).directive('input', directiveIserviceInput)
+    .directive('iserviceSwitch', directiveIserviceSwitch)
     .directive('iserviceFilesUpload', ['$document', directiveIserviceFilesUpload]);
 })();

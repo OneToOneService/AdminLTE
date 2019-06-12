@@ -907,6 +907,47 @@ ul.timeline span.stack-icon .aqua {
 .customer-details .box-header {
   cursor: pointer;
 }
+iservice-switch {
+  display: contents;
+}
+.switch {
+  vertical-align: middle;
+  user-select: none;
+  margin: 0 2px;
+}
+.switch.disabled {
+  opacity: .5;
+}
+.switch input {
+  display: none;
+}
+.switch i {
+  display: inline-block;
+  cursor: pointer;
+  padding-right: 20px;
+  transition: all ease 0.4s;
+  border-radius: 20px;
+  border: 1px solid #b5bbc8;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 40px #b5bbc8;
+}
+.switch.disabled i {
+  cursor: not-allowed;
+}
+.switch i:before {
+  display: block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.switch :checked + i {
+  padding-right: 0;
+  padding-left: 20px;
+  border: 1px solid #00a7d0;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5), inset 0 0 40px #00a7d0;
+}
 [contenteditable]:empty:not(:focus)::before {
   content: attr(placeholder);
 }
@@ -1807,10 +1848,6 @@ label .icheckbox_square-blue {
   padding-top: 10px;
   outline: none;
 }
-.switchery-small {
-  background-color: #b5bbc8 !important;
-  width: 40px;
-}
 /*select css*/
 .ui-select-highlight {
   font-weight: bold;
@@ -2588,9 +2625,6 @@ ul li ul li.branch ul li .treeviewitem {
   margin-right: 15px;
   margin-top: 8px;
 }
-.show-notifications .switchery {
-  margin-left: 5px;
-}
 .developer-html {
   font-size: 14px;
   margin-top: 6px;
@@ -2652,9 +2686,6 @@ ul.update-list li::before {
   width: 1em;
   margin-left: -1em;
   margin-right: 10px;
-}
-.switchery-small {
-  margin-right: 5px;
 }
 .help-link {
   font-size: 12px;

@@ -143,7 +143,7 @@ title:  Customer Service Settings
                             <div class="form-group">
                               <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" /> This Segment Manages Interactions (Standard Segment)
+                                  <iservice-switch switched="toggle.switch3" /> This Segment Manages Interactions (Standard Segment)
                                 </label>
                               </div>
                             </div> 
@@ -241,7 +241,7 @@ title:  Customer Service Settings
                             <div class="form-group">
                               <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" />Queue all unassigned interactions for same contact with Get Next
+                                    <iservice-switch switched="toggle.switch6" />Queue all unassigned interactions for same contact with Get Next
                                 </label>
                               </div>  
                             </div>
@@ -250,7 +250,7 @@ title:  Customer Service Settings
                             <div class="form-group">
                               <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" ng-model="toggle.switch7" ui-switch="{ size: 'small' }" /> Enable Mail Retrieving
+                                  <iservice-switch switched="toggle.switch7" /> Enable Mail Retrieving
                                 </label>
                               </div>  
                             </div> 
@@ -324,19 +324,19 @@ title:  Customer Service Settings
                                     Owner List
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch3" />
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch4" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch4" />
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch5" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch5" />
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch6" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch6" />
                                   </td> 
                                   <td>
-                                     <input type="checkbox" ng-model="toggle.switch7" ui-switch="{ size: 'small' }" />
+                                     <iservice-switch switched="toggle.switch7" />
                                   </td>  
                                 </tr>
                               </tbody>
@@ -975,7 +975,7 @@ title:  Customer Service Settings
                                      Sales
                                   </td> 
                                   <td>
-                                    <input type="checkbox" ng-model="toggle.switch1" ui-switch="{ size: 'small' }" />
+                                    <iservice-switch switched="toggle.switch1" />
                                   </td> 
                                   <td>
                                     1
@@ -1146,12 +1146,12 @@ title:  Customer Service Settings
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <input type="checkbox" ng-model="toggle.switchmailretrive" ui-switch="{ size: 'small' }" /> User Encryption  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
+                                          <iservice-switch switched="toggle.switchmailretrive" /> User Encryption  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <input type="checkbox" ng-model="toggle.switch3" ui-switch="{ size: 'small' }" /> Enable Mail Retrieving  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enable this setting to allow access to the mailbox. When disabled, this mailbox will be skipped by the mail popper."></i>
+                                          <iservice-switch switched="toggle.switch3" /> Enable Mail Retrieving  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enable this setting to allow access to the mailbox. When disabled, this mailbox will be skipped by the mail popper."></i>
                                         </div>
                                       </div>
                                     </div>  
@@ -1188,7 +1188,7 @@ title:  Customer Service Settings
                                       <h4>Optional Settings</h4> 
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <input type="checkbox" ng-model="toggle.switchsmtpauth" ui-switch="{ size: 'small' }" /> Use SMTP Authentication <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i>
+                                          <iservice-switch switched="toggle.switchsmtpauth" /> Use SMTP Authentication <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i>
                                         </div>
                                       </div>
                                       <div class="form-group bg-group" ng-show="toggle.switchsmtpauth">
