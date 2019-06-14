@@ -1,5 +1,5 @@
 include: ['_all','_all-skins.min.css']
-exclude: ['.vs']
+exclude: ['.vs', '.git', 'node_modules']
 incremental: true
 liquid:
   error_mode        : lax
