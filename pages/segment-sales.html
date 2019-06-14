@@ -142,9 +142,7 @@ title:  Sales Settings
                           <div class="col-md-12">
                             <div class="form-group">
                               <div class="checkbox">
-                                <label>
-                                  <iservice-switch switched="toggle.switch3" /> This Segment Manages Interactions (Standard Segment)
-                                </label>
+                                <iservice-switch switched="toggle.switch3">This Segment Manages Interactions (Standard Segment)</iservice-switch>
                               </div>
                             </div> 
                           </div>
@@ -240,18 +238,14 @@ title:  Sales Settings
                           <div class="col-md-12">
                             <div class="form-group">
                               <div class="checkbox">
-                                <label>
-                                    <iservice-switch switched="toggle.switch6" />Queue all unassigned interactions for same contact with Get Next
-                                </label>
+                                <iservice-switch switched="toggle.switch6">Queue all unassigned interactions for same contact with Get Next</iservice-switch>
                               </div>  
                             </div>
                           </div>  
                           <div class="col-md-12">
                             <div class="form-group">
                               <div class="checkbox">
-                                <label>
-                                  <iservice-switch switched="toggle.switch7" /> Enable Mail Retrieving
-                                </label>
+                                <iservice-switch switched="toggle.switch7">Enable Mail Retrieving</iservice-switch>
                               </div>  
                             </div> 
                           </div> 
@@ -324,19 +318,19 @@ title:  Sales Settings
                                     Owner List
                                   </td> 
                                   <td>
-                                    <iservice-switch switched="toggle.switch3" />
+                                    <iservice-switch switched="toggle.switch3"></iservice-switch>
                                   </td> 
                                   <td>
-                                    <iservice-switch switched="toggle.switch4" />
+                                    <iservice-switch switched="toggle.switch4"></iservice-switch>
                                   </td> 
                                   <td>
-                                    <iservice-switch switched="toggle.switch5" />
+                                    <iservice-switch switched="toggle.switch5"></iservice-switch>
                                   </td> 
                                   <td>
-                                    <iservice-switch switched="toggle.switch6" />
+                                    <iservice-switch switched="toggle.switch6"></iservice-switch>
                                   </td> 
                                   <td>
-                                     <iservice-switch switched="toggle.switch7" />
+                                     <iservice-switch switched="toggle.switch7"></iservice-switch>
                                   </td>  
                                 </tr>
                               </tbody>
@@ -500,31 +494,21 @@ title:  Sales Settings
                                  <div class="col-md-6">
                                    <div class="">
                                       <div class="checkbox">
-                                          <label>
-                                              <iservice-switch switched="toggle.required" /> Required Property
-                                          </label> 
+                                          <iservice-switch switched="toggle.required">Required Property</iservice-switch>
                                         </div> 
                                         <div class="checkbox">
-                                           <label>
-                                            <iservice-switch switched="toggle.sharedproperty" /> Shared Property
-                                          </label> 
+                                           <iservice-switch switched="toggle.sharedproperty">Shared Property</iservice-switch> 
                                         </div> 
                                         <div class="checkbox">
-                                          <label>
-                                           <iservice-switch switched="toggle.multiline" />Multi-Line Values
-                                         </label> 
+                                          <iservice-switch switched="toggle.multiline">Multi-Line Values</iservice-switch> 
                                       </div> 
                                   </div>
                                 </div>
                                 <div class="col-md-6">
                                   <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[toggle.showgroup]" >
-                                      <label>
-                                      <iservice-switch switched="toggle.showgroup" />Allow Multiple Values
-                                    </label> 
+                                    <iservice-switch switched="toggle.showgroup">Allow Multiple Values</iservice-switch> 
                                     <div class="checkbox nested" ng-show="toggle.showgroup">
-                                          <label>
-                                            <iservice-switch switched="toggle.showdescriptionvalue" />Has Descriptions
-                                          </label> 
+                                          <iservice-switch switched="toggle.showdescriptionvalue">Has Descriptions</iservice-switch> 
                                           <div class="form-group" ng-show="toggle.showdescriptionvalue">
                                             <label class="col-md-12 control-label text-left">Value Description Type</label>
                                             <div class="col-md-12">
@@ -553,13 +537,9 @@ title:  Sales Settings
                                   </div> 
                                   
                                   <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[toggle.showcontviewable]">
-                                      <label>
-                                      <iservice-switch switched="toggle.showcontviewable" />Contact Viewable
-                                      </label> 
+                                    <iservice-switch switched="toggle.showcontviewable">Contact Viewable</iservice-switch>
                                       <div class="checkbox nested" ng-show="toggle.showcontviewable">
-                                        <label>
-                                          <iservice-switch switched="toggle.showcontacteditable" />Contact Editable
-                                        </label> 
+                                        <iservice-switch switched="toggle.showcontacteditable">Contact Editable</iservice-switch> 
                                       </div>
                                   </div> 
                                 </div>
@@ -996,7 +976,7 @@ title:  Sales Settings
                                      Sales
                                   </td> 
                                   <td>
-                                    <iservice-switch switched="toggle.switch1" />
+                                    <iservice-switch switched="toggle.switch1"></iservice-switch>
                                   </td> 
                                   <td>
                                     1
@@ -1167,12 +1147,18 @@ title:  Sales Settings
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <iservice-switch switched="toggle.switchmailretrive" /> User Encryption  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
+                                          <iservice-switch switched="toggle.switchmailretrive">
+                                            User Encryption
+                                            <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
+                                          </iservice-switch>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <iservice-switch switched="toggle.switch3" /> Enable Mail Retrieving  <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enable this setting to allow access to the mailbox. When disabled, this mailbox will be skipped by the mail popper."></i>
+                                          <iservice-switch switched="toggle.switch3">
+                                            Enable Mail Retrieving
+                                            <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enable this setting to allow access to the mailbox. When disabled, this mailbox will be skipped by the mail popper."></i>
+                                          </iservice-switch> 
                                         </div>
                                       </div>
                                     </div>  
@@ -1209,7 +1195,10 @@ title:  Sales Settings
                                       <h4>Optional Settings</h4> 
                                       <div class="form-group">
                                         <div class="col-md-12">
-                                          <iservice-switch switched="toggle.switchsmtpauth" /> Use SMTP Authentication <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i>
+                                          <iservice-switch switched="toggle.switchsmtpauth">
+                                            Use SMTP Authentication
+                                            <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i>
+                                          </iservice-switch>
                                         </div>
                                       </div>
                                       <div class="form-group bg-group" ng-show="toggle.switchsmtpauth">
@@ -1344,7 +1333,7 @@ title:  Sales Settings
                                     Agent Notification
                                   </td>
                                   <td ng-click="$event.stopPropagation()">
-                                     <iservice-switch switched="toggle.switchnoreply1" />
+                                     <iservice-switch switched="toggle.switchnoreply1"></iservice-switch>
                                   </td>
                                 </tr>
                               </tbody>
@@ -1449,7 +1438,7 @@ title:  Sales Settings
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <div class="col-md-12 toggle-control">
-                                      <iservice-switch switched="toggle.switchnoreply" /> Use No-Reply From Address
+                                    <iservice-switch switched="toggle.switchnoreply">Use No-Reply From Address</iservice-switch>
                                   </div>  
                                 </div>
                               </div>
@@ -1772,7 +1761,7 @@ title:  Sales Settings
                       </div>
                       <div class="box-body search-criteria">
                         <div class="checkbox">
-                          <label class="mright-15"><iservice-switch switched="toggle.switchdeletedtopic" />Show Deleted Topics</label> 
+                          <iservice-switch class="mright-15" switched="toggle.switchdeletedtopic">Show Deleted Topics</iservice-switch>
                         </div>
                         <div class="treeview without-numbers">
                             <ul id="tree1" class="tree">
@@ -2653,9 +2642,7 @@ title:  Sales Settings
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <div class="checkbox">
-                                              <label>
-                                                 <iservice-switch switched="toggle.required" /> Always Run All Filters
-                                              </label> 
+                                              <iservice-switch switched="toggle.required">Always Run All Filters</iservice-switch> 
                                             </div> 
                                           </div>    
                                         </div>

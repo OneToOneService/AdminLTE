@@ -320,8 +320,9 @@
       template: function (element, attrs)
       {
         return '<label class="switch"><input type="checkbox" ng-model="' +
-          attrs.switched + '" iservice-switch /><i></i></label>';
-      }
+          attrs.switched + '" iservice-switch /><i></i><ng-transclude></ng-transclude></label>';
+      },
+      transclude: true
     };
   }
 
