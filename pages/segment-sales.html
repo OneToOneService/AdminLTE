@@ -463,22 +463,14 @@ title:  Sales Settings
                                   <div class="form-group">
                                     <label class="col-md-12 control-label text-left">Value Type</label>
                                     <div class="col-md-12">
-                                      <select class="form-control">
-                                          <optgroup label="Value Types">
-                                            <option>Boolean</option>
-                                            <option>Date</option>
-                                            <option>Integer</option>
-                                            <option>Number</option>
-                                            <option>Text</option>
-                                          </optgroup>
-                                          <optgroup label="Lists">
-                                            <option>Customer Types</option>
-                                            <option>Priorities</option>
-                                          </optgroup>
-                                          <optgroup label="Based On Other Properties">
-                                            <option>Important Dates</option>
-                                          </optgroup>
-                                      </select>
+                                      <div class="ng-cloak" ng-controller="DemoCtrl as ctrl">
+                                        <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+                                          <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                          <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+                                            <span ng-bind-html="item.name | highlight: $select.search"></span>
+                                          </ui-select-choices>
+                                        </ui-select>
+                                      </div>
                                     </div>
                                   </div>
                                   <div class="form-group">
@@ -495,7 +487,7 @@ title:  Sales Settings
                                    <div class="">
                                       <div class="checkbox">
                                           <iservice-switch switched="toggle.required">Required Property</iservice-switch>
-                                        </div> 
+                                        </div>                                       
                                         <div class="checkbox">
                                            <iservice-switch switched="toggle.sharedproperty">Shared Property</iservice-switch> 
                                         </div> 
@@ -1139,10 +1131,13 @@ title:  Sales Settings
                                       <div class="form-group">
                                         <label class="col-md-8 control-label text-left">Filter <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Choose a filter to apply to messages received in this mailbox."></i></label>
                                         <label class="col-md-4 control-label text-right"><a href="#" class="help-link text-primary text-right">View</a></label>
-                                        <div class="col-md-12">
-                                          <select class="form-control">
-                                            <option>Test Filter</option>
-                                          </select> 
+                                        <div class="col-md-12 ng-cloak" ng-controller="FilterCtrl as ctrl">
+                                          <ui-select ng-model="ctrl.filterselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+                                            <ui-select-match placeholder="Select or search a filter in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                            <ui-select-choices repeat="filter in ctrl.filtername | filter: $select.search">
+                                              <span ng-bind-html="filter.name | highlight: $select.search"></span>
+                                            </ui-select-choices>
+                                          </ui-select>
                                         </div>
                                       </div>
                                       <div class="form-group">
@@ -3102,6 +3097,32 @@ $(document).ready(function() {
       }, true);
 
       });
+
+      app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			
+      vm.segmentselected = {selected : "Integer"};
+			vm.segment = [
+				{ name: 'Date', segmentname: 'Value Types' },
+				{ name: 'Integer', segmentname: 'Value Types' },
+        { name: 'Number', segmentname: 'Value Types' },
+				{ name: 'Text', segmentname: 'Value Types' },
+				{ name: 'Customer Types', segmentname: 'Lists' },
+				{ name: 'Priorities',  segmentname: 'Lists' },
+        { name: 'Important Dates',  segmentname: 'Based On Other Properties' },
+			];
+		});
+
+    angular.module('iService').controller('FilterCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.filter = {};
+	        vm.filterselected = {selected : "Test filter"};
+		    vm.filtername = [ 
+			{name: 'Test filter', code: ''},
+		
+		];
+	});
+   
  </script>  
 </body>
 </html>

@@ -33,13 +33,13 @@ title: Agent Email
       <section class="content" ng-controller="myCtrl">
         <div class="nav-tabs-custom color-tab-icon">
           <ul class="nav nav-tabs">
-            <li>
+            <li  class="active">
               <a href="#tab_manageform" data-toggle="tab">
                 <i class="fa fa-envelope bg-aqua-active"></i>
                 <span>Agent Email</span> 
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="#tab_agentemail" data-toggle="tab">
                 <i class="fa fa-newspaper-o orange"></i>
                 <span>Manage Form</span>
@@ -48,7 +48,7 @@ title: Agent Email
             
           </ul>
           <div class="tab-content box-bg-color">
-            <div class="tab-pane active" id="tab_agentemail">
+            <div class="tab-pane" id="tab_agentemail">
               <div class="row">
                 <div class="col-md-6 form-horizontal">
                     <div class="form-group">
@@ -63,7 +63,7 @@ title: Agent Email
                     <div class="form-group">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="icheck"  ui-switch="{ size: 'small' }" ng-model="toggle.expectcustomerreply">Expect Customer Reply (Default)
+                          <iservice-switch switched="toggle.required">Expect Customer Reply (Default)</iservice-switch>
                         </label> 
                       </div> 
                     </div>  
@@ -213,7 +213,7 @@ title: Agent Email
                 </div>
               </div>  
             </div>
-            <div class="tab-pane" id="tab_manageform">
+            <div class="tab-pane active" id="tab_manageform">
               <div class="row">
                 <div class="col-md-12">
                   <!-- Custom Tabs -->
@@ -231,13 +231,14 @@ title: Agent Email
                                           <div class="form-group">
                                               <label for="inputPassword3" class="col-sm-2 control-label">Topic</label>
                                               <div class="col-sm-10">
-                                                  <select class="form-control">
-                                                      <option>Select Topic 1</option>
-                                                      <option>option 2</option>
-                                                      <option>option 3</option>
-                                                      <option>option 4</option>
-                                                      <option>option 5</option>
-                                                  </select>
+                                                <div class="ng-cloak" ng-controller="DemoCtrl as ctrl">
+                                                  <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+                                                    <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                                    <ui-select-choices group-by="'topicname'" repeat="item in ctrl.topic | filter: $select.search">
+                                                      <span ng-bind-html="item.name | highlight: $select.search"></span>
+                                                    </ui-select-choices>
+                                                  </ui-select>
+                                                </div>
                                               </div>
                                           </div>
                                           <div class="form-group">
@@ -293,9 +294,7 @@ title: Agent Email
                                           <div class="form-group">
                                               <div class="col-sm-12">
                                                 <div class="checkbox">
-                                                  <label>
-                                                    <input type="checkbox" class="icheck"  ui-switch="{ size: 'small' }" ng-model="toggle.expectcustomerreplyagent">Expect Customer Reply
-                                                  </label> 
+                                                    <iservice-switch switched="toggle.required">Expect Customer Reply</iservice-switch>
                                                 </div> 
                                               </div>
                                           </div>
@@ -310,9 +309,14 @@ title: Agent Email
                                   <div class="col-md-4">
                                       <div class="box box-solid bg-gray list-search box-body">
                                           <div class="form-group">
-                                              <div class="col-sm-12 no-padding">
-                                                <input type="email" class="form-control" placeholder="List Search">
-                                              </div>
+                                            <div class="" ng-controller="ListCtrl as ctrl">
+                                              <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+                                                <ui-select-match placeholder="List search..." >{% raw %}{{ $item.List }}{% endraw %}</ui-select-match>
+                                                <ui-select-choices repeat="color in ctrl.availableLists | filter:$select.search">
+                                                    <span ng-bind-html="color.List | highlight: $select.search"></span>
+                                                </ui-select-choices>
+                                              </ui-select>
+                                            </div>
                                           </div>
                                       </div>
                                       <div class="nav-tabs-custom">
@@ -425,6 +429,45 @@ title: Agent Email
 				{ 
 					$scope[segmentName] = !$scope[segmentName];
 				};
+		});
+
+    angular.module('iService').controller('ListCtrl', function ($scope, $http, $timeout, $interval) {
+		  var vm = this;
+			vm.availableLists = [
+					{List: 'WG Dispatch'},
+					{List: 'WG SMF'},
+				
+			];
+			vm.multipleDemo = {};
+			vm.multipleDemo.topics = [{Topic: 'WG Dispatch'},
+					{List: 'WG SMF'}];
+		});
+
+    app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+      var vm = this;
+      vm.topicselected = {selected : "e-shop -- All Topics(0)"};
+			vm.topic = [
+					{name: 'e-shop -- All Topics(0)'},
+					{name: '.._Feedback (2)'},
+					{name: '.._Newsletter Subscription (0)'},
+					{name: '.._Spam (0)'},
+					{name: '.._Undeliverable (0)'},
+					{name: '..Account Questions (0)'},
+					{name: '....Orders (0)'},
+					{name: '....Refunds (0)'},
+					{name: '....Returns (0)'},
+					{name: '..Products(0)'},
+					{name: '....Audio-Video (0)'},
+					{name: '....Cameras (0)'},
+					{name: '....Cell Phones (0)'},
+					{name: '....Computers (0)'},
+					{name: '....Televisions(0)'},
+					{name: '..Shipping (0)'},
+					{name: '..Technical Support (0)'},
+					{name: '....Open Quotes (1)'}
+				
+			];
+		
 		});
 	</script>
 </body>

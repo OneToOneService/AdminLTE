@@ -348,10 +348,13 @@ title: Mailing Campaigns
 																		<div class="col-md-3">
 																			<div class="form-group">
 																				<label for="inputPassword3" class="col-md-12 control-label text-left">Mailbox</label>
-																				<div class="col-sm-12">
-																					<select class="form-control">
-																						<option value="">Sales (sales@1to1service.com)</option>
-																					</select>
+																				<div class="col-sm-12 ng-cloak" ng-controller="FromEmailCtrl as ctrl">
+																					<ui-select ng-model="ctrl.mailboxselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox list">
+																					  <ui-select-match placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																					  <ui-select-choices repeat="mailboxlist in ctrl.mailboxname | filter: $select.search">
+																						<span ng-bind-html="mailboxlist.name | highlight: $select.search"></span>
+																					  </ui-select-choices>
+																					</ui-select>
 																				</div>
 																			</div>
 																		</div>
@@ -949,10 +952,13 @@ title: Mailing Campaigns
 					<td>	
 							<div class="form-group">
 								<label for="inputPassword3" class="control-label text-left">Mailbox</label>
-								<div>
-									<select class="form-control">
-										<option value="">Sales (sales@1to1service.com)</option>
-									</select>
+								<div class="ng-cloak" ng-controller="FromEmailCtrl as ctrl">
+									<ui-select ng-model="ctrl.mailboxselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox list">
+									  <ui-select-match placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+									  <ui-select-choices repeat="mailboxlist in ctrl.mailboxname | filter: $select.search">
+										<span ng-bind-html="mailboxlist.name | highlight: $select.search"></span>
+									  </ui-select-choices>
+									</ui-select>
 								</div>
 							</div>
 					</td>
@@ -1140,6 +1146,17 @@ title: Mailing Campaigns
 		$scope[segmentName] = !$scope[segmentName];
 	  };
     });
+
+	angular.module('iService').controller('FromEmailCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.mailbox = {};
+	        vm.mailboxselected = {selected : "Sales (sales@1to1service.com)"};
+		    vm.mailboxname = [ 
+			{name: 'Sales (sales@1to1service.com)', code: ''},
+		
+		];
+	});
+
 
 	</script>
 </body>

@@ -243,23 +243,25 @@ title: Mailings
 																		<h4>Message Recipients</h4>
 																		<div class="form-group">
 																			<label class="col-sm-12 control-label text-left">Select Your Mailing List</label>
-																			<div class="col-sm-12">
-																				<select class="form-control">
-																					<option>--Select--</option>
-																					<option>Customer Notice</option>
-																					<option>Employee</option>
-																					<option>Sales Prospecting</option>		
-																				</select>	
+																			<div class="col-sm-12 ng-cloak" ng-controller="MailingListCtrl as ctrl">
+																				<ui-select ng-model="ctrl.mailinglistselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailing list">
+																				  <ui-select-match placeholder="Select or search a mailing list in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																				  <ui-select-choices repeat="mailinglist in ctrl.mailinglistname | filter: $select.search">
+																					<span ng-bind-html="mailinglist.name | highlight: $select.search"></span>
+																				  </ui-select-choices>
+																				</ui-select>
 																			</div>
 																		</div>
 																		<h4>Your Message</h4>
 																		<div class="form-group">
 																			<label class="col-sm-12 control-label text-left">Select Your Message</label>
-																			<div class="col-sm-12">
-																				<select class="form-control">
-																					 <option>Free Shipping Offer</option>
-																					 <option>Monthly Discount</option>
-																				</select>	
+																			<div class="col-sm-12 ng-cloak" ng-controller="MessageCtrl as ctrl">
+																				<ui-select ng-model="ctrl.messageselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a message list">
+																				  <ui-select-match placeholder="Select or search a message in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																				  <ui-select-choices repeat="messagelist in ctrl.messagename | filter: $select.search">
+																					<span ng-bind-html="messagelist.name | highlight: $select.search"></span>
+																				  </ui-select-choices>
+																				</ui-select>
 																			</div>
 																		</div>
 																		<h4>Sender Information</h4>
@@ -271,11 +273,13 @@ title: Mailings
 																		</div>
 																		<div class="form-group">
 																			<label class="col-sm-12 control-label text-left">From Mailbox</label>
-																			<div class="col-sm-12">
-																					<select class="form-control">
-																						<option>--Select Mailbox--</option>
-																						<option>"Pushbullet" &lt;customer1@1to1service.com&gt;</option>
-																					</select>	
+																			<div class="col-sm-12 ng-cloak" ng-controller="FromEmailCtrl as ctrl">
+																				<ui-select ng-model="ctrl.mailboxselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox list">
+																				  <ui-select-match placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																				  <ui-select-choices repeat="mailboxlist in ctrl.mailboxname | filter: $select.search">
+																					<span ng-bind-html="mailboxlist.name | highlight: $select.search"></span>
+																				  </ui-select-choices>
+																				</ui-select>
 																			</div>
 																		</div>
 																	</div>
@@ -301,13 +305,13 @@ title: Mailings
 																		<h4>Limit Your Recipients</h4>
 																		<div class="form-group">
 																			<label class="col-sm-12 control-label text-left">Select A Criteria</label>
-																			<div class="col-sm-12">
-																				<select class="form-control" ng-change="changecriteria()" ng-model="criteriaselected">
-																						<option value="">--None--</option>
-																						<option value="test list">Test List</option>
-																						<option value="internal only">Internal Only</option>
-																				</select>	
-																				<p class="input-text"> To send your message to all contacts on the selected list, choose --None-- for your criteria.</p>
+																			<div class="col-sm-12 ng-cloak" ng-controller="CriteriaCtrl as ctrl">
+																				<ui-select ng-model="ctrl.criteriaselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a criteria">
+																				  <ui-select-match placeholder="Select or search a criteria in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																				  <ui-select-choices repeat="criterialist in ctrl.criterianame | filter: $select.search">
+																					<span ng-bind-html="criterialist.name | highlight: $select.search"></span>
+																				  </ui-select-choices>
+																				</ui-select>
 																			</div>
 																		</div>
 																		<div class="form-group" ng-show="showmailing">
@@ -487,6 +491,50 @@ title: Mailings
 		$scope[segmentName] = !$scope[segmentName];
 	  };
     });
+
+	angular.module('iService').controller('MailingListCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+		vm.mailinglist = {};
+	    vm.mailinglistselected = {selected : "Customer Notice"};
+		vm.mailinglistname = [ 
+			{name: 'Customer Notice'},
+			{name: 'Employee'},
+			{name: 'Sales Prospecting'}
+		];
+	});
+
+	angular.module('iService').controller('MessageCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+		vm.message = {};
+	    vm.messageselected = {selected : "Free Shipping Offer"};
+		vm.messagename = [ 
+			{name: 'Free Shipping Offer'},
+			{name: 'Monthly Discount'},
+		];
+	});
+
+	angular.module('iService').controller('FromEmailCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.mailbox = {};
+	        vm.mailboxselected = {selected : "--Default MailBox--"};
+		    vm.mailboxname = [ 
+			{name: '--Default MailBox--', code: ''},
+			{name: 'Customer Support (support@example.com)', code: ''},
+			{name: 'Sales (Sales@example.com)', code: ''},
+			{name: 'Technical Support (technicalsupport@example.com)', code: ''},
+		];
+	});
+
+	angular.module('iService').controller('CriteriaCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.criteria = {};
+	        vm.criteriaselected = {selected : "Test list"};
+		    vm.criterianame = [ 
+			{name: 'Test list', code: ''},
+			{name: 'Internal only', code: ''},
+			
+		];
+	});
 
 	</script>
 </body>
