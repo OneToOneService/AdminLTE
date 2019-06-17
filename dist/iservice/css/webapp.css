@@ -1789,7 +1789,10 @@ label .icheckbox_square-blue {
 }
 .dropdown-menu {
   z-index: 99999;
-  min-width: 400px !important;
+  min-width: 400px;
+}
+.uib-datepicker-popup.dropdown-menu {
+  min-width: auto !important;
 }
 .dropdown-menu-btn-option > li {
   padding: 3px 8px;

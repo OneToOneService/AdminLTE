@@ -25,7 +25,7 @@ title: Widget
       </section>
 
       <!-- Main content -->
-      <section class="content">
+      <section class="content" ng-controller="myCtrl">
         <h2 class="page-header">Progress Bars</h2>
         <div class="row">
           <div class="col-md-6">
@@ -188,7 +188,7 @@ title: Widget
                     <div class="input-group-addon" ng-click="isDatepickerOpen = !isDatepickerOpen">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpen = !isDatepickerOpen" uib-datepicker-popup="yyyy-MM-dd" ng-model="date" is-open="isDatepickerOpen" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                    <input type="text" class="form-control pull-right"  ng-focus="isDatepickerOpen = !isDatepickerOpen" uib-datepicker-popup="yyyy-MM-dd" ng-model="date" is-open="isDatepickerOpen" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
                   </div>
                 </div>
 
@@ -291,6 +291,15 @@ title: Widget
       /* BOOTSTRAP SLIDER */
       $('.slider').slider();
     });
+
+    angular.module('iService',['ui.bootstrap']).controller('myCtrl', function ($scope) {
+      $scope.datepickerOptions = {
+        formatYear: 'yy',
+        startingDay: 1,
+        showWeeks:'false'
+      };
+
+		});
   </script>
 </body>
 </html>
