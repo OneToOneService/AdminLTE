@@ -944,8 +944,14 @@ title: Mailing Campaigns
 					<td>   
 							<div class="form-group">
 								<label for="inputPassword3" class="control-label text-left">Message</label>
-								<div>
-									<input type="text" class="form-control" value="Thanks For Joining The Customer Campaign.">
+							
+								<div class="ng-cloak" ng-controller="MessageCtrl as ctrl">
+									<ui-select ng-model="ctrl.messageselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a message">
+									  <ui-select-match placeholder="Select or search a message in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+									  <ui-select-choices repeat="messagelist in ctrl.messagename | filter: $select.search">
+										<span ng-bind-html="messagelist.name | highlight: $select.search"></span>
+									  </ui-select-choices>
+									</ui-select>
 								</div>
 							</div>
 					</td>
@@ -1153,6 +1159,16 @@ title: Mailing Campaigns
 	        vm.mailboxselected = {selected : "Sales (sales@1to1service.com)"};
 		    vm.mailboxname = [ 
 			{name: 'Sales (sales@1to1service.com)', code: ''},
+		
+		];
+	});
+
+	angular.module('iService').controller('MessageCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.messagebox = {};
+	        vm.messageselected = {selected : "Thanks For Joining The Customer Campaign."};
+		    vm.messagename = [ 
+			{name: 'Thanks For Joining The Customer Campaign.', code: ''},
 		
 		];
 	});

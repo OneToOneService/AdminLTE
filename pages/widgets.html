@@ -292,7 +292,8 @@ title: Widget
       $('.slider').slider();
     });
 
-    angular.module('iService',['ui.bootstrap']).controller('myCtrl', function ($scope) {
+    app.controller('myCtrl', function ($scope) {
+      
       $scope.datepickerOptions = {
         formatYear: 'yy',
         startingDay: 1,
