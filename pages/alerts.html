@@ -1,5 +1,5 @@
 ---
-title: Forms
+title: Alerts
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -44,256 +44,13 @@ title: Forms
 							<div class="col-md-12">
 								<div class="box box-info">
 									<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
-										<i class="fa  fa-list-alt"></i>
-										<h3 class="box-title head-title-padding">Form List</h3>
-										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
-										<div class="btn-group pull-right mright-15" id="realtime" data-toggle="btn-toggle">
-											<a class="btn btn-sm" data-toggle="off" href="javascript:void(0)" ng-click="showcustomform();$event.stopPropagation()" ng-class="customform ? 'active btn-primary': 'btn-default'">Custom Forms</a>
-											<a class="btn btn-sm" data-toggle="on" href="javascript:void(0)" ng-click="showbuiltinform();$event.stopPropagation()" ng-class="builtinform ? 'active btn-primary': 'btn-default'">Built-in Forms</a>
-										</div>
-										
+										<i class="fa fa-bell"></i>
+										<h3 class="box-title head-title-padding">Alert List</h3>
 									</div>
 									<!-- /.box-header -->
 									<!-- form start -->
 									<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
-										<div ng-show="customform" ng-init="customform = true;">
-											<table class="table table-striped table-hover" datatable dt-options="dtFormOptions">
-													<thead>
-														<tr>
-															<th class="no-sort">
-																Name
-															</th>
-															<th class="text-capitalize">
-																Id
-															</th>
-															<th class="text-capitalize">
-																Description
-															</th>
-															<th class="text-capitalize">
-																Modifier
-															</th>
-															<th class="text-capitalize">
-																Modify Time
-															</th>
-														</tr>
-													</thead>  
-													<tbody>
-														<tr ng-click="toggleRow('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
-															<td>
-																Default Registration
-															</td>
-															<td>
-																1
-															</td>
-															<td>
-																iService Default Registration
-															</td>
-															<td>
-																Landlord Administrator
-															</td>
-															<td>
-																2018-01-04 3:49:25 AM
-															</td>
-														</tr>
-														<tr ng-click="toggleRow('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
-															<td>
-																Pop Up Customer Chat Example
-															</td>
-															<td>
-																2
-															</td>
-															<td>
-																Pop Up Example for Customer Chat Window
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														<tr ng-click="toggleRow('row3')" ng-class="{true: 'row-active', false: ''}[row3]">
-															<td>
-																Pop Up Chat CSS
-															</td>
-															<td>
-																5
-															</td>
-															<td>
-																CSS used by the pop up chat form
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														<tr ng-click="toggleRow('row4')" ng-class="{true: 'row-active', false: ''}[row4]">
-															<td>
-																Example AAQ
-															</td>
-															<td>
-																6
-															</td>
-															<td>
-																Simple Form
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														
-														<tr ng-click="toggleRow('row5')" ng-class="{true: 'row-active', false: ''}[row5]">
-															<td>
-																Chat Badge on Bottom
-															</td>
-															<td>
-																9
-															</td>
-															<td>
-																Customer chat form that anchors to bottom of page
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														
-														<tr ng-click="toggleRow('row6')" ng-class="{true: 'row-active', false: ''}[row6]">
-															<td>
-																Badge Example - Waiting
-															</td>
-															<td>
-																10
-															</td>
-															<td>
-																The waiting page after chat requested
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														
-														<tr ng-click="toggleRow('row7')" ng-class="{true: 'row-active', false: ''}[row7]">
-															<td>
-																Fixed chat panel
-															</td>
-															<td>
-																12
-															</td>
-															<td>
-																The chat panel using sessionStorage instead of cookies
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														
-														<tr ng-click="toggleRow('row8')" ng-class="{true: 'row-active', false: ''}[row8]">
-															<td>
-																Preview Dialer App - Main
-															</td>
-															<td>
-																14
-															</td>
-															<td>
-																The main page of the preview dialer app
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														
-														<tr ng-click="toggleRow('row9')" ng-class="{true: 'row-active', false: ''}[row9]">
-															<td>
-																Preview Dialer App - Script
-															</td>
-															<td>
-																16
-															</td>
-															<td>
-																Script that is included into the main app
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														
-														<tr ng-click="toggleRow('row10')" ng-class="{true: 'row-active', false: ''}[row10]">
-															<td>
-																Preview Dialer App - Script
-															</td>
-															<td>
-																16
-															</td>
-															<td>
-																Script that is included into the main app
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														
-														<tr ng-click="toggleRow('row11')" ng-class="{true: 'row-active', false: ''}[row11]">
-															<td>
-																Addus User Auth Form
-															</td>
-															<td>
-																18
-															</td>
-															<td>
-																Form to capture user authorizations
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-														
-														<tr ng-click="toggleRow('row12')" ng-class="{true: 'row-active', false: ''}[row12]">
-															<td>
-																SSRS Report
-															</td>
-															<td>
-																20
-															</td>
-															<td>
-																Testing SSRS Report Integration
-															</td>
-															<td>
-																-
-															</td>
-															<td>
-																-
-															</td>
-														</tr>
-													</tbody>
-											</table>
-										</div>
-										<div ng-show="builtinform" ng-init="builtinform = false;">
+										<div>
 											<table class="table  table-striped table-hover" datatable dt-options="dtFormBuiltInOptions">
 												<thead>
 													<tr>
@@ -303,57 +60,27 @@ title: Forms
 														<th class="text-capitalize">
 															Description
 														</th>
+														<td>
+															Enabled
+														</td>
 													</tr>
 												</thead>  
 												<tbody>
-													<tr ng-click="toggleRow('row13')" ng-class="{true: 'row-active', false: ''}[row13]">
-														<td>aspxappbuiltin-url-admin</td>
-														<td><div>aspxappbuiltin-url-admin</div></td>
+													<tr ng-click="toggleRow('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+														<td>Checking auto response display</td>
+														<td>To check the auto response</td>
+														<td>
+															<iservice-switch switched="toggle.switchenabled1"></iservice-switch>	
+														</td>
 													</tr>
-													<tr ng-click="toggleRow('row14')" ng-class="{true: 'row-active', false: ''}[row15]">
-														<td><div>aspxappbuiltin-url-admin-agent</div></td>
-														<td><div>aspxappbuiltin-url-admin-agent</div></td>
+													<tr ng-click="toggleRow('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
+														<td>Quick sending test</td>
+														<td>Test</td>
+														<td>
+															<iservice-switch switched="toggle.switchenabled2"></iservice-switch>	
+														</td>
 													</tr>
-													<tr ng-click="toggleRow('row16')" ng-class="{true: 'row-active', false: ''}[row16]">
-														<td><div>aspxappbuiltin-url-admin-alert</div></td>
-														<td><div>aspxappbuiltin-url-admin-alert</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row17')" ng-class="{true: 'row-active', false: ''}[row17]">
-														<td><div>aspxappbuiltin-url-admin-department</div></td>
-														<td><div>aspxappbuiltin-url-admin-department</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row18')" ng-class="{true: 'row-active', false: ''}[row18]">
-														<td><div>aspxappbuiltin-url-admin-detail</div></td>
-														<td><div>aspxappbuiltin-url-admin-detail</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row19')" ng-class="{true: 'row-active', false: ''}[row19]">
-														<td><div>aspxappbuiltin-url-admin-mailing</div></td>
-														<td><div>aspxappbuiltin-url-admin-mailing</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row20')" ng-class="{true: 'row-active', false: ''}[row20]">
-														<td><div>aspxappbuiltin-url-admin-segment</div></td>
-														<td><div>aspxappbuiltin-url-admin-segment</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row21')" ng-class="{true: 'row-active', false: ''}[row21]">
-														<td><div>aspxappbuiltin-url-admin-servicelevel</div></td>
-														<td><div>aspxappbuiltin-url-admin-servicelevel</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row2')" ng-class="{true: 'row-active', false: ''}[row22]">
-														<td><div>aspxappbuiltin-url-admin-skill</div></td>
-														<td><div>aspxappbuiltin-url-admin-skill</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row23')" ng-class="{true: 'row-active', false: ''}[row23]">
-														<td><div>aspxappbuiltin-url-admin-smtpout</div></td>
-														<td><div>aspxappbuiltin-url-admin-smtpout</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row24')" ng-class="{true: 'row-active', false: ''}[row24]">
-														<td><div>aspxappbuiltin-url-admin-usertype</div></td>
-														<td><div>aspxappbuiltin-url-admin-usertype</div></td>
-													</tr>
-													<tr ng-click="toggleRow('row25')" ng-class="{true: 'row-active', false: ''}[row25]">
-														<td><div>aspxappbuiltin-url-askaquestion</div></td>
-														<td><div>URL to old aspx-based ask a question page.</div></td>
-													</tr>
+												
 												</tbody>	
 											</table>
 										</div>		
@@ -365,13 +92,11 @@ title: Forms
 					    <div class="row m">
 							<div class="col-md-12 form-group">
 								<button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
-									New Form
+									New Alert
 								</button>
-                                <button class="btn btn-primary" type="button" ng-click="showWizardStep(1)">
-									Wizard
-								</button>
+
 								<button class="btn btn-danger btn-delete" type="button" ng-click="showWizardStep(1)">
-									Delete Form...
+									Delete Alert...
 								</button>
 							</div>	
 						</div>	
@@ -379,26 +104,32 @@ title: Forms
 							<div class="col-md-12">
 								<div class="box box-primary">
 									<div class="box-header with-border">
-										<i class="fa fa-wpforms"></i>
-										<h3 class="box-title text-right">New Form</h3>
+										<i class="fa fa-bell"></i>
+										<h3 class="box-title text-right">New Alert</h3>
 									</div>
 									<div class="box-body">
 										<section class="search-parameters">
 											<div class="row">
 												<div class="form-horizontal">
-													<div class="col-md-6">
+													<div class="col-md-4">
 														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-4 control-label text-left">Form Name:</label>
-															<div class="col-sm-8">
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Alert Name</label>
+															<div class="col-sm-12">
 																<input type="text" class="form-control">
 															</div>
 														</div>
 													</div>
-													<div class="col-md-6">
+													<div class="col-md-4">
 														<div class="form-group">
-															<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
-															<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
-														</div>	
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+															<div class="col-sm-12">
+																<input type="text" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4 in-row-btn">
+														<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
+														<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
 													</div>
 												</div>
 											</div>
@@ -411,15 +142,14 @@ title: Forms
 							<div class="col-md-12">
 								<div class="box box-primary">
 									<div class="box-header with-border">
-										<i class="fa fa-wpforms"></i>
-										<h3 class="box-title text-right">New Form</h3>
-										<button class="btn btn-primary btn-sm pull-right "><i class="fa fa-eye"></i> Preview</button>
+										<i class="fa fa-bell"></i>
+										<h3 class="box-title text-right">New Alert</h3>
 									</div>
 									<div class="box-body">
 										<section class="search-parameters">
 											<div class="form-horizontal">
 												<div class="row">
-													<div class="col-md-3">
+													<div class="col-md-6">
 														<div class="form-group">
 															<label for="inputPassword3" class="col-sm-12 control-label text-left">Form Name</label>
 															<div class="col-sm-12">
@@ -427,7 +157,7 @@ title: Forms
 															</div>
 														</div>
 													</div>
-													<div class="col-md-3">
+													<div class="col-md-6">
 														<div class="form-group">
 															<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
 															<div class="col-sm-12">
@@ -435,88 +165,109 @@ title: Forms
 															</div>
 														</div>
 													</div>
-													<div class="col-md-3">
+													<div class="col-md-6">
 														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-12 control-label text-left">Submission Success Redirect URL</label>
-															<div class="col-sm-12">
-																<input type="text" class="form-control">
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Frequency</label>
+															<div class="col-sm-8">
+																<input type="text" class="form-control" value="15">
+															</div>
+															<div class="col-sm-4">
+																<select class="form-control">
+																	<option>Minute</option>
+																	<option>Hour</option>
+																	<option>Day</option>
+																	<option>Month</option>
+																	<option>Year</option>
+																</select>	
 															</div>
 														</div>
 													</div>
 													<div class="col-md-3">
 														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-12 control-label text-left">Is Registration</label>
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Enabled</label>
 															<div class="col-sm-12">
-																<input  class="flat-red" type="checkbox">
+																<iservice-switch switched="toggle.switchenabled3"></iservice-switch>
 															</div>
 														</div>
 													</div>
-													<div class="col-md-12">
-														<div class="box">
-															<div class="box-header with-border" ng-click="isCollapsedVariable = !isCollapsedVariable" ng-init="isCollapsedVariable = true;">
-																<h3 class="box-title">Form Variables</h3> 
-																<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedVariable}"></span>
-															</div>
-															<div class="box-body" uib-collapse="isCollapsedVariable">
-																<div class="row" id="variable-box">
-																	<div class="col-xs-12 variable-responses custom-scroll">
-																		<div>
-																			<input type="text" class="form-control" placeholder="Keyword Search">
-																		</div>
-																		<ul class="list-unstyled segment-variable-list">
-																			<li class="section-label">Basic
-																				<ul class="segment-variables">
-																					<li class="section-var-link">Any Field</li>
-																					<li class="section-var-link">Any Text Area</li>
-																					<li class="section-var-link">Form Login</li>
-																					<li class="section-var-link">Form Password</li>
-																					<li class="section-var-link">Error Message</li>
-																					<li class="section-var-link">Form ID</li>
-																				</ul>
-																			</li>
-																		</ul>
-																		<ul class="list-unstyled segment-variable-list">
-																			<li class="section-label">Contact
-																				<ul class="segment-variables">
-																					<li class="section-var-link">Email Address (Confirm) (Self List)</li>
-																					<li class="section-var-link">Password (Confirm)</li>
-																				</ul>
-																			</li>
-																		</ul>
-																		<ul class="list-unstyled segment-variable-list">
-																			<li class="section-label">Global
-																				<ul class="segment-variables">
-																					<li class="section-var-link">Address1</li>
-																					<li class="section-var-link">Address2</li>
-																					<li class="section-var-link">City</li>
-																					<li class="section-var-link">Company</li>
-																					<li class="section-var-link">Country</li>
-																					<li class="section-var-link">Customer Type</li>
-																					<li class="section-var-link">Empty Inbox When Logged Out</li>
-																					<li class="section-var-link">First Name</li>
-																					<li class="section-var-link">Inactivity Timeout Minutes</li>
-																					<li class="section-var-link">Job Title</li>
-																					<li class="section-var-link">Last Name</li>
-																					<li class="section-var-link">Middle Initial</li>
-																					<li class="section-var-link">Notification Address</li>
-																					<li class="section-var-link">Phone (Desc)</li>
-																					<li class="section-var-link">Postal Code</li>
-																					<li class="section-var-link">Receive Notifications</li>
-																					<li class="section-var-link">State</li>
-																				</ul>
-																			</li>	
-																		</ul>   
-																	</div>
-																</div>
-															</div>	
-														</div>	
-													</div>
+													
 												</div>		
-												<div class="form-group">
-													<label class="col-sm-12 control-label text-left">Form Body</label>
+												<div class="row">	
 													<div class="col-md-12">
-														<textarea id="code" name="code">...</textarea>
-													</div>
+														<div class="box box-primary">
+															<div class="box-header with-border">
+																<h3 class="box-title ng-binding">Conditions</h3>
+															</div>			
+															<div class="box-body">
+																<section class="container-fluid search-parameters" id="con-container">
+																	<fieldset class="row action">
+                                                                        <div class="panel panel-default col-xs-12 bg-gray-light">
+																			<div class="formstepcontainer" ng-show="formConditionStep1">
+																				<div class="row formstep">	
+																					<div class="col-md-10"> 
+																						<div class="row" ng-hide="showselecttype">
+																							<div class="col-md-6">
+																								<div class="form-group">
+																									<label class="col-sm-5 control-label text-left">Pick a type </label>
+																									<div class="col-sm-7">
+																										<select class="form-control" id="conditionstep1">
+																											<option value="Unanswered">Unanswered</option>
+																										</select>
+																									</div>
+																								</div>
+																							</div>
+																							<div class="col-md-6">
+																								<button type="button" class="btn bg-primary pull-left" ng-click="showselecttype = true;">Select Type</button>
+																							</div>	
+																						</div>
+																						<div class="row" ng-show="showselecttype" ng-init="showselecttype = false;">
+																							<h4 class="col-md-12">
+																								Check for unanswered interactions
+																							</h4>
+																							<div class="col-md-6">
+																								<div class="form-group">
+																									<label class="col-sm-5 control-label text-left">Age (Minutes)</label>
+																									<div class="col-sm-7">
+																										<input type="text" class="form-control">	
+																									</div>
+																								</div>
+																							</div>
+																							<div class="col-md-6">
+																								<div class="form-group" ng-controller="TopicCtrl as ctrl">
+																									<label for="inputPassword3" class="col-sm-5 control-label text-left">In Topics</label>
+																									<div class="col-sm-7" ng-cloak>
+																										<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" title="{% raw %}{{ $item.Topic }}{% endraw %}">
+																											<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
+																											<ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
+																													<span ng-bind-html="color.Topic | highlight: $select.search"></span>
+																											</ui-select-choices>
+																										</ui-select>
+																									</div>
+																								</div>
+																							</div>	
+																						</div>			
+																					</div>
+																					<div class="col-md-2 text-right">
+																						<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
+																						<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
+																						<button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
+																								<i class="fa fa-times-circle text-red"></i>
+																						</button>
+																					</div>	
+																				</div>
+																			</div>
+																			<div class="row">
+																				<button class="btn btn-lg btn-link pull-left" type="button" ng-click="addConditionStep();">
+																					<i class="fa fa-plus-circle text-light-blue"></i>
+																					Add Condition <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+																				</button>
+																			</div>	
+                                                                        </div>
+																	</fieldset>
+																</section>	
+															</div>
+														</div>
+													</div>	
 												</div>
 												<div class="row">	
 													<div class="col-md-12">
@@ -525,82 +276,25 @@ title: Forms
 																<h3 class="box-title ng-binding">Actions</h3>
 															</div>			
 															<div class="box-body">
-																<section class="container-fluid search-parameters" id="action-container" ng-show="showAction">
+																<section class="container-fluid search-parameters" id="action-container">
 																	<fieldset class="row action">
-																		<div class="panel panel-default col-xs-12 bg-gray-light">
-																			<div class="row mtop-15">
-																				<div class="col-md-10">
-																					<div class="row">
-																						<div class="col-md-6"> 
-																							<div class="form-group">
-																								<label  class="col-sm-5 control-label text-left">Run action if field <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-																								<div class="col-sm-7">
-																									<input type="email" class="form-control" placeholder="">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="col-md-6"> 
-																							<div class="form-group">
-																								<label class="col-sm-5 control-label text-left">Matches regex <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
-																								<div class="col-sm-7">
-																									<input type="email" class="form-control"  placeholder="">
-																								</div>
-																							</div>
-																						</div>	
-																					</div>	
-																				</div>
-																				<div class="col-md-2">
-																					<button class="btn btn-lg btn-link  pull-right" type="button" uib-tooltip="Delete Action" tooltip-placement="left">
-																						<i class="fa fa-times-circle text-red"></i>
-																					</button>
-																				</div>	
-																			</div>
-																			<hr>
-																		
+																		<div class="panel panel-default col-xs-12 bg-gray-light">																
 																			<div class="formstepcontainer" ng-show="formActionStep1">
-																				<div class="row formstep"  ng-show="formActionStep1">
+																				<div class="row formstep">
 																					<div class="col-md-10"> 
 																						<div class="row">
 																							<div class="col-md-6">
 																								<div class="form-group">
 																									<label class="col-sm-5 control-label text-left">Pick a step type </label>
 																									<div class="col-sm-7">
-																										<select class="form-control" id="" ng-change="showStepType();" ng-model="stepValue">
-																											<option value="choose">Choose A Type...</option>
-																												<option value="adminForms">Admin Forms</option>
-																												<option value="adminWebsites">Admin Websites</option>
-																												<option value="captchaVerify">Captcha Verify</option>
-																												<option value="chatCreate">Chat Create</option>
-																												<option value="chatEnd">Chat End</option>
-																												<option value="chatForward">Chat Forward</option>
-																												<option value="chatGetNext">Chat Get Next</option>
-																												<option value="chatKeepAlive">Chat Keep Alive</option>
-																												<option value="chatSend">Chat Send</option>
-																												<option value="chatToggleAvailability">Chat Toggle Availability</option>
-																												<option value="agentEmail">Create Agent Email</option>
-																												<option value="note">Create Note</option>
-																												<option value="ticket">Create Ticket/Ask A Question</option>
-																												<option value="contactFindCreate">Find/Create Contact</option>
-																												<option value="customerInfoDetails">Customer Info Set Details</option>
-																												<option value="interactionHistoryProperties">Interaction Set Properties</option>
-																												<option value="logout">Logout</option>
-																												<option value="messageQueueGetApprove">Message Queue Get Approve</option>
-																												<option value="messageQueueGetNext">Message Queue Get Next</option>
-																												<option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
-																												<option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
-																												<option value="messageQueueQAReject">Message Queue QA Reject</option>
-																												<option value="messageQueueChangeTopic">Message Queue Change Topic</option>
-																												<option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
-																												<option value="messageQueueSaveDraft">Message Queue Save Draft</option>
-																												<option value="messageQueueAssign">Message Queue Assign To Agent</option>
-																												<option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
-																												<option value="messageQueueForwardExternal">Message Queue Forward To External Agent</option>
-																												<option value="messageQueueSaveNote">Message Queue Save Note</option>
-																												<option value="messageQueueSend">Message Queue Send</option>
-																												<option value="myAccountSubscriptions">My Account Subscriptions</option>
-																												<option value="myAccountDetails">My Account Details</option>
-																												<option value="passwordResetSend">Password Reset Send</option>
-																										</select>
+																										<div class="ng-cloak" ng-controller="ActionCtrl as ctrl">
+																											<ui-select ng-model="ctrl.actionselected.selected" ng-change="showStepType();" theme="select2" title="Choose a action">
+																												<ui-select-match placeholder="Select or search a action in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																												<ui-select-choices group-by="'actionname'" repeat="item in ctrl.action | filter: $select.search">
+																												<span ng-bind-html="item.name | highlight: $select.search"></span>
+																												</ui-select-choices>
+																											</ui-select>
+																										</div>
 																									</div>
 																								</div>
 																							</div>
@@ -806,83 +500,25 @@ title: Forms
 																					</div>
 																				</div>
 																				
-																				<div class="row formstep">	
-																					<div class="col-md-10"> 
-																						<div class="row">
-																							<div class="col-md-6">
-																								<div class="form-group">
-																									<label class="col-sm-5 control-label text-left">Pick a step type </label>
-																									<div class="col-sm-7">
-																										<select class="form-control" id="actionstep1">
-																											<option value="choose">Choose A Type...</option>
-																												<option value="adminForms">Admin Forms</option>
-																												<option value="adminWebsites">Admin Websites</option>
-																												<option value="captchaVerify">Captcha Verify</option>
-																												<option value="chatCreate">Chat Create</option>
-																												<option value="chatEnd">Chat End</option>
-																												<option value="chatForward">Chat Forward</option>
-																												<option value="chatGetNext">Chat Get Next</option>
-																												<option value="chatKeepAlive">Chat Keep Alive</option>
-																												<option value="chatSend">Chat Send</option>
-																												<option value="chatToggleAvailability">Chat Toggle Availability</option>
-																												<option value="agentEmail">Create Agent Email</option>
-																												<option value="note">Create Note</option>
-																												<option value="ticket">Create Ticket/Ask A Question</option>
-																												<option value="contactFindCreate">Find/Create Contact</option>
-																												<option value="customerInfoDetails">Customer Info Set Details</option>
-																												<option value="interactionHistoryProperties">Interaction Set Properties</option>
-																												<option value="logout">Logout</option>
-																												<option value="messageQueueGetApprove">Message Queue Get Approve</option>
-																												<option value="messageQueueGetNext">Message Queue Get Next</option>
-																												<option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
-																												<option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
-																												<option value="messageQueueQAReject">Message Queue QA Reject</option>
-																												<option value="messageQueueChangeTopic">Message Queue Change Topic</option>
-																												<option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
-																												<option value="messageQueueSaveDraft">Message Queue Save Draft</option>
-																												<option value="messageQueueAssign">Message Queue Assign To Agent</option>
-																												<option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
-																												<option value="messageQueueForwardExternal">Message Queue Forward To External Agent</option>
-																												<option value="messageQueueSaveNote">Message Queue Save Note</option>
-																												<option value="messageQueueSend">Message Queue Send</option>
-																												<option value="myAccountSubscriptions">My Account Subscriptions</option>
-																												<option value="myAccountDetails">My Account Details</option>
-																												<option value="passwordResetSend">Password Reset Send</option>
-																										</select>
-																									</div>
-																								</div>
-																							</div>
-																						</div>		
-																					</div>
-																					<div class="col-md-2 text-right">
-																						<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
-																						<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
-																						<button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
-																								<i class="fa fa-times-circle text-red"></i>
-																						</button>
-																					</div>	
-																				</div>	
+																					
 																			</div>	
 																		  
 																			<div class="row">
 																				<button class="btn btn-lg btn-link pull-left" type="button" ng-click="addStep();">
 																					<i class="fa fa-plus-circle text-light-blue"></i>
-																					Add Steps <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+																					Add Step <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
 																				</button>
 																			</div>	
 																		</div>
 																	</fieldset>
 																</section>
-																<div class="row">
-																	<button class="btn btn-lg btn-link" type="button" ng-click="addAction();">
-																		<i class="fa fa-plus-circle text-light-blue"></i>
-																		Add Actions <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
-																	</button>
-																</div>
+															
 															</div>
 														</div>
 													</div>
-												</div>	
+												</div>
+												
+																
 												<div class="row">			
 													<div class="col-md-12">
 														<button type="button" class="btn bg-primary">Save</button>
@@ -1347,8 +983,16 @@ title: Forms
 			$scope.addAction = function(actionClickCount){
 				$scope.showAction = true;
 			}
+
+			$scope.addCondition = function(actionClickCount){
+				$scope.showCondition = true;
+			}
 			$scope.addStep = function(){
 				$scope.formActionStep1 = true;
+			}
+
+			$scope.addConditionStep = function(){
+				$scope.formConditionStep1 = true;
 			}
 			$scope.showStepType = function(){
 				$scope.subFormActionStepType1 = true;
@@ -1371,15 +1015,71 @@ title: Forms
 			   currentRow = segmentName;
 		   } 
 	});	 
+
+	app.controller('ActionCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			
+      vm.actionselected = {selected : "Create Agent Email"};
+
+	  vm.action = [
+				{ name: 'Create Agent Email', actionname: 'Forms Actions' },
+				{ name: 'Create Note', actionname: 'Forms Actions' },
+        		{ name: 'Create Ticket/Ask A Question', actionname: 'Forms Actions' },
+				{ name: 'Find/Create Contact', actionname: 'Forms Actions' },
+				{ name: 'My Account Subscriptions', actionname: 'Forms Actions' },
+				{ name: 'Chat Create', actionname: 'Forms Actions' },
+        		{ name: 'Chat End', actionname: 'Forms Actions' },
+				{ name: 'Chat Get Next', actionname: 'Forms Actions' },
+				{ name: 'Chat Keep Alive', actionname: 'Forms Actions' },
+        		{ name: 'Chat Send', actionname: 'Forms Actions' },
+				{ name: 'Chat Toggle Availability', actionname: 'Forms Actions' },
+
+
+				{ name: 'Change Topic', actionname: 'Filter Actions' },
+        		{ name: 'Change Interaction Parent',  actionname: 'Filter Actions' },
+				{ name: 'Filter',  actionname: 'Filter Actions' },
+				{ name: 'Forward External',  actionname: 'Filter Actions' },
+				{ name: 'Resolve Interaction',  actionname: 'Filter Actions' },
+				{ name: 'Round Robin Assignment',  actionname: 'Filter Actions' },
+				{ name: 'Select Agents',  actionname: 'Filter Actions' },
+				{ name: 'Send Auto Response',  actionname: 'Filter Actions' },
+				{ name: 'Set Interaction Property',  actionname: 'Filter Actions' },
+
+				{ name: 'Resolve Interaction', actionname: 'Alert Actions' },
+        		{ name: 'Select Agents',  actionname: 'Alert Actions' },
+				{ name: 'Send Auto Response',  actionname: 'Alert Actions' },
+				{ name: 'Set Interaction Property',  actionname: 'Alert Actions' },
+			];
+		});
+
+		angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			vm.availableTopics = [
+					{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'},
+					{Topic: '.._Newsletter Subscription (0)'},
+					{Topic: '.._Spam (0)'},
+					{Topic: '.._Undeliverable (0)'},
+					{Topic: '..Account Questions (0)'},
+					{Topic: '....Orders (0)'},
+					{Topic: '....Refunds (0)'},
+					{Topic: '....Returns (0)'},
+					{Topic: '..Products(0)'},
+					{Topic: '....Audio-Video (0)'},
+					{Topic: '....Cameras (0)'},
+					{Topic: '....Cell Phones (0)'},
+					{Topic: '....Computers (0)'},
+					{Topic: '....Televisions(0)'},
+					{Topic: '..Shipping (0)'},
+					{Topic: '..Technical Support (0)'},
+					{Topic: '....Open Quotes (1)'}
+				
+			];
+			vm.multipleDemo = {};
+			vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'}];
+		});
 </script>
 
-<script>
-	var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-		lineNumbers: true,
-		styleActiveLine: true,
-		matchBrackets: true
-	});
-	editor.setOption("theme", 'cobalt');
-</script>
 </body>
 </html>

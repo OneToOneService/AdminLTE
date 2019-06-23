@@ -40,6 +40,9 @@
 @bg-agent-reply: #fbefef;
 @font-color: #333333;
 @border-color: #cccccc;
+@horizontal-line:#eee;
+@cont-border-radius-5:5px;
+@box-border:#dddddd;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -680,12 +683,12 @@ p.login-box-msg
     .box-footer
     {
         background: #eaeaea;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid @box-border;
     }
 
     .box-header.with-border
     {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid @box-border;
     }
 }
 
@@ -2829,7 +2832,7 @@ label .icheckbox_square-blue
 .attachments
 {
     border-radius: 5px;
-    border: 1px dashed #ddd;
+    border: 1px dashed @box-border;
     background: @bg-gray-light;
     padding: 3px 8px;
     line-height: 20px;
@@ -2876,7 +2879,7 @@ label .icheckbox_square-blue
     cursor: pointer;
     font-weight: normal;
     background-color: #eee;
-    outline: 1px dashed #ddd;
+    outline: 1px dashed @box-border;
     width: 100%;
     text-align: center;
     padding: 18px;
@@ -4246,4 +4249,11 @@ table.dataTable
 .data-label
 {
     font-size: 16px;
+}
+
+.formstepcontainer{
+    background:#fbfbfb;border:1px solid @box-border; border-radius: @cont-border-radius-5;padding:0px 15px;margin-top:15px;
+    .formstep{padding-top: 15px;border-bottom: 1px solid @horizontal-line; margin: 0px 0px;}
+    .formstep:last-child{border-bottom:0px;}
+    .box-bg-white{border:1px solid @box-border; border-radius: @cont-border-radius-5;margin-bottom:15px;}
 }

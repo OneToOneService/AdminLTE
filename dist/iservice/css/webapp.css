@@ -480,10 +480,10 @@ p.login-box-msg {
 }
 .box-background .box-footer {
   background: #eaeaea;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #dddddd;
 }
 .box-background .box-header.with-border {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
 }
 ul.timeline span.stack-icon .fa-envelope {
   font-size: 17px;
@@ -1965,7 +1965,7 @@ label .icheckbox_square-blue {
 }
 .attachments {
   border-radius: 5px;
-  border: 1px dashed #ddd;
+  border: 1px dashed #dddddd;
   background: #f7f7f7;
   padding: 3px 8px;
   line-height: 20px;
@@ -1998,7 +1998,7 @@ label .icheckbox_square-blue {
   cursor: pointer;
   font-weight: normal;
   background-color: #eee;
-  outline: 1px dashed #ddd;
+  outline: 1px dashed #dddddd;
   width: 100%;
   text-align: center;
   padding: 18px;
@@ -2969,4 +2969,24 @@ table.dataTable {
 }
 .data-label {
   font-size: 16px;
+}
+.formstepcontainer {
+  background: #fbfbfb;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 0px 15px;
+  margin-top: 15px;
+}
+.formstepcontainer .formstep {
+  padding-top: 15px;
+  border-bottom: 1px solid #eeeeee;
+  margin: 0px 0px;
+}
+.formstepcontainer .formstep:last-child {
+  border-bottom: 0px;
+}
+.formstepcontainer .box-bg-white {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
