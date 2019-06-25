@@ -67,15 +67,15 @@ title: Alerts
 												</thead>  
 												<tbody>
 													<tr ng-click="toggleRow('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
-														<td>Checking auto response display</td>
-														<td>To check the auto response</td>
+														<td>Unresolved quote requests over 2 days old</td>
+														<td>Notify management when requests are still open after 2 days</td>
 														<td>
 															<iservice-switch switched="toggle.switchenabled1"></iservice-switch>	
 														</td>
 													</tr>
 													<tr ng-click="toggleRow('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
-														<td>Quick sending test</td>
-														<td>Test</td>
+														<td>Support issues marked as urgent</td>
+														<td>Notify managers about urgent issues that are unresolved 4 hours</td>
 														<td>
 															<iservice-switch switched="toggle.switchenabled2"></iservice-switch>	
 														</td>
@@ -880,7 +880,7 @@ title: Alerts
     // DataTable
 		/*var table = $('#example1,#example2').DataTable( {
 			"language" : {
-				"search": "Filter Forms"
+				"search": "Filter Alerts"
 			}
 			
 		});*/
