@@ -43,6 +43,8 @@
 @horizontal-line:#eee;
 @cont-border-radius-5:5px;
 @box-border:#dddddd;
+@dropdown-hover:#e1e3e9;
+
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -154,7 +156,7 @@ p.login-box-msg
     background: #666;
     margin-left: -21px !important;
     margin-right: -21px;
-    color: #fff;
+    color: white;
     border-radius: 5px 5px 0px 0px;
     font-size: 20px;
 }
@@ -477,7 +479,7 @@ p.login-box-msg
 
 .user-panel a.btn
 {
-    color: #fff;
+    color: white;
 }
 
 .sidebar-mini.sidebar-collapse
@@ -504,7 +506,7 @@ p.login-box-msg
         height: 27px;
         width: 22px;
         display: inline-block;
-        fill: #fff;
+        fill: white;
     }
 
     b
@@ -605,7 +607,7 @@ p.login-box-msg
 
     .tree ul li:last-child:before
     {
-        background: #fff;
+        background: white;
         height: auto;
         top: 1em;
         bottom: 0
@@ -1781,7 +1783,7 @@ ul.timeline span.stack-icon
 {
     background: @yellow;
     border-color: @yellow;
-    color: #ffffff;
+    color: white;
     float: right;
     margin: 0px 10px 5px 0px;
 }
@@ -3444,7 +3446,7 @@ body > .ui-select-bootstrap.open
 
 .ui-select-bootstrap .ui-select-choices-row.active > span
 {
-    color: #fff;
+    color: white;
     text-decoration: none;
     outline: 0;
     background-color: #428bca;
@@ -3453,9 +3455,9 @@ body > .ui-select-bootstrap.open
 .ui-select-bootstrap .ui-select-choices-row.disabled > span,
 .ui-select-bootstrap .ui-select-choices-row.active.disabled > span
 {
-    color: #777;
+    color: @font-color;
     cursor: not-allowed;
-    background-color: #fff;
+    background-color: white;
 }
 
 /* fix hide/show angular animation */
@@ -4252,8 +4254,15 @@ table.dataTable
 }
 
 .formstepcontainer{
-    background:#fbfbfb;border:1px solid @box-border; border-radius: @cont-border-radius-5;padding:0px 15px;margin-top:15px;
+     background:#fbfbfb;border:1px solid @box-border; border-radius: @cont-border-radius-5;padding:0px 15px;margin-top:15px;
     .formstep{padding-top: 15px;border-bottom: 1px solid @horizontal-line; margin: 0px 0px;}
     .formstep:last-child{border-bottom:0px;}
     .box-bg-white{border:1px solid @box-border; border-radius: @cont-border-radius-5;margin-bottom:15px;}
+}
+
+.dropdown-bg{background:#fbfbfb;border:1px solid @box-border;
+   li{padding:8px;}
+   li:hover{background:@dropdown-hover;}
+   li label{font-weight: normal; color:@font-color;}
+   li a{padding-left:48px; color:@font-color;}
 }

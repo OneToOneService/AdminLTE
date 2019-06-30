@@ -1176,16 +1176,16 @@ title: Manage Open Quotes
 							Forward Copy
 						</button>
 						<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-							<button type="button" class="btn btn-default" uib-dropdown-toggle>
+							<button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
 								<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 							</button>
-							<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+							<ul class="dropdown-menu dropdown-menu-right dropdown-bg" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
 								<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
-								<a href="" ng-click="isStatusAuditSectionExpanded = !isStatusAuditSectionExpanded">Show Status Audit</a>
+									<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
 								</li>
-								<li role="menuitem"><a href="#">Show Full Case</a></li>
+								<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+								<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
 								<li role="menuitem"><a href="#">Print</a></li>
-								<li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
 							</ul>
 						</div>
 						<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom" ng-click="show('getthis')">
@@ -1428,16 +1428,16 @@ title: Manage Open Quotes
 							Forward Copy
 						</button>
 						<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-							<button type="button" class="btn btn-default" uib-dropdown-toggle>
+							<button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
 								<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 							</button>
-							<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-								<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded2 }">
-								<a href="" ng-click="isStatusAuditSectionExpanded2 = !isStatusAuditSectionExpanded2">Show Status Audit</a>
+							<ul class="dropdown-menu dropdown-menu-right dropdown-bg" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+								<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+									<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
 								</li>
-								<li role="menuitem"><a href="#">Show Full Case</a></li>
+								<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+								<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
 								<li role="menuitem"><a href="#">Print</a></li>
-								<li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
 							</ul>
 						</div>
 						<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this…" tooltip-placement="bottom" ng-click="show2('getthis2')">
@@ -1689,17 +1689,17 @@ title: Manage Open Quotes
                 Forward Copy
               </button>
               <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-                <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                <button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
                   <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-                  <li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
-                    <a href="" ng-click="isStatusAuditSectionExpanded = !isStatusAuditSectionExpanded">Show Status Audit</a>
-                  </li>
-                  <li role="menuitem"><a href="#">Show Full Case</a></li>
-                  <li role="menuitem"><a href="#">Print</a></li>
-                  <li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
-                </ul>
+                <ul class="dropdown-menu dropdown-menu-right dropdown-bg" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+					<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+						<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
+					</li>
+					<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+					<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
+					<li role="menuitem"><a href="#">Print</a></li>
+				</ul>
               </div>
             </div>
             <div class="col-md-12 mtop-15">

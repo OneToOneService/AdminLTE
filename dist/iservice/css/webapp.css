@@ -87,7 +87,7 @@ p.login-box-msg {
   background: #666;
   margin-left: -21px !important;
   margin-right: -21px;
-  color: #fff;
+  color: white;
   border-radius: 5px 5px 0px 0px;
   font-size: 20px;
 }
@@ -336,7 +336,7 @@ p.login-box-msg {
   animation: 1s linear infinite blink_effect;
 }
 .user-panel a.btn {
-  color: #fff;
+  color: white;
 }
 .sidebar-mini.sidebar-collapse .user-panel a span,
 .sidebar-mini.sidebar-collapse .user-panel button span {
@@ -353,7 +353,7 @@ p.login-box-msg {
   height: 27px;
   width: 22px;
   display: inline-block;
-  fill: #fff;
+  fill: white;
 }
 .logo-lg b,
 .logo-mini b {
@@ -425,7 +425,7 @@ p.login-box-msg {
   left: 0;
 }
 .treeview .tree ul li:last-child:before {
-  background: #fff;
+  background: white;
   height: auto;
   top: 1em;
   bottom: 0;
@@ -1266,7 +1266,7 @@ iservice-switch {
 .right > .direct-chat-text {
   background: #f39c12;
   border-color: #f39c12;
-  color: #ffffff;
+  color: white;
   float: right;
   margin: 0px 10px 5px 0px;
 }
@@ -2415,16 +2415,16 @@ body > .ui-select-bootstrap.open {
   content: ' ';
 }
 .ui-select-bootstrap .ui-select-choices-row.active > span {
-  color: #fff;
+  color: white;
   text-decoration: none;
   outline: 0;
   background-color: #428bca;
 }
 .ui-select-bootstrap .ui-select-choices-row.disabled > span,
 .ui-select-bootstrap .ui-select-choices-row.active.disabled > span {
-  color: #777;
+  color: #333333;
   cursor: not-allowed;
-  background-color: #fff;
+  background-color: white;
 }
 /* fix hide/show angular animation */
 .ui-select-match.ng-hide-add,
@@ -2989,4 +2989,22 @@ table.dataTable {
   border: 1px solid #dddddd;
   border-radius: 5px;
   margin-bottom: 15px;
+}
+.dropdown-bg {
+  background: #fbfbfb;
+  border: 1px solid #dddddd;
+}
+.dropdown-bg li {
+  padding: 8px;
+}
+.dropdown-bg li:hover {
+  background: #e1e3e9;
+}
+.dropdown-bg li label {
+  font-weight: normal;
+  color: #333333;
+}
+.dropdown-bg li a {
+  padding-left: 48px;
+  color: #333333;
 }
