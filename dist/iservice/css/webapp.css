@@ -2542,6 +2542,9 @@ body > .ui-select-bootstrap.open {
     top: -3px;
     left: 50%;
   }
+  .dataTables_wrapper .row .col-sm-6 {
+    width: 100% !important;
+  }
 }
 .checkbox .nested {
   padding-left: 38px;
@@ -2916,9 +2919,6 @@ ul.update-list li::before {
 }
 table.dataTable {
   width: 100% !important;
-}
-.dataTables_wrapper .row .col-sm-6 {
-  width: 35% !important;
 }
 .bg-white-black-color {
   color: #000 !important;
