@@ -39,8 +39,8 @@ title:  Search Interactions
 								<h3 class="box-title">Search Parameters</h3>
 							</div>
 							<div class="box-body">
-								<section class="container-fluid search-parameters">
-									<fieldset class="row">
+								<section class="search-parameters">
+									<fieldset>
 										<div class="panel panel-default col-xs-12 bg-gray-light">
 											<div class="row">
 												<div class="col-xs-12 col-md-2">
@@ -213,10 +213,11 @@ title:  Search Interactions
 												</tr>
 											</thead>  
 											<tbody>
-												<tr>
+												<tr id="row1">
 													<td  name="name" width="30">
-														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-															<i class="fa fa-plus-circle"></i>
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
+															<i class="fa fa-plus-circle" ng-show="!row1"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
 														</button>
 													</td>
 													<td>
@@ -252,10 +253,11 @@ title:  Search Interactions
 														--
 													</td>
 												</tr>
-												<tr>
+												<tr id="row2">
 													<td name="name" width="30">
-														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow(row)">
-															<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
+															<i class="fa fa-plus-circle" ng-show="!row2"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
 														</button>
 													</td>
 													<td>
@@ -291,12 +293,12 @@ title:  Search Interactions
 														Jonie Hewlett
 													</td>
 												</tr>
-												<tr>
+												<tr id="row3">
 													<td  name="name" class="icon-col">
-														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-															<i class="fa fa-plus-circle"></i>
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
+															<i class="fa fa-plus-circle" ng-show="!row3"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
 														</button>
-					 
 													</td>
 													<td>
 														[ref#: 1006-1006] Looking for low cost TV
@@ -331,10 +333,11 @@ title:  Search Interactions
 														Jacob Smith
 													</td>
 												</tr>
-												<tr>
+												<tr id="row4">
 													<td  name="name" class="icon-col">
-														<button class="btn btn-xs btn-link text-default btn-expand" title="Expand" ng-click="toggleRow(row)">
-															<i class="fa fa-plus-circle" ng-show="!row.expanded"></i>
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
+															<i class="fa fa-plus-circle" ng-show="!row4"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
 														</button>
 													</td>
 													<td>
@@ -384,7 +387,265 @@ title:  Search Interactions
                 <!-- /.row -->
     			<!-- END ACCORDION & CAROUSEL-->
             </section>
-        </div>
+		</div>
+		
+		<!--expanded row content start-->
+		<script id="expandedrow" type="text/ng-template">
+			<!--form data start-->	
+			<div class="row" ng-hide="hidetrue"> 
+				<div class="col-md-12 ">
+					<div class="row">
+						<div class="col-md-12">
+							<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to Jhon Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+								<i class="fa fa-envelope"></i>
+								Agent email
+							</button>
+							<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to Jhon Doe" tooltip-placement="bottom" ng-click="show('createnote')">
+								<i class="fa fa-pencil-square-o"></i>
+								Note
+							</button>
+							<button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for Jhon Doe" tooltip-placement="bottom" ng-click="show('createticket')">
+								<i class="fa fa-ticket"></i>
+								Ticket
+							</button>
+							<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show('forwardcopy')">
+								<i class="fa fa-mail-forward"></i>
+								Forward Copy
+							</button>
+							<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+								<button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
+									<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+									<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+										<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
+									</li>
+									<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+									<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
+									<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+								</ul>
+							</div>
+							<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this…" tooltip-placement="bottom" ng-click="show('getthis')">
+								<i class="fa fa-sign-in"></i>
+								Get This
+							</button>
+						</div>
+						<div class="col-md-12 mtop-15">
+							<div class="box status-box" style="display:none">
+							<div class="box-header with-border">
+								<h3 class="box-title">Status Audit</h3>
+								<div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+								</div>
+							</div>
+							<div class="box-body table-responsive">
+								<table id="example2" class="table  table-striped">
+									<thead>
+										<tr>
+											<th class="text-capitalize">
+											Time 
+											</th>
+											<th class="text-capitalize">
+											Modifier
+											</th>
+											<th class="text-capitalize">
+											Status
+											</th>
+											<th class="text-capitalize">
+											Action
+											</th>
+											<th class="text-capitalize">
+											Assigned To
+											</th>
+											<th class="text-capitalize">
+											Topic
+											</th>
+										</tr>
+									</thead>  
+									<tbody>
+										<tr>
+											<td>
+											11/11/2017 12:19:20PM
+											</td>
+											<td>
+											Jaswantchouhan
+											</td>
+											<td>
+											<small class="label label-success">Resolved</small>
+											</td>
+											<td>
+											Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+											</td>
+											<td>
+											Jaswantchouhan
+											</td>
+											<td>
+											JC - Segment- All Topic - To- Quote - Open Quotes
+											</td>
+										</tr>
+									</tbody>
+								</table>  
+							</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-12">
+							<div class="nav-tabs-custom">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#tab_case_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+									<li><a href="#tab_case_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_case_1">
+										<div class="row">
+											<div class="message-box-header">
+												<div class="col-md-12">
+													<span class="user">
+														<img src="/dist/img/agent.png">
+														<b>Agent</b>
+													</span>
+													<div class="message-info">
+														<b>From:</b> john.doe@example.com<br>
+														<b>To:</b> alek.packard@1to1service.com<br>
+														<b>CC:</b> justin.time@1to1service.com<br>
+														<b>BCC:</b> jonie.hewlett@1to1service.com<br>
+													</div>	
+													<div class="clear"></div>
+													<div class="pull-right"> 
+														<div>Interaction ID : 4645646</div>
+														<div><b> Segment / Topic : </b>All Topic</div>
+														<div><b> Resolved By:</b>Alek Packard</div>
+														<div><b> Approved By:</b>&nbsp;</div>									
+														<small class="bg-green-active label">Resolved</small>
+													</div>
+												</div>
+												<div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+											</div>
+										</div>	
+									</div>
+									<div class="tab-pane" id="tab_case_2">
+										<div class="row form-horizontal">
+											<div class="col-md-4">
+												<h4>Case Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Change Request Type <span class="required">(Required)</span></label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Delivery Date</label>
+													<div class="col-sm-12">
+														<div class="input-group date">
+															<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+																<i class="fa fa-calendar"></i>
+															</div>
+															<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+														</div>
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Detail</label>
+													<div class="col-sm-12">
+														<textarea class="form-control" rows="3"></textarea>
+													</div>
+												</div> 
+												
+											</div> 
+											<div class="col-md-4">
+												<h4>Question Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Quantity</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control pull-right">
+													</div>
+												</div>  
+												<div class="form-group">    
+													<label class="col-md-12 control-label control-label text-left">Team</label>
+													<div class="col-sm-12">
+														<div class="simple-label multiple">
+															<div class="float-btn-group">
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<label class="control-label text-left">Team1</label>
+																<input type="text" class="form-control">
+															</div>
+															<div class="float-btn-group">
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<label class="control-label text-left">Team2</label>
+																<input type="text" class="form-control">
+															</div>
+															<div class="float-btn-group">
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<label class="control-label text-left">Team3</label>
+																<input type="text" class="form-control">
+															</div>
+															<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+														</div>
+													</div>
+												</div> 
+												
+											</div> 
+											<div class="col-md-4">
+												<h4>Answer Properties</h4>
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">Priority</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>High</option>
+																<option>Low</option>
+														</select>    
+													</div>
+												</div> 
+												<div class="form-group">    
+													<label class="col-md-12 control-label text-left">isOpen</label>
+													<div class="col-sm-12">
+														<select class="form-control">
+																<option>True</option>
+																<option>False</option>
+														</select>    
+													</div>
+												</div>  
+											</div>    
+											<div class="col-md-12">
+												<button type="submit" class="btn btn-primary">Save</button>
+											</div>
+										</div>    
+									</div>
+								</div>	
+							</div>
+						</div>	
+					</div>	
+					<div class="message-box">
+						<div class="message-box-body"> 
+							<div class="clear"></div>
+							<div>										   
+								<p>Hello,<br>
+									I'm looking for a flat screen. Any suggestions?
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--form data end-->
+			<!--agent email start-->
+			{% include agent-email-include.html %}    
+			<!--agent email end-->
+			<!--create note start-->
+			{% include create-note-include.html %}
+			<!--create note end-->
+			<!--create ticket start-->
+			{% include create-ticket-include.html %}
+			<!--create ticket end-->
+			<!--forward start-->
+			{% include forward-copy-include.html %}
+			<!--forward end-->
+			<!--Get this-->
+			{% include get-this-include.html %}
+			<!--Get thisa-->
+		</script>	
+		 <!--expanded row content end-->
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
         <!-- Control Sidebar -->
@@ -516,7 +777,152 @@ function stopPropagation(evt) {
 			DTColumnDefBuilder.newColumnDef(4).notVisible(),
 			DTColumnDefBuilder.newColumnDef(7).notVisible()
 		];
+
+
+
+		$scope.toggleRow = function (segmentName)
+			{ 
+				$scope.showexpanded1 = !false; 
+				for(var i = 1; i<=5;i++){
+					if(!$scope[segmentName]){
+						removeFunction(segmentName);
+						$scope['row'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunction(segmentName);
+				}else{
+					removeFunction(segmentName);
+				}
+			};
+
+			function myCreateFunction(row) {
+				var innerHTML = document.getElementById('expandedrow').innerHTML;
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			   //<tr id="row_2" class="bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td style="width:auto;"><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span>Feedback provided</td><td>Feed Account</td><td>Feedback Account</td><td><small class="bg-black disabled label">2018-08-03 11:59:44 AM</small></td><td>Jacob Smith	</td><td>All Topic</td></tr><tr class="bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>
+				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			}
+
+			function removeFunction(row){
+				angular.element('.expandedrowcontent').remove();
+			}
+        
 	});
+
+
+	angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+
+			vm.agentselected = {selected : "Alek Packard"};
+			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
+	    
+		angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			vm.availableTopics = [
+					{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'},
+					{Topic: '.._Newsletter Subscription (0)'},
+					{Topic: '.._Spam (0)'},
+					{Topic: '.._Undeliverable (0)'},
+					{Topic: '..Account Questions (0)'},
+					{Topic: '....Orders (0)'},
+					{Topic: '....Refunds (0)'},
+					{Topic: '....Returns (0)'},
+					{Topic: '..Products(0)'},
+					{Topic: '....Audio-Video (0)'},
+					{Topic: '....Cameras (0)'},
+					{Topic: '....Cell Phones (0)'},
+					{Topic: '....Computers (0)'},
+					{Topic: '....Televisions(0)'},
+					{Topic: '..Shipping (0)'},
+					{Topic: '..Technical Support (0)'},
+					{Topic: '....Open Quotes (1)'}
+				
+			];
+			vm.multipleDemo = {};
+			vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'}];
+		});
+
+		app.filter('propsFilter', function() {
+			return function(items, props) {
+				var out = [];
+
+				if (angular.isArray(items)) {
+				var keys = Object.keys(props);
+
+				items.forEach(function(item) {
+					var itemMatches = false;
+
+					for (var i = 0; i < keys.length; i++) {
+					var prop = keys[i];
+					var text = props[prop].toLowerCase();
+					if (item[prop].toString().toLowerCase().indexOf(text) !== -1) {
+						itemMatches = true;
+						break;
+					}
+					}
+
+					if (itemMatches) {
+					out.push(item);
+					}
+				});
+				} else {
+				// Let the output be the input untouched
+				out = items;
+				}
+
+				return out;
+			};
+		});
+
+		app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.segmentObj = {
+				'1' : { name: '-Default Mail Box- ', segmentname: 'QA' },
+				'2' : { name: 'FedEx Custom Criticle Rescuse Relocation Management Team &lt; RelactionMgmt@blue.fedex.com &rt;', segmentname: 'QA' },
+				'3' : { name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
+				'4' : { name: 'Push Bullet', segmentname: 'QA2- Second Segment' },
+			};
+            vm.segmentselected = {selected : "Push Bullet"};
+			vm.segment = [
+				{ name: '-Default Mail Box-', segmentname: 'QA' },
+				{ name: '"FedEx Custom Criticle Rescuse Relocation Management Team" &lt; RelactionMgmt@blue.fedex.com &gt;', segmentname: 'QA' },
+				{ name: '"FedEx Custom Criticle Rescuse Relocation Management Team" &lt; RelactionMgmt@blue.fedex.com &gt;', segmentname: 'QA' },
+				{ name: '"-Default Mail Box-"', segmentname: 'QA2- Second Segment' },
+				{ name: '"Push Bullet"',  segmentname: 'QA2- Second Segment' },
+			];
+		});
+		angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentselected = {selected : "Alek Packard"};
+			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
+		angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentselected = {selected : "--Default MailBox--"};
+			vm.agentname = [ 
+				{name: '--Default MailBox--', code: ''},
+				{name: 'Customer Support (support@example.com)', code: ''},
+				{name: 'Sales (Sales@example.com)', code: ''},
+				{name: 'Technical Support (technicalsupport@example.com)', code: ''},
+			];
+		});
 </script>
 </body>
 </html>
