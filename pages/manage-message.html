@@ -863,13 +863,13 @@ title: Manage Messages List View
 								<button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
 									<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 								</button>
-								<ul class="dropdown-menu dropdown-menu-right dropdown-bg" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+								<ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
 									<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
 										<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
 									</li>
 									<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
 									<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
-									<li role="menuitem"><a href="#">Print</a></li>
+									<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
 								</ul>
 							</div>
 							<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this…" tooltip-placement="bottom" ng-click="show('getthis')">

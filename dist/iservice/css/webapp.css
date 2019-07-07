@@ -2995,7 +2995,7 @@ table.dataTable {
   border: 1px solid #dddddd;
 }
 .dropdown-bg li {
-  padding: 8px;
+  padding: 4px 8px;
 }
 .dropdown-bg li:hover {
   background: #e1e3e9;
@@ -3005,6 +3005,9 @@ table.dataTable {
   color: #333333;
 }
 .dropdown-bg li a {
-  padding-left: 48px;
+  padding-left: 18px;
   color: #333333;
+}
+.dropdown-bg a .fa {
+  font-size: 16px;
 }
