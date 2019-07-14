@@ -291,16 +291,22 @@ title: Widget
       /* BOOTSTRAP SLIDER */
       $('.slider').slider();
     });
+    var app=angular.module('iService', ['iService.directive','dndLists',
+    'ngAnimate',
+    'ui.select',
+    'ui.bootstrap',
+    'angularMoment',
+    'datatables', 'datatables.bootstrap', 'datatables.buttons','ngSanitize', 'ui.select' ]);
+    app.config(function (uibDatepickerConfig, uibDatepickerPopupConfig) {
+      uibDatepickerConfig.showWeeks = false;
+      uibDatepickerPopupConfig.toggleWeeksText = null;
+    });
 
     app.controller('myCtrl', function ($scope) {
       
-      $scope.datepickerOptions = {
-        formatYear: 'yy',
-        startingDay: 1,
-        showWeeks:'false',
-      };
-
 		});
+
+    
   </script>
 </body>
 </html>

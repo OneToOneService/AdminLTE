@@ -204,7 +204,18 @@ title: Alerts
 																		<div class="panel panel-default col-xs-12 bg-gray-light">
 																			<div class="formstepcontainer">
 																				<div class="row">
-																					<div class="col-xs-12 col-md-6">
+																					<div class="col-xs-12 col-md-3">
+																						<div class="floating-label bg-white">
+																							<select>
+																								<option value="anywhere" selected="selected">anywhere</option>
+																								<option value="start">start</option>
+																								<option value="end">end</option>
+																								<option value="entire">entire</option>
+																							</select>
+																							<label>Search where</label>
+																						</div>
+																					</div>
+																					<div class="col-xs-12 col-md-3">
 																						<div class="floating-label bg-white">
 																							<select class="infield">
 																								<option value="all">-- All --</option>
@@ -240,7 +251,19 @@ title: Alerts
 																							<label>In field</label>
 																						</div>
 																					</div>
-																					<div class="col-xs-12 col-md-6 search-field">
+																					<div class="col-xs-12 col-md-3">
+																						<div class="floating-label bg-white">
+																							<select id="searchOption">
+																								<option value="Contain">Contains</option>
+																								<option value="Does Not Contain">Does Not Contain</option>
+																								<option value="Is Greater Than">Is Greater Than</option>
+																								<option value="Is Equal To">Is Equal To</option>
+																								<option value="Is Less Than">Is Less Than</option>
+																							</select>
+																							<label>Search options</label>
+																						</div>
+																					</div>
+																					<div class="col-xs-12 col-md-3 search-field">
 																						<div class="floating-label bg-white">
 																						<input type="text" class="searchtag search" data-role="tagsinput" style="display:none;">
 																						<input type="text" for="search" class="searchnormal search" required>
@@ -254,7 +277,18 @@ title: Alerts
 																			</div>
 																			<div class="formstepcontainer" ng-show="formSearchStep1">
 																				<div class="row">
-																					<div class="col-xs-12 col-md-6">
+																					<div class="col-xs-12 col-md-3">
+																						<div class="floating-label bg-white">
+																							<select>
+																								<option value="anywhere" selected="selected">anywhere</option>
+																								<option value="start">start</option>
+																								<option value="end">end</option>
+																								<option value="entire">entire</option>
+																							</select>
+																							<label>Search where</label>
+																						</div>
+																					</div>
+																					<div class="col-xs-12 col-md-3">
 																						<div class="floating-label bg-white">
 																							<select class="infield">
 																								<option value="all">-- All --</option>
@@ -290,11 +324,23 @@ title: Alerts
 																							<label>In field</label>
 																						</div>
 																					</div>
-																					<div class="col-xs-12 col-md-6 search-field">
+																					<div class="col-xs-12 col-md-3">
+																						<div class="floating-label bg-white">
+																							<select id="searchOption">
+																								<option value="Contain">Contains</option>
+																								<option value="Does Not Contain">Does Not Contain</option>
+																								<option value="Is Greater Than">Is Greater Than</option>
+																								<option value="Is Equal To">Is Equal To</option>
+																								<option value="Is Less Than">Is Less Than</option>
+																							</select>
+																							<label>Search options</label>
+																						</div>
+																					</div>
+																					<div class="col-xs-12 col-md-3 search-field">
 																						<div class="floating-label bg-white">
 																						<input type="text" class="searchtag search" data-role="tagsinput" style="display:none;">
-																						<input type="text" for="search2" class="searchnormal search" required>
-																						<label id="search2" class="floatlabel">Search for</label>
+																						<input type="text" for="search" class="searchnormal search" required>
+																						<label id="search" class="floatlabel">Search for</label>
 																						</div>
 																						<button class="btn btn-lg btn-link" type="button" title="Remove Field">
 																						<i class="fa fa-times-circle text-red"></i>
@@ -302,6 +348,7 @@ title: Alerts
 																					</div>
 																				</div>
 																			</div>	
+																			
 																			<div class="row">
 																				<button class="btn btn-lg btn-link pull-left" type="button" ng-click="addSearchStep();">
 																					<i class="fa fa-plus-circle text-light-blue"></i>

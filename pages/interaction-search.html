@@ -754,9 +754,10 @@ function stopPropagation(evt) {
    }
  });
 
-    var app =  angular.module('iService');
+    var app =  angular.module('iService',);
+
 	app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
-	{
+	{   
 		$scope.toggle = {};
 		$scope.dtContactHistoryOptions = DTOptionsBuilder
 		.newOptions().withOption('language', {

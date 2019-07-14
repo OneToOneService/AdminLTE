@@ -70,6 +70,10 @@
     'ui.bootstrap',
     'angularMoment',
     'datatables', 'datatables.bootstrap', 'datatables.buttons','ngSanitize', 'ui.select' ]);
+    app.config(function (uibDatepickerConfig, uibDatepickerPopupConfig) {
+      uibDatepickerConfig.showWeeks = false;
+      uibDatepickerPopupConfig.toggleWeeksText = null;
+    });
 
   $('.user-menu a[data-toggle="collapse"]').click(function (e)
   {
