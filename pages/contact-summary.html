@@ -1223,10 +1223,16 @@ title: Contact
                       <div class="row">
                           <div class="message-box-header">
                             <div class="col-md-12">
-                              <span class="user">
+                              <span class="user" ng-show="!row2">
                                 <img src="/dist/img/agent.png">
                                 <b>Agent</b>
                               </span>
+
+                              <span class="user" ng-show="row2">
+                                <img src="/dist/img/system.png">
+                                <b>Customer</b>
+                              </span>
+
                               <div class="message-info">
                                 <b>From:</b> john.doe@example.com<br>
                                 <b>To:</b> alek.packard@1to1service.com<br>
