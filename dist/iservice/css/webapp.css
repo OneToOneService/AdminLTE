@@ -1292,7 +1292,7 @@ iservice-switch {
   color: #ffffff;
 }
 .chat-box {
-  height: 312px;
+  overflow-y: scroll !important;
 }
 .chat-close-icon,
 .forward-chat-icon {
