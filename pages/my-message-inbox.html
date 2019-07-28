@@ -1199,7 +1199,8 @@ title:  My Message Inbox
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
 									<li class="active"><a href="#tab_case_2_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-									<li><a href="#tab_case__2_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+                  <li><a href="#tab_case__2_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+                  <li><a href="#tab_property_2_3" data-toggle="tab"  uib-tooltip="There are properties private comments available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active" id="tab_case_2_1">
@@ -1311,7 +1312,12 @@ title:  My Message Inbox
 												<button type="submit" class="btn btn-primary">Save</button>
 											</div>
 										</div>    
-								    </div>
+                  </div>
+                  <!--tab 3 start-->
+                  <div class="tab-pane" id="tab_property_2_3">
+                    Please show me the other ranges in Plasma tv.
+                  </div>
+                  <!--tab 3 end-->	
 								</div>	
 							</div>
 						</div>	
@@ -1447,7 +1453,8 @@ title:  My Message Inbox
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
 									<li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-									<li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+                  <li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+                  <li><a href="#tab_property_3" data-toggle="tab"  uib-tooltip="There are properties private comments available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active" id="tab_detail_1">
@@ -1559,7 +1566,12 @@ title:  My Message Inbox
 												<button type="submit" class="btn btn-primary">Save</button>
 											</div>
 										</div>    
-									</div>
+                  </div>
+                  <!--tab 3 start-->
+                   <div class="tab-pane" id="tab_property_3">
+                    Please show me the other ranges in Plasma tv.
+                  </div>
+                  <!--tab 3 end-->	
 								</div>	
 							</div>
 						</div>	
@@ -1790,7 +1802,7 @@ title:  My Message Inbox
       function myCreateFunctionInbox(row)
       {
         var innerHTML = document.getElementById('expandedrowviewmode').innerHTML;
-        angular.element('#'+row).after($compile('<tr id="row_1" class="bg-customer-reply expandedrowcontentinbox rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded1 = false;" ng-show="showexpanded1"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded1" ng-click="showexpanded1 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-green-active label">Resolved</small></td><td><small class="label bg-blue disabled label-with-icon"><i class="fa fa-comments"></i>Chat</small></td><td>Jacob Smith	</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontentinbox bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr><tr id="row_2" class="expandedrowcontentinbox bg-agent-reply  rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-red label">Unsent</small></td><td><small class="bg-green label"><span class="fa-stack stack-icon-label"><i class="fa fa-reply"></i><i class="fa fa-times-circle-o"></i></span>Unsent Response</small></td><td>Jacob Smith	</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontentinbox bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>')($scope));
+        angular.element('#'+row).after($compile('<tr id="row_1" class="bg-customer-reply expandedrowcontentinbox rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded1 = false;" ng-show="showexpanded1"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded1" ng-click="showexpanded1 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-green-active label">Resolved</small></td><td><small class="label bg-blue disabled label-with-icon"><i class="fa fa-comments"></i>Chat</small></td><td>Jacob Smith	</td><td><b>Urgency Level</b> : High</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontentinbox bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr><tr id="row_2" class="expandedrowcontentinbox bg-agent-reply  rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-red label">Unsent</small></td><td><small class="bg-green label"><span class="fa-stack stack-icon-label"><i class="fa fa-reply"></i><i class="fa fa-times-circle-o"></i></span>Unsent Response</small></td><td>Jacob Smith	</td><td><b>Urgency Level</b> : High</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontentinbox bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>')($scope));
         //angular.element('#' + row).after($compile('<tr class="expandedrowcontentinbox box-bg-color"><td>&nbsp;</td><td colspan="7">' + document.getElementById('expandedrowviewmode').innerHTML + '</td></tr>')($scope));
       }
       function removeFunctionInbox(row)
@@ -1845,7 +1857,7 @@ title:  My Message Inbox
       function myCreateFunctionHistory(row)
       {
         var innerHTML = document.getElementById('expandedrowviewmode').innerHTML;
-        angular.element('#'+row).after($compile('<tr id="row_1" class="bg-customer-reply expandedrowcontentinbox rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded1 = false;" ng-show="showexpanded1"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded1" ng-click="showexpanded1 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-green-active label">Resolved</small></td><td><small class="label bg-blue disabled label-with-icon"><i class="fa fa-comments"></i>Chat</small></td><td>Jacob Smith	</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontentinbox bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr><tr id="row_2" class="expandedrowcontentinbox bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-red label">Unsent</small></td><td><small class="bg-green label"><span class="fa-stack stack-icon-label"><i class="fa fa-reply"></i><i class="fa fa-times-circle-o"></i></span>Unsent Response</small></td><td>Jacob Smith	</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontentinbox bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>')($scope));
+        angular.element('#'+row).after($compile('<tr id="row_1" class="bg-customer-reply expandedrowcontentinbox rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded1 = false;" ng-show="showexpanded1"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded1" ng-click="showexpanded1 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-green-active label">Resolved</small></td><td><small class="label bg-blue disabled label-with-icon"><i class="fa fa-comments"></i>Chat</small></td><td>Jacob Smith	</td><td><b>Urgency Level</b> : High</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontentinbox bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrowviewmode').innerHTML+'</td></tr><tr id="row_2" class="expandedrowcontentinbox bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-red label">Unsent</small></td><td><small class="bg-green label"><span class="fa-stack stack-icon-label"><i class="fa fa-reply"></i><i class="fa fa-times-circle-o"></i></span>Unsent Response</small></td><td>Jacob Smith	</td><td><b>Urgency Level</b> : High</td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontentinbox bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>')($scope));
         //angular.element('#' + row).after($compile('<tr class="expandedrowcontentinbox box-bg-color"><td>&nbsp;</td><td colspan="7">' + document.getElementById('expandedrowviewmode').innerHTML + '</td></tr>')($scope));
       }
       function removeFunctionHistory(row)
