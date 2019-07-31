@@ -3033,6 +3033,6 @@ table.dataTable {
 .dropdown-response ul:hover {
   background: none;
 }
-.dropdown-response .dropdown-bg li:hover {
+.dropdown-response li:hover {
   background: none;
 }

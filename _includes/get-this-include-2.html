@@ -137,7 +137,6 @@
             <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Email Addresses & Subject for Response</span></a></li>
             <li><a href="#tab_2" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
             <li><a href="#tab_3" data-toggle="tab" uib-tooltip="There are properties available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
-            <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i> <span>Variables & Stock Responses</span></a> </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane" id="tab_2">
@@ -386,34 +385,39 @@
               </div>
               <!-- /.tab-pane -->
             </div>
+          </div>
+          <!-- /.tab-content -->
+        </div>
+        <!-- nav-tabs-custom -->
+      </div>
+    </div>
+  </div>
 
-            <div class="tab-pane" id="tab_4">
-              <div class="row">
-               <div class="col-md-5">   
-					<div class="btn-group pull-left" data-toggle="btn-toggle">
-						<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
-						<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
-					</div>
-				</div>   
-				<div class="col-md-7  pull-right"  ng-show="customform">
-					<div class="form-group">
-						<label for="filtervariable" class="col-md-5 control-label text-right">Filter Variables</label>
-						<div class="col-md-7">
-							<input type="text" id="filtervariable" class="form-control">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-7 pull-right"  ng-hide="customform">
-					<div class="form-group">
-						<label for="filterstockresponses" class="col-md-5 control-label text-right">Filter Stock Responses</label>
-						<div class="col-md-7">
-							<input type="text" id="filterstockresponses" class="form-control">
-						</div>
-					</div>
-				</div>
-                <div class="col-xs-12 variable-responses" ng-show="customform">
-                  
-                  <div class="option-list custom-scroll">
+  <div class="col-md-12">
+    <div class="nav-tabs-custom">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+        <li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+        <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+            <a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+              <div class="variables">
+                <div class="col-md-12">   
+                  <div class="btn-group" data-toggle="btn-toggle">
+                    <a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
+                    <a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+                  </div>
+                </div>   
+                <div class="col-md-12  mtop-15">
+                  <div class="row form-group">
+                    <label class="col-md-12 control-label text-left">Filter</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12" ng-show="customform">
+                  <div class="custom-scroll">
                     <ul class="list-unstyled segment-variable-list">
                       <li class="section-label">
                         Contact
@@ -457,9 +461,8 @@
                     </ul>
                   </div>
                 </div>
-                <div class="col-xs-12 variable-responses" ng-hide="customform">
-                 
-                  <div class="option-list custom-scroll">
+                <div class="col-xs-12" ng-hide="customform">
+                  <div class="custom-scroll">
                     <ul class="list-unstyled segment-variable-list">
                       <li class="section-label">
                         Segment Responses
@@ -479,24 +482,12 @@
                         </ul>
                       </li>
                     </ul>
-
+  
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
           </div>
-          <!-- /.tab-content -->
-        </div>
-        <!-- nav-tabs-custom -->
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-12">
-    <div class="nav-tabs-custom">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-        <li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="draftbody">
