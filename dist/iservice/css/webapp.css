@@ -3040,3 +3040,7 @@ table.dataTable {
   background: #f7f7f7;
   padding: 8px 15px 15px 15px;
 }
+div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child {
+  width: 100% !important;
+  float: none !important;
+}
