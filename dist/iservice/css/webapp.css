@@ -3036,3 +3036,7 @@ table.dataTable {
 .dropdown-response li:hover {
   background: none;
 }
+.int-det-box {
+  background: #f7f7f7;
+  padding: 8px 15px 15px 15px;
+}
