@@ -413,7 +413,68 @@ title: Forms
 									<div class="box-header with-border">
 										<i class="fa fa-wpforms"></i>
 										<h3 class="box-title text-right">New Form</h3>
+										    
 										<button class="btn btn-primary btn-sm pull-right "><i class="fa fa-eye"></i> Preview</button>
+										<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+											<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Form Variables</a>
+											<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+												<div class="variables">
+												<div class="col-md-12">
+													<div class="row form-group">
+													<label class="col-md-12 control-label text-left">Filter</label>
+													<div class="col-md-12">
+														<input type="text" class="form-control">
+													</div>
+													</div>
+												</div>
+												<div class="col-xs-12" ng-show="customform">
+													<div class="custom-scroll">
+													<ul class="list-unstyled segment-variable-list">
+														<li class="section-label">
+														Contact
+														<ul class="segment-variables">
+															<li class="section-var-link">Name</li>
+															<li class="segment-lable">
+															Global
+															<ul>
+																<li class="section-var-link">Address1</li>
+																<li class="section-var-link">Address2</li>
+																<li class="section-var-link">City</li>
+																<li class="section-var-link">Country</li>
+																<li class="section-var-link">Company</li>
+															</ul>
+															</li>
+															<li class="segment-lable">
+															JC Segment
+															<ul>
+																<li class="section-var-link">Contact View Only Property</li>
+																<li class="section-var-link">Contact Viewable and Editable Property</li>
+																<li class="section-var-link">Multi value No Descr</li>
+																<li class="section-var-link">Shared Property from JC - cust can't see</li>
+															</ul>
+															</li>
+														</ul>
+														</li>
+													</ul>
+													<ul class="list-unstyled segment-variable-list">
+														<li class="section-label">
+														Answer
+														<ul class="segment-variables">
+															<li class="section-var-link">Email</li>
+															<li class="section-var-link">Reference Number</li>
+															<li class="section-var-link">Original Date</li>
+															<li class="section-var-link">Original Time</li>
+															<li class="section-var-link">Subject</li>
+															<li class="section-var-link">Original Body</li>
+															<li class="section-var-link">Quoted Question</li>
+														</ul>
+														</li>
+													</ul>
+													</div>
+												</div>
+												</div>
+											</div> 
+										</div>
 									</div>
 									<div class="box-body">
 										<section class="search-parameters">
@@ -450,66 +511,6 @@ title: Forms
 																<input  class="flat-red" type="checkbox">
 															</div>
 														</div>
-													</div>
-													<div class="col-md-12">
-														<div class="box">
-															<div class="box-header with-border" ng-click="isCollapsedVariable = !isCollapsedVariable" ng-init="isCollapsedVariable = true;">
-																<h3 class="box-title">Form Variables</h3> 
-																<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedVariable}"></span>
-															</div>
-															<div class="box-body" uib-collapse="isCollapsedVariable">
-																<div class="row" id="variable-box">
-																	<div class="col-xs-12 variable-responses custom-scroll">
-																		<div>
-																			<input type="text" class="form-control" placeholder="Keyword Search">
-																		</div>
-																		<ul class="list-unstyled segment-variable-list">
-																			<li class="section-label">Basic
-																				<ul class="segment-variables">
-																					<li class="section-var-link">Any Field</li>
-																					<li class="section-var-link">Any Text Area</li>
-																					<li class="section-var-link">Form Login</li>
-																					<li class="section-var-link">Form Password</li>
-																					<li class="section-var-link">Error Message</li>
-																					<li class="section-var-link">Form ID</li>
-																				</ul>
-																			</li>
-																		</ul>
-																		<ul class="list-unstyled segment-variable-list">
-																			<li class="section-label">Contact
-																				<ul class="segment-variables">
-																					<li class="section-var-link">Email Address (Confirm) (Self List)</li>
-																					<li class="section-var-link">Password (Confirm)</li>
-																				</ul>
-																			</li>
-																		</ul>
-																		<ul class="list-unstyled segment-variable-list">
-																			<li class="section-label">Global
-																				<ul class="segment-variables">
-																					<li class="section-var-link">Address1</li>
-																					<li class="section-var-link">Address2</li>
-																					<li class="section-var-link">City</li>
-																					<li class="section-var-link">Company</li>
-																					<li class="section-var-link">Country</li>
-																					<li class="section-var-link">Customer Type</li>
-																					<li class="section-var-link">Empty Inbox When Logged Out</li>
-																					<li class="section-var-link">First Name</li>
-																					<li class="section-var-link">Inactivity Timeout Minutes</li>
-																					<li class="section-var-link">Job Title</li>
-																					<li class="section-var-link">Last Name</li>
-																					<li class="section-var-link">Middle Initial</li>
-																					<li class="section-var-link">Notification Address</li>
-																					<li class="section-var-link">Phone (Desc)</li>
-																					<li class="section-var-link">Postal Code</li>
-																					<li class="section-var-link">Receive Notifications</li>
-																					<li class="section-var-link">State</li>
-																				</ul>
-																			</li>	
-																		</ul>   
-																	</div>
-																</div>
-															</div>	
-														</div>	
 													</div>
 												</div>		
 												<div class="form-group">

@@ -3047,3 +3047,6 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
 .private_comment {
   white-space: pre;
 }
+.box-header a.responses {
+  margin-top: 0px;
+}
