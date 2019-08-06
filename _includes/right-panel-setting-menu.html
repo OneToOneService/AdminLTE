@@ -1,102 +1,111 @@
 <aside class="control-sidebar control-sidebar-dark">
   <!-- Create the tabs -->
   <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a href="#control-sidebar-builtinforms-tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-newspaper-o"  data-toggle="tooltip" data-placement="bottom" data-original-title="Builtin Forms"></i></a></li>
-      <li><a href="#control-sidebar-myforms-tab" data-toggle="tab" aria-expanded="true">
-          <span class="fa-stack my-form-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="My Forms">
-            <i class="fa fa-newspaper-o"></i>
-            <i class="fa fa-user icon-myform"></i> 
-          </span>
+    <li class="active"><a href="#control-sidebar-builtinforms-tab" data-toggle="tab" aria-expanded="true"><i
+          class="fa fa-newspaper-o" data-toggle="tooltip" data-placement="bottom"
+          data-original-title="Builtin Forms"></i></a></li>
+    <li><a href="#control-sidebar-myforms-tab" data-toggle="tab" aria-expanded="true">
+        <span class="fa-stack my-form-icon" data-toggle="tooltip" data-placement="bottom"
+          data-original-title="My Forms">
+          <i class="fa fa-newspaper-o"></i>
+          <i class="fa fa-user icon-myform"></i>
+        </span>
       </a></li>
-      <li><a href="#control-sidebar-tenantsetting-tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-wrench" data-toggle="tooltip" data-placement="bottom" data-original-title="Settings"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gear" data-toggle="tooltip" data-placement="bottom" data-original-title="My Settings"></i></a></li>
+    <li><a href="#control-sidebar-tenantsetting-tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-wrench"
+          data-toggle="tooltip" data-placement="bottom" data-original-title="Settings"></i></a></li>
+    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gear" data-toggle="tooltip"
+          data-placement="bottom" data-original-title="My Settings"></i></a></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
-     <!-- Home tab content -->
+    <!-- Home tab content -->
     <div class="tab-pane right-menu-tab sidebar-menu active" id="control-sidebar-builtinforms-tab">
-        <div class="form-group">
-          <label class="control-sidebar-subheading">
+      <div class="form-group">
+        <label class="control-sidebar-subheading">
+          <span class="fa-stack new-account-icon">
+            <i class="fa fa-envelope-o"></i>
+            <i class="fa fa-users icon-plus"></i>
+          </span>
+          <span>Mass Mailing</span>
+        </label>
+        <ul class="treeview-menu">
+          <li>
+            <a href="/pages/mailing-list.html">
+              <i class="fa fa-list"></i>
+              Mailing Lists
+            </a>
+          </li>
+          <li>
+            <a href="/pages/mailing-criteria.html">
+              <i class="fa fa-globe"></i>
+              Criteria
+            </a>
+          </li>
+          <li>
+            <a href="/pages/mailing-messages.html">
+              <i class="fa fa-envelope"></i>
+              Messages
+            </a>
+          </li>
+          <li>
+            <a href="/pages/mailing.html">
+              <i class="fa fa-envelope"></i>
+              Mailings
+            </a>
+          </li>
+          <li>
+            <a href="/pages/mailing-campaigns.html">
               <span class="fa-stack new-account-icon">
-                <i class="fa fa-envelope-o"></i>
-                <i class="fa fa-users icon-plus"></i> 
+                <i class="fa fa-envelope"></i>
+                <i class="fa fa-bullhorn icon-plus"></i> 
               </span>
-              <span>Mass Mailing</span>
-          </label>
-          <ul class="treeview-menu">
-            <li>
-              <a  href="/pages/mailing-list.html">
-                <i class="fa fa-circle-o"></i> 
-                Mailing Lists
-              </a>
-            </li>
-            <li>
-              <a  href="/pages/mailing-criteria.html">
-                <i class="fa fa-circle-o"></i> 
-                Criteria
-              </a>
-            </li>
-            <li>
-              <a  href="/pages/mailing-messages.html">
-                <i class="fa fa-circle-o"></i> 
-                Messages
-              </a>
-            </li>
-            <li>
-              <a  href="/pages/mailing.html">
-                <i class="fa fa-circle-o"></i> 
-                Mailings
-              </a>
-            </li>
-            <li>
-              <a  href="/pages/mailing-campaigns.html">
-                <i class="fa fa-circle-o"></i> 
-                Campaigns
-              </a>
-            </li>
-          </ul>	
-        </div>
-        <div class="form-group">
-          <label class="control-sidebar-subheading">
-              <i class="fa fa-wrench"></i> 
-              Other Tools
-          </label>
-           <ul class="treeview-menu" style="display: block;">
-              <li>
-                <a  href="/pages/alerts.html">
-                  <i class="fa fa-circle-o"></i> 
-                  Alerts
-                </a>
-              </li>
-              <li>
-                <a  href="/pages/admin-forms.html">
-                  <i class="fa fa-circle-o"></i> 
-                  Forms
-                </a>
-              </li>
-              <li>
-                <a  href="/pages/smtp-monitor.html">
-                  <i class="fa fa-circle-o"></i> 
-                  SMTP Out Monitor
-                </a>
-              </li>
-            </ul>	
-        </div>
+              Campaigns
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="form-group">
+        <label class="control-sidebar-subheading">
+          <i class="fa fa-wrench"></i>
+          Other Tools
+        </label>
+        <ul class="treeview-menu" style="display: block;">
+          <li>
+            <a href="/pages/alerts.html">
+              <i class="fa fa-bell"></i>
+              Alerts
+            </a>
+          </li>
+          <li>
+            <a href="/pages/admin-forms.html">
+              <i class="fa fa-list-alt"></i>
+              Forms
+            </a>
+          </li>
+          <li>
+            <a href="/pages/smtp-monitor.html">
+              <i class="fa fa-clock-o"></i>
+              SMTP Out Monitor
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="tab-pane right-menu-tab sidebar-menu" id="control-sidebar-myforms-tab">
-       
+
     </div>
     <!-- /.tab-pane -->
     <div class="tab-pane right-menu-tab sidebar-menu" id="control-sidebar-tenantsetting-tab">
       <div class="form-group">
         <label class="control-sidebar-subheading">
-            <i class="fa fa-code-fork"></i> 
-            Segment Settings
+          <i class="fa fa-code-fork"></i>
+          Segment Settings
         </label>
         <ul class="treeview-menu">
           <li>
-            <button class="btn btn-primary btn-xs btn-new-segment" ng-click="newsegment = !newsegment;" ng-init="newsegment=true;">Create New Segment</button>
+            <button class="btn btn-primary btn-xs btn-new-segment" ng-click="newsegment = !newsegment;"
+              ng-init="newsegment=true;">Create New Segment</button>
             <div class="new-segment-container" uib-collapse="newsegment">
               <div class="segment-container">
                 <h3>New Segment</h3>
@@ -105,189 +114,232 @@
                   <input type="email" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-sm" onclick="location.href = '/pages/new-segment.html';" >Create Segment</button>
-                <button type="submit" class="btn btn-link btn-sm" ng-click="newsegment = !newsegment;">Cancel</button>
-                </div> 
-              </div>  
-            </div>  
+                  <button type="submit" class="btn btn-primary btn-sm"
+                    onclick="location.href = '/pages/new-segment.html';">Create Segment</button>
+                  <button type="submit" class="btn btn-link btn-sm" ng-click="newsegment = !newsegment;">Cancel</button>
+                </div>
+              </div>
+            </div>
           </li>
           <li>
-            <a  href="/pages/segment-sales.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/segment-sales.html">
+              <i class="fa fa-circle-o"></i>
               Sales
             </a>
           </li>
           <li>
-            <a  href="/pages/segment-hr.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/segment-hr.html">
+              <i class="fa fa-circle-o"></i>
               Human Resources
             </a>
           </li>
           <li>
-            <a  href="/pages/segment-customer-service.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/segment-customer-service.html">
+              <i class="fa fa-circle-o"></i>
               Customer Service
             </a>
           </li>
-        </ul>	
+        </ul>
       </div>
       <div class="form-group">
         <label class="control-sidebar-subheading">
-           <i class="fa fa-gear"></i>Tenant Settings
+          <i class="fa fa-gear"></i>Tenant Settings
         </label>
         <ul class="treeview-menu">
           <li>
-            <a  href="/pages/agents.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/agents.html">
+              <i class="fa fa-circle-o"></i>
               Agents
             </a>
           </li>
           <li>
-            <a  href="/pages/departments.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/departments.html">
+              <i class="fa fa-circle-o"></i>
               Departments
             </a>
           </li>
           <li>
-            <a  href="/pages/lists.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/lists.html">
+              <i class="fa fa-circle-o"></i>
               Lists
             </a>
           </li>
           <li>
-            <a  href="/pages/openid.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/openid.html">
+              <i class="fa fa-circle-o"></i>
               OpenID
             </a>
           </li>
           <li>
-            <a  href="/pages/service-levels.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/service-levels.html">
+              <i class="fa fa-circle-o"></i>
               Service Levels
             </a>
           </li>
           <li>
-            <a  href="/pages/skills.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/skills.html">
+              <i class="fa fa-circle-o"></i>
               Skills
             </a>
           </li>
           <li>
-            <a  href="/pages/user-types.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/user-types.html">
+              <i class="fa fa-circle-o"></i>
               User Types
             </a>
           </li>
           <li>
-            <a  href="/pages/websites.html">
-              <i class="fa fa-circle-o"></i> 
+            <a href="/pages/websites.html">
+              <i class="fa fa-circle-o"></i>
               Websites
             </a>
           </li>
         </ul>
       </div>
     </div>
-     
+
     <!-- Settings tab content -->
     <div class="tab-pane" id="control-sidebar-settings-tab">
       <h3 class="control-sidebar-heading">Color Scheme</h3>
       <ul class="list-unstyled clearfix">
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin">Blue</p>
+          <a href="javascript:void(0)" data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)"
+            class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9"></span><span
+                class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin">Blue</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix"><span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span><span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin">Black</p>
+          <a href="javascript:void(0)" data-skin="skin-black"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix"><span
+                style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span><span
+                style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin">Black</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-purple" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span><span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin">Purple</p>
+          <a href="javascript:void(0)" data-skin="skin-purple"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px;"
+                class="bg-purple-active"></span><span class="bg-purple"
+                style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin">Purple</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-green" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span><span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin">Green</p>
+          <a href="javascript:void(0)" data-skin="skin-green"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span><span
+                class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin">Green</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-red" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span><span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin">Red</p>
+          <a href="javascript:void(0)" data-skin="skin-red" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)"
+            class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span><span
+                class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin">Red</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-yellow" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span><span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin">Yellow</p>
+          <a href="javascript:void(0)" data-skin="skin-yellow"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px;"
+                class="bg-yellow-active"></span><span class="bg-yellow"
+                style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin">Yellow</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-blue-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin" style="font-size: 12px">Blue Light</p>
+          <a href="javascript:void(0)" data-skin="skin-blue-light"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9"></span><span
+                class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin" style="font-size: 12px">Blue Light</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-black-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix"><span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span><span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin" style="font-size: 12px">Black Light</p>
+          <a href="javascript:void(0)" data-skin="skin-black-light"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix"><span
+                style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span><span
+                style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin" style="font-size: 12px">Black Light</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-purple-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span><span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin" style="font-size: 12px">Purple Light</p>
+          <a href="javascript:void(0)" data-skin="skin-purple-light"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px;"
+                class="bg-purple-active"></span><span class="bg-purple"
+                style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin" style="font-size: 12px">Purple Light</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-green-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span><span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin" style="font-size: 12px">Green Light</p>
+          <a href="javascript:void(0)" data-skin="skin-green-light"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span><span
+                class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin" style="font-size: 12px">Green Light</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-red-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span><span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin" style="font-size: 12px">Red Light</p>
+          <a href="javascript:void(0)" data-skin="skin-red-light"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span><span
+                class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin" style="font-size: 12px">Red Light</p>
         </li>
         <li style="float:left; width: 33.33333%; padding: 5px;">
-            <a href="javascript:void(0)" data-skin="skin-yellow-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-              <div><span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span><span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span></div>
-              <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-            </a>
-            <p class="text-center no-margin" style="font-size: 12px">Yellow Light</p>
+          <a href="javascript:void(0)" data-skin="skin-yellow-light"
+            style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+            <div><span style="display:block; width: 20%; float: left; height: 7px;"
+                class="bg-yellow-active"></span><span class="bg-yellow"
+                style="display:block; width: 80%; float: left; height: 7px;"></span></div>
+            <div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span
+                style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
+          </a>
+          <p class="text-center no-margin" style="font-size: 12px">Yellow Light</p>
         </li>
       </ul>
       <h3 class="control-sidebar-heading">My Defaults</h3>
       <div class="row">
         <div class="form-group">
-            <label class="col-sm-12 control-label">Mailbox From</label>
-            <div class="col-sm-12">
-                <select class="form-control">
-                    <option value="Select Topic 1">Sales</option>
-                </select>
-            </div>
-        </div> 
-      </div>  
+          <label class="col-sm-12 control-label">Mailbox From</label>
+          <div class="col-sm-12">
+            <select class="form-control">
+              <option value="Select Topic 1">Sales</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /.tab-pane -->
   </div>
