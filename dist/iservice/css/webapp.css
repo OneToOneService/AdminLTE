@@ -3039,6 +3039,7 @@ table.dataTable {
 .int-det-box {
   background: #f7f7f7;
   padding: 8px 15px 15px 15px;
+  float: right;
 }
 div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child {
   width: 100% !important;
@@ -3049,4 +3050,10 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
 }
 .box-header a.responses {
   margin-top: 0px;
+}
+@media (max-width: 992px) {
+  .int-det-box {
+    width: 100%;
+    margin-top: 15px;
+  }
 }
