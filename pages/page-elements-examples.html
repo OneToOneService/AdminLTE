@@ -166,85 +166,213 @@ title: Page Elements Examples
                                 <div class="tab-pane active" id="tab_properties_1">
                                     <div class="row form-horizontal">
                                         <div class="col-md-4">
-                                        <h4>Case Properties</h4>
-                                        <div class="form-group">    
-                                            <label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
-                                            <div class="col-sm-12">
-                                            <input type="text" class="form-control pull-right">
+                                      
+
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label text-left">Date</label>
+                                                <div class="col-sm-12">
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+                                                        <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label control-label text-left">Date - Multiple Values (w/o Desc)</label>
+                                                <div class="col-sm-12">
+                                                    <div class="simple-label multiple">
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+                                                            <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                                                        </div>
+                                                        </div>
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                            <div class="input-group date">
+                                                                <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+                                                                <i class="fa fa-calendar"></i>
+                                                                </div>
+                                                                <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                                                            </div>
+                                                        </div>
+                                                        <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                           
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label text-left">Integer </label>
+                                                <div class="col-sm-12">
+                                                <input type="number" class="form-control pull-right">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label control-label text-left">Integer - Multiple Values (w/o Desc)</label>
+                                                <div class="col-sm-12">
+                                                    <div class="simple-label multiple">
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <input type="number" class="form-control">
+                                                        </div>
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <input type="number" class="form-control">
+                                                        </div>
+                                                        <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label text-left required">Text <span class="required">(Required)</span></label>
+                                                <div class="col-sm-12">
+                                                <input type="text" class="form-control pull-right">
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label control-label text-left">Text - Multiple Values (w/o Desc)</label>
+                                                <div class="col-sm-12">
+                                                    <div class="simple-label multiple">
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <input type="text" class="form-control">
+                                                        </div>
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <input type="text" class="form-control">
+                                                        </div>
+                                                        <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label control-label text-left">Text - Multiple Values (w/ Desc)</label>
+                                                <div class="col-sm-12">
+                                                    <div class="simple-label multiple">
+                                                    <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <div class="input-with-desc">
+                                                            <select class="form-control group-property-1">
+                                                            <option>Fax</option>
+                                                            <option>Home</option>
+                                                            <option>Mobile</option>
+                                                        </select>  
+                                                        <input type="text" class="form-control group-property-2">
+                                                        </div>  
+                                                    </div>
+                                                    <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label text-left">Text - MultiLine</label>
+                                                <div class="col-sm-12">
+                                                <textarea class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div> 
+
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label control-label text-left">Text - Multiple Values (w/o Desc)</label>
+                                                <div class="col-sm-12">
+                                                    <div class="simple-label multiple">
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <textarea class="form-control" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <textarea class="form-control" rows="3"></textarea>
+                                                        </div>
+                                                        <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label control-label text-left">List - Multiple Values (w/ Desc)</label>
+                                                <div class="col-sm-12">
+                                                    <div class="simple-label multiple">
+                                                        <div class="float-btn-group">
+                                                            <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                            <div class="input-with-desc">
+                                                                <select class="form-control group-property-1">
+                                                                    <option>Property 1</option>
+                                                                    <option>Property 2</option>
+                                                                </select>  
+                                                                <select class="form-control group-property-2">
+                                                                    <option>Option 1</option>
+                                                                    <option>Option 2</option>
+                                                                </select> 
+                                                            </div>  
+                                                        </div>
+                                                        <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">    
+                                                <label class="col-md-12 control-label control-label text-left">Text - Multiple Values (w/o Desc)</label>
+                                                <div class="col-sm-12">
+                                                    <div class="simple-label multiple">
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <select class="form-control">
+                                                            <option>Option 1</option>
+                                                            <option>Option 2</option>
+                                                        </select> 
+                                                        </div>
+                                                        <div class="float-btn-group">
+                                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                                        <select class="form-control">
+                                                            <option>Option 1</option>
+                                                            <option>Option 2</option>
+                                                        </select>
+                                                        </div>
+                                                        <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </div>  
+
+                                            <div class="form-group bg-group">
+                                                <label class="col-md-12 control-label text-left">Interaction Property Based Skills</label>
+                                                <div class="col-md-12">
+                                                    <div class="form-group group-bg group-input detail-g-borderbottom"> 
+                                                    <label class="col-md-12 control-label text-left group-input-label">Interaction Property</label>
+                                                    <div class="col-md-12">
+                                                        <select class="form-control group-input-item" ng-change="setFocus()" ng-model="myValue" ng-init="myValue = 21;">
+                                                        <option value="21">Answer Property  (QA) (Answer)</option>
+                                                        <option value="2">Authorization Type  (QA) (Question)</option>
+                                                        <option value="42">Carrier Adjument Amount (AR)  (1to1Service) (Case)</option>
+                                                        <option value="48">Case Property</option>
+                                                        <option value="7">Change Designation  (QA) (Question)</option>
+                                                        <option value="6">Change Priority  (QA) (Question)</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
+                                                    <label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value</label>
+                                                    <div class="col-md-12">														
+                                                        <input type="text" class="form-control group-input-item" id="propertyValue">
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group group-bg group-input detail-g-bordertop">
+                                                    <label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value Type</label>
+                                                    <div class="col-md-12">														
+                                                        <input type="text" class="form-control group-input-item" id="propertyValue2">
+                                                    </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">    
-                                            <label class="col-md-12 control-label text-left">Delivery Date</label>
-                                            <div class="col-sm-12">
-                                            <div class="input-group date">
-                                                <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
-                                                <i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
-                                            </div>
-                                            </div>
-                                        </div>  
-                                        <div class="form-group">    
-                                            <label class="col-md-12 control-label text-left">Detail</label>
-                                            <div class="col-sm-12">
-                                            <textarea class="form-control" rows="3"></textarea>
-                                            </div>
-                                        </div> 
-                                        </div> 
-                                        <div class="col-md-4">
-                                        <h4>Question Properties</h4>
-                                        <div class="form-group">    
-                                            <label class="col-md-12 control-label control-label text-left">Quantity</label>
-                                            <div class="col-sm-12">
-                                            <input type="text" class="form-control pull-right">
-                                            </div>
-                                        </div>  
-                                        <div class="form-group">    
-                                            <label class="col-md-12 control-label control-label text-left">Team</label>
-                                            <div class="col-sm-12">
-                                            <div class="simple-label multiple">
-                                                <div class="float-btn-group">
-                                                <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-                                                <input type="text" class="form-control">
-                                                </div>
-                                                <div class="float-btn-group">
-                                                <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-                                                <input type="text" class="form-control">
-                                                </div>
-                                                <div class="float-btn-group">
-                                                <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-                                                <input type="text" class="form-control">
-                                                </div>
-                                                <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
-                                            </div>
-                                            </div>
-                                        </div>   
-                                        </div> 
-                                        <div class="col-md-4">
-                                        <h4>Answer Properties</h4>
-                                        <div class="form-group">    
-                                            <label class="col-md-12 control-label text-left">Priority</label>
-                                            <div class="col-sm-12">
-                                            <select class="form-control">
-                                                <option>High</option>
-                                                <option>Low</option>
-                                            </select>    
-                                            </div>
-                                        </div> 
-                                        <div class="form-group">    
-                                            <label class="col-md-12 control-label text-left">isOpen</label>
-                                            <div class="col-sm-12">
-                                            <select class="form-control">
-                                                <option>True</option>
-                                                <option>False</option>
-                                            </select>    
-                                            </div>
-                                        </div>  
-                                        </div>    
-                                        <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                        </div>
-                                    </div>    
+                                    </div>
                                 </div>
                             </div>
                         </div>

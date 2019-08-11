@@ -2495,6 +2495,9 @@ body > .ui-select-bootstrap.open {
   align-items: flex-end;
   margin-bottom: 15px;
 }
+.simple-label .float-btn-group .date {
+  width: 100%;
+}
 .simple-label iservice-interaction-property-field {
   width: 100%;
 }
@@ -2528,7 +2531,9 @@ body > .ui-select-bootstrap.open {
   width: 40%;
   float: left;
 }
-.simple-label .input-with-desc input.group-property-2 {
+.simple-label .input-with-desc input.group-property-2,
+.simple-label .input-with-desc select.group-property-2,
+.simple-label .input-with-desc textarea.group-property-2 {
   width: 58%;
   float: right;
 }
