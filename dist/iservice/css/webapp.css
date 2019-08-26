@@ -1428,7 +1428,7 @@ iservice-switch {
 .fa-icon-label {
   width: 30px;
   height: 30px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 30px;
   color: #666;
   background: #d2d6de;
@@ -1496,7 +1496,7 @@ iservice-switch {
 }
 .bg-gray-disabled {
   background: #b5bbc8;
-  color: #ffffff;
+  color: #333333;
 }
 .bg-teal-disabled {
   background: #7fdede;
