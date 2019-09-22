@@ -41,6 +41,8 @@
 <script src="/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 
+<script src="/plugins/datetimepicker/datetime-picker.js"></script>
+
 <!-- Datatables -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.34/pdfmake.min.js"></script>
@@ -69,11 +71,8 @@
     'ui.select',
     'ui.bootstrap',
     'angularMoment',
-    'datatables', 'datatables.bootstrap', 'datatables.buttons','ngSanitize', 'ui.select' ]);
-    app.config(function (uibDatepickerConfig, uibDatepickerPopupConfig) {
-      uibDatepickerConfig.showWeeks = false;
-      uibDatepickerPopupConfig.toggleWeeksText = null;
-    });
+    'datatables', 'datatables.bootstrap', 'datatables.buttons','ngSanitize', 'ui.select','ui.bootstrap.datetimepicker' ]);
+   
 
   $('.user-menu a[data-toggle="collapse"]').click(function (e)
   {

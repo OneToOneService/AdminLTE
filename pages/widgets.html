@@ -194,12 +194,12 @@ title: Widget
 
                 <div class="col-md-4">
                     <label>Date With Time</label>
-                    <div class="input-group date">
-                      <div class="input-group-addon" ng-click="isDatepickerTimeOpen = !isDatepickerTimeOpen">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                      <input type="text" class="form-control pull-right" ng-focus="isDatepickerTimeOpen = !isDatepickerTimeOpen" uib-datepicker-popup="yyyy-MM-dd HH:mm:ss" ng-model="datetime" is-open="isDatepickerTimeOpen" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
-                    </div>
+                    <p class="input-group date">
+                      <input type="text" class="form-control" datetime-picker="MM/dd/yyyy HH:mm" ng-model="picker3.date" is-open="picker3.open" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="openCalendar($event, 'picker3')"><i class="fa fa-calendar"></i></button>
+                      </span>
+                    </p>
                   </div>
               </div>
             </div>
@@ -296,13 +296,21 @@ title: Widget
     'ui.select',
     'ui.bootstrap',
     'angularMoment',
-    'datatables', 'datatables.bootstrap', 'datatables.buttons','ngSanitize', 'ui.select' ]);
-    app.config(function (uibDatepickerConfig, uibDatepickerPopupConfig) {
-      uibDatepickerConfig.showWeeks = false;
-      uibDatepickerPopupConfig.toggleWeeksText = null;
-    });
-
+    'datatables', 'datatables.bootstrap', 'datatables.buttons','ngSanitize', 'ui.select',,'ui.bootstrap.datetimepicker' ]);
+   
     app.controller('myCtrl', function ($scope) {
+
+      var that =  $scope;
+    
+      // date and time picker
+      $scope.picker3 = {
+          date: new Date()
+      };
+
+     $scope.openCalendar = function (e, picker) {
+            that[picker].open = true;
+      };
+
       
 		});
 
