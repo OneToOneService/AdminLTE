@@ -1149,7 +1149,7 @@ iservice-switch {
   margin-top: 5px;
 }
 .mleft-15 {
-  margin-left: 15px;
+  margin-left: 15px !important;
 }
 .mright-5 {
   margin-right: 5px;
@@ -1209,7 +1209,7 @@ iservice-switch {
   min-width: 100px;
 }
 .head-title-padding {
-  padding-top: 8px;
+  padding-top: 6px;
 }
 .open-message {
   padding: 0px 0px 0px 5px;
@@ -1954,7 +1954,7 @@ label .icheckbox_square-blue {
   width: 100% !important;
 }
 .changetopicselect {
-  width: 280px;
+  width: 100%;
   min-height: 200px;
 }
 .new-inside {
@@ -3062,4 +3062,10 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
     width: 100%;
     margin-top: 15px;
   }
+}
+.chevron-p-top {
+  padding-top: 4px;
+}
+.item-count {
+  font-weight: bold;
 }

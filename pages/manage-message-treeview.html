@@ -135,8 +135,93 @@ title: Manage Messages Tree View
 							<div class="col-md-12">
 								<div class="box box-primary">
 									<div class="box-header with-border" ng-click="massUpdate();">
-										<h3 class="box-title"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
-										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
+										<h3 class="box-title head-title-padding"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right mleft-15 chevron-p-top" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
+										<span class="pull-right"> 
+												<button class="btn btn-sm margin-r-5 btn-primary" type="button" ng-click="$event.stopPropagation()">
+													<i class="fa  fa-check"></i>
+													Resolve
+												</button>                    
+												<div class="btn-group  margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+													<button type="button" class="btn btn-sm btn-primary" uib-dropdown-toggle ng-click="$event.stopPropagation()">
+														<i class="fa fa-mail-forward"></i>
+														Forward
+													</button>
+													<ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+														<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
+															<div class="btn-list-options form-group" ng-show="selectAgent">
+																<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
+																	<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+																		<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																		<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+																		<span ng-bind-html="agent.name | highlight: $select.search"></span>
+																		<small ng-bind-html="agent.code | highlight: $select.search"></small>
+																		</ui-select-choices>
+																	</ui-select>
+																</div>	  
+																<button class="btn btn-primary btn-xs">Assign To Agent</button>
+															</div>    
+														</li>
+														<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+														<li ng-class="{'option-selected' : forwardSegment}">
+															<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
+															<div class="btn-list-options form-group" ng-show="forwardSegment" >
+																	<div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
+																		<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+																			<ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																			<ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+																				<span ng-bind-html="item.name | highlight: $select.search"></span>
+																			</ui-select-choices>
+																		</ui-select>
+																	</div>
+																<button class="btn btn-primary btn-xs">Forward Now</button> 
+															</div>   
+														</li>
+														<li ng-class="{'option-selected' : forwardExternalSegment}">
+															<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Segment</a>
+															<div class="btn-list-options form-group" ng-show="forwardExternalSegment">
+															<p>This segment has no external
+																	agent notifications.</p>
+															</div>    
+														</li>
+													</ul>
+												</div>
+												<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+													<button class="btn btn-sm btn-primary" title="Spam"  uib-dropdown-toggle ng-click="$event.stopPropagation()">
+														<i class="fa  fa-arrows-alt"></i>
+														Change Topic
+													</button>
+													<ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+														<li>
+															<select class="changetopicselect form-control" multiple>
+																<option>e-shop -- All Topics(0)</option>
+																<option>.._Feedback (2)</option>
+																<option>.._Newsletter Subscription (0)</option>
+																<option>.._Spam (0)</option>
+																<option>.._Undeliverable (0)</option>
+																<option>..Account Questions (0)</option>
+																<option>....Orders (0)</option>
+																<option>....Refunds (0)</option>
+																<option>....Returns (0)</option>
+																<option>..Products(0)</option>
+																<option>....Audio-Video (0)</option>
+																<option>....Cameras (0)</option>
+																<option>....Cell Phones (0)</option>
+																<option>....Computers (0)</option>
+																<option>....Televisions(0)</option>
+																<option>..Shipping (0)</option>
+																<option>..Technical Support (0)</option>
+																<option>....Open Quotes (1)</option>
+															</select>
+														</li>
+													</ul>
+												</div>
+												<button class="btn btn-sm btn-primary" title="Spam" ng-click="$event.stopPropagation()">
+													<i class="fa fa-ban"></i>
+													Spam
+												</button>
+										</span> 
+									
 									</div> 
 									<div class="box-body manage-message" uib-collapse="isCollapsedMassUpdate">
 										<div class="col-md-12 bg-box box-bg-color">
@@ -166,103 +251,19 @@ title: Manage Messages Tree View
 																	</ul>
 																</div>
 															</div>
-															<button class="btn btn-primary" type="button">
-																<i class="fa  fa-check"></i>
-																Resolve
+															<button class="btn btn-primary" title="Save Private Note">
+																<i class="fa fa-lock"></i>
+																Private Note
 															</button>
-														  
-															<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-																<button type="button" class="btn btn-primary" uib-dropdown-toggle>
-																	<i class="fa fa-mail-forward"></i>
-																	Forward
-																</button>
-																<ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
-																	<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
-																		<div class="btn-list-options form-group" ng-show="selectAgent">
-																			<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
-																				<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-																					<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																					<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
-																					<span ng-bind-html="agent.name | highlight: $select.search"></span>
-																					<small ng-bind-html="agent.code | highlight: $select.search"></small>
-																					</ui-select-choices>
-																				</ui-select>
-																			</div>	  
-																			<button class="btn btn-primary btn-xs">Assign To Agent</button>
-																		</div>    
-																	</li>
-																	<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
-																	<li ng-class="{'option-selected' : forwardSegment}">
-																		<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
-																		<div class="btn-list-options form-group" ng-show="forwardSegment" >
-																				<div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
-																					<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
-																						<ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																						<ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
-																							<span ng-bind-html="item.name | highlight: $select.search"></span>
-																						</ui-select-choices>
-																					</ui-select>
-																				</div>
-																			<button class="btn btn-primary btn-xs">Forward Now</button> 
-																		</div>   
-																	</li>
-																	<li ng-class="{'option-selected' : forwardExternalSegment}">
-																		<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Segment</a>
-																		<div class="btn-list-options form-group" ng-show="forwardExternalSegment">
-																		   <p>This segment has no external
-																				agent notifications.</p>
-																		</div>    
-																	</li>
-																</ul>
-															</div>
-											
-															<div class="btn-group dropdown margin-r-5">
-																	<button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
-																	Save</button>										 
-																	<div class="btn-group">
-																		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-																		<span class="caret"></span></button>
-																		<ul class="dropdown-menu" role="menu">
-																				<li><a href="#">Private Note</a></li>
-																				<li><a href="#">Public Note</a></li>
-																		</ul>
-																	</div>
-															</div>
-															<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-																<button class="btn btn-primary" title="Spam"  uib-dropdown-toggle>
-																	<i class="fa  fa-arrows-alt"></i>
-																	Change Topic
-																</button>
-																<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-																	<li>
-																		<select class="changetopicselect form-control" multiple>
-																			<option>e-shop -- All Topics(0)</option>
-																			<option>.._Feedback (2)</option>
-																			<option>.._Newsletter Subscription (0)</option>
-																			<option>.._Spam (0)</option>
-																			<option>.._Undeliverable (0)</option>
-																			<option>..Account Questions (0)</option>
-																			<option>....Orders (0)</option>
-																			<option>....Refunds (0)</option>
-																			<option>....Returns (0)</option>
-																			<option>..Products(0)</option>
-																			<option>....Audio-Video (0)</option>
-																			<option>....Cameras (0)</option>
-																			<option>....Cell Phones (0)</option>
-																			<option>....Computers (0)</option>
-																			<option>....Televisions(0)</option>
-																			<option>..Shipping (0)</option>
-																			<option>..Technical Support (0)</option>
-																			<option>....Open Quotes (1)</option>
-																		</select>
-																	</li>
-																</ul>
-															</div>
-															<button class="btn btn-primary" title="Spam">
-																<i class="fa fa-ban"></i>
-																Spam
+															<button class="btn btn-primary" title="Save Public Note">
+																<i class="fa fa-unlock"></i>
+																Public Note
 															</button>
-															<a class="btn btn-link" ng-click="cancel('getthis')">Cancel</a>
+														
+															<button class="btn btn-primary pull-right" title="Save Draft">
+																<i class="fa fa-save"></i>
+																Save Draft
+															</button>
 														</div>
 														<div class="row">
 														   <!-- Custom Tabs -->
@@ -559,7 +560,10 @@ title: Manage Messages Tree View
 										<div class="pull-right">
 											 <label class="incoming-ques"><input type="checkbox" value="" class="minimal" checkbox ng-model="incomingList" ng-init="incomingList = true">Incoming Questions</label>
 											 <label class="agent-prop-ans"><input type="checkbox" value="" class="minimal" checkbox ng-model="praposedList">Agent Proposed Answers</label>
-										</div>	
+										</div>
+										<div class="pull-right item-count mright-5">
+                                          <span class="text-primary font-weight-bold">2 Items Selected</span>
+										</div>		
 									</div>
 									<!-- /.box-header -->
 									<!-- form start -->
@@ -608,7 +612,7 @@ title: Manage Messages Tree View
 											<tbody>
 												<tr id="row1" ng-show="incomingList">
 													<td name="name" >
-														<input type="checkbox" class="flat-red">
+														<input type="checkbox" class="flat-red" checked>
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
 															<i class="fa fa-plus-circle" ng-show="!row1"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
@@ -650,7 +654,7 @@ title: Manage Messages Tree View
 												</tr>
 												<tr id="row2" ng-show="incomingList">
 													<td name="name" class="icon-col">
-														<input type="checkbox" class="flat-red">
+														<input type="checkbox" class="flat-red" checked>
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
 															<i class="fa fa-plus-circle" ng-show="!row2"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
