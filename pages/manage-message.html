@@ -107,7 +107,7 @@ title: Manage Messages List View
 														<i class="fa fa-mail-forward"></i>
 														Forward
 													</button>
-													<ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+													<ul class="dropdown-menu dropdown-menu-btn-option dropdown-bg dropdown-forward dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
 														<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
 															<div class="btn-list-options form-group" ng-show="selectAgent">
 																<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
@@ -151,7 +151,7 @@ title: Manage Messages List View
 														<i class="fa  fa-arrows-alt"></i>
 														Change Topic
 													</button>
-													<ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+													<ul class="dropdown-menu dropdown-menu-btn-option dropdown-bg dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
 														<li>
 															<select class="changetopicselect form-control" multiple>
 																<option>e-shop -- All Topics(0)</option>
@@ -195,7 +195,7 @@ title: Manage Messages List View
 																	<button type="button" class="btn btn-primary" uib-dropdown-toggle>
 																		<span class="caret"></span>
 																	</button>
-																	<ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu auto-close="outsideClick">
+																	<ul class="dropdown-menu dropdown-menu-btn-option dropdown-bg"  uib-dropdown-menu auto-close="outsideClick">
 																		<li><input type="checkbox" class="margin-r-5"> Leave Open</li>
 																		<li>
 																			<a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
