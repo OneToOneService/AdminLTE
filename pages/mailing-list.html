@@ -220,8 +220,7 @@ title: Mailing Lists
 													<div class="col-md-4">
 														<div class="form-group">
 															<label for="inputPassword3"
-																class="col-sm-12 control-label text-left">Mailing List
-																Name</label>
+																class="col-sm-12 control-label text-left">Name</label>
 															<div class="col-sm-12">
 																<input type="text" class="form-control">
 															</div>
@@ -236,9 +235,51 @@ title: Mailing Lists
 															</div>
 														</div>
 													</div>
-													<div class="col-md-4 in-row-btn">
-														<button type="button" class="btn btn-primary margin-r-5"
-															ng-click="showNewFormStep(2)">Create</button>
+													<div class="col-md-4">
+														<div class="form-group">
+															<label for="inputPassword3"
+																class="col-sm-12 control-label text-left">Shown In My
+																Account</label>
+															<div class="col-sm-12">
+																<iservice-switch switched="toggle.switch">
+																</iservice-switch>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="row">
+															<div class="col-md-12">
+																<div class="form-group">
+																	<label class="col-sm-12 control-label text-left">
+																		Segments <i
+																			class="fa  fa-question-circle text-info help-icon"
+																			data-toggle="tooltip"
+																			data-placement="bottom"
+																			data-original-title="Help"></i>
+																	</label>
+																</div>
+																<div class="form-group">
+																	<div class="row">
+																		<div class="checkbox  col-md-3">
+																			<label><input type="checkbox" class="flat-red">Customer Service</label>
+																		</div>
+																		<div class="checkbox  col-md-3">
+																			<label><input type="checkbox" class="flat-red">Human Resources</label>
+																		</div>
+																		<div class="checkbox  col-md-3">
+																			<label><input type="checkbox" class="flat-red">QA3 - Third Segment</label>
+																		</div>
+																		<div class="checkbox col-md-3">
+																			<label><input type="checkbox" class="flat-red">Sales</label>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<button type="button"
+															class="btn btn-primary margin-r-5">Create</button>
 														<button type="button" class="btn btn-link"
 															ng-click="cancelForm(2)">Cancel</button>
 													</div>

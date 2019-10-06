@@ -129,26 +129,47 @@ title: Lists Settings
 								<div class="box-body">
 									<div class="row">
 										<div class="form-horizontal">
-											<div class="col-md-4">
+											<div class="col-md-6">
 												<div class="form-group">
-													<label for="inputPassword3" class="col-sm-12 control-label text-left">List Name</label>
+													<label for="inputPassword3" class="col-sm-12 text-left">List Name</label>
 													<div class="col-sm-12">
 														<input type="text" class="form-control">
 													</div>
 												</div>
-											</div>
-											<div class="col-md-4">
 												<div class="form-group">
-													<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+													<label for="inputPassword3" class="col-sm-12 text-left">Description</label>
 													<div class="col-sm-12">
 														<input type="text" class="form-control">
 													</div>
 												</div>
+											
+												<div class="input-group">
+													<input type="text" class="form-control">
+													<span class="input-group-btn">
+														<button type="button" class="btn btn-info btn-flat">Add Value</button>
+													</span>
+												</div>
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 text-left">Values</label>
+													<div class="col-sm-9">
+														<select multiple="multiple" size="8" class="form-control">
+																<option value="-1754237740">Comp-Desktop</option>
+																<option value="1402146064">Comp-Laptop</option>
+																<option value="1069408364">Comp-Tablet</option>
+																<option value="328194263">Phone-Desktop</option>
+																<option value="2132130141">Phone-Mobile</option>
+														</select>
+													</div>
+													<div class="col-md-3">
+														<button class="btn btn-sm btn-danger mright-0 pull-right">Remove Value</button>
+													</div>	
+												</div>	
 											</div>
-											<div class="col-md-4 in-row-btn">
+											<div class="col-md-12 col-sm-12">
 												<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
 												<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
 											</div>
+											<div class="clearfix"></div>
 										</div>
 									</div>
 								</div>
@@ -163,71 +184,71 @@ title: Lists Settings
 									<h3 class="box-title text-right">List Configuration</h3>
 								</div>
 								<div class="box-body">
-										<div class="row">
-											<div class="form-horizontal">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="inputPassword3" class="col-sm-12 text-left">List Name</label>
-														<div class="col-sm-12">
-															<input type="text" class="form-control">
-														</div>
-													</div>
-													<div class="form-group">
-														<label for="inputPassword3" class="col-sm-12 text-left">Description</label>
-														<div class="col-sm-12">
-															<input type="text" class="form-control">
-														</div>
-													</div>
-												
-													<div class="input-group">
+									<div class="row">
+										<div class="form-horizontal">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 text-left">List Name</label>
+													<div class="col-sm-12">
 														<input type="text" class="form-control">
-														<span class="input-group-btn">
-															<button type="button" class="btn btn-info btn-flat">Add Value</button>
-														</span>
 													</div>
-													<div class="form-group">
-														<label for="inputPassword3" class="col-sm-12 text-left">Values</label>
-														<div class="col-sm-9">
-															<select multiple="multiple" size="8" class="form-control">
-																	<option value="-1754237740">Comp-Desktop</option>
-																	<option value="1402146064">Comp-Laptop</option>
-																	<option value="1069408364">Comp-Tablet</option>
-																	<option value="328194263">Phone-Desktop</option>
-																	<option value="2132130141">Phone-Mobile</option>
-															</select>
-														</div>
-														<div class="col-md-3">
-															<button class="btn btn-sm btn-danger mright-0 pull-right">Remove Value</button>
-														</div>	
-													</div>	
 												</div>
-												<div class="col-md-12 col-sm-12">
-													<button class="btn btn-primary pull-left" type="button">Save</button>
-												</div>
-												<div class="clearfix"></div>
-												<div class="clearfix"></div>
-												<div class="col-md-4">
-													<div class="nested-panel-heading skill-heading">
-														<h3 class="nested-title">Properties That Use This List</h3>
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 text-left">Description</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control">
 													</div>
-													<div class="skill-list">
-														<div class="list-headings">Sales Segment</div>
-														<div class="segment-item">
-														 	<span class="skill-item"><a href="">Account Number (Contact)</a></span>
-														</div>
-														<div class="segment-item"> 
-														 <span class="skill-item"><a href="">Priority (Case)</a></span>
-														</div>
-														<div class="list-headings">Customer Service Segment</div>
-														<div class="segment-item">
-														 <span class="skill-item"><a href="">Minutes Spent (Answer)</a></span>
-														 <span class="skill-item"><a href="">Reason (Question)</a></span>
-														 
-														</div> 
-													</div>	
 												</div>
+											
+												<div class="input-group">
+													<input type="text" class="form-control">
+													<span class="input-group-btn">
+														<button type="button" class="btn btn-info btn-flat">Add Value</button>
+													</span>
+												</div>
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 text-left">Values</label>
+													<div class="col-sm-9">
+														<select multiple="multiple" size="8" class="form-control">
+																<option value="-1754237740">Comp-Desktop</option>
+																<option value="1402146064">Comp-Laptop</option>
+																<option value="1069408364">Comp-Tablet</option>
+																<option value="328194263">Phone-Desktop</option>
+																<option value="2132130141">Phone-Mobile</option>
+														</select>
+													</div>
+													<div class="col-md-3">
+														<button class="btn btn-sm btn-danger mright-0 pull-right">Remove Value</button>
+													</div>	
+												</div>	
+											</div>
+											<div class="col-md-12 col-sm-12">
+												<button class="btn btn-primary pull-left" type="button">Save</button>
+											</div>
+											<div class="clearfix"></div>
+											<div class="clearfix"></div>
+											<div class="col-md-4">
+												<div class="nested-panel-heading skill-heading">
+													<h3 class="nested-title">Properties That Use This List</h3>
+												</div>
+												<div class="skill-list">
+													<div class="list-headings">Sales Segment</div>
+													<div class="segment-item">
+														<span class="skill-item"><a href="">Account Number (Contact)</a></span>
+													</div>
+													<div class="segment-item"> 
+														<span class="skill-item"><a href="">Priority (Case)</a></span>
+													</div>
+													<div class="list-headings">Customer Service Segment</div>
+													<div class="segment-item">
+														<span class="skill-item"><a href="">Minutes Spent (Answer)</a></span>
+														<span class="skill-item"><a href="">Reason (Question)</a></span>
+														
+													</div> 
+												</div>	
 											</div>
 										</div>
+									</div>
 								</div>
 							</div>
 						</div>	

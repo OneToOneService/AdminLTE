@@ -167,43 +167,6 @@ title: Service Level Settings
 								</div>
 								<div class="box-body">
 									<section class="search-parameters">
-											<div class="row">
-												<div class="form-horizontal">
-													<div class="col-md-4">
-														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-12 control-label text-left">Service Level Name</label>
-															<div class="col-sm-12">
-																<input type="text" class="form-control">
-															</div>
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-															<div class="col-sm-12">
-																<input type="text" class="form-control">
-															</div>
-														</div>
-													</div>
-													<div class="col-md-4 in-row-btn">
-														<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
-														<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
-													</div>
-												</div>
-											</div>
-										</section>
-								</div>
-							</div>
-						</div>	
-				</div>
-				<div class="row" ng-cloak ng-show="formstep2">
-						<div class="col-md-12">
-							<div class="box box-primary">
-								<div class="box-header with-border">
-									<i class="fa fa-cog"></i>
-									<h3 class="box-title text-right">Service Level Configuration</h3>
-								</div>
-								<div class="box-body">
 										<div class="row">
 											<div class="form-horizontal">
 												<div class="col-md-6">
@@ -321,44 +284,181 @@ title: Service Level Settings
 															</div>
 														</div>
 													</div>
-											  </div>
+												</div>
 												<div class="col-md-12 col-sm-12">
-													<button class="btn btn-primary pull-left" type="button">Save</button>
+													<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
+													<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
 												</div>
-												<div class="clearfix"></div>
-												<div class="col-md-4">
-													<div class="nested-panel-heading skill-heading">
-														<h3 class="nested-title">Topics That Use This Service Level</h3>
-													</div>
-													<div class="skill-list">
-														<div class="list-headings">Sales Segment </div>
-														<div class="segment-item">
-														 	<span class="skill-item"><a href="">All Topics</a><a href="">Sales Prospecting</a> <span class="fa fa-close text-red"></span></span>
-														</div>
-														<div class="segment-item"> 
-														 <span class="skill-item"><a href="">All Topics</a><a href="">Follow Ups</a> <span class="fa fa-close text-red"></span></span>
-														</div>
-														<div class="list-headings">Human Resource Segment</div>
-														<div class="segment-item">
-														 <span class="skill-item"><a href="">All Topics</a><a href="">_Spam</a> <span class="fa fa-close text-red"></span></span>
-														</div> 
-													</div>	
-												</div>
-												<div class="col-md-4">
-													<div class="nested-panel-heading skill-heading">
-														<h3 class="nested-title">Segment Defaults That Use This Service Level </h3>
-													</div>
-													<div class="skill-list">
-														<span class="skill-item"><a href="">Sales Segment</a> <span class="fa fa-close text-red"></span></span>
-														<span class="skill-item"><a href="">Customer Service Segment</a> <span class="fa fa-close text-red"></span></span>
-														<span class="skill-item"><a href="">Human Resource Segment</a> <span class="fa fa-close text-red"></span></span>
-													</div>	
-												</div>
-											</div>
-										</div>
+												
+										</div>	
+									</section>
 								</div>
 							</div>
 						</div>	
+				</div>
+				<div class="row" ng-cloak ng-show="formstep2">
+					<div class="col-md-12">
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<i class="fa fa-cog"></i>
+								<h3 class="box-title text-right">Service Level Configuration</h3>
+							</div>
+							<div class="box-body">
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-md-12 control-label text-left required">Service Level Name <span class="required">(Required)</span></label>
+												<div class="col-md-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-12 control-label text-left">Description</label>
+												<div class="col-md-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-md-12 control-label text-left">Minutes (Lower Means More Urgent)</label>
+												<div class="col-md-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-12 control-label text-left required">Property Type <span class="required">(Required)</span></label>
+												<div class="col-md-12">
+													<select class="form-control" name="name" ng-model="region.name">
+														<option value="">--Select Property Type--</option>
+														<option value="interaction">Interaction</option>
+														<option value="contact">Contact</option>
+													</select>	
+												</div>
+											</div>	
+											<div class="form-group bg-group" ng-if="region.name == 'interaction'">
+												<label class="col-md-12 control-label text-left">Interaction Property</label>
+												<div class="col-md-12">
+													<div class="form-group group-bg group-input detail-g-borderbottom"> 
+														<label class="col-md-12 control-label text-left group-input-label">Interaction Property</label>
+														<div class="col-md-12">
+															<select class="form-control group-input-item">
+																<option value="21">Answer Property  (QA) (Answer)</option>
+																<option value="2">Authorization Type  (QA) (Question)</option>
+																<option value="42">Carrier Adjument Amount (AR)  (1to1Service) (Case)</option>
+																<option value="48">Case Property</option>
+																<option value="7">Change Designation  (QA) (Question)</option>
+																<option value="6">Change Priority  (QA) (Question)</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group group-bg group-input detail-g-bordertop">
+														<label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value</label>
+														<div class="col-md-12">														
+															<input type="text" class="form-control group-input-item">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="form-group bg-group" ng-if="region.name == 'contact'">
+												<label class="col-md-12 control-label text-left">Contact Property</label>
+												<div class="col-md-12">
+													<div class="form-group group-bg group-input detail-g-borderbottom"> 
+														<label class="col-md-12 control-label text-left group-input-label">Contact Property</label>
+														<div class="col-md-12">
+															<select class="form-control group-input-item">
+																	<option selected="selected" value="">-- None --</option>
+																	<option value="11">Address1 (Global)</option>
+																	<option value="12">Address2 (Global)</option>
+																	<option value="22">Branch Office (QA)</option>
+																	<option value="23">CellTrak (QA)</option>
+																	<option value="13">City (Global)</option>
+																	<option value="7">Company (Global)</option>
+																	<option value="47">Contact View Only Property (JC Segment)</option>
+																	<option value="46">Contact Viewable and Editable Property (JC Segment)</option>
+																	<option value="16">Country (Global)</option>
+																	<option value="6">Customer Type (Global)</option>
+																	<option value="42">Dynamic OAuth (QA)</option>
+																	<option value="19">Empty Inbox When Logged Out (Global)</option>
+																	<option value="30">Equipment Provided (QA)</option>
+																	<option value="1">First Name (Global)</option>
+																	<option value="25">Horizon (QA)</option>
+																	<option value="28">Horizon Insight (QA)</option>
+																	<option value="20">Inactivity Timeout Minutes (Global)</option>
+																	<option value="50">JC (1to1Service)</option>
+																	<option value="8">Job Title (Global)</option>
+																	<option value="3">Last Name (Global)</option>
+																	<option value="43">LinkedIN (QA)</option>
+																	<option value="29">MAS200 (QA)</option>
+																	<option value="2">Middle Initial (Global)</option>
+																	<option value="48">Multi value No Descr (JC Segment)</option>
+																	<option value="18">Notification Address (Global)</option>
+																	<option value="35">Other Software (QA)</option>
+																	<option value="27">PayChex (QA)</option>
+																	<option value="24">PayNet (QA)</option>
+																	<option value="4">Phone (Global)</option>
+																	<option value="15">Postal Code (Global)</option>
+																	<option value="33">Qlik View Access (QA)</option>
+																	<option value="17">Receive Notifications (Global)</option>
+																	<option value="44">Salesforce Lead (QA3 - Misc Segment)</option>
+																	<option value="31">Scan Monkey (QA)</option>
+																	<option value="45">Shared Property from JC - cust can't see (JC Segment)</option>
+																	<option value="14">State (Global)</option>
+																	<option value="26">Ultimate Pro (QA)</option>
+																	<option value="32">VPN Access (QA)</option>
+																	<option value="40">Web Site (QA)</option>
+																	<option value="34">Windows Groups (QA)</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group group-bg group-input detail-g-bordertop">
+														<label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value</label>
+														<div class="col-md-12">														
+															<input type="text" class="form-control group-input-item" id="propertyValue" ng-blur="onBlur()">
+															<small class="text-red help-block" ng-show="notFilled" ng-init="notFilled = false;"  >Interaction Property Value Must Be Filled With Interaction Property </small>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12 col-sm-12">
+											<button class="btn btn-primary pull-left" type="button">Save</button>
+										</div>
+										<div class="clearfix"></div>
+										<div class="col-md-4">
+											<div class="nested-panel-heading skill-heading">
+												<h3 class="nested-title">Topics That Use This Service Level</h3>
+											</div>
+											<div class="skill-list">
+												<div class="list-headings">Sales Segment </div>
+												<div class="segment-item">
+													<span class="skill-item"><a href="">All Topics</a><a href="">Sales Prospecting</a> <span class="fa fa-close text-red"></span></span>
+												</div>
+												<div class="segment-item"> 
+													<span class="skill-item"><a href="">All Topics</a><a href="">Follow Ups</a> <span class="fa fa-close text-red"></span></span>
+												</div>
+												<div class="list-headings">Human Resource Segment</div>
+												<div class="segment-item">
+													<span class="skill-item"><a href="">All Topics</a><a href="">_Spam</a> <span class="fa fa-close text-red"></span></span>
+												</div> 
+											</div>	
+										</div>
+										<div class="col-md-4">
+											<div class="nested-panel-heading skill-heading">
+												<h3 class="nested-title">Segment Defaults That Use This Service Level </h3>
+											</div>
+											<div class="skill-list">
+												<span class="skill-item"><a href="">Sales Segment</a> <span class="fa fa-close text-red"></span></span>
+												<span class="skill-item"><a href="">Customer Service Segment</a> <span class="fa fa-close text-red"></span></span>
+												<span class="skill-item"><a href="">Human Resource Segment</a> <span class="fa fa-close text-red"></span></span>
+											</div>	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
 				</div>
 	        </div> 
         </div>

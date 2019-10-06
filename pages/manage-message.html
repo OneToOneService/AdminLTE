@@ -32,6 +32,9 @@ title: Manage Messages List View
                 <!-- START CUSTOM TABS -->
               	<div div class="row"> 
 					<div class="col-md-12">
+						<div class="pull-left">
+							You have 2510 unresolved messages but the message list display is limited to 2500
+						</div>	
 						<div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
 							<a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message.html">List View</a>
 							<a class="btn btn-default " data-toggle="on" href="/pages/manage-message-treeview.html">Tree View</a>
@@ -147,7 +150,7 @@ title: Manage Messages List View
 													</ul>
 												</div>
 												<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-													<button class="btn btn-sm btn-primary" title="Spam"  uib-dropdown-toggle ng-click="$event.stopPropagation()">
+													<button class="btn btn-sm btn-primary" title="Change Topic"  uib-dropdown-toggle ng-click="$event.stopPropagation()">
 														<i class="fa  fa-arrows-alt"></i>
 														Change Topic
 													</button>
@@ -181,6 +184,9 @@ title: Manage Messages List View
 													Spam
 												</button>
 										</span> 
+										<div class="pull-right item-count mtop-5 mright-15 ">
+											<span class="text-primary font-weight-bold"><small class="label bg-yellow">2</small> Items Selected</span>
+										</div>
 									</div>
 									<div class="box-body manage-message" uib-collapse="isCollapsedMassUpdate">
 										<div class="col-md-12 bg-box box-bg-color">
@@ -205,7 +211,7 @@ title: Manage Messages List View
 																				</select>    
 																			</div>    
 																		</li>
-																		<li><input type="checkbox" class="margin-r-5">Expect Custmer Reply</li>
+																		<li><input type="checkbox" class="margin-r-5">Expect Customer Reply</li>
 																		<li><input type="checkbox" class="margin-r-5">Add Reference Number</li>
 																	</ul>
 																</div>
@@ -520,9 +526,6 @@ title: Manage Messages List View
 									    <div class="pull-right">
 											 <label class="incoming-ques"><input type="checkbox" value="" class="minimal" checkbox ng-model="incomingList" ng-init="incomingList = true">Incoming Questions</label>
 											 <label class="agent-prop-ans"><input type="checkbox" value="" class="minimal" checkbox ng-model="praposedList">Agent Proposed Answers</label>
-										</div>	
-										<div class="pull-right item-count mright-5">
-											<span class="text-primary font-weight-bold">2 Items Selected</span>
 										</div>	
 									</div>
 									<!-- /.box-header -->

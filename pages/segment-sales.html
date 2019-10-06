@@ -387,30 +387,131 @@ title:  Sales Settings
                       </div>
                       <div class="box-body">
                         <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Property Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
+                            <div class="row">
+                                <div class="form-horizontal">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label text-left">Property Name</label>
+                                      <div class="col-md-12">
+                                        <input type="text" class="form-control">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label text-left">Description</label>
+                                      <div class="col-md-12">
+                                        <input type="text" class="form-control">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label text-left">Property Type</label>
+                                      <div class="col-md-12">
+                                        <select class="form-control">
+                                            <optgroup label="Interaction">
+                                              <option>Answer</option>
+                                              <option>Case</option>
+                                              <option>Find Answer</option>
+                                              <option>Question</option>
+                                            </optgroup>
+                                            <optgroup label="Customer Info">
+                                              <option>Account</option>                                            
+                                              <option>Contact</option>
+                                            </optgroup>
+                                        </select>
+                                      </div>
+                                    </div>
                                   </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label text-left">Tenant Default Value</label>
+                                      <div class="col-md-12">
+                                        <input type="text" class="form-control">
+                                      </div>
+                                    </div> 
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label text-left">Value Type</label>
+                                      <div class="col-md-12">
+                                        <div class="ng-cloak" ng-controller="DemoCtrl as ctrl">
+                                          <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+                                            <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                            <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+                                              <span ng-bind-html="item.name | highlight: $select.search"></span>
+                                            </ui-select-choices>
+                                          </ui-select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-md-12 control-label text-left">Group Name</label>
+                                      <div class="col-md-12">
+                                        <input type="text" class="form-control">
+                                      </div>
+                                    </div>
+                                                             
+                                  </div>
+  
+                                  <h4 class="col-md-12">Optional Settings</h4>
+                                   <div class="col-md-6">
+                                     <div class="">
+                                        <div class="checkbox">
+                                            <iservice-switch switched="toggle.required">Required Property</iservice-switch>
+                                          </div>                                       
+                                          <div class="checkbox">
+                                             <iservice-switch switched="toggle.sharedproperty">Shared Property</iservice-switch> 
+                                          </div> 
+                                          <div class="checkbox">
+                                            <iservice-switch switched="toggle.multiline">Multi-Line Values</iservice-switch> 
+                                        </div> 
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[toggle.showgroup]" >
+                                      <iservice-switch switched="toggle.showgroup">Allow Multiple Values</iservice-switch> 
+                                      <div class="checkbox nested" ng-show="toggle.showgroup">
+                                            <iservice-switch switched="toggle.showdescriptionvalue">Has Descriptions</iservice-switch> 
+                                            <div class="form-group" ng-show="toggle.showdescriptionvalue">
+                                              <label class="col-md-12 control-label text-left">Value Description Type</label>
+                                              <div class="col-md-12">
+                                                <select class="form-control">
+                                                  <option value="date">Date</option>
+                                                  <option value="int">Integer</option>
+                                                  <option value="number">Number</option>
+                                                  <option selected="selected" value="text">Text</option>
+                                                  <option value="detail3">Address Type</option>
+                                                  <option value="detail5">Article Use Code</option>
+                                                  <option value="detail2">Bool</option>
+                                                  <option value="detail1">Customer Type</option>
+                                                  <option value="detail7">Equipment Type List</option>
+                                                  <option value="detail13">increase decrease list</option>
+                                                  <option value="detail6">New or Change</option>
+                                                  <option value="detail9">Owner List</option>
+                                                  <option value="detail4">Phone Number Type</option>
+                                                  <option value="detail8">Priority List</option>
+                                                  <option value="detail12">Reason List</option>
+                                                  <option value="detail11">Team</option>
+                                                  <option value="detail10">Won or Lost</option>
+                                                </select>  
+                                              </div>
+                                            </div>
+                                      </div> 
+                                    </div> 
+                                    
+                                    <div class="checkbox" ng-class="{true: 'group-bg group-input groupbg-checkbox'}[toggle.showcontviewable]">
+                                      <iservice-switch switched="toggle.showcontviewable">Contact Viewable</iservice-switch>
+                                        <div class="checkbox nested" ng-show="toggle.showcontviewable">
+                                          <iservice-switch switched="toggle.showcontacteditable">Contact Editable</iservice-switch> 
+                                        </div>
+                                    </div> 
+                                  </div>
+                                  <div class="col-md-12 col-sm-12">
+                                    <button class="btn btn-primary pull-left" type="button">Create</button>
+                                    <button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <hr>
+                                  </div> 
+                                 
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-4 in-row-btn">
-                                <button type="button" class="btn btn-primary margin-r-5">Create</button>
-                                <button type="button" class="btn btn-link" ng-click="cancelForm(1)">Cancel</button>
-                              </div>
-                            </div>
-                          </div>
                         </section>
                       </div>
                     </div>
@@ -1019,47 +1120,168 @@ title:  Sales Settings
                         <h3 class="box-title text-right">New Mailbox</h3>
                       </div>
                       <div class="box-body">
-                        <section class="search-parameters">
-                          <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-12 control-label text-left">POP Server Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
+                         <section class="box-content box-bg-color">
+                          
+                          <div class="row form-horizontal">
+                            <div class="col-md-6">
+                              <div class="box box-primary">
+                                <div class="box-header with-border">
+                                  <h3 class="box-title text-right">Incoming Mail Configuration</h3>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-12 control-label text-left">User Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-12 control-label text-left">SMTP Server Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="col-sm-12 control-label text-left">Password</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-12 col-sm-12">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelFormMailbox(1)">Cancel</button>
-                              </div>
+                                <div class="box-body ">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="form-group">
+                                        <label class="col-md-12 control-label text-left">Mail Server Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enter the name of the mail server used for incoming email (e.g., pop.example.net)."></i> </label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12 control-label text-left">Protocol <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Choose the appropriate protocol for retrieving incoming email."></i> </label>
+                                        <div class="radio col-md-6">
+                                          <label>
+                                            <input type="radio" name="optionsRadios"> Use IMAP
+                                          </label>
+                                        </div>
+                                        <div class="radio col-md-6" >
+                                          <label>
+                                            <input type="radio" name="optionsRadios">Use POP
+                                          </label>
+                                        </div>
+                                      </div>  
+                                      <div class="form-group">
+                                        <label class="col-md-12 control-label text-left">Username <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enter the username required to log into the mailbox."></i></label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12 control-label text-left">Password <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enter the password required to log into the mailbox."></i></label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12 control-label text-left">Port Number <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enter the port number for accessing the mailbox. Common port numbers are 110 for POP and 143 for IMAP."></i></label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                        </div>
+                                      </div>
+                                      <div class="form-group" ng-controller="TopicCtrl as ctrl">
+                                        <label for="inputPassword3" class="col-md-12 control-label text-left">Default Topic For Incoming Messages <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="This is the default topic assigned to email retrieved from this mailbox. You can use a filter to change the topic and take other actions on the messages."></i></label>
+                                        <div class="col-md-12">
+                                          <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+                                            <ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
+                                            <ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
+                                                <span ng-bind-html="color.Topic | highlight: $select.search"></span>
+                                            </ui-select-choices>
+                                          </ui-select>
+                                        </div>
+                                      </div>
+                                      <h4>Optional Settings</h4>                                      
+                                      <div class="form-group">
+                                        <label class="col-md-8 control-label text-left">Filter <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Choose a filter to apply to messages received in this mailbox."></i></label>
+                                        <label class="col-md-4 control-label text-right"><a href="#" class="help-link text-primary text-right">View</a></label>
+                                        <div class="col-md-12 ng-cloak" ng-controller="FilterCtrl as ctrl">
+                                          <ui-select ng-model="ctrl.filterselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+                                            <ui-select-match placeholder="Select or search a filter in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                            <ui-select-choices repeat="filter in ctrl.filtername | filter: $select.search">
+                                              <span ng-bind-html="filter.name | highlight: $select.search"></span>
+                                            </ui-select-choices>
+                                          </ui-select>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-md-12">
+                                          <iservice-switch switched="toggle.switchmailretrive">
+                                            User Encryption
+                                          </iservice-switch>
+                                          <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-md-12">
+                                          <iservice-switch switched="toggle.switch3">
+                                            Enable Mail Retrieving
+                                          </iservice-switch> 
+                                          <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enable this setting to allow access to the mailbox. When disabled, this mailbox will be skipped by the mail popper."></i>
+                                        </div>
+                                      </div>
+                                    </div>  
+                                  </div>  
+                                </div>  
+                              </div>    
                             </div>
-                          </div>
+                            <div class="col-md-6">
+                              <div class="box box-primary">
+                                <div class="box-header with-border">                                      
+                                  <h3 class="box-title text-right">SMTP Configuration</h3>
+                                </div>
+                                <div class="box-body">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="form-group">
+                                        <label class="col-md-12 control-label text-left">SMTP Server Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" Enter the name of the mail server used for sending email (e.g., smtp.example.net)."></i></label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12 control-label text-left">Display Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="This is the display name used for messages sent from this mailbox (e.g., Support Team)."></i></label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12 control-label text-left">Reply To <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="This is the email address used for the From field when sending from this mailbox. When recipients reply, this is the Reply To address they will see (e.g., support@example.com)."></i></label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                        </div>
+                                      </div>
+                                      <h4>Optional Settings</h4> 
+                                      <div class="form-group">
+                                        <div class="col-md-12">
+                                          <iservice-switch switched="toggle.switchsmtpauth">
+                                            Use SMTP Authentication
+                                          </iservice-switch>
+                                          <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i>
+                                        </div>
+                                      </div>
+                                      <div class="form-group bg-group" ng-show="toggle.switchsmtpauth">
+                                          <label class="col-md-12 control-label text-left">SMTP Authentication Settings</label>
+                                          <div class="col-md-12">
+                                            <div class="form-group group-bg group-input detail-g-borderbottom"> 
+                                              <label class="col-md-12 control-label text-left group-input-label">Port Number</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control">
+                                              </div>
+                                            </div>
+                                            <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
+                                              <label class="col-md-12 control-label text-left  group-input-label">Username</label>
+                                              <div class="col-md-12">														
+                                                <input type="text" class="form-control group-input-item">
+                                                </div>
+                                            </div>
+                                            <div class="form-group group-bg group-input detail-g-bordertop">
+                                              <label class="col-md-12 control-label text-left  group-input-label">Password</label>
+                                              <div class="col-md-12">														
+                                                <input type="text" class="form-control group-input-item">
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>  
+                                  </div>  
+                                </div>  
+                              </div>  
+                            </div>
+                            
+                            <div class="col-md-12 col-sm-12">
+                                <button type="button" class="btn btn-primary">Create</button>
+                                <button type="button" class="btn btn-link" ng-click="cancelFormMailbox(1)">Cancel</button>
+                            </div>
+                          </div>  
                         </section>
                       </div>
                     </div>
@@ -1378,31 +1600,62 @@ title:  Sales Settings
                       <div class="box-body">
                         <section class="search-parameters">
                           <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Notification Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
+                              <div class="form-horizontal">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Description</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="col-md-4 in-row-btn">
-                                <div class="form-group">
-                                  <button type="button" class="btn btn-primary">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelFormAutoResponse(1)">Cancel</button>
-                                </div>	
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <div class="col-md-12 toggle-control">
+                                      <iservice-switch switched="toggle.switchnoreply">Use No-Reply From Address</iservice-switch>
+                                    </div>  
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Notification Type</label>
+                                    <div class="col-md-12">
+                                      <select class="form-control">
+                                        <option value="">Agent Notification</option>
+                                        <option value="">Alert</option>
+                                        <option value="">Contact Creation</option>
+                                        <option value="">Find Answers Article Notification</option>
+                                        <option value="">Message Acknowledgment</option>
+                                        <option value="">Password Reset</option>
+                                        <option value="">Secure Message Notification</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">
+                                        Html Response Body</label>
+                                    <div class="col-md-12">
+                                      <textarea class="form-control" ckeditor></textarea>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <button type="button" class="btn btn-primary">Create</button>
+                                    <button type="button" class="btn btn-link" ng-click="cancelFormAutoResponse(1)">Cancel</button>
+                                </div>
                               </div>
                             </div>
-                          </div>
+
                         </section>
                       </div>
                     </div>
@@ -1571,31 +1824,134 @@ title:  Sales Settings
                       <div class="box-body">
                         <section class="search-parameters">
                           <div class="row">
-                            <div class="form-horizontal">
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Stock Response Name</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
+                              <div class="form-horizontal">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Name</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-                                  <div class="col-sm-12">
-                                    <input type="text" class="form-control">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Description</label>
+                                    <div class="col-md-12">
+                                      <input type="text" class="form-control">
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="col-md-4 in-row-btn">
-                                <div class="form-group">
-                                  <button type="button" class="btn btn-primary" ng-click="showNewFormStepStockResponse('2')">Create</button>
-                                  <button type="button" class="btn btn-link" ng-click="cancelFormStockResponse(1)">Cancel</button>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type</label>
+                                    <div class="col-sm-12">
+                                      <select class="form-control">
+                                        <option>Chat</option>
+                                        <option>Email</option>
+                                      </select> 	 
+                                    </div>
+                                  </div>
+                                </div>
+                               
+                                <div class="col-md-8">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">
+                                        Html Response Body</label>
+                                    <div class="col-md-12">
+                                      <textarea class="form-control" ckeditor></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4 vpicker">
+                                  <div class="nav-tabs-custom">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#tab_variablepicker" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>         
+                                        <li><a href="#tab_stockresponse" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                      <div class="tab-pane active" id="tab_variablepicker">
+                                          <div class="row custom-scroll">
+                                              <div class="col-xs-12 variable-responses">
+                                                  <div>
+                                                      <input type="text" class="form-control" placeholder="Filter Variables">
+                                                  </div>
+                                                  <ul class="list-unstyled segment-variable-list">
+                                                      <li class="section-label">Contact
+                                                          <ul class="segment-variables">
+                                                              <li class="section-var-link">Name</li>
+                                                              <li class="segment-lable">Global
+                                                                  <ul>
+                                                                  <li class="section-var-link">Address1</li>
+                                                                  <li class="section-var-link">Address2</li>
+                                                                  <li class="section-var-link">City</li>
+                                                                  <li class="section-var-link">Country</li>
+                                                                  <li class="section-var-link">Company</li>
+                                                                  </ul>
+                                                              </li>
+                                                              <li class="segment-lable">JC Segment
+                                                                  <ul>
+                                                                  <li class="section-var-link">Contact View Only Property</li>
+                                                                  <li class="section-var-link">Contact Viewable and Editable Property</li>
+                                                                  <li class="section-var-link">Multi value No Descr</li>
+                                                                  <li class="section-var-link">Shared Property from JC - cust can't see</li>
+                                                                  </ul>
+                                                              </li>
+                                                          </ul>
+                                                      </li>
+                                                  </ul>
+                                                  <ul class="list-unstyled segment-variable-list">
+                                                      <li class="section-label">Answer
+                                                      <ul class="segment-variables">
+                                                          <li class="section-var-link">Email</li>
+                                                          <li class="section-var-link">Reference Number</li>
+                                                          <li class="section-var-link">Original Date</li>
+                                                          <li class="section-var-link">Original Time</li>
+                                                          <li class="section-var-link">Subject</li>
+                                                          <li class="section-var-link">Original Body</li>
+                                                          <li class="section-var-link">Quoted Question</li>
+                                                      </ul>
+                                                      </li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="tab-pane" id="tab_stockresponse">
+                                          <div class="row" id="stock-responses">
+                                              <div class="col-xs-12 stock-responses">
+                                                  <div>
+                                                      <input type="text" class="form-control" placeholder="Filter Stock Responses">
+                                                  </div>
+                                                  <ul class="list-unstyled segment-variable-list">
+                                                      <li class="section-label">Segment Responses
+                                                      <ul class="segment-variables">
+                                                          <li class="section-var-link">Chat Closing</li>
+                                                          <li class="section-var-link">Chat Opening</li>
+                                                          <li class="section-var-link">Chat Wait</li>
+                                                          <li class="section-var-link">iService Website</li>
+                                                      </ul>
+                                                      </li>
+                                                  </ul>
+                                                  <ul class="list-unstyled segment-variable-list">
+                                                      <li class="section-label">Agent Response
+                                                      <ul class="segment-variables">
+                                                          <li class="section-var-link">Test</li>
+                                                          
+                                                      </ul>
+                                                      </li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    <!-- /.tab-content -->
+                                  </div>
                                 </div>	
+                                <div class="col-md-12 col-sm-12">
+                                    <button type="button" class="btn btn-primary" ng-click="showNewFormStepStockResponse('2')">Create</button>
+                                    <button type="button" class="btn btn-link" ng-click="cancelFormStockResponse(1)">Cancel</button>
+                                </div>
                               </div>
                             </div>
-                          </div>
                         </section>
                       </div>
                     </div>
@@ -2082,27 +2438,380 @@ title:  Sales Settings
                                     <section class="search-parameters">
                                       <div class="row">
                                         <div class="form-horizontal">
-                                          <div class="col-md-4">
+                                          <div class="col-md-6">
                                             <div class="form-group">
-                                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Filter Name</label>
-                                              <div class="col-sm-12">
+                                              <label class="col-md-12 control-label text-left">Name</label>
+                                              <div class="col-md-12">
                                                 <input type="text" class="form-control">
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="col-md-4">
+                                          <div class="col-md-6">
                                             <div class="form-group">
-                                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-                                              <div class="col-sm-12">
+                                              <label class="col-md-12 control-label text-left">Description</label>
+                                              <div class="col-md-12">
                                                 <input type="text" class="form-control">
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="col-md-4 in-row-btn">
+                                          <div class="col-md-6">
                                             <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Expression</label>
+                                              <div class="col-md-12">
+                                                <input type="text" class="form-control">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-12">
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label text-left">Match In</label>
+                                              <div class="row">
+                                                <div class="checkbox  col-md-3">
+                                                  <label><input type="checkbox" class="flat-red">Body</label>
+                                                </div>
+                                                <div class="checkbox  col-md-3">
+                                                  <label><input type="checkbox" class="flat-red">Contact Properties</label>
+                                                </div>
+                                                <div class="checkbox  col-md-3">
+                                                  <label><input type="checkbox" class="flat-red">From</label>
+                                                </div>
+                                                <div class="checkbox  col-md-3">
+                                                  <label><input type="checkbox" class="flat-red">Mailbox Name</label>
+                                                </div>     
+                                                <div class="checkbox col-md-3">
+                                                  <label><input type="checkbox" class="flat-red">Subject</label>
+                                                </div> 
+                                                <div class="checkbox  col-md-3">
+                                                  <label><input type="checkbox" class="flat-red">Text Attachments</label>
+                                                </div>
+                                              </div>	
+                                            </div>	
+                                          </div>	
+                                          <div class="col-md-12">
+                                            <label class="control-label text-left">Filter Action</label>
+                                            <div class="clearfix"></div>
+                                            <section class="container-fluid search-parameters" id="action-container">
+                                              <fieldset class="row action">
+                                                <div class="panel panel-default col-xs-12 bg-gray-light">
+                                                  <div class="col-md-12 formstep box-bg-color" style="padding-top:15px;" ng-show="formActionStep1">
+                                                    <div class="col-md-10"> 
+                                                      <div class="row">
+                                                        <div class="col-md-6">
+                                                          <div class="form-group">
+                                                            <label class="col-sm-5 control-label text-left">Pick a step type </label>
+                                                            <div class="col-sm-7">
+                                                              <select class="form-control" id="" ng-change="showStepType();" ng-model="stepValue">
+                                                                <option value="choose">Choose A Type...</option>
+                                                                  <option value="adminForms">Admin Forms</option>
+                                                                  <option value="adminWebsites">Admin Websites</option>
+                                                                  <option value="captchaVerify">Captcha Verify</option>
+                                                                  <option value="chatCreate">Chat Create</option>
+                                                                  <option value="chatEnd">Chat End</option>
+                                                                  <option value="chatForward">Chat Forward</option>
+                                                                  <option value="chatGetNext">Chat Get Next</option>
+                                                                  <option value="chatKeepAlive">Chat Keep Alive</option>
+                                                                  <option value="chatSend">Chat Send</option>
+                                                                  <option value="chatToggleAvailability">Chat Toggle Availability</option>
+                                                                  <option value="mailboxEmail">Create mailbox Email</option>
+                                                                  <option value="note">Create Note</option>
+                                                                  <option value="ticket">Create Ticket/Ask A Question</option>
+                                                                  <option value="contactFindCreate">Find/Create Contact</option>
+                                                                  <option value="customerInfoDetails">Customer Info Set Details</option>
+                                                                  <option value="interactionHistoryProperties">Interaction Set Properties</option>
+                                                                  <option value="logout">Logout</option>
+                                                                  <option value="messageQueueGetApprove">Message Queue Get Approve</option>
+                                                                  <option value="messageQueueGetNext">Message Queue Get Next</option>
+                                                                  <option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
+                                                                  <option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
+                                                                  <option value="messageQueueQAReject">Message Queue QA Reject</option>
+                                                                  <option value="messageQueueChangeTopic">Message Queue Change Topic</option>
+                                                                  <option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
+                                                                  <option value="messageQueueSaveDraft">Message Queue Save Draft</option>
+                                                                  <option value="messageQueueAssign">Message Queue Assign To mailbox</option>
+                                                                  <option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
+                                                                  <option value="messageQueueForwardExternal">Message Queue Forward To External mailbox</option>
+                                                                  <option value="messageQueueSaveNote">Message Queue Save Note</option>
+                                                                  <option value="messageQueueSend">Message Queue Send</option>
+                                                                  <option value="myAccountSubscriptions">My Account Subscriptions</option>
+                                                                  <option value="myAccountDetails">My Account Details</option>
+                                                                  <option value="passwordResetSend">Password Reset Send</option>
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>	
+                                                      <!--Step type action start-->
+                                                      <div class="row formstep box-bg-white" ng-show="subFormActionStepType1">
+                                                        <div class="col-md-12">
+                                                          <h4>Create mailbox Email</h4>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="col-md-12">
+                                                          <div class="row">
+                                                            <div class="col-md-6">	
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Send As Secure Email <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="checkbox" class="form-control flat-red">	
+                                                                </div>																									
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">	
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Notification ID </label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Expect Customer Response</label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="checkbox" class="form-control flat-red">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">From Mailbox ID</label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">To Contact ID</label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Contact Email Address </label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                </div>
+                                                              </div>
+                                                            </div>		
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Parent Interaction ID <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">CC</label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">BCC</label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Subject</label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                </div>
+                                                              </div>
+                                                            </div>	
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Topic Id</label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Add Reference Number To Subject Line</label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="checkbox" class="form-control flat-red">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Generate Only A Plain Text Body</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="checkbox" class="form-control flat-red">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Form Body <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+                                                                <div class="col-sm-12">
+                                                                  <textarea class="form-control" rows="5" placeholder="" id="mailboxEmailAction" name="mailboxEmailAction" ckeditor></textarea>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Note:</label>
+                                                                <div class="col-sm-8">
+                                                                  <textarea class="form-control" rows="5"></textarea>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Property Group <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                  <small  class="text-muted">
+                                                                  *Specified with $input ... -group'xxx'$
+                                                                  </small>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Full Creation Parameters (JSON) <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                  <a href="javascript:void(0)" ng-click="showFormat= !showFormat">Format</a>
+                                                                </div>
+                                                                <div class="col-md-12" ng-show="showFormat">
+                                                                    
+                                                                    <samp><i>details</i> := { "contactID": "string",  "inResponseToID": "string",
+                                                                          "segmentID": "string",
+                                                                          "mailboxID": "string",
+                                                                          "topicID": "string",
+                                                                          "destEmail": "string",
+                                                                          "cc": "string",
+                                                                          "bcc": "string",
+                                                                          "subject": "string",
+                                                                          "addSubjectRefNum": bool,
+                                                                          "body": "string",
+                                                                          "bodyHtml": "string",
+                                                                          "note": "string",
+                                                                          "autoGenerateHtmlIfMising": bool,
+                                                                          "action": number, //1 = mailbox Email, 2 = Secure Email
+                                                                          "notificationID": "string",
+                                                                          "expectingResponse": bool,
+                                                                          "properties": 
+                                                                          [ { "propertyID", "string",
+                                                                            "values":
+                                                                            [ { "description": "string",
+                                                                              "value": "string",
+                                                                              "valueDate": "/Date(date.getTime())/"
+                                                                            } ]
+                                                                          } ]
+                                                                        }</samp>
+                                                                                                                  </div>	
+                                                              </div>
+                                                            </div>	
+                                                            <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                <label class="col-sm-4 control-label text-left">Result Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+                                                                <div class="col-sm-8">
+                                                                  <input type="text" class="form-control"  placeholder="">
+                                                                  <small  class="text-muted">
+                                                                    *Can be referenced in other steps as $result -id'name'$
+                                                                  </small>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <!--Step type action end-->
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                      <button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
+                                                      <button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
+                                                      <button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
+                                                          <i class="fa fa-times-circle text-red"></i>
+                                                      </button>
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="col-md-12 formstep box-bg-color" style="padding-top:15px;" ng-show="formActionStep1">
+                                                    <div class="col-md-10"> 
+                                                      <div class="row">
+                                                        <div class="col-md-6">
+                                                          <div class="form-group">
+                                                            <label class="col-sm-5 control-label text-left">Pick a step type </label>
+                                                            <div class="col-sm-7">
+                                                              <select class="form-control" id="actionstep1">
+                                                                <option value="choose">Choose A Type...</option>
+                                                                  <option value="adminForms">Admin Forms</option>
+                                                                  <option value="adminWebsites">Admin Websites</option>
+                                                                  <option value="captchaVerify">Captcha Verify</option>
+                                                                  <option value="chatCreate">Chat Create</option>
+                                                                  <option value="chatEnd">Chat End</option>
+                                                                  <option value="chatForward">Chat Forward</option>
+                                                                  <option value="chatGetNext">Chat Get Next</option>
+                                                                  <option value="chatKeepAlive">Chat Keep Alive</option>
+                                                                  <option value="chatSend">Chat Send</option>
+                                                                  <option value="chatToggleAvailability">Chat Toggle Availability</option>
+                                                                  <option value="mailboxEmail">Create mailbox Email</option>
+                                                                  <option value="note">Create Note</option>
+                                                                  <option value="ticket">Create Ticket/Ask A Question</option>
+                                                                  <option value="contactFindCreate">Find/Create Contact</option>
+                                                                  <option value="customerInfoDetails">Customer Info Set Details</option>
+                                                                  <option value="interactionHistoryProperties">Interaction Set Properties</option>
+                                                                  <option value="logout">Logout</option>
+                                                                  <option value="messageQueueGetApprove">Message Queue Get Approve</option>
+                                                                  <option value="messageQueueGetNext">Message Queue Get Next</option>
+                                                                  <option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
+                                                                  <option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
+                                                                  <option value="messageQueueQAReject">Message Queue QA Reject</option>
+                                                                  <option value="messageQueueChangeTopic">Message Queue Change Topic</option>
+                                                                  <option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
+                                                                  <option value="messageQueueSaveDraft">Message Queue Save Draft</option>
+                                                                  <option value="messageQueueAssign">Message Queue Assign To mailbox</option>
+                                                                  <option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
+                                                                  <option value="messageQueueForwardExternal">Message Queue Forward To External mailbox</option>
+                                                                  <option value="messageQueueSaveNote">Message Queue Save Note</option>
+                                                                  <option value="messageQueueSend">Message Queue Send</option>
+                                                                  <option value="myAccountSubscriptions">My Account Subscriptions</option>
+                                                                  <option value="myAccountDetails">My Account Details</option>
+                                                                  <option value="passwordResetSend">Password Reset Send</option>
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>		
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                      <button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
+                                                      <button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
+                                                      <button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
+                                                          <i class="fa fa-times-circle text-red"></i>
+                                                      </button>
+                                                    </div>		
+                                                  </div>
+                                                  
+                                                  
+                                                  <div class="row">
+                                                    <button class="btn btn-lg btn-link pull-left" type="button" ng-click="addStep();">
+                                                      <i class="fa fa-plus-circle text-light-blue"></i>
+                                                      Add Steps <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+                                                    </button>
+                                                  </div>	
+                                                </div>
+                                              </fieldset>
+                                            </section>	
+                                          </div>
+                                          <div class="col-md-12 col-sm-12">
                                               <button type="button" class="btn btn-primary">Create</button>
                                               <button type="button" class="btn btn-link" ng-click="cancelFormFilter(1)">Cancel</button>
-                                            </div>	
                                           </div>
                                         </div>
                                       </div>
@@ -2581,28 +3290,55 @@ title:  Sales Settings
                                   <section class="search-parameters">
                                     <div class="row">
                                       <div class="form-horizontal">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                           <div class="form-group">
-                                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Group Name</label>
-                                            <div class="col-sm-12">
+                                            <label class="col-md-12 control-label text-left">Name</label>
+                                            <div class="col-md-12">
                                               <input type="text" class="form-control">
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                           <div class="form-group">
-                                            <label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-                                            <div class="col-sm-12">
+                                            <label class="col-md-12 control-label text-left">Description</label>
+                                            <div class="col-md-12">
                                               <input type="text" class="form-control">
                                             </div>
                                           </div>
                                         </div>
+
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <div class="checkbox">
+                                              <iservice-switch switched="toggle.required">Always Run All Filters</iservice-switch> 
+                                            </div> 
+                                          </div>    
+                                        </div>
+                                        <div class="clearfix"></div>
                                       
-                                        <div class="col-md-4 in-row-btn">
-                                          <div class="form-group">
-                                            <button type="button" class="btn btn-primary">Create</button>
-                                            <button type="button" class="btn btn-link" ng-click="cancelFormGroup(1)">Cancel</button>
-                                          </div>	
+                                        <div class="col-md-12" ng-controller="SimpleDemoController"> 
+                                          <div class="filtergroup row">
+                                            <button type="button" class="btn btn-link arrow"><i class="fa fa-arrows-h"></i></button>
+                                            <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
+                                              <label class="control-label text-left">{% raw %}{{(listName == 'Availablefilter') ? 'Available Filters (Drag filters to add them to the group)' : 'Included Filters'}}{% endraw %}</label>
+                                              <div class="col-md-12 filter-box">
+                                                  <ul dnd-list="list">
+                                                      <li ng-repeat="item in list"
+                                                          dnd-draggable="item"
+                                                          dnd-moved="list.splice($index, 1)"
+                                                          dnd-effect-allowed="move"
+                                                          dnd-selected="models.selected = item"
+                                                          ng-class="{'selected': models.selected === item}">
+                                                          {% raw %}{{item.label}}{% endraw %}
+                                                      </li>
+                                                  </ul>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12">
+                                          <button type="button" class="btn btn-primary">Create</button>
+                                          <button type="button" class="btn btn-link" ng-click="cancelFormGroup(1)">Cancel</button>
                                         </div>
                                       </div>
                                     </div>

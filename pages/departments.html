@@ -144,30 +144,74 @@ title: Department Settings
 									<h3 class="box-title text-right">New Department</h3>
 								</div>
 								<div class="box-body">
-									<div class="row">
-										<div class="form-horizontal">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label for="inputPassword3" class="col-sm-12 control-label text-left">Department Name</label>
-													<div class="col-sm-12">
-														<input type="text" class="form-control">
+									<section class="box-content box-bg-color">
+										<div class="row">
+											<div class="form-horizontal">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Department Name</label>
+														<div class="col-sm-12">
+															<input type="text" class="form-control">
+														</div>
 													</div>
 												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
-													<div class="col-sm-12">
-														<input type="text" class="form-control">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+														<div class="col-sm-12">
+															<input type="text" class="form-control">
+														</div>
 													</div>
 												</div>
-											</div>
-											<div class="col-md-4 in-row-btn">
-												<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
-												<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+												<div class="clearfix"></div>
+												<div class="col-md-6">
+													<div class="box box-primary">
+														<div class="box-header with-border">
+															<h3 class="box-title text-right">Segments</h3>
+														</div>
+														<div class="box-body custom-scroll">
+															<div class="form-group">
+																<div class="checkbox col-md-6">
+																	<label>
+																		<input type="checkbox" checkbox> Sales
+																	</label>
+																</div>
+																<div class="checkbox col-md-6">
+																	<label>
+																		<input type="checkbox" checkbox>Customer Support
+																	</label>
+																</div>
+															</div>  
+														</div>     
+													</div>  
+												</div>  
+												<div class="col-md-6">
+													<div class="box box-primary">
+														<div class="box-header with-border">
+															<h3 class="box-title text-right">Skills</h3>
+														</div>
+														<div class="box-body custom-scroll">
+															<div class="checkbox col-md-6">
+																	<label>
+																		<input type="checkbox" checkbox> Product Sales
+																	</label>
+																</div>
+																<div class="checkbox col-md-6">
+																	<label>
+																		<input type="checkbox" checkbox>Customer Service
+																	</label>
+																</div>
+														</div>     
+													</div>  
+												</div> 
+												<div class="col-md-12 col-sm-12">
+														<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
+														<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+												</div>
+												<div class="clearfix"></div>
 											</div>
 										</div>
-									</div>
+									</section>	
 								</div>
 							</div>
 						</div>	
