@@ -31,8 +31,11 @@ title: Manage Messages Tree View
 			<section class="content">
 				<div class="row"> 
 					<div class="col-md-12">
-						<div class="pull-left">
-							You have 2510 unresolved messages but the message list display is limited to 2500
+						<div class="alert alert-warning alert-inline pull-left mbottom-15">
+							<h4><i class="icon fa fa-warning"></i>Alert! <span class="text">You have 3200 unresolved questions but the page is limited to 2500...<span class="more" ng-click="showmore = !showmore" ng-show="!showmore">more</span><span class="more"  ng-click="showmore = !showmore" ng-show="showmore" ng-cloak>less</span></span></h4>
+							<div class="mtop-15" ng-hide="!showmore" ng-cloak>
+									This page displays a maximum of 2500 unresolved questions to avoid performance issues caused by loading details of too many interactions. Since you have more than 2500 unresolved questions, some of your questions are not displayed. Answer or reolve enough questions to keep your total unresolved questions below 2500.
+							</div>	
 						</div>	
 						<div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
 							<a class="btn btn-default" data-toggle="on" href="/pages/manage-message.html">List View</a>
@@ -77,7 +80,7 @@ title: Manage Messages Tree View
 								</div>	
 								<div class="treeview  active-chat">
 										<ul id="tree1" class="tree">
-											<li><input type="checkbox" class="minimal"><a href="#" class="selected"> e-shop -- All Topics </a>
+											<li><input type="checkbox" class="minimal "><a href="#" class="selected"> e-shop -- All Topics </a>
 												<ul>
 													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
 													<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>

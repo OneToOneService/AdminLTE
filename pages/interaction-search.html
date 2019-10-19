@@ -133,6 +133,15 @@ title:  Search Interactions
 													</select>
 												</div>
 												<div class="form-group col-md-4">
+													<label class="control-label text-left">On or after</label>
+													<div class="input-group date">
+														<div class="input-group-addon" ng-click="isDatepickerEnd = !isDatepickerEnd">
+															<i class="fa fa-calendar"></i>
+														</div>
+														<input type="text" class="form-control pull-right" ng-focus="isDatepickerEnd = !isDatepickerEnd" uib-datepicker-popup="yyyy-MM-dd" ng-model="date" is-open="isDatepickerEnd" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+													</div>
+												</div>	
+												<div class="form-group col-md-4">
 													<label class="control-label text-left">On or before</label>
 													<div class="input-group date">
 														<div class="input-group-addon" ng-click="isDatepickerStart = !isDatepickerStart">
@@ -140,16 +149,7 @@ title:  Search Interactions
 														</div>
 														<input type="text" class="form-control pull-right" ng-focus="isDatepickerStart = !isDatepickerStart" uib-datepicker-popup="yyyy-MM-dd" ng-model="date" is-open="isDatepickerStart" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
 													</div>
-												</div>
-												<div class="form-group col-md-4">
-												    <label class="control-label text-left">On or after</label>
-													<div class="input-group date">
-															<div class="input-group-addon" ng-click="isDatepickerEnd = !isDatepickerEnd">
-																<i class="fa fa-calendar"></i>
-															</div>
-															<input type="text" class="form-control pull-right" ng-focus="isDatepickerEnd = !isDatepickerEnd" uib-datepicker-popup="yyyy-MM-dd" ng-model="date" is-open="isDatepickerEnd" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
-														</div>
-												</div>								   
+												</div>						   
 											</div>
 										</div>	 
 									</div>
@@ -238,10 +238,10 @@ title:  Search Interactions
 														</small>
 													</td>
 													<td>
-														John Doe
+														<a href="">John Doe</a>
 													</td>
 													<td>
-														john.doe@example.com
+														<a href="">john.doe@example.com</a>
 													</td>
 													<td>
 														<b>Multi Value Properties: </b>Property1; Property2; Property3
@@ -276,10 +276,10 @@ title:  Search Interactions
 														</small>
 													</td>
 													<td>
-														Julie	Persuavia
+														<a href="">Julie Persuavia</a>
 													</td>
 													<td>
-														julie.persuavia@example.com
+														<a href="">julie.persuavia@example.com</a>
 													</td>
 													<td>
 														<b>Properties: </b>Property1
@@ -314,10 +314,10 @@ title:  Search Interactions
 														</small>
 													</td>
 													<td>
-														John Doe 
+														<a href="">John Doe </a>
 													</td>
 													<td>
-														john.doe@example.com
+														<a href="">john.doe@example.com</a>
 													</td>
 													<td>
 														<b>Properties: </b>Property1
@@ -354,10 +354,10 @@ title:  Search Interactions
 														</small>
 													</td>
 													<td>
-														John Doe 
+														<a href="">John Doe </a>
 													</td>
 													<td>
-														john.doe@example.com
+														<a href="">john.doe@example.com</a>
 													</td>
 													<td>
 														<b>Multi Value Properties: </b>Property1; Property2; Property3

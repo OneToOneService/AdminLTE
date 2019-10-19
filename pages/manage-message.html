@@ -32,8 +32,11 @@ title: Manage Messages List View
                 <!-- START CUSTOM TABS -->
               	<div div class="row"> 
 					<div class="col-md-12">
-						<div class="pull-left">
-							You have 2510 unresolved messages but the message list display is limited to 2500
+						<div class="alert alert-warning alert-inline pull-left mbottom-15">
+							<h4><i class="icon fa fa-warning"></i>Alert! <span class="text">You have 3200 unresolved questions but the page is limited to 2500...<span class="more" ng-click="showmore = !showmore" ng-show="!showmore">more</span><span class="more"  ng-click="showmore = !showmore" ng-show="showmore">less</span></span></h4>
+							<div class="mtop-15" ng-hide="!showmore">
+									This page displays a maximum of 2500 unresolved questions to avoid performance issues caused by loading details of too many interactions. Since you have more than 2500 unresolved questions, some of your questions are not displayed. Answer or reolve enough questions to keep your total unresolved questions below 2500.
+							</div>	
 						</div>	
 						<div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
 							<a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message.html">List View</a>
@@ -44,32 +47,17 @@ title: Manage Messages List View
               	<div class="row p-l-0">
                 	<div class="col-md-12" ng-controller="myCtrl">
                   	<!-- Custom Tabs -->
-						<div class="box box-primary">
-							<div class="box-header with-border">
-								<i class="fa fa-list-ul"></i>
-								<h3 class="box-title text-right">Topic List</h3>
-							</div>
-							<div class="box-body">
-								<section class="container-fluid search-parameters">
-									<div class="form-horizontal">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="mright-15 col-sm-4 text-left">Select All Topics</label> <iservice-switch switched="toggle.switchalltopic"></iservice-switch>
-											</div>
-											<div class="form-group" ng-controller="TopicCtrl as ctrl">
-												<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
-												<div class="col-sm-8" ng-cloak>
-													<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
-														<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
-														<ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
-																<span ng-bind-html="color.Topic | highlight: $select.search"></span>
-														</ui-select-choices>
-													</ui-select>
-												</div>
-											</div>
-										</div>
-									</div>
-								</section>
+						<div class="row mbottom-15">
+							<div class="form-group" ng-controller="TopicCtrl as ctrl">
+								<label for="inputPassword3" class="col-sm-2 control-label text-left">Topic Selection</label>
+								<div class="col-sm-4" ng-cloak>
+									<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+										<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
+										<ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
+												<span ng-bind-html="color.Topic | highlight: $select.search"></span>
+										</ui-select-choices>
+									</ui-select>
+								</div>
 							</div>
 						</div>
 						<div class="row">
