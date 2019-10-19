@@ -108,7 +108,7 @@ title: Manage Chats
 									<div class="box-header with-border">
 										<i class="fa fa-comments"></i>
 										<h3 class="box-title head-title-padding">Chat List</h3>
-
+									
 										<div class="pull-right">
 											<button class="btn btn-sm btn-danger ng-scope margin-r-5" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
 												<i class="fa fa-fw fa-close" ng-hide="chat.chatEndRunning()"></i>
@@ -160,6 +160,9 @@ title: Manage Chats
 												</ul>
 											</div>
 										</div>
+										<div class="pull-right item-count mtop-5 mright-15 ">
+											<span class="text-primary font-weight-bold"><small class="label bg-yellow">2</small> Items Selected</span>
+										</div>
 									</div>
 								<!-- /.box-header -->
 								<!-- form start -->
@@ -193,7 +196,7 @@ title: Manage Chats
 											<tbody>
 												<tr id="row1">
 													<td name="name">
-														<input type="checkbox" checkbox>
+														<input type="checkbox" checkbox checked>
 														<button class="btn btn-xs btn-link text-default btn-expand"  ng-click="toggleRow('row1')">
 															<i class="fa fa-plus-circle" ng-show="!row1"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
@@ -221,7 +224,7 @@ title: Manage Chats
 												</tr>
 												<tr id="row2">
 													<td name="name">
-														<input type="checkbox" checkbox>
+														<input type="checkbox" checkbox checked>
 														<button class="btn btn-xs btn-link text-default btn-expand"  ng-click="toggleRow('row2')">
 															<i class="fa fa-plus-circle" ng-show="!row2"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
@@ -249,7 +252,7 @@ title: Manage Chats
 												</tr>
 												<tr id="row3">
 													<td name="name">
-														<input type="checkbox" checkbox>
+														<input type="checkbox" checkbox >
 														<button class="btn btn-xs btn-link text-default btn-expand"  ng-click="toggleRow('row3')">
 															<i class="fa fa-plus-circle" ng-show="!row3"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
