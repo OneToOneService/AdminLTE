@@ -375,38 +375,495 @@ title: Forms
 								</button>
 							</div>	
 						</div>	
-					    <div class="row" ng-show="formstep1">
+					  
+						<div class="row" ng-show="formstep1">
 							<div class="col-md-12">
 								<div class="box box-primary">
 									<div class="box-header with-border">
 										<i class="fa fa-wpforms"></i>
 										<h3 class="box-title text-right">New Form</h3>
+										<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+											<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Form Variables</a>
+											<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+												<div class="variables">
+												<div class="col-md-12">
+													<div class="row form-group">
+													<label class="col-md-12 control-label text-left">Filter</label>
+													<div class="col-md-12">
+														<input type="text" class="form-control">
+													</div>
+													</div>
+												</div>
+												<div class="col-xs-12" ng-show="customform">
+													<div class="custom-scroll">
+													<ul class="list-unstyled segment-variable-list">
+														<li class="section-label">
+														Contact
+														<ul class="segment-variables">
+															<li class="section-var-link">Name</li>
+															<li class="segment-lable">
+															Global
+															<ul>
+																<li class="section-var-link">Address1</li>
+																<li class="section-var-link">Address2</li>
+																<li class="section-var-link">City</li>
+																<li class="section-var-link">Country</li>
+																<li class="section-var-link">Company</li>
+															</ul>
+															</li>
+															<li class="segment-lable">
+															JC Segment
+															<ul>
+																<li class="section-var-link">Contact View Only Property</li>
+																<li class="section-var-link">Contact Viewable and Editable Property</li>
+																<li class="section-var-link">Multi value No Descr</li>
+																<li class="section-var-link">Shared Property from JC - cust can't see</li>
+															</ul>
+															</li>
+														</ul>
+														</li>
+													</ul>
+													<ul class="list-unstyled segment-variable-list">
+														<li class="section-label">
+														Answer
+														<ul class="segment-variables">
+															<li class="section-var-link">Email</li>
+															<li class="section-var-link">Reference Number</li>
+															<li class="section-var-link">Original Date</li>
+															<li class="section-var-link">Original Time</li>
+															<li class="section-var-link">Subject</li>
+															<li class="section-var-link">Original Body</li>
+															<li class="section-var-link">Quoted Question</li>
+														</ul>
+														</li>
+													</ul>
+													</div>
+												</div>
+												</div>
+											</div> 
+										</div>
 									</div>
 									<div class="box-body">
 										<section class="search-parameters">
-											<div class="row">
-												<div class="form-horizontal">
-													<div class="col-md-6">
+											<div class="form-horizontal">
+												<div class="row">
+													<div class="col-md-3">
 														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-4 control-label text-left">Form Name:</label>
-															<div class="col-sm-8">
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Form Name</label>
+															<div class="col-sm-12">
 																<input type="text" class="form-control">
 															</div>
 														</div>
 													</div>
-													<div class="col-md-6">
+													<div class="col-md-3">
 														<div class="form-group">
-															<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
-															<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
-														</div>	
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Description</label>
+															<div class="col-sm-12">
+																<input type="text" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="form-group">
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Submission Success Redirect URL</label>
+															<div class="col-sm-12">
+																<input type="text" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="form-group">
+															<label for="inputPassword3" class="col-sm-12 control-label text-left">Is Registration</label>
+															<div class="col-sm-12">
+																<input  class="flat-red" type="checkbox">
+															</div>
+														</div>
+													</div>
+												</div>		
+												<div class="form-group">
+													<label class="col-sm-12 control-label text-left">Form Body</label>
+													<div class="col-md-12">
+														<textarea id="code" name="code">...</textarea>
 													</div>
 												</div>
+												<div class="row">	
+													<div class="col-md-12">
+														<div class="box box-primary">
+															<div class="box-header with-border">
+																<h3 class="box-title ng-binding">Actions</h3>
+															</div>			
+															<div class="box-body">
+																<section class="container-fluid search-parameters" id="action-container" ng-show="showAction">
+																	<fieldset class="row action">
+																		<div class="panel panel-default col-xs-12 bg-gray-light">
+																			<div class="row mtop-15">
+																				<div class="col-md-10">
+																					<div class="row">
+																						<div class="col-md-6"> 
+																							<div class="form-group">
+																								<label  class="col-sm-5 control-label text-left">Run action if field <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																								<div class="col-sm-7">
+																									<input type="email" class="form-control" placeholder="">
+																								</div>
+																							</div>
+																						</div>
+																						<div class="col-md-6"> 
+																							<div class="form-group">
+																								<label class="col-sm-5 control-label text-left">Matches regex <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																								<div class="col-sm-7">
+																									<input type="email" class="form-control"  placeholder="">
+																								</div>
+																							</div>
+																						</div>	
+																					</div>	
+																				</div>
+																				<div class="col-md-2">
+																					<button class="btn btn-lg btn-link  pull-right" type="button" uib-tooltip="Delete Action" tooltip-placement="left">
+																						<i class="fa fa-times-circle text-red"></i>
+																					</button>
+																				</div>	
+																			</div>
+																			<hr>
+																		
+																			<div class="formstepcontainer" ng-show="formActionStep1">
+																				<div class="row formstep"  ng-show="formActionStep1">
+																					<div class="col-md-10"> 
+																						<div class="row">
+																							<div class="col-md-6">
+																								<div class="form-group">
+																									<label class="col-sm-5 control-label text-left">Pick a step type </label>
+																									<div class="col-sm-7">
+																										<select class="form-control" id="" ng-change="showStepType();" ng-model="stepValue">
+																											<option value="choose">Choose A Type...</option>
+																												<option value="adminForms">Admin Forms</option>
+																												<option value="adminWebsites">Admin Websites</option>
+																												<option value="captchaVerify">Captcha Verify</option>
+																												<option value="chatCreate">Chat Create</option>
+																												<option value="chatEnd">Chat End</option>
+																												<option value="chatForward">Chat Forward</option>
+																												<option value="chatGetNext">Chat Get Next</option>
+																												<option value="chatKeepAlive">Chat Keep Alive</option>
+																												<option value="chatSend">Chat Send</option>
+																												<option value="chatToggleAvailability">Chat Toggle Availability</option>
+																												<option value="agentEmail">Create Agent Email</option>
+																												<option value="note">Create Note</option>
+																												<option value="ticket">Create Ticket/Ask A Question</option>
+																												<option value="contactFindCreate">Find/Create Contact</option>
+																												<option value="customerInfoDetails">Customer Info Set Details</option>
+																												<option value="interactionHistoryProperties">Interaction Set Properties</option>
+																												<option value="logout">Logout</option>
+																												<option value="messageQueueGetApprove">Message Queue Get Approve</option>
+																												<option value="messageQueueGetNext">Message Queue Get Next</option>
+																												<option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
+																												<option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
+																												<option value="messageQueueQAReject">Message Queue QA Reject</option>
+																												<option value="messageQueueChangeTopic">Message Queue Change Topic</option>
+																												<option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
+																												<option value="messageQueueSaveDraft">Message Queue Save Draft</option>
+																												<option value="messageQueueAssign">Message Queue Assign To Agent</option>
+																												<option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
+																												<option value="messageQueueForwardExternal">Message Queue Forward To External Agent</option>
+																												<option value="messageQueueSaveNote">Message Queue Save Note</option>
+																												<option value="messageQueueSend">Message Queue Send</option>
+																												<option value="myAccountSubscriptions">My Account Subscriptions</option>
+																												<option value="myAccountDetails">My Account Details</option>
+																												<option value="passwordResetSend">Password Reset Send</option>
+																										</select>
+																									</div>
+																								</div>
+																							</div>
+																						</div>	
+																					<!--Step type action start-->
+																						<div class="row box-bg-white" ng-show="subFormActionStepType1">
+																							<div class="col-md-12">
+																								<h4>Create Agent Email</h4>
+																							</div>
+																							<hr>
+																							<div class="col-md-12">
+																								<div class="row">
+																									<div class="col-md-6">	
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Send As Secure Email <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
+																											<div class="col-sm-8">
+																												<iservice-switch switched="toggle.secureemail"></iservice-switch>	
+																											</div>																									
+																										</div>
+																									</div>
+																									<div class="col-md-6">	
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Notification ID </label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control">
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Expect Customer Response</label>
+																											<div class="col-sm-8">
+																												<iservice-switch switched="toggle.customerresponse"></iservice-switch>
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">From Mailbox ID</label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">To Contact ID</label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Contact Email Address </label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																											</div>
+																										</div>
+																									</div>		
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Parent Interaction ID <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">CC</label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">BCC</label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Subject</label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																											</div>
+																										</div>
+																									</div>	
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Topic Id</label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Add Reference Number To Subject Line</label>
+																											<div class="col-sm-8">
+																												<iservice-switch switched="toggle.subjectline"></iservice-switch>
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Generate Only A Plain Text Body</label>
+																											<div class="col-sm-8">
+																												<iservice-switch switched="toggle.textbody"></iservice-switch>
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-12">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Form Body <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																											<div class="col-sm-12">
+																												<textarea class="form-control" rows="5" placeholder="" id="agentEmailAction" name="agentEmailAction" ckeditor></textarea>
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Note</label>
+																											<div class="col-sm-8">
+																												<textarea class="form-control" rows="5"></textarea>
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Property Group <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																												<small  class="text-muted">
+																												*Specified with $input ... -group'xxx'$
+																												</small>
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Full Creation Parameters (JSON) <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																												<a href="javascript:void(0)" ng-click="showFormat= !showFormat">Format</a>
+																											</div>
+																											<div class="col-md-12" ng-show="showFormat">
+																													
+																													<samp><i>details</i> := { "contactID": "string",  "inResponseToID": "string",
+																															"segmentID": "string",
+																															"mailboxID": "string",
+																															"topicID": "string",
+																															"destEmail": "string",
+																															"cc": "string",
+																															"bcc": "string",
+																															"subject": "string",
+																															"addSubjectRefNum": bool,
+																															"body": "string",
+																															"bodyHtml": "string",
+																															"note": "string",
+																															"autoGenerateHtmlIfMising": bool,
+																															"action": number, //1 = Agent Email, 2 = Secure Email
+																															"notificationID": "string",
+																															"expectingResponse": bool,
+																															"properties": 
+																															[ { "propertyID", "string",
+																																"values":
+																																[ { "description": "string",
+																																	"value": "string",
+																																	"valueDate": "/Date(date.getTime())/"
+																																} ]
+																															} ]
+																															}</samp>
+																																																				</div>	
+																										</div>
+																									</div>	
+																									<div class="col-md-6">
+																										<div class="form-group">
+																											<label class="col-sm-4 control-label text-left">Result Name <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																											<div class="col-sm-8">
+																												<input type="text" class="form-control"  placeholder="">
+																												<small  class="text-muted">
+																													*Can be referenced in other steps as $result -id'name'$
+																												</small>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																						<!--Step type action end-->
+																					</div>
+																					<div class="col-md-2 text-right">
+																						<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
+																						<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
+																						<button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
+																								<i class="fa fa-times-circle text-red"></i>
+																						</button>
+																					</div>
+																				</div>
+																				
+																				<div class="row formstep">	
+																					<div class="col-md-10"> 
+																						<div class="row">
+																							<div class="col-md-6">
+																								<div class="form-group">
+																									<label class="col-sm-5 control-label text-left">Pick a step type </label>
+																									<div class="col-sm-7">
+																										<select class="form-control" id="actionstep1">
+																											<option value="choose">Choose A Type...</option>
+																												<option value="adminForms">Admin Forms</option>
+																												<option value="adminWebsites">Admin Websites</option>
+																												<option value="captchaVerify">Captcha Verify</option>
+																												<option value="chatCreate">Chat Create</option>
+																												<option value="chatEnd">Chat End</option>
+																												<option value="chatForward">Chat Forward</option>
+																												<option value="chatGetNext">Chat Get Next</option>
+																												<option value="chatKeepAlive">Chat Keep Alive</option>
+																												<option value="chatSend">Chat Send</option>
+																												<option value="chatToggleAvailability">Chat Toggle Availability</option>
+																												<option value="agentEmail">Create Agent Email</option>
+																												<option value="note">Create Note</option>
+																												<option value="ticket">Create Ticket/Ask A Question</option>
+																												<option value="contactFindCreate">Find/Create Contact</option>
+																												<option value="customerInfoDetails">Customer Info Set Details</option>
+																												<option value="interactionHistoryProperties">Interaction Set Properties</option>
+																												<option value="logout">Logout</option>
+																												<option value="messageQueueGetApprove">Message Queue Get Approve</option>
+																												<option value="messageQueueGetNext">Message Queue Get Next</option>
+																												<option value="messageQueueSaveResolve">Message Queue Save Resolve</option>
+																												<option value="messageQueueUnqueue">Message Queue Remove From My Queue</option>
+																												<option value="messageQueueQAReject">Message Queue QA Reject</option>
+																												<option value="messageQueueChangeTopic">Message Queue Change Topic</option>
+																												<option value="messageQueueMarkSpam">Message Queue Mark As Spam</option>
+																												<option value="messageQueueSaveDraft">Message Queue Save Draft</option>
+																												<option value="messageQueueAssign">Message Queue Assign To Agent</option>
+																												<option value="messageQueueChangeSegment">Message Queue Forward To Segment</option>
+																												<option value="messageQueueForwardExternal">Message Queue Forward To External Agent</option>
+																												<option value="messageQueueSaveNote">Message Queue Save Note</option>
+																												<option value="messageQueueSend">Message Queue Send</option>
+																												<option value="myAccountSubscriptions">My Account Subscriptions</option>
+																												<option value="myAccountDetails">My Account Details</option>
+																												<option value="passwordResetSend">Password Reset Send</option>
+																										</select>
+																									</div>
+																								</div>
+																							</div>
+																						</div>		
+																					</div>
+																					<div class="col-md-2 text-right">
+																						<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Up" tooltip-placement="bottom"><i class="fa fa-chevron-circle-up text-primary"></i></button>
+																						<button type="button" class="btn btn-link btn-lg btn-sort" uib-tooltip="Down" tooltip-placement="bottom"><i class="fa fa-chevron-circle-down text-primary"></i></button>
+																						<button class="btn btn-link btn-lg btn-sort" type="button" uib-tooltip="Delete Step" tooltip-placement="bottom">
+																								<i class="fa fa-times-circle text-red"></i>
+																						</button>
+																					</div>	
+																				</div>	
+																			</div>	
+																			
+																			<div class="row">
+																				<button class="btn btn-lg btn-link pull-left" type="button" ng-click="addStep();">
+																					<i class="fa fa-plus-circle text-light-blue"></i>
+																					Add Steps <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+																				</button>
+																			</div>	
+																		</div>
+																	</fieldset>
+																</section>
+																<div class="row">
+																	<button class="btn btn-lg btn-link" type="button" ng-click="addAction();">
+																		<i class="fa fa-plus-circle text-light-blue"></i>
+																		Add Actions <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+																	</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>	
+												<div class="row">			
+													<div class="col-md-12">
+														<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
+														<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+													</div>
+												</div>	
 											</div>
 										</section>
 									</div>
 								</div>
 							</div>	
 						</div>
+						
 						<div class="row" ng-show="formstep2">
 							<div class="col-md-12">
 								<div class="box box-primary">
