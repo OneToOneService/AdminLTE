@@ -1,0 +1,2171 @@
+---
+title: Manage KB Article
+---
+<!DOCTYPE html>
+<html ng-app="iService">
+<head>
+    {% include common-head.html %}
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+		<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+		{% include common-header.html %}
+		{% include common-menu.html %}
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					{{ page.title }}
+				</h1>
+				<ol class="breadcrumb">
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li class="active">Manage Work Queues</li>
+						<li class="active"> {{ page.title }}</li>
+				</ol>
+			</section>
+  		<!-- Main content -->
+			<section class="content">
+				<div class="row"> 
+					<div class="col-md-12">
+						<div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
+							<a class="btn btn-default" data-toggle="on" href="/pages/manage-kb-article-listview.html">List View</a>
+							<a class="btn btn-primary active" data-toggle="off" href="/pages/manage-kb-article.html">Tree View</a>
+						</div>
+					</div>
+				</div>
+				<div class="row"> 
+					<div class="col-md-4">
+						<!-- Profile Image -->
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<i class="fa fa-list-ul"></i>
+								<h3 class="box-title text-right">Topic List</h3>
+							</div>
+							<div class="box-body search-criteria">
+								<div class="row">
+									<div class="col-md-12 message-head">
+										<label class="pull-left select-all-topic"><input type="checkbox" class="minimal">Select All Topics</label> 
+										<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="Number of articles">
+											#
+										</div>
+									</div> 
+								</div>	
+								<div class="treeview  active-chat">
+									<ul id="tree1" class="tree">
+										<li><input type="checkbox" class="minimal"><a href="#" class="selected"> e-shop -- All Topics </a>
+											<ul>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block text-aqua">1</div>
+													<ul>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div><div class="pull-right count-block text-aqua">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div><div class="pull-right count-block text-aqua">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div><div class="pull-right count-block text-aqua">1</div></li>
+													</ul>
+												</li>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block text-aqua">1</div>
+													<ul>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div><div class="pull-right count-block text-aqua">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div><div class="pull-right count-block text-aqua">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div><div class="pull-right count-block text-aqua">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div><div class="pull-right count-block text-aqua">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div><div class="pull-right count-block text-aqua">1</div></li>
+													</ul>
+												</li>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> <div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div><div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
+													<ul>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block text-aqua">1</div></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+					<!-- /.box-body -->
+						</div>
+					<!-- /.box -->
+					</div>
+					<div class="col-md-8 p-l-0">
+						<div class="row" ng-controller="myCtrl">
+							<div class="col-md-12">
+								<div class="box box-info">
+									<div class="box-header with-border">
+										<i class="fa fa-edit"></i>
+										<h3 class="box-title head-title-padding">New Article</h3>
+										
+									</div>
+									<!-- /.box-header -->
+									<!-- form start -->
+									<div class="box-body table-responsive">
+										<div class="bg-box box-bg-color">
+											<!-- Custom Tabs -->
+											<div class="row">
+												<div class="pull-right mbottom-15">
+													<button type="submit" class="btn btn-primary">Create</button>
+
+													<!--this will be button while development <button class="btn btn-link" type="button">Cancel </button>-->
+													<a class="btn btn-link" href="/pages/manage-kb-article.html">Cancel </a>
+												</div>
+											</div>	
+											<div class="nav-tabs-custom">
+													<ul class="nav nav-tabs">
+														<li class="active"><a href="#tab_attachments" data-toggle="tab"><i class="fa fa-fw fa-paperclip"></i> <span>Attachments</span></a> </li>
+														<li><a href="#tab_interacation" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Article Properties</span></a> </li>
+														<li><a href="#tab_case_3" data-toggle="tab"><i class="fa fa-fw fa-bell"></i> <span>Subscribers List</span></a> </li>
+														<li><a href="#tab_link_article" data-toggle="tab"><i class="fa fa-fw fa-link"></i> <span>Link Article</span></a> </li>
+													</ul>
+													<div class="tab-content">
+														<div class="tab-pane active" id="tab_attachments">
+															<div class="row">
+																<div class="form-group">
+																	<div class="col-md-12">
+																		<div class="drop-box">Drop files here or click to upload </div>
+																	</div>	
+																</div>	
+															</div>	
+														</div>
+														<!-- /.tab-pane -->
+														<div class="tab-pane" id="tab_interacation">
+															<div class="row form-horizontal">
+																<div class="col-md-6">
+																	<div class="form-group"> 
+																		<label class="col-md-12 control-label text-left">Priority</label>
+																		<div class="col-sm-12">
+																			<select class="form-control">
+																				<option>High</option>
+																				<option>Low</option>
+																			</select>    
+																		</div>
+																	</div>
+																</div>		
+																<div class="col-md-6">
+																	<div class="form-group"> 
+																		<label class="col-md-12 control-label text-left">Owner</label>
+																		<div class="col-sm-12">
+																			<select class="form-control">
+																				<option>Owner List</option>
+																			</select>    
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-6">	
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label text-left">isOpen</label>
+																		<div class="col-sm-12">
+																			<select class="form-control">
+																					<option value="True">True</option>
+																					<option value="False">False</option>
+																			</select>    
+																		</div>
+																	</div>
+																</div>		
+															</div>	
+														</div>
+														<!-- /.tab-pane -->
+														<div class="tab-pane" id="tab_link_article">
+															
+														</div>
+													</div>    
+													<!-- /.tab-content -->
+											</div>
+											<!-- nav-tabs-custom -->  
+
+											<div class="row">
+												<div class="col-md-12  form-horizontal">
+													<div class="form-group">
+														<label class="col-sm-2 control-label text-left">Subject</label>
+														<div class="col-sm-6">                              
+															<input type="text" class="form-control">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-sm-2 control-label text-left">Choose Topic</label>
+														<div class="col-sm-6">                              
+															<select class="form-control">
+																<option value="All Topic">All Topic</option>
+															</select>    
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-sm-2 control-label text-left">Type</label>
+														<div class="col-sm-6">                              
+															<select class="form-control">
+																<option value="Public">Public</option>
+															</select>    
+														</div>
+													</div>
+															
+													<div class="form-group">
+														<label class="col-sm-2 control-label text-left">Question</label>
+														<div class="col-md-12">
+															<textarea class="form-control" rows="5" placeholder="" id="massUpdateDraftBody" name="massUpdateDraftBody" ckeditor>
+															</textarea>
+														</div>	
+													</div>
+													<div class="form-group">
+														<label class="col-sm-2 control-label text-left">Answer</label>
+														<div class="col-md-12">
+															<textarea class="form-control" rows="5" placeholder="" id="massUpdateDraftBody" name="massUpdateDraftBody" ckeditor>
+															</textarea>
+														</div>	
+													</div>	
+												</div>
+												
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-primary">Create</button>
+													<!--this will be button while development <button class="btn btn-link" type="button">Cancel </button>-->
+													<a class="btn btn-link" href="/pages/manage-kb-article.html">Cancel </a>
+												</div>
+											</div>	
+										</div>
+									</div>
+								</div> 
+							</div>                               
+						</div>
+					</div>		
+				</div> 
+			</section>   
+		</div>
+		<!-- /.content-wrapper -->
+		<!--expanded row content start-->
+		<script id="expandedrow" type="text/ng-template">
+			<!--form data start-->	
+			<div class="row" ng-hide="hidetrue"> 
+					<div class="col-md-12 ">
+						<div class="row">
+							
+							<div class="col-md-12 mtop-15">
+								<div class="box status-box" style="display:none">
+								<div class="box-header with-border">
+									<h3 class="box-title">Status Audit</h3>
+									<div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+									</div>
+								</div>
+								<div class="box-body table-responsive">
+									<table id="example2" class="table  table-striped">
+										<thead>
+											<tr>
+												<th class="text-capitalize">
+												Time 
+												</th>
+												<th class="text-capitalize">
+												Modifier
+												</th>
+												<th class="text-capitalize">
+												Status
+												</th>
+												<th class="text-capitalize">
+												Action
+												</th>
+												<th class="text-capitalize">
+												Assigned To
+												</th>
+												<th class="text-capitalize">
+												Topic
+												</th>
+											</tr>
+										</thead>  
+										<tbody>
+											<tr>
+												<td>
+												11/11/2017 12:19:20PM
+												</td>
+												<td>
+												Jaswantchouhan
+												</td>
+												<td>
+												<small class="label label-success">Resolved</small>
+												</td>
+												<td>
+												Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+												</td>
+												<td>
+												Jaswantchouhan
+												</td>
+												<td>
+												JC - Segment- All Topic - To- Quote - Open Quotes
+												</td>
+											</tr>
+										</tbody>
+									</table>  
+								</div>
+								</div>
+							</div>
+						</div>	
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<button class="btn btn-sm btn-primary" type="button">
+										Edit Article
+								</button>
+								<button class="btn btn-sm btn-danger btn-delete" type="button">
+										Delete Article...
+								</button>
+							</div>
+							<div class="col-md-12">
+								<div class="nav-tabs-custom">
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#tab_case_1" data-toggle="tab"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span></a></li>
+										<li><a href="#tab_case_2" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Article Properties</span></a> </li>
+										<li><a href="#tab_case_3" data-toggle="tab"><i class="fa fa-fw fa-bell"></i> <span>Subscribers List</span></a> </li>
+										<li><a href="#tab_case_4" data-toggle="tab"><i class="fa fa-fw fa-link"></i> <span>Related Article</span></a> </li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="tab_case_1">
+											<div class="row">
+												<div class="message-box-header">
+													<div class="col-md-12">
+														<div class="int-det-box pull-left"> 
+															<div><b>Article ID : </b>4645646</div>
+															<div><b> Date Updated : </b>1/19/2019 11:58:45 PM</div>
+															<div><b> # Views : </b>11</div>
+															<div><b> Article Creator : </b>Alek Packard</div>									
+															<div><b> Topic : </b>All Topic</div>	
+														</div>
+													</div>
+													<div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+												</div>
+											</div>	
+										</div>
+										<div class="tab-pane" id="tab_case_2">
+											<div class="row form-horizontal">
+												<div class="col-md-4">
+													<h4>Case Properties</h4>
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+														<div class="col-sm-12">
+															<input type="text" class="form-control pull-right">
+														</div>
+													</div>
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left">Delivery Date</label>
+														<div class="col-sm-12">
+															<div class="input-group date">
+																<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+																	<i class="fa fa-calendar"></i>
+																</div>
+																<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+															</div>
+														</div>
+													</div>  
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left">Detail</label>
+														<div class="col-sm-12">
+															<textarea class="form-control" rows="3"></textarea>
+														</div>
+													</div> 
+												</div> 
+												<div class="col-md-4">
+													<h4>Question Properties</h4>
+													<div class="form-group">    
+														<label class="col-md-12 control-label control-label text-left">Quantity</label>
+														<div class="col-sm-12">
+															<input type="text" class="form-control pull-right">
+														</div>
+													</div>  
+													<div class="form-group">    
+														<label class="col-md-12 control-label control-label text-left">Team</label>
+														<div class="col-sm-12">
+															<div class="simple-label multiple">
+																<div class="float-btn-group">
+																	<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																	<input type="text" class="form-control">
+																</div>
+																<div class="float-btn-group">
+																	<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																	<input type="text" class="form-control">
+																</div>
+																<div class="float-btn-group">
+																	<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																	<input type="text" class="form-control">
+																</div>
+																<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+															</div>
+														</div>
+													</div>    
+												</div> 
+												<div class="col-md-4">
+													<h4>Answer Properties</h4>
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left">Priority</label>
+														<div class="col-sm-12">
+															<select class="form-control">
+																	<option>High</option>
+																	<option>Low</option>
+															</select>    
+														</div>
+													</div> 
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left">isOpen</label>
+														<div class="col-sm-12">
+															<select class="form-control">
+																	<option>True</option>
+																	<option>False</option>
+															</select>    
+														</div>
+													</div>  
+												</div>    
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-primary">Save</button>
+												</div>
+											</div>    
+										</div>
+
+											<div class="tab-pane" id="tab_2">
+											<div class="row">
+												<div class="col-md-12">
+													<h4 class="smtp-out-message"> Number of contacts subscribed to this list : <span class=" text-orange"><b>1234</b></span></h4>
+												</div>
+												<div class="col-md-6 text-right">
+													<div class="form-group" ng-show="!contactsearch">
+														<button class="btn btn-primary" type="button"
+															ng-click="contactsearch = !contactsearch; subscribe = true; unsubscribe = false;"
+															ng-init="contactsearch = false">
+															Add Contacts
+														</button>
+														<button class="btn btn-primary" type="button"
+															ng-click="contactsearch = !contactsearch; subscribe = false; unsubscribe = true;"
+															ng-init="contactsearch = false">
+															Remove Contacts
+														</button>
+													</div>
+
+													<div class="form-group" ng-show="contactsearch">
+														<button class="btn btn-primary" type="button"
+															ng-click="contactsearch = !contactsearch;">
+															Back To Current Contacts
+														</button>
+													</div>
+												</div>
+												<div class="col-md-12" ng-show="contactsearch">
+													<!-- Custom Tabs -->
+													<div class="box box-primary">
+														<div class="box-header with-border">
+															<i class="fa fa-search"></i>
+															<h3 class="box-title">Search For Contacts To Add To This
+																Lists</h3>
+														</div>
+														<div class="box-body">
+															<div class="row" uib-collapse="isCollapsedSavePanel"
+																ng-cloak ng-init="isCollapsedSavePanel=true;">
+																<div class="col-xs-12">
+																	<div
+																		class="panel panel-default col-xs-12 bg-gray-light save-search-panel">
+																		<div class="floating-label col-sm-10">
+																			<input type="text" value="">
+																			<label>Search Name</label>
+																		</div>
+																		<button type="button"
+																			class="btn btn-primary">Save</button>
+																	</div>
+																</div>
+															</div>
+															<section class="container-fluid search-parameters">
+																<fieldset class="row">
+																	<div
+																		class="panel panel-default col-xs-12 bg-gray-light">
+																		<div class="row">
+																			<div class="col-xs-12 col-md-2">
+																				<div class="floating-label bg-white">
+																					<select>
+																						<option value="anywhere"
+																							selected="selected">anywhere
+																						</option>
+																						<option value="start">start
+																						</option>
+																						<option value="end">end</option>
+																						<option value="entire">entire
+																						</option>
+																					</select>
+																					<label>Search where</label>
+																				</div>
+																			</div>
+																			<div class="col-xs-12 col-md-3">
+																				<div class="floating-label bg-white">
+																					<select class="infield">
+																						<option value="all">-- All --
+																						</option>
+																						<option value="ID">-- ID --
+																						</option>
+																						<option value="login"
+																							selected="selected">-- Login
+																							--</option>
+																						<option value="loginbounced">--
+																							Login (Bounced) --</option>
+																						<option value="Tags">-- Tags --
+																						</option>
+																						<option value="segment">--
+																							Segment Membership --
+																						</option>
+																						<option value="30">Additional
+																							Detail</option>
+																						<option value="5">Address
+																						</option>
+																						<option value="33">Address1
+																						</option>
+																						<option value="34">Address2
+																						</option>
+																						<option value="35">City</option>
+																						<option value="7">Company
+																						</option>
+																						<option value="40">Contact
+																							Viewable - Not Editable
+																						</option>
+																						<option value="41">Contact
+																							Viewable AND Editable
+																						</option>
+																						<option value="38">Country
+																						</option>
+																						<option value="6">Customer Type
+																						</option>
+																						<option value="29">Date</option>
+																						<option value="31">Existing
+																							Phone Property</option>
+																						<option value="1">First Name
+																						</option>
+																						<option value="8">Job Title
+																						</option>
+																						<option value="3">Last Name
+																						</option>
+																						<option value="2">Middle Initial
+																						</option>
+																						<option value="4">Phone</option>
+																						<option value="37">Postal Code
+																						</option>
+																						<option value="26">s2only
+																						</option>
+																						<option value="36">State
+																						</option>
+																						<option value="32">Svc Level 5
+																							Min</option>
+																						<option value="25">Text</option>
+																						<option value="Date">Date
+																						</option>
+																					</select>
+																					<label>In field</label>
+																				</div>
+																			</div>
+																			<div class="col-xs-12 col-md-3">
+																				<div class="floating-label bg-white">
+																					<select id="searchOption">
+																						<option value="Contain">Contains
+																						</option>
+																						<option
+																							value="Does Not Contain">
+																							Does Not Contain</option>
+																						<option value="Is Greater Than">
+																							Is Greater Than</option>
+																						<option value="Is Equal To">Is
+																							Equal To</option>
+																						<option value="Is Less Than">Is
+																							Less Than</option>
+																					</select>
+																					<label>Search options</label>
+																				</div>
+																			</div>
+																			<div
+																				class="col-xs-12 col-md-4 search-field">
+																				<div class="form-group floating-label">
+																					<input type="text"
+																						class="searchtag search"
+																						data-role="tagsinput"
+																						style="display:none;">
+																					<input type="text" for="search"
+																						class="searchnormal search"
+																						required>
+																					<label>Search for</label>
+																				</div>
+																				<button class="btn btn-lg btn-link"
+																					type="button" title="Remove Field">
+																					<i
+																						class="fa fa-times-circle text-red"></i>
+																				</button>
+																			</div>
+																		</div>
+																	</div>
+																</fieldset>
+																<div class="row">
+																	<button class="btn btn-lg btn-link" type="button">
+																		<i
+																			class="fa fa-plus-circle text-light-blue"></i>
+																		Add another search parameter
+																	</button>
+																</div>
+															</section>
+															<footer class="box-footer text-right">
+																<button type="submit" class="btn btn-primary btn-sm">
+																	Search
+																	<i class="fa fa-fw fa-arrow-circle-right"></i>
+																	<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
+																</button>
+																<button type="button"
+																	class="btn btn-link btn-sm">Reset</button>
+															</footer>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="box box-info" ng-controller="myCtrl">
+																<div class="box-header with-border">
+																	<i class="fa  fa-users"></i>
+																	<h3 class="box-title head-title-padding">Search
+																		Results</h3>
+																</div>
+																<!-- /.box-header -->
+																<!-- form start -->
+																<div class="box-body table-responsive">
+																	<table class="table table-striped table-hover"
+																		datatable dt-options="dtSearchOptions"
+																		dt-column-defs="dtSearchColumnDefs">
+																		<thead>
+																			<tr>
+																				<th class="no-sort" name="name"
+																					width="30"><input type="checkbox"
+																						class="form-control" checkbox>
+																				</th>
+																				<th class="text-capitalize">
+																					Name
+																				</th>
+																				<th class="text-capitalize">
+																					First Name
+																				</th>
+																				<th class="text-capitalize">
+																					Last Name
+																				</th>
+																				<th class="text-capitalize">
+																					Email
+																				</th>
+																				<th class="text-capitalize">
+																					Company
+																				</th>
+																				<th class="text-capitalize">
+																					Phone (work)
+																				</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr id="row1">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					John Doe
+																				</td>
+																				<td>
+																					John
+																				</td>
+																				<td>
+																					Doe
+																				</td>
+																				<td>
+																					john.doe@example.com
+																				</td>
+																				<td>
+																					Example Company, Inc.
+																				</td>
+																				<td>
+																					312-555-5555
+																				</td>
+																			</tr>
+
+																			<tr id="row2">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					Albert Metricman
+																				</td>
+																				<td>
+																					Albert
+																				</td>
+																				<td>
+																					Metricman
+																				</td>
+																				<td>
+																					albert.metricman@example.com
+																				</td>
+																				<td>
+																					Example Company, Inc.
+																				</td>
+																				<td>
+																					312-555-5555
+																				</td>
+																			</tr>
+
+																			<tr id="row3">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					Julie Persuavia
+																				</td>
+																				<td>
+																					Julie
+																				</td>
+																				<td>
+																					Persuavia
+																				</td>
+																				<td>
+																					julie.persuavia@example.com
+																				</td>
+																				<td>
+																					Example Company, Inc.
+																				</td>
+																				<td>
+																					312-555-5555
+																				</td>
+																			</tr>
+																			<tr id="row4">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					Howard Smith
+																				</td>
+																				<td>
+																					Howard
+																				</td>
+																				<td>
+																					Smith
+																				</td>
+																				<td>
+																					howard.smith@example.net
+																				</td>
+																				<td>
+																					Example Network
+																				</td>
+																				<td>
+																					487-555-2222
+																				</td>
+																			</tr>
+																			<tr id="row5">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					Robert Williams
+																				</td>
+																				<td>
+																					Robert
+																				</td>
+																				<td>
+																					Williams
+																				</td>
+																				<td>
+																					robert.williams@example.net
+																				</td>
+																				<td>
+																					Example Network
+																				</td>
+																				<td>
+																					487-555-2223
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-12" ng-show="!contactsearch">
+													<div class="box box-info">
+														<div class="box-body table-responsive with-border">
+															<table class="table table-striped table-hover" datatable
+																dt-options="dtUnSubscriberOptions"
+																dt-column-defs="dtUnSubscriberColumnDefs">
+																<thead>
+																	<tr>
+																		<!--<th class="no-sort"  name="name" width="30"></th>-->
+																		<th class="text-capitalize">
+																			Name
+																		</th>
+																		<th class="text-capitalize">
+																			First Name
+																		</th>
+																		<th class="text-capitalize">
+																			Last Name
+																		</th>
+																		<th class="text-capitalize">
+																			Email
+																		</th>
+																		<th class="text-capitalize">
+																			Company
+																		</th>
+																		<th class="text-capitalize">
+																			Phone (Work)
+																		</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>
+																			John Doe
+																		</td>
+																		<td>
+																			John
+																		</td>
+																		<td>
+																			Doe
+																		</td>
+																		<td>
+																			john.doe@example.com
+																		</td>
+																		<td>
+																			Example Company, Inc.
+																		</td>
+																		<td>
+																			312-555-5555
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Albert Metricman
+																		</td>
+																		<td>
+																			Albert
+																		</td>
+																		<td>
+																			Metricman
+																		</td>
+																		<td>
+																			albert.metricman@example.com
+																		</td>
+																		<td>
+																			Example Company, Inc.
+																		</td>
+																		<td>
+																			312-555-5555
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Julie Persuavia
+																		</td>
+																		<td>
+																			Julie
+																		</td>
+																		<td>
+																			Persuavia
+																		</td>
+																		<td>
+																			julie.persuavia@example.com
+																		</td>
+																		<td>
+																			Example Company, Inc.
+																		</td>
+																		<td>
+																			312-555-5555
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Howard Smith
+																		</td>
+																		<td>
+																			Howard
+																		</td>
+																		<td>
+																			Smith
+																		</td>
+																		<td>
+																			howard.smith@example.com
+																		</td>
+																		<td>
+																			Example Network
+																		</td>
+																		<td>
+																			487-555-5222
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Robert Williams
+																		</td>
+																		<td>
+																			Robert
+																		</td>
+																		<td>
+																			Williams
+																		</td>
+																		<td>
+																			robert.williams@example.com
+																		</td>
+																		<td>
+																			Example Network
+																		</td>
+																		<td>
+																			487-555-5222
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-6" ng-show="contactsearch && subscribe">
+													<div class="form-group">
+														<button class="btn btn-primary" type="button"
+															ng-click="contactsearch = !contactsearch"
+															ng-init="contactsearch = false">
+															Subscribe Selected
+														</button>
+														<span>Add only selected contacts to the mailing list.</span>
+														<br><br>
+
+														<button class="btn btn-primary" type="button">
+															Subscribe All
+														</button>
+														<span>Add all <span class="text-orange">(1234)</span> contacts
+															from this search to this mailing list.</span>
+													</div>
+												</div>
+
+												<div class="col-md-6" ng-show="contactsearch && unsubscribe">
+													<div class="form-group">
+														<button class="btn btn-primary" type="button"
+															ng-click="contactsearch = !contactsearch"
+															ng-init="contactsearch = false">
+															Unsubscribe Selected
+														</button>
+														<button class="btn btn-primary" type="button">
+															Unsubscribe All
+														</button>
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<!--Tabs subscriber list-->
+	                                    <div class="tab-pane" id="tab_case_3">
+											<div class="row">
+												<div class="col-md-12">
+													<h4 class="smtp-out-message"> Number of contacts subscribed to this list : <span class=" text-orange"><b>1234</b></span></h4>
+												</div>
+
+												<div class="col-md-12" ng-show="contactsearch">
+													<!-- Custom Tabs -->
+													<div class="row">
+														<div class="col-md-12">
+															<div class="box box-info" ng-controller="myCtrl">
+																<div class="box-header with-border">
+																	<i class="fa  fa-users"></i>
+																	<h3 class="box-title head-title-padding">Search
+																		Results</h3>
+																</div>
+																<!-- /.box-header -->
+																<!-- form start -->
+																<div class="box-body table-responsive">
+																	<table class="table table-striped table-hover"
+																		datatable dt-options="dtSearchOptions"
+																		dt-column-defs="dtSearchColumnDefs">
+																		<thead>
+																			<tr>
+																				<th class="no-sort" name="name"
+																					width="30"><input type="checkbox"
+																						class="form-control" checkbox>
+																				</th>
+																				<th class="text-capitalize">
+																					Name
+																				</th>
+																				<th class="text-capitalize">
+																					First Name
+																				</th>
+																				<th class="text-capitalize">
+																					Last Name
+																				</th>
+																				<th class="text-capitalize">
+																					Email
+																				</th>
+																				<th class="text-capitalize">
+																					Company
+																				</th>
+																				<th class="text-capitalize">
+																					Phone (work)
+																				</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr id="row1">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					John Doe
+																				</td>
+																				<td>
+																					John
+																				</td>
+																				<td>
+																					Doe
+																				</td>
+																				<td>
+																					john.doe@example.com
+																				</td>
+																				<td>
+																					Example Company, Inc.
+																				</td>
+																				<td>
+																					312-555-5555
+																				</td>
+																			</tr>
+
+																			<tr id="row2">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					Albert Metricman
+																				</td>
+																				<td>
+																					Albert
+																				</td>
+																				<td>
+																					Metricman
+																				</td>
+																				<td>
+																					albert.metricman@example.com
+																				</td>
+																				<td>
+																					Example Company, Inc.
+																				</td>
+																				<td>
+																					312-555-5555
+																				</td>
+																			</tr>
+
+																			<tr id="row3">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					Julie Persuavia
+																				</td>
+																				<td>
+																					Julie
+																				</td>
+																				<td>
+																					Persuavia
+																				</td>
+																				<td>
+																					julie.persuavia@example.com
+																				</td>
+																				<td>
+																					Example Company, Inc.
+																				</td>
+																				<td>
+																					312-555-5555
+																				</td>
+																			</tr>
+																			<tr id="row4">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					Howard Smith
+																				</td>
+																				<td>
+																					Howard
+																				</td>
+																				<td>
+																					Smith
+																				</td>
+																				<td>
+																					howard.smith@example.net
+																				</td>
+																				<td>
+																					Example Network
+																				</td>
+																				<td>
+																					487-555-2222
+																				</td>
+																			</tr>
+																			<tr id="row5">
+																				<td name="name" width="30">
+																					<input type="checkbox"
+																						class="form-control" checkbox>
+																				</td>
+																				<td>
+																					Robert Williams
+																				</td>
+																				<td>
+																					Robert
+																				</td>
+																				<td>
+																					Williams
+																				</td>
+																				<td>
+																					robert.williams@example.net
+																				</td>
+																				<td>
+																					Example Network
+																				</td>
+																				<td>
+																					487-555-2223
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-12" ng-show="!contactsearch">
+													<div class="box box-info">
+														<div class="box-body table-responsive with-border">
+															<table class="table table-striped table-hover" datatable
+																dt-options="dtUnSubscriberOptions"
+																dt-column-defs="dtUnSubscriberColumnDefs">
+																<thead>
+																	<tr>
+																		<!--<th class="no-sort"  name="name" width="30"></th>-->
+																		<th class="text-capitalize">
+																			Name
+																		</th>
+																		<th class="text-capitalize">
+																			First Name
+																		</th>
+																		<th class="text-capitalize">
+																			Last Name
+																		</th>
+																		<th class="text-capitalize">
+																			Email
+																		</th>
+																		<th class="text-capitalize">
+																			Company
+																		</th>
+																		<th class="text-capitalize">
+																			Phone (Work)
+																		</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>
+																			John Doe
+																		</td>
+																		<td>
+																			John
+																		</td>
+																		<td>
+																			Doe
+																		</td>
+																		<td>
+																			john.doe@example.com
+																		</td>
+																		<td>
+																			Example Company, Inc.
+																		</td>
+																		<td>
+																			312-555-5555
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Albert Metricman
+																		</td>
+																		<td>
+																			Albert
+																		</td>
+																		<td>
+																			Metricman
+																		</td>
+																		<td>
+																			albert.metricman@example.com
+																		</td>
+																		<td>
+																			Example Company, Inc.
+																		</td>
+																		<td>
+																			312-555-5555
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Julie Persuavia
+																		</td>
+																		<td>
+																			Julie
+																		</td>
+																		<td>
+																			Persuavia
+																		</td>
+																		<td>
+																			julie.persuavia@example.com
+																		</td>
+																		<td>
+																			Example Company, Inc.
+																		</td>
+																		<td>
+																			312-555-5555
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Howard Smith
+																		</td>
+																		<td>
+																			Howard
+																		</td>
+																		<td>
+																			Smith
+																		</td>
+																		<td>
+																			howard.smith@example.com
+																		</td>
+																		<td>
+																			Example Network
+																		</td>
+																		<td>
+																			487-555-5222
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Robert Williams
+																		</td>
+																		<td>
+																			Robert
+																		</td>
+																		<td>
+																			Williams
+																		</td>
+																		<td>
+																			robert.williams@example.com
+																		</td>
+																		<td>
+																			Example Network
+																		</td>
+																		<td>
+																			487-555-5222
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-6" ng-show="contactsearch && subscribe">
+													<div class="form-group">
+														<button class="btn btn-primary" type="button"
+															ng-click="contactsearch = !contactsearch"
+															ng-init="contactsearch = false">
+															Subscribe Selected
+														</button>
+														<span>Add only selected contacts to the mailing list.</span>
+														<br><br>
+
+														<button class="btn btn-primary" type="button">
+															Subscribe All
+														</button>
+														<span>Add all <span class="text-orange">(1234)</span> contacts
+															from this search to this mailing list.</span>
+													</div>
+												</div>
+
+												<div class="col-md-6" ng-show="contactsearch && unsubscribe">
+													<div class="form-group">
+														<button class="btn btn-primary" type="button"
+															ng-click="contactsearch = !contactsearch"
+															ng-init="contactsearch = false">
+															Unsubscribe Selected
+														</button>
+														<button class="btn btn-primary" type="button">
+															Unsubscribe All
+														</button>
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="tab-pane" id="tab_2">
+												<div class="row">
+													<div class="col-md-6">
+														<h4 class="smtp-out-message"> Number of contacts subscribed to this
+															list : <span class=" text-orange"><b>1234</b></span></h4>
+													</div>
+													<div class="col-md-6 text-right">
+														<div class="form-group" ng-show="!contactsearch">
+															<button class="btn btn-primary" type="button"
+																ng-click="contactsearch = !contactsearch; subscribe = true; unsubscribe = false;"
+																ng-init="contactsearch = false">
+																Add Contacts
+															</button>
+															<button class="btn btn-primary" type="button"
+																ng-click="contactsearch = !contactsearch; subscribe = false; unsubscribe = true;"
+																ng-init="contactsearch = false">
+																Remove Contacts
+															</button>
+														</div>
+	
+														<div class="form-group" ng-show="contactsearch">
+															<button class="btn btn-primary" type="button"
+																ng-click="contactsearch = !contactsearch;">
+																Back To Current Contacts
+															</button>
+														</div>
+													</div>
+													<div class="col-md-12" ng-show="contactsearch">
+														<!-- Custom Tabs -->
+														<div class="box box-primary">
+															<div class="box-header with-border">
+																<i class="fa fa-search"></i>
+																<h3 class="box-title">Search For Contacts To Add To This
+																	Lists</h3>
+															</div>
+															<div class="box-body">
+																<div class="row" uib-collapse="isCollapsedSavePanel"
+																	ng-cloak ng-init="isCollapsedSavePanel=true;">
+																	<div class="col-xs-12">
+																		<div
+																			class="panel panel-default col-xs-12 bg-gray-light save-search-panel">
+																			<div class="floating-label col-sm-10">
+																				<input type="text" value="">
+																				<label>Search Name</label>
+																			</div>
+																			<button type="button"
+																				class="btn btn-primary">Save</button>
+																		</div>
+																	</div>
+																</div>
+																<section class="container-fluid search-parameters">
+																	<fieldset class="row">
+																		<div
+																			class="panel panel-default col-xs-12 bg-gray-light">
+																			<div class="row">
+																				<div class="col-xs-12 col-md-2">
+																					<div class="floating-label bg-white">
+																						<select>
+																							<option value="anywhere"
+																								selected="selected">anywhere
+																							</option>
+																							<option value="start">start
+																							</option>
+																							<option value="end">end</option>
+																							<option value="entire">entire
+																							</option>
+																						</select>
+																						<label>Search where</label>
+																					</div>
+																				</div>
+																				<div class="col-xs-12 col-md-3">
+																					<div class="floating-label bg-white">
+																						<select class="infield">
+																							<option value="all">-- All --
+																							</option>
+																							<option value="ID">-- ID --
+																							</option>
+																							<option value="login"
+																								selected="selected">-- Login
+																								--</option>
+																							<option value="loginbounced">--
+																								Login (Bounced) --</option>
+																							<option value="Tags">-- Tags --
+																							</option>
+																							<option value="segment">--
+																								Segment Membership --
+																							</option>
+																							<option value="30">Additional
+																								Detail</option>
+																							<option value="5">Address
+																							</option>
+																							<option value="33">Address1
+																							</option>
+																							<option value="34">Address2
+																							</option>
+																							<option value="35">City</option>
+																							<option value="7">Company
+																							</option>
+																							<option value="40">Contact
+																								Viewable - Not Editable
+																							</option>
+																							<option value="41">Contact
+																								Viewable AND Editable
+																							</option>
+																							<option value="38">Country
+																							</option>
+																							<option value="6">Customer Type
+																							</option>
+																							<option value="29">Date</option>
+																							<option value="31">Existing
+																								Phone Property</option>
+																							<option value="1">First Name
+																							</option>
+																							<option value="8">Job Title
+																							</option>
+																							<option value="3">Last Name
+																							</option>
+																							<option value="2">Middle Initial
+																							</option>
+																							<option value="4">Phone</option>
+																							<option value="37">Postal Code
+																							</option>
+																							<option value="26">s2only
+																							</option>
+																							<option value="36">State
+																							</option>
+																							<option value="32">Svc Level 5
+																								Min</option>
+																							<option value="25">Text</option>
+																							<option value="Date">Date
+																							</option>
+																						</select>
+																						<label>In field</label>
+																					</div>
+																				</div>
+																				<div class="col-xs-12 col-md-3">
+																					<div class="floating-label bg-white">
+																						<select id="searchOption">
+																							<option value="Contain">Contains
+																							</option>
+																							<option
+																								value="Does Not Contain">
+																								Does Not Contain</option>
+																							<option value="Is Greater Than">
+																								Is Greater Than</option>
+																							<option value="Is Equal To">Is
+																								Equal To</option>
+																							<option value="Is Less Than">Is
+																								Less Than</option>
+																						</select>
+																						<label>Search options</label>
+																					</div>
+																				</div>
+																				<div
+																					class="col-xs-12 col-md-4 search-field">
+																					<div class="form-group floating-label">
+																						<input type="text"
+																							class="searchtag search"
+																							data-role="tagsinput"
+																							style="display:none;">
+																						<input type="text" for="search"
+																							class="searchnormal search"
+																							required>
+																						<label>Search for</label>
+																					</div>
+																					<button class="btn btn-lg btn-link"
+																						type="button" title="Remove Field">
+																						<i
+																							class="fa fa-times-circle text-red"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</fieldset>
+																	<div class="row">
+																		<button class="btn btn-lg btn-link" type="button">
+																			<i
+																				class="fa fa-plus-circle text-light-blue"></i>
+																			Add another search parameter
+																		</button>
+																	</div>
+																</section>
+																<footer class="box-footer text-right">
+																	<button type="submit" class="btn btn-primary btn-sm">
+																		Search
+																		<i class="fa fa-fw fa-arrow-circle-right"></i>
+																		<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
+																	</button>
+																	<button type="button"
+																		class="btn btn-link btn-sm">Reset</button>
+																</footer>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12">
+																<div class="box box-info" ng-controller="myCtrl">
+																	<div class="box-header with-border">
+																		<i class="fa  fa-users"></i>
+																		<h3 class="box-title head-title-padding">Search
+																			Results</h3>
+																	</div>
+																	<!-- /.box-header -->
+																	<!-- form start -->
+																	<div class="box-body table-responsive">
+																		<table class="table table-striped table-hover"
+																			datatable dt-options="dtSearchOptions"
+																			dt-column-defs="dtSearchColumnDefs">
+																			<thead>
+																				<tr>
+																					<th class="no-sort" name="name"
+																						width="30"><input type="checkbox"
+																							class="form-control" checkbox>
+																					</th>
+																					<th class="text-capitalize">
+																						Name
+																					</th>
+																					<th class="text-capitalize">
+																						First Name
+																					</th>
+																					<th class="text-capitalize">
+																						Last Name
+																					</th>
+																					<th class="text-capitalize">
+																						Email
+																					</th>
+																					<th class="text-capitalize">
+																						Company
+																					</th>
+																					<th class="text-capitalize">
+																						Phone (work)
+																					</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr id="row1">
+																					<td name="name" width="30">
+																						<input type="checkbox"
+																							class="form-control" checkbox>
+																					</td>
+																					<td>
+																						John Doe
+																					</td>
+																					<td>
+																						John
+																					</td>
+																					<td>
+																						Doe
+																					</td>
+																					<td>
+																						john.doe@example.com
+																					</td>
+																					<td>
+																						Example Company, Inc.
+																					</td>
+																					<td>
+																						312-555-5555
+																					</td>
+																				</tr>
+	
+																				<tr id="row2">
+																					<td name="name" width="30">
+																						<input type="checkbox"
+																							class="form-control" checkbox>
+																					</td>
+																					<td>
+																						Albert Metricman
+																					</td>
+																					<td>
+																						Albert
+																					</td>
+																					<td>
+																						Metricman
+																					</td>
+																					<td>
+																						albert.metricman@example.com
+																					</td>
+																					<td>
+																						Example Company, Inc.
+																					</td>
+																					<td>
+																						312-555-5555
+																					</td>
+																				</tr>
+	
+																				<tr id="row3">
+																					<td name="name" width="30">
+																						<input type="checkbox"
+																							class="form-control" checkbox>
+																					</td>
+																					<td>
+																						Julie Persuavia
+																					</td>
+																					<td>
+																						Julie
+																					</td>
+																					<td>
+																						Persuavia
+																					</td>
+																					<td>
+																						julie.persuavia@example.com
+																					</td>
+																					<td>
+																						Example Company, Inc.
+																					</td>
+																					<td>
+																						312-555-5555
+																					</td>
+																				</tr>
+																				<tr id="row4">
+																					<td name="name" width="30">
+																						<input type="checkbox"
+																							class="form-control" checkbox>
+																					</td>
+																					<td>
+																						Howard Smith
+																					</td>
+																					<td>
+																						Howard
+																					</td>
+																					<td>
+																						Smith
+																					</td>
+																					<td>
+																						howard.smith@example.net
+																					</td>
+																					<td>
+																						Example Network
+																					</td>
+																					<td>
+																						487-555-2222
+																					</td>
+																				</tr>
+																				<tr id="row5">
+																					<td name="name" width="30">
+																						<input type="checkbox"
+																							class="form-control" checkbox>
+																					</td>
+																					<td>
+																						Robert Williams
+																					</td>
+																					<td>
+																						Robert
+																					</td>
+																					<td>
+																						Williams
+																					</td>
+																					<td>
+																						robert.williams@example.net
+																					</td>
+																					<td>
+																						Example Network
+																					</td>
+																					<td>
+																						487-555-2223
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+	
+													<div class="col-md-12" ng-show="!contactsearch">
+														<div class="box box-info">
+															<div class="box-body table-responsive with-border">
+																<table class="table table-striped table-hover" datatable
+																	dt-options="dtUnSubscriberOptions"
+																	dt-column-defs="dtUnSubscriberColumnDefs">
+																	<thead>
+																		<tr>
+																			<!--<th class="no-sort"  name="name" width="30"></th>-->
+																			<th class="text-capitalize">
+																				Name
+																			</th>
+																			<th class="text-capitalize">
+																				First Name
+																			</th>
+																			<th class="text-capitalize">
+																				Last Name
+																			</th>
+																			<th class="text-capitalize">
+																				Email
+																			</th>
+																			<th class="text-capitalize">
+																				Company
+																			</th>
+																			<th class="text-capitalize">
+																				Phone (Work)
+																			</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																			<td>
+																				John Doe
+																			</td>
+																			<td>
+																				John
+																			</td>
+																			<td>
+																				Doe
+																			</td>
+																			<td>
+																				john.doe@example.com
+																			</td>
+																			<td>
+																				Example Company, Inc.
+																			</td>
+																			<td>
+																				312-555-5555
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				Albert Metricman
+																			</td>
+																			<td>
+																				Albert
+																			</td>
+																			<td>
+																				Metricman
+																			</td>
+																			<td>
+																				albert.metricman@example.com
+																			</td>
+																			<td>
+																				Example Company, Inc.
+																			</td>
+																			<td>
+																				312-555-5555
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				Julie Persuavia
+																			</td>
+																			<td>
+																				Julie
+																			</td>
+																			<td>
+																				Persuavia
+																			</td>
+																			<td>
+																				julie.persuavia@example.com
+																			</td>
+																			<td>
+																				Example Company, Inc.
+																			</td>
+																			<td>
+																				312-555-5555
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				Howard Smith
+																			</td>
+																			<td>
+																				Howard
+																			</td>
+																			<td>
+																				Smith
+																			</td>
+																			<td>
+																				howard.smith@example.com
+																			</td>
+																			<td>
+																				Example Network
+																			</td>
+																			<td>
+																				487-555-5222
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				Robert Williams
+																			</td>
+																			<td>
+																				Robert
+																			</td>
+																			<td>
+																				Williams
+																			</td>
+																			<td>
+																				robert.williams@example.com
+																			</td>
+																			<td>
+																				Example Network
+																			</td>
+																			<td>
+																				487-555-5222
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+	
+													<div class="col-md-6" ng-show="contactsearch && subscribe">
+														<div class="form-group">
+															<button class="btn btn-primary" type="button"
+																ng-click="contactsearch = !contactsearch"
+																ng-init="contactsearch = false">
+																Subscribe Selected
+															</button>
+															<span>Add only selected contacts to the mailing list.</span>
+															<br><br>
+	
+															<button class="btn btn-primary" type="button">
+																Subscribe All
+															</button>
+															<span>Add all <span class="text-orange">(1234)</span> contacts
+																from this search to this mailing list.</span>
+														</div>
+													</div>
+	
+													<div class="col-md-6" ng-show="contactsearch && unsubscribe">
+														<div class="form-group">
+															<button class="btn btn-primary" type="button"
+																ng-click="contactsearch = !contactsearch"
+																ng-init="contactsearch = false">
+																Unsubscribe Selected
+															</button>
+															<button class="btn btn-primary" type="button">
+																Unsubscribe All
+															</button>
+	
+														</div>
+													</div>
+	
+												</div>
+											</div>
+	
+                                    <!--Tabs subscriber list-->
+									</div>	
+								</div>
+							</div>	
+						</div>	
+						<div class="message-box">
+							<div class="message-box-body"> 
+								<div class="clear"></div>
+								<div>										   
+									<p><b>Question:</b><br>
+										How do i get started with Customer Portal?
+									</p>
+									<p><b>Answer:</b><br>
+										To use Customer Portal, you'll first need to register using Sign Up link. 
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!--form data end-->
+			<!--agent email start-->
+			{% include agent-email-include.html %}    
+			<!--agent email end-->
+			<!--create note start-->
+			{% include create-note-include.html %}
+			<!--create note end-->
+			<!--create ticket start-->
+			{% include create-ticket-include.html %}
+			<!--create ticket end-->
+			<!--forward start-->
+			{% include forward-copy-include.html %}
+			<!--forward end-->
+			<!--Get this-->
+			{% include get-this-include.html %}
+			<!--Get thisa-->
+		</script>	
+		<!--expanded row content end-->
+        {% include common-footer.html %}
+        <!-- Control Sidebar -->
+		{% include right-panel-setting-menu.html %}
+		<!-- /.control-sidebar -->
+		<!-- Add the sidebar's background. This div must be placed
+					immediately after the control sidebar -->
+		<div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    {% include common-javascript.html %}
+
+<script>
+	$(document).ready(function() {
+		//$('.selectpicker').selectpicker('refresh');
+		$.fn.extend({
+			treed: function (o) {
+			
+			var openedClass = 'glyphicon-minus-sign';
+			var closedClass = 'glyphicon-plus-sign';
+			
+			if (typeof o != 'undefined'){
+				if (typeof o.openedClass != 'undefined'){
+				openedClass = o.openedClass;
+				}
+				if (typeof o.closedClass != 'undefined'){
+				closedClass = o.closedClass;
+				}
+			};
+			
+				//initialize each of the top levels
+				var tree = $(this);
+				tree.addClass("tree");
+				tree.find('li').has("ul").each(function () {
+					var branch = $(this); //li with children ul
+					branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+					branch.addClass('branch');
+					branch.on('click', function (e) {
+						if (this == e.target) {
+							var icon = $(this).children('i:first');
+							icon.toggleClass(openedClass + " " + closedClass);
+							$(this).children().children().not('.treeviewrow').toggle();
+						}
+					})
+					branch.children().children().toggle();
+				});
+				//fire event from the dynamically added icon
+			tree.find('.branch .indicator').each(function(){
+				$(this).on('click', function () {
+					$(this).closest('li').click();
+				});
+			});
+				//fire event to open branch if the li contains an anchor instead of text
+				tree.find('.branch>a').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+				//fire event to open branch if the li contains a button instead of text
+				tree.find('.branch>button').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+			}
+		});
+			$('#tree1').treed();	
+			$('#tree1 .branch').each(function(){
+				var icon = $(this).children('i:first');
+				icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
+				$(this).children().children().toggle();
+			});	
+
+			$('.custom-scroll').slimScroll({
+				height: '250px'
+			});
+			$('.message-attachments').slimScroll({
+				height: '178px'
+			});
+    });
+	$(document).on('change', '.tree input[type=checkbox]', function(e) {
+		$(this).siblings('ul').find("input[type='checkbox']").prop('checked', this.checked);
+		$(this).parentsUntil('.tree').children("input[type='checkbox']").prop('checked', this.checked);
+		e.stopPropagation();
+	});
+
+	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    {
+			
+		
+			$scope.dtContactMessagesOptions = DTOptionsBuilder
+			.newOptions()
+			.withOption('language', {
+			search: 'Filter Lists'
+			}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+				extend: 'colvis',
+				columns: function (index, apiObj, headCell)
+				{
+					// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+					// disable the show/hide column functionality for certain columns
+					return headCell.dataset.noColVis === undefined;
+				}
+			}]);
+            $scope.dtContactMessagesColumnDefs = [
+				DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
+			];
+
+			$scope.dtSubscriberOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Unsubscribes'
+				})
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell) {
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+
+			$scope.dtUnSubscriberOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Subscribers '
+			})
+			.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+				extend: 'colvis',
+				columns: function (index, apiObj, headCell) {
+					// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+					// disable the show/hide column functionality for certain columns
+					return headCell.dataset.noColVis === undefined;
+				}
+			}]);
+
+			$scope.toggleRow = function (segmentName)
+			{ 
+				$scope.showexpanded1 = !false; 
+				for(var i = 1; i<=6;i++){
+					if(!$scope[segmentName]){
+						removeFunction(segmentName);
+						$scope['row'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunction(segmentName);
+				}else{
+					removeFunction(segmentName);
+				}
+			};
+
+			function myCreateFunction(row) {
+				var innerHTML = document.getElementById('expandedrow').innerHTML;
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="5">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			}
+
+			function removeFunction(row){
+				angular.element('.expandedrowcontent').remove();
+			}
+
+			$scope.show = function(action) {
+				$scope.hidetrue = true;
+				$scope[action] = !$scope[action];
+			};
+
+			$scope.cancel = function(action) {
+				$scope.hidetrue = false;
+				$scope[action] = !$scope[action];
+			};
+			$scope.show2 = function(action) {
+				$scope.hidetrue2 = true;
+				$scope[action] = !$scope[action];
+			};	
+
+			$scope.cancel2 = function(action) {
+				$scope.hidetrue2 = false;
+				$scope[action] = !$scope[action];
+			};	
+			$scope.customForm = function(){
+				$scope.customform = true;
+			}
+			$scope.builtinForm = function(){
+				$scope.customform = false;
+			}
+			$scope.showIncomingList = function(){
+				$scope.incomingList = true;
+				removeFunction('');
+			}
+			$scope.showPraposedList = function(){
+				$scope.incomingList = false;
+				removeFunction('');
+			}
+
+			$scope.massUpdate = function(){
+				
+				if($scope.incomingList && $scope.praposedList){
+           			 $scope.showAlert = true;
+				}else{
+					$scope.showAlert = false;
+					$scope.isCollapsedMassUpdate = !$scope.isCollapsedMassUpdate;
+				}
+			}
+
+		});	 
+
+		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentselected = {selected : "Alek Packard"};
+			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
+
+		app.filter('propsFilter', function() {
+			return function(items, props) {
+				var out = [];
+
+				if (angular.isArray(items)) {
+				var keys = Object.keys(props);
+
+				items.forEach(function(item) {
+					var itemMatches = false;
+
+					for (var i = 0; i < keys.length; i++) {
+					var prop = keys[i];
+					var text = props[prop].toLowerCase();
+					if (item[prop].toString().toLowerCase().indexOf(text) !== -1) {
+						itemMatches = true;
+						break;
+					}
+					}
+
+					if (itemMatches) {
+					out.push(item);
+					}
+				});
+				} else {
+				// Let the output be the input untouched
+				out = items;
+				}
+
+				return out;
+			};
+		});
+
+		app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.segmentObj = {
+				'1' : { name: '-Default Mail Box-', segmentname: 'QA' },
+				'2' : { name: 'Push Bullet', segmentname: 'QA' },
+				'3' : { name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
+				'4' : { name: 'Push Bullet', segmentname: 'QA2- Second Segment' },
+			};
+      vm.segmentselected = {selected : "Push Bullet"};
+			vm.segment = [
+				{ name: '-Default Mail Box-', segmentname: 'QA' },
+				{ name: 'Push Bullet', segmentname: 'QA' },
+				{ name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
+				{ name: 'Push Bullet',  segmentname: 'QA2- Second Segment' },
+			];
+		});
+		angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentselected = {selected : "Alek Packard"};
+			vm.agentname = [ 
+				{name: 'Alek Packard', code: 'AP'},
+				{name: 'Jacob Smith', code: 'JS'},
+				{name: 'Jonie Hewlett', code: 'JH'},
+				{name: 'Justin Time', code: 'JT'},
+			];
+		});
+     angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentselected = {selected : "--Default MailBox--"};
+			vm.agentname = [ 
+		   	{name: '--Default MailBox--', code: ''},
+				{name: 'Customer Support (support@example.com)', code: ''},
+				{name: 'Sales (Sales@example.com)', code: ''},
+				{name: 'Technical Support (technicalsupport@example.com)', code: ''},
+			];
+		});
+</script>
+
+</body>
+</html>
