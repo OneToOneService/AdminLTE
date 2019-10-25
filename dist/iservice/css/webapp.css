@@ -3047,6 +3047,10 @@ table.dataTable {
   padding: 8px 15px 15px 15px;
   float: right;
 }
+.det-box-bg {
+  background: #f7f7f7;
+  padding: 8px 15px 15px 15px;
+}
 div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child {
   width: 100% !important;
   float: none !important;
@@ -3087,6 +3091,10 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
 .callout {
   padding: 8px 30px 8px 15px;
 }
+.alert {
+  position: relative;
+  padding-right: 35px;
+}
 .alert .text {
   font-size: 14px;
   font-weight: normal;
@@ -3111,4 +3119,9 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
   position: relative;
   top: 1px;
   margin-left: 8px;
+}
+.alert-dismissable .close,
+.alert-dismissible .close {
+  right: 8px;
+  position: absolute;
 }

@@ -194,12 +194,12 @@ title: Widget
 
                 <div class="col-md-4">
                     <label>Date With Time</label>
-                    <p class="input-group date">
-                      <input type="text" class="form-control" datetime-picker="MM/dd/yyyy HH:mm" ng-model="picker3.date" is-open="picker3.open" />
-                      <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="openCalendar($event, 'picker3')"><i class="fa fa-calendar"></i></button>
-                      </span>
-                    </p>
+                    <div class="input-group date">
+                        <div class="input-group-addon"  ng-click="openCalendar($event, 'picker3')">
+                           <i class="fa fa-calendar"></i>
+                        </div>
+                      <input type="text" class="form-control" datetime-picker="MM/dd/yyyy HH:mm" ng-model="picker3.date" show-weeks="false" is-open="picker3.open" />
+                     </div>
                   </div>
               </div>
             </div>

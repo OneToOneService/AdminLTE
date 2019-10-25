@@ -31,7 +31,8 @@ title: Manage Messages Tree View
 			<section class="content">
 				<div class="row"> 
 					<div class="col-md-12">
-						<div class="alert alert-warning alert-inline pull-left mbottom-15">
+						<div class="alert alert-warning alert-dismissible alert-inline pull-left mbottom-15">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 							<h4><i class="icon fa fa-warning"></i>Alert! <span class="text">You have 3200 unresolved questions but the page is limited to 2500.<span class="more" ng-click="showmore = !showmore" ng-show="!showmore">...more</span><span class="more"  ng-click="showmore = !showmore" ng-show="showmore" ng-cloak>...less</span></span></h4>
 							<div class="mtop-15" ng-hide="!showmore" ng-cloak>
 									This page displays a maximum of 2500 unresolved questions to avoid performance issues caused by loading details of too many interactions. Since you have more than 2500 unresolved questions, some of your questions are not displayed. Answer or reolve enough questions to keep your total unresolved questions below 2500.

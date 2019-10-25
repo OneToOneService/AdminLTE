@@ -23,7 +23,7 @@ title: Notifications
 		The contents of the broadcast message are displayed here.
 	</div>
 	
-    <div class="wrapper">
+    <div class="wrapper" ng-controller="myCtrl">
         {% include common-header.html %}
         {% include common-menu.html %}
         <!-- Content Wrapper. Contains page content -->
@@ -194,8 +194,8 @@ title: Notifications
 					<div class="alert alert-warning alert-dismissible">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 						<h4><i class="icon fa fa-warning"></i> Alert!</h4>
-						Your browser has lost its real-time connection to iService. <span class="more">...more</span>
-						<div class="mtop-15">
+						Your browser has lost its real-time connection to iService. <span class="more" ng-click="showmore = !showmore" ng-show="!showmore">...more</span><span class="more"  ng-click="showmore = !showmore" ng-show="showmore">...less</span></span>
+						<div class="mtop-15" ng-hide="!showmore">
 								iService uses a real-time connection from 
 								your browser to the server to provide various updates
 								without the need to reload your page. We've
@@ -353,20 +353,7 @@ title: Notifications
     </div>
     <!-- ./wrapper -->
     <!-- jQuery 3.1.1 -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <!-- DataTables -->
-	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="../plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
+	{% include common-javascript.html %}
     <script>
 	$(document).ready(function(){
 		$('[data-toggle="tooltip"]').tooltip();  
@@ -383,6 +370,9 @@ title: Notifications
 			});
 			$('#popover-title').popover();			
 		});
+	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    {
+	});	
 </script>
 	
 </body>
