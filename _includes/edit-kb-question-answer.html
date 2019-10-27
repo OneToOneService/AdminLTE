@@ -1,0 +1,239 @@
+<div class="row" ng-show="editquestion">
+	<label class="col-sm-2 control-label text-left">Question</label>
+	<div class="col-md-12">
+		<div class="nav-tabs-custom">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+				<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+				<div class="pull-right responses">
+					<button class="btn btn-sm btn-primary">Save</button>
+					<button class="btn btn-sm btn-link"  ng-click="editquestion = !editquestion">Cancel</button>
+				</div>
+				<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+					<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+					<div class="variables">
+						<div class="col-md-12">   
+						<div class="btn-group" data-toggle="btn-toggle">
+							<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
+							<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+						</div>
+						</div>   
+						<div class="col-md-12  mtop-15">
+						<div class="row form-group">
+							<label class="col-md-12 control-label text-left">Filter</label>
+							<div class="col-md-12">
+							<input type="text" class="form-control">
+							</div>
+						</div>
+						</div>
+						<div class="col-xs-12" ng-show="customform">
+						<div class="custom-scroll">
+							<ul class="list-unstyled segment-variable-list">
+							<li class="section-label">
+								Contact
+								<ul class="segment-variables">
+								<li class="section-var-link">Name</li>
+								<li class="segment-lable">
+									Global
+									<ul>
+									<li class="section-var-link">Address1</li>
+									<li class="section-var-link">Address2</li>
+									<li class="section-var-link">City</li>
+									<li class="section-var-link">Country</li>
+									<li class="section-var-link">Company</li>
+									</ul>
+								</li>
+								<li class="segment-lable">
+									JC Segment
+									<ul>
+									<li class="section-var-link">Contact View Only Property</li>
+									<li class="section-var-link">Contact Viewable and Editable Property</li>
+									<li class="section-var-link">Multi value No Descr</li>
+									<li class="section-var-link">Shared Property from JC - cust can't see</li>
+									</ul>
+								</li>
+								</ul>
+							</li>
+							</ul>
+							<ul class="list-unstyled segment-variable-list">
+							<li class="section-label">
+								Answer
+								<ul class="segment-variables">
+								<li class="section-var-link">Email</li>
+								<li class="section-var-link">Reference Number</li>
+								<li class="section-var-link">Original Date</li>
+								<li class="section-var-link">Original Time</li>
+								<li class="section-var-link">Subject</li>
+								<li class="section-var-link">Original Body</li>
+								<li class="section-var-link">Quoted Question</li>
+								</ul>
+							</li>
+							</ul>
+						</div>
+						</div>
+						<div class="col-xs-12" ng-hide="customform">
+						<div class="custom-scroll">
+							<ul class="list-unstyled segment-variable-list">
+							<li class="section-label">
+								Segment Responses
+								<ul class="segment-variables">
+								<li class="section-var-link">Chat Closing</li>
+								<li class="section-var-link">Chat Opening</li>
+								<li class="section-var-link">Chat Wait</li>
+								<li class="section-var-link">iService Website</li>
+								</ul>
+							</li>
+							</ul>
+							<ul class="list-unstyled segment-variable-list">
+							<li class="section-label">
+								Agent Response
+								<ul class="segment-variables">
+								<li class="section-var-link">Test</li>
+								</ul>
+							</li>
+							</ul>
+
+						</div>
+						</div>
+					</div>
+					</div> 
+				</div>
+				
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="draftbody">
+				<div class="form-group text-editor-container">
+					<textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor="options">
+
+					<p>How do i get started with Customer Portal?</p>
+					</textarea>
+				</div>
+				</div>
+				<div class="tab-pane" id="plainhtml">
+				<p>How do i get started with Customer Portal?</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row" ng-show="editquestion">
+
+	<label class="col-sm-2 control-label text-left">Answer</label>
+    <div class="col-md-12">
+		<div class="nav-tabs-custom">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#draftbodanswer" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+				<li><a href="#plainhtmlanswer" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+				<div class="pull-right responses">
+					<button class="btn btn-sm btn-primary">Save</button>
+					<button class="btn btn-sm btn-link"  ng-click="editquestion = !editquestion">Cancel</button>
+				</div>
+				<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+					<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+						<div class="variables">
+							<div class="col-md-12">   
+							<div class="btn-group" data-toggle="btn-toggle">
+								<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =true;">Variables</a>
+								<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+							</div>
+							</div>   
+							<div class="col-md-12  mtop-15">
+							<div class="row form-group">
+								<label class="col-md-12 control-label text-left">Filter</label>
+								<div class="col-md-12">
+								<input type="text" class="form-control">
+								</div>
+							</div>
+							</div>
+							<div class="col-xs-12" ng-show="customform">
+							<div class="custom-scroll">
+								<ul class="list-unstyled segment-variable-list">
+								<li class="section-label">
+									Contact
+									<ul class="segment-variables">
+									<li class="section-var-link">Name</li>
+									<li class="segment-lable">
+										Global
+										<ul>
+										<li class="section-var-link">Address1</li>
+										<li class="section-var-link">Address2</li>
+										<li class="section-var-link">City</li>
+										<li class="section-var-link">Country</li>
+										<li class="section-var-link">Company</li>
+										</ul>
+									</li>
+									<li class="segment-lable">
+										JC Segment
+										<ul>
+										<li class="section-var-link">Contact View Only Property</li>
+										<li class="section-var-link">Contact Viewable and Editable Property</li>
+										<li class="section-var-link">Multi value No Descr</li>
+										<li class="section-var-link">Shared Property from JC - cust can't see</li>
+										</ul>
+									</li>
+									</ul>
+								</li>
+								</ul>
+								<ul class="list-unstyled segment-variable-list">
+								<li class="section-label">
+									Answer
+									<ul class="segment-variables">
+									<li class="section-var-link">Email</li>
+									<li class="section-var-link">Reference Number</li>
+									<li class="section-var-link">Original Date</li>
+									<li class="section-var-link">Original Time</li>
+									<li class="section-var-link">Subject</li>
+									<li class="section-var-link">Original Body</li>
+									<li class="section-var-link">Quoted Question</li>
+									</ul>
+								</li>
+								</ul>
+							</div>
+							</div>
+							<div class="col-xs-12" ng-hide="customform">
+							<div class="custom-scroll">
+								<ul class="list-unstyled segment-variable-list">
+								<li class="section-label">
+									Segment Responses
+									<ul class="segment-variables">
+									<li class="section-var-link">Chat Closing</li>
+									<li class="section-var-link">Chat Opening</li>
+									<li class="section-var-link">Chat Wait</li>
+									<li class="section-var-link">iService Website</li>
+									</ul>
+								</li>
+								</ul>
+								<ul class="list-unstyled segment-variable-list">
+								<li class="section-label">
+									Agent Response
+									<ul class="segment-variables">
+									<li class="section-var-link">Test</li>
+									</ul>
+								</li>
+								</ul>
+
+							</div>
+							</div>
+						</div>
+					</div> 
+				</div>
+				
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="draftbodanswer">
+					<div class="form-group text-editor-container">
+						<textarea class="form-control" rows="10" placeholder=""  ckeditor="options"><p>
+							To use Customer Portal, you'll first need to register using Sign Up link.</p>
+						</textarea>
+					</div>
+				</div>
+				<div class="tab-pane" id="plainhtmlanswer">
+				<p>To use Customer Portal, you'll first need to register using Sign Up link.</p>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<div class="clearfix"></div>

@@ -333,6 +333,7 @@ p.login-box-msg
 .button-delete
 {
     color: @red;
+    font-size: 16px; 
 }
 
 .button-delete:focus
@@ -2072,7 +2073,7 @@ ul.timeline span.stack-icon
 
 .table .icon-col
 {
-    width: 68px;
+    width: 68px !important;
     padding-top: 8px;
 }
 
@@ -3886,6 +3887,7 @@ ul.update-list li::before
 {
     margin: 5px 0px 15px 0px;
     font-size: 16px;
+    display:inline-block;
 }
 /*account page*/
 .update-list .message-time
@@ -4279,7 +4281,7 @@ table.dataTable
     li:hover{background: none;}
 }
 .int-det-box{background:@bg-customer-reply; padding:8px 15px 15px 15px; float:right;}
-.det-box-bg{background:@bg-customer-reply; padding:8px 15px 15px 15px;}
+.det-box-bg{background:@bg-customer-reply;display: inline-block;width:100%; padding:8px 0px 15px 0px;}
 div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-child{
     width: 100% !important;
     float: none !important;
@@ -4312,3 +4314,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 .alert-dismissable .close, .alert-dismissible .close{right:0;}
 .attachments .button-delete i{font-size: 16px; position: relative; top: 1px;margin-left: 8px;}
 .alert-dismissable .close, .alert-dismissible .close{right:8px;position: absolute;}
+table tr td .form-control{width:100% !important; }
+.full-width{width:100% !important;
+  .input-group-btn{width:1% !important;}
+}
