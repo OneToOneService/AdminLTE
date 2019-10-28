@@ -3145,3 +3145,8 @@ table tr td .form-control {
 .full-width .input-group-btn {
   width: 1% !important;
 }
+.email-download {
+  margin-left: 5px;
+  position: relative;
+  top: 3px;
+}
