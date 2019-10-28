@@ -32,16 +32,21 @@ title: Page Elements Examples
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+                                <li><a href="#tab_detail_2" data-toggle="tab" uib-tooltip="Answer Sent To Customer" tooltip-placement="bottom"><span>Answer Sent To Customer</span></a></li>
+                                <li><a href="#tab_detail_3" data-toggle="tab" uib-tooltip="No Answer Sent To Customer" tooltip-placement="bottom"><span>No Answer Sent To Customer</span></a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_detail_1">
                                     <div class="row">
                                         <div class="message-box-header">
                                             <div class="col-md-6 ">
-                                                <span class="user" ng-show="!row2">
-                                                    <img src="/dist/img/agent.png">
-                                                    <b>Agent</b>
-                                                </span>
+                                                <div class="user-container">
+                                                    <span class="user" ng-show="!row2">
+                                                        <img src="/dist/img/agent.png">
+                                                        <b>Agent</b>
+                                                    </span>
+                                                    <span>Alek Packard</span>
+                                                </div>
                                                 <div class="message-info">
                                                     <b>From : </b>support@1to1service.com<br>
                                                     <b>To : </b>john.doe@example.com<br>
@@ -68,6 +73,74 @@ title: Page Elements Examples
                                         </div>
                                     </div>	
                                 </div>
+                                <div class="tab-pane" id="tab_detail_2">
+                                    <div class="row">
+                                        <div class="message-box-header">
+                                            <div class="col-md-6 ">
+                                                <div class="user-container">
+                                                    <span class="user" ng-show="!row2">
+                                                        <img src="/dist/img/agent.png">
+                                                        <b>Agent</b>
+                                                    </span>
+                                                    <span>Alek Packard</span>
+                                                </div>
+                                                <div class="message-info">
+                                                    <b>From : </b>support@1to1service.com<br>
+                                                    <b>To : </b>john.doe@example.com<br>
+                                                </div>	
+                                            </div>    
+                                            <div class="col-md-6 col-sm-12">   
+                                                <div class="int-det-box"> 
+                                                    <div><b>Interaction ID : </b>4645646</div>
+                                                    <div><b> Segment / Topic : </b>Support/All Topic</div>
+                                                    <div><b> Resolved By : </b></div>
+                                                    <div><b> Approved By : </b></div>
+                                                    <div><b> Interaction  Status : </b> <small class="bg-green-active label">Sent</small></div>	
+                                                    <div><b> Interaction  Type : </b>
+                                                        <small class="label bg-green label-with-icon"> 
+                                                            <i class="fa icon-c icon-agent-response"></i>
+                                                            Agent Response
+                                                        </small>
+                                                    </div>									
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+                                        </div>
+                                    </div>	
+                                </div>
+                                <div class="tab-pane" id="tab_detail_3">
+                                    <div class="row">
+                                        <div class="message-box-header">
+                                            <div class="col-md-6">
+                                                <div class="user-container">
+                                                    <span class="user" ng-show="!row2">
+                                                        <img src="/dist/img/agent.png">
+                                                        <b>Agent</b>
+                                                    </span>
+                                                    <span>Alek Packard</span>
+                                                </div>
+                                             </div>    
+                                            <div class="col-md-6 col-sm-12">   
+                                                <div class="int-det-box"> 
+                                                    <div><b>Interaction ID : </b>4645646</div>
+                                                    <div><b> Segment / Topic : </b>Support/All Topic</div>
+                                                    <div><b> Resolved By : </b></div>
+                                                    <div><b> Approved By : </b></div>
+                                                    <div><b> Interaction  Status : </b> <small class="bg-green-active label">Sent</small></div>	
+                                                    <div><b> Interaction  Type : </b>
+                                                        <small class="label bg-green label-with-icon"> 
+                                                            <i class="fa icon-c icon-agent-response"></i>
+                                                            Agent Response
+                                                        </small>
+                                                    </div>									
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+                                        </div>
+                                    </div>	
+                                </div>
                             </div>
                         </div>
                     </div>        
@@ -77,10 +150,13 @@ title: Page Elements Examples
                     <div class="col-md-12">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab_detail_2" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+                                <li class="active"><a href="#tab_customer_detail_1" data-toggle="tab" uib-tooltip="This question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+                                <li><a href="#tab_customer_detail_2" data-toggle="tab" uib-tooltip="Customer Email" tooltip-placement="bottom"><span>Customer Email</span></a></li>
+                                <li><a href="#tab_customer_detail_3" data-toggle="tab" uib-tooltip="Tickets" tooltip-placement="bottom"><span>Tickets</span></a></li>
+                                <li><a href="#tab_customer_detail_4" data-toggle="tab" uib-tooltip="Chat" tooltip-placement="bottom"><span>Chat</span></a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="tab_detail_2">
+                                <div class="tab-pane active" id="tab_customer_detail_1">
                                     <div class="row">
                                         <div class="message-box-header">
                                             <div class="col-md-6">
@@ -106,6 +182,111 @@ title: Page Elements Examples
 															<i class="fa icon-c icon-customer-ticket"></i>
 															Customer Ticket
 														</small>
+                                                    </div>	
+                                                </div>
+
+
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+                                        </div>
+                                    </div>	
+                                </div>
+                                <div class="tab-pane" id="tab_customer_detail_2">
+                                    <div class="row">
+                                        <div class="message-box-header">
+                                            <div class="col-md-6">
+                                                <span class="user" ng-show="!row2">
+                                                    <img src="/dist/img/customer.png">
+                                                    <b>Customer</b>
+                                                </span>
+                                                <div class="message-info">
+                                                    <b>From : </b> john.doe@example.com<br>
+                                                    <b>To : </b> support@1to1service.com<br>
+                                                </div>	
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="int-det-box"> 
+                                                    <div><b>Interaction ID : </b>4645646</div>
+                                                    <div><b> Segment / Topic : </b>Support/All Topic</div>
+                                                    <div><b> Resolved By : </b>Alek Packard</div>
+                                                    <div><b> Approved By : </b>&nbsp;</div>		
+                                                    <div><b> Interaction  Status : </b> <small class="bg-green-active label">Resolved</small></div>								
+                                                    <div><b> Interaction  Type : </b>
+                                                        <small class="label bg-blue label-with-icon"> 
+                                                            <i class="fa icon-c icon-customer-ticket"></i>
+                                                            Customer Ticket
+                                                        </small>
+                                                    </div>	
+                                                </div>
+
+
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+                                        </div>
+                                    </div>	
+                                </div>
+                                <div class="tab-pane" id="tab_customer_detail_3">
+                                    <div class="row">
+                                        <div class="message-box-header">
+                                            <div class="col-md-6">
+                                                <span class="user" ng-show="!row2">
+                                                    <img src="/dist/img/customer.png">
+                                                    <b>Customer</b>
+                                                </span>
+                                                <div class="message-info">
+                                                    <b>From : </b> Finance F<br>orm
+                                                    <b>To : </b> All Topic <br>
+                                                </div>	
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="int-det-box"> 
+                                                    <div><b>Interaction ID : </b>4645646</div>
+                                                    <div><b> Segment / Topic : </b>Support/All Topic</div>
+                                                    <div><b> Resolved By : </b>Alek Packard</div>
+                                                    <div><b> Approved By : </b>&nbsp;</div>		
+                                                    <div><b> Interaction  Status : </b> <small class="bg-green-active label">Resolved</small></div>								
+                                                    <div><b> Interaction  Type : </b>
+                                                        <small class="label bg-blue label-with-icon"> 
+                                                            <i class="fa icon-c icon-customer-ticket"></i>
+                                                            Customer Ticket
+                                                        </small>
+                                                    </div>	
+                                                </div>
+
+
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+                                        </div>
+                                    </div>	
+                                </div>
+                                <div class="tab-pane" id="tab_customer_detail_4">
+                                    <div class="row">
+                                        <div class="message-box-header">
+                                            <div class="col-md-6">
+                                                <span class="user" ng-show="!row2">
+                                                    <img src="/dist/img/customer.png">
+                                                    <b>Customer</b>
+                                                </span>
+                                                <div class="message-info">
+                                                    <b>From : </b> John Doe<br>
+                                                    <b>To : </b> All Topic<br>
+                                                </div>	
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="int-det-box"> 
+                                                    <div><b>Interaction ID : </b>4645646</div>
+                                                    <div><b> Segment / Topic : </b>Support/All Topic</div>
+                                                    <div><b> Resolved By : </b>Alek Packard</div>
+                                                    <div><b> Approved By : </b>&nbsp;</div>		
+                                                    <div><b> Interaction  Status : </b> <small class="bg-green-active label">Resolved</small></div>								
+                                                    <div><b> Interaction  Type : </b>
+                                                        <small class="label bg-blue label-with-icon"> 
+                                                            <i class="fa icon-c icon-customer-ticket"></i>
+                                                            Customer Ticket
+                                                        </small>
                                                     </div>	
                                                 </div>
 

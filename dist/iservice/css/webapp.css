@@ -1085,10 +1085,17 @@ iservice-switch {
 .message-box-body {
   padding: 10px;
 }
+.message-box-header .user-container {
+  width: 100px;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+}
 .message-box-header .user {
   float: left;
-  width: 75px;
   margin-right: 10px;
+  width: 75px;
+  margin-left: 12px;
   text-align: center;
   background: #ffffff;
   border: 1px solid #d2d6de;
