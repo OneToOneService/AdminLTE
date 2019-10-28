@@ -87,11 +87,14 @@ title: Manage KB Article
 										<table class="table  table-striped table-hover" datatable dt-options="dtContactMessagesOptions" dt-column-defs="dtContactMessagesColumnDefs">
 											<thead>
 												<tr>
-													<th class="no-sort" name="name">
+													<th class="no-sort icon-col" name="name">
 														
 													</th>
 													<th class="text-capitalize">
 														Subject 
+													</th>
+													<th class="text-capitalize">
+														Type
 													</th>
 													<th class="text-capitalize">
 														Rating
@@ -102,6 +105,8 @@ title: Manage KB Article
 													<th class="text-capitalize">
 														Topic
 													</th>
+													<th>
+													</th>	
 												</tr>
 											</thead>  
 											<tbody>
@@ -112,9 +117,21 @@ title: Manage KB Article
 															<i class="fa fa-plus-circle" ng-show="!row1"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
 														</button>
+														<button class="btn btn-xs btn-link text-default"  ng-click="editrow1 = !editrow1" ng-hide="editrow1">
+															<i class="fa fa-pencil"></i>
+														</button>
+														
 													</td>
 													<td>
-															_Getting started with the customer portal
+														<span ng-hide="editrow1">_Getting started with the customer portal</span>
+														<input type="text" ng-cloak class="form-control" value="_Getting started with the customer portal"  ng-show="editrow1">
+													</td>
+													<td>
+														<span ng-hide="editrow1">Public</span>
+														<select class="form-control" ng-show="editrow1" ng-cloak>
+																<option>Public</option>
+																<option>Private</option>
+														</select>	
 													</td>
 													<td>
 														4.0
@@ -124,8 +141,23 @@ title: Manage KB Article
 														11
 													</td>
 													<td>
-														All Topic
+														<span ng-hide="editrow1">All Topic</span>
+														<select class="form-control" ng-show="editrow1" ng-cloak>
+															<option>All Topic</option>
+														</select>
 													</td>
+													<td>
+														<button class="btn btn-xs btn-link button-delete"  ng-hide="editrow1">
+																<i class="fa fa-times-circle"></i>
+														</button>
+														<button class="btn btn-xs btn-primary" ng-show="editrow1" ng-cloak>
+																Save
+														</button>
+														<button class="btn btn-xs btn-link" ng-show="editrow1" ng-cloak ng-click="editrow1 = !editrow1">
+																Cancel
+														</button>
+													</td>	
+												
 												</tr>
 												<tr id="row2">
 													<td name="name">
@@ -134,9 +166,20 @@ title: Manage KB Article
 															<i class="fa fa-plus-circle" ng-show="!row2"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
 														</button>
+														<button class="btn btn-xs btn-link text-default"  ng-click="editrow2 = !editrow2" ng-hide="editrow2">
+															<i class="fa fa-pencil"></i>
+														</button>
 													</td>
 													<td>
-															Article with attachments
+														<span ng-hide="editrow2">Article with attachments</span>
+														<input type="text" ng-cloak class="form-control" value="Article with attachments"  ng-show="editrow2">
+													</td>
+													<td>
+														<span ng-hide="editrow2">Public</span>
+														<select class="form-control" ng-show="editrow2" ng-cloak>
+															<option>Public</option>
+															<option>Private</option>
+														</select>	
 													</td>
 													<td>
 														4
@@ -146,8 +189,23 @@ title: Manage KB Article
 														2
 													</td>
 													<td>
-														All Topic
+														<span ng-hide="editrow2">All Topic </span>
+
+														<select class="form-control" ng-show="editrow2" ng-cloak>
+															<option>All Topic</option>
+														</select>	
 													</td>
+													<td>
+														<button class="btn btn-xs btn-link button-delete" ng-hide="editrow2">
+																<i class="fa fa-times-circle"></i>
+														</button>
+														<button class="btn btn-xs btn-primary" ng-show="editrow2" ng-cloak>
+																Save
+														</button>
+														<button class="btn btn-xs btn-link" ng-show="editrow2" ng-cloak  ng-click="editrow2 = !editrow2">
+																Cancel
+														</button>
+													</td>	
 												</tr>
 												<tr id="row3">
 													<td name="name">
@@ -156,9 +214,20 @@ title: Manage KB Article
 															<i class="fa fa-plus-circle" ng-show="!row3"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
 														</button>
+														<button class="btn btn-xs btn-link text-default"   ng-click="editrow3 = !editrow3" ng-hide="editrow3">
+															<i class="fa fa-pencil"></i>
+														</button>
 													</td>
 													<td>
-														How to find the attach your MSinfo to and EA Help Case
+														<span ng-hide="editrow3">	How to find the attach your MSinfo to and EA Help Case</span>
+														<input type="text" ng-cloak class="form-control" value="How to find the attach your MSinfo to and EA Help Case"  ng-show="editrow3">
+													</td>
+													<td>
+														<span ng-hide="editrow3">Public</span>
+														<select class="form-control" ng-show="editrow3" ng-cloak ng-click="editrow3 = !editrow3">
+															<option>Public</option>
+															<option>Private</option>
+														</select>	
 													</td>
 													<td>
 														4
@@ -168,19 +237,43 @@ title: Manage KB Article
 														1
 													</td>
 													<td>
-														All Topic
+														<span ng-hide="editrow3">All Topic</span>
+														<select class="form-control" ng-show="editrow3" ng-cloak>
+																<option>All Topic</option>
+														</select>
+													</td>
+													<td>
+														<button class="btn btn-xs btn-link button-delete"  ng-hide="editrow3">
+																<i class="fa fa-times-circle"></i>
+														</button>
+														<button class="btn btn-xs btn-primary" ng-show="editrow3" ng-cloak>
+																Save
+														</button>
+														<button class="btn btn-xs btn-link" ng-show="editrow3" ng-cloak>
+																Cancel
+														</button>
 													</td>
 												</tr>
 												<tr id="row4">
 													<td name="name">
-													
 														<button class="btn btn-xs btn-link text-default btn-expand"  ng-click="toggleRow('row4')">
 															<i class="fa fa-plus-circle" ng-show="!row4"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
 														</button>
+														<button class="btn btn-xs btn-link text-default"  ng-click="editrow4 = !editrow4" ng-hide="editrow4">
+															<i class="fa fa-pencil"></i>
+														</button>
 													</td>
 													<td>
-														Is using TV as a monitor supported for playing a PC game?
+														<span ng-hide="editrow4">Is using TV as a monitor supported for playing a PC game?</span>
+														<input type="text" ng-cloak class="form-control" value="Is using TV as a monitor supported for playing a PC game?"  ng-show="editrow4">
+													</td>
+													<td>
+														<span ng-hide="editrow4">Public</span>
+														<select class="form-control" ng-show="editrow4" ng-cloak ng-click="editrow4 = !editrow4">
+															<option>Public</option>
+															<option>Private</option>
+														</select>	
 													</td>
 													<td>
 														4
@@ -190,8 +283,22 @@ title: Manage KB Article
 														11
 													</td>
 													<td>
-														All Topic
+														<span ng-hide="editrow4">All Topic</span>
+														<select class="form-control" ng-show="editrow4" ng-cloak>
+																<option>All Topic</option>
+														</select>
 													</td>
+													<td>
+														<button class="btn btn-xs btn-link button-delete"  ng-hide="editrow4">
+																<i class="fa fa-times-circle"></i>
+														</button>
+														<button class="btn btn-xs btn-primary" ng-show="editrow4" ng-cloak>
+																Save
+														</button>
+														<button class="btn btn-xs btn-link" ng-show="editrow4" ng-cloak>
+																Cancel
+														</button>
+													</td>	
 												</tr>
 											</tbody>
 										</table>
@@ -199,7 +306,6 @@ title: Manage KB Article
 								</div> 
 							</div>                               
 						</div>
-						
 					</div>		
 				</div> 
 			</section>   
@@ -208,7 +314,7 @@ title: Manage KB Article
 		<!--expanded row content start-->
 		<script id="expandedrow" type="text/ng-template">
 			<!--form data start-->	
-			<div class="row" ng-hide="hidetrue"> 
+			    <div class="row" ng-hide="hidetrue"> 
 					<div class="col-md-12 ">
 						<div class="row">
 							
@@ -256,7 +362,7 @@ title: Manage KB Article
 												<small class="label label-success">Resolved</small>
 												</td>
 												<td>
-												Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+												Contact 181 - [#Myqueue:MessageQueueQuoteRequest / Quote Send] Form submit(webapp-api)
 												</td>
 												<td>
 												Jaswantchouhan
@@ -272,16 +378,6 @@ title: Manage KB Article
 							</div>
 						</div>	
 						<div class="row">
-							<div class="col-md-12 form-group">
-								<!-- this will be button while development
-									<button class="btn btn-sm btn-primary" type="button">
-										Edit Article
-								    </button>-->
-								<a class="btn btn-sm btn-primary" href="/pages/edit-kb-article-listview.html">Edit Article </a>
-								<button class="btn btn-sm btn-danger btn-delete" type="button" ng-click="showAlert = true">
-										Delete Article...
-								</button>
-							</div>
 							
 							<div class="col-md-12" ng-show="showAlert">
 								<div class="box box-danger">
@@ -316,15 +412,24 @@ title: Manage KB Article
 											<div class="row">
 												<div class="message-box-header">
 													<div class="col-md-12">
-														<div class="int-det-box pull-left"> 
-															<div><b>Article ID : </b>4645646</div>
-															<div><b> Date Updated : </b>1/19/2019 11:58:45 PM</div>
-															<div><b> # Views : </b>11</div>
-															<div><b> Article Creator : </b>Alek Packard</div>									
-															<div><b> Topic : </b>All Topic</div>	
-														</div>
+                                                        <div class="det-box-bg">
+															<div class="col-md-6"> 
+																	<div><b>Article ID : </b>4645646</div>
+																	<div><b> Topic : </b>All Topic</div>	
+																	<div><b> Date Updated : </b>1/19/2019 11:58:45 PM</div>
+															</div>
+															<div class="col-md-6"> 
+																<div><b> # Views : </b>11</div>
+																<div><b> Article Creator : </b>Alek Packard</div>									
+															</div>
+														</div>	
+													</div>	
+													<div class="form-group">
+														<div class="col-md-12 mtop-15">
+															<div class="drop-box">Drop files here or click to upload </div>
+														</div>	
 													</div>
-													<div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+													<div class="col-md-12 mtop-15"><b><i class="fa fa-paperclip attachment-icon"></i></b> : <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span><span><button class="icon-button button-delete" type="button"><i class="fa fa-times-circle"></i></button></span></a> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span><span><button class="icon-button button-delete" type="button"><i class="fa fa-times-circle"></i></button></span></a> <a href="" class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span> <span><button class="icon-button button-delete" type="button"><i class="fa fa-times-circle"></i></button></span></a> </div>
 												</div>
 											</div>	
 										</div>
@@ -404,708 +509,33 @@ title: Manage KB Article
 													</div>  
 												</div>    
 												<div class="col-md-12">
-													<button type="submit" class="btn btn-primary">Save</button>
+													<button type="submit" class="btn btn-sm btn-primary">Save</button>
 												</div>
 											</div>    
 										</div>
 
 
-										<!--Tabs subscriber list-->
-	                                    <div class="tab-pane" id="tab_case_3">
-											<div class="row">
-												<div class="col-md-12">
-													<h4 class="smtp-out-message"> Number of contacts subscribed to this list : <span class=" text-orange"><b>1234</b></span></h4>
-												</div>
-
-												<div class="col-md-12" ng-show="contactsearch">
-													<!-- Custom Tabs -->
-													<div class="row">
-														<div class="col-md-12">
-															<div class="box box-info" ng-controller="myCtrl">
-																<div class="box-header with-border">
-																	<i class="fa  fa-users"></i>
-																	<h3 class="box-title head-title-padding">Search
-																		Results</h3>
-																</div>
-																<!-- /.box-header -->
-																<!-- form start -->
-																<div class="box-body table-responsive">
-																	<table class="table table-striped table-hover"
-																		datatable dt-options="dtSearchOptions"
-																		dt-column-defs="dtSearchColumnDefs">
-																		<thead>
-																			<tr>
-																				<th class="no-sort" name="name"
-																					width="30"><input type="checkbox"
-																						class="form-control" checkbox>
-																				</th>
-																				<th class="text-capitalize">
-																					Name
-																				</th>
-																				<th class="text-capitalize">
-																					First Name
-																				</th>
-																				<th class="text-capitalize">
-																					Last Name
-																				</th>
-																				<th class="text-capitalize">
-																					Email
-																				</th>
-																				<th class="text-capitalize">
-																					Company
-																				</th>
-																				<th class="text-capitalize">
-																					Phone (work)
-																				</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<tr id="row1">
-																				<td name="name" width="30">
-																					<input type="checkbox"
-																						class="form-control" checkbox>
-																				</td>
-																				<td>
-																					John Doe
-																				</td>
-																				<td>
-																					John
-																				</td>
-																				<td>
-																					Doe
-																				</td>
-																				<td>
-																					john.doe@example.com
-																				</td>
-																				<td>
-																					Example Company, Inc.
-																				</td>
-																				<td>
-																					312-555-5555
-																				</td>
-																			</tr>
-
-																			<tr id="row2">
-																				<td name="name" width="30">
-																					<input type="checkbox"
-																						class="form-control" checkbox>
-																				</td>
-																				<td>
-																					Albert Metricman
-																				</td>
-																				<td>
-																					Albert
-																				</td>
-																				<td>
-																					Metricman
-																				</td>
-																				<td>
-																					albert.metricman@example.com
-																				</td>
-																				<td>
-																					Example Company, Inc.
-																				</td>
-																				<td>
-																					312-555-5555
-																				</td>
-																			</tr>
-
-																			<tr id="row3">
-																				<td name="name" width="30">
-																					<input type="checkbox"
-																						class="form-control" checkbox>
-																				</td>
-																				<td>
-																					Julie Persuavia
-																				</td>
-																				<td>
-																					Julie
-																				</td>
-																				<td>
-																					Persuavia
-																				</td>
-																				<td>
-																					julie.persuavia@example.com
-																				</td>
-																				<td>
-																					Example Company, Inc.
-																				</td>
-																				<td>
-																					312-555-5555
-																				</td>
-																			</tr>
-																			<tr id="row4">
-																				<td name="name" width="30">
-																					<input type="checkbox"
-																						class="form-control" checkbox>
-																				</td>
-																				<td>
-																					Howard Smith
-																				</td>
-																				<td>
-																					Howard
-																				</td>
-																				<td>
-																					Smith
-																				</td>
-																				<td>
-																					howard.smith@example.net
-																				</td>
-																				<td>
-																					Example Network
-																				</td>
-																				<td>
-																					487-555-2222
-																				</td>
-																			</tr>
-																			<tr id="row5">
-																				<td name="name" width="30">
-																					<input type="checkbox"
-																						class="form-control" checkbox>
-																				</td>
-																				<td>
-																					Robert Williams
-																				</td>
-																				<td>
-																					Robert
-																				</td>
-																				<td>
-																					Williams
-																				</td>
-																				<td>
-																					robert.williams@example.net
-																				</td>
-																				<td>
-																					Example Network
-																				</td>
-																				<td>
-																					487-555-2223
-																				</td>
-																			</tr>
-																		</tbody>
-																	</table>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-												<div class="col-md-12" ng-show="!contactsearch">
-													<div class="box box-info">
-														<div class="box-body table-responsive with-border">
-															<table class="table table-striped table-hover" datatable
-																dt-options="dtUnSubscriberOptions"
-																dt-column-defs="dtUnSubscriberColumnDefs">
-																<thead>
-																	<tr>
-																		<!--<th class="no-sort"  name="name" width="30"></th>-->
-																		<th class="text-capitalize">
-																			Name
-																		</th>
-																		<th class="text-capitalize">
-																			First Name
-																		</th>
-																		<th class="text-capitalize">
-																			Last Name
-																		</th>
-																		<th class="text-capitalize">
-																			Email
-																		</th>
-																		<th class="text-capitalize">
-																			Company
-																		</th>
-																		<th class="text-capitalize">
-																			Phone (Work)
-																		</th>
-																	</tr>
-																</thead>
-																<tbody>
-																	<tr>
-																		<td>
-																			John Doe
-																		</td>
-																		<td>
-																			John
-																		</td>
-																		<td>
-																			Doe
-																		</td>
-																		<td>
-																			john.doe@example.com
-																		</td>
-																		<td>
-																			Example Company, Inc.
-																		</td>
-																		<td>
-																			312-555-5555
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			Albert Metricman
-																		</td>
-																		<td>
-																			Albert
-																		</td>
-																		<td>
-																			Metricman
-																		</td>
-																		<td>
-																			albert.metricman@example.com
-																		</td>
-																		<td>
-																			Example Company, Inc.
-																		</td>
-																		<td>
-																			312-555-5555
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			Julie Persuavia
-																		</td>
-																		<td>
-																			Julie
-																		</td>
-																		<td>
-																			Persuavia
-																		</td>
-																		<td>
-																			julie.persuavia@example.com
-																		</td>
-																		<td>
-																			Example Company, Inc.
-																		</td>
-																		<td>
-																			312-555-5555
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			Howard Smith
-																		</td>
-																		<td>
-																			Howard
-																		</td>
-																		<td>
-																			Smith
-																		</td>
-																		<td>
-																			howard.smith@example.com
-																		</td>
-																		<td>
-																			Example Network
-																		</td>
-																		<td>
-																			487-555-5222
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			Robert Williams
-																		</td>
-																		<td>
-																			Robert
-																		</td>
-																		<td>
-																			Williams
-																		</td>
-																		<td>
-																			robert.williams@example.com
-																		</td>
-																		<td>
-																			Example Network
-																		</td>
-																		<td>
-																			487-555-5222
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-													</div>
-												</div>
-
-												<div class="col-md-6" ng-show="contactsearch && subscribe">
-													<div class="form-group">
-														<button class="btn btn-primary" type="button"
-															ng-click="contactsearch = !contactsearch"
-															ng-init="contactsearch = false">
-															Subscribe Selected
-														</button>
-														<span>Add only selected contacts to the mailing list.</span>
-														<br><br>
-
-														<button class="btn btn-primary" type="button">
-															Subscribe All
-														</button>
-														<span>Add all <span class="text-orange">(1234)</span> contacts
-															from this search to this mailing list.</span>
-													</div>
-												</div>
-
-												<div class="col-md-6" ng-show="contactsearch && unsubscribe">
-													<div class="form-group">
-														<button class="btn btn-primary" type="button"
-															ng-click="contactsearch = !contactsearch"
-															ng-init="contactsearch = false">
-															Unsubscribe Selected
-														</button>
-														<button class="btn btn-primary" type="button">
-															Unsubscribe All
-														</button>
-
-													</div>
-												</div>
-
-											</div>
-										</div>
-										
+									<!--Tabs subscriber list-->
+									{% include subscribers-list.html %}	
 									<!--Tabs subscriber list-->
 									
 									<!--Tab link article-->
-									    <div class="tab-pane" id="tab_case_4">
-											<div class="row">
-												<div class="col-md-12 text-right">
-													<!--<div class="form-group" ng-show="!articlesearch">
-														<button class="btn btn-sm btn-primary" type="button"
-															ng-click="articlesearch = !articlesearch; subscribe = true; unsubscribe = false;"
-															ng-init="articlesearch = false">
-															Add Article
-														</button>
-														<button class="btn btn-sm btn-primary" type="button"
-															ng-click="articlesearch = !articlesearch; subscribe = false; unsubscribe = true;"
-															ng-init="articlesearch = false">
-															Remove Articles
-														</button>
-													</div>-->
-
-													<div class="form-group" ng-show="articlesearch">
-														<button class="btn btn-primary" type="button"
-															ng-click="articlesearch = !articlesearch;">
-															Back To Current Articles
-														</button>
-													</div>
-												</div>
-												<div class="col-md-12" ng-show="articlesearch">
-													<!-- Custom Tabs -->
-													<div class="box box-primary">
-														<div class="box-header with-border">
-															<i class="fa fa-search"></i>
-															<h3 class="box-title">Search For Articles To Add To This
-																Lists</h3>
-														</div>
-														<div class="box-body">
-															<div class="row" uib-collapse="isCollapsedSavePanel"
-																ng-cloak ng-init="isCollapsedSavePanel=true;">
-																<div class="col-xs-12">
-																	<div
-																		class="panel panel-default col-xs-12 bg-gray-light save-search-panel">
-																		<div class="floating-label col-sm-10">
-																			<input type="text" value="">
-																			<label>Search Name</label>
-																		</div>
-																		<button type="button"
-																			class="btn btn-primary">Save</button>
-																	</div>
-																</div>
-															</div>
-															<section class="container-fluid search-parameters">
-																<fieldset class="row">
-																	<div
-																		class="panel panel-default col-xs-12 bg-gray-light">
-																		<div class="row">
-																			<div class="col-xs-12 col-md-2">
-																				<div class="floating-label bg-white">
-																					<select>
-																						<option value="anywhere"
-																							selected="selected">anywhere
-																						</option>
-																						<option value="start">start
-																						</option>
-																						<option value="end">end</option>
-																						<option value="entire">entire
-																						</option>
-																					</select>
-																					<label>Search where</label>
-																				</div>
-																			</div>
-																			<div class="col-xs-12 col-md-3">
-																				<div class="floating-label bg-white">
-																					<select class="infield">
-																						<option value="all">-- All --
-																						</option>
-																						<option value="ID">-- ID --
-																						</option>
-																						<option value="login"
-																							selected="selected">-- Login
-																							--</option>
-																						<option value="loginbounced">--
-																							Login (Bounced) --</option>
-																						<option value="Tags">-- Tags --
-																						</option>
-																						<option value="segment">--
-																							Segment Membership --
-																						</option>
-																						<option value="30">Additional
-																							Detail</option>
-																						<option value="5">Address
-																						</option>
-																						<option value="33">Address1
-																						</option>
-																						<option value="34">Address2
-																						</option>
-																						<option value="35">City</option>
-																						<option value="7">Company
-																						</option>
-																						<option value="40">Contact
-																							Viewable - Not Editable
-																						</option>
-																						<option value="41">Contact
-																							Viewable AND Editable
-																						</option>
-																						<option value="38">Country
-																						</option>
-																						<option value="6">Customer Type
-																						</option>
-																						<option value="29">Date</option>
-																						<option value="31">Existing
-																							Phone Property</option>
-																						<option value="1">First Name
-																						</option>
-																						<option value="8">Job Title
-																						</option>
-																						<option value="3">Last Name
-																						</option>
-																						<option value="2">Middle Initial
-																						</option>
-																						<option value="4">Phone</option>
-																						<option value="37">Postal Code
-																						</option>
-																						<option value="26">s2only
-																						</option>
-																						<option value="36">State
-																						</option>
-																						<option value="32">Svc Level 5
-																							Min</option>
-																						<option value="25">Text</option>
-																						<option value="Date">Date
-																						</option>
-																					</select>
-																					<label>In field</label>
-																				</div>
-																			</div>
-																			<div class="col-xs-12 col-md-3">
-																				<div class="floating-label bg-white">
-																					<select id="searchOption">
-																						<option value="Contain">Contains
-																						</option>
-																						<option
-																							value="Does Not Contain">
-																							Does Not Contain</option>
-																						<option value="Is Greater Than">
-																							Is Greater Than</option>
-																						<option value="Is Equal To">Is
-																							Equal To</option>
-																						<option value="Is Less Than">Is
-																							Less Than</option>
-																					</select>
-																					<label>Search options</label>
-																				</div>
-																			</div>
-																			<div
-																				class="col-xs-12 col-md-4 search-field">
-																				<div class="form-group floating-label">
-																					<input type="text"
-																						class="searchtag search"
-																						data-role="tagsinput"
-																						style="display:none;">
-																					<input type="text" for="search"
-																						class="searchnormal search"
-																						required>
-																					<label>Search for</label>
-																				</div>
-																				<button class="btn btn-lg btn-link"
-																					type="button" title="Remove Field">
-																					<i
-																						class="fa fa-times-circle text-red"></i>
-																				</button>
-																			</div>
-																		</div>
-																	</div>
-																</fieldset>
-																<div class="row">
-																	<button class="btn btn-lg btn-link" type="button">
-																		<i
-																			class="fa fa-plus-circle text-light-blue"></i>
-																		Add another search parameter
-																	</button>
-																</div>
-															</section>
-															<footer class="box-footer text-right">
-																<button type="submit" class="btn btn-primary btn-sm">
-																	Search
-																	<i class="fa fa-fw fa-arrow-circle-right"></i>
-																	<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
-																</button>
-																<button type="button"
-																	class="btn btn-link btn-sm">Reset</button>
-															</footer>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-12">
-															<div class="box box-info" ng-controller="myCtrl">
-																<div class="box-header with-border">
-																	<i class="fa  fa-list"></i>
-																	<h3 class="box-title head-title-padding">Search
-																		Results</h3>
-																</div>
-																<!-- /.box-header -->
-																<!-- form start -->
-																<div class="box-body table-responsive">
-																	<table class="table table-striped table-hover"
-																		datatable dt-options="dtSearchOptions"
-																		dt-column-defs="dtSearchColumnDefs">
-																		<thead>
-																			<tr>
-																				<th class="no-sort" name="name"
-																					width="30"><input type="checkbox"
-																						class="form-control" checkbox>
-																				</th>
-																				<th class="text-capitalize">
-																					Subject
-																				</th>
-																				<th class="text-capitalize">
-																					Topic
-																				</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<tr id="row1">
-																				<td name="name" width="30">
-																					<input type="checkbox"
-																						class="form-control" checkbox>
-																				</td>
-																				<td>
-																					How to change your computer resolution
-																				</td>
-																				<td>
-																					All Topic
-																				</td>	
-																			</tr>
-
-																			<tr id="row2">
-																				<td name="name" width="30">
-																					<input type="checkbox"
-																						class="form-control" checkbox>
-																				</td>
-																				<td>
-																					How to log in to your EA Account for EA Help
-																				</td>
-																				<td>
-																					All Topic
-																				</td>
-																			</tr>
-
-																			<tr id="row3">
-																				<td name="name" width="30">
-																					<input type="checkbox"
-																						class="form-control" checkbox>
-																				</td>
-																				<td>
-																					Redeem your serial key or product code in Origin
-																				</td>
-																				<td>
-																					All Topic
-																				</td>	
-																			</tr>
-																			
-																		</tbody>
-																	</table>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-												<div class="col-md-12" ng-show="!articlesearch">
-													<div class="box box-info">
-														<div class="box-body table-responsive with-border">
-															<table class="table table-striped table-hover" datatable
-																dt-options="dtUnArticleOptions"
-																dt-column-defs="dtUnArticleColumnDefs">
-																<thead>
-																	<tr>
-																		<!--<th class="no-sort"  name="name" width="30"></th>-->
-																		<th class="text-capitalize">
-																			Subject
-																		</th>
-																		<th class="text-capitalize">
-																			Topic
-																		</th>
-																	</tr>
-																</thead>
-																<tbody>
-																	<tr>
-																		<td>
-																			Getting EA Classics up and running on your modern OS
-																		</td>
-																		<td>
-																			All Topic
-																		</td>
-																		
-																	</tr>
-																	
-																</tbody>
-															</table>
-														</div>
-													</div>
-												</div>
-
-												<div class="col-md-6" ng-show="articlesearch && subscribe">
-													<div class="form-group">
-														<button class="btn btn-primary" type="button"
-															ng-click="articlesearch = !articlesearch"
-															ng-init="articlesearch = false">
-															Add Selected
-														</button>
-														<span>Add only selected article to the list.</span>
-														<br><br>
-
-														<button class="btn btn-primary" type="button">
-															Add All
-														</button>
-														<span>Add all <span class="text-orange">(1234)</span> articles
-															from this search to this article list.</span>
-													</div>
-												</div>
-
-												<div class="col-md-6" ng-show="articlesearch && unsubscribe">
-													<div class="form-group">
-														<button class="btn btn-primary" type="button"
-															ng-click="articlesearch = !articlesearch"
-															ng-init="articlesearch = false">
-															Unsubscribe Selected
-														</button>
-														<button class="btn btn-primary" type="button">
-															Unsubscribe All
-														</button>
-
-													</div>
-												</div>
-
-											</div>
-										</div>
+									{% include related-article.html %}
 									<!-- Tab link article-->
 									</div>	
 								</div>
 							</div>	
 						</div>	
+
+
+						{% include edit-kb-question-answer.html %}
 						<div class="message-box">
-							<div class="message-box-body"> 
+							<button class="btn btn-xs btn-link pull-right" ng-hide="editquestion" ng-click="editquestion = !editquestion">
+								<i class="fa fa-pencil"></i>
+							</button>
+							<div class="message-box-body" ng-hide="editquestion"> 
 								<div class="clear"></div>
-								<div>										   
+    								<div>										   
 									<p><b>Question:</b><br>
 										How do i get started with Customer Portal?
 									</p>
@@ -1289,7 +719,7 @@ title: Manage KB Article
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="5">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			}
 
