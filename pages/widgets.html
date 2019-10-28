@@ -198,7 +198,7 @@ title: Widget
                         <div class="input-group-addon"  ng-click="openCalendar($event, 'picker3')">
                            <i class="fa fa-calendar"></i>
                         </div>
-                      <input type="text" class="form-control" datetime-picker="MM/dd/yyyy HH:mm" ng-model="picker3.date" show-weeks="false" is-open="picker3.open" />
+                      <input type="text" class="form-control" datetime-picker="MM/dd/yyyy hh:mm a" ng-model="picker3.date" is-open="picker3.open" ng-init="showWeeks = false;" />
                      </div>
                   </div>
               </div>

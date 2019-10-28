@@ -3150,3 +3150,6 @@ table tr td .form-control {
   position: relative;
   top: 3px;
 }
+table .uib-weeks td.h6:first-child {
+  visibility: hidden !important;
+}
