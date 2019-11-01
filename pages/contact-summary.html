@@ -1119,11 +1119,11 @@ title: Contact
                   <i class="fa fa-envelope"></i>
                   Agent email
                 </button>
-                <button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to Jhon Doe" tooltip-placement="bottom" ng-click="show('createnote')">
+                <button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to John Doe" tooltip-placement="bottom" ng-click="show('createnote')">
                   <i class="fa fa-pencil-square-o"></i>
                   Note
                 </button>
-                <button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for Jhon Doe" tooltip-placement="bottom" ng-click="show('createticket')">
+                <button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for John Doe" tooltip-placement="bottom" ng-click="show('createticket')">
                   <i class="fa fa-ticket"></i>
                   Ticket
                 </button>
@@ -1221,16 +1221,27 @@ title: Contact
                       <div class="row">
                           <div class="message-box-header">
                             <div class="col-md-12">
-                              <span class="user" ng-show="!row2">
-                                <img src="/dist/img/agent.png">
-                                <b>Agent</b>
-                              </span>
+                                <div class="user-container">
+                                  <div ng-show="!row2">
+                                    <span class="user">
+                                      <img src="/dist/img/agent.png">
+                                    </span>
+                                    <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                                    eg :- <span class="username-ellipsis">Alek Packard</span>
+                                      -->
+                                    <span>John Doe</span>
+                                  </div>
+                                  <div ng-show="row2">
+                                      <span class="user">
+                                          <img src="/dist/img/system.png">
+                                      </span>
+                                      <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                                      eg :- <span class="username-ellipsis">System</span>
+                                        -->
+                                      <span>System</span>
+                                  </div>
 
-                              <span class="user" ng-show="row2">
-                                <img src="/dist/img/system.png">
-                                <b>System</b>
-                              </span>
-
+                              </div>
                               <div class="message-info">
                                 <b>From : </b>john.doe@example.com<br>
                                 <b>To : </b>alek.packard@1to1service.com<br>
@@ -1379,15 +1390,15 @@ title: Contact
 				<div class="col-md-12 ">
 					<div class="row">
 						<div class="col-md-12">
-							<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to Jhon Doe" tooltip-placement="bottom" ng-click="show2('agentemail2')">
+							<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to John Doe" tooltip-placement="bottom" ng-click="show2('agentemail2')">
 								<i class="fa fa-envelope"></i>
 								Agent email
 							</button>
-							<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to Jhon Doe" tooltip-placement="bottom" ng-click="show2('createnote2')">
+							<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to John Doe" tooltip-placement="bottom" ng-click="show2('createnote2')">
 								<i class="fa fa-pencil-square-o"></i>
 								Note
 							</button>
-							<button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for Jhon Doe" tooltip-placement="bottom" ng-click="show2('createticket2')">
+							<button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for John Doe" tooltip-placement="bottom" ng-click="show2('createticket2')">
 								<i class="fa fa-ticket"></i>
 								Ticket
 							</button>
@@ -1484,10 +1495,16 @@ title: Contact
 										<div class="row">
 											<div class="message-box-header">
 												<div class="col-md-12">
-													<span class="user">
-														<img src="/dist/img/agent.png">
-														<b>Agent</b>
-													</span>
+                          <div class="user-container">
+                            <span class="user">
+                              <img src="/dist/img/agent.png">
+                              <b>Agent</b>
+                            </span>
+                            <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                                          eg :- <span class="username-ellipsis">Alek Packard</span>
+                              -->
+                            <span>John Doe</span>
+                          </div>  
 													<div class="message-info">
 														<b>From : </b> john.doe@example.com<br>
 														<b>To : </b> alek.packard@1to1service.com<br>

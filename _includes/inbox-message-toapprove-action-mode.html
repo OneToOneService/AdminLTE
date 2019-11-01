@@ -19,7 +19,7 @@
                                     </select>    
                                 </div>    
                             </li>
-                            <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Expect Custmer Reply</a></li>
+                            <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Expect Customer Reply</a></li>
                             <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Add Reference Number</a></li>
                         </ul>
                     </div>
@@ -138,10 +138,16 @@
                             <div class="row">
                                 <div class="message-box-header">
 								  <div class="col-md-12">
-									<span class="user">
-									  <img src="/dist/img/agent.png">
-									  <b>Agent</b>
-									</span>
+                                    <div class="user-container">
+                                        <span class="user">
+                                            <img src="/dist/img/agent.png">
+                                            <b>Agent</b>
+                                        </span>
+                                        <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                                                        eg :- <span class="username-ellipsis">Alek Packard</span>
+                                            -->
+                                            <span>John Doe</span>
+                                    </div>  
 									<div class="message-info">
                                         <b>From : </b>john.doe@example.com<br>
                                         <b>To : </b>alek.packard@1to1service.com<br>

@@ -3153,3 +3153,11 @@ table tr td .form-control {
 table .uib-weeks td.h6:first-child {
   visibility: hidden !important;
 }
+.username-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100px;
+  height: 1.2em;
+  white-space: nowrap;
+  float: left;
+}

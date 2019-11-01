@@ -43,8 +43,10 @@ title: Page Elements Examples
                                                 <div class="user-container">
                                                     <span class="user" ng-show="!row2">
                                                         <img src="/dist/img/agent.png">
-                                                        <b>Agent</b>
                                                     </span>
+                                                    <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                                    eg :- <span class="username-ellipsis">Alek Packard</span>
+                                                    -->
                                                     <span>Alek Packard</span>
                                                 </div>
                                                 <div class="message-info">
@@ -80,9 +82,11 @@ title: Page Elements Examples
                                                 <div class="user-container">
                                                     <span class="user" ng-show="!row2">
                                                         <img src="/dist/img/agent.png">
-                                                        <b>Agent</b>
                                                     </span>
-                                                    <span>Alek Packard</span>
+                                                    <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                                    eg :- <span class="username-ellipsis">Alek Packard</span>
+                                                    -->
+                                                    <span class="username-ellipsis" uib-tooltip="support@1to1service.com" tooltip-placement="bottom">support@1to1service.com</span>
                                                 </div>
                                                 <div class="message-info">
                                                     <b>From : </b>support@1to1service.com<br>
@@ -116,7 +120,6 @@ title: Page Elements Examples
                                                 <div class="user-container">
                                                     <span class="user" ng-show="!row2">
                                                         <img src="/dist/img/agent.png">
-                                                        <b>Agent</b>
                                                     </span>
                                                     <span>Alek Packard</span>
                                                 </div>
@@ -160,10 +163,12 @@ title: Page Elements Examples
                                     <div class="row">
                                         <div class="message-box-header">
                                             <div class="col-md-6">
-                                                <span class="user" ng-show="!row2">
-                                                    <img src="/dist/img/customer.png">
-                                                    <b>Customer</b>
-                                                </span>
+                                                <div class="user-container">
+                                                    <span class="user" ng-show="!row2">
+                                                        <img src="/dist/img/customer.png">
+                                                    </span>
+                                                    <span>Customer</span>
+                                                </div>    
                                                 <div class="message-info">
                                                     <b>From : </b> john.doe@example.com<br>
                                                     <b>To : </b> support@1to1service.com<br>
@@ -196,10 +201,12 @@ title: Page Elements Examples
                                     <div class="row">
                                         <div class="message-box-header">
                                             <div class="col-md-6">
-                                                <span class="user" ng-show="!row2">
-                                                    <img src="/dist/img/customer.png">
-                                                    <b>Customer</b>
-                                                </span>
+                                                <div class="user-container">
+                                                    <span class="user" ng-show="!row2">
+                                                        <img src="/dist/img/customer.png">
+                                                    </span>
+                                                    <span>Customer</span>
+                                                </div> 
                                                 <div class="message-info">
                                                     <b>From : </b> john.doe@example.com<br>
                                                     <b>To : </b> support@1to1service.com<br>
@@ -231,10 +238,12 @@ title: Page Elements Examples
                                     <div class="row">
                                         <div class="message-box-header">
                                             <div class="col-md-6">
-                                                <span class="user" ng-show="!row2">
-                                                    <img src="/dist/img/customer.png">
-                                                    <b>Customer</b>
-                                                </span>
+                                                <div class="user-container">
+                                                    <span class="user" ng-show="!row2">
+                                                        <img src="/dist/img/customer.png">
+                                                    </span>
+                                                    <span>Customer</span>
+                                                </div> 
                                                 <div class="message-info">
                                                     <b>From : </b> Finance F<br>orm
                                                     <b>To : </b> All Topic <br>
@@ -266,10 +275,12 @@ title: Page Elements Examples
                                     <div class="row">
                                         <div class="message-box-header">
                                             <div class="col-md-6">
-                                                <span class="user" ng-show="!row2">
-                                                    <img src="/dist/img/customer.png">
-                                                    <b>Customer</b>
-                                                </span>
+                                                <div class="user-container">
+                                                    <span class="user" ng-show="!row2">
+                                                        <img src="/dist/img/customer.png">
+                                                    </span>
+                                                    <span>Customer</span>
+                                                </div> 
                                                 <div class="message-info">
                                                     <b>From : </b> John Doe<br>
                                                     <b>To : </b> All Topic<br>
@@ -314,10 +325,12 @@ title: Page Elements Examples
                                     <div class="row">
                                         <div class="message-box-header">
                                             <div class="col-md-6">
-                                                <span class="user" ng-show="!row2">
-                                                    <img src="/dist/img/system.png">
-                                                    <b>System</b>
-                                                </span>
+                                                <div class="user-container">
+                                                    <span class="user" ng-show="!row2">
+                                                        <img src="/dist/img/system.png">
+                                                    </span>
+                                                    <span>System</span>
+                                                </div> 
                                                 <div class="message-info">
                                                     <b>From : </b> support@1to1service.com<br>
                                                     <b>To : </b>john.doe@example.com<br>
@@ -582,16 +595,6 @@ title: Page Elements Examples
     </div>
     <!-- ./wrapper -->
     <!-- jQuery 3.1.1 -->
-    <script src="../plugins/jQuery/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="../plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
+    {% include common-javascript.html %}
 </body>
 </html>
