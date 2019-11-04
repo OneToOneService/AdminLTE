@@ -3136,9 +3136,6 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
   right: 8px;
   position: absolute;
 }
-table tr td .form-control {
-  width: 100% !important;
-}
 .full-width {
   width: 100% !important;
 }
