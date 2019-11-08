@@ -57,74 +57,11 @@ title: Manage KB Article
 													<button type="submit" class="btn btn-primary">Create</button>
 
 													<!--this will be button while development <button class="btn btn-link" type="button">Cancel </button>-->
-													<a class="btn btn-link" href="/pages/manage-kb-article-listview.html">Cancel </a>
+													<a class="btn btn-link" href="/pages/manage-kb-article.html">Cancel </a>
 												</div>
 											</div>	
-											<div class="nav-tabs-custom">
-													<ul class="nav nav-tabs">
-														<li class="active"><a href="#tab_attachments" data-toggle="tab"><i class="fa fa-fw fa-paperclip"></i> <span>Attachments</span></a> </li>
-														<li><a href="#tab_interacation" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Article Properties</span></a> </li>
-														<li><a href="#tab_case_3" data-toggle="tab"><i class="fa fa-fw fa-bell"></i> <span>Subscribers List</span></a> </li>
-														<li><a href="#tab_link_article" data-toggle="tab"><i class="fa fa-fw fa-link"></i> <span>Link Article</span></a> </li>
-													</ul>
-													<div class="tab-content">
-														<div class="tab-pane active" id="tab_attachments">
-															<div class="row">
-																<div class="form-group">
-																	<div class="col-md-12">
-																		<div class="drop-box">Drop files here or click to upload </div>
-																	</div>	
-																</div>	
-															</div>	
-														</div>
-														<!-- /.tab-pane -->
-														<div class="tab-pane" id="tab_interacation">
-															<div class="row form-horizontal">
-																<div class="col-md-6">
-																	<div class="form-group"> 
-																		<label class="col-md-12 control-label text-left">Priority</label>
-																		<div class="col-sm-12">
-																			<select class="form-control">
-																				<option>High</option>
-																				<option>Low</option>
-																			</select>    
-																		</div>
-																	</div>
-																</div>		
-																<div class="col-md-6">
-																	<div class="form-group"> 
-																		<label class="col-md-12 control-label text-left">Owner</label>
-																		<div class="col-sm-12">
-																			<select class="form-control">
-																				<option>Owner List</option>
-																			</select>    
-																		</div>
-																	</div>
-																</div>
-																<div class="col-md-6">	
-																	<div class="form-group">    
-																		<label class="col-md-12 control-label text-left">isOpen</label>
-																		<div class="col-sm-12">
-																			<select class="form-control">
-																					<option value="True">True</option>
-																					<option value="False">False</option>
-																			</select>    
-																		</div>
-																	</div>
-																</div>		
-															</div>	
-														</div>
-														<!-- /.tab-pane -->
-														<div class="tab-pane" id="tab_link_article">
-															
-														</div>
-													</div>    
-													<!-- /.tab-content -->
-											</div>
-											<!-- nav-tabs-custom -->  
-
 											<div class="row">
-												<div class="col-md-12  form-horizontal">
+												<div class="col-md-12 form-horizontal" >
 													<div class="form-group">
 														<label class="col-sm-2 control-label text-left">Subject</label>
 														<div class="col-sm-6">                              
@@ -147,27 +84,353 @@ title: Manage KB Article
 															</select>    
 														</div>
 													</div>
-															
-													<div class="form-group">
-														<label class="col-sm-2 control-label text-left">Question</label>
-														<div class="col-md-12">
-															<textarea class="form-control" rows="5" placeholder="" id="massUpdateDraftBody" name="massUpdateDraftBody" ckeditor>
-															</textarea>
-														</div>	
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label text-left">Answer</label>
-														<div class="col-md-12">
-															<textarea class="form-control" rows="5" placeholder="" id="massUpdateDraftBody" name="massUpdateDraftBody" ckeditor>
-															</textarea>
-														</div>	
-													</div>	
 												</div>
-												
+											</div>	
+											<div class="nav-tabs-custom">
+													<ul class="nav nav-tabs">
+														<li class="active"><a href="#tab_case_1" data-toggle="tab"><i class="fa fa-fw fa-paperclip"></i> <span>Attachments</span></a> </li>
+														<li><a href="#tab_case_2" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Article Properties</span></a> </li>
+														<li><a href="#tab_case_3" data-toggle="tab"><i class="fa fa-fw fa-bell"></i> <span>Subscribers List</span></a> </li>
+														<li><a href="#tab_case_4" data-toggle="tab"><i class="fa fa-fw fa-link"></i> <span>Link Article</span></a> </li>
+													</ul>
+													<div class="tab-content">
+														<div class="tab-pane active" id="tab_case_1">
+															<div class="row">
+																<div class="form-group">
+																	<div class="col-md-12">
+																		<div class="drop-box">Drop files here or click to upload </div>
+																	</div>	
+																</div>
+																
+																<div class="col-md-12 mtop-15"><b><i class="fa fa-paperclip attachment-icon"></i></b> : <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span><span><button class="icon-button button-delete" type="button"><i class="fa fa-times-circle"></i></button></span></a> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span><span><button class="icon-button button-delete" type="button"><i class="fa fa-times-circle"></i></button></span></a> <a href="" class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span> <span><button class="icon-button button-delete" type="button"><i class="fa fa-times-circle"></i></button></span></a> </div>
+															</div>	
+														</div>
+														<!--Tab Interaction Property -->
+														<div class="tab-pane" id="tab_case_2">
+															<div class="row form-horizontal">
+																<div class="col-md-4">
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+																		<div class="col-sm-12">
+																			<input type="text" class="form-control pull-right">
+																		</div>
+																	</div>
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label text-left">Delivery Date</label>
+																		<div class="col-sm-12">
+																			<div class="input-group date">
+																				<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																				<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+																			</div>
+																		</div>
+																	</div>  
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label text-left">Detail</label>
+																		<div class="col-sm-12">
+																			<textarea class="form-control" rows="3"></textarea>
+																		</div>
+																	</div> 
+																</div> 
+																<div class="col-md-4">
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label control-label text-left">Quantity</label>
+																		<div class="col-sm-12">
+																			<input type="text" class="form-control pull-right">
+																		</div>
+																	</div>  
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label control-label text-left">Team</label>
+																		<div class="col-sm-12">
+																			<div class="simple-label multiple">
+																				<div class="float-btn-group">
+																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																					<input type="text" class="form-control">
+																				</div>
+																				<div class="float-btn-group">
+																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																					<input type="text" class="form-control">
+																				</div>
+																				<div class="float-btn-group">
+																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																					<input type="text" class="form-control">
+																				</div>
+																				<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+																			</div>
+																		</div>
+																	</div>    
+																</div> 
+																<div class="col-md-4">
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label text-left">Priority</label>
+																		<div class="col-sm-12">
+																			<select class="form-control">
+																					<option>High</option>
+																					<option>Low</option>
+																			</select>    
+																		</div>
+																	</div> 
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label text-left">isOpen</label>
+																		<div class="col-sm-12">
+																			<select class="form-control">
+																					<option>True</option>
+																					<option>False</option>
+																			</select>    
+																		</div>
+																	</div>  
+																</div>    
+																
+															</div>    
+														</div>
+														<!--Tab Interaction Property-->
+														<!--Tabs subscriber list-->
+														{% include subscribers-list.html %}	
+														<!--Tabs subscriber list-->
+														
+														<!--Tab link article-->
+														{% include related-article.html %}
+														<!-- Tab link article-->
+													</div>    
+													<!-- /.tab-content -->
+											</div>
+											<!-- nav-tabs-custom -->  
+
+											<div class="row">
+												<label class="col-sm-2 control-label text-left f16 mbottom-5">Question</label>
+												<div class="col-md-12">
+													<div class="nav-tabs-custom">
+														<ul class="nav nav-tabs">
+															<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+															<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+															<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+																<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																<div class="variables">
+																	<div class="col-md-12">   
+																	<div class="btn-group" data-toggle="btn-toggle">
+																		<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =false;">Variables</a>
+																		<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+																	</div>
+																	</div>   
+																	<div class="col-md-12  mtop-15">
+																	<div class="row form-group">
+																		<label class="col-md-12 control-label text-left">Filter</label>
+																		<div class="col-md-12">
+																		<input type="text" class="form-control">
+																		</div>
+																	</div>
+																	</div>
+																	<div class="col-xs-12" ng-show="customform">
+																	<div class="custom-scroll">
+																		<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">
+																			Contact
+																			<ul class="segment-variables">
+																			<li class="section-var-link">Name</li>
+																			<li class="segment-lable">
+																				Global
+																				<ul>
+																				<li class="section-var-link">Address1</li>
+																				<li class="section-var-link">Address2</li>
+																				<li class="section-var-link">City</li>
+																				<li class="section-var-link">Country</li>
+																				<li class="section-var-link">Company</li>
+																				</ul>
+																			</li>
+																			<li class="segment-lable">
+																				JC Segment
+																				<ul>
+																				<li class="section-var-link">Contact View Only Property</li>
+																				<li class="section-var-link">Contact Viewable and Editable Property</li>
+																				<li class="section-var-link">Multi value No Descr</li>
+																				<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																				</ul>
+																			</li>
+																			</ul>
+																		</li>
+																		</ul>
+																		<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">
+																			Answer
+																			<ul class="segment-variables">
+																			<li class="section-var-link">Email</li>
+																			<li class="section-var-link">Reference Number</li>
+																			<li class="section-var-link">Original Date</li>
+																			<li class="section-var-link">Original Time</li>
+																			<li class="section-var-link">Subject</li>
+																			<li class="section-var-link">Original Body</li>
+																			<li class="section-var-link">Quoted Question</li>
+																			</ul>
+																		</li>
+																		</ul>
+																	</div>
+																	</div>
+																	<div class="col-xs-12" ng-hide="customform">
+																	<div class="custom-scroll">
+																		<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">
+																			Segment Responses
+																			<ul class="segment-variables">
+																			<li class="section-var-link">Chat Closing</li>
+																			<li class="section-var-link">Chat Opening</li>
+																			<li class="section-var-link">Chat Wait</li>
+																			<li class="section-var-link">iService Website</li>
+																			</ul>
+																		</li>
+																		</ul>
+																		<ul class="list-unstyled segment-variable-list">
+																		<li class="section-label">
+																			Agent Response
+																			<ul class="segment-variables">
+																			<li class="section-var-link">Test</li>
+																			</ul>
+																		</li>
+																		</ul>
+											
+																	</div>
+																	</div>
+																</div>
+																</div> 
+															</div>
+															
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane active" id="draftbody">
+															<div class="form-group text-editor-container">
+																<textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor="options">
+											
+																<p>How do i get started with Customer Portal?</p>
+																</textarea>
+															</div>
+															</div>
+															<div class="tab-pane" id="plainhtml">
+															<p>How do i get started with Customer Portal?</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<label class="col-sm-2 control-label text-left f16 mbottom-5">Answer</label>
+												<div class="col-md-12">
+													<div class="nav-tabs-custom">
+														<ul class="nav nav-tabs">
+															<li class="active"><a href="#draftbodanswer" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+															<li><a href="#plainhtmlanswer" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+															<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+																<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																	<div class="variables">
+																		<div class="col-md-12">   
+																		<div class="btn-group" data-toggle="btn-toggle">
+																			<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =false;">Variables</a>
+																			<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+																		</div>
+																		</div>   
+																		<div class="col-md-12  mtop-15">
+																		<div class="row form-group">
+																			<label class="col-md-12 control-label text-left">Filter</label>
+																			<div class="col-md-12">
+																			<input type="text" class="form-control">
+																			</div>
+																		</div>
+																		</div>
+																		<div class="col-xs-12" ng-show="customform">
+																		<div class="custom-scroll">
+																			<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">
+																				Contact
+																				<ul class="segment-variables">
+																				<li class="section-var-link">Name</li>
+																				<li class="segment-lable">
+																					Global
+																					<ul>
+																					<li class="section-var-link">Address1</li>
+																					<li class="section-var-link">Address2</li>
+																					<li class="section-var-link">City</li>
+																					<li class="section-var-link">Country</li>
+																					<li class="section-var-link">Company</li>
+																					</ul>
+																				</li>
+																				<li class="segment-lable">
+																					JC Segment
+																					<ul>
+																					<li class="section-var-link">Contact View Only Property</li>
+																					<li class="section-var-link">Contact Viewable and Editable Property</li>
+																					<li class="section-var-link">Multi value No Descr</li>
+																					<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																					</ul>
+																				</li>
+																				</ul>
+																			</li>
+																			</ul>
+																			<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">
+																				Answer
+																				<ul class="segment-variables">
+																				<li class="section-var-link">Email</li>
+																				<li class="section-var-link">Reference Number</li>
+																				<li class="section-var-link">Original Date</li>
+																				<li class="section-var-link">Original Time</li>
+																				<li class="section-var-link">Subject</li>
+																				<li class="section-var-link">Original Body</li>
+																				<li class="section-var-link">Quoted Question</li>
+																				</ul>
+																			</li>
+																			</ul>
+																		</div>
+																		</div>
+																		<div class="col-xs-12" ng-hide="customform">
+																		<div class="custom-scroll">
+																			<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">
+																				Segment Responses
+																				<ul class="segment-variables">
+																				<li class="section-var-link">Chat Closing</li>
+																				<li class="section-var-link">Chat Opening</li>
+																				<li class="section-var-link">Chat Wait</li>
+																				<li class="section-var-link">iService Website</li>
+																				</ul>
+																			</li>
+																			</ul>
+																			<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">
+																				Agent Response
+																				<ul class="segment-variables">
+																				<li class="section-var-link">Test</li>
+																				</ul>
+																			</li>
+																			</ul>
+											
+																		</div>
+																		</div>
+																	</div>
+																</div> 
+															</div>
+															
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane active" id="draftbodanswer">
+																<div class="form-group text-editor-container">
+																	<textarea class="form-control" rows="10" placeholder=""  ckeditor="options"><p>
+																		To use Customer Portal, you'll first need to register using Sign Up link.</p>
+																	</textarea>
+																</div>
+															</div>
+															<div class="tab-pane" id="plainhtmlanswer">
+															<p>To use Customer Portal, you'll first need to register using Sign Up link.</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
 												<div class="col-md-12">
 													<button type="submit" class="btn btn-primary">Create</button>
 													<!--this will be button while development <button class="btn btn-link" type="button">Cancel </button>-->
-													<a class="btn btn-link" href="/pages/manage-kb-article-listview.html">Cancel </a>
+													<a class="btn btn-link" href="/pages/manage-kb-article.html">Cancel </a>
 												</div>
 											</div>	
 										</div>
