@@ -3753,8 +3753,13 @@ ul li ul li.branch ul li .treeviewitem
 }
 
 .active-chat
-{
-    ul li .treeviewitem
+{ 
+    ul li .treeviewitem{
+        display: inline-block;
+        width: ~"calc(100% - 150px)";
+    }
+    
+    ul li ul li .treeviewitem
     {
         display: inline-block;
         width: ~"calc(100% - 130px)";
