@@ -472,199 +472,210 @@ title: Mailing Messages
 											</div>
 										</div>	
 										<div class="row">
-											<div class="col-md-8">
+											<div class="col-md-12">
 												<div class="box box-info">
 													<div class="box-header with-border">
 															<i class="fa fa-file"></i>
 															<h3 class="box-title">Plain Text Message <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h3>
+															<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+																<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																  <div class="variables">
+																	<div class="col-md-12">   
+																	  <div class="btn-group" data-toggle="btn-toggle">
+																		<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform = false;">Variables</a>
+																		<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+																	  </div>
+																	</div>   
+																	<div class="col-md-12  mtop-15">
+																	  <div class="row form-group">
+																		<label class="col-md-12 control-label text-left">Filter</label>
+																		<div class="col-md-12">
+																		  <input type="text" class="form-control">
+																		</div>
+																	  </div>
+																	</div>
+																	<div class="col-xs-12" ng-show="customform">
+																	  <div class="custom-scroll">
+																		<ul class="list-unstyled segment-variable-list">
+																		  <li class="section-label">
+																			Contact
+																			<ul class="segment-variables">
+																			  <li class="section-var-link">Name</li>
+																			  <li class="segment-lable">
+																				Global
+																				<ul>
+																				  <li class="section-var-link">Address1</li>
+																				  <li class="section-var-link">Address2</li>
+																				  <li class="section-var-link">City</li>
+																				  <li class="section-var-link">Country</li>
+																				  <li class="section-var-link">Company</li>
+																				</ul>
+																			  </li>
+																			  <li class="segment-lable">
+																				JC Segment
+																				<ul>
+																				  <li class="section-var-link">Contact View Only Property</li>
+																				  <li class="section-var-link">Contact Viewable and Editable Property</li>
+																				  <li class="section-var-link">Multi value No Descr</li>
+																				  <li class="section-var-link">Shared Property from JC - cust can't see</li>
+																				</ul>
+																			  </li>
+																			</ul>
+																		  </li>
+																		</ul>
+																		<ul class="list-unstyled segment-variable-list">
+																		  <li class="section-label">
+																			Answer
+																			<ul class="segment-variables">
+																			  <li class="section-var-link">Email</li>
+																			  <li class="section-var-link">Reference Number</li>
+																			  <li class="section-var-link">Original Date</li>
+																			  <li class="section-var-link">Original Time</li>
+																			  <li class="section-var-link">Subject</li>
+																			  <li class="section-var-link">Original Body</li>
+																			  <li class="section-var-link">Quoted Question</li>
+																			</ul>
+																		  </li>
+																		</ul>
+																	  </div>
+																	</div>
+																	<div class="col-xs-12" ng-hide="customform">
+																	  <div class="custom-scroll">
+																		<ul class="list-unstyled segment-variable-list">
+																		  <li class="section-label">
+																			Segment Responses
+																			<ul class="segment-variables">
+																			  <li class="section-var-link">Chat Closing</li>
+																			  <li class="section-var-link">Chat Opening</li>
+																			  <li class="section-var-link">Chat Wait</li>
+																			  <li class="section-var-link">iService Website</li>
+																			</ul>
+																		  </li>
+																		</ul>
+																		<ul class="list-unstyled segment-variable-list">
+																		  <li class="section-label">
+																			Agent Response
+																			<ul class="segment-variables">
+																			  <li class="section-var-link">Test</li>
+																			</ul>
+																		  </li>
+																		</ul>
+													  
+																	  </div>
+																	</div>
+																  </div>
+																</div> 
+															</div>
 													</div>
-                          <div class="box-body">
+                                                    <div class="box-body">
 															<textarea class="form-control" rows="17" name="editor1"></textarea>
-                          </div>	
+                                                   </div>	
 												</div>		
 											</div>
-											<div class="col-md-4">
-												<div class="nav-tabs-custom ">
-														<ul class="nav nav-tabs">
-																<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-																<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-														</ul>
-														<div class="tab-content">
-															<div class="tab-pane active" id="tab_1">
-																	<div class="row custom-scroll">
-																		  <div class="col-xs-12 variable-responses">
-																					<div>
-																							<input type="text" class="form-control" placeholder="Filter Variables">
-																					</div>
-																					<ul class="list-unstyled segment-variable-list">
-																							<li class="section-label">Contact
-																									<ul class="segment-variables">
-																											<li class="section-var-link">Name</li>
-																											<li class="segment-lable">Global
-																													<ul>
-																													<li class="section-var-link">Address1</li>
-																													<li class="section-var-link">Address2</li>
-																													<li class="section-var-link">City</li>
-																													<li class="section-var-link">Country</li>
-																													<li class="section-var-link">Company</li>
-																													</ul>
-																											</li>
-																											<li class="segment-lable">JC Segment
-																													<ul>
-																													<li class="section-var-link">Contact View Only Property</li>
-																													<li class="section-var-link">Contact Viewable and Editable Property</li>
-																													<li class="section-var-link">Multi value No Descr</li>
-																													<li class="section-var-link">Shared Property from JC - cust can't see</li>
-																													</ul>
-																											</li>
-																									</ul>
-																							</li>
-																					</ul>
-																					<ul class="list-unstyled segment-variable-list">
-																							<li class="section-label">Answer
-																							    <ul class="segment-variables">
-																									<li class="section-var-link">Email</li>
-																									<li class="section-var-link">Reference Number</li>
-																									<li class="section-var-link">Original Date</li>
-																									<li class="section-var-link">Original Time</li>
-																									<li class="section-var-link">Subject</li>
-																									<li class="section-var-link">Original Body</li>
-																									<li class="section-var-link">Quoted Question</li>
-																							    </ul>
-																							</li>
-																					</ul>
-																			</div>
-																	</div>
-															</div>
-															<!-- /.tab-pane -->
-															<div class="tab-pane" id="tab_2">
-																<div class="row custom-scroll">
-																		<div class="col-xs-12 stock-responses">
-																				<div>
-																						<input type="text" class="form-control" placeholder="Filter Stock Responses">
-																				</div>
-																				<ul class="list-unstyled segment-variable-list">
-																						<li class="section-label">Segment Responses
-																						<ul class="segment-variables">
-																								<li class="section-var-link">Chat Closing</li>
-																								<li class="section-var-link">Chat Opening</li>
-																								<li class="section-var-link">Chat Wait</li>
-																								<li class="section-var-link">iService Website</li>
-																						</ul>
-																						</li>
-																				</ul>
-																				<ul class="list-unstyled segment-variable-list">
-																						<li class="section-label">Agent Response
-																						<ul class="segment-variables">
-																								<li class="section-var-link">Test</li>
-																								
-																						</ul>
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-															</div>
-														</div>
-														<!-- /.tab-content -->
-													</div>
-											</div>	 
 										</div>
 										<div class="row">
-											<div class="col-md-8">
+											<div class="col-md-12">
 												<div class="box box-info">
 													<div class="box-header with-border">
 															<i class="fa fa-file"></i>
 															<h3 class="box-title">Rich Text Message <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h3>
+															<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+																<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																  <div class="variables">
+																	<div class="col-md-12">   
+																	  <div class="btn-group" data-toggle="btn-toggle">
+																		<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform = false;">Variables</a>
+																		<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+																	  </div>
+																	</div>   
+																	<div class="col-md-12  mtop-15">
+																	  <div class="row form-group">
+																		<label class="col-md-12 control-label text-left">Filter</label>
+																		<div class="col-md-12">
+																		  <input type="text" class="form-control">
+																		</div>
+																	  </div>
+																	</div>
+																	<div class="col-xs-12" ng-show="customform">
+																	  <div class="custom-scroll">
+																		<ul class="list-unstyled segment-variable-list">
+																		  <li class="section-label">
+																			Contact
+																			<ul class="segment-variables">
+																			  <li class="section-var-link">Name</li>
+																			  <li class="segment-lable">
+																				Global
+																				<ul>
+																				  <li class="section-var-link">Address1</li>
+																				  <li class="section-var-link">Address2</li>
+																				  <li class="section-var-link">City</li>
+																				  <li class="section-var-link">Country</li>
+																				  <li class="section-var-link">Company</li>
+																				</ul>
+																			  </li>
+																			  <li class="segment-lable">
+																				JC Segment
+																				<ul>
+																				  <li class="section-var-link">Contact View Only Property</li>
+																				  <li class="section-var-link">Contact Viewable and Editable Property</li>
+																				  <li class="section-var-link">Multi value No Descr</li>
+																				  <li class="section-var-link">Shared Property from JC - cust can't see</li>
+																				</ul>
+																			  </li>
+																			</ul>
+																		  </li>
+																		</ul>
+																		<ul class="list-unstyled segment-variable-list">
+																		  <li class="section-label">
+																			Answer
+																			<ul class="segment-variables">
+																			  <li class="section-var-link">Email</li>
+																			  <li class="section-var-link">Reference Number</li>
+																			  <li class="section-var-link">Original Date</li>
+																			  <li class="section-var-link">Original Time</li>
+																			  <li class="section-var-link">Subject</li>
+																			  <li class="section-var-link">Original Body</li>
+																			  <li class="section-var-link">Quoted Question</li>
+																			</ul>
+																		  </li>
+																		</ul>
+																	  </div>
+																	</div>
+																	<div class="col-xs-12" ng-hide="customform">
+																	  <div class="custom-scroll">
+																		<ul class="list-unstyled segment-variable-list">
+																		  <li class="section-label">
+																			Segment Responses
+																			<ul class="segment-variables">
+																			  <li class="section-var-link">Chat Closing</li>
+																			  <li class="section-var-link">Chat Opening</li>
+																			  <li class="section-var-link">Chat Wait</li>
+																			  <li class="section-var-link">iService Website</li>
+																			</ul>
+																		  </li>
+																		</ul>
+																		<ul class="list-unstyled segment-variable-list">
+																		  <li class="section-label">
+																			Agent Response
+																			<ul class="segment-variables">
+																			  <li class="section-var-link">Test</li>
+																			</ul>
+																		  </li>
+																		</ul>
+													  
+																	  </div>
+																	</div>
+																  </div>
+																</div> 
+															</div>
 													</div>
 													<div class="box-body">
 															<textarea class="form-control" rows="5" ckeditor name="editor1"></textarea>
 													</div>	
 												</div>		
 											</div>
-											<div class="col-md-4">
-												<div class="nav-tabs-custom">
-														<ul class="nav nav-tabs">
-																<li class="active"><a href="#tab_v_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-																<li><a href="#tab_v_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-														</ul>
-														<div class="tab-content">
-															<div class="tab-pane active" id="tab_v_1">
-																	<div class="row custom-scroll">
-																			<div class="col-xs-12 variable-responses">
-																					<div>
-																							<input type="text" class="form-control" placeholder="Filter Variables">
-																					</div>
-																					<ul class="list-unstyled segment-variable-list">
-																							<li class="section-label">Contact
-																									<ul class="segment-variables">
-																											<li class="section-var-link">Name</li>
-																											<li class="segment-lable">Global
-																													<ul>
-																													<li class="section-var-link">Address1</li>
-																													<li class="section-var-link">Address2</li>
-																													<li class="section-var-link">City</li>
-																													<li class="section-var-link">Country</li>
-																													<li class="section-var-link">Company</li>
-																													</ul>
-																											</li>
-																											<li class="segment-lable">JC Segment
-																													<ul>
-																													<li class="section-var-link">Contact View Only Property</li>
-																													<li class="section-var-link">Contact Viewable and Editable Property</li>
-																													<li class="section-var-link">Multi value No Descr</li>
-																													<li class="section-var-link">Shared Property from JC - cust can't see</li>
-																													</ul>
-																											</li>
-																									</ul>
-																							</li>
-																					</ul>
-																					<ul class="list-unstyled segment-variable-list">
-																							<li class="section-label">Answer
-																							<ul class="segment-variables">
-																									<li class="section-var-link">Email</li>
-																									<li class="section-var-link">Reference Number</li>
-																									<li class="section-var-link">Original Date</li>
-																									<li class="section-var-link">Original Time</li>
-																									<li class="section-var-link">Subject</li>
-																									<li class="section-var-link">Original Body</li>
-																									<li class="section-var-link">Quoted Question</li>
-																							</ul>
-																							</li>
-																					</ul>
-																			</div>
-																	</div>
-															</div>
-															<!-- /.tab-pane -->
-															<div class="tab-pane" id="tab_v_2">
-																	<div class="row custom-scroll">
-																			<div class="col-xs-12 stock-responses">
-																					<div>
-																							<input type="text" class="form-control" placeholder="Filter Stock Responses">
-																					</div>
-																					<ul class="list-unstyled segment-variable-list">
-																							<li class="section-label">Segment Responses
-																							<ul class="segment-variables">
-																									<li class="section-var-link">Chat Closing</li>
-																									<li class="section-var-link">Chat Opening</li>
-																									<li class="section-var-link">Chat Wait</li>
-																									<li class="section-var-link">iService Website</li>
-																							</ul>
-																							</li>
-																					</ul>
-																					<ul class="list-unstyled segment-variable-list">
-																							<li class="section-label">Agent Response
-																							<ul class="segment-variables">
-																									<li class="section-var-link">Test</li>
-																							</ul>
-																							</li>
-																					</ul>
-																			</div>
-																	</div>
-															</div>
-														</div>
-														<!-- /.tab-content -->
-													</div>
-											</div>	 
 										</div>
 										<div class="row">
 											<div class="col-md-12">
