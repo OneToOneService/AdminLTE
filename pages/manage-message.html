@@ -114,7 +114,7 @@ title: Manage Messages List View
 																<button class="btn btn-primary btn-xs">Assign To Agent</button>
 															</div>    
 														</li>
-														<li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+														<li><a href="javascript:void(0)" class="text-primary"> Unassign Question</a></li>
 														<li ng-class="{'option-selected' : forwardSegment}">
 															<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
 															<div class="btn-list-options form-group" ng-show="forwardSegment" >
@@ -130,7 +130,7 @@ title: Manage Messages List View
 															</div>   
 														</li>
 														<li ng-class="{'option-selected' : forwardExternalSegment}">
-															<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Segment</a>
+															<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Agent</a>
 															<div class="btn-list-options form-group" ng-show="forwardExternalSegment">
 															<p>This segment has no external
 																	agent notifications.</p>
