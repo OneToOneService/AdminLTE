@@ -43,6 +43,7 @@
 @horizontal-line:#eee;
 @cont-border-radius-5:5px;
 @box-border:#dddddd;
+@dropdown-bg :#fbfbfb;
 @dropdown-hover:#e1e3e9;
 
 
@@ -2584,6 +2585,7 @@ label .icheckbox_square-blue
 {
     z-index: 99999;
     min-width: 400px;
+    background:@dropdown-bg;border:1px solid @box-border;
 }
 .uib-datepicker-popup.dropdown-menu,.date .dropdown-menu
 {
@@ -4261,17 +4263,17 @@ table.dataTable
 }
 
 .formstepcontainer{
-     background:#fbfbfb;border:1px solid @box-border; border-radius: @cont-border-radius-5;padding:0px 15px;margin-top:15px;
+     background:@dropdown-bg;border:1px solid @box-border; border-radius: @cont-border-radius-5;padding:0px 15px;margin-top:15px;
     .formstep{padding-top: 15px;border-bottom: 1px solid @horizontal-line; margin: 0px 0px;}
     .formstep:last-child{border-bottom:0px;}
     .box-bg-white{border:1px solid @box-border; border-radius: @cont-border-radius-5;margin-bottom:15px;}
 }
 
-.dropdown-bg{background:#fbfbfb;border:1px solid @box-border;
+.dropdown-bg{background:@dropdown-bg;border:1px solid @box-border;
    li{padding:4px 8px;}
-   li:hover{background:@dropdown-hover;}
+   //li:hover{background:@dropdown-hover;}
    li label{font-weight: normal; color:@font-color;}
-   li a{padding-left:18px; color:@font-color;} a .fa{font-size:16px;}
+   li a{/*padding-left:18px;*/ color:@font-color;} a .fa{font-size:16px;}
 }
 
 .eq-container{padding-top:0px;}

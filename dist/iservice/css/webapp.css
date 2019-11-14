@@ -1796,6 +1796,8 @@ label .icheckbox_square-blue {
 .dropdown-menu {
   z-index: 99999;
   min-width: 400px;
+  background: #fbfbfb;
+  border: 1px solid #dddddd;
 }
 .uib-datepicker-popup.dropdown-menu,
 .date .dropdown-menu {
@@ -3013,15 +3015,12 @@ table.dataTable {
 .dropdown-bg li {
   padding: 4px 8px;
 }
-.dropdown-bg li:hover {
-  background: #e1e3e9;
-}
 .dropdown-bg li label {
   font-weight: normal;
   color: #333333;
 }
 .dropdown-bg li a {
-  padding-left: 18px;
+  /*padding-left:18px;*/
   color: #333333;
 }
 .dropdown-bg a .fa {
