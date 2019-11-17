@@ -22,7 +22,7 @@
                                 <button class="btn btn-primary btn-xs">Assign To Agent</button>
                             </div>    
                         </li>
-                        <li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary"> Unassign Question</a></li>
                         <li ng-class="{'option-selected' : forwardSegment}">
                             <a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
                             <div class="btn-list-options form-group" ng-show="forwardSegment" >
@@ -30,7 +30,8 @@
                                         <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
                                             <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                                             <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
-                                                <span ng-bind-html="item.name | highlight: $select.search"></span>
+                                                <span ng-bind-html="item.name | highlight: $select.search"></span><br>
+                                                email: <span ng-bind-html="item.email | highlight: $select.search"></span>
                                             </ui-select-choices>
                                         </ui-select>
                                     </div>

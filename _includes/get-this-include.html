@@ -52,17 +52,18 @@
                 <button class="btn btn-primary btn-xs">Assign To Agent</button>
               </div>
             </li>
-            <li><a href="javascript:void(0)" class="text-primary"> Remove From My Queue</a></li>
+            <li><a href="javascript:void(0)" class="text-primary">Unassign Question</a></li>
             <li ng-class="{'option-selected' : forwardSegment}">
               <a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
               <div class="btn-list-options form-group" ng-show="forwardSegment">
                 <div class="ng-cloak" ng-controller="DemoCtrl as ctrl">
-                  <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
-                    <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                    <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
-                      <span ng-attr-title="{{ item.name }}" ng-bind-html="item.name | highlight: $select.search"></span>
-                    </ui-select-choices>
-                  </ui-select>
+                    <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+                      <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                      <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+                        <span ng-bind-html="item.name | highlight: $select.search"></span><br>
+                        email: <span ng-bind-html="item.email | highlight: $select.search"></span>
+                      </ui-select-choices>
+                    </ui-select>
                 </div>
                 <button class="btn btn-primary btn-xs">Forward Now</button>
               </div>
@@ -106,26 +107,27 @@
           </button>
           <ul class="dropdown-menu dropdown-menu-btn-option" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
             <li>
-              <select class="changetopicselect form-control" multiple>
-                 <option ng-attr-title="e-shop -- All Topics(0)">e-shop -- All Topics(0)</option>
-                <option ng-attr-title=".._Feedback (2)">.._Feedback (2)</option>
-                <option ng-attr-title=".._Newsletter Subscription (0)">.._Newsletter Subscription (0)</option>
-                <option ng-attr-title=".._Spam (0)">.._Spam (0)</option>
-                <option ng-attr-title=".._Undeliverable (0)">.._Undeliverable (0)</option>
-                <option ng-attr-title="..Account Questions (0)">..Account Questions (0)</option>
-                <option ng-attr-title="....Orders (0)">....Orders (0)</option>
-                <option ng-attr-title="....Refunds (0)">....Refunds (0)</option>
-                <option ng-attr-title="....Returns (0)">....Returns (0)</option>
-                <option ng-attr-title="..Products(0)">..Products(0)</option>
-                <option ng-attr-title="....Audio-Video (0)">....Audio-Video (0)</option>
-                <option ng-attr-title="....Cameras (0)">....Cameras (0)</option>
-                <option ng-attr-title="....Cell Phones (0)">....Cell Phones (0)</option>
-                <option ng-attr-title="....Computers (0)">....Computers (0)</option>
-                <option ng-attr-title="....Televisions(0)">....Televisions(0)</option>
-                <option ng-attr-title="..Shipping (0)">..Shipping (0)</option>
-                <option ng-attr-title="..Technical Support (0)">..Technical Support (0)</option>
-                <option ng-attr-title="....Open Quotes (1)">....Open Quotes (1)</option>
-              </select>
+                <input type="text" class="form-control mbottom-15">
+                <select class="changetopicselect form-control" multiple>
+                  <option class="op-level-0">e-shop -- All Topics(0)</option>
+                  <option class="op-level-1">_Feedback (2)</option>
+                  <option class="op-level-1">_Newsletter Subscription (0)</option>
+                  <option class="op-level-1">_Spam (0)</option>
+                  <option class="op-level-1">_Undeliverable (0)</option>
+                  <option class="op-level-1">Account Questions (0)</option>
+                  <option class="op-level-2">Orders (0)</option>
+                  <option class="op-level-2">Refunds (0)</option>
+                  <option class="op-level-2">Returns (0)</option>
+                  <option class="op-level-2">Products(0)</option>
+                  <option class="op-level-2">Audio-Video (0)</option>
+                  <option class="op-level-2">Cameras (0)</option>
+                  <option class="op-level-0">Cell Phones (0)</option>
+                  <option class="op-level-1">Computers (0)</option>
+                  <option class="op-level-1">Televisions(0)</option>
+                  <option class="op-level-0">Shipping (0)</option>
+                  <option class="op-level-0">Technical Support (0)</option>
+                  <option class="op-level-0">Open Quotes (1)</option>
+                </select>
             </li>
           </ul>
         </div>

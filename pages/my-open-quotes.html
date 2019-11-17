@@ -2266,17 +2266,17 @@ function showchronological(){
 		app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.segmentObj = {
-				'1' : { name: '-Default Mail Box-', segmentname: 'QA' },
-				'2' : { name: 'Push Bullet', segmentname: 'QA' },
-				'3' : { name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
-				'4' : { name: 'Push Bullet', segmentname: 'QA2- Second Segment' },
+				'1' : { name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
+				'2' : { name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },
+				'3' : { name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
+				'4' : { name: 'Human Resources',email:'human.resources@1to1service.com', segmentname: 'Human Resources' },
 			};
-      vm.segmentselected = {selected : "Push Bullet"};
+        vm.segmentselected = {selected : "--Default Mailbox--"};
 			vm.segment = [
-				{ name: '-Default Mail Box-', segmentname: 'QA' },
-				{ name: 'Push Bullet', segmentname: 'QA' },
-				{ name: '-Default Mail Box-', segmentname: 'QA2- Second Segment' },
-				{ name: 'Push Bullet',  segmentname: 'QA2- Second Segment' },
+				{ name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
+				{ name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },
+				{ name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
+				{ name: 'Human Resources',email:'human.resources@1to1service.com',  segmentname: 'Human Resource' },
 			];
 		});
 		angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {

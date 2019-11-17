@@ -494,19 +494,19 @@ title: Action Mode
 		app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.segmentObj = {
-				'1' : { name: '-Default Mail Box-(sales@1to1service.com)', segmentname: 'Sales' },
-				'2' : { name: 'Partners (partners@1to1service.com)', segmentname: 'Sales' },
-				'3' : { name: '-Default Mail Box- (support@1to1service.com)', segmentname: 'Technical Support' },
-				'4' : { name: 'Technical Issues (techissues@1to1service.com)', segmentname: 'Technical Support' },
+				'1' : { name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
+				'2' : { name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },
+				'3' : { name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
+				'4' : { name: 'Human Resources',email:'human.resources@1to1service.com', segmentname: 'Human Resources' },
 			};
-			vm.segmentselected = {selected : "Push Bullet"};
-				vm.segment = [
-					{ name: '-Default Mail Box-(sales@1to1service.com)', segmentname: 'Sales' },
-					{ name: 'Push Bullet (partners@1to1service.com)', segmentname: 'Sales' },
-					{ name: '-Default Mail Box- (support@1to1service.com)', segmentname: 'Technical Support' },
-					{ name: 'Technical Issues (techissues@1to1service.com)',  segmentname: 'Technical Support' },
-				];
-			});
+        vm.segmentselected = {selected : "--Default Mailbox--"};
+			vm.segment = [
+				{ name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
+				{ name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },
+				{ name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
+				{ name: 'Human Resources',email:'human.resources@1to1service.com',  segmentname: 'Human Resource' },
+			];
+		});
 
 			angular.module('iService').controller('agentEmailCtrl', function ($scope, $http, $timeout, $interval) {
 				var vm = this;
