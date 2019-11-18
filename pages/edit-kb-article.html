@@ -2956,15 +2956,26 @@ title: Manage KB Article
 		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
-			vm.agentselected = {selected : "Alek Packard"};
+			vm.agentselected = {selected : "Select or search for a mailbox in the list"};
 			vm.agentname = [ 
-				{name: 'Alek Packard', code: 'AP'},
-				{name: 'Jacob Smith', code: 'JS'},
-				{name: 'Jonie Hewlett', code: 'JH'},
-				{name: 'Justin Time', code: 'JT'},
+				{name: 'Alek Packard' , email:'alek.packard@example.com', code: 'AP'},
+				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS'},
+				{name: 'Jonie Hewlett', email:'jonie.hewlett@example.com', code: 'JH'},
+				{name: 'Justin Time', email:'justin.time@example.com', code: 'JT'},
 			];
 		});
 
+		angular.module('iService').controller('extAgentCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentselected = {selected : "Select or search for a mailbox in the list"};
+			vm.agentname = [ 
+				{name: 'Alek Packard' , email:'alek.packard@example.com', code: 'AP'},
+				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS'},
+				{name: 'Jonie Hewlett', email:'jonie.hewlett@example.com', code: 'JH'},
+				{name: 'Justin Time', email:'justin.time@example.com', code: 'JT'},
+			];
+		});
 		app.filter('propsFilter', function() {
 			return function(items, props) {
 				var out = [];

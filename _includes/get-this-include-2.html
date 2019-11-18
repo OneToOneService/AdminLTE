@@ -44,8 +44,10 @@
                   <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
                     <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                     <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
-                      <span ng-attr-title="{{ agent.name }}" ng-bind-html="agent.name | highlight: $select.search"></span>
+                      <span ng-bind-html="agent.name | highlight: $select.search"></span>
                       <small ng-bind-html="agent.code | highlight: $select.search"></small>
+                      <br>
+                      email: <span ng-bind-html="agent.email | highlight: $select.search"></span>
                     </ui-select-choices>
                   </ui-select>
                 </div>
@@ -71,8 +73,16 @@
             <li ng-class="{'option-selected' : forwardExternalSegment}">
               <a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Agent</a>
               <div class="btn-list-options form-group" ng-show="forwardExternalSegment">
-                <div class="form-group">
-                  <input type="text" class="form-control">
+                <div class="form-group ng-cloak" ng-controller="extAgentCtrl as ctrl">
+                  <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+                    <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                    <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+                      <span ng-bind-html="agent.name | highlight: $select.search"></span>
+                      <small ng-bind-html="agent.code | highlight: $select.search"></small>
+                      <br>
+                      email: <span ng-bind-html="agent.email | highlight: $select.search"></span>
+                    </ui-select-choices>
+                  </ui-select>
                 </div>	
                 <div class="form-group">
                   <select class="form-control">
