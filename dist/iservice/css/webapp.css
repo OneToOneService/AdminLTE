@@ -3172,3 +3172,12 @@ table .uib-weeks td.h6:first-child {
 .op-level-2 {
   padding-left: 30px;
 }
+.form-variable {
+  margin-bottom: -22px;
+}
+@media (max-width: 768px) {
+  .form-variable {
+    margin-bottom: 0px;
+    margin-top: -22px;
+  }
+}

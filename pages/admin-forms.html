@@ -382,66 +382,7 @@ title: Forms
 									<div class="box-header with-border">
 										<i class="fa fa-wpforms"></i>
 										<h3 class="box-title text-right">New Form</h3>
-										<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-											<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Form Variables</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-												<div class="variables">
-												<div class="col-md-12">
-													<div class="row form-group">
-													<label class="col-md-12 control-label text-left">Filter</label>
-													<div class="col-md-12">
-														<input type="text" class="form-control">
-													</div>
-													</div>
-												</div>
-												<div class="col-xs-12" ng-show="customform">
-													<div class="custom-scroll">
-													<ul class="list-unstyled segment-variable-list">
-														<li class="section-label">
-														Contact
-														<ul class="segment-variables">
-															<li class="section-var-link">Name</li>
-															<li class="segment-lable">
-															Global
-															<ul>
-																<li class="section-var-link">Address1</li>
-																<li class="section-var-link">Address2</li>
-																<li class="section-var-link">City</li>
-																<li class="section-var-link">Country</li>
-																<li class="section-var-link">Company</li>
-															</ul>
-															</li>
-															<li class="segment-lable">
-															JC Segment
-															<ul>
-																<li class="section-var-link">Contact View Only Property</li>
-																<li class="section-var-link">Contact Viewable and Editable Property</li>
-																<li class="section-var-link">Multi value No Descr</li>
-																<li class="section-var-link">Shared Property from JC - cust can't see</li>
-															</ul>
-															</li>
-														</ul>
-														</li>
-													</ul>
-													<ul class="list-unstyled segment-variable-list">
-														<li class="section-label">
-														Answer
-														<ul class="segment-variables">
-															<li class="section-var-link">Email</li>
-															<li class="section-var-link">Reference Number</li>
-															<li class="section-var-link">Original Date</li>
-															<li class="section-var-link">Original Time</li>
-															<li class="section-var-link">Subject</li>
-															<li class="section-var-link">Original Body</li>
-															<li class="section-var-link">Quoted Question</li>
-														</ul>
-														</li>
-													</ul>
-													</div>
-												</div>
-												</div>
-											</div> 
-										</div>
+									
 									</div>
 									<div class="box-body">
 										<section class="search-parameters">
@@ -481,6 +422,66 @@ title: Forms
 													</div>
 												</div>		
 												<div class="form-group">
+													<div class="btn-group pull-right form-variable" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+														<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Form Variables</a>
+														<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+															<div class="variables">
+															<div class="col-md-12">
+																<div class="row form-group">
+																<label class="col-md-12 control-label text-left">Filter</label>
+																<div class="col-md-12">
+																	<input type="text" class="form-control">
+																</div>
+																</div>
+															</div>
+															<div class="col-xs-12" ng-show="customform">
+																<div class="custom-scroll">
+																<ul class="list-unstyled segment-variable-list">
+																	<li class="section-label">
+																	Contact
+																	<ul class="segment-variables">
+																		<li class="section-var-link">Name</li>
+																		<li class="segment-lable">
+																		Global
+																		<ul>
+																			<li class="section-var-link">Address1</li>
+																			<li class="section-var-link">Address2</li>
+																			<li class="section-var-link">City</li>
+																			<li class="section-var-link">Country</li>
+																			<li class="section-var-link">Company</li>
+																		</ul>
+																		</li>
+																		<li class="segment-lable">
+																		JC Segment
+																		<ul>
+																			<li class="section-var-link">Contact View Only Property</li>
+																			<li class="section-var-link">Contact Viewable and Editable Property</li>
+																			<li class="section-var-link">Multi value No Descr</li>
+																			<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																		</ul>
+																		</li>
+																	</ul>
+																	</li>
+																</ul>
+																<ul class="list-unstyled segment-variable-list">
+																	<li class="section-label">
+																	Answer
+																	<ul class="segment-variables">
+																		<li class="section-var-link">Email</li>
+																		<li class="section-var-link">Reference Number</li>
+																		<li class="section-var-link">Original Date</li>
+																		<li class="section-var-link">Original Time</li>
+																		<li class="section-var-link">Subject</li>
+																		<li class="section-var-link">Original Body</li>
+																		<li class="section-var-link">Quoted Question</li>
+																	</ul>
+																	</li>
+																</ul>
+																</div>
+															</div>
+															</div>
+														</div> 
+													</div>
 													<label class="col-sm-12 control-label text-left">Form Body</label>
 													<div class="col-md-12">
 														<textarea id="code" name="code">...</textarea>
@@ -870,68 +871,7 @@ title: Forms
 									<div class="box-header with-border">
 										<i class="fa fa-wpforms"></i>
 										<h3 class="box-title text-right">New Form</h3>
-										    
 										<button class="btn btn-primary btn-sm pull-right "><i class="fa fa-eye"></i> Preview</button>
-										<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-											<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Form Variables</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-												<div class="variables">
-												<div class="col-md-12">
-													<div class="row form-group">
-													<label class="col-md-12 control-label text-left">Filter</label>
-													<div class="col-md-12">
-														<input type="text" class="form-control">
-													</div>
-													</div>
-												</div>
-												<div class="col-xs-12" ng-show="customform">
-													<div class="custom-scroll">
-													<ul class="list-unstyled segment-variable-list">
-														<li class="section-label">
-														Contact
-														<ul class="segment-variables">
-															<li class="section-var-link">Name</li>
-															<li class="segment-lable">
-															Global
-															<ul>
-																<li class="section-var-link">Address1</li>
-																<li class="section-var-link">Address2</li>
-																<li class="section-var-link">City</li>
-																<li class="section-var-link">Country</li>
-																<li class="section-var-link">Company</li>
-															</ul>
-															</li>
-															<li class="segment-lable">
-															JC Segment
-															<ul>
-																<li class="section-var-link">Contact View Only Property</li>
-																<li class="section-var-link">Contact Viewable and Editable Property</li>
-																<li class="section-var-link">Multi value No Descr</li>
-																<li class="section-var-link">Shared Property from JC - cust can't see</li>
-															</ul>
-															</li>
-														</ul>
-														</li>
-													</ul>
-													<ul class="list-unstyled segment-variable-list">
-														<li class="section-label">
-														Answer
-														<ul class="segment-variables">
-															<li class="section-var-link">Email</li>
-															<li class="section-var-link">Reference Number</li>
-															<li class="section-var-link">Original Date</li>
-															<li class="section-var-link">Original Time</li>
-															<li class="section-var-link">Subject</li>
-															<li class="section-var-link">Original Body</li>
-															<li class="section-var-link">Quoted Question</li>
-														</ul>
-														</li>
-													</ul>
-													</div>
-												</div>
-												</div>
-											</div> 
-										</div>
 									</div>
 									<div class="box-body">
 										<section class="search-parameters">
@@ -971,9 +911,69 @@ title: Forms
 													</div>
 												</div>		
 												<div class="form-group">
+													<div class="btn-group pull-right form-variable" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+														<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Form Variables</a>
+														<div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+															<div class="variables">
+															<div class="col-md-12">
+																<div class="row form-group">
+																<label class="col-md-12 control-label text-left">Filter</label>
+																<div class="col-md-12">
+																	<input type="text" class="form-control">
+																</div>
+																</div>
+															</div>
+															<div class="col-xs-12" ng-show="customform">
+																<div class="custom-scroll">
+																<ul class="list-unstyled segment-variable-list">
+																	<li class="section-label">
+																	Contact
+																	<ul class="segment-variables">
+																		<li class="section-var-link">Name</li>
+																		<li class="segment-lable">
+																		Global
+																		<ul>
+																			<li class="section-var-link">Address1</li>
+																			<li class="section-var-link">Address2</li>
+																			<li class="section-var-link">City</li>
+																			<li class="section-var-link">Country</li>
+																			<li class="section-var-link">Company</li>
+																		</ul>
+																		</li>
+																		<li class="segment-lable">
+																		JC Segment
+																		<ul>
+																			<li class="section-var-link">Contact View Only Property</li>
+																			<li class="section-var-link">Contact Viewable and Editable Property</li>
+																			<li class="section-var-link">Multi value No Descr</li>
+																			<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																		</ul>
+																		</li>
+																	</ul>
+																	</li>
+																</ul>
+																<ul class="list-unstyled segment-variable-list">
+																	<li class="section-label">
+																	Answer
+																	<ul class="segment-variables">
+																		<li class="section-var-link">Email</li>
+																		<li class="section-var-link">Reference Number</li>
+																		<li class="section-var-link">Original Date</li>
+																		<li class="section-var-link">Original Time</li>
+																		<li class="section-var-link">Subject</li>
+																		<li class="section-var-link">Original Body</li>
+																		<li class="section-var-link">Quoted Question</li>
+																	</ul>
+																	</li>
+																</ul>
+																</div>
+															</div>
+															</div>
+														</div> 
+													</div>
 													<label class="col-sm-12 control-label text-left">Form Body</label>
 													<div class="col-md-12">
-														<textarea id="code" name="code">...</textarea>
+														<textarea id="code2" name="code">...</textarea>
 													</div>
 												</div>
 												<div class="row">	
@@ -1837,7 +1837,13 @@ title: Forms
 		styleActiveLine: true,
 		matchBrackets: true
 	});
+	var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+		lineNumbers: true,
+		styleActiveLine: true,
+		matchBrackets: true
+	});
 	editor.setOption("theme", 'cobalt');
+	editor2.setOption("theme", 'cobalt');
 </script>
 </body>
 </html>
