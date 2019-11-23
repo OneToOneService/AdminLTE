@@ -233,7 +233,7 @@ title: Agent Email
                                           <div class="form-group">
                                               <label for="inputPassword3" class="col-sm-2 control-label">Topic</label>
                                               <div class="col-sm-10">
-                                                <div class="ng-cloak" ng-controller="DemoCtrl as ctrl">
+                                                <div class="ng-cloak" ng-controller="TopicCtrl as ctrl">
                                                   <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
                                                     <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                                                     <ui-select-choices group-by="'topicname'" repeat="item in ctrl.topic | filter: $select.search">
@@ -262,15 +262,17 @@ title: Agent Email
                                               <a class="btn-link" ng-hide="addccline" ng-click="addccline = !addccline">Add Group To CC Line</a> 
                                             </div>
                                           </div>
-                                          <div class="form-group" ng-show="addccline">
+                                          <div class="form-group" ng-cloak ng-show="addccline">
                                             <label class="col-sm-2 control-label">Add Group To CC Line</label>
-                                            <div class="col-sm-10" ng-controller="ListCtrl as ctrl">
-                                              <ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose Group">
-                                                <ui-select-match placeholder="Search list to add group to cc line..." >{% raw %}{{ $item.List }}{% endraw %}</ui-select-match>
-                                                <ui-select-choices repeat="color in ctrl.availableLists | filter:$select.search">
-                                                    <span ng-attr-title="{{ color.List }}" ng-bind-html="color.List | highlight: $select.search"></span>
-                                                </ui-select-choices>
-                                              </ui-select>
+                                            <div class="col-sm-10">
+                                              <div ng-cloak ng-controller="CCLineCtrl as ctrl">
+                                                <ui-select ng-model="ctrl.cclistselected.selected" theme="select2" title="Search list to add group to cc line">
+                                                  <ui-select-match placeholder="SSearch list to add group to cc line" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                                  <ui-select-choices group-by="'topicname'" repeat="item in ctrl.cclist | filter: $select.search">
+                                                    <span ng-attr-title="{{ item.name }}" ng-bind-html="item.name | highlight: $select.search"></span>
+                                                  </ui-select-choices>
+                                                </ui-select>
+                                              </div>
                                             </div>
                                           </div>
                                           <div class="clearfix"></div>
@@ -464,7 +466,7 @@ title: Agent Email
 					{List: 'WG SMF'}];
 		});
 
-    app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+    app.controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
       var vm = this;
       vm.topicselected = {selected : "e-shop -- All Topics(0)"};
 			vm.topic = [
@@ -486,6 +488,15 @@ title: Agent Email
 					{name: 'Shipping (0)',topiclevel:1},
 					{name: 'Technical Support (0)',topiclevel:1},
 					{name: 'Open Quotes (1)',topiclevel:1}
+			];
+    });
+    
+    app.controller('CCLineCtrl', function ($scope, $http, $timeout, $interval) {
+      var vm = this;
+      vm.cclistselected = {selected : "Search list to add group to cc line"};
+			vm.cclist = [
+					{name: 'Dispatch'},
+					{name: 'Service'},
 			];
 		});
 	</script>

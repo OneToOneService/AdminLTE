@@ -115,29 +115,16 @@
             <i class="fa  fa-arrows-alt"></i>
             Change Topic
           </button>
-          <ul class="dropdown-menu dropdown-menu-btn-option" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+          <ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
             <li>
-                <input type="text" class="form-control mbottom-15">
-                <select class="changetopicselect form-control" multiple>
-                  <option class="op-level-0">e-shop -- All Topics(0)</option>
-                  <option class="op-level-1">_Feedback (2)</option>
-                  <option class="op-level-1">_Newsletter Subscription (0)</option>
-                  <option class="op-level-1">_Spam (0)</option>
-                  <option class="op-level-1">_Undeliverable (0)</option>
-                  <option class="op-level-1">Account Questions (0)</option>
-                  <option class="op-level-2">Orders (0)</option>
-                  <option class="op-level-2">Refunds (0)</option>
-                  <option class="op-level-2">Returns (0)</option>
-                  <option class="op-level-2">Products(0)</option>
-                  <option class="op-level-2">Audio-Video (0)</option>
-                  <option class="op-level-2">Cameras (0)</option>
-                  <option class="op-level-0">Cell Phones (0)</option>
-                  <option class="op-level-1">Computers (0)</option>
-                  <option class="op-level-1">Televisions(0)</option>
-                  <option class="op-level-0">Shipping (0)</option>
-                  <option class="op-level-0">Technical Support (0)</option>
-                  <option class="op-level-0">Open Quotes (1)</option>
-                </select>
+                <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+                    <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+                    <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                    <ui-select-choices group-by="'topicname'" repeat="item in ctrl.topic | filter: $select.search">
+                      <span ng-attr-title="{{ item.name }}" ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %}" ng-bind-html="item.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                    </ui-select>
+                 </div>
             </li>
           </ul>
         </div>
