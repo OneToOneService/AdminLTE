@@ -3182,3 +3182,33 @@ table .uib-weeks td.h6:first-child {
     margin-top: -22px;
   }
 }
+.treeview-collapse {
+  transition: width 0.25s ease-in-out;
+  cursor: pointer;
+}
+.treeview-expand {
+  transition: width 0.25s ease-in-out;
+  cursor: pointer;
+}
+.treeview-collapse .box-header i,
+.treeview-collapse .box-header h3 {
+  display: none;
+}
+.treeview-collapse i.treeview-collapse-icon {
+  display: block;
+}
+.treeview-collapse .box-body {
+  visibility: hidden;
+}
+.treeview-expand-icon {
+  display: none !important;
+}
+@media (max-width: 991px) {
+  .treeview-collapse i.collapse-icon,
+  .treeview-expand i.treeview-collapse-icon {
+    display: none;
+  }
+  .treeview-expand-icon {
+    display: block !important;
+  }
+}
