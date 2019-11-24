@@ -1212,8 +1212,8 @@ title: Contact
               <div class="col-md-12">
                 <div class="nav-tabs-custom">
                   <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="Red dot indicates the question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-                    <li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip=" Red dot indicates this tab contains properties with values." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+                    <li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+                    <li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
                     <li><a href="#tab_property_3" data-toggle="tab"  uib-tooltip="There are properties private comments available for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
                   </ul>
                   <div class="tab-content">
@@ -1487,8 +1487,8 @@ title: Contact
 						<div class="col-md-12">
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
-									<li class="active"><a href="#tab_case_2_1" data-toggle="tab" uib-tooltip="Red dot indicates the question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-									<li><a href="#tab_case__2_2" data-toggle="tab"  uib-tooltip=" Red dot indicates this tab contains properties with values." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+									<li class="active"><a href="#tab_case_2_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+									<li><a href="#tab_case__2_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active" id="tab_case_2_1">
@@ -1805,7 +1805,7 @@ title: Contact
     angular.module('iService').controller('extAgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
-			vm.agentselected = {selected : "Select or search for a mailbox in the list"};
+			vm.agentselected = {selected : "Select or search for a notification template"};
 			vm.agentname = [ 
 				{name: 'Alek Packard' , email:'alek.packard@example.com', code: 'AP'},
 				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS'},
@@ -1853,7 +1853,7 @@ title: Contact
 				'3' : { name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
 				'4' : { name: 'Human Resources',email:'human.resources@1to1service.com', segmentname: 'Human Resources' },
 			};
-        vm.segmentselected = {selected : "Select or search for a mailbox"};
+        vm.segmentselected = {selected : "Select or search for a mailbox to receive interaction"};
 			vm.segment = [
 				{ name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
 				{ name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },

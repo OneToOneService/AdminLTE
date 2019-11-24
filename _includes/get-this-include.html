@@ -85,9 +85,7 @@
                   </ui-select>
                 </div>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option>Agent Notify</option>																		
-                  </select>	
+                  <input type="text" class="form-control" placeholder="Enter the email address for the external agent">
                   <button class="btn btn-primary btn-xs">Forward Now</button> 
                 </div>
               </div>
@@ -139,8 +137,8 @@
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Email Addresses & Subject for Response</span></a></li>
-            <li><a href="#tab_2" data-toggle="tab" uib-tooltip="Red dot indicates the question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-            <li><a href="#tab_3" data-toggle="tab" uib-tooltip=" Red dot indicates this tab contains properties with values." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+            <li><a href="#tab_2" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+            <li><a href="#tab_3" data-toggle="tab" uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane" id="tab_2">
@@ -474,26 +472,25 @@
               <div class="col-xs-12" ng-hide="customform">
                 <div class="custom-scroll">
                   <ul class="list-unstyled segment-variable-list">
-                    <li class="section-label">
-                      Segment Responses
-                      <ul class="segment-variables">
-                        <li class="section-var-link">Chat Closing</li>
-                        <li class="section-var-link">Chat Opening</li>
-                        <li class="section-var-link">Chat Wait</li>
-                        <li class="section-var-link">iService Website</li>
-                      </ul>
-                    </li>
+                  <li class="section-label">
+                    Segment Responses
+                    <ul class="segment-variables">
+                    <li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip" data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Closing</li>
+                    <li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Opening</li>
+                    <li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Wait</li>
+                    <li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>iService Website</li>
+                    </ul>
+                  </li>
                   </ul>
                   <ul class="list-unstyled segment-variable-list">
-                    <li class="section-label">
-                      Agent Response
-                      <ul class="segment-variables">
-                        <li class="section-var-link">Test</li>
-                      </ul>
-                    </li>
+                  <li class="section-label">
+                    Agent Response
+                    <ul class="segment-variables">
+                    <li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Test</li>
+                    </ul>
+                  </li>
                   </ul>
-
-                </div>
+                 </div>
               </div>
             </div>
           </div> 

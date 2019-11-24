@@ -911,7 +911,7 @@ title: Manage KB Article
 		angular.module('iService').controller('extAgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
-			vm.agentselected = {selected : "Select or search for a mailbox in the list"};
+			vm.agentselected = {selected : "Select or search for a notification template"};
 			vm.agentname = [ 
 				{name: 'Alek Packard' , email:'alek.packard@example.com', code: 'AP'},
 				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS'},
@@ -960,7 +960,7 @@ title: Manage KB Article
 				'3' : { name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
 				'4' : { name: 'Human Resources',email:'human.resources@1to1service.com', segmentname: 'Human Resources' },
 			};
-        vm.segmentselected = {selected : "Select or search for a mailbox"};
+        vm.segmentselected = {selected : "Select or search for a mailbox to receive interaction"};
 			vm.segment = [
 				{ name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
 				{ name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },

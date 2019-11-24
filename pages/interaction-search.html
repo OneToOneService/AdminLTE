@@ -486,8 +486,8 @@ title:  Search Interactions
 						<div class="col-md-12">
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
-									<li class="active"><a href="#tab_case_1" data-toggle="tab" uib-tooltip="Red dot indicates the question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-									<li><a href="#tab_case_2" data-toggle="tab"  uib-tooltip=" Red dot indicates this tab contains properties with values." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+									<li class="active"><a href="#tab_case_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+									<li><a href="#tab_case_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active" id="tab_case_1">
@@ -824,7 +824,7 @@ function stopPropagation(evt) {
 		angular.module('iService').controller('extAgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
-			vm.agentselected = {selected : "Select or search for a mailbox in the list"};
+			vm.agentselected = {selected : "Select or search for a notification template"};
 			vm.agentname = [ 
 				{name: 'Alek Packard' , email:'alek.packard@example.com', code: 'AP'},
 				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS'},

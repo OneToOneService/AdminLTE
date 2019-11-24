@@ -882,6 +882,7 @@ ul.timeline span.stack-icon .aqua {
   font-weight: normal;
   list-style: none;
   padding-left: 10px;
+  cursor: pointer;
 }
 .li.segment-lable {
   margin-left: -12px;

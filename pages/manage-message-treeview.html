@@ -204,9 +204,7 @@ title: Manage Messages Tree View
 																	</ui-select>
 																</div>	
 																<div class="form-group">
-																	<select class="form-control">
-																		<option>Agent Notify</option>																		
-																	</select>	
+																	<input type="text" class="form-control" placeholder="Enter the email address for the external agent">	
 																	<button class="btn btn-primary btn-xs">Forward Now</button> 
 																</div>
 															</div>    
@@ -500,26 +498,25 @@ title: Manage Messages Tree View
 																	</div>
 																	<div class="col-xs-12" ng-hide="customform">
 																		<div class="custom-scroll">
-																		<ul class="list-unstyled segment-variable-list">
+																			<ul class="list-unstyled segment-variable-list">
 																			<li class="section-label">
-																			Segment Responses
-																			<ul class="segment-variables">
-																				<li class="section-var-link">Chat Closing</li>
-																				<li class="section-var-link">Chat Opening</li>
-																				<li class="section-var-link">Chat Wait</li>
-																				<li class="section-var-link">iService Website</li>
-																			</ul>
+																				Segment Responses
+																				<ul class="segment-variables">
+																				<li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip" data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Closing</li>
+																				<li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Opening</li>
+																				<li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Wait</li>
+																				<li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>iService Website</li>
+																				</ul>
 																			</li>
-																		</ul>
-																		<ul class="list-unstyled segment-variable-list">
+																			</ul>
+																			<ul class="list-unstyled segment-variable-list">
 																			<li class="section-label">
-																			Agent Response
-																			<ul class="segment-variables">
-																				<li class="section-var-link">Test</li>
-																			</ul>
+																				Agent Response
+																				<ul class="segment-variables">
+																				<li class="section-var-link"><i class="fa fa-question-circle mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Test</li>
+																				</ul>
 																			</li>
-																		</ul>
-														
+																			</ul>
 																		</div>
 																	</div>
 																	</div>
@@ -994,8 +991,8 @@ title: Manage Messages Tree View
 							<div class="col-md-12">
 								<div class="nav-tabs-custom">
 									<ul class="nav nav-tabs">
-										<li class="active"><a href="#tab_case_1" data-toggle="tab" uib-tooltip="Red dot indicates the question has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-										<li><a href="#tab_case_2" data-toggle="tab"  uib-tooltip=" Red dot indicates this tab contains properties with values." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+										<li class="active"><a href="#tab_case_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+										<li><a href="#tab_case_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
 									</ul>
 									<div class="tab-content">
 										<div class="tab-pane active" id="tab_case_1">
@@ -1342,7 +1339,7 @@ title: Manage Messages Tree View
 		angular.module('iService').controller('extAgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
-			vm.agentselected = {selected : "Select or search for a mailbox in the list"};
+			vm.agentselected = {selected : "Select or search for a notification template"};
 			vm.agentname = [ 
 				{name: 'Alek Packard' , email:'alek.packard@example.com', code: 'AP'},
 				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS'},
@@ -1390,7 +1387,7 @@ title: Manage Messages Tree View
 				'3' : { name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
 				'4' : { name: 'Human Resources',email:'human.resources@1to1service.com', segmentname: 'Human Resources' },
 			};
-        vm.segmentselected = {selected : "Select or search for a mailbox"};
+        vm.segmentselected = {selected : "Select or search for a mailbox to receive interaction"};
 			vm.segment = [
 				{ name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
 				{ name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },

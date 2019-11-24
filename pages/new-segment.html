@@ -195,7 +195,7 @@ title:  New Segment Settings
                               <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Mailbox</label>
                               <div class="col-sm-12" ng-controller="Mailbox as ctrl">
                                 <ui-select ng-model="ctrl.mailboxselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox">
-                                  <ui-select-match placeholder="Select or search for a mailbox in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                  <ui-select-match placeholder="Select or search for a mailbox in the list" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                                   <ui-select-choices repeat="mailbox in ctrl.mailboxname | filter: $select.search">
                                   <span ng-bind-html="mailbox.name | highlight: $select.search"></span>
                                   <small ng-bind-html="mailbox.code | highlight: $select.search"></small>
