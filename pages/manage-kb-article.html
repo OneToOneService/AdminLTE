@@ -28,7 +28,7 @@ title: Manage KB Article
 				</ol>
 			</section>
   		<!-- Main content -->
-			<section class="content">
+			<section class="content" ng-controller="myCtrl">
 				<div class="row"> 
 					<div class="col-md-12">
 						<div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
@@ -38,14 +38,16 @@ title: Manage KB Article
 					</div>
 				</div>
 				<div class="row"> 
-					<div class="col-md-4">
+					<div class="col-md-4" ng-class="{'col-md-1 treeview-collapse': !menuCollapse, 'treeview-expand': menuCollapse}" ng-init="menuCollapse = true;">
 						<!-- Profile Image -->
 						<div class="box box-primary">
 							<div class="box-header with-border">
 								<i class="fa fa-list-ul"></i>
 								<h3 class="box-title text-right">Topic List</h3>
+								<span aria-hidden="true" class="pull-right  mleft-15" ng-click="menuCollapse = !menuCollapse;" ng-init="menuCollapse = true;"><i class="fa fa-reorder treeview-collapse-icon"></i></span>
+								<span ng-click="treeView()" aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right mleft-15 treeview-expand-icon" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedTreeView}" ng-init="isCollapsedTreeView = false;"></span>
 							</div>
-							<div class="box-body search-criteria">
+							<div class="box-body search-criteria" uib-collapse="isCollapsedTreeView">
 								<div class="row">
 									<div class="col-md-12 message-head">
 										<label class="pull-left select-all-topic"><input type="checkbox" class="minimal">Select All Topics</label> 
@@ -94,7 +96,7 @@ title: Manage KB Article
 						</div>
 					<!-- /.box -->
 					</div>
-					<div class="col-md-8 p-l-0">
+					<div class="p-l-0" ng-class="{'col-md-8': menuCollapse, 'treeview-expand col-md-11': !menuCollapse}">
 						<div class="row mbottom-15">
 							<div class="col-md-8">
 								<div class="input-group">
@@ -117,7 +119,7 @@ title: Manage KB Article
 								</div>	
 							</div>
 						</div>	
-						<div class="row" ng-controller="myCtrl">
+						<div class="row" >
 							<div class="col-md-12">
 								<div class="box box-info">
 									<div class="box-header with-border">
@@ -894,6 +896,11 @@ title: Manage KB Article
 				$scope[row] = !$scope[row];
 			}
 
+			$scope.treeView = function(){
+					$scope.isCollapsedTreeView = !$scope.isCollapsedTreeView;
+			}
+
+
 		});	 
 
 		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
@@ -991,6 +998,6 @@ title: Manage KB Article
 			];
 		});
 </script>
-
+{% include common-controller-function.html %}
 </body>
 </html>

@@ -950,7 +950,7 @@ title:  Account
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
                   <li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
-                  <li><a href="#tab_property_3" data-toggle="tab"  uib-tooltip="There are private comments for this interaction" tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
+                  <li><a href="#tab_property_3" data-toggle="tab"  uib-tooltip="There are private comments for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_detail_1">
@@ -1505,6 +1505,12 @@ title:  Account
 				$scope[action] = !$scope[action];
 			};
 
+      $scope.customForm = function(){
+				$scope.customform = true;
+			}
+			$scope.builtinForm = function(){
+				$scope.customform = false;
+			}
 		});	 
     angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
