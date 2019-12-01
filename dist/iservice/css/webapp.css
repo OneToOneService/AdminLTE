@@ -3176,6 +3176,10 @@ table .uib-weeks td.h6:first-child {
 .form-variable {
   margin-bottom: -22px;
 }
+.disabled {
+  color: #b5bbc8;
+  cursor: not-allowed;
+}
 @media (max-width: 768px) {
   .form-variable {
     margin-bottom: 0px;

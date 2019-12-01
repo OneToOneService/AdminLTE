@@ -137,12 +137,9 @@ title: Manage Messages List View
 															<div class="btn-list-options form-group" ng-show="forwardExternalSegment">
 																<div class="form-group ng-cloak" ng-controller="extAgentCtrl as ctrl">
 																	<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-																		<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																		<ui-select-match placeholder="Select or search for a notification template" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 																		<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
 																		<span ng-bind-html="agent.name | highlight: $select.search"></span>
-																		<small ng-bind-html="agent.code | highlight: $select.search"></small>
-																		<br>
-																		email: <span ng-bind-html="agent.email | highlight: $select.search"></span>
 																		</ui-select-choices>
 																	</ui-select>
 																</div>
@@ -166,7 +163,7 @@ title: Manage Messages List View
 																	<ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
 																	<ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 																	<ui-select-choices group-by="'topicname'" repeat="item in ctrl.topic | filter: $select.search">
-																		<span ng-attr-title="{{ item.name }}" ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %}" ng-bind-html="item.name | highlight: $select.search"></span>
+																		<span ng-attr-title="{{ item.name }}" ng-disabled=true ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %}" disabled ng-bind-html="item.name | highlight: $select.search"></span>
 																	</ui-select-choices>
 																	</ui-select>
 															</div>
@@ -1397,11 +1394,9 @@ title: Manage Messages List View
 			vm.agent = {};
 			vm.agentselected = {selected : "Select or search for a notification template"};
 			vm.agentname = [ 
-				{name: 'Alek Packard' , email:'alek.packard@example.com', code: 'AP'},
-				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS'},
-				{name: 'Jonie Hewlett', email:'jonie.hewlett@example.com', code: 'JH'},
-				{name: 'Justin Time', email:'justin.time@example.com', code: 'JT'},
-			];
+				{name: 'Template 1'},
+				{name: 'Template 2'},
+		    ];
 		});
 	    
 		angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
@@ -1502,32 +1497,8 @@ title: Manage Messages List View
 				{name: 'Technical Support (technicalsupport@example.com)', code: ''},
 			];
 		});
-
-	app.controller('ChangeTopicCtrl', function ($scope, $http, $timeout, $interval) {
-      var vm = this;
-      vm.topicselected = {selected : "e-shop -- All Topics(0)"};
-			vm.topic = [
-					{name: 'e-shop -- All Topics(0)',topiclevel:0},
-					{name: '_Feedback (2)',topiclevel:1},
-					{name: '_Newsletter Subscription (0)',topiclevel:1},
-					{name: '_Spam (0)',topiclevel:1},
-					{name: '_Undeliverable (0)',topiclevel:1},
-					{name: 'Account Questions (0)',topiclevel:0},
-					{name: 'Orders (0)',topiclevel:1},
-					{name: 'Refunds (0)',topiclevel:1},
-					{name: 'Returns (0)',topiclevel:1},
-					{name: 'Products(0)',topiclevel:0},
-					{name: 'Audio-Video (0)',topiclevel:1},
-					{name: 'Cameras (0)',topiclevel:1},
-					{name: 'Cell Phones (0)',topiclevel:1},
-					{name: 'Computers (0)',topiclevel:1},
-					{name: 'Televisions(0)',topiclevel:1},
-					{name: 'Shipping (0)',topiclevel:1},
-					{name: 'Technical Support (0)',topiclevel:1},
-					{name: 'Open Quotes (1)',topiclevel:1}
-			];
-    });
-    
+ 
 </script>
+{% include common-controller-function.html %}
 </body>
 </html>

@@ -72,15 +72,12 @@
                             <div class="btn-list-options form-group" ng-show="forwardExternalSegment">
                                 <div class="form-group ng-cloak" ng-controller="extAgentCtrl as ctrl">
                                     <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-                                        <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                        <ui-select-match placeholder="Select or search for a notification template" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                                         <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
                                         <span ng-bind-html="agent.name | highlight: $select.search"></span>
-                                        <small ng-bind-html="agent.code | highlight: $select.search"></small>
-                                        <br>
-                                        email: <span ng-bind-html="agent.email | highlight: $select.search"></span>
                                         </ui-select-choices>
                                     </ui-select>
-                                </div>	
+                                </div>
                                 <div class="form-group">
                                   <input type="text" class="form-control" placeholder="Enter the email address for the external agent">	
                                   <button class="btn btn-primary btn-xs">Forward Now</button> 
