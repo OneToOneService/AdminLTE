@@ -112,14 +112,14 @@
           </button>
           <ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
             <li>
-                <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
-                  <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+              <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+                <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
                   <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                  <ui-select-choices group-by="'topicname'" repeat="item in ctrl.topic | filter: $select.search">
-                    <span ng-attr-title="{{ item.name }}" ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %}" ng-bind-html="item.name | highlight: $select.search"></span>
+                  <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                    <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
                   </ui-select-choices>
-                  </ui-select>
-                </div>
+                </ui-select>
+              </div>
             </li>
           </ul>
         </div>
@@ -159,11 +159,13 @@
                     </div>	
                     <div class="clear"></div>
                     <div class="int-det-box pull-right"> 
-                      <div> <b>Interaction Id : </b>114576</div>
-                      <div><b>Last Modified By : </b>Alek Packard</div>
-                      <div><b>Created : </b>45 min ago</div>
-                      <div><b> Approved By : </b>&nbsp;</div>									
-                    </div>
+                        <div><b>Interaction ID : </b>4645646</div>
+                        <div><b> Segment / Topic : </b>All Topic</div>
+                        <div><b> Resolved By : </b>Alek Packard</div>
+                        <div><b> Approved By : </b>&nbsp;</div>	
+                        <div><b> Interaction Status : </b><small class="bg-green-active label">Resolved</small></div>									
+                        <div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
+                      </div>
                   </div>
                   <div class="col-md-12 mtop-15"><b><i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
                 </div>
@@ -192,19 +194,18 @@
                       </select>
                     </div>
                   </div>
-                  <div class="cc-label">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                      <a class="btn-link" ng-hide="showCC" ng-click="showCC = !showCC">Add CC</a>
-                      <a class="btn-link" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
-                    </div>
-                  </div>
-                  <div class="form-group" ng-show="showCC">
+                 
+                  <div class="form-group">
                     <label class="col-sm-2 control-label text-left">CC</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-8">
                       <input class="form-control" type="text">
                     </div>
+                    <div class="col-sm-2 ">
+                        <i class="fa  fa-mail-reply-all replyall mright-5 cp"  uib-tooltip="Reply To All" tooltip-placement="bottom"></i>
+                        <a class="btn-link bcc-link  cp" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
+                    </div>  
                   </div>
+                 
                   <div class="form-group" ng-show="showBCC">
                     <label class="col-sm-2 control-label text-left">BCC</label>
                     <div class="col-sm-10">

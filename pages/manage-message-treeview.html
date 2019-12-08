@@ -219,12 +219,12 @@ title: Manage Messages Tree View
 														<li>
 															<div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
 																<ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
-																<ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																<ui-select-choices group-by="'topicname'" repeat="item in ctrl.topic | filter: $select.search">
-																	<span ng-attr-title="{{ item.name }}" ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %}" ng-bind-html="item.name | highlight: $select.search"></span>
-																</ui-select-choices>
+																	<ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																	<ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+																		<span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+																	</ui-select-choices>
 																</ui-select>
-															</div>
+														    </div>
 														</li>
 													</ul>
 												</div>
@@ -434,7 +434,92 @@ title: Manage Messages Tree View
 															<li><a href="#plainhtmlmassupdate" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
 															<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
 																<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
-															    {% include variables-and-stock-responses.html %}
+															    <div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																	<div class="variables">
+																		<div class="col-md-12">   
+																		<div class="btn-group" data-toggle="btn-toggle">
+																			<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =false;">Variables</a>
+																			<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+																		</div>
+																		</div>   
+																		<div class="col-md-12  mtop-15">
+																		<div class="row form-group">
+																			<label class="col-md-12 control-label text-left">Filter</label>
+																			<div class="col-md-12">
+																			<input type="text" class="form-control">
+																			</div>
+																		</div>
+																		</div>
+																		<div class="col-xs-12" ng-show="customform">
+																		<div class="custom-scroll">
+																			<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">
+																				Contact
+																				<ul class="segment-variables">
+																				<li class="section-var-link">Name</li>
+																				<li class="segment-lable">
+																					Global
+																					<ul>
+																					<li class="section-var-link">Address1</li>
+																					<li class="section-var-link">Address2</li>
+																					<li class="section-var-link">City</li>
+																					<li class="section-var-link">Country</li>
+																					<li class="section-var-link">Company</li>
+																					</ul>
+																				</li>
+																				<li class="segment-lable">
+																					JC Segment
+																					<ul>
+																					<li class="section-var-link">Contact View Only Property</li>
+																					<li class="section-var-link">Contact Viewable and Editable Property</li>
+																					<li class="section-var-link">Multi value No Descr</li>
+																					<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																					</ul>
+																				</li>
+																				</ul>
+																			</li>
+																			</ul>
+																			<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">
+																				Answer
+																				<ul class="segment-variables">
+																				<li class="section-var-link">Email</li>
+																				<li class="section-var-link">Reference Number</li>
+																				<li class="section-var-link">Original Date</li>
+																				<li class="section-var-link">Original Time</li>
+																				<li class="section-var-link">Subject</li>
+																				<li class="section-var-link">Original Body</li>
+																				<li class="section-var-link">Quoted Question</li>
+																				</ul>
+																			</li>
+																			</ul>
+																		</div>
+																		</div>
+																		<div class="col-xs-12" ng-hide="customform">
+																			<div class="custom-scroll">
+																				<ul class="list-unstyled segment-variable-list">
+																				<li class="section-label">
+																					Segment Responses
+																					<ul class="segment-variables">
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip" data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Closing</li>
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Opening</li>
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Wait</li>
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>iService Website</li>
+																					</ul>
+																				</li>
+																				</ul>
+																				<ul class="list-unstyled segment-variable-list">
+																				<li class="section-label">
+																					Agent Response
+																					<ul class="segment-variables">
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Test</li>
+																					</ul>
+																				</li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div> 
 															</div>
 														</ul>
 														<div class="tab-content">
@@ -824,23 +909,25 @@ title: Manage Messages Tree View
 									<i class="fa fa-mail-forward"></i>
 									Forward Copy
 								</button>
-								<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-									<button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
-										<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                <div class="option-btn">
+									<button class="btn bg-info btn-info margin-r-5" uib-tooltip="Assign this…" tooltip-placement="bottom" ng-click="show('getthis')">
+										<i class="fa fa-sign-in"></i>
+										Get This
 									</button>
-									<ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-										<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
-										  <iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
-										</li>
-										<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
-										<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
-										<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
-									</ul>
+									<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+										<button type="button" class="btn btn-default margin-r-5" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
+											<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+										</button>
+										<ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+											<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+											<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
+											</li>
+											<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+											<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
+											<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+										</ul>
+									</div>
 								</div>
-								<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this…" tooltip-placement="bottom" ng-click="show('getthis')">
-									<i class="fa fa-sign-in"></i>
-									Get This
-								</button>
 							</div>
 							<div class="col-md-12 mtop-15">
 								<div class="box status-box" style="display:none">
@@ -916,6 +1003,7 @@ title: Manage Messages Tree View
 														<div class="user-container">
 															<span class="user">
 																<img src="/dist/img/agent.png">
+																<b>Agent</b>
 															</span>
 															<!--For ellipsis or limit the character add  class="username-ellipsis"
 																						eg :- <span class="username-ellipsis">Alek Packard</span>

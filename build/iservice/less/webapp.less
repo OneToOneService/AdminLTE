@@ -1456,23 +1456,7 @@ ul.timeline span.stack-icon
         text-align: left;
     }
 }
-//@screen-sm-min 768 and @screen-sm-max 992
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max)
-{
-    .user-detail label.control-label
-    {
-        padding-left: 15px !important;
-    }
 
-    .contact-summary .user-detail .user-name
-    {
-        margin-top: 0px;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-   
-}
 
 /*Added for contact summary end*/
 
@@ -2073,6 +2057,11 @@ ul.timeline span.stack-icon
 .table .icon-col
 {
     width: 68px !important;
+    padding-top: 8px;
+}
+.table .icon-col-2
+{
+    width: 140px !important;
     padding-top: 8px;
 }
 
@@ -4124,6 +4113,8 @@ ul.update-list li::before
     left: ~"calc(50% - 18px)";
     top: 47%;
 }
+
+.filtergroup i{font-size:20px; margin-left:-4px;}
 /**
  * The dndDraggingSource class will be applied to
  * the source element of a drag operation. It makes
@@ -4333,11 +4324,12 @@ table .uib-weeks td.h6:first-child{visibility:hidden !important;}
     float:left;
 }
 .f16{font-size:16px;}
-.op-level-0{font-weight:bold;}
+.op-level-0{font-weight:normal;}
 .op-level-1{padding-left:15px;}
 .op-level-2{padding-left:30px;}
 .form-variable{margin-bottom:-22px;}
 .disabled{color:@bg-gray-disabled; cursor: not-allowed;}
+small.disabled{cursor:default;}
 //@screen-sm-min 768 
 @media (max-width: @screen-sm-min)
 {
@@ -4356,7 +4348,39 @@ table .uib-weeks td.h6:first-child{visibility:hidden !important;}
   .treeview-collapse i.collapse-icon, .treeview-expand i.treeview-collapse-icon{display:none;}
   .treeview-expand-icon{display:block !important;}
 }
+.option-btn{width:auto; display:inline;}
+.logout-notice{
+   .modal-header, .modal-footer{padding:8px 15px;}
+   .text{font-size:16px;}
+}
+.replyall{margin-top:8px; font-size:20px; margin-left:-15px; position: relative;}
+.cp{cursor: pointer;}
+
+// Small devices (landscape phones, @screen-xs-max 576px and up @screen-sm-max 767px)
+@media (min-width: @screen-xs-max) and (max-width: @screen-sm-max){
+    .replyall{margin-left:-25px;}
+   
+}
 
 
+//@screen-sm-min 768 and @screen-sm-max 992
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max)
+{
+    .user-detail label.control-label
+    {
+        padding-left: 15px !important;
+    }
 
-
+    .contact-summary .user-detail .user-name
+    {
+        margin-top: 0px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+   
+    
+}
+@media (min-width:  @screen-sm-min){
+  .replyall{margin-left:-25px;}
+  .bcc-link {position: absolute; margin-top:8px;}
+}
