@@ -3323,7 +3323,7 @@ title:  Sales Settings
                                           <div class="filtergroup row">
                                             <button type="button" class="btn btn-link arrow"><i class="fa fa-arrows-h"></i></button>
                                             <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
-                                              <label class="control-label text-left">{% raw %}{{(listName == 'Availablefilter') ? 'Available Filters (Drag filters to add and remove them to the group)' : 'Included Filters'}}{% endraw %}</label>
+                                              <label class="control-label text-left">{% raw %}{{(listName == 'Availablefilter') ? 'Available Filters (Drag filters to add or remove them from the group)' : 'Included Filters'}}{% endraw %}</label>
                                               <div class="col-md-12 filter-box">
                                                   <ul dnd-list="list">
                                                       <li ng-repeat="item in list"
