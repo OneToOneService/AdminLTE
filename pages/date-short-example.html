@@ -61,30 +61,51 @@ title: Date Short Example
 												<td class="text-capitalize">
 													Used to deliver coupons to customers
 												</td>
-												<td class="text-capitalize">
-                                                 <button class="btn-link">a day ago</button>
-												 <span style="display: none;">2019-11-24 10:34</span>
+												<td class="text-capitalize" >
+                                                 <button class="btn-link">now</button>
+												 <span style="display: none;">1575866692</span>
 												</td>
 											</tr>
 											  
 											<tr>
 												<th>14</th>
 												<td class="text-capitalize">
-													For sending policy updates to all staff
+													Best price on LG Plasma
 												</td>
-												<td class="text-capitalize">
-														<button class="btn-link">an hour ago</button>
-													<span style="display: none;"> 2019-11-25 09:00</span>
+												<td class="text-capitalize" >
+													<button class="btn-link">an hour ago</button>
+													<span style="display: none;">1575863092</span>
 												</td>
 											</tr>
 											<tr>
-												<th>14</th>
+												<th>15</th>
 												<td class="text-capitalize">
 													For sending policy updates to all staff
 												</td>
+												<td class="text-capitalize" >
+													<button class="btn-link">2 hours ago </button>
+													<span style="display: none;"> 1575859492</span>
+												</td>
+											</tr>
+
+											<tr>
+												<th>16</th>
 												<td class="text-capitalize">
-														<button class="btn-link">30 minutes ago</button>
-													<span style="display: none;"> 2019-11-25 9:30</span>
+													Feedback provided
+												</td>
+												<td class="text-capitalize" >
+													<button class="btn-link">2 days ago </button>
+													<span style="display: none;"> 1573267492</span>
+												</td>
+											</tr>
+											<tr>
+												<th>17</th>
+												<td class="text-capitalize">
+													I need a good small camera
+												</td>
+												<td class="text-capitalize" >
+													<button class="btn-link">3 years ago </button>
+													<span style="display: none;"> 1478659492</span>
 												</td>
 											</tr>
 										</tbody>
@@ -144,154 +165,9 @@ title: Date Short Example
 						return headCell.dataset.noColVis === undefined;
 					}
 				}]);
-				$scope.toggle = {};
-
-				$scope.formItemList = [];
-			
-				$scope.dtSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
-					search: 'Filter Unsubscribes'
-				})
-				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-				}]);
-
 				
-				$scope.dtUnSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
-					search: 'Filter Subscribers '
-				})
-				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-				}]);
-
-				$scope.dtSearchOptions = DTOptionsBuilder
-						.newOptions()
-						.withOption('language', {
-							search: 'Filter Search Results'
-						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-				}]);
-
-
-				$scope.cancelForm = function(step){
-					for(var i =1; i<=2; i++){
-						if(i == step){
-						$scope['formstep'+i] = true;
-						}	   
-						else	
-						$scope['formstep'+i] = false;
-					}
-				};		
-
-				$scope.showNewFormStep = function(step){
-					for(var i =1; i<=2; i++){
-						if(i == step){
-						$scope['formstep'+i] = true;
-						}	   
-						else	
-						$scope['formstep'+i] = false;
-				}
-
-		};
-		
-		$scope.toggleFormStep = function(segmentName){
-			for(var i =1; i<=2; i++){
-				$scope['row'+i] = false;  
-			}
-			$scope[segmentName] = !$scope[segmentName];
-				$scope['formstep'+2] = !$scope['formstep'+2];
-		};
-
-		$scope.toggleFormStepResponse = function(segmentName){
-			for(var i =1; i<=4; i++){
-				$scope['rowresponse'+i] = false;  
-			}
-			$scope[segmentName] = !$scope[segmentName];
-				$scope['formstepresponse'+4] = !$scope['formstepresponse'+4];
-		};
-
-		$scope.showNewFormResponse = function(){
-			$scope['formstepresponse'+4] = true;
-		};
-       
-		$scope.customForm = function(){
-			$scope.customform = true;
-		}
-		$scope.builtinForm = function(){
-			$scope.customform = false;
-		}
 	});
-	app.controller('myCtrlDetail', function ($scope) {
-      
-	  $scope.toggleSegmentCollapsedState = function (segmentName)
-	  { 
-		$scope[segmentName] = !$scope[segmentName];
-	  };
-    });
-
-	angular.module('iService').controller('MailingListCtrl', function ($scope, $http, $timeout, $interval) {
-		var vm = this;
-		vm.mailinglist = {};
-	    vm.mailinglistselected = {selected : "Customer Notice"};
-		vm.mailinglistname = [ 
-			{name: 'Customer Notice'},
-			{name: 'Employee'},
-			{name: 'Sales Prospecting'}
-		];
-	});
-
-	angular.module('iService').controller('MessageCtrl', function ($scope, $http, $timeout, $interval) {
-		var vm = this;
-		vm.message = {};
-	    vm.messageselected = {selected : "Free Shipping Offer"};
-		vm.messagename = [ 
-			{name: 'Free Shipping Offer'},
-			{name: 'Monthly Discount'},
-		];
-	});
-
-	angular.module('iService').controller('FromEmailCtrl', function ($scope, $http, $timeout, $interval) {
-			var vm = this;
-			vm.mailbox = {};
-	        vm.mailboxselected = {selected : "--Default MailBox--"};
-		    vm.mailboxname = [ 
-			{name: '--Default MailBox--', code: ''},
-			{name: 'Customer Support (support@example.com)', code: ''},
-			{name: 'Sales (Sales@example.com)', code: ''},
-			{name: 'Technical Support (technicalsupport@example.com)', code: ''},
-		];
-	});
-
-	angular.module('iService').controller('CriteriaCtrl', function ($scope, $http, $timeout, $interval) {
-			var vm = this;
-			vm.criteria = {};
-	        vm.criteriaselected = {selected : "Test list"};
-		    vm.criterianame = [ 
-			{name: 'Test list', code: ''},
-			{name: 'Internal only', code: ''},
-			
-		];
-	});
-
+	
 	</script>
 </body>
 </html>
