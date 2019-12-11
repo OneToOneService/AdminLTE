@@ -311,19 +311,15 @@ title: Manage Messages Tree View
 																						</select>    
 																					</div>
 																				</div>
-																				<div class="cc-label">
-																					<div class="col-md-2"></div>
-																					<div class="col-md-10">
-																						<a class="btn-link" ng-hide="showCC" ng-click="showCC = !showCC">Add CC</a> 
-																						<a class="btn-link" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
-																					</div>
-																				</div>
-											
-																				<div class="form-group" ng-show="showCC">
+																				<div class="form-group">
 																					<label class="col-sm-2 control-label text-left">CC</label>
-																					<div class="col-sm-10">
-																						<input class="form-control" type="text" >
+																					<div class="col-sm-8 replyall">
+																						<i class="fa  fa-mail-reply-all  mright-5"  uib-tooltip="This question has addrsses in the CC line. Click to add them to your reply." tooltip-placement="bottom"></i>
+																						<input class="form-control" type="text">
 																					</div>
+																					<div class="col-sm-2">
+																						<a class="btn-link bcc-link cp"  uib-tooltip="Click to add a BCC line to your reply." tooltip-placement="bottom" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
+																					</div>  
 																				</div>
 																				<div class="form-group" ng-show="showBCC">
 																					<label class="col-sm-2 control-label text-left">BCC</label>

@@ -3228,19 +3228,16 @@ small.disabled {
 .logout-notice .text {
   font-size: 16px;
 }
-.replyall {
+.replyall i {
   margin-top: 8px;
   font-size: 20px;
-  margin-left: -15px;
-  position: relative;
+}
+.replyall input {
+  width: calc(100% - 30px) !important;
+  display: inline;
 }
 .cp {
   cursor: pointer;
-}
-@media (min-width: 767px) and (max-width: 991px) {
-  .replyall {
-    margin-left: -25px;
-  }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .user-detail label.control-label {
@@ -3253,11 +3250,9 @@ small.disabled {
   }
 }
 @media (min-width: 768px) {
-  .replyall {
-    margin-left: -25px;
-  }
   .bcc-link {
     position: absolute;
     margin-top: 8px;
+    right: 15px;
   }
 }

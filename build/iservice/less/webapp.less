@@ -4353,13 +4353,13 @@ small.disabled{cursor:default;}
    .modal-header, .modal-footer{padding:8px 15px;}
    .text{font-size:16px;}
 }
-.replyall{margin-top:8px; font-size:20px; margin-left:-15px; position: relative;}
+.replyall i{margin-top:8px; font-size:20px;}
+.replyall input{width:~"calc(100% - 30px)" !important; display:inline;}
 .cp{cursor: pointer;}
 
 // Small devices (landscape phones, @screen-xs-max 576px and up @screen-sm-max 767px)
 @media (min-width: @screen-xs-max) and (max-width: @screen-sm-max){
-    .replyall{margin-left:-25px;}
-   
+
 }
 
 
@@ -4381,6 +4381,5 @@ small.disabled{cursor:default;}
     
 }
 @media (min-width:  @screen-sm-min){
-  .replyall{margin-left:-25px;}
-  .bcc-link {position: absolute; margin-top:8px;}
+  .bcc-link {position: absolute; margin-top:8px;right: 15px;}
 }
