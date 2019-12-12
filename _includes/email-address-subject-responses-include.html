@@ -1,4 +1,39 @@
-<div class="row">
+<div class="tab-pane" id="tab_2">
+  <div class="row">
+    <div class="message-box-header">
+      <div class="col-md-12">
+          <div class="user-container">
+            <span class="user">
+              <img src="/dist/img/agent.png">
+              <b>Agent</b>
+            </span>
+            <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                          eg :- <span class="username-ellipsis">Alek Packard</span>
+              -->
+              <span>John Doe</span>
+          </div>  
+        <div class="message-info">
+          <b>From : </b>john.doe@example.com<br>
+          <b>To : </b>alek.packard@1to1service.com<br>
+          <b>CC : </b>justin.time@1to1service.com<br>
+        </div>	
+        <div class="clear"></div>
+        <div class="int-det-box pull-right"> 
+            <div><b>Interaction ID : </b>4645646</div>
+            <div><b> Segment / Topic : </b>All Topic</div>
+            <div><b> Resolved By : </b>Alek Packard</div>
+            <div><b> Approved By : </b>&nbsp;</div>	
+            <div><b> Interaction Status : </b><small class="bg-green-active label">Resolved</small></div>									
+            <div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
+          </div>
+      </div>
+      <div class="col-md-12 mtop-15"><b><i class="fa fa-paperclip attachment-icon"></i></b><a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+    </div>
+  </div>
+</div>
+<!-- /.tab-pane -->
+<div class="tab-pane active" id="tab_1">
+  <div class="row">
     <div class="col-md-8">
       <div class="form-group">
         <label class="col-sm-2 control-label text-left">From</label>
@@ -51,3 +86,166 @@
       <iservice-files-upload ng-init="uploads = []" files="uploads"></iservice-files-upload>
     </div>
   </div>
+</div>
+<!-- /.tab-pane -->
+<div class="tab-pane" id="tab_3">
+  <div class="row form-horizontal">
+    <div class="col-md-4">
+      <h4>Case Properties</h4>
+      <div class="form-group">
+        <label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+        <div class="col-sm-12">
+          <input type="text" class="form-control pull-right">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-12 control-label text-left">Delivery Date</label>
+        <div class="col-sm-12">
+          <div class="input-group date">
+            <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-12 control-label text-left">Detail</label>
+        <div class="col-sm-12">
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h4>Question Properties</h4>
+      <div class="form-group">
+        <label class="col-md-12 control-label control-label text-left">Quantity</label>
+        <div class="col-sm-12">
+          <input type="number" class="form-control pull-right">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-12 control-label control-label text-left">Team</label>
+        <div class="col-sm-12">
+          <div class="simple-label multiple">
+            <div class="float-btn-group">
+              <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+              <input type="text" class="form-control">
+            </div>
+            <div class="float-btn-group">
+              <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+              <input type="text" class="form-control">
+            </div>
+            <div class="float-btn-group">
+              <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+              <input type="text" class="form-control">
+            </div>
+            <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-12 control-label control-label text-left">Team (with description)</label>
+        <div class="col-sm-12">
+          <div class="simple-label multiple">
+            <div class="float-btn-group">
+              <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+              <div class="input-with-desc">
+                   <select class="form-control group-property-1">
+                    <option>Fax</option>
+                    <option>Home</option>
+                    <option>Mobile</option>
+                </select>  
+                <input type="text" class="form-control group-property-2">
+              </div>  
+            </div>
+            <div class="float-btn-group">
+              <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+              <div class="input-with-desc">
+                <select class="form-control group-property-1">
+                 <option>Fax</option>
+                 <option>Home</option>
+                 <option>Mobile</option>
+                </select>  
+                <input type="text" class="form-control group-property-2">
+              </div> 
+            </div>
+            <div class="float-btn-group">
+              <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+              <div class="input-with-desc">
+                <select class="form-control group-property-1">
+                 <option>Fax</option>
+                 <option>Home</option>
+                 <option>Mobile</option>
+                </select>  
+                <input type="text" class="form-control group-property-2">
+              </div> 
+            </div>
+            <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h4>Answer Properties</h4>
+      <div class="form-group">
+        <label class="col-md-12 control-label text-left">Priority</label>
+        <div class="col-sm-12">
+          <select class="form-control">
+            <option>High</option>
+            <option>Low</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-12 control-label text-left">isOpen</label>
+        <div class="col-sm-12">
+          <select class="form-control">
+            <option>True</option>
+            <option>False</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group bg-group">
+          <label class="col-md-12 control-label text-left">Interaction Property Based Skills</label>
+          <div class="col-md-12">
+            <div class="form-group group-bg group-input detail-g-borderbottom"> 
+              <label class="col-md-12 control-label text-left group-input-label">Interaction Property</label>
+              <div class="col-md-12">
+                <select class="form-control group-input-item" ng-change="setFocus()" ng-model="myValue" ng-init="myValue = 21;">
+                  <option value="21">Answer Property  (QA) (Answer)</option>
+                  <option value="2">Authorization Type  (QA) (Question)</option>
+                  <option value="42">Carrier Adjument Amount (AR)  (1to1Service) (Case)</option>
+                  <option value="48">Case Property</option>
+                  <option value="7">Change Designation  (QA) (Question)</option>
+                  <option value="6">Change Priority  (QA) (Question)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
+              <label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value</label>
+              <div class="col-md-12">														
+                <input type="text" class="form-control group-input-item" id="propertyValue">
+              </div>
+            </div>
+            <div class="form-group group-bg group-input detail-g-bordertop">
+              <label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value Type</label>
+              <div class="col-md-12">														
+                <input type="text" class="form-control group-input-item" id="propertyValue2">
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-12 control-label text-left">Price</label>
+        <div class="col-sm-12">
+            <input type="number" step="any" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+  <!-- /.tab-pane -->
+</div>
