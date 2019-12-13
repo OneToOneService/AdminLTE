@@ -506,7 +506,7 @@ title: Manage Messages List View
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red" checked>
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
-															<i class="fa fa-plus-circle"></i>
+															<i class="fa fa-plus-circle" ng-show="!row2"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
 														</button>
 													</td>
@@ -534,7 +534,7 @@ title: Manage Messages List View
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
-															<i class="fa fa-plus-circle"></i>
+															<i class="fa fa-plus-circle" ng-show="!row3"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
 														</button>
 													</td>
@@ -562,7 +562,7 @@ title: Manage Messages List View
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
-															<i class="fa fa-plus-circle"></i>
+															<i class="fa fa-plus-circle" ng-show="!row4"></i>
 															<i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
 														</button>
 													</td>
@@ -691,7 +691,7 @@ title: Manage Messages List View
 			<div class="row" ng-hide="hidetrue"> 
 				<div class="col-md-12 ">
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-12 mbottom-15">
 							<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to John Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
 								<i class="fa fa-envelope"></i>
 								Agent email
@@ -726,65 +726,82 @@ title: Manage Messages List View
 								Get This
 							</button>
 						</div>
-						<div class="col-md-12 mtop-15">
-							<div class="box status-box" style="display:none">
-							<div class="box-header with-border">
-								<h3 class="box-title">Status Audit</h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+						
+
+						<div class="col-md-12">
+							<div class="box status-box" ng-show="toggle.switchshowstatus">
+								<div class="box-header with-border">
+									<h3 class="box-title">Status Audit</h3>
+									<div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+									</div>
+								</div>
+							   <div class="box-body table-responsive">
+									<table id="example2" class="table  table-striped">
+										<thead>
+											<tr>
+												<th class="text-capitalize">
+												Time 
+												</th>
+												<th class="text-capitalize">
+												Modifier
+												</th>
+												<th class="text-capitalize">
+												Status
+												</th>
+												<th class="text-capitalize">
+												Action
+												</th>
+												<th class="text-capitalize">
+												Assigned To
+												</th>
+												<th class="text-capitalize">
+												Topic
+												</th>
+											</tr>
+										</thead>  
+										<tbody>
+											<tr>
+												<td>
+												11/11/2017 12:19:20PM
+												</td>
+												<td>
+												Jaswantchouhan
+												</td>
+												<td>
+												<small class="label label-success">Resolved</small>
+												</td>
+												<td>
+												Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+												</td>
+												<td>
+												Jaswantchouhan
+												</td>
+												<td>
+												JC - Segment- All Topic - To- Quote - Open Quotes
+												</td>
+											</tr>
+										</tbody>
+									</table>  
 								</div>
 							</div>
-							<div class="box-body table-responsive">
-								<table id="example2" class="table  table-striped">
-									<thead>
-										<tr>
-											<th class="text-capitalize">
-											Time 
-											</th>
-											<th class="text-capitalize">
-											Modifier
-											</th>
-											<th class="text-capitalize">
-											Status
-											</th>
-											<th class="text-capitalize">
-											Action
-											</th>
-											<th class="text-capitalize">
-											Assigned To
-											</th>
-											<th class="text-capitalize">
-											Topic
-											</th>
-										</tr>
-									</thead>  
-									<tbody>
-										<tr>
-											<td>
-											11/11/2017 12:19:20PM
-											</td>
-											<td>
-											Jaswantchouhan
-											</td>
-											<td>
-											<small class="label label-success">Resolved</small>
-											</td>
-											<td>
-											Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
-											</td>
-											<td>
-											Jaswantchouhan
-											</td>
-											<td>
-											JC - Segment- All Topic - To- Quote - Open Quotes
-											</td>
-										</tr>
-									</tbody>
-								</table>  
-							</div>
-							</div>
 						</div>
+
+						<div class="col-md-12 full-case-panel" ng-show="toggle.switchshowfullcase">
+							<div class="box">
+								<div class="box-header with-border">
+									<h3 class="box-title">Full Case History Ref:4545646</h3>
+									<div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+									</div>
+								</div>
+								<div class="box-body">
+									<div class="full-case-panel-data"></div>
+								</div>
+							</div>	
+						</div>	
 					</div>	
+
 					<div class="row">
 						<div class="col-md-12">
 							<div class="nav-tabs-custom">
@@ -1275,12 +1292,13 @@ title: Manage Messages List View
 				}else{
 					removeFunction(segmentName);
 				}
-			};
+			}
 
 			function myCreateFunction(row)
 			{
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#' + row).after($compile('<tr class="expandedrowcontent"><td class="white-bg" style="width:40px;">&nbsp;</td><td colspan="6" style="padding:0px;"><table class="table"><tr class="bg-customer-reply" ng-show="showexpanded1"><td style="width:40px;">&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow').innerHTML + '</td></tr><tr id="row2" class="bg-agent-reply" ng-show="toggle.switchshowfullcase"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></td><td>[ref#: 42733-42733] Feedback provided</td><td> Jacob Smith</td><td>feedback@gmail.com</td><td><small class="bg-black disabled label">2018-08-03 11:55:44 AM</small></td><td>	Jacob Smith	</td><td>	_Feedback	</td></tr><tr class="bg-agent-reply" ng-show="showexpanded2"><td>&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow2').innerHTML + '</td></tr></table></td></tr>')($scope));
+				angular.element('#' + row).after($compile('<tr class="expandedrowcontent"><td class="white-bg" style="width:40px;">&nbsp;</td><td colspan="6" style="padding:0px;"><table class="table"><tr class="bg-customer-reply" ng-show="showexpanded1"><td colspan="7">' + document.getElementById('expandedrow').innerHTML + '</td></tr></table></td></tr>')($scope));
+				angular.element('.full-case-panel-data').after($compile('<table class="table"><tr id="row2" class="bg-agent-reply" ng-show="toggle.switchshowfullcase"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></td><td>[ref#: 42733-42733] Feedback provided</td><td> All Topic</td><td><small class="bg-red-disabled label">Queued</small></td><td>--</td><td>2018-08-03 11:55:44 AM<td></tr><tr class="bg-agent-reply" ng-show="showexpanded2"><td>&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow2').innerHTML + '</td></tr></table>')($scope));
 			}
 			function removeFunction(row){
 				angular.element('.expandedrowcontent').remove();
