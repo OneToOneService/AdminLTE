@@ -131,17 +131,7 @@
       </div>
       <div class="row">
         <!-- Custom Tabs -->
-        <div class="nav-tabs-custom">
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Email Addresses & Subject for Response</span></a></li>
-            <li><a href="#tab_2" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-            <li><a href="#tab_3" data-toggle="tab" uib-tooltip=" " tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
-          </ul>
-          <div class="tab-content">
-            {% include email-address-subject-responses-include.html %}
-          </div>
-          <!-- /.tab-content -->
-        </div>
+        {% include email-address-subject-responses-include.html tab="3" %}
         <!-- nav-tabs-custom -->
       </div>
     </div>
