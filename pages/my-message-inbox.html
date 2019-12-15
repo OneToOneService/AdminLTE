@@ -97,7 +97,7 @@ title:  My Message Inbox
                           </td>
                         </tr>
 
-                        <tr id="row2" ng-click="toggleRow('row2')" ng-class="{true: 'row-active', false: 'row-default'}[row2]">
+                        <tr id="row2" ng-click="toggleRow('row2','quote');" ng-class="{true: 'row-active', false: 'row-default'}[row2]">
                           <!--	<td name="name" width="30">
                               <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
                                 <i class="fa fa-plus-circle" ng-show="!row2"></i>
@@ -120,7 +120,7 @@ title:  My Message Inbox
                             QA
                           </td>
                           <td>
-                            Sales
+                            Quote
                           </td>
                         </tr>
 
@@ -1441,8 +1441,13 @@ title:  My Message Inbox
 			$scope.dtContactHistoryColumnDefs = [
 					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px"),
 			];
-      $scope.toggleRow = function (segmentName)
+      $scope.toggleRow = function (segmentName, quotevalue)
       {
+        if(quotevalue == 'quote'){
+          $scope['qouteresponse'] = true;
+        }else{
+          $scope['qouteresponse'] = false;
+        }
         $scope['getthis'] = true;
         for(var i = 1; i <= 15; i++)
         {
@@ -1452,6 +1457,7 @@ title:  My Message Inbox
             $scope['row' + i] = false;
           }
         }
+
         $scope[segmentName] = !$scope[segmentName];
         if($scope[segmentName])
         {

@@ -1,7 +1,7 @@
 <div class="row" ng-show="getthis">  
     <div class="col-md-12 form-horizontal"> 
         <div class="col-md-12 form-action">
-            <div class="form-group">
+            <div class="form-group" ng-hide="qouteresponse">
                 <div class="btn-group dropdown margin-r-5">
                     <button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
                     Send</button>										 
@@ -123,6 +123,16 @@
                 </button>
                 <a class="btn btn-link" ng-click="cancel('getthis')">Cancel</a>
             </div>
+
+            <div class="form-group" ng-show="qouteresponse">
+              
+                <button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
+                Send Quote</button>	
+            
+                <button class="btn btn-primary" type="button" ng-click="qouteresponse = false;">
+                        Standard Response Time
+                </button>
+            </div>    
             <div class="row">
                <!-- Custom Tabs -->
                {% include email-address-subject-responses-include.html tab="3" %}
@@ -131,8 +141,8 @@
         </div>    
     </div> 
   
-    <div class="col-md-12"> 
-        <div class="nav-tabs-custom">
+    <div class="col-md-12" > 
+        <div class="nav-tabs-custom" ng-hide="qouteresponse">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
                 <li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
@@ -165,7 +175,35 @@
                 </div>										   
             </div>
         </div>
-        <div class="row">
+
+        <div class="nav-tabs-custom" ng-show="qouteresponse">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#originalquestion" data-toggle="tab" aria-expanded="true">Original Question Body</a></li>
+                <li><a href="#questionpreview" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="originalquestion">
+                    <div class="form-group text-editor-container">
+                        <textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor ><p>Hello,</p>
+                            <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+                            
+                            <p>Regards,</p>
+                            
+                            <p>John Doe</p>
+                        </textarea>
+                    </div>
+                </div>
+                <div class="tab-pane" id="questionpreview">
+                    <p>Hello,</p>
+                    <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+                    
+                    <p>Regards,</p>
+                    
+                    <p>John Doe</p>
+                </div>										   
+            </div>
+        </div>
+        <div class="row" ng-hide="qouteresponse">
             <div class="col-sm-12">
                 <div class="panel panel-default form-group">
                     <div class="panel-heading">
@@ -180,7 +218,7 @@
         </div>    
     </div>
       
-        <!--Message history-->
-		{% include inbox-message-history.html %}
-		<!--Message history-->
+    <!--Message history-->
+    {% include inbox-message-history.html %}
+    <!--Message history-->
 </div>
