@@ -48,11 +48,15 @@ title: Manage Messages Tree View
 					<div class="col-md-4" ng-class="{'col-md-1 treeview-collapse': !menuCollapse, 'treeview-expand': menuCollapse}" ng-init="menuCollapse = true;">
 						<!-- Profile Image -->
 						<div class="box box-primary">
-							<div class="box-header with-border" >
+							<div class="box-header with-border heading-with-toggle" >
 								<i class="fa fa-list-ul"></i>
 								<h3 class="box-title text-right">Topic List</h3>
-								<span aria-hidden="true" class="pull-right  mleft-15" ng-click="menuCollapse = !menuCollapse;" ng-init="menuCollapse = true;"><i class="fa fa-reorder treeview-collapse-icon"></i></span>
-								<span ng-click="treeView()" aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right mleft-15 treeview-expand-icon" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedTreeView}" ng-init="isCollapsedTreeView = false;"></span>
+                                
+								<span aria-hidden="true" class="pull-right  mleft-15 menu-collapse" ng-click="menuCollapse = !menuCollapse;" ng-init="menuCollapse = true;"><i class="fa fa-reorder treeview-collapse-icon"></i></span>
+								<span ng-click="treeView()" aria-hidden="true" class="menu-collapse glyphicon  pull-right glyphicon-chevron-right mleft-15 treeview-expand-icon" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedTreeView}" ng-init="isCollapsedTreeView = false;"></span>
+								<span class="pull-right" uib-collapse="isCollapsedTreeView">
+								  <iservice-switch switched="toggle.switchshowtopics">Show My Topics</iservice-switch>
+								</span>
 							</div>
 							<div class="box-body search-criteria" uib-collapse="isCollapsedTreeView">
 								<div class="row">

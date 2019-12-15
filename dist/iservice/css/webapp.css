@@ -3249,6 +3249,10 @@ small.disabled {
     text-align: center;
   }
 }
+.heading-with-toggle .fa-list-ul,
+.heading-with-toggle .menu-collapse {
+  margin-top: 3px;
+}
 @media (min-width: 768px) {
   .bcc-link {
     position: absolute;

@@ -47,8 +47,9 @@ title: Manage Messages List View
 				</div>
               	<div class="row p-l-0">
                 	<div class="col-md-12" ng-controller="myCtrl">
+
                   	<!-- Custom Tabs -->
-						<div class="row mbottom-15">
+						<div class="row">
 							<div class="form-group" ng-controller="TopicCtrl as ctrl">
 								<label for="inputPassword3" class="col-sm-2 control-label text-left">Topic Selection</label>
 								<div class="col-sm-4" ng-cloak>
@@ -59,6 +60,11 @@ title: Manage Messages List View
 										</ui-select-choices>
 									</ui-select>
 								</div>
+							</div>
+
+
+							<div class="form-group mtop-5 mbottom-15">
+								<iservice-switch switched="toggle.switchshowtopics">Show My Topics</iservice-switch>
 							</div>
 						</div>
 						<div class="row">
