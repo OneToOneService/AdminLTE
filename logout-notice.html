@@ -191,18 +191,14 @@ title: My Dashboard
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"><i class="icon fa fa-warning text-yellow"></i> Session Timeout</h4>
                 </div>
                 <div class="modal-body text-left">
                     
-                    <p class="text"> You were logged out <a href="text">Refresh </a> the page to log in again.</p>
-                    </p>
+                    <p class="text"> You have been logged out of iService. This could be because you were inactive too long, or you were manually logged out from another window.<br></p>
+                    <a href="/pages/examples/login.html">Refresh </a> to log back into iService.
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning pull-right" data-dismiss="modal">Ok</button>
-                </div>
+               
             </div>
             <!-- /.modal-content -->
         </div>
@@ -211,8 +207,12 @@ title: My Dashboard
 </body>
 <script type="text/javascript">
     $(window).on('load',function(){
-        $('#modal-default').modal('show');
+        $('#modal-default').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
     });
+    
 </script>    
 
 </html>
