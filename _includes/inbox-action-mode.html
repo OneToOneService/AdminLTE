@@ -130,7 +130,7 @@
                 Send Quote</button>	
             
                 <button class="btn btn-primary" type="button" ng-click="qouteresponse = false;">
-                        Standard Response Time
+                      Show Standard Response Time
                 </button>
             </div>    
             <div class="row">
@@ -176,33 +176,162 @@
             </div>
         </div>
 
-        <div class="nav-tabs-custom" ng-show="qouteresponse">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#originalquestion" data-toggle="tab" aria-expanded="true">Original Question Body</a></li>
-                <li><a href="#questionpreview" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="originalquestion">
-                    <div class="form-group text-editor-container">
-                        <textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor ><p>Hello,</p>
-                            <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
-                            
-                            <p>Regards,</p>
-                            
-                            <p>John Doe</p>
-                        </textarea>
+    
+      <!--form data start-->	
+
+        <div class="col-md-12" ng-show="qouteresponse">
+        <div class="row">
+                        
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+                        <li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+                        <li><a href="#tab_property_3" data-toggle="tab"  uib-tooltip="There are private comments for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
+                        </ul>
+                        <div class="tab-content">
+                        <div class="tab-pane active" id="tab_detail_1">
+                            <div class="row">
+                                <div class="message-box-header">
+                                <div class="col-md-12">
+                                    <div class="user-container">
+                                    <span class="user">
+                                        <img src="/dist/img/agent.png">
+                                        <b>Agent</b>
+                                    </span>
+                                    <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                                                    eg :- <span class="username-ellipsis">Alek Packard</span>
+                                        -->
+                                        <span>John Doe</span>
+                                    </div>  
+                                    <div class="message-info">
+                                    <b>From : </b> john.doe@example.com<br>
+                                    <b>To : </b> alek.packard@1to1service.com<br>
+                                    <b>CC : </b> justin.time@1to1service.com<br>
+                                    </div>	
+                                    <div class="clear"></div>
+                                    <div class="int-det-box pull-right"> 
+                                    <div><b>Interaction ID : </b>4645646</div>
+                                    <div><b> Segment / Topic : </b>All Topic</div>
+                                    <div><b> Resolved By : </b>Alek Packard</div>
+                                    <div><b> Approved By : </b>&nbsp;</div>	
+                                    <div><b> Interaction Status : </b><small class="bg-green-active label">Resolved</small></div>									
+                                    <div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+                                </div>
+                            </div>	
+                        </div>
+                        <div class="tab-pane" id="tab_property_2">
+                            <div class="row form-horizontal">
+                            <div class="col-md-4">
+                                <h4>Case Properties</h4>
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control pull-right">
+                                </div>
+                                </div>
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left">Delivery Date</label>
+                                <div class="col-sm-12">
+                                    <div class="input-group date">
+                                    <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                                    </div>
+                                </div>
+                                </div>  
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left">Detail</label>
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <h4>Question Properties</h4>
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label control-label text-left">Quantity</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control pull-right">
+                                </div>
+                                </div>  
+                            <div class="form-group">    
+                                <label class="col-md-12 control-label control-label text-left">Team</label>
+                                <div class="col-sm-12">
+                                    <div class="simple-label multiple">
+                                    <div class="float-btn-group">
+                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="float-btn-group">
+                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="float-btn-group">
+                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                    </div>
+                                </div>
+                                </div>   
+                            </div> 
+                            <div class="col-md-4">
+                                <h4>Answer Properties</h4>
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left">Priority</label>
+                                <div class="col-sm-12">
+                                    <select class="form-control">
+                                        <option>High</option>
+                                        <option>Low</option>
+                                    </select>    
+                                </div>
+                                </div> 
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left">isOpen</label>
+                                <div class="col-sm-12">
+                                    <select class="form-control">
+                                        <option>True</option>
+                                        <option>False</option>
+                                    </select>    
+                                </div>
+                                </div>  
+                            </div>    
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                            </div>    
+                        </div>
+                        <!--tab 3 start-->
+                        <div class="tab-pane" id="tab_property_3">
+                            Please show me the other ranges in Plasma tv.
+                        </div>
+                        <!--tab 3 end-->	
+                        </div>	
                     </div>
+                </div>	
+            </div>	
+            <div class="message-box">
+                <div class="message-box-body"> 
+                <div class="clear"></div>
+                <div>										   
+                    <p>Hello,<br>
+                    I'm looking for a flat screen. Any suggestions?
+                    </p>
                 </div>
-                <div class="tab-pane" id="questionpreview">
-                    <p>Hello,</p>
-                    <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
-                    
-                    <p>Regards,</p>
-                    
-                    <p>John Doe</p>
-                </div>										   
+                </div>
             </div>
         </div>
+        </div>
+    
+      <!--form data end-->
+
+
         <div class="row" ng-hide="qouteresponse">
             <div class="col-sm-12">
                 <div class="panel panel-default form-group">
