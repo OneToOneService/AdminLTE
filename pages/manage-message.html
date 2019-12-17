@@ -50,22 +50,26 @@ title: Manage Messages List View
 
                   	<!-- Custom Tabs -->
 						<div class="row">
-							<div class="form-group" ng-controller="TopicCtrl as ctrl">
-								<label for="inputPassword3" class="col-sm-2 control-label text-left">Topic Selection</label>
-								<div class="col-sm-4" ng-cloak>
-									<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
-										<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
-										<ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
-												<span ng-bind-html="color.Topic | highlight: $select.search"></span>
-										</ui-select-choices>
-									</ui-select>
+							<div class="form-horizontal">
+								<div class="col-md-6">
+									<div class="form-group" ng-controller="TopicCtrl as ctrl">
+										<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
+										<div class="col-sm-8" ng-cloak>
+											<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+												<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
+												<ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
+														<span ng-bind-html="color.Topic | highlight: $select.search"></span>
+												</ui-select-choices>
+											</ui-select>
+										</div>
+									</div>
 								</div>
-							</div>
-
-
-							<div class="form-group mtop-5 mbottom-15">
-								<iservice-switch switched="toggle.switchshowtopics">Show My Topics</iservice-switch>
-							</div>
+								<div class="col-md-6">
+									<div class="form-group mtop-5 mbottom-15">
+										<iservice-switch switched="toggle.switchshowtopics">Show My Topics</iservice-switch>
+									</div>
+								</div>
+							</div>	
 						</div>
 						<div class="row">
 							<div class="col-md-12" ng-show="showAlert" ng-cloak>

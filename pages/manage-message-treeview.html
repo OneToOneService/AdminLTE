@@ -83,7 +83,7 @@ title: Manage Messages Tree View
 									
 									</div> 
 								</div>	
-								<div class="treeview  active-chat">
+								<div ng-hide="toggle.switchshowtopics" class="treeview  active-chat">
 										<ul id="tree1" class="tree">
 											<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
 												<ul>
@@ -118,6 +118,22 @@ title: Manage Messages Tree View
 											</li>
 										</ul>
 								</div>
+
+
+								<div ng-show="toggle.switchshowtopics" class="treeview  active-chat">
+									<ul id="tree2" class="tree">
+										<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
+										  <ul>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div></li>
+										  </ul>
+										</li>
+										
+									</ul>
+						    	</div>
 							</div>
 					<!-- /.box-body -->
 						</div>
@@ -1176,8 +1192,8 @@ title: Manage Messages Tree View
 				});
 			}
 		});
-			$('#tree1').treed();	
-			$('#tree1 .branch').each(function(){
+			$('#tree1,#tree2').treed();	
+			$('#tree1 .branch, #tree2 .branch').each(function(){
 				var icon = $(this).children('i:first');
 				icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
 				$(this).children().children().toggle();
