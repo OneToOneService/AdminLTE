@@ -1150,7 +1150,7 @@ title: Contact
                 </button>
               </div>
               <div class="col-md-12 mtop-15">
-                <div class="box status-box" style="display:none">
+                <div class="box status-box" ng-show="toggle.switchshowstatus">
                 <div class="box-header with-border">
                   <h3 class="box-title">Status Audit</h3>
                   <div class="box-tools pull-right">
@@ -1207,6 +1207,21 @@ title: Contact
                 </div>
                 </div>
               </div>
+               <!--full case panel-->
+							<div class="col-md-12 full-case-panel" ng-show="toggle.switchshowfullcase">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Full Case History Ref:4545646</h3>
+                    <div class="box-tools pull-right">
+                      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                  </div>
+                  <div class="box-body">
+                    <div class="full-case-panel-data"></div>
+                  </div>
+                </div>	
+              </div>
+              <!--full case panel-->	
             </div>								
             <div class="row">
               <div class="col-md-12">
@@ -1641,7 +1656,8 @@ title: Contact
 			<!--Get thisa-->
 		</script>
    
-   
+    {% include expanded-row-content.html item="2" replytype="bg-customer-reply" %}
+		{% include expanded-row-content.html item="3" replytype="bg-agent-reply" %}
     <!-- /.content-wrapper -->
     {% include common-footer.html %}
     <!-- Control Sidebar -->
@@ -1757,6 +1773,8 @@ title: Contact
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
         angular.element('#'+row).after($compile('<tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
         $scope.showexpanded1 = true;
+        angular.element('.full-case-panel-data').after($compile('<table class="table"><tr id="row3" class="bg-agent-reply" ng-show="toggle.switchshowfullcase"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded3 = false;" ng-show="showexpanded3"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded3" ng-click="showexpanded3 = true;"></i></button></td><td>[ref#: 42733-42733] Feedback provided</td><td> All Topic</td><td><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small></td><td>--</td><td><small class="bg-black disabled label">2018-08-03 11:55:44 AM</small><td></tr><tr class="bg-agent-reply" ng-show="showexpanded3"><td>&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow3').innerHTML + '</td></tr></table>')($scope));
+				angular.element('.full-case-panel-data').after($compile('<table class="table"><tr id="row2" class="bg-customer-reply" ng-show="toggle.switchshowfullcase"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></td><td>[ref#: 42733-42733] Feedback provided</td><td> All Topic</td><td><small class="label bg-green label-with-icon"><i class="fa icon-c icon-agent-email-3"></i>Agent Email</small></td><td>--</td><td><small class="bg-black disabled label">2018-08-03 11:55:44 AM</div><td></tr><tr class="bg-customer-reply" ng-show="showexpanded2"><td>&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow2').innerHTML + '</td></tr></table>')($scope));
        // angular.element('#'+row).after($compile('<tr id="row_1" class="bg-customer-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded1 = false;" ng-show="showexpanded1"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded1" ng-click="showexpanded1 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-green-active label">Resolved</small></td><td><small class="label bg-blue disabled label-with-icon"><i class="fa fa-comments"></i>Chat</small></td><td>Jacob Smith	</td><td> <b>Urgency Level</b> : High </td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow').innerHTML+'</td></tr><tr id="row_2" class="expandedrowcontent bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span><span>[ref#: 42733-42733] I need help picking a camera</span></td><td>All Topics</td><td><small class="bg-red label">Unsent</small></td><td><small class="bg-green label"><span class="fa-stack stack-icon-label"><i class="fa fa-reply"></i><i class="fa fa-times-circle-o"></i></span>Unsent Response</small></td><td>Jacob Smith	</td><td> <b>Urgency Level</b> : High </td><td>2016-07-18 9:36:26 AM</td></tr><tr class="expandedrowcontent bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>')($scope));
 				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="7">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			}
