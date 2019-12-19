@@ -45,7 +45,8 @@
 @box-border:#dddddd;
 @dropdown-bg :#fbfbfb;
 @dropdown-hover:#e1e3e9;
-
+@ui-select-row-bg:#f5f5f5;
+@select-choice-invalid:#D44950;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -140,14 +141,14 @@ form .ng-invalid
 {
     margin: 0;
     text-align: center;
-    padding: 15px 20px 15px 20px;
-    margin-bottom: 16px;
+    padding: 15px 20px 15px 20px !important;
+    margin-bottom: 16px !important;
 }
 
 .login-box-body,
 .register-box-body
 {
-    padding-top: 0px;
+    padding-top: 0px !important;
     border: 1px solid @input-border;
     border-radius: 5px;
 }
@@ -952,8 +953,8 @@ ul.timeline span.stack-icon
 
     .report-counts h3
     {
-        font-size: 20px;
-        font-weight: 500;
+        font-size: 22px;
+        font-weight: bold;
         padding-bottom: 5px;
         margin-bottom: 0px;
         line-height: 22px;
@@ -962,8 +963,8 @@ ul.timeline span.stack-icon
 
     .right-container
     {
-        margin-top: 15px;
-        padding-left: 15px;
+        margin-top: 26px;
+        padding-left: 30px;
     }
 
     .report-counts span
@@ -1457,6 +1458,16 @@ ul.timeline span.stack-icon
     }
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+    .user-detail label.control-label {
+      padding-left: 15px !important;
+    }
+    .contact-summary .user-detail .user-name {
+      margin-top: 0px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+  }
 
 /*Added for contact summary end*/
 
@@ -1693,7 +1704,7 @@ ul.timeline span.stack-icon
 
 .head-title-padding
 {
-    padding-top: 6px;
+    padding-top: 8px;
 }
 
 .open-message
@@ -2167,7 +2178,7 @@ ul.timeline span.stack-icon
     width: 12px;
     height: 12px;
     display: inline-block;
-    border-right: 1px solid rgba(255, 0, 0, .5);
+    border-right: 1px solid rgba(92, 57, 57, 0.5);
 }
 
 .chat-agents-img, .chat-agents-img img
@@ -2576,7 +2587,8 @@ label .icheckbox_square-blue
 {
     z-index: 99999;
     min-width: 400px;
-    background:@dropdown-bg;border:1px solid @box-border;
+    background:@dropdown-bg;
+    border:1px solid @box-border;
 }
 .uib-datepicker-popup.dropdown-menu,.date .dropdown-menu
 {
@@ -2608,7 +2620,7 @@ label .icheckbox_square-blue
 .select2-container
 {
     width: 100% !important;
-    //z-index: 0;
+    z-index: 999;   
 }
 
 .form-action .btn
@@ -3131,7 +3143,7 @@ tr span.expanded-button
 
 .ui-select-choices-row:hover
 {
-    background-color: #f5f5f5;
+    background-color: @ui-select-row-bg;
 }
 
 /* Select2 theme */
@@ -3139,8 +3151,10 @@ tr span.expanded-button
 /* Mark invalid Select2 */
 .ng-dirty.ng-invalid > a.select2-choice
 {
-    border-color: #D44950;
+    border-color: @select-choice-invalid;
 }
+
+
 
 .select2-result-single
 {
@@ -3235,7 +3249,7 @@ body > .select2-container.open
 /* Mark invalid Selectize */
 .ng-dirty.ng-invalid > div.selectize-input
 {
-    border-color: #D44950;
+    border-color:@select-choice-invalid;
 }
 
 /* Handle up direction Selectize */
@@ -3463,8 +3477,9 @@ body > .ui-select-bootstrap.open
 /* Mark invalid Bootstrap */
 .ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match
 {
-    border-color: #D44950;
+    border-color: @select-choice-invalid;
 }
+
 
 /* Handle up direction Bootstrap */
 .ui-select-container[theme="bootstrap"].direction-up .ui-select-dropdown
@@ -3745,6 +3760,36 @@ ul li ul li.branch ul li .treeviewitem
     margin-right: 50px;
 }
 
+.managequeue-topictree li {
+    position: relative;
+  }
+  .managequeue-topictree li i,
+  .managequeue-topictree li .icheckbox_square-blue {
+    vertical-align: top;
+    margin-top: 5px;
+  }
+  .managequeue-topictree .count-columns {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .managequeue-topictree .count-block {
+    display: inline-block;
+    padding: 0px 3px 0px 3px;
+    width: 25px;
+    text-align: center;
+    font-weight: 500;
+  }
+  .managequeue-topictree .treeviewitem {
+    display: inline-block;
+  }
+  .managequeue-topictree .columns-3 .treeviewitem {
+    width: calc(100% - 130px);
+  }
+  .managequeue-topictree .columns-4 .treeviewitem {
+    width: calc(100% - 150px);
+  }
+
 .active-chat
 { 
     ul li .treeviewitem{
@@ -3755,7 +3800,7 @@ ul li ul li.branch ul li .treeviewitem
     ul li ul li .treeviewitem
     {
         display: inline-block;
-        width: ~"calc(100% - 130px)";
+        width: ~"calc(100% - 153px)";
     }
 
     ul li ul li.branch .treeviewitem
@@ -3811,7 +3856,7 @@ ul li ul li.branch ul li .treeviewitem
 label
 {
     margin-bottom: 0px;
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 .segment label
@@ -3896,7 +3941,7 @@ ul.update-list li::before
 
 .eq-container
 {
-    height: 443px;
+    height: 528px;
 }
 
 .in-row-btn
@@ -3999,7 +4044,10 @@ ul.update-list li::before
     margin: 15px 0px 8px 15px;
 }
 
-.skin-black .logo-lg svg, .skin-black-light .logo-lg svg, .skin-black-light .logo-mini svg, .skin-black .logo-mini svg
+.skin-black .logo-lg svg, 
+.skin-black-light .logo-lg svg, 
+.skin-black-light .logo-mini svg, 
+.skin-black .logo-mini svg
 {
     fill: @logo-blue
 }
@@ -4207,6 +4255,57 @@ table.dataTable
     }
 }
 
+.opacity-50 {
+    opacity: 50%;
+  }
+  .opacity-30 {
+    opacity: 30%;
+  }
+
+  .notdatatable {
+
+    .table-controls {
+        white-space: nowrap;
+        display: inline-block;
+      }
+       .table-columns {
+        margin-right: 10px;
+      }
+       .table-columns .btn-group {
+          position: relative;
+      }
+       .table-columns .column-picker {
+          position: absolute;
+          left: 55px;
+          top: 34px;
+          display: block;
+          z-index: 9999;
+          background: #eee;
+      }
+       .table-columns .column-picker a {
+          display: block;
+          padding: 3px 20px;
+          clear: both;
+          font-weight: 400;
+          line-height: 1.42857143;
+          color: #777;
+          white-space: nowrap;
+      }
+       .table-columns .column-picker .active a {
+          color: #fff;
+          text-decoration: none;
+          background-color: #337ab7;
+          outline: 0;
+      }
+       .table-filter {
+        float: right;
+      }
+      .notdatatable th span {
+        cursor: pointer;
+        white-space: nowrap;
+      }
+  }
+
 .box-header > span.fa-stack
 {
     line-height: 24px;
@@ -4264,6 +4363,10 @@ table.dataTable
 
 .dropdown-bg{background:@dropdown-bg;border:1px solid @box-border;
    li{padding:4px 8px;}
+   li:hover {	
+	background: #e1e3e9	
+   }	
+
    //li:hover{background:@dropdown-hover;}
    li label{font-weight: normal; color:@font-color;}
    li a{/*padding-left:18px;*/ color:@font-color;} a .fa{font-size:16px;}
@@ -4283,7 +4386,12 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
     float: none !important;
 }
 .private_comment{
-    white-space:pre;
+    width: 100%;	
+	white-space: pre-line;	
+	max-height: 250px;	
+	overflow-y: scroll;	
+	height: 250px
+
 }
 .box-header a.responses{margin-top:0px;}
 
@@ -4294,6 +4402,20 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 }
 .chevron-p-top{padding-top:4px;}
 .item-count{font-weight:bold;}
+
+ul li .treeviewitem label {	
+	cursor: pointer;	
+	display: block !important;	
+}	
+.datetime-picker-dropdown {	
+	left: -60px !important;	
+}	
+@media(max-width: 1024px) {	
+	.datetime-picker-dropdown {	
+		left: -150px !important;	
+	}	
+}	
+
 .icheckbox_square-blue, .iradio_square-blue{width:18px; height:18px;}
 .icheckbox_square-blue.checked {
     background-position: -48px 0px;
@@ -4306,6 +4428,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 .alert{position:relative;padding-right: 35px;}
 .alert .text{font-size:14px; font-weight:normal;}
 .alert-inline h4{padding:0; margin:0;}
+
 .alert-inline .more, .alert .more{color:@white; cursor:pointer;padding-left:40px;font-weight:bold;}
 .alert-dismissable .close, .alert-dismissible .close{right:0;}
 .attachments .button-delete i{font-size: 16px; position: relative; top: 1px;margin-left: 8px;}
@@ -4322,6 +4445,12 @@ table .uib-weeks td.h6:first-child{visibility:hidden !important;}
     height: 1.2em; 
     white-space: nowrap;
     float:left;
+}
+div.dataTables_wrapper div.dataTables_filter label,	
+div.dataTables_wrapper div.dataTables_length label,	
+.agent-prop-ans,	
+.incoming-ques {	
+	font-weight: normal !important;	
 }
 .f16{font-size:16px;}
 .op-level-0{font-weight:normal;}
