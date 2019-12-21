@@ -25,143 +25,133 @@ title: Treeview
 			</section>
               <!-- Main content -->
 			<section class="content">
-			  <div class="row">
-					<div class="col-md-4 treeview">
-						<ul id="tree1">
-							<p class="well" style="height:135px;"><strong>Initialization no parameters</strong>
-								<br /> <code>$('#tree1').treed();</code>
-							</p>
-							<li><a href="#">TECH</a>
-								<ul>
-									<li>Company Maintenance</li>
-									<li>Employees
+				<div class="box box-info">
+					<div class="box-body">
+						<div class="row">
+							<div class="col-md-4 treeview example">
+								<ul id="tree1">
+									<p class="well" style="height:135px;"><strong>Initialization no parameters</strong>
+										<br /> <code>$('#tree1').treed();</code>
+									</p>
+									<li><input type="checkbox" class="minimal"><a href="#">TECH</a>
 										<ul>
-											<li>Reports
+											<li><input type="checkbox" class="minimal"><div class="treeviewitem">Company Maintenance</div></li>
+											<li><input type="checkbox" class="minimal"><div class="treeviewitem">Employees</div>
 												<ul>
-													<li>Report1</li>
-													<li>Report2</li>
-													<li>Report3</li>
+													<li><input type="checkbox" class="minimal"><div class="treeviewitem">Reports</div>
+														
+													</li>
+													<li><input type="checkbox" class="minimal"><div class="treeviewitem">Employee Maint.</div></li>
 												</ul>
 											</li>
-											<li>Employee Maint.</li>
+											<li><input type="checkbox" class="minimal"><div class="treeviewitem">Human Resources</div></li>
 										</ul>
 									</li>
-									<li>Human Resources</li>
-								</ul>
-							</li>
-							<li>XRP
-								<ul>
-									<li>Company Maintenance</li>
-									<li>Employees
+									<li><input type="checkbox" class="minimal">XRP
 										<ul>
-											<li>Reports
+											<li><input type="checkbox" class="minimal"><div class="treeviewitem">Company Maintenance</div></li>
+											<li><input type="checkbox" class="minimal"><div class="treeviewitem">Employees</div>
+											</li>
+											<li><input type="checkbox" class="minimal"><div class="treeviewitem">Human Resources</div></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-4 treeview">
+								<p class="well" style="height:135px;"><strong>Initialization optional parameters</strong>
+
+									<br /> <code>$('#tree2').treed({openedClass : 'glyphicon-folder-open', closedClass : 'glyphicon-folder-close'});</code>
+
+								</p>
+								<ul id="tree2">
+									<li><a href="#">TECH</a>
+
+										<ul>
+											<li>Company Maintenance</li>
+											<li>Employees
 												<ul>
-													<li>Report1</li>
-													<li>Report2</li>
-													<li>Report3</li>
+													<li>Reports
+														<ul>
+															<li>Report1</li>
+															<li>Report2</li>
+															<li>Report3</li>
+														</ul>
+													</li>
+													<li>Employee Maint.</li>
 												</ul>
 											</li>
-											<li>Employee Maint.</li>
+											<li>Human Resources</li>
 										</ul>
 									</li>
-									<li>Human Resources</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 treeview">
-						<p class="well" style="height:135px;"><strong>Initialization optional parameters</strong>
-
-							<br /> <code>$('#tree2').treed({openedClass : 'glyphicon-folder-open', closedClass : 'glyphicon-folder-close'});</code>
-
-						</p>
-						<ul id="tree2">
-							<li><a href="#">TECH</a>
-
-								<ul>
-									<li>Company Maintenance</li>
-									<li>Employees
+									<li>XRP
 										<ul>
-											<li>Reports
+											<li>Company Maintenance</li>
+											<li>Employees
 												<ul>
-													<li>Report1</li>
-													<li>Report2</li>
-													<li>Report3</li>
+													<li>Reports
+														<ul>
+															<li>Report1</li>
+															<li>Report2</li>
+															<li>Report3</li>
+														</ul>
+													</li>
+													<li>Employee Maint.</li>
 												</ul>
 											</li>
-											<li>Employee Maint.</li>
+											<li>Human Resources</li>
 										</ul>
 									</li>
-									<li>Human Resources</li>
 								</ul>
-							</li>
-							<li>XRP
-								<ul>
-									<li>Company Maintenance</li>
-									<li>Employees
+							</div>
+							<div class="col-md-4">
+								<p class="well" style="height:135px;"><strong>Initialization optional parameters</strong>
+
+									<br /> <code>$('#tree3').treed({openedClass:'glyphicon-chevron-right', closedClass:'glyphicon-chevron-down'});</code>
+
+								</p>
+								<ul id="tree3">
+									<li><a href="#">TECH</a>
+
 										<ul>
-											<li>Reports
+											<li>Company Maintenance</li>
+											<li>Employees
 												<ul>
-													<li>Report1</li>
-													<li>Report2</li>
-													<li>Report3</li>
+													<li>Reports
+														<ul>
+															<li>Report1</li>
+															<li>Report2</li>
+															<li>Report3</li>
+														</ul>
+													</li>
+													<li>Employee Maint.</li>
 												</ul>
 											</li>
-											<li>Employee Maint.</li>
+											<li>Human Resources</li>
 										</ul>
 									</li>
-									<li>Human Resources</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4">
-						<p class="well" style="height:135px;"><strong>Initialization optional parameters</strong>
-
-							<br /> <code>$('#tree3').treed({openedClass:'glyphicon-chevron-right', closedClass:'glyphicon-chevron-down'});</code>
-
-						</p>
-						<ul id="tree3">
-							<li><a href="#">TECH</a>
-
-								<ul>
-									<li>Company Maintenance</li>
-									<li>Employees
+									<li>XRP
 										<ul>
-											<li>Reports
+											<li>Company Maintenance</li>
+											<li>Employees
 												<ul>
-													<li>Report1</li>
-													<li>Report2</li>
-													<li>Report3</li>
+													<li>Reports
+														<ul>
+															<li>Report1</li>
+															<li>Report2</li>
+															<li>Report3</li>
+														</ul>
+													</li>
+													<li>Employee Maint.</li>
 												</ul>
 											</li>
-											<li>Employee Maint.</li>
+											<li>Human Resources</li>
 										</ul>
 									</li>
-									<li>Human Resources</li>
 								</ul>
-							</li>
-							<li>XRP
-								<ul>
-									<li>Company Maintenance</li>
-									<li>Employees
-										<ul>
-											<li>Reports
-												<ul>
-													<li>Report1</li>
-													<li>Report2</li>
-													<li>Report3</li>
-												</ul>
-											</li>
-											<li>Employee Maint.</li>
-										</ul>
-									</li>
-									<li>Human Resources</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
+							</div>
+						</div>
+					</div>	
+				</div>	
 			</section>
 			<!-- /.content -->
         </div>
@@ -175,28 +165,7 @@ title: Treeview
         <div class="control-sidebar-bg"></div>
     </div>
     <!-- ./wrapper -->
-    <!-- jQuery 3.1.1 -->
-    <script src="../plugins/jQuery/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <!-- DataTables -->
-	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="../plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
-	<script src="../../plugins/bootstrap-slider/bootstrap-slider.js"></script>
-	<!-- InputMask -->
-	<script src="../../plugins/input-mask/jquery.inputmask.js"></script>
-	<script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-	<script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
-	<!-- date-range-picker -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+    {% include common-javascript.html %}
     <script>
 		$.fn.extend({
 		treed: function (o) {

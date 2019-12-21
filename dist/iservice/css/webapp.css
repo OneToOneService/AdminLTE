@@ -3371,3 +3371,17 @@ small.disabled {
     right: 15px;
   }
 }
+.example .tree ul {
+  margin-left: .5em;
+}
+.example .tree li {
+  margin: 0;
+  padding: 0 0em 0px 1.5em;
+  line-height: 2em;
+  color: #336699;
+  font-weight: 700;
+  position: relative;
+}
+.example .tree ul li:before {
+  width: 15px;
+}
