@@ -53,6 +53,7 @@ title: Date Short Example
 												<th class="text-capitalize">
 												  Last Emailed
 												</th>
+												<th></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -62,8 +63,10 @@ title: Date Short Example
 													Used to deliver coupons to customers
 												</td>
 												<td class="text-capitalize" >
-                                                 <button class="btn-link">now</button>
-												 <span style="display: none;">1575866692</span>
+													08-03-2018 11:59:44 AM
+												</td>
+												<td class="text-capitalize" >
+													a minute ago
 												</td>
 											</tr>
 											  
@@ -73,8 +76,10 @@ title: Date Short Example
 													Best price on LG Plasma
 												</td>
 												<td class="text-capitalize" >
-													<button class="btn-link">an hour ago</button>
-													<span style="display: none;">1575863092</span>
+													08-03-2018 11:55:44 AM
+												</td>
+												<td class="text-capitalize" >
+													an hour ago
 												</td>
 											</tr>
 											<tr>
@@ -83,19 +88,23 @@ title: Date Short Example
 													For sending policy updates to all staff
 												</td>
 												<td class="text-capitalize" >
-													<button class="btn-link">2 hours ago </button>
-													<span style="display: none;"> 1575859492</span>
+													08-03-2018 11:47:44 AM
+												</td>
+												<td class="text-capitalize" >
+													a day ago
 												</td>
 											</tr>
-
+											
 											<tr>
 												<th>16</th>
 												<td class="text-capitalize">
 													Feedback provided
 												</td>
 												<td class="text-capitalize" >
-													<button class="btn-link">2 days ago </button>
-													<span style="display: none;"> 1573267492</span>
+													08-03-2018 11:41:44 AM
+												</td>
+												<td class="text-capitalize" >
+													a week ago
 												</td>
 											</tr>
 											<tr>
@@ -104,8 +113,10 @@ title: Date Short Example
 													I need a good small camera
 												</td>
 												<td class="text-capitalize" >
-													<button class="btn-link">3 years ago </button>
-													<span style="display: none;"> 1478659492</span>
+													08-03-2019 11:41:40 AM
+												</td>
+												<td class="text-capitalize" >
+													One month ago
 												</td>
 											</tr>
 										</tbody>
@@ -165,6 +176,9 @@ title: Date Short Example
 						return headCell.dataset.noColVis === undefined;
 					}
 				}]);
+				$scope.dtColumnDefs = [  
+					DTColumnDefBuilder.newColumnDef([3,4]).withOption('type', 'date')
+				];
 				
 	});
 	

@@ -550,7 +550,7 @@ ul.timeline span.stack-icon .aqua {
   padding: 10px;
 }
 .chat-panel .box-title.truncate {
-  width: calc(78%);
+  width: calc(100% - 22px);
 }
 @media (min-width: 992px) {
   .chat-panel .actions {
@@ -2661,10 +2661,10 @@ ul li ul li.branch ul li .treeviewitem {
   display: inline-block;
 }
 .managequeue-topictree .columns-3 .treeviewitem {
-  width: calc(-30%);
+  width: calc(100% - 130px);
 }
 .managequeue-topictree .columns-4 .treeviewitem {
-  width: calc(-50%);
+  width: calc(100% - 150px);
 }
 .active-chat ul li .treeviewitem {
   display: inline-block;
