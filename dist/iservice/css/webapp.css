@@ -2626,7 +2626,6 @@ body > .ui-select-bootstrap.open {
 }
 .treeviewrow {
   width: 100%;
-  overflow: hidden;
 }
 ul li .treeviewitem {
   display: inline-block;
@@ -3322,7 +3321,8 @@ small.disabled {
 .treeview-collapse i.treeview-collapse-icon {
   display: block;
 }
-.treeview-collapse .box-body {
+.treeview-collapse .box-body,
+.treeview-collapse .my-topic-switch {
   visibility: hidden;
 }
 .treeview-expand-icon {
@@ -3400,4 +3400,19 @@ small.disabled {
 }
 .example li.branch {
   padding-left: 0.65em !important;
+}
+@media (min-width: 991px) and (max-width: 1024px) {
+  .topic-list-container {
+    overflow-x: scroll;
+  }
+  .topic-list {
+    min-width: 280px;
+  }
+  .message-head,
+  .chat-head {
+    min-width: 310px;
+  }
+  .my-topic-switch {
+    margin-top: 8px;
+  }
 }

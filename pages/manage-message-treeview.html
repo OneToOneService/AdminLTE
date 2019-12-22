@@ -54,11 +54,11 @@ title: Manage Messages Tree View
                                 
 								<span aria-hidden="true" class="pull-right  mleft-15 menu-collapse" ng-click="menuCollapse = !menuCollapse;" ng-init="menuCollapse = true;"><i class="fa fa-reorder treeview-collapse-icon"></i></span>
 								<span ng-click="treeView()" aria-hidden="true" class="menu-collapse glyphicon  pull-right glyphicon-chevron-right mleft-15 treeview-expand-icon" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedTreeView}" ng-init="isCollapsedTreeView = false;"></span>
-								<span class="pull-right" uib-collapse="isCollapsedTreeView">
+								<span class="pull-right my-topic-switch" uib-collapse="isCollapsedTreeView">
 								  <iservice-switch switched="toggle.switchshowtopics">Show My Topics</iservice-switch>
 								</span>
 							</div>
-							<div class="box-body search-criteria" uib-collapse="isCollapsedTreeView">
+							<div class="box-body search-criteria topic-list-container">
 								<div class="row">
 									<div class="col-md-12 message-head">
 										<label class="pull-left select-all-topic"><input type="checkbox" class="minimal">Select All</label> 
@@ -83,7 +83,7 @@ title: Manage Messages Tree View
 									
 									</div> 
 								</div>	
-								<div ng-hide="toggle.switchshowtopics" class="treeview  active-chat">
+								<div ng-hide="toggle.switchshowtopics" class="treeview topic-list  active-chat">
 										<ul id="tree1" class="tree">
 											<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
 												<ul>
@@ -120,7 +120,7 @@ title: Manage Messages Tree View
 								</div>
 
 
-								<div ng-show="toggle.switchshowtopics" class="treeview  active-chat">
+								<div ng-show="toggle.switchshowtopics" class="treeview  topic-list  active-chat">
 									<ul id="tree2" class="tree">
 										<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua">1</div>
 										  <ul>
