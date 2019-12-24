@@ -2089,11 +2089,19 @@ label.required {
 }
 .bg-customer-reply,
 .bg-answers {
-  background: #f7f7f7 !important;
+  background: #ebedf1 !important;
+}
+.bg-customer-reply td,
+.bg-answers td {
+  border-top: 1px solid #dad9d9 !important;
 }
 .bg-agent-reply,
 .bg-questions {
-  background: #fbefef !important;
+  background: #f9efef !important;
+}
+.bg-agent-reply td,
+.bg-questions td {
+  border-top: 1px solid #f5dad6 !important;
 }
 .bg-answers-sent {
   background: #e1e3e9 !important;

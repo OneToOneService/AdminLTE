@@ -36,8 +36,8 @@
 @bg-yellow-disabled: #f7bf66;
 @bg-gray-light: #f7f7f7;
 @data-table-border: #f4f4f4;
-@bg-customer-reply: #f7f7f7;
-@bg-agent-reply: #fbefef;
+@bg-customer-reply: #ebedf1;
+@bg-agent-reply: #f9efef;
 @font-color: #333333;
 @border-color: #cccccc;
 @horizontal-line:#eee;
@@ -47,6 +47,9 @@
 @dropdown-hover:#e1e3e9;
 @ui-select-row-bg:#f5f5f5;
 @select-choice-invalid:#D44950;
+@border-question:#f5dad6;
+@border-message-sent:#f1f1f1;
+@border-answers:#dad9d9;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 {
@@ -2995,15 +2998,18 @@ label.required
 .bg-customer-reply,.bg-answers
 {
     background: @bg-customer-reply !important;
+    td{border-top:1px solid @border-answers !important;}
 }
 
 .bg-agent-reply,.bg-questions
 {
     background: @bg-agent-reply !important;
+    td{border-top:1px solid @border-question !important;}
 }
 .bg-answers-sent
 {
     background: @dropdown-hover!important;
+   
 }
 .expandedrowcontent
 {
@@ -4387,8 +4393,8 @@ table.dataTable
     ul:hover{background:none;}
     li:hover{background: none;}
 }
-.int-det-box{background:@bg-customer-reply; padding:8px 15px 15px 15px; float:right;}
-.det-box-bg{background:@bg-customer-reply;display: inline-block;width:100%; padding:8px 0px 15px 0px;}
+.int-det-box{background:@bg-gray-light; padding:8px 15px 15px 15px; float:right;}
+.det-box-bg{background:@bg-gray-light;display: inline-block;width:100%; padding:8px 0px 15px 0px;}
 div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-child{
     width: 100% !important;
     float: none !important;
