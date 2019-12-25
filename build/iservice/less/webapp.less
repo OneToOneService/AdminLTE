@@ -4598,3 +4598,44 @@ small.disabled{cursor:default;}
     }
 
 }
+
+.que-ans-container{
+    height: 250px;
+    overflow: auto;
+    overflow-y: scroll;
+    ul { padding-left:0px; list-style:none; }
+    li { margin-bottom: 15px;
+        display: block;
+        line-height: 18px;
+        padding: 0px 0px 15px 15px;
+        border-bottom:1px solid @data-table-border;
+        width: 100%;
+        float: left;
+        position:relative;
+    }
+    li span{padding-top:5px; margin-left:15px; display:block;}
+    li:last-of-type{border-bottom-width: 0;}
+    li.question:before {  
+            font-family: 'icomoon' !important;
+            content: "\e913";
+            margin:6px 5px 0 -15px;
+            color: @blue;
+            border-radius: 50%;
+            font-size: 26px;
+            position: absolute;
+    }
+    li.answer:before {  
+        font-family: 'icomoon' !important;
+        content: "\e912";
+        margin:6px 5px 0 -15px;
+        color: @bg-green-disabled;
+        border-radius: 50%;
+        font-size: 26px;
+        position: absolute;
+    }
+    li span.text{margin-bottom:8px;}    
+    li span.time{font-size:12px;} 
+    li span.agent-name{font-size:12px; font-weight:bold;}   
+
+}
+.chart-legend-queansflow{float:right;margin-right:24px;}

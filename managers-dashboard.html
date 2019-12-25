@@ -25,6 +25,14 @@ title: Dashboard
     <section class="content">
       <h4><strong>Today's Metrics</strong> <span> (Calculated since midnight your local timezone.)</span></h4>
       <!-- Info boxes -->
+      <div class="row mbottom-15">
+        <div class="col-md-4">
+          <select class="form-control">
+             <option>Sales Segment</option>
+             <option>Customer Service</option>
+          </select>  
+        </div>
+      </div>    
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
@@ -82,7 +90,7 @@ title: Dashboard
                   <div class="infobox-icon"><img src="/dist/img/dashboard-icons/question-unassigned.png"></div>
                   <div class="infobox-number">30</div>
                   <div class="clearfix"></div>
-                  <div class="infobox-text">Question Unassigned</div>
+                  <div class="infobox-text">Questions Unassigned</div>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -94,7 +102,7 @@ title: Dashboard
                   <div class="infobox-icon"><img src="/dist/img/dashboard-icons/question-assigned.png"></div>
                   <div class="infobox-number">20</div>
                   <div class="clearfix"></div>
-                  <div class="infobox-text">Question Assigned</div>
+                  <div class="infobox-text">Questions Assigned</div>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -107,7 +115,7 @@ title: Dashboard
                   <div class="infobox-icon"><img src="/dist/img/dashboard-icons/topics-without-agent.png"></div>
                   <div class="infobox-number">01:10</div>
                   <div class="clearfix"></div>
-                  <div class="infobox-text">Topics Without Response</div>
+                  <div class="infobox-text">Topics Without Agents </div>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -128,9 +136,156 @@ title: Dashboard
         </div>
         <!-- /.row -->
       <!-- /.row -->
-
+      
       <div class="row">
         <div class="col-md-8">
+           <!-- TABLE: LATEST ORDERS -->
+           <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Loggedin Agents Activity</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>Agent Name</th>
+                    <th>Questions Assigned</th>
+                    <th>Questions Resolved</th>
+                    <th>Chats Assigned</th>
+                    <th>Chats Resolved</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">Alek Packard</a></td>
+                    <td><span class="text-green">10</span></td>
+                    <td><span class="text-yellow">9</span></td>
+                    <td><span class="text-green">10</span></td>
+                    <td><span class="text-yellow">9</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">Jacob Smith</a></td>
+                    <td><span class="text-green">12</span></td>
+                    <td><span class="text-yellow">8</span></td>
+                    <td><span class="text-green">8</span></td>
+                    <td><span class="text-yellow">6</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">Jhon Doe</a></td>
+                    <td><span class="text-green">7</span></td>
+                    <td><span class="text-yellow">5</span></td>
+                    <td><span class="text-green">9</span></td>
+                    <td><span class="text-yellow">7</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">Alex Hall</a></td>
+                    <td><span class="text-green">10</span></td>
+                    <td><span class="text-yellow">8</span></td>
+                    <td><span class="text-green">6</span></td>
+                    <td><span class="text-yellow">5</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">David Warner</a></td>
+                    <td><span class="text-green">8</span></td>
+                    <td><span class="text-yellow">4</span></td>
+                    <td><span class="text-green">6</span></td>
+                    <td><span class="text-yellow">6</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">Steve Smith</a></td>
+                    <td><span class="text-green">10</span></td>
+                    <td><span class="text-yellow">9</span></td>
+                    <td><span class="text-green">8</span></td>
+                    <td><span class="text-yellow">5</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">Kevin Peterson</a></td>
+                    <td><span class="text-green">12</span></td>
+                    <td><span class="text-yellow">10</span></td>
+                    <td><span class="text-green">5</span></td>
+                    <td><span class="text-yellow">3</span></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <!-- DIRECT CHAT -->
+              <div class="box box-warning">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Most Recent Questions</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                   <div class="que-ans-container">
+                    <ul>
+                      <li class="question"><span class="text">Samsung 32” 1080p 60Hz LED Smart HDTV</span><span class="time pull-right">a minute ago</span></li>
+                      <li class="question"><span class="text"> 26" Mongoose Dolomite Men's 7-speed, Navy Blue.</span><span class="time pull-right">an hour ago</span></li>
+                      <li class="question"><span class="text"> Xbox One Console Bundle with Halo Master Chief
+                        Collection.</span><span class="time pull-right">a day ago</span></li>
+                      <li class="question"><span class="text"> PlayStation 4 500GB Console (PS4 class="question") class="question"</span><span class="time pull-right">a day ago</span></li>
+                    </ul>  
+                  </div>
+                </div>
+              </div>
+              <!--/.direct-chat -->
+            </div>
+            <!-- /.col -->
+
+            <div class="col-md-6">
+              <!-- DIRECT CHAT -->
+              <div class="box box-warning">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Most Recent Answers</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                   <div class="que-ans-container">
+                        <ul>
+                          <li class="answer"><span class="text">Samsung 32” 1080p 60Hz LED Smart HDTV</span><span class="agent-name pull-left">-Alek Packard</span></span><span class="time pull-right">a minute ago</span></li>
+                          <li class="answer"><span class="text"> 26" Mongoose Dolomite Men's 7-speed, Navy Blue.</span><span class="agent-name pull-left">-Steve Smith</span><span class="time pull-right">an hour ago</span></li class="answer">
+                          <li class="answer"><span class="text"> Xbox One Console Bundle with Halo Master Chief
+                            Collection.</span><span class="agent-name pull-left">-Steve Smith</span><span class="time pull-right">a day ago</span></li class="answer">
+                          <li class="answer"><span class="text"> PlayStation 4 500GB Console (PS4)</span><span class="agent-name pull-left">-Jhon Doe</span><span class="time pull-right">a day ago</span></li>
+                        </ul>  
+                    </div>
+                </div>
+              </div>
+              <!--/.direct-chat -->
+            </div>
+            <!-- /.col --> 
+          </div>
+          <!-- /.box -->
           <div class="box">
             <div class="box-header with-border">
               <h3 class="box-title">Question And Answer Flow</h3>
@@ -147,7 +302,11 @@ title: Dashboard
               <div class="row">
                 <div class="col-md-12">
                   <p class="text-center">
-                    <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                    <strong> 01/01/2019 - 01/07/2019</strong>
+                    <ul class="chart-legend detail-legend chart-legend-queansflow clearfix">
+                      <li><i class="fa fa-circle-o text-primary"></i> Answer Flow </li>
+                      <li><i class="fa fa-circle-o text-gray"></i> Question Flow</li>
+                    </ul>
                   </p>
                   <div class="chart">
                     <!-- Sales Chart Canvas -->
@@ -158,48 +317,7 @@ title: Dashboard
               </div>
               <!-- /.row -->
             </div>
-            <!-- ./box-body -->
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                    <h5 class="description-header">$35,210.43</h5>
-                    <span class="description-text">TOTAL REVENUE</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                    <h5 class="description-header">$10,390.90</h5>
-                    <span class="description-text">TOTAL COST</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                    <h5 class="description-header">$24,813.53</h5>
-                    <span class="description-text">TOTAL PROFIT</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block">
-                    <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                    <h5 class="description-header">1200</h5>
-                    <span class="description-text">GOAL COMPLETIONS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.box-footer -->
+            
           </div>
           <!-- /.box -->
         </div>
@@ -226,9 +344,43 @@ title: Dashboard
                 </div>
                 <!-- /.col -->
                 <div class="col-md-4">
+                   <ul class="chart-legend detail-legend clearfix">
+                    <li><i class="fa fa-circle-o text-primary"></i> Logged In Agents</li>
+                    <li><i class="fa fa-circle-o text-red"></i> Logged Out Agent</li>
+                   </ul>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Total Agents With Empty Inbox</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="chart-responsive">
+                    <canvas id="pieChart2" height="150"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
                   <ul class="chart-legend detail-legend clearfix">
-                    <li><i class="fa fa-circle-o text-green"></i> Logged In Agents</li>
-                    <li><i class="fa fa-circle-o ext-red"></i> Logged Out Agent</li>
+                    <li><i class="fa fa-circle-o text-green"></i> Logged In</li>
+                    <li><i class="fa fa-circle-o text-yellow"></i> Logged Out</li>
                    </ul>
                 </div>
                 <!-- /.col -->
@@ -255,55 +407,55 @@ title: Dashboard
               <ul class="user-list leaderbord">
                 <li class="item">
                   <div class="user-img">
-                      <div class="user-initials round no-select bg-primary">AP</div>
+                      <div class="user-initials round no-select bg-primary">JP</div>
                   </div>
                   <div class="points pull-right">
                       <span>100</span>
                       <img src="/dist/img/dashboard-icons/gold.png">
                   </div>  
                   <div class="user-info">
-                      <a href="javascript:void(0)" class="user-title">Alek Packard</a>
+                      <a href="javascript:void(0)" class="user-title">Jacob Smith</a>
                   </div>
                   
                 </li>
                 <!-- /.item -->
                 <li class="item">
                   <div class="user-img">
-                      <div class="user-initials round no-select bg-primary">JS</div>
+                      <div class="user-initials round no-select bg-primary">JT</div>
                   </div>
                   <div class="points pull-right">
                       <span>90</span>
                       <img src="/dist/img/dashboard-icons/silver.png">
                   </div>  
                   <div class="user-info">
-                    <a href="javascript:void(0)" class="user-title">Jacob Smith
+                    <a href="javascript:void(0)" class="user-title">Justin Time
                       </a>
                   </div>
                 </li>
                 <!-- /.item -->
                 <li class="item">
                   <div class="user-img">
-                      <div class="user-initials round no-select bg-primary">AM</div>
+                      <div class="user-initials round no-select bg-primary">AP</div>
                   </div>
                   <div class="points pull-right">
                       <span>80</span>
                       <img src="/dist/img/dashboard-icons/bronze.png">
                   </div>  
                   <div class="user-info">
-                    <a href="javascript:void(0)" class="user-title">Albert Metricman </a>
+                    <a href="javascript:void(0)" class="user-title">Alek Packard </a>
                   </div>
                 </li>
                 <!-- /.item -->
                 <li class="item">
                   <div class="user-img">
-                      <div class="user-initials round no-select bg-primary">JP</div>
+                      <div class="user-initials round no-select bg-primary">JH</div>
                   </div>
                   <div class="points pull-right">
                       <span>50</span>
                       <img src="/dist/img/dashboard-icons/other.png">
                   </div>  
                   <div class="user-info">
-                    <a href="javascript:void(0)" class="product-title">Julie Persuavia</a>
+                    <a href="javascript:void(0)" class="product-title">Jonie Hewlett</a>
                   </div>
                 </li>
                 <!-- /.item -->
@@ -316,7 +468,9 @@ title: Dashboard
             <!-- /.box-footer -->
           </div>
           <!-- /.box -->
-          </div>
+        </div>
+
+        
       </div>
       <!-- /.row -->
     </section>
