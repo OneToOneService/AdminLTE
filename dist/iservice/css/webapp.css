@@ -3504,7 +3504,7 @@ small.disabled {
 }
 .que-ans-container li span {
   padding-top: 5px;
-  margin-left: 15px;
+  margin-left: 22px;
   display: block;
 }
 .que-ans-container li:last-of-type {
@@ -3530,9 +3530,11 @@ small.disabled {
 }
 .que-ans-container li span.text {
   margin-bottom: 8px;
+  padding-right: 5px;
 }
 .que-ans-container li span.time {
   font-size: 12px;
+  padding-right: 5px;
 }
 .que-ans-container li span.agent-name {
   font-size: 12px;
