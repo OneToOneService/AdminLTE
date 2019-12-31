@@ -3544,3 +3544,7 @@ small.disabled {
   float: right;
   margin-right: 24px;
 }
+.btn-inline-with-label .responses {
+  margin-right: 0px;
+  margin-top: 0px;
+}
