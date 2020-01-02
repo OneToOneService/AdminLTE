@@ -3424,17 +3424,19 @@ small.disabled {
     margin-top: 8px;
   }
 }
+.info-box .info-box-container .top-container {
+  padding-top: 15px;
+  text-align: center;
+}
 .info-box .info-box-container .infobox-icon {
   width: auto;
-  float: left;
-  padding-top: 15px;
-  padding-left: 55px;
+  vertical-align: middle;
 }
 .info-box .info-box-container .infobox-number {
-  float: left;
   font-size: 28px;
-  padding-top: 22px;
-  padding-left: 15px;
+  padding-top: 10px;
+  padding-left: 10px;
+  vertical-align: middle;
 }
 .info-box .info-box-container .infobox-text {
   width: 100%;
@@ -3483,9 +3485,12 @@ small.disabled {
   margin-top: 7px;
   width: calc(100% - 150px);
 }
+.logged-in-container {
+  height: 294px;
+  overflow-y: scroll;
+}
 .que-ans-container {
   height: 250px;
-  overflow: auto;
   overflow-y: scroll;
 }
 .que-ans-container ul {
@@ -3547,4 +3552,35 @@ small.disabled {
 .btn-inline-with-label .responses {
   margin-right: 0px;
   margin-top: 0px;
+}
+/* Large desktop */
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 991px) {
+  .info-box .info-box-container .infobox-icon {
+    padding-left: 64px;
+  }
+  .detail-legend {
+    margin-left: 0px;
+  }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .info-box .info-box-container .infobox-icon {
+    padding-left: 112px;
+  }
+  .detail-legend {
+    margin-left: 0px;
+  }
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  .info-box .info-box-container .infobox-icon {
+    padding-left: 10px;
+  }
+  .info-box .info-box-container .infobox-text {
+    font-size: 14px;
+  }
+  .detail-legend {
+    margin-left: 0px;
+  }
 }
