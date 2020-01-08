@@ -113,6 +113,12 @@ p.login-box-msg {
   z-index: 9999;
   padding: 3px 12px;
 }
+iservice-message-notification {
+  display: block;
+}
+iservice-message-notification.full-row .alert-dismissible {
+  margin-bottom: 15px;
+}
 .sidebar-menu,
 .main-sidebar .user-panel,
 .sidebar-menu > li.header {
@@ -3552,6 +3558,16 @@ small.disabled {
 .btn-inline-with-label .responses {
   margin-right: 0px;
   margin-top: 0px;
+}
+.mail-bounced-icon {
+  width: 20px;
+  line-height: 1.7em;
+}
+.mail-bounced-icon .icon-plus {
+  position: absolute;
+  right: 0;
+  top: 13px;
+  font-size: 10px;
 }
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */
