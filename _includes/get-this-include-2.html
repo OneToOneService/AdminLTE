@@ -132,6 +132,9 @@
       <div class="row">
         {% include show-status-audit.html %}
       </div>
+      <div class="row full-case-panel" ng-show="toggle.switchshowfullcase">
+        {% include full-case-action-mode-panel-include.html %}
+      </div>	
       <div class="row">
         <!-- Custom Tabs -->
         {% include email-address-subject-responses-include.html tab="3" %}
