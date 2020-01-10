@@ -128,13 +128,23 @@
           Spam
         </button>
         <a class="btn btn-link" ng-click="cancel2('getthis2')">Cancel</a>
+        <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+          <button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
+            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+            <li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+              <iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
+            </li>
+            <li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+            <li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
+            <li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+          </ul>
+        </div>
       </div>
       <div class="row">
         {% include show-status-audit.html %}
       </div>
-      <div class="row full-case-panel" ng-show="toggle.switchshowfullcase">
-        {% include full-case-action-mode-panel-include.html %}
-      </div>	
       <div class="row">
         <!-- Custom Tabs -->
         {% include email-address-subject-responses-include.html tab="3" %}
