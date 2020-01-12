@@ -38,6 +38,7 @@
 @data-table-border: #f4f4f4;
 @bg-customer-reply: #ebedf1;
 @bg-agent-reply: #f9efef;
+@bg-case-property: #f9f9f9;
 @font-color: #333333;
 @border-color: #cccccc;
 @horizontal-line:#eee;
@@ -3018,6 +3019,9 @@ label.required
     background: @bg-agent-reply !important;
     td{border-top:1px solid @border-question !important;}
 }
+.bg-case-properties{
+    background: @bg-case-property!important;
+}
 .bg-answers-sent
 {
     background: @dropdown-hover!important;
@@ -4442,11 +4446,12 @@ ul li .treeviewitem label {
 	}	
 }	
 
-.icheckbox_square-blue, .iradio_square-blue{width:18px; height:18px;}
+.icheckbox_square-blue, .iradio_square-blue{width:19px; height:19px;}
 .icheckbox_square-blue.checked {
     background-position: -48px 0px;
 }
 .icheckbox_square-blue, .iradio_square-blue{background: url(/dist/img/blue-n.png) no-repeat;}
+.iradio_square-blue{background-position: -122px 0;}
 .alert {
     padding: 8px 15px;
 }
@@ -4663,7 +4668,9 @@ small.disabled{cursor:default;}
         font-size: 10px;
     }
 }
+.external-agent{font-size:21px;}
 
+.bg-case-properties .box{margin-bottom: 0px;}
 /* Large desktop */
 
 /* Portrait tablet to landscape and desktop */

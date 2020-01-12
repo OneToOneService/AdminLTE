@@ -1,0 +1,43 @@
+<script id="caseproperties" type="text/ng-template">
+    <div class="box box-info">
+    <div class="box-body">  
+      <div class="row">
+            <div class="col-md-12">
+              <h4>Case Properties</h4>
+              <div class="row form-horizontal">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control pull-right">
+                    </div>
+                  </div>
+                </div>  
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-12 control-label text-left">Delivery Date</label>
+                    <div class="col-sm-12">
+                      <div class="input-group date">
+                        <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-12 control-label text-left">Detail</label>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+            </div>    
+          </div>        
+    </div>        
+  </div>
+
+  </script>  

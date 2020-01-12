@@ -2109,6 +2109,9 @@ label.required {
 .bg-questions td {
   border-top: 1px solid #f5dad6 !important;
 }
+.bg-case-properties {
+  background: #f9f9f9 !important;
+}
 .bg-answers-sent {
   background: #e1e3e9 !important;
 }
@@ -3211,8 +3214,8 @@ ul li .treeviewitem label {
 }
 .icheckbox_square-blue,
 .iradio_square-blue {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
 }
 .icheckbox_square-blue.checked {
   background-position: -48px 0px;
@@ -3220,6 +3223,9 @@ ul li .treeviewitem label {
 .icheckbox_square-blue,
 .iradio_square-blue {
   background: url(/dist/img/blue-n.png) no-repeat;
+}
+.iradio_square-blue {
+  background-position: -122px 0;
 }
 .alert {
   padding: 8px 15px;
@@ -3568,6 +3574,12 @@ small.disabled {
   right: 0;
   top: 13px;
   font-size: 10px;
+}
+.external-agent {
+  font-size: 21px;
+}
+.bg-case-properties .box {
+  margin-bottom: 0px;
 }
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */

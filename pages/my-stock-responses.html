@@ -115,26 +115,60 @@ title: My Stock Responses
 									</div>
 									<div class="box-body">
 										<section class="search-parameters">
-											<div class="row">
-												<div class="form-horizontal">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-4 control-label text-left">Name</label>
-															<div class="col-sm-8">
-																<input type="text" class="form-control">
-															</div>
-														</div>
+										  <div class="row">
+											  <div class="form-horizontal">
+												<div class="col-md-6">
+												  <div class="form-group">
+													<label class="col-md-12 control-label text-left">Name</label>
+													<div class="col-md-12">
+													  <input type="text" class="form-control">
 													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Create</button>
-															<button type="button" class="btn btn-link">Cancel</button>
-														</div>	
-													</div>
+												  </div>
 												</div>
+												<div class="col-md-6">
+												  <div class="form-group">
+													<label class="col-md-12 control-label text-left">Description</label>
+													<div class="col-md-12">
+													  <input type="text" class="form-control">
+													</div>
+												  </div>
+												</div>
+												<div class="col-md-6">
+												  <div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type</label>
+													<div class="col-sm-12">
+													  <select class="form-control">
+														<option>Chat</option>
+														<option>Email</option>
+													  </select> 	 
+													</div>
+												  </div>
+												</div>
+											   
+												<div class="col-md-12">
+												  <div class="form-group">
+													<label class="col-md-6 control-label text-left">
+														Html Response Body</label>
+													<div class="col-md-6">           
+													  <div class="btn-group pull-right btn-inline-with-label mbottom-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+														<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+														{% include variables-and-stock-responses.html %}
+													  </div>  
+													</div>    
+													<div class="col-md-12">
+													  <textarea class="form-control" ckeditor></textarea>
+													</div>
+												  </div>
+												</div>
+											   
+												<div class="col-md-12 col-sm-12">
+													<button type="button" class="btn btn-primary" ng-click="showNewFormStepStockResponse('2')">Create</button>
+													<button type="button" class="btn btn-link" ng-click="cancelFormStockResponse(1)">Cancel</button>
+												</div>
+											  </div>
 											</div>
 										</section>
-									</div>
+									  </div>
 								</div>
 							</div>	
             </div>
@@ -155,7 +189,7 @@ title: My Stock Responses
 															<div class="col-sm-12">
 																<input type="text" class="form-control">
 															</div>
-                            </div>
+                                                        </div>
                             
 													</div>
 													<div class="col-md-6">
@@ -177,101 +211,23 @@ title: My Stock Responses
 																</div>
 															</div>
 													</div>
-                          <div class="col-md-8">
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-4 control-label text-left">
-                                  HTML Response Body</label>
-                                <div class="col-sm-12 text-editor-container">
-                                  <textarea id="editor1" class="form-control" rows="5" placeholder="" ckeditor>
-                                  </textarea>
-                                </div>
-                              </div>
-                          </div> 
-													<div class="col-md-4 vpicker">
-														<div class="nav-tabs-custom">
-															<ul class="nav nav-tabs">
-																	<li class="active"><a href="#tab_variablepicker" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>         
-																	<li><a href="#tab_stockresponse" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-															</ul>
-															<div class="tab-content">
-																<div class="tab-pane active" id="tab_variablepicker">
-																		<div class="row custom-scroll">
-																				<div class="col-xs-12 variable-responses">
-																						<div>
-																								<input type="text" class="form-control" placeholder="Filter Variables">
-																						</div>
-																						<ul class="list-unstyled segment-variable-list">
-																								<li class="section-label">Contact
-																										<ul class="segment-variables">
-																												<li class="section-var-link">Name</li>
-																												<li class="segment-lable">Global
-																														<ul>
-																														<li class="section-var-link">Address1</li>
-																														<li class="section-var-link">Address2</li>
-																														<li class="section-var-link">City</li>
-																														<li class="section-var-link">Country</li>
-																														<li class="section-var-link">Company</li>
-																														</ul>
-																												</li>
-																												<li class="segment-lable">JC Segment
-																														<ul>
-																														<li class="section-var-link">Contact View Only Property</li>
-																														<li class="section-var-link">Contact Viewable and Editable Property</li>
-																														<li class="section-var-link">Multi value No Descr</li>
-																														<li class="section-var-link">Shared Property from JC - cust can't see</li>
-																														</ul>
-																												</li>
-																										</ul>
-																								</li>
-																						</ul>
-																						<ul class="list-unstyled segment-variable-list">
-																								<li class="section-label">Answer
-																								<ul class="segment-variables">
-																										<li class="section-var-link">Email</li>
-																										<li class="section-var-link">Reference Number</li>
-																										<li class="section-var-link">Original Date</li>
-																										<li class="section-var-link">Original Time</li>
-																										<li class="section-var-link">Subject</li>
-																										<li class="section-var-link">Original Body</li>
-																										<li class="section-var-link">Quoted Question</li>
-																								</ul>
-																								</li>
-																						</ul>
-																				</div>
-																		</div>
-																</div>
-																<div class="tab-pane" id="tab_stockresponse">
-																		<div class="row" id="stock-responses">
-																				<div class="col-xs-12 stock-responses">
-																						<div>
-																								<input type="text" class="form-control" placeholder="Filter Stock Responses">
-																						</div>
-																						<ul class="list-unstyled segment-variable-list">
-																								<li class="section-label">Segment Responses
-																								<ul class="segment-variables">
-																										<li class="section-var-link">Chat Closing</li>
-																										<li class="section-var-link">Chat Opening</li>
-																										<li class="section-var-link">Chat Wait</li>
-																										<li class="section-var-link">iService Website</li>
-																								</ul>
-																								</li>
-																						</ul>
-																						<ul class="list-unstyled segment-variable-list">
-																								<li class="section-label">Agent Response
-																								<ul class="segment-variables">
-																										<li class="section-var-link">Test</li>
-																										
-																								</ul>
-																								</li>
-																						</ul>
-																				</div>
-																		</div>
-																</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<label for="inputPassword3" class="col-sm-6 control-label text-left">
+															HTML Response Body</label>
+															<div class="col-md-6">           
+																<div class="btn-group pull-right btn-inline-with-label mbottom-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+																  <a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+																  {% include variables-and-stock-responses.html %}
+																</div>  
+															</div>  
+															<div class="col-sm-12 text-editor-container">
+																<textarea id="editor1" class="form-control" rows="5" placeholder="" ckeditor>
+																</textarea>
 															</div>
-															<!-- /.tab-content -->
 														</div>
-													</div>
-
+													</div> 
+												
 													<div class="col-md-12">
 																<button type="button" class="btn btn-primary" ng-click="showNewFormStep(2)">Save</button>
 													</div>	
@@ -281,7 +237,7 @@ title: My Stock Responses
 									</div>
 								</div>
 							</div>	
-            </div>
+            	</div>
 	        </div> 
         </div>
       </section>
