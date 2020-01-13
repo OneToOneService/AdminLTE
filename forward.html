@@ -114,10 +114,9 @@
 			float: left;
 		}
 		.interaction-properties .form-group {
-			width: 50%;
-			float: left;
-			margin-right: 15px;
+			
 		}
+		.help-icon{font-size: 30px;}
     </style>
 </head>
 
@@ -129,52 +128,53 @@
 	  <div class="contents-wrapper">
 		    <div class="row">
 				<div class="col-md-12">
+			 	 <i class="fa fa-question-circle text-info help-icon pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+				</div>
+				 <div class="col-md-12">
 					<button type="button" class="btn btn-primary">
 						Submit Answer</button>
 				</div>		
 		    </div>	
 		   <div class="info-container">
-			   <h3>Please confirm your information   </h3>
+	           <h4>Agent Information</h4>
 			   <div class="data-container form-horizontal">
+				    <h5>Please confirm your information</h5>
 			   	    <div class="row">
-					
 						<div class="col-md-8">
 							<div class="form-group">
-								<label class="col-md-2 col-xm-12 control-label text-left">Email <span class="required">(Required)</span></label>
-								<div class="col-sm-10">
-									<input class="form-control" name="ëmail" type="text" placeholder="jhon.doe@example.com" >
+								<label class="col-md-3 col-xm-12 control-label text-left">Email <span class="required">(Required)</span></label>
+								<div class="col-sm-9">
+									<input class="form-control" name="ëmail" type="text" placeholder="Enter Email" >
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-md-2 col-xm-12 control-label text-left">Confirm Email</label>
-								<div class="col-sm-10">
-									<input class="form-control" name="confirm-email" type="text" placeholder="jhon.doe@example.com">
+								<label class="col-md-3 col-xm-12 control-label text-left">First Name (Optional)</label>
+								<div class="col-sm-9">
+									<input class="form-control" name="confirm-email" type="text" placeholder="Enter First Name">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-md-2 col-xm-12 control-label text-left">Name (Optional)</label>
-								<div class="col-sm-5">
-									<input class="form-control" name="confirm-email" type="text" placeholder="First Name">
+								<label class="col-md-3 col-xm-12 control-label text-left">Last Name (Optional)</label>
+								<div class="col-sm-9">
+									<input class="form-control" name="confirm-email" type="text" placeholder="Enter Last Name">
 								</div>
-								<div class="col-sm-5">
-									<input class="form-control" name="confirm-email" type="text" placeholder="Last Name">
-								</div>
+							
 							</div>
 							
 							<div class="form-group">
-								<label class="col-md-2 col-xm-12 control-label text-left">To</label>
-								<div class="col-sm-10" ng-controller="FromEmail as ctrl"> 
+								<label class="col-md-3 col-xm-12 control-label text-left">To</label>
+								<div class="col-sm-9" ng-controller="FromEmail as ctrl"> 
 									<select class="form-control">
 										<option>customer@1to1Service.Com</option>
 									</select>   
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-md-2 col-xm-12 control-label text-left">Subject</label>
+								<label class="col-md-3 col-xm-12 control-label text-left">Subject</label>
 								<div class="col-sm-3">
 									<input class="form-control" type="text" value="Ref#: 123456789-123456789"  disabled>
 								</div>
-								<div class="col-sm-7">
+								<div class="col-sm-6">
 									<input class="form-control" type="text" value="looking for low cost tv">
 								</div>
 							</div>
@@ -208,59 +208,62 @@
 								</div>    
 							</div> 
 						</div> 
+
+						<div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+                         </div>
 					</div>   
 			   </div>
+			   <h4>Interaction  Properties</h4>
 			   <div class="data-container form-horizontal">
 					<div class="row">
-						<div class="col-md-8 interaction-properties">
-							<h4>Question Properties</h4>
-							<div class="form-group">    
-								<label class="col-md-12 control-label control-label text-left">Search Term</label>
-								<div class="col-sm-12">
-									<input type="text" class="form-control pull-right">
-								</div>
-							</div>  
-							<div class="form-group">    
-								<label class="col-md-12 control-label control-label text-left">Search Term Multi Line</label>
-								<div class="col-sm-12">
-									<textarea class="form-control" rows="3"></textarea>
-								</div>
-							</div>  
-							<div class="form-group">    
-								<label class="col-md-12 control-label control-label text-left">Team</label>
-								<div class="col-sm-12">
-									<div class="simple-label multiple">
-										<div class="float-btn-group">
-											<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-											<input type="text" class="form-control">
+						<div class="col-md-12 interaction-properties">
+							
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">    
+										<label class="col-md-12 control-label control-label text-left">Search Term</label>
+										<div class="col-sm-12">
+											<input type="text" class="form-control pull-right">
 										</div>
-										<div class="float-btn-group">
-											<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-											<input type="text" class="form-control">
-										</div>
-										<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
-									</div>
+									</div>  
 								</div>
-							</div>    
-						</div> 
-						<div class="col-md-4">
-							<div class="form-group">
+								<div class="col-md-4">
+									<div class="form-group">    
+										<label class="col-md-12 control-label control-label text-left">Search Term Multi Line</label>
+										<div class="col-sm-12">
+											<textarea class="form-control" rows="3"></textarea>
+										</div>
+									</div>  
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">    
+										<label class="col-md-12 control-label control-label text-left">Team</label>
+										<div class="col-sm-12">
+											<div class="simple-label multiple">
+												<div class="float-btn-group">
+													<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+													<input type="text" class="form-control">
+												</div>
+												<div class="float-btn-group">
+													<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+													<input type="text" class="form-control">
+												</div>
+												<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+											</div>
+										</div>
+									</div> 
+								</div>   
 								<div class="col-md-12">
-									<div class="int-det-box"> 
-										<div><b>Interaction ID : </b>4645646</div>
-										<div><b> Segment / Topic : </b>All Topic</div>
-										<div><b> Resolved By : </b>Alek Packard</div>
-										<div><b> Approved By : </b>&nbsp;</div>	
-										<div><b> Interaction Status : </b><small class="bg-green-active label">Resolved</small></div>									
-										<div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
-									</div>
-								</div>    
+									<button type="submit" class="btn btn-primary">Save</button>
+								</div>
 							</div> 
-						</div> 
+							
+						</div>	
 					</div>   
 		       </div>
-
+			   <h4>Message Details/Response</h4>
 			   <div class="data-container p0 b0 form-horizontal">	
+				    
 					<div class="row">
 						<div class="col-md-12"> 
 							<div class="nav-tabs-custom">
@@ -326,7 +329,7 @@
 			   </div>
 			</div>
 		</div> 
-	</div>
+
 </body>
 
 </html>
