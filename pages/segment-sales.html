@@ -1599,7 +1599,7 @@ title:  Sales Settings
                         <section class="search-parameters">
                           <div class="row">
                               <div class="form-horizontal">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                   <div class="form-group">
                                     <label class="col-md-12 control-label text-left">Name</label>
                                     <div class="col-md-12">
@@ -1607,7 +1607,7 @@ title:  Sales Settings
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                   <div class="form-group">
                                     <label class="col-md-12 control-label text-left">Description</label>
                                     <div class="col-md-12">
@@ -1615,33 +1615,46 @@ title:  Sales Settings
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                   <div class="form-group">
                                     <div class="col-md-12 toggle-control">
                                       <iservice-switch switched="toggle.switchnoreply">Use No-Reply From Address</iservice-switch>
                                     </div>  
                                   </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="clearfix"></div>
+                                <div class="col-md-4">
                                   <div class="form-group">
                                     <label class="col-md-12 control-label text-left">Notification Type</label>
                                     <div class="col-md-12">
-                                      <select class="form-control">
-                                        <option value="">Agent Notification</option>
-                                        <option value="">Alert</option>
-                                        <option value="">Contact Creation</option>
-                                        <option value="">Find Answers Article Notification</option>
-                                        <option value="">Message Acknowledgment</option>
-                                        <option value="">Password Reset</option>
-                                        <option value="">Secure Message Notification</option>
+                                      <select id="notificationtype" class="form-control" ng-model="templatessource" ng-options="notificationtype for (notificationtype, templates) in notificationtypelist"
+                                                      ng-change="GetSelectednotificationtype()">
+                                        <option value="">Select Notification Type</option>
+                                      </select> 
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label class="col-md-12 control-label text-left">Agent Notification Template</label>
+                                    <div class="col-md-12">
+                                      
+                                      <select id="template" class="form-control" ng-disabled="!templatessource" ng-model="model.template" ng-options="template for template in templatessource"
+                                                            ng-change="GetSelectedTemplate()"><option value="">Select Notification Template</option>
                                       </select>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="col-md-12">
                                   <div class="form-group">
-                                    <label class="col-md-12 control-label text-left">
-                                        Response Body</label>
+                                    <label class="col-md-6 control-label text-left">
+                                         Response Body</label>
+                                      <div class="col-md-6">           
+                                        <div class="btn-group pull-right btn-inline-with-label mbottom-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                                        <a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+                                        {% include variables-and-stock-responses.html %}
+                                        </div>  
+                                      </div>     
                                     <div class="col-md-12">
                                       <textarea class="form-control" ckeditor></textarea>
                                     </div>
@@ -1665,7 +1678,7 @@ title:  Sales Settings
                       <div class="box-body">
                           <div class="row">
                             <div class="form-horizontal">
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
                                   <label class="col-md-12 control-label text-left">Name</label>
                                   <div class="col-md-12">
@@ -1673,7 +1686,7 @@ title:  Sales Settings
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
                                   <label class="col-md-12 control-label text-left">Description</label>
                                   <div class="col-md-12">
@@ -1681,25 +1694,32 @@ title:  Sales Settings
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
                                   <div class="col-md-12 toggle-control">
                                     <iservice-switch switched="toggle.switchnoreply">Use No-Reply From Address</iservice-switch>
                                   </div>  
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="clearfix"></div>
+                              <div class="col-md-4">
                                 <div class="form-group">
                                   <label class="col-md-12 control-label text-left">Notification Type</label>
                                   <div class="col-md-12">
-                                    <select class="form-control">
-                                      <option value="">Agent Notification</option>
-                                      <option value="">Alert</option>
-                                      <option value="">Contact Creation</option>
-                                      <option value="">Find Answers Article Notification</option>
-                                      <option value="">Message Acknowledgment</option>
-                                      <option value="">Password Reset</option>
-                                      <option value="">Secure Message Notification</option>
+                                    <select id="notificationtype2" class="form-control" ng-model="templatessource" ng-options="notificationtype for (notificationtype, templates) in notificationtypelist"
+                                                    ng-change="GetSelectednotificationtype()">
+                                      <option value="">Select</option>
+                                    </select> 
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="col-md-12 control-label text-left">Agent Notification Template</label>
+                                  <div class="col-md-12">
+                                    
+                                    <select id="template2" class="form-control" ng-disabled="!templatessource" ng-model="model.template" ng-options="template for template in templatessource"
+                                                          ng-change="GetSelectedTemplate()"><option value="">Select</option>
                                     </select>
                                   </div>
                                 </div>
@@ -3352,6 +3372,169 @@ $(document).ready(function() {
 
     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
+        $scope.notification = {};
+        $scope.template = {};
+
+        var allnotificationtypes = [{
+        Id: 1,
+        NotificationType: "Agent"
+        }, 
+        {
+            Id: 2,
+            NotificationType: "Alert"
+        },
+        {
+            Id: 3,
+            NotificationType: "Contact Creation"
+        },
+        {
+            Id: 4,
+            NotificationType: "Knowledge Base Article"
+        },
+        {
+            Id: 5,
+            NotificationType: "Message Acknowledgment"
+        },
+        {
+            Id: 6,
+            NotificationType: "Password Reset"
+        },
+        {
+            Id: 7,
+            NotificationType: "Secure Message"
+        }];
+
+
+        var allTemplates = [{
+            Id: 1,
+            TemplateName: "Notification Only",
+            NotificationTypeId: 1
+        },
+        {
+            Id: 2,
+            TemplateName: "Reply at Start",
+            NotificationTypeId: 1
+        },
+        {
+            Id: 3,
+            TemplateName: "Reply at End",
+            NotificationTypeId:1
+        },
+        {
+            Id: 4,
+            TemplateName: "Link to Answer Form",
+            NotificationTypeId:1
+        },
+        , {
+            Id: 1,
+            TemplateName: "Style 1 - Blue",
+            NotificationTypeId: 2
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 2 -Red",
+            NotificationTypeId: 2
+        },
+        {
+            Id: 3,
+            TemplateName: "Style 3 -Green",
+            NotificationTypeId: 2
+        },
+        {
+            Id: 4,
+            TemplateName: "Style 4 -Black",
+            NotificationTypeId: 2
+        },
+        {
+            Id: 1,
+            TemplateName: "Login Details",
+            NotificationTypeId: 3
+        },
+        {
+            Id: 1,
+            TemplateName: "Style 1 - Blue",
+            NotificationTypeId: 4
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 2 -Red",
+            NotificationTypeId: 4
+        },
+        {
+            Id: 3,
+            TemplateName: "Style 3 -Green",
+            NotificationTypeId: 4
+        },
+        {
+            Id: 4,
+            TemplateName: "Style 4 -Black",
+            NotificationTypeId: 4
+        },
+       
+        {
+            Id: 1,
+            TemplateName: "Without Support Portal",
+            NotificationTypeId: 5
+        },
+        {
+            Id: 2,
+            TemplateName: "With Support Portal",
+            NotificationTypeId: 5
+        },
+        {
+            Id: 1,
+            TemplateName: "Style 1 - Blue",
+            NotificationTypeId: 6
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 2 -Red",
+            NotificationTypeId: 6
+        },
+        {
+            Id: 1,
+            TemplateName: "Style 3 -Green",
+            NotificationTypeId: 6
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 4 -Black",
+            NotificationTypeId: 6
+        },
+        {
+            Id: 1,
+            TemplateName: "Style 1 - Blue",
+            NotificationTypeId: 7
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 2 -Red",
+            NotificationTypeId: 7
+        },
+        {
+            Id: 3,
+            TemplateName: "Style 3 -Green",
+            NotificationTypeId: 7
+        },
+        {
+            Id:4,
+            TemplateName: "Style 4 -Black",
+            NotificationTypeId: 7
+        }
+
+        ];
+
+        $scope.notificationtypes = allnotificationtypes;
+
+        $scope.$watch('notification', function () {
+            $scope.templates = allTemplates.filter(function (s) {
+                return s.NotificationTypeId == $scope.notification.Id;
+            });
+            $scope.template = {};
+        });  
+        
+         
+
         $scope.dtContactHistoryOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
 					search: 'Filter Properties'
@@ -3373,7 +3556,38 @@ $(document).ready(function() {
           //DTColumnDefBuilder.newColumnDef(10).notVisible()
 				];
 
+        $scope.notificationtypelist = {
 
+          'Agent': ['Notification Only',
+                    'Reply at Start',
+                    'Reply at End',
+                    'Link to Answer Form'],
+          'Alert': ['Style 1 - Blue',
+                    'Style 2 -Red',
+                    'Style 3 -Green',
+                    'Style 4 -Black'],
+          'Contact Creation': ['Login Details'],
+          'Knowledge Base Article': ['Style 1 - Blue',
+                    'Style 2 -Red',
+                    'Style 3 -Green',
+                    'Style 4 -Black'],
+          'Message Acknowledgment':['Without Support Portal','With Support Portal'],
+          'Password Reset':['Style 1 - Blue',
+                    'Style 2 -Red',
+                    'Style 3 -Green',
+                    'Style 4 -Black'],
+          'Secure Message': ['Style 1 - Blue',
+                    'Style 2 -Red',
+                    'Style 3 -Green',
+                    'Style 4 -Black']
+          };
+
+          $scope.GetSelectedNotificationType = function () {
+            $scope.strNotificationType = document.getElementById("notificationtype").value;
+          };
+          $scope.GetSelectedTemplate = function () {
+            $scope.strTemplate = document.getElementById("template").value;
+          };
         $scope.dtMailboxOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
 					search: 'Filter Mailboxes'
