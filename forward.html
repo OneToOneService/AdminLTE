@@ -17,7 +17,7 @@
 	<script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <title>Product Launch Email Newsletter Template</title>
+    <title>iService External Agent Answer Page</title>
 
     <style type="text/css">
       
@@ -34,6 +34,7 @@
 		.wrapper .header img{width:160px;}
       
 		.data-container{background-color:#fff; border:1px solid #ccc;width:100%; padding:15px;margin-top:15px;}
+		.data-container h5{margin:0px 0px 20px 0px; font-size: 16px;}
         .top-heading{margin:0;color:#484c50; font-size:22px; text-align:center; padding:15px 15px 30px 15px;font-weight:500;mso-line-height-rule:exactly;}
         td.clabel{padding-bottom:8px; font-size:14px;color:#484c50; width:145px;}
 		td.cdata{padding-bottom:8px;color:#016dab;font-size:14px;}
@@ -135,86 +136,68 @@
 						Submit Answer</button>
 				</div>		
 		    </div>	
-		   <div class="info-container">
-	           <h4>Agent Information</h4>
-			   <div class="data-container form-horizontal">
-				    <h5>Please confirm your information</h5>
-			   	    <div class="row">
-						<div class="col-md-8">
-							<div class="form-group">
-								<label class="col-md-3 col-xm-12 control-label text-left">Email <span class="required">(Required)</span></label>
-								<div class="col-sm-9">
-									<input class="form-control" name="ëmail" type="text" placeholder="Enter Email" >
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 col-xm-12 control-label text-left">First Name (Optional)</label>
-								<div class="col-sm-9">
-									<input class="form-control" name="confirm-email" type="text" placeholder="Enter First Name">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 col-xm-12 control-label text-left">Last Name (Optional)</label>
-								<div class="col-sm-9">
-									<input class="form-control" name="confirm-email" type="text" placeholder="Enter Last Name">
-								</div>
-							
-							</div>
-							
-							<div class="form-group">
-								<label class="col-md-3 col-xm-12 control-label text-left">To</label>
-								<div class="col-sm-9" ng-controller="FromEmail as ctrl"> 
-									<select class="form-control">
-										<option>customer@1to1Service.Com</option>
-									</select>   
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 col-xm-12 control-label text-left">Subject</label>
-								<div class="col-sm-3">
-									<input class="form-control" type="text" value="Ref#: 123456789-123456789"  disabled>
-								</div>
-								<div class="col-sm-6">
-									<input class="form-control" type="text" value="looking for low cost tv">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<div class="col-md-12">
-									<div class="drop-box">Drop files here or click to upload
+		       <div class="info-container">
+					<div class="data-container form-horizontal">
+						<h5>Enter your details so we know who provided the answer</h5>
+						<div class="row">
+							<div class="col-md-8">
+								<div class="form-group">
+									<label class="col-md-3 col-xm-12 control-label text-left">Email <span class="required">(Required)</span></label>
+									<div class="col-sm-9">
+										<input class="form-control" name="ëmail" type="text" placeholder="Enter Email" >
 									</div>
-									<p> (Maximum 10 MB upload at one time.)</p>
-									<div class="imageuploadify">
-											<div class="imageuploadify-details">
-												<button class="icon-button button-delete" type="button">
-													<i class="fa fa-times-circle"></i>
-												</button>
-												<span>Invoice 1456549.pdf(20 KB)</span>
-											</div>
-											<div class="imageuploadify-details">
-												<button class="icon-button button-delete" type="button">
-													<i class="fa fa-times-circle"></i>
-												</button>
-												<span>order_details_45875034.pdf(30 KB)</span>
-											</div>
-											<div class="imageuploadify-details">
-												<button class="icon-button button-delete" type="button">
-													<i class="fa fa-times-circle"></i>
-												</button>
-												<span>product_image-full-size-58476098.jpg(120 KB)</span>
-											</div>   
-										</div>
-								</div>    
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 col-xm-12 control-label text-left">First Name (Optional)</label>
+									<div class="col-sm-9">
+										<input class="form-control" name="confirm-email" type="text" placeholder="Enter First Name">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 col-xm-12 control-label text-left">Last Name (Optional)</label>
+									<div class="col-sm-9">
+										<input class="form-control" name="confirm-email" type="text" placeholder="Enter Last Name">
+									</div>
+								</div>
+							</div>
+						</div>   
+			   		</div>
+		       </div>
+			   <div class="info-container">
+					<div class="data-container form-horizontal">
+						<div class="row">
+							<div class="col-md-8">
+								<h5>Details about the contact and their question</h5>
+								<div class="form-group">
+									<label class="col-md-3 col-xm-12 control-label text-left">To</label>
+									<div class="col-sm-9" ng-controller="FromEmail as ctrl"> 
+										<select class="form-control">
+											<option>customer@1to1Service.Com</option>
+										</select>   
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 col-xm-12 control-label text-left">Subject</label>
+									<div class="col-sm-3">
+										<input class="form-control" type="text" value="Ref#: 123456789-123456789"  disabled>
+									</div>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" value="looking for low cost tv">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<h5>Attachments sent with the question</h5>
+								<div class="form-group">
+									<div class="col-md-12"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+							        </div>    
+								</div> 
 							</div> 
-						</div> 
-
-						<div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
-                         </div>
 					</div>   
-			   </div>
-			   <h4>Interaction  Properties</h4>
+		  		</div>
+			  
 			   <div class="data-container form-horizontal">
+			    	<h5>Additional information about the question and your answer (Interaction Properties)</h5>
 					<div class="row">
 						<div class="col-md-12 interaction-properties">
 							
@@ -261,9 +244,8 @@
 						</div>	
 					</div>   
 		       </div>
-			   <h4>Message Details/Response</h4>
+			   <h4> Compose your response below</h4>
 			   <div class="data-container p0 b0 form-horizontal">	
-				    
 					<div class="row">
 						<div class="col-md-12"> 
 							<div class="nav-tabs-custom">
@@ -299,26 +281,50 @@
 							</div>
 						</div> 
 					</div>
-			   </div>	
-			   <div class="row mtop">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-							<i class="fa fa-fw fa-pencil-square-o"></i>
-								Private Comments
-							</div>
-							<div class="panel-body">
-								<textarea class="full-width full-height"></textarea>
-							</div>
-						</div>	
-					</div> 
-				</div>
+			   </div>
+			 
+			   <div class="info-container">
+				<div class="data-container form-horizontal">
+					<h5>Attach files to your response</h5>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<div class="col-md-12">
+									<div class="drop-box">Drop files here or click to upload
+									</div>
+									<p> (Maximum 10 MB upload at one time.)</p>
+									<div class="imageuploadify">
+											<div class="imageuploadify-details">
+												<button class="icon-button button-delete" type="button">
+													<i class="fa fa-times-circle"></i>
+												</button>
+												<span>Invoice 1456549.pdf(20 KB)</span>
+											</div>
+											<div class="imageuploadify-details">
+												<button class="icon-button button-delete" type="button">
+													<i class="fa fa-times-circle"></i>
+												</button>
+												<span>order_details_45875034.pdf(30 KB)</span>
+											</div>
+											<div class="imageuploadify-details">
+												<button class="icon-button button-delete" type="button">
+													<i class="fa fa-times-circle"></i>
+												</button>
+												<span>product_image-full-size-58476098.jpg(120 KB)</span>
+											</div>   
+										</div>
+								</div>    
+							</div> 
+						</div>
+					</div>   
+				   </div>
+		        </div>
 				<div class="row mtop">	
 					<div class="col-md-12">
 						<button type="button" class="btn btn-primary">
 							Submit Answer</button>
 					</div>	
-				</div>	
+				</div>		
 			</div>
 			
 			<div class="footer-container">
@@ -328,8 +334,7 @@
 				</span>
 			   </div>
 			</div>
-		</div> 
-
+		
 </body>
 
 </html>

@@ -1032,19 +1032,55 @@ title:  Sales Settings
                                     Id
                                   </th>
                                   <th class="text-capitalize">
-                                    Mailbox Name
+                                    Incoming Server Name
                                   </th>
                                   <th class="text-capitalize">
-                                    Display Name
+                                    Protocol
                                   </th>
                                   <th class="text-capitalize">
-                                    Reply to Address
+                                    Username
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Password
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Port Number
                                   </th>
                                   <th class="text-capitalize">
                                     Default Topic
                                   </th>
                                   <th class="text-capitalize">
-                                    Enable
+                                    Filter
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Use Encryption
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Enable Retrieving
+                                  </th>
+                                  <th class="text-capitalize">
+                                    SMTP Server Name
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Mailbox / Display Name
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Reply To
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Use SMTP Authentication
+                                  </th>
+                                  <th class="text-capitalize">
+                                    SMTP Port Number
+                                  </th>
+                                  <th class="text-capitalize">
+                                    SMTP Username
+                                  </th>
+                                  <th class="text-capitalize">
+                                    SMTP Password
+                                  </th>
+                                  <th class="text-capitalize">
+                                   Enable
                                   </th>
                                   <th class="text-capitalize">
                                     Errors
@@ -1057,29 +1093,66 @@ title:  Sales Settings
                                     111
                                   </td>
                                   <td>
-                                    Sales
+                                   iservice
+                                  </td>
+                                  <td>
+                                    --
+                                  </td> 
+                                  <td>
+                                     --
+                                  </td> 
+                                  <td>
+                                    --
+                                  </td>
+                                  <td>
+                                    --
                                   </td>
                                   <td>
                                     Sales
+                                  </td> 
+                                  <td>
+                                     --
                                   </td>
                                   <td>
-                                    sales@example.com
+                                    --
+                                  </td>
+                                  <td>
+                                    --
+                                  </td>
+                                  <td>
+                                    --
                                   </td> 
                                   <td>
                                      Sales
+                                  </td>
+                                  <td>
+                                    sales@example.com
+                                  </td>
+                                  <td>
+                                    --
+                                  </td>
+                                  <td>
+                                    --
                                   </td> 
                                   <td>
-                                    <iservice-switch switched="toggle.switch1"></iservice-switch>
-                                  </td> 
+                                    --
+                                  </td>
                                   <td>
-                                    1
-                                  </td>  
+                                    --
+                                 </td> 
+                                 <td>
+                                  <iservice-switch switched="toggle.switchenable"></iservice-switch>
+                                 </td>
+                                 <td>
+                                   1
+                                 </td> 
+                                 
                                 </tr>
                               </tbody>
                           </table>
                       </div> 
                     </div>   
-                  </div>  
+                  </div> 
                 </div> 
                 <div class="row">
                   <div class="col-md-12 form-group">
@@ -3607,6 +3680,22 @@ $(document).ready(function() {
 						return headCell.dataset.noColVis === undefined;
 					}
 				}]);
+        $scope.dtMailboxColumnDefs = [
+          DTColumnDefBuilder.newColumnDef(1).notVisible(),
+          DTColumnDefBuilder.newColumnDef(2).notVisible(),
+					DTColumnDefBuilder.newColumnDef(3).notVisible(),
+					DTColumnDefBuilder.newColumnDef(4).notVisible(),
+          DTColumnDefBuilder.newColumnDef(5).notVisible(),
+          DTColumnDefBuilder.newColumnDef(7).notVisible(),
+          DTColumnDefBuilder.newColumnDef(8).notVisible(),
+          DTColumnDefBuilder.newColumnDef(9).notVisible(),
+          DTColumnDefBuilder.newColumnDef(10).notVisible(),
+          DTColumnDefBuilder.newColumnDef(13).notVisible(),
+          DTColumnDefBuilder.newColumnDef(14).notVisible(),
+          DTColumnDefBuilder.newColumnDef(15).notVisible(),
+          DTColumnDefBuilder.newColumnDef(16).notVisible()
+          //DTColumnDefBuilder.newColumnDef(10).notVisible()
+				];
 
         $scope.dtAutoresponsesOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {

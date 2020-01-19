@@ -37,6 +37,12 @@ title:  Search Contacts
 						<div class="box-header with-border">
 							<i class="fa fa-search"></i>
 							<h3 class="box-title">Search Parameters</h3>
+							<div class="pull-right">
+								<i class="fa fa-question-circle text-info help-icon mleft-15" data-container="body" data-toggle="popover" data-placement="left" data-content="Compose your search query using up to 10 parameters separated by the &quot;And/Or&quot; operator to narrow or expand your search result. Leave the &quot;Search For&quot;&quot; field blank for a wildcard search that matches any property value. The date limitor is base on the date the interaction is created, not resolved." data-original-title="" title="Using Customer Search"></i>
+							</div>
+							
+							
+							
                				<div class="saved-search-block pull-right"> 
 								<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
 									<a href="javascript:void(0)" uib-dropdown-toggle class="pull-right">
@@ -58,7 +64,8 @@ title:  Search Contacts
 									</ul>
 								</div>
 								<a href="javascript:void(0)" class="save-this pull-right" ng-click="isCollapsedSavePanel = !isCollapsedSavePanel" ><i class="fa fa-save"></i>Save This Search</a>
-						    </div>
+							</div>
+							
 						</div>
 						<div class="box-body">
 							<div class="row" uib-collapse="isCollapsedSavePanel" ng-cloak ng-init="isCollapsedSavePanel=true;">
@@ -171,6 +178,9 @@ title:  Search Contacts
 								<div class="box-header with-border">
 									<i class="fa  fa-users"></i>
 									<h3 class="box-title head-title-padding">Search Results</h3>
+									<div class="pull-right">
+										<i class="fa fa-question-circle text-info help-icon mleft-15" data-container="body" data-toggle="popover" data-placement="left" data-content="Use the  &quot; Column Visibility &quot; button to add or remove columns to search results. The Excel button exports the current search results to Excel file. Use the filter box to limit the search results to matching text.<br/> <br/> Click the hyperlink in the  &quot; Name &quot; column to load the contact summary. Or, expand a row to create an  &quot; Agent Email, Note, or Ticket &quot; for that contact. " data-html="true" data-original-title="" title=""></i>
+									</div>
 								</div>
 								<!-- /.box-header -->
 								<!-- form start -->
@@ -461,6 +471,8 @@ title:  Search Contacts
     
 	<script>
 		$(document).ready(function() {
+			$('[data-toggle="popover"]').popover(); 		
+	
 			var rowcount;
 			$(".bootstrap-tagsinput input").focus(function(){
 				$('.floatlabel').addClass("float-label");

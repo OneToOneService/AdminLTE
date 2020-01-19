@@ -653,7 +653,7 @@ ul.timeline span.stack-icon .aqua {
   font-size: 20px;
 }
 .contact-summary .report-counts h3 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   padding-bottom: 5px;
   margin-bottom: 0px;
@@ -3580,6 +3580,20 @@ small.disabled {
 }
 .bg-case-properties .box {
   margin-bottom: 0px;
+}
+.help-icon {
+  font-size: 22px;
+}
+.sub-segments {
+  padding-left: 20px;
+}
+.popover-title {
+  background: #333333;
+  color: #ffffff;
+  font-weight: bold;
+}
+.popover-content {
+  background: #f7f7f7;
 }
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */
