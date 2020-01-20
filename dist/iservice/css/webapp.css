@@ -1247,6 +1247,10 @@ iservice-switch {
   color: #444444;
   max-width: calc(92% - 50px);
 }
+.direct-chat-text a {
+  color: #ffffff;
+  text-decoration: underline;
+}
 .direct-chat-text:after,
 .direct-chat-text:before {
   position: absolute;
