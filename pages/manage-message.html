@@ -110,7 +110,7 @@ title: Manage Messages List View
 														Forward
 													</button>
 													<ul class="dropdown-menu dropdown-menu-btn-option dropdown-bg dropdown-forward dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
-														<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
+														<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"><i class="fa icon-c icon-forward-to-agent"></i> Forward To Agent</a>
 															<div class="btn-list-options form-group" ng-show="selectAgent">
 																<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
 																	<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
@@ -126,9 +126,9 @@ title: Manage Messages List View
 																<button class="btn btn-primary btn-xs">Assign To Agent</button>
 															</div>    
 														</li>
-														<li><a href="javascript:void(0)" class="text-primary"> Unassign Question</a></li>
+														<li><a href="javascript:void(0)" class="text-primary"><i class="fa icon-c icon-unassign-question"></i> Unassign Question</a></li>
 														<li ng-class="{'option-selected' : forwardSegment}">
-															<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
+															<a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"><i class="fa icon-c icon-forward-to-segment"></i> Forward To Segment</a>
 															<div class="btn-list-options form-group" ng-show="forwardSegment" >
 																	<div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
 																		<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
@@ -143,7 +143,7 @@ title: Manage Messages List View
 															</div>   
 														</li>
 														<li ng-class="{'option-selected' : forwardExternalSegment}">
-															<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Agent</a>
+															<a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"><i class="fa icon-c icon-forward-to-external-agent"></i> Forward To External Agent</a>
 															<div class="btn-list-options form-group" ng-show="forwardExternalSegment">
 																<div class="form-group ng-cloak" ng-controller="extAgentCtrl as ctrl">
 																	<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
@@ -203,17 +203,17 @@ title: Manage Messages List View
 																		<span class="caret"></span>
 																	</button>
 																	<ul class="dropdown-menu dropdown-menu-btn-option dropdown-bg"  uib-dropdown-menu auto-close="outsideClick">
-																		<li><input type="checkbox" class="margin-r-5"> Leave Open</li>
+																		<li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-sen-leave-open"></i> Leave Open</li>
 																		<li>
-																			<a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
+																			<a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"><i class="fa icon-c icon-send-secure"></i> Send Secure (Notification)..</a>
 																			<div ng-show="shownotificationdropdown">
 																				<select class="form-control">
 																					<option>Select a notification</option>
 																				</select>    
 																			</div>    
 																		</li>
-																		<li><input type="checkbox" class="margin-r-5">Expect Customer Reply</li>
-																		<li><input type="checkbox" class="margin-r-5">Add Reference Number</li>
+																		<li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-expect-customer-reply"></i> Expect Customer Reply</li>
+																		<li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-add-reference-number"></i> Add Reference Number</li>
 																	</ul>
 																</div>
 															</div>
