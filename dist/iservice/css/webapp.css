@@ -1822,8 +1822,8 @@ label .icheckbox_square-blue {
   padding: 3px 8px;
 }
 .dropdown-menu-btn-option > li > a {
-  padding: 0;
-  display: inline-block;
+  padding: 0 !important;
+  display: inline-block !important;
 }
 .dropdown-menu-btn-option > li > a:hover,
 .dropdown-menu-btn-option > li > a:active,
