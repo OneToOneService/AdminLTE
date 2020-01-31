@@ -3599,6 +3599,15 @@ small.disabled {
 .popover-content {
   background: #f7f7f7;
 }
+.agent-list {
+  border: 1px solid #cccccc;
+  height: 500px;
+  overflow: scroll;
+  padding: 5px;
+}
+.agent-list label {
+  white-space: nowrap;
+}
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {

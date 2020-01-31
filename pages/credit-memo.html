@@ -1,5 +1,5 @@
 ---
-title: Agent Email
+title: Credit Memo Request Admin
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -25,328 +25,453 @@ title: Agent Email
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Quick Email Forms</li>
+          <li class="active">Custom Forms</li>
           <li class="active"> {{ page.title }}</li>
         </ol>
+        <p>This form configures the process used to submit credit memo request to FCC Finance.</p>
       </section>
       <!-- Main content -->
       <section class="content" ng-controller="myCtrl">
-        <div class="nav-tabs-custom color-tab-icon">
-          <ul class="nav nav-tabs">
-            <li  class="active">
-              <a href="#tab_manageform" data-toggle="tab">
-                <i class="fa fa-envelope bg-aqua-active"></i>
-                <span>Agent Email</span> 
-              </a>
-            </li>
-            <li>
-              <a href="#tab_agentemail" data-toggle="tab">
-                <i class="fa fa-newspaper-o orange"></i>
-                <span>Manage Form</span>
-              </a>
-            </li>
-            
-          </ul>
-          <div class="tab-content box-bg-color">
-            <div class="tab-pane" id="tab_agentemail">
-              <div class="row">
-                <div class="col-md-6 form-horizontal">
+        <div class="row">
+          <div class="col-md-12">
+             <div class="box">
+              <div class="box-body"> 
+                <div class="row">
+                  <div class="col-md-12 form-horizontal">
                     <div class="form-group">
-                      <label for="inputPassword3" class="col-sm-12 control-label text-left">Target Segment</label>
-                      <div class="col-sm-12">
-                        <select class="form-control">
-                          <option value="CSR">Customer Service</option>
-                          <option value="CSR Manager">Sales</option>
-                        </select>
+                      <label class="col-sm-12 control-label text-left"></label>
+                    </div>  
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Finance pre-approval topic</label>
+                      <div class="col-sm-6">
+                        <select  class="form-control"><option label="Finance -- All Topics" value="string:33">Finance -- All Topics</option><option label=". . _Spam" value="string:35">. . _Spam</option><option label=". . _Undeliverable" value="string:34">. . _Undeliverable</option><option label=". . CM Approved" value="string:36">. . CM Approved</option><option label=". . CM Finance Pre-Approval" value="string:37" selected="selected">. . CM Finance Pre-Approval</option><option label=". . CM Pending Final Approval" value="string:38">. . CM Pending Final Approval</option><option label="Segment1 -- All Topics" value="string:4">Segment1 -- All Topics</option><option label=". . _Spam" value="string:6">. . _Spam</option><option label=". . _Undeliverable" value="string:5">. . _Undeliverable</option><option label=". . Round Robin" value="string:29">. . Round Robin</option><option label=". . S1ReplyAtStart" value="string:30">. . S1ReplyAtStart</option><option label=". . s1topic1" value="string:10">. . s1topic1</option><option label=". . . . s1topic1a" value="string:11">. . . . s1topic1a</option><option label=". . . . s1topic1b" value="string:12">. . . . s1topic1b</option><option label=". . s1topic12" value="string:15">. . s1topic12</option><option label=". . s1topic123" value="string:16">. . s1topic123</option><option label=". . s1topic2" value="string:13">. . s1topic2</option><option label=". . s1topic3" value="string:14">. . s1topic3</option><option label=". . S1Topic-Int Prop Svc Lvl - 20 min" value="string:28">. . S1Topic-Int Prop Svc Lvl - 20 min</option><option label=". . S1TopicSvcLvl-1 Min" value="string:26">. . S1TopicSvcLvl-1 Min</option><option label=". . S1TopicSvcLvl-10 Min" value="string:27">. . S1TopicSvcLvl-10 Min</option><option label=". . To Quote" value="string:31">. . To Quote</option><option label=". . . . Follow Up" value="string:32">. . . . Follow Up</option><option label="Segment2 -- All Topics" value="string:7">Segment2 -- All Topics</option><option label=". . _ChangeManagement1" value="string:24">. . _ChangeManagement1</option><option label=". . _ChangeManagement2" value="string:25">. . _ChangeManagement2</option><option label=". . _Spam" value="string:9">. . _Spam</option><option label=". . _Undeliverable" value="string:8">. . _Undeliverable</option><option label=". . s2topic1" value="string:17">. . s2topic1</option><option label=". . . . s2topic1a" value="string:18">. . . . s2topic1a</option><option label=". . . . s2topic1b" value="string:19">. . . . s2topic1b</option><option label=". . s2topic12" value="string:22">. . s2topic12</option><option label=". . s2topic123" value="string:23">. . s2topic123</option><option label=". . s2topic2" value="string:20">. . s2topic2</option><option label=". . s2topic3" value="string:21">. . s2topic3</option></select>
                       </div>
                     </div>
                     <div class="form-group">
-                      <div class="checkbox">
-                        <label>
-                          <iservice-switch switched="toggle.required">Expect Customer Reply (Default)</iservice-switch>
-                        </label> 
-                      </div> 
-                    </div>  
-                  </div>  
-              </div>  
-              <div class="row form-horizontal">
-                <div class="col-md-12">
-                  <div class="box box-primary">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Mailing Lists</h3>
-                    </div>
-                    <div class="box-body">
-                      <div class="row form-horizontal">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label text-left data-label">Topic</label>
-                            <label class="col-sm-6 control-label text-left data-label">Mailbox</label>
-                          </div>
-                        </div>  
-                        <div class="col-md-12 mbdefault-delete-row">
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label text-left">All Topic</label>
-                            <div class="col-sm-6">
-                              <select class="form-control">
-                                <option value="CSR">Customer Service</option>
-                                <option value="CSR Manager">Sales</option>
-                              </select>
-                            </div>
-                            <div class="col-sm-2">
-                              <button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-                                <i class="fa fa-times-circle"></i>
-                              </button>
-                            </div>  
-                          </div> 
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label text-left">_Spam</label>
-                            <div class="col-sm-6">
-                              <select class="form-control">
-                                <option value="CSR">Customer Service</option>
-                                <option value="CSR Manager">Sales</option>
-                              </select>
-                            </div>
-                            <div class="col-sm-2">
-                              <button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-                                <i class="fa fa-times-circle"></i>
-                              </button>
-                            </div>  
-                          </div> 
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label text-left">_Undeliverable</label>
-                            <div class="col-sm-6">
-                              <select class="form-control">
-                                <option value="CSR">Customer Service</option>
-                                <option value="CSR Manager">Sales</option>
-                              </select>
-                            </div>
-                            <div class="col-sm-2">
-                              <button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-                                <i class="fa fa-times-circle"></i>
-                              </button>
-                            </div>  
-                          </div>
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label text-left">Sales Prospecting</label>
-                            <div class="col-sm-6">
-                              <select class="form-control">
-                                <option value="CSR">Customer Service</option>
-                                <option value="CSR Manager">Sales</option>
-                              </select>
-                            </div>
-                            <div class="col-sm-2">
-                              <button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-                                <i class="fa fa-times-circle"></i>
-                              </button>
-                            </div>  
-                          </div> 
-                          
-                        </div>  
-                      </div>   
-                    </div>  
-                  </div> 
-                  <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Mailing Lists</h3>
+                      <label class="col-sm-4 control-label text-left">Final approval topic</label>
+                      <div class="col-sm-6">
+                        <select  class="form-control"><option label="Finance -- All Topics" value="string:33">Finance -- All Topics</option><option label=". . _Spam" value="string:35">. . _Spam</option><option label=". . _Undeliverable" value="string:34">. . _Undeliverable</option><option label=". . CM Approved" value="string:36">. . CM Approved</option><option label=". . CM Finance Pre-Approval" value="string:37">. . CM Finance Pre-Approval</option><option label=". . CM Pending Final Approval" value="string:38" selected="selected">. . CM Pending Final Approval</option><option label="Segment1 -- All Topics" value="string:4">Segment1 -- All Topics</option><option label=". . _Spam" value="string:6">. . _Spam</option><option label=". . _Undeliverable" value="string:5">. . _Undeliverable</option><option label=". . Round Robin" value="string:29">. . Round Robin</option><option label=". . S1ReplyAtStart" value="string:30">. . S1ReplyAtStart</option><option label=". . s1topic1" value="string:10">. . s1topic1</option><option label=". . . . s1topic1a" value="string:11">. . . . s1topic1a</option><option label=". . . . s1topic1b" value="string:12">. . . . s1topic1b</option><option label=". . s1topic12" value="string:15">. . s1topic12</option><option label=". . s1topic123" value="string:16">. . s1topic123</option><option label=". . s1topic2" value="string:13">. . s1topic2</option><option label=". . s1topic3" value="string:14">. . s1topic3</option><option label=". . S1Topic-Int Prop Svc Lvl - 20 min" value="string:28">. . S1Topic-Int Prop Svc Lvl - 20 min</option><option label=". . S1TopicSvcLvl-1 Min" value="string:26">. . S1TopicSvcLvl-1 Min</option><option label=". . S1TopicSvcLvl-10 Min" value="string:27">. . S1TopicSvcLvl-10 Min</option><option label=". . To Quote" value="string:31">. . To Quote</option><option label=". . . . Follow Up" value="string:32">. . . . Follow Up</option><option label="Segment2 -- All Topics" value="string:7">Segment2 -- All Topics</option><option label=". . _ChangeManagement1" value="string:24">. . _ChangeManagement1</option><option label=". . _ChangeManagement2" value="string:25">. . _ChangeManagement2</option><option label=". . _Spam" value="string:9">. . _Spam</option><option label=". . _Undeliverable" value="string:8">. . _Undeliverable</option><option label=". . s2topic1" value="string:17">. . s2topic1</option><option label=". . . . s2topic1a" value="string:18">. . . . s2topic1a</option><option label=". . . . s2topic1b" value="string:19">. . . . s2topic1b</option><option label=". . s2topic12" value="string:22">. . s2topic12</option><option label=". . s2topic123" value="string:23">. . s2topic123</option><option label=". . s2topic2" value="string:20">. . s2topic2</option><option label=". . s2topic3" value="string:21">. . s2topic3</option></select>
                       </div>
-                      <div class="box-body">
-                        <div class="row form-horizontal">
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label class="col-sm-5 control-label text-left data-label">Name</label>
-                              <label class="col-sm-5 control-label text-left data-label">CC String</label>
-                            </div>
-                          </div>  
-                          <div class="col-md-12 mbdefault-delete-row">
-                            <div class="form-group">
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control">
-                              </div>
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control">
-                              </div>
-                              <div class="col-md-2">
-                                <button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-                                  <i class="fa fa-times-circle"></i>
-                                </button>
-                              </div>
-                            </div> 
-                            <div class="form-group">
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control">
-                              </div>
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control">
-                              </div>
-                              <div class="col-md-2">
-                                <button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-                                  <i class="fa fa-times-circle"></i>
-                                </button>
-                              </div>
-                            </div> 
-                            <div class="form-group">
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control">
-                              </div>
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control">
-                              </div>
-                              <div class="col-md-2">
-                                <button class="icon-button btn btn-xs btn-link  button-delete" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete message">
-                                  <i class="fa fa-times-circle"></i>
-                                </button>
-                              </div>
-                            </div> 
-                            <button class="btn btn-lg btn-link" type="button">
-                              <i class="fa fa-plus-circle text-light-blue"></i>
-                              Add another list
-                            </button>
-                          </div>  
-                        </div>   
-                      </div>  
-                    </div>      
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <button class="btn btn-primary pull-left" type="button">Save</button>
-                </div>
-              </div>  
-            </div>
-            <div class="tab-pane active" id="tab_manageform">
-              <div class="row">
-                <div class="col-md-12">
-                  <!-- Custom Tabs -->
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Approved topic</label>
+                      <div class="col-sm-6">
+                        <select  class="form-control"><option label="Finance -- All Topics" value="string:33">Finance -- All Topics</option><option label=". . _Spam" value="string:35">. . _Spam</option><option label=". . _Undeliverable" value="string:34">. . _Undeliverable</option><option label=". . CM Approved" value="string:36" selected="selected">. . CM Approved</option><option label=". . CM Finance Pre-Approval" value="string:37">. . CM Finance Pre-Approval</option><option label=". . CM Pending Final Approval" value="string:38">. . CM Pending Final Approval</option><option label="Segment1 -- All Topics" value="string:4">Segment1 -- All Topics</option><option label=". . _Spam" value="string:6">. . _Spam</option><option label=". . _Undeliverable" value="string:5">. . _Undeliverable</option><option label=". . Round Robin" value="string:29">. . Round Robin</option><option label=". . S1ReplyAtStart" value="string:30">. . S1ReplyAtStart</option><option label=". . s1topic1" value="string:10">. . s1topic1</option><option label=". . . . s1topic1a" value="string:11">. . . . s1topic1a</option><option label=". . . . s1topic1b" value="string:12">. . . . s1topic1b</option><option label=". . s1topic12" value="string:15">. . s1topic12</option><option label=". . s1topic123" value="string:16">. . s1topic123</option><option label=". . s1topic2" value="string:13">. . s1topic2</option><option label=". . s1topic3" value="string:14">. . s1topic3</option><option label=". . S1Topic-Int Prop Svc Lvl - 20 min" value="string:28">. . S1Topic-Int Prop Svc Lvl - 20 min</option><option label=". . S1TopicSvcLvl-1 Min" value="string:26">. . S1TopicSvcLvl-1 Min</option><option label=". . S1TopicSvcLvl-10 Min" value="string:27">. . S1TopicSvcLvl-10 Min</option><option label=". . To Quote" value="string:31">. . To Quote</option><option label=". . . . Follow Up" value="string:32">. . . . Follow Up</option><option label="Segment2 -- All Topics" value="string:7">Segment2 -- All Topics</option><option label=". . _ChangeManagement1" value="string:24">. . _ChangeManagement1</option><option label=". . _ChangeManagement2" value="string:25">. . _ChangeManagement2</option><option label=". . _Spam" value="string:9">. . _Spam</option><option label=". . _Undeliverable" value="string:8">. . _Undeliverable</option><option label=". . s2topic1" value="string:17">. . s2topic1</option><option label=". . . . s2topic1a" value="string:18">. . . . s2topic1a</option><option label=". . . . s2topic1b" value="string:19">. . . . s2topic1b</option><option label=". . s2topic12" value="string:22">. . s2topic12</option><option label=". . s2topic123" value="string:23">. . s2topic123</option><option label=". . s2topic2" value="string:20">. . s2topic2</option><option label=". . s2topic3" value="string:21">. . s2topic3</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">PRO Number interaction property</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31" selected="selected">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Credit Amount interaction property</label>
+                      <div class="col-sm-6">
+                        <select  class="form-control"><option label="Finance -- CM Amount" value="string:22" selected="selected">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Shipment Date interaction property</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29" selected="selected">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Biller Name interaction property</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26" selected="selected">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Biller Code interaction property</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25" selected="selected">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Shipment Type interaction property</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30" selected="selected">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Reason Category interaction property</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27" selected="selected">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Reason Description interaction property</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28" selected="selected">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Approved interaction property</label>
+                      <div class="col-sm-6">
+                        <select  class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23" selected="selected">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Approver Name interaction property</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="Finance -- CM Amount" value="string:22">Finance -- CM Amount</option><option label="Finance -- CM Approved" value="string:23">Finance -- CM Approved</option><option label="Finance -- CM Approver" value="string:24" selected="selected">Finance -- CM Approver</option><option label="Finance -- CM Biller Code" value="string:25">Finance -- CM Biller Code</option><option label="Finance -- CM Biller Company Name" value="string:26">Finance -- CM Biller Company Name</option><option label="Finance -- CM Pro #" value="string:31">Finance -- CM Pro #</option><option label="Finance -- CM Reason Category" value="string:27">Finance -- CM Reason Category</option><option label="Finance -- CM Reason Description" value="string:28">Finance -- CM Reason Description</option><option label="Finance -- CM Shipment Date" value="string:29">Finance -- CM Shipment Date</option><option label="Finance -- CM Shipment Type" value="string:30">Finance -- CM Shipment Type</option><option label="Segment1 -- 0. Quote Number" value="string:14">Segment1 -- 0. Quote Number</option><option label="Segment1 -- 1. Quote Number" value="string:15">Segment1 -- 1. Quote Number</option><option label="Segment1 -- 2. Item Number" value="string:16">Segment1 -- 2. Item Number</option><option label="Segment1 -- 3. Item Description" value="string:17">Segment1 -- 3. Item Description</option><option label="Segment1 -- 4. Unit Price" value="string:18">Segment1 -- 4. Unit Price</option><option label="Segment1 -- 5. Total Price" value="string:19">Segment1 -- 5. Total Price</option><option label="Segment1 -- 6. Agent Comments" value="string:20">Segment1 -- 6. Agent Comments</option><option label="Segment1 -- Billable" value="string:2">Segment1 -- Billable</option><option label="Segment1 -- Billable Minutes" value="string:3">Segment1 -- Billable Minutes</option><option label="Segment1 -- QuestionProperty" value="string:6">Segment1 -- QuestionProperty</option><option label="Segment1 -- Search Terms" value="string:10">Segment1 -- Search Terms</option><option label="Segment1 -- Search Terms Multi-line" value="string:11">Segment1 -- Search Terms Multi-line</option><option label="Segment1 -- Search Terms Multi-value" value="string:12">Segment1 -- Search Terms Multi-value</option><option label="Segment1 -- Svc Level 20 Minute" value="string:13">Segment1 -- Svc Level 20 Minute</option><option label="Segment1 -- Wrap Up Code" value="string:21">Segment1 -- Wrap Up Code</option><option label="Segment2 -- Billable MinutesS2" value="string:5">Segment2 -- Billable MinutesS2</option><option label="Segment2 -- BillableS2" value="string:4">Segment2 -- BillableS2</option><option label="Segment2 -- ChangeStatus1" value="string:7">Segment2 -- ChangeStatus1</option><option label="Segment2 -- ChangeStatus2" value="string:8">Segment2 -- ChangeStatus2</option><option label="Segment2 -- System Affected" value="string:9">Segment2 -- System Affected</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Ticket subject</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Ticket body stock response</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="CM Approval Note" value="string:26">CM Approval Note</option><option label="CM Approver Request" value="string:27">CM Approver Request</option><option label="CM Confirmation" value="string:32">CM Confirmation</option><option label="CM PRO Details" value="string:28">CM PRO Details</option><option label="CM Rejected Agent Response" value="string:29">CM Rejected Agent Response</option><option label="CM Ticket Body" value="string:30" selected="selected">CM Ticket Body</option><option label="Your CM has been created" value="string:31">Your CM has been created</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">PRO Number Note subject</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" ng-model="config.subjectProNote">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">PRO Number Note body stock response</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="CM Approval Note" value="string:26">CM Approval Note</option><option label="CM Approver Request" value="string:27">CM Approver Request</option><option label="CM Confirmation" value="string:32">CM Confirmation</option><option label="CM PRO Details" value="string:28" selected="selected">CM PRO Details</option><option label="CM Rejected Agent Response" value="string:29">CM Rejected Agent Response</option><option label="CM Ticket Body" value="string:30">CM Ticket Body</option><option label="Your CM has been created" value="string:31">Your CM has been created</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Approver agent email subject</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" ng-model="config.subjectEmailApprover">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Approver agent email stock response</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="CM Approval Note" value="string:26">CM Approval Note</option><option label="CM Approver Request" value="string:27" selected="selected">CM Approver Request</option><option label="CM Confirmation" value="string:32">CM Confirmation</option><option label="CM PRO Details" value="string:28">CM PRO Details</option><option label="CM Rejected Agent Response" value="string:29">CM Rejected Agent Response</option><option label="CM Ticket Body" value="string:30">CM Ticket Body</option><option label="Your CM has been created" value="string:31">Your CM has been created</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Submitter agent email subject</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" ng-model="config.subjectEmailSubmitter">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Submitter agent email stock response</label>
+                      <div class="col-sm-6">
+                        <select  class="form-control"><option label="CM Approval Note" value="string:26">CM Approval Note</option><option label="CM Approver Request" value="string:27">CM Approver Request</option><option label="CM Confirmation" value="string:32" selected="selected">CM Confirmation</option><option label="CM PRO Details" value="string:28">CM PRO Details</option><option label="CM Rejected Agent Response" value="string:29">CM Rejected Agent Response</option><option label="CM Ticket Body" value="string:30">CM Ticket Body</option><option label="Your CM has been created" value="string:31">Your CM has been created</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Approved note subject</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" ng-model="config.subjectApproveNote">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Approved note stock response</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="CM Approval Note" value="string:26" selected="selected">CM Approval Note</option><option label="CM Approver Request" value="string:27">CM Approver Request</option><option label="CM Confirmation" value="string:32">CM Confirmation</option><option label="CM PRO Details" value="string:28">CM PRO Details</option><option label="CM Rejected Agent Response" value="string:29">CM Rejected Agent Response</option><option label="CM Ticket Body" value="string:30">CM Ticket Body</option><option label="Your CM has been created" value="string:31">Your CM has been created</option></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Rejection answer subject</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" ng-model="config.subjectRejectAnswer">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label text-left">Rejection answer stock response</label>
+                      <div class="col-sm-6">
+                        <select class="form-control"><option label="CM Approval Note" value="string:26">CM Approval Note</option><option label="CM Approver Request" value="string:27">CM Approver Request</option><option label="CM Confirmation" value="string:32">CM Confirmation</option><option label="CM PRO Details" value="string:28">CM PRO Details</option><option label="CM Rejected Agent Response" value="string:29" selected="selected">CM Rejected Agent Response</option><option label="CM Ticket Body" value="string:30">CM Ticket Body</option><option label="Your CM has been created" value="string:31">Your CM has been created</option></select>
+                      </div>
+                    </div>
+                  </div>
+                </div>   
                   <div class="row">
-                      <div class="col-md-12">
-                          <div class="box box-info">
-                              <div class="box-header with-border">
-                                  <h3 class="box-title">Agent Email</h3>
-                                 
-                              </div>
-                          <!-- /.box-header -->
-                          <!-- form start -->
-                              <div class="box-body">
-                                <div class="row">
-                                  <div class="col-md-12"> 
-                                      <form class="form-horizontal">
-                                          <div class="form-group">
-                                              <label for="inputPassword3" class="col-sm-2 control-label">Topic</label>
-                                              <div class="col-sm-10">
-                                                <div class="ng-cloak" ng-controller="TopicCtrl as ctrl">
-                                                  <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
-                                                    <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                                    <ui-select-choices group-by="'topicname'" repeat="item in ctrl.topic | filter: $select.search">
-                                                      <span ng-attr-title="{{ item.name }}" ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %}" ng-bind-html="item.name | highlight: $select.search"></span>
-                                                    </ui-select-choices>
-                                                  </ui-select>
-                                                </div>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="inputEmail3" class="col-sm-2 control-label">To</label>
-                                              <div class="col-sm-10">
-                                                  <input type="email" class="form-control">
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="inputPassword3" class="col-sm-2 control-label">CC</label>
-                                              <div class="col-sm-10">
-                                              <textarea class="form-control" rows="2"></textarea>
-                                              </div>
-                                          </div>
-                                         
-                                          <div class="cc-label">
-                                            <div class="col-md-2"></div>
-                                            <div class="col-md-10">
-                                              <a class="btn-link" ng-hide="addccline" ng-click="addccline = !addccline">Add Group To CC Line</a> 
-                                            </div>
-                                          </div>
-                                          <div class="form-group" ng-cloak ng-show="addccline">
-                                            <label class="col-sm-2 control-label">Add Group To CC Line</label>
-                                            <div class="col-sm-10">
-                                              <div ng-cloak ng-controller="CCLineCtrl as ctrl">
-                                                <ui-select ng-model="ctrl.cclistselected.selected" theme="select2" title="Search list to add group to cc line">
-                                                  <ui-select-match placeholder="SSearch list to add group to cc line" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                                  <ui-select-choices group-by="'topicname'" repeat="item in ctrl.cclist | filter: $select.search">
-                                                    <span ng-attr-title="{{ item.name }}" ng-bind-html="item.name | highlight: $select.search"></span>
-                                                  </ui-select-choices>
-                                                </ui-select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="clearfix"></div>
-                                          <div class="form-group">
-                                              <label for="inputEmail3" class="col-sm-2 control-label">Subject</label>
-                                              <div class="col-sm-10">
-                                                  <input type="text" class="form-control">
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                            <div class="col-md-12">
-                                              <div class="drop-box">Drop files here or click to upload
-                                              </div>
-                                              <p> (Maximum 10 MB upload at one time.)</p>
-                                              <div class="imageuploadify">
-                                                <div class="imageuploadify-details">
-                                                    <button class="icon-button button-delete" type="button">
-                                                        <i class="fa fa-times-circle"></i>
-                                                    </button>
-                                                    <span>Invoice 1456549.pdf(20 KB)</span>
-                                                </div>
-                                                <div class="imageuploadify-details">
-                                                    <button class="icon-button button-delete" type="button">
-                                                        <i class="fa fa-times-circle"></i>
-                                                    </button>
-                                                    <span>order_details_45875034.pdf(30 KB)</span>
-                                                </div>
-                                                <div class="imageuploadify-details">
-                                                    <button class="icon-button button-delete" type="button">
-                                                        <i class="fa fa-times-circle"></i>
-                                                    </button>
-                                                    <span>product_image-full-size-58476098.jpg(120 KB)</span>
-                                                </div>   
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="form-group">
-                                            <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-                                                <a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
-                                                {% include variables-and-stock-responses.html %}
-                                            </div> 
-                                          </div>  
-                                          <div class="form-group">
-                                              <div class="col-sm-12">
-                                                  <textarea class="form-control" rows="5" id="editor1" ckeditor name="editor1"></textarea>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                              <div class="col-sm-12">
-                                                <div class="checkbox">
-                                                    <iservice-switch switched="toggle.required">Expect Customer Reply</iservice-switch>
-                                                </div> 
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                              <div class="col-sm-12">
-                                              <button type="button" class="pull-left btn btn-info" id="sendEmail">Send
-                                                  <i class="fa fa-arrow-circle-right"></i></button>
-                                              </div>
-                                          </div>
-                                      </form>	
-                                  </div> 
-                                </div>
-                              </div>
-                          </div> 
+                      <div class="col-md-4">
+                        <label class="control-label">
+                          OPS Agents &lt; $5,000
+                        </label>
+                        <div class="agent-list">
+                          <!-- ngRepeat: agent in agents -->
+                          <label>
+                            <input type="checkbox"> cmsubmitter@1to1service.com (cmsubmitter@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> financefinalapprover@1to1service.com (financefinalapprover@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> financefirstapprover@1to1service.com (financefirstapprover@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> landlord@mail02.1to1service.com (landlord@mail02.1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> operationslevel1@1to1service.com (operationslevel1@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> operationslevel2@1to1service.com (operationslevel2@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox" class="ng-scope ng-pristine ng-untouched ng-valid ng-not-empty" id="_CreditMemoAdmin_Agent6_Selected"> operationslevel3@1to1service.com (operationslevel3@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin1 (roundrobin1@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin2 (roundrobin2@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin3 (roundrobin3@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1s2topic123csr@1to1service.com (s1s2topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1s2topic123mgr@1to1service.com (s1s2topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> S1Topic123 Admin (s1topic123admin@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic123csr@1to1service.com (s1topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic123mgr@1to1service.com (s1topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic12csr@1to1service.com (s1topic12csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic1csr@1to1service.com (s1topic1csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic2csr@1to1service.com (s1topic2csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic3csr@1to1service.com (s1topic3csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> S2Topic123 Admin (s2topic123admin@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123csr@1to1service.com (s2topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123csrqa@1to1service.com (s2topic123csrqa@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123mgr@1to1service.com (s2topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic12csr@1to1service.com (s2topic12csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic1csr@1to1service.com (s2topic1csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic2csr@1to1service.com (s2topic2csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic3csr@1to1service.com (s2topic3csr@1to1service.com)<br>
+                          </label>
+                        </div>
                       </div>
-                      <div class="col-md-4"></div>
-                  </div>                         
-                </div>
-                <!-- /.col -->
-              </div>
-            </div>
+                      <div class="col-md-4">
+                      
+                        <label class="control-label">
+                          OPS Agents $5,000 to $25,000
+                        </label>
+                        <div class="agent-list">
+                          <!-- ngRepeat: agent in agents -->
+                          <label>
+                            <input type="checkbox"> cmsubmitter@1to1service.com (cmsubmitter@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> financefinalapprover@1to1service.com (financefinalapprover@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> financefirstapprover@1to1service.com (financefirstapprover@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> landlord@mail02.1to1service.com (landlord@mail02.1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> operationslevel1@1to1service.com (operationslevel1@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox" class="ng-scope ng-pristine ng-untouched ng-valid ng-not-empty" id="_CreditMemoAdmin_Agent5_Selected"> operationslevel2@1to1service.com (operationslevel2@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> operationslevel3@1to1service.com (operationslevel3@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin1 (roundrobin1@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin2 (roundrobin2@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin3 (roundrobin3@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1s2topic123csr@1to1service.com (s1s2topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1s2topic123mgr@1to1service.com (s1s2topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> S1Topic123 Admin (s1topic123admin@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic123csr@1to1service.com (s1topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic123mgr@1to1service.com (s1topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic12csr@1to1service.com (s1topic12csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic1csr@1to1service.com (s1topic1csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic2csr@1to1service.com (s1topic2csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic3csr@1to1service.com (s1topic3csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> S2Topic123 Admin (s2topic123admin@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123csr@1to1service.com (s2topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123csrqa@1to1service.com (s2topic123csrqa@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123mgr@1to1service.com (s2topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic12csr@1to1service.com (s2topic12csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic1csr@1to1service.com (s2topic1csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic2csr@1to1service.com (s2topic2csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic3csr@1to1service.com (s2topic3csr@1to1service.com)<br>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label class="control-label">
+                          OPS Agents &gt; $25,000
+                        </label>
+                        <div class="agent-list">
+                          <!-- ngRepeat: agent in agents -->
+                          <label>
+                            <input type="checkbox"> cmsubmitter@1to1service.com (cmsubmitter@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> financefinalapprover@1to1service.com (financefinalapprover@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> financefirstapprover@1to1service.com (financefirstapprover@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> landlord@mail02.1to1service.com (landlord@mail02.1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> operationslevel1@1to1service.com (operationslevel1@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> operationslevel2@1to1service.com (operationslevel2@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox" class="ng-scope ng-pristine ng-untouched ng-valid ng-not-empty" id="_CreditMemoAdmin_Agent6_Selected"> operationslevel3@1to1service.com (operationslevel3@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin1 (roundrobin1@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin2 (roundrobin2@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> Round Robin3 (roundrobin3@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1s2topic123csr@1to1service.com (s1s2topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1s2topic123mgr@1to1service.com (s1s2topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> S1Topic123 Admin (s1topic123admin@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic123csr@1to1service.com (s1topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic123mgr@1to1service.com (s1topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic12csr@1to1service.com (s1topic12csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic1csr@1to1service.com (s1topic1csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic2csr@1to1service.com (s1topic2csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s1topic3csr@1to1service.com (s1topic3csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> S2Topic123 Admin (s2topic123admin@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123csr@1to1service.com (s2topic123csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123csrqa@1to1service.com (s2topic123csrqa@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic123mgr@1to1service.com (s2topic123mgr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic12csr@1to1service.com (s2topic12csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic1csr@1to1service.com (s2topic1csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic2csr@1to1service.com (s2topic2csr@1to1service.com)<br>
+                          </label>
+                          <label>
+                            <input type="checkbox"> s2topic3csr@1to1service.com (s2topic3csr@1to1service.com)<br>
+                          </label>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row mtop-15">
+                    <div class="col-md-12">
+                      <button type="button" class="btn btn-primary margin-r-5">Save Configuration</button>
+                    </div>
+                  </div>  
+             </div> 
           </div>  
         </div>  
+        </div>
       </section>
     </div>
     <!-- /.content-wrapper -->
