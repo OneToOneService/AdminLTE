@@ -130,6 +130,7 @@ title: Manage Agent Email Form
             <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Mailing Lists</h3>
+                  <span class="pull-right"  data-container="body" data-toggle="popover" data-placement="left" data-content="Create mailing lists here that users may paste into the CC line when composing agent emails. The list Name will appear exactly as written in the 	&quot;Add Group To CC Line&quot; menu of the Quick Agent Email form. Email addresses must be separated by a comma." data-original-title="" title=""><i class="fa  fa-question-circle text-info help-icon"></i></span>
                 </div>
                 <div class="box-body">
                   <div class="row form-horizontal">
@@ -138,6 +139,9 @@ title: Manage Agent Email Form
                         <label class="col-sm-5 control-label text-left data-label">Name</label>
                         <label class="col-sm-5 control-label text-left data-label">CC String</label>
                       </div>
+                    </div> 
+                    <div class="col-md-12"> 
+                      <p>There are no mailing lists configured for this segment.</p>
                     </div>  
                     <div class="col-md-12 mbdefault-delete-row">
                       <div class="form-group">
@@ -207,6 +211,13 @@ title: Manage Agent Email Form
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
+
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="popover"]').popover(); 		
+    });
+    
+    </script>
 	<script>
 		angular.module('iService').controller('myCtrl', function ($scope) {
 				$scope.toggleSegmentCollapsedState = function (segmentName)
