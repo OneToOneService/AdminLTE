@@ -141,16 +141,22 @@ title: Websites Settings
 																<div class="form-horizontal custom-scroll">
 																	<div class="col-md-6">
 																		<div class="input-group mbottom-15">
-																				<input type="text" class="form-control" name="newdomain" ng-model="newdomain" required>
-																				<span class="input-group-btn">
-																					<button type="button" class="btn btn-info btn-flat"  ng-click="adddomain()">Add Domain</button>
-																				</span>
-																			</div>
+																			<input type="text" class="form-control" name="newdomain" ng-model="newdomain" required>
+																			<span class="input-group-btn">
+																				<button type="button" class="btn btn-info btn-flat"  ng-click="adddomain()">Add Domain</button>
+																			</span>
+																		</div>
 																		<div class="form-group">
+																			<label class="col-sm-12 control-label text-left">Domain Values</label>
 																			<div class="col-sm-12">
-																				<span class="label label-info label-tag" ng-repeat="domain in domains">
-																					{{domain.title}}example.com<span class="fa fa-close text-red" ng-click="deletedomain($index)"></span>
-																				</span>																				
+																				<div class="domain-list">
+																					<div class="list-item" ng-repeat="domain in domains">
+																						<button class="icon-button button-delete" type="button" ng-click="deletedomain($index)">
+																							<i class="fa fa-times-circle"></i>
+																						</button>
+																						<span>{% raw %}{{domain.title}}{% endraw %}</span>
+																					</div>
+																				</div>	
 																			</div>
 																		</div>
 																		<div class="form-group">
@@ -314,10 +320,16 @@ title: Websites Settings
 																				</span>
 																			</div>
 																		<div class="form-group">
+																			<label class="col-sm-12 control-label text-left">Domain Values</label>
 																			<div class="col-sm-12">
-																				<span class="label label-info label-tag" ng-repeat="domain in domains">
-																					{{domain.title}}example.com<span class="fa fa-close text-red" ng-click="deletedomain($index)"></span>
-																				</span>																				
+																				<div class="domain-list">
+																					<div class="list-item" ng-repeat="domain in domains">
+																						<button class="icon-button button-delete" type="button" ng-click="deletedomain($index)">
+																							<i class="fa fa-times-circle"></i>
+																						</button>
+																						<span>{% raw %}{{domain.title}}{% endraw %}</span>
+																					</div>
+																				</div>	
 																			</div>
 																		</div>
 																		<div class="form-group">

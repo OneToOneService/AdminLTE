@@ -3637,6 +3637,16 @@ small.disabled {
 .floating-label .select2-container-active .select2-choices {
   box-shadow: none;
 }
+.domain-list {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  height: 150px;
+  overflow-y: scroll;
+}
+.domain-list .list-item {
+  width: 100%;
+  margin-bottom: 5px;
+}
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {

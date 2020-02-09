@@ -146,23 +146,22 @@ title: Lists Settings
 												<div class="input-group">
 													<input type="text" class="form-control">
 													<span class="input-group-btn">
-														<button type="button" class="btn btn-info btn-flat">Add Value</button>
+														<button type="button" class="btn btn-info btn-flat mbottom-15">Add Value</button>
 													</span>
 												</div>
 												<div class="form-group">
 													<label for="inputPassword3" class="col-sm-12 text-left">Values</label>
-													<div class="col-sm-9">
-														<select multiple="multiple" size="8" class="form-control">
-																<option value="-1754237740">Comp-Desktop</option>
-																<option value="1402146064">Comp-Laptop</option>
-																<option value="1069408364">Comp-Tablet</option>
-																<option value="328194263">Phone-Desktop</option>
-																<option value="2132130141">Phone-Mobile</option>
-														</select>
+													<div class="col-sm-12">
+														<div class="domain-list">
+															<div class="list-item" ng-repeat="domain in domains">
+																<button class="icon-button button-delete" type="button" ng-click="deletedomain($index)">
+																	<i class="fa fa-times-circle"></i>
+																</button>
+																<span>{% raw %}{{domain.title}}{% endraw %}</span>
+															</div>
+														</div>	
 													</div>
-													<div class="col-md-3">
-														<button class="btn btn-sm btn-danger mright-0 pull-right">Remove Value</button>
-													</div>	
+													
 												</div>	
 											</div>
 											<div class="col-md-12 col-sm-12">
@@ -203,23 +202,22 @@ title: Lists Settings
 												<div class="input-group">
 													<input type="text" class="form-control">
 													<span class="input-group-btn">
-														<button type="button" class="btn btn-info btn-flat">Add Value</button>
+														<button type="button" class="btn btn-info btn-flat mbottom-15">Add Value</button>
 													</span>
 												</div>
 												<div class="form-group">
 													<label for="inputPassword3" class="col-sm-12 text-left">Values</label>
-													<div class="col-sm-9">
-														<select multiple="multiple" size="8" class="form-control">
-																<option value="-1754237740">Comp-Desktop</option>
-																<option value="1402146064">Comp-Laptop</option>
-																<option value="1069408364">Comp-Tablet</option>
-																<option value="328194263">Phone-Desktop</option>
-																<option value="2132130141">Phone-Mobile</option>
-														</select>
+													<div class="col-sm-12">
+														<div class="domain-list">
+															<div class="list-item" ng-repeat="domain in domains">
+																<button class="icon-button button-delete" type="button" ng-click="deletedomain($index)">
+																	<i class="fa fa-times-circle"></i>
+																</button>
+																<span>{% raw %}{{domain.title}}{% endraw %}</span>
+															</div>
+														</div>	
 													</div>
-													<div class="col-md-3">
-														<button class="btn btn-sm btn-danger mright-0 pull-right">Remove Value</button>
-													</div>	
+												
 												</div>	
 											</div>
 											<div class="col-md-12 col-sm-12">
