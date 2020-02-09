@@ -23,4 +23,33 @@ app.controller('ChangeTopicCtrl', function ($scope, $http, $timeout, $interval) 
           {name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
       ];
   });
+  app.controller('SearchFor', function ($scope, $http, $timeout, $interval) {
+  var vm = this;
+  vm.topicselected = {selected : "Agent Notification"};
+      vm.topic = [
+          {name: 'Agent Notification',segment:"System Generated Responses"},
+          {name: 'Message Acknowledgment',segment:"System Generated Responses"},
+          {name: 'Contact Creation', segment:"System Generated Responses"},
+          {name: 'External Agent Notification',segment:"System Generated Responses"},
+          {name: 'Mass Mailing',segment:"System Generated Responses"},
+          {name: 'Find Answer Article Update', segment:"System Generated Responses"},
+          {name: 'Password Reset',segment:"System Generated Responses"},
+          {name: 'Alert',segment:"System Generated Responses"},
+          {name: 'Secure Response', segment:"System Generated Responses"},
+          {name: 'Private Email',segment:"System Generated Responses"},
+          {name: 'Notification',segment:"System Generated Responses"},
+          {name: 'Contact Email', segment:"Questions"},
+          {name: 'Agent Ticket', segment:"Questions"},
+          {name: 'Customer Ticket', segment:"Questions"},
+          {name: 'Chat', segment:"Questions"},
+          {name: 'Agent Email', segment:"Answers (Message Sent)"},
+          {name: 'Agent Response', segment:"Answers (Message Sent)"},
+          {name: 'Secure Email', segment:"Answers (Message Sent)"},
+          {name: 'Public Note', segment:"Answers (No Message Sent)"},
+          {name: 'Private Note', segment:"Answers (No Message Sent)"},
+          {name: 'Resolve Note', segment:"Answers (No Message Sent)"},
+          {name: 'Unsent Response', segment:"Answers (No Message Sent)"},
+          {name: 'Find Answer Article', segment:"Answers (No Message Sent)"},
+      ];
+  });
  </script> 

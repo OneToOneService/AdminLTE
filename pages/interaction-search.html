@@ -101,9 +101,18 @@ title:  Search Interactions
 												</div>
 												<div class="col-xs-12 col-md-4 search-field">
 													<div class="floating-label bg-white">
-													<input type="text" class="searchtag search" data-role="tagsinput" style="display:none;">
-													<input type="text" for="search" class="searchnormal search" required>
-													<label id="search" class="floatlabel">Search for</label>
+														<input type="text" class="searchtag search" data-role="tagsinput" style="display:none;">
+
+															<div class="searchnormal search ng-cloak" ng-controller="SearchFor as ctrl">
+																<ui-select for="search" ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+																	<ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																	<ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+																		<span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+																	</ui-select-choices>
+																</ui-select>
+														    </div>
+
+														<label id="search" class="floatlabel">Search for</label>
 													</div>
 													<button class="btn btn-lg btn-link" type="button" title="Remove Field">
 													<i class="fa fa-times-circle text-red"></i>
