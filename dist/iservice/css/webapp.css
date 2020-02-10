@@ -1814,6 +1814,9 @@ label .icheckbox_square-blue {
   background: #fbfbfb;
   border: 1px solid #dddddd;
 }
+.dd-width-auto {
+  min-width: auto !important;
+}
 .uib-datepicker-popup.dropdown-menu,
 .date .dropdown-menu {
   min-width: auto !important;

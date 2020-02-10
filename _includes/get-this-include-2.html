@@ -45,7 +45,6 @@
                     <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                     <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
                       <span ng-bind-html="agent.name | highlight: $select.search"></span>
-                      <small ng-bind-html="agent.code | highlight: $select.search"></small>
                       <br>
                       <span ng-bind-html="agent.email | highlight: $select.search"></span>
                     </ui-select-choices>
@@ -99,7 +98,7 @@
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
               <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu dd-width-auto" role="menu">
               <li><a href="#" class="text-primary"><i class="fa icon-c icon-private-note"></i> Private Note</a></li>
               <li><a href="#" class="text-primary"><i class="fa icon-c icon-public-note"></i> Public Note</a></li>
             </ul>
