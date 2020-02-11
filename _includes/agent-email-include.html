@@ -44,7 +44,7 @@
                 <div class="col-sm-10">
                     <div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
                         <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-                            <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                            <ui-select-match placeholder="Select or search an agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                             <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
                             <span ng-bind-html="agent.name | highlight: $select.search"></span>
                             <small ng-bind-html="agent.code | highlight: $select.search"></small>
