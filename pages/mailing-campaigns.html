@@ -557,7 +557,7 @@ title: Mailing Campaigns
 															<div class="box box-info" ng-controller="myCtrl"> 
 																<div class="box-header with-border">
 																	<i class="fa  fa-users"></i>
-																	<h3 class="box-title head-title-padding">Search Results</h3>
+																	<h3 class="box-title head-title-padding">Subscribers List</h3>
 																</div>
 																<!-- /.box-header -->
 																<!-- form start -->
@@ -866,10 +866,7 @@ title: Mailing Campaigns
 														<button class="btn btn-primary" type="button" ng-click="contactsearch = !contactsearch" ng-init="contactsearch = false">
 															Unsubscribe Selected
 														</button>
-														<button class="btn btn-primary" type="button">
-															Unsubscribe All
-														</button>
-													
+														
 													</div>
 												</div>
 	
@@ -1121,7 +1118,7 @@ title: Mailing Campaigns
 				$scope.dtSearchOptions = DTOptionsBuilder
 						.newOptions()
 						.withOption('language', {
-							search: 'Filter Search Results'
+							search: 'Filter Subscribers'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)

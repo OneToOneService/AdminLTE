@@ -3640,6 +3640,9 @@ small.disabled {
 .floating-label .select2-container-active .select2-choices {
   box-shadow: none;
 }
+.table > thead > tr > th {
+  vertical-align: bottom !important;
+}
 .domain-list {
   border: 1px solid #dddddd;
   padding: 10px;
@@ -3649,6 +3652,14 @@ small.disabled {
 .domain-list .list-item {
   width: 100%;
   margin-bottom: 5px;
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  top: unset;
+  bottom: 8px;
 }
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */

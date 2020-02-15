@@ -23,6 +23,18 @@ app.controller('ChangeTopicCtrl', function ($scope, $http, $timeout, $interval) 
           {name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
       ];
   });
+
+  angular.module('iService').controller('AgentCtrl2', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.agent = {};
+			vm.agentselected = {selected : "Select or search for an agent in the list"};
+			vm.agentnames = [ 
+				{name: 'Alek Packard ' , email:'alek.packard@example.com', code: 'AP',topiclevel:0, disabled: '' ,loggedout:''},
+				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS',topiclevel:0, disabled: 'disabled',loggedout:''},
+				{name: 'Jonie Hewlett', email:'jonie.hewlett@example.com', code: 'JH',topiclevel:0, disabled: '',loggedout:'loggedout'},
+				{name: 'Justin Time', email:'justin.time@example.com', code: 'JT',topiclevel:0, disabled: '',loggedout:''},
+			];
+  });
   app.controller('SearchFor', function ($scope, $http, $timeout, $interval) {
   var vm = this;
   vm.topicselected = {selected : "Agent Notification"};

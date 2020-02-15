@@ -9,19 +9,19 @@
                         <button type="button" class="btn btn-primary" uib-dropdown-toggle>
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu auto-close="outsideClick">
-                            <li><input type="checkbox" class="margin-r-5"> Leave Open</li>
+                        <ul class="dropdown-menu dropdown-menu-btn-option" uib-dropdown-menu auto-close="outsideClick">
+                            <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-send-leave-open"></i> Leave Open</li>
+                            <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-expect-customer-reply"></i> Expect Customer Reply</li>
+                            <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-add-reference-number"></i> Add Reference Number</li>
                             <li>
-                                <a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
-                                <div ng-show="shownotificationdropdown">
-                                    <select class="form-control">
-                                        <option>Select a notification</option>
-                                    </select>    
-                                </div>    
+                              <a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"><i class="fa icon-c icon-send-secure"></i> Send Secure (Notification)..</a>
+                              <div ng-show="shownotificationdropdown">
+                                <select class="form-control">
+                                  <option>Select a notification</option>
+                                </select>
+                              </div>
                             </li>
-                            <li><input type="checkbox" class="margin-r-5">Expect Customer Reply</li>
-                            <li><input type="checkbox" class="margin-r-5">Add Reference Number</li>
-                        </ul>
+                          </ul>
                     </div>
                 </div>
                 <button class="btn btn-primary" type="button">
@@ -37,17 +37,16 @@
                     <ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
                         <li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
                             <div class="btn-list-options form-group" ng-show="selectAgent">
-                                <div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
-                                    <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-                                        <ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                        <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
-                                        <span ng-bind-html="agent.name | highlight: $select.search"></span>
-                                        <small ng-bind-html="agent.code | highlight: $select.search"></small>
-                                        <br>
-                                        email: <span ng-bind-html="agent.email | highlight: $select.search"></span>
-                                        </ui-select-choices>
+                                <div class="ng-cloak" ng-controller="AgentCtrl2 as ctrl">
+                                    <ui-select ng-model="ctrl.agentselected.selected" theme="select2">
+                                      <ui-select-match placeholder="Select or search an agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                      <ui-select-choices  repeat="item in ctrl.agentnames | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                      <span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span><span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
+                                      <br>
+                                      <span ng-attr-title="{{ item.email }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.email | highlight: $select.search"></span>
+                                      </ui-select-choices>
                                     </ui-select>
-                                </div>
+                                  </div>
                                 <button class="btn btn-primary btn-xs">Assign To Agent</button>
                             </div>    
                         </li>
