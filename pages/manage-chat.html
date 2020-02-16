@@ -134,7 +134,7 @@ title: Manage Chats
 													<i class="fa  fa-arrows-alt"></i>
 													Change Topic
 												</button>
-												<ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+												<ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right "  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
 													<li>
 															<input type="text" class="form-control mbottom-15">
 															<select class="changetopicselect form-control" multiple>
@@ -299,7 +299,7 @@ title: Manage Chats
 							<i class="fa fa-fw fa-reply"></i>
 							Chat Dialog
 						</h3>
-						<div class="pull-right">
+						<div class="pull-right  form-group">
 							<button class="btn btn-xs btn-danger ng-scope hidden-xs hidden-sm" ng-class="small? 'btn-block': 'hidden-xs hidden-sm'" ng-click="endChat(chat)" ng-disabled="chat.chatEndRunning()">
 								<i class="fa fa-fw fa-close" ng-hide="chat.chatEndRunning()"></i>
 								<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
@@ -324,22 +324,31 @@ title: Manage Chats
 								<i class="fa fa-fw fa-arrows"></i>
 									Change Topic <span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu="" r role="menu" aria-labelledby="single-button">
-									<li role="menuitem">
-										<div class="input-group input-group-sm search-control">
-											<input type="text" class="form-control" placeholder="Query" ng-model="query">
-										</div>
-									</li>
-									<li role="presentation" ng-repeat="item in items | filter:query"> 
-										<div class="ui-select-choices-group-label dropdown-header">Segment1</div>
-										<div  class="ui-select-choices-row ng-scope active" role="option" id="ui-select-choices-row-0-0">
-												<span class="ui-select-choices-row-inner" uis-transclude-append="">
-												<span class="ng-binding ng-scope" title="All Topics">Segment1 -- All Topics</span>
-											</span>
-										</div>
+								<ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+									<li>
+											<input type="text" class="form-control mbottom-15">
+											<select class="changetopicselect form-control" multiple>
+												<option class="op-level-0">e-shop -- All Topics(0)</option>
+												<option class="op-level-1">_Feedback (2)</option>
+												<option class="op-level-1">_Newsletter Subscription (0)</option>
+												<option class="op-level-1">_Spam (0)</option>
+												<option class="op-level-1">_Undeliverable (0)</option>
+												<option class="op-level-1">Account Questions (0)</option>
+												<option class="op-level-2">Orders (0)</option>
+												<option class="op-level-2">Refunds (0)</option>
+												<option class="op-level-2">Returns (0)</option>
+												<option class="op-level-2">Products(0)</option>
+												<option class="op-level-2">Audio-Video (0)</option>
+												<option class="op-level-2">Cameras (0)</option>
+												<option class="op-level-0">Cell Phones (0)</option>
+												<option class="op-level-1">Computers (0)</option>
+												<option class="op-level-1">Televisions(0)</option>
+												<option class="op-level-0">Shipping (0)</option>
+												<option class="op-level-0">Technical Support (0)</option>
+												<option class="op-level-0">Open Quotes (1)</option>
+											</select>
 									</li>
 								</ul>
-									
 							</div>
 						</div>														  
 					</div>  

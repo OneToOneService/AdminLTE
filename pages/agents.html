@@ -291,7 +291,7 @@ title: Agent Settings
 											<section class="search-parameters">
 												<div class="row">
 													<div class="form-horizontal">
-														<div class="col-md-4">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Email</label>
 																<div class="col-sm-12">
@@ -299,7 +299,7 @@ title: Agent Settings
 																</div>
 															</div>
 														</div>
-														<div class="col-md-4">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="inputPassword3" class="col-sm-12 control-label text-left">Password (leave blank for pre-existing contact)</label>
 																<div class="col-sm-12">
@@ -307,7 +307,7 @@ title: Agent Settings
 																</div>
 															</div>
 														</div>
-														<div class="col-md-4">
+														<div class="col-md-3">
 															<div class="form-group">
 																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Type</label>
 																<div class="col-sm-12">
@@ -322,6 +322,7 @@ title: Agent Settings
 																</div>
 															</div>
 														</div>
+
 														<div class="col-md-12">
 															<div class="row">
 																<div class="col-md-4">	
@@ -411,7 +412,7 @@ title: Agent Settings
 										<div class="tab-pane active" id="tab_1">
 											<div class="row">
 												<div class="form-horizontal">
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<div class="form-group">
 															<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Email</label>
 															<div class="col-sm-12">
@@ -419,7 +420,7 @@ title: Agent Settings
 															</div>
 														</div>
 													</div>
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<div class="form-group">
 															<label for="inputPassword3" class="col-sm-12 control-label text-left">Windows Domain Login Name</label>
 															<div class="col-sm-12">
@@ -427,7 +428,7 @@ title: Agent Settings
 															</div>
 														</div>
 													</div>
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<div class="form-group">
 															<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent User Type</label>
 															<div class="col-sm-12">
@@ -442,9 +443,10 @@ title: Agent Settings
 															</div>
 														</div>
 													</div>	
+
 													<div class="col-md-12">
 														<div class="row">
-															<div class="col-md-4">	
+															<div class="col-md-3">	
 																<div class="form-group">
 																	<label class="col-sm-8 control-label text-left">
 																			Segments <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
@@ -464,7 +466,7 @@ title: Agent Settings
 																	</div>	
 																</div>
 															</div>
-															<div class="col-md-4">	
+															<div class="col-md-3">	
 																<div class="form-group">
 																	<label class="col-sm-8 control-label text-left">
 																			Department Membership <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
@@ -481,7 +483,7 @@ title: Agent Settings
 																	</div>	
 																</div>
 															</div>
-															<div class="col-md-4">	
+															<div class="col-md-3">	
 																<div class="form-group">
 																	<label class="col-sm-8 control-label text-left">
 																			Skills <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
@@ -504,7 +506,39 @@ title: Agent Settings
 																	</div>	
 																</div>	
 															</div>	
-															</div>																		
+
+															
+															<div class="col-md-3">
+																<div class="box box-info">
+																	<div class="box-header with-border" style="cursor: move;">
+																		<i class="fa fa-users"></i>
+																		<h3 class="box-title">Agents Status</h3>
+																	</div>
+																	<div class="box-body">
+																		<div class="table-responsive">
+																			<table class="table no-margin">
+																				<thead>
+																					<tr>
+																						<th>Logged In    </th>
+																						<th>Chat Available</th>
+																						<th>Last Action</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td><div style="display:none">1</div><a href="#"><i class="fa fa-circle text-success"></i></a></td>
+																						<td><div style="display:none">1</div><a href="#"><i class="fa fa-circle text-success"></i></a></td>
+																						<td>16 min ago</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																			<button type="button" class="btn btn-sm btn-primary margin-r-5">Logout Agent</button>
+																		</div>
+																		<!-- /.table-responsive -->
+																	</div>
+																</div>
+															</div>	
+														</div>																		
 													</div>
 													<div class="col-md-12">
 														<button type="button" class="btn btn-primary margin-r-5">Save</button>

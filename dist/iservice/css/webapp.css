@@ -3661,6 +3661,9 @@ table.dataTable thead .sorting_desc_disabled:after {
   top: unset;
   bottom: 8px;
 }
+.control-sidebar-bg {
+  position: absolute !important;
+}
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {
