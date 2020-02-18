@@ -3661,6 +3661,15 @@ table.dataTable thead .sorting_desc_disabled:after {
   top: unset;
   bottom: 8px;
 }
+.list-container {
+  border: 1px solid #cccccc;
+  height: 300px;
+  overflow: scroll;
+  padding: 5px;
+}
+.list-container label {
+  white-space: nowrap;
+}
 .control-sidebar-bg {
   position: absolute !important;
 }
