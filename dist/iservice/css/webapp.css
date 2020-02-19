@@ -3676,6 +3676,13 @@ table.dataTable thead .sorting_desc_disabled:after {
 .root > li > a {
   padding-left: 0px;
 }
+.dataTables_filter label {
+  font-weight: normal !important;
+}
+.topic-selected {
+  margin-left: 1px;
+  background: #f7f7f7;
+}
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {
