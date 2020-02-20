@@ -336,10 +336,10 @@ title: Agent Settings
 																			<div class="checkbox col-md-12">
 																				<label><input type="checkbox" class="flat-red">Sales</label>
 																			</div> 
-																			<div class="checkbox  col-md-12">
+																			<div class="checkbox">
 																				<label><input type="checkbox" class="flat-red">Customer Service</label>
 																			</div>
-																			<div class="checkbox  col-md-12">
+																			<div class="checkbox">
 																				<label><input type="checkbox" class="flat-red">Human Resources</label>
 																			</div>
 																		</div>	
@@ -356,7 +356,7 @@ title: Agent Settings
 																			<div class="checkbox col-md-12">
 																				<label><input type="checkbox" class="flat-red">Sales Team</label>
 																			</div> 
-																			<div class="checkbox  col-md-12">
+																			<div class="checkbox">
 																				<label><input type="checkbox" class="flat-red">Escalation Team</label>
 																			</div>
 																		</div>	
@@ -373,13 +373,13 @@ title: Agent Settings
 																			<div class="checkbox col-md-12">
 																				<label><input type="checkbox" class="flat-red">Product</label>
 																			</div> 
-																			<div class="checkbox  col-md-12">
+																			<div class="checkbox">
 																				<label><input type="checkbox" class="flat-red">Shipping</label>
 																			</div>
-																			<div class="checkbox  col-md-12">
+																			<div class="checkbox">
 																				<label><input type="checkbox" class="flat-red">Support</label>
 																			</div>
-																			<div class="checkbox  col-md-12">
+																			<div class="checkbox">
 																				<label><input type="checkbox" class="flat-red">Tier 2 Support</label>
 																			</div>
 																		</div>	
@@ -414,18 +414,43 @@ title: Agent Settings
 												<div class="form-horizontal">
 												    <div class="col-md-12 mbottom-15">
                                                        <div class="row">
-                                                          <div class="col-md-2">
+
+														<div class="col-md-3">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Windows Domain Login Name</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control">
+																</div>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent User Type</label>
+																<div class="col-sm-12">
+																	<select class="form-control">
+																		<option>CSR</option>
+																		<option>CSR Manager</option>
+																		<option>Customer Agent</option>
+																		<option>Developer</option>
+																		<option>QA CSR</option>
+																		<option>QA Manager</option>
+																	</select>
+																</div>
+															</div>
+														</div>	
+														<div class="col-md-6">
+                                                           <span class="inline-label">
 															<label class="control-label"><i class="fa fa-circle text-success"></i> Logged In </label>
-														  </div>
-														  <div class="col-md-2">
+														   </span>
+														   <span class="inline-label">
 															<label class="control-label"><i class="fa fa-circle text-success"></i> Chat Available </label>
-														  </div>
-														  <div class="col-md-3">
+														   </span>
+														    <span class="inline-label">
 															<label class="control-label">Last Action</label> 16 min ago 
-														  </div>
-														  <div class="col-md-3">			
+														   </span>
+															
 															<button type="button" class="btn btn-sm btn-primary margin-r-5">Logout Agent</button>
-														 </div>	
+														</div> 
 													   </div>	
 													</div>	
 													
@@ -439,18 +464,17 @@ title: Agent Settings
 																</div>
 																
 															<div class="list-container">
-                                                                <div class="row">
-																	<div class="checkbox col-md-12">
+                                                               
+																	<div class="checkbox">
 																		<label><input type="checkbox" class="flat-red">Sales</label>
 																	</div> 
-																	<div class="checkbox  col-md-12">
+																	<div class="checkbox">
 																		<label><input type="checkbox" class="flat-red">Customer Service</label>
 																	</div>
-																	<div class="checkbox  col-md-12">
+																	<div class="checkbox">
 																		<label><input type="checkbox" class="flat-red">Human Resources</label>
 																	</div>
-																</div>	            
-
+																
 															</div>
 																	
 															</div>
@@ -462,14 +486,14 @@ title: Agent Settings
 																</div>
 																
 																<div class="list-container">
-																	<div class="row">
-																		<div class="checkbox col-md-12">
+																	
+																		<div class="checkbox">
 																			<label><input type="checkbox" class="flat-red">Sales Team</label>
 																		</div> 
-																		<div class="checkbox  col-md-12">
+																		<div class="checkbox">
 																			<label><input type="checkbox" class="flat-red">Escalation Team</label>
 																		</div>
-																	</div>
+																	
 																</div>	
 																	
 															</div>
@@ -481,20 +505,20 @@ title: Agent Settings
 																</div>
 														
 																<div class="list-container">
-																	<div class="row">
-																		<div class="checkbox col-md-12">
+																	
+																		<div class="checkbox">
 																			<label><input type="checkbox" class="flat-red">Product</label>
 																		</div> 
-																		<div class="checkbox  col-md-12">
+																		<div class="checkbox">
 																			<label><input type="checkbox" class="flat-red">Shipping</label>
 																		</div>
-																		<div class="checkbox  col-md-12">
+																		<div class="checkbox">
 																			<label><input type="checkbox" class="flat-red">Support</label>
 																		</div>
-																		<div class="checkbox  col-md-12">
+																		<div class="checkbox">
 																			<label><input type="checkbox" class="flat-red">Tier 2 Support</label>
 																		</div>
-																	</div>
+																	
 																</div>
 																	
 															</div>	
@@ -502,29 +526,7 @@ title: Agent Settings
 														</div>																		
 													</div>
 
-													<div class="col-md-3">
-														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-12 control-label text-left">Windows Domain Login Name</label>
-															<div class="col-sm-12">
-																<input type="text" class="form-control">
-															</div>
-														</div>
-													</div>
-													<div class="col-md-3">
-														<div class="form-group">
-															<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent User Type</label>
-															<div class="col-sm-12">
-																<select class="form-control">
-																	<option>CSR</option>
-																	<option>CSR Manager</option>
-																	<option>Customer Agent</option>
-																	<option>Developer</option>
-																	<option>QA CSR</option>
-																	<option>QA Manager</option>
-																</select>
-															</div>
-														</div>
-													</div>	
+												
 
 													<div class="col-md-12">
 														<button type="button" class="btn btn-primary margin-r-5">Save</button>
