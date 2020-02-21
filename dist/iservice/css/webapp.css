@@ -3687,6 +3687,12 @@ table.dataTable thead .sorting_desc_disabled:after {
   margin-top: 27px;
   display: inline-block;
 }
+.pr-0 {
+  padding-right: 0px;
+}
+.pl-0 {
+  padding-left: 0px;
+}
 /* Large desktop */
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {
