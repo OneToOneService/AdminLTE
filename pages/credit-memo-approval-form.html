@@ -1,5 +1,5 @@
 ---
-title: Submit Credit Memo
+title: Credit Memo Approval
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -23,8 +23,6 @@ title: Submit Credit Memo
           <li class="active">Custom Forms</li>
           <li class="active"> {{ page.title }}</li>
         </ol>
-        
-       
       </section>
       <!-- Main content -->
       <section class="content" ng-controller="myCtrl">
@@ -32,21 +30,14 @@ title: Submit Credit Memo
           <div class="col-md-12">
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Credit Memo Request</h3>
+                <h3 class="box-title">Credit Memo Approval Request</h3>
               </div>
               <div class="box-body">
-                <p>This form is used to submit a credit memo request FCC 
-                  Finance. You will receive an automated acknowledgment after
-                  your request is submitted and will receive and email when the credit
-                  memo has been approved and processed.</p>
-                <p>The list of approvers is based on the largest credit memo amount.
-                  Credit less than $5,000 may be approved by supervisor. Request between $5,000 and $25,000 require a manager approval. Requests greater than $25,000 require an officer or direct approval.</p>
                   <div class="box box-primary">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Enter Biller & Reason Details</h3>
+                      <h3 class="box-title">Biller & Reason Details</h3>
                     </div>
                     <div class="box-body"> 
-                      
                       <div class="row">
                         <div class="col-md-12 form-horizontal">
                           <div class="form-group">
@@ -82,29 +73,24 @@ title: Submit Credit Memo
                               <textarea class="form-control"></textarea>
                             </div>
                           </div>
-                          
                         </div>
                       </div>   
-                        
-                  </div> 
+                    </div> 
                   </div>
                   
                   <div class="box box-primary">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Enter Biller & Reason Details</h3>
+                      <h3 class="box-title">Credit Details</h3>
                     </div>
                     <div class="box-body"> 
                       <div class="row">
                         <div class="col-md-12 form-horizontal">
-                          <div class="form-group">
-                            <label class="col-sm-12 control-label text-left"></label>
-                          </div> 
-                          <div class="row"  ng-repeat="pro in proItemList"> 
+                          <div class="row"> 
                             <div class="col-md-3">
                               <div class="form-group">
                                 <label class="col-sm-12 control-label text-left" >Pro Number</label>
                                 <div class="col-sm-12">
-                                  <input type="text" class="form-control" disabled value="{% raw %}{{pro.number}}{% endraw %}">
+                                  <input type="text" class="form-control" disabled value="">
                                 </div>
                               </div>
                             </div> 
@@ -112,7 +98,7 @@ title: Submit Credit Memo
                               <div class="form-group">
                                 <label class="col-sm-12 control-label text-left">Credit Memo Amount</label>
                                 <div class="col-sm-12">
-                                  <input type="text" class="form-control" value="">
+                                  <input type="text" class="form-control" disabled value="">
                                 </div>
                               </div>
                             </div> 
@@ -120,58 +106,20 @@ title: Submit Credit Memo
                               <div class="form-group">
                                 <label class="col-sm-12 control-label text-left">Shipment Date</label>
                                 <div class="col-sm-12">
-                                  <div class="input-group date">
-                                    <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
-                                      <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
-                                  </div>
+                                  <input type="text" class="form-control" disabled value="">
                                 </div>
                               </div>
                             </div> 
-                            <div class="col-md-3">
-                              <label class="col-sm-12 control-label text-left">&nbsp;</label>
-                              <button class="icon-button button-delete inline-delete" type="button" ng-click="deleteProItem($index)">
-                                <i class="fa fa-times-circle"></i>
-                              </button>
-                            </div>   
                           </div>  
-
-                          <div class="alert alert-danger mbottom-15" ng-show="alertmessage">
-                            {% raw %}{{alertmessage}}{% endraw %}
-                          </div>   
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label text-left">Pro #(Only one credit per pro # is allowed)</label>
-                            <div class="col-md-4">
-                              <div class="input-group mbottom-15">
-                                <input type="text" class="form-control" name="newpronumber" ng-model="newpronumber" required="">
-                                <span class="input-group-btn">
-                                  <button type="button" class="btn btn-info btn-flat" ng-click="proFormItem();">Add Pro</button>
-                                </span>
-                              </div>
-                            </div>  
-                          </div>
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label text-left required">Approver <span class="required">(Required)</span></label>
-                            <div class="col-sm-4">
-                              <select class="form-control"><option value="">Select value</option></select>
-                            </div>
-                          </div>
-                          <p>
-                            The customer will receive an updated invoice after the credit memo is
-                            approved and processed if there remains a balance on their account.
-                            If the credit memo "zeroes out" the amount owed, they will not receive a
-                            new invoice.
-                          </p>  
                         </div>
                       </div>   
-                        
-                  </div> 
+                    </div> 
                   </div>
 
                   <div class="row mtop-15">
                     <div class="col-md-12">
-                      <button type="button" class="btn btn-primary margin-r-5">Submit Credit Request</button>
+                      <button type="button" class="btn btn-primary margin-r-5">Approve Credit</button>
+                      <button type="button" class="btn btn-danger margin-r-5">Reject Credit</button>
                     </div>
                   </div>  
               </div>    
