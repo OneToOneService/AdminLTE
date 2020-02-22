@@ -53,31 +53,31 @@ title: Submit Credit Memo
                             <label class="col-sm-12 control-label text-left"></label>
                           </div>  
                           <div class="form-group">
-                            <label class="col-sm-4 control-label text-left">Biller Company Name</label>
+                            <label class="col-sm-2 control-label text-left">Biller Company Name</label>
                             <div class="col-sm-6">
                               <input type="text" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-sm-4 control-label text-left">B‎iller Code</label>
+                            <label class="col-sm-2 control-label text-left">B‎iller Code</label>
                             <div class="col-sm-6">
                               <input type="text" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-sm-4 control-label text-left">Shipment Type</label>
+                            <label class="col-sm-2 control-label text-left">Shipment Type</label>
                             <div class="col-sm-6">
                               <select  class="form-control"><option label="" value="">Select a value</option></select>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-sm-4 control-label text-left">Reason Category</label>
+                            <label class="col-sm-2 control-label text-left">Reason Category</label>
                             <div class="col-sm-6">
                               <select  class="form-control"><option label="" value="">Select a value</option></select>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-sm-4 control-label text-left">Reason Description</label>
+                            <label class="col-sm-2 control-label text-left">Reason Description</label>
                             <div class="col-sm-6">
                               <textarea class="form-control"></textarea>
                             </div>
@@ -98,16 +98,57 @@ title: Submit Credit Memo
                         <div class="col-md-12 form-horizontal">
                           <div class="form-group">
                             <label class="col-sm-12 control-label text-left"></label>
+                          </div> 
+                          <div class="row"  ng-repeat="pro in proItemList"> 
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label class="col-sm-12 control-label text-left required" >Pro Number</label>
+                                <div class="col-sm-12">
+                                  <input type="text" class="form-control" disabled value="{% raw %}{{pro.number}}{% endraw %}">
+                                </div>
+                              </div>
+                            </div> 
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label class="col-sm-12 control-label text-left required">Credit Memo Amount</label>
+                                <div class="col-sm-12">
+                                  <input type="text" class="form-control" value="">
+                                </div>
+                              </div>
+                            </div> 
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label class="col-sm-12 control-label text-left required">Shipment Date</label>
+                                <div class="col-sm-12">
+                                  <input type="text" class="form-control" value="">
+                                </div>
+                              </div>
+                            </div> 
+                            <div class="col-md-3">
+                              <label class="col-sm-12 control-label text-left required">&nbsp;</label>
+                              <button class="icon-button button-delete" type="button" ng-click="deleteProItem($index)">
+                                <i class="fa fa-times-circle"></i>
+                              </button>
+                            </div>   
                           </div>  
+
+                          <div class="alert alert-danger mbottom-15" ng-show="alertmessage">
+                            {% raw %}{{alertmessage}}{% endraw %}
+                          </div>   
                           <div class="form-group">
-                            <label class="col-sm-4 control-label text-left">Pro #(Only one credit per pro # is allowed)</label>
-                            <div class="col-sm-6">
-                              <input type="text" class="form-control">
-                            </div>
+                            <label class="col-sm-2 control-label text-left">Pro #(Only one credit per pro # is allowed)</label>
+                            <div class="col-md-4">
+                              <div class="input-group mbottom-15">
+                                <input type="text" class="form-control" name="newpronumber" ng-model="newpronumber" required="">
+                                <span class="input-group-btn">
+                                  <button type="button" class="btn btn-info btn-flat" ng-click="proFormItem();">Add Pro</button>
+                                </span>
+                              </div>
+                            </div>  
                           </div>
                           <div class="form-group">
-                            <label class="col-sm-4 control-label text-left">Approver</label>
-                            <div class="col-sm-6">
+                            <label class="col-sm-2 control-label text-left required">Approver <span class="required">(Required)</span></label>
+                            <div class="col-sm-4">
                               <select class="form-control"><option value="">Select value</option></select>
                             </div>
                           </div>
@@ -150,7 +191,23 @@ title: Submit Credit Memo
 				$scope.toggleSegmentCollapsedState = function (segmentName)
 				{ 
 					$scope[segmentName] = !$scope[segmentName];
-				};
+        };
+        
+        $scope.proItemList = [];
+        $scope.proFormItem = function() {
+          let data = $scope.proItemList.find(ob => ob.number === $scope.newpronumber);
+          if(data){
+            $scope.alertmessage = "Pro Number already exist";
+            return;
+          }
+          $scope.alertmessage = '';
+          $scope.proItemList.push({'number': $scope.newpronumber});
+          $scope.newpronumber = '';
+        }
+        $scope.deleteProItem = function(index) {	
+          $scope.proItemList.splice(index, 1);
+        }
+
 		});
 
     angular.module('iService').controller('ListCtrl', function ($scope, $http, $timeout, $interval) {
