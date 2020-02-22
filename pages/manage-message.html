@@ -809,7 +809,7 @@ title: Manage Messages List View
 													<label class="col-md-12 control-label text-left">Delivery Date</label>
 													<div class="col-sm-12">
 														<div class="input-group date">
-															<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+															<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
 																<i class="fa fa-calendar"></i>
 															</div>
 															<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
