@@ -4752,7 +4752,19 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, 
 .group-inline-item{margin-top:26px;  border: 1px solid @gray-lte; padding:5px 15px; 
     .control-label{padding-top:0px;}
 }
-/* Large desktop */
+
+/*For datatable sort option*/
+.table>thead>tr>th{
+   padding-right:30px;
+} 
+.table>thead>tr>th>span{width:100%;position: relative;
+    display:block;}
+span.glyphicon-sort, span.glyphicon-sort-by-attributes, span.glyphicon-sort-by-attributes-alt {
+    position: absolute;
+    right: -30px;
+    bottom: 5px;
+    top: inherit;
+}
 
 /* Portrait tablet to landscape and desktop */
 
