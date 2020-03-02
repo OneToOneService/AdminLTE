@@ -1,0 +1,405 @@
+---
+title: Quote Admin
+---
+<!DOCTYPE html>
+<html ng-app="iService">
+<head>
+    {% include common-head.html %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+        {% include common-header.html %}
+        {% include common-menu.html %}
+				<!-- Content Wrapper. Contains page content -->
+		
+    <div class="content-wrapper">
+						<!-- Content Header (Page header) -->
+			<div class="clearfix"></div>	
+			<section class="content-header">
+				<h1>
+					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h1>
+					<ol class="breadcrumb">
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li class="active">Custom Forms Admin</li>
+						<li class="active">{{ page.title }}</li>
+					</ol>
+			</section>
+
+  				<!-- Main content -->
+      <section class="content"  ng-controller="myCtrl">
+				<div class="row p-l-0">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="box box-info">
+									<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
+										<i class="fa icon-c icon-qoute-admin"></i>
+										<h3 class="box-title head-title-padding">Messages</h3>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
+									</div>
+									<!-- /.box-header -->
+									<!-- form start -->
+									<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
+										<table class="table table-striped table-hover" datatable dt-options="dtCampaignListsOptions" dt-column-defs="dtMailingListsColumnDefs">
+											<thead>
+												<tr>
+													<!--<th class="no-sort"  name="name" width="30"></th>-->
+													<th class="text-capitalize">
+														Segment
+													</th>
+													<th class="text-capitalize">
+														Quote Topic
+													</th>
+													<th class="text-capitalize">
+													  Followup Topic
+													</th>
+													<th class="text-capitalize">
+													 Stock Responses
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+													<!--<th class="no-sort"  name="name" width="30"></th>-->
+													<td class="text-capitalize">
+														Segment 1
+													</td>
+													<td class="text-capitalize">
+														Sales
+													</td>
+													<td class="text-capitalize">
+														--
+													</td>
+													<td>
+														--
+													</td>
+												</tr>
+											
+											</tbody>
+										</table>
+									</div>
+								</div> 
+							</div>                         
+						</div>
+					<!-- /.col -->
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
+										New Topic Config
+								</button>
+								<button class="btn btn-danger btn-delete" type="button" ng-click="showAlert = true">
+										Remove Topic Config...
+									</button>
+							</div>	
+						</div>		
+
+						<div class="row" ng-show="showAlert">
+							<div class="col-md-12">
+								<div class="box box-danger">
+									<div class="box-header with-border">
+										<i class="fa fa-warning"></i>
+										<h3 class="box-title">Alerts</h3>
+									</div>
+									<div class="box-body">
+										<div class="row">
+											<div class="col-md-12">
+												<p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
+											</div>
+											<div class="col-md-12">
+												<button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+												<button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+											</div>
+										</div>
+									</div>	
+								</div>	
+							</div>	
+						</div>	
+						<div class="row" ng-show="formstep1">
+								<div class="col-md-12">
+									<div class="box box-primary">
+										<div class="box-header with-border">
+											<i class="fa icon-c icon-qoute-admin"></i>
+											<h3 class="box-title text-right">New Topic Config</h3>
+										</div>
+										<div class="box-body">
+											<section class="search-parameters">
+												<div class="row">
+													<div class="form-horizontal">
+															
+													</div>
+												</div>	
+												
+												<div class="row">
+													<div class="col-md-12">
+														<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
+														<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+													</div>
+												</div>	
+											</section>
+										</div>
+									</div>
+								</div>	
+						</div>
+						<div class="row" ng-show="formstep2">
+							<div class="col-md-12">
+								<div class="box box-primary">
+                                    <div class="box-header with-border">
+										<i class="fa icon-c icon-qoute-admin"></i>
+										<h3 class="box-title text-right">Quote Admin Configuration</h3>
+									</div>	
+									<div class="box-body">
+										<div class="row">
+											<div class="col-md-7">
+												<div class="panel panel-default col-md-12 col-xs-12 bg-gray-light">
+													<div class="row">
+														<div class="form-horizontal mtop-15">
+															<div class="col-md-12">
+																<div class="form-group">
+																	<p class="col-md-12"><strong>Step 1:</strong> Select the topic that designates new requests to quote. Questions in this topic will be answered with your custom "To Quote" form.</p>
+																	<label for="inputPassword3" class="col-md-12 control-label text-left">"To Quote" Topic</label>
+																	<div class="col-sm-12">
+																		<input type="text" class="form-control">
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-12">
+																<div class="form-group">
+																	<p class="col-md-12"><strong>Step 2:</strong> Select the stock responses used for the "To Quote" topic.</p>
+																	<label for="inputPassword3" class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
+																	<div class="col-sm-12">
+																		<input type="text" class="form-control">
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-12">
+																<div class="form-group">
+																	<p class="col-md-12">
+																		<strong>Step 3:</strong> Select the topic for the "Open Quotes" tickets. When a quote is sent, a copy of the quote will be queued in this topic for follow up tracking.
+																	</p>	
+																	<label for="inputPassword3" class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
+																	<div class="col-sm-12 ng-scope" ng-controller="FromEmailCtrl as ctrl">
+																		<div class="ui-select-container select2 select2-container ng-not-empty ng-valid" ng-class="{'select2-container-active select2-dropdown-open open': $select.open, 'select2-container-disabled': $select.disabled, 'select2-container-active': $select.focus, 'select2-allowclear': $select.allowClear &amp;&amp; !$select.isEmpty()}" ng-model="ctrl.mailboxselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox list"><a class="select2-choice ui-select-match ng-binding ng-scope" ng-class="{'select2-default': $select.isEmpty()}" ng-click="$select.toggle($event)" aria-label="Choose a mailbox list select" placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name || $select.selected">Sales (sales@1to1service.com)</a><div class="ui-select-dropdown select2-drop select2-with-searchbox select2-drop-active select2-display-none" ng-class="{'select2-display-none': !$select.open}"><div class="search-container select2-search" ng-class="{'ui-select-search-hidden':!$select.searchEnabled, 'select2-search':$select.searchEnabled}"><input type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="combobox" aria-expanded="true" aria-owns="ui-select-choices-0" aria-label="Choose a mailbox list" aria-activedescendant="ui-select-choices-row-0-0" class="ui-select-search select2-input ng-pristine ng-untouched ng-valid ng-empty" ng-model="$select.search" style="width: 10px;"></div><ul tabindex="-1" class="ui-select-choices ui-select-choices-content select2-results ng-scope" repeat="mailboxlist in ctrl.mailboxname | filter: $select.search"><li class="ui-select-choices-group" ng-class="{'select2-result-with-children': $select.choiceGrouped($group) }"><div ng-show="$select.choiceGrouped($group)" class="ui-select-choices-group-label select2-result-label ng-binding ng-hide" ng-bind="$group.name"></div><ul role="listbox" id="ui-select-choices-0" ng-class="{'select2-result-sub': $select.choiceGrouped($group), 'select2-result-single': !$select.choiceGrouped($group) }" class="select2-result-single"><!-- ngRepeat: mailboxlist in $select.items --><!-- ngIf: $select.open --><!-- end ngRepeat: mailboxlist in $select.items --></ul></li></ul><div class="ui-select-no-choice"></div></div><ui-select-single></ui-select-single><input ng-disabled="$select.disabled" class="ui-select-focusser ui-select-offscreen ng-scope" type="text" id="focusser-0" aria-label="Choose a mailbox list focus" aria-haspopup="true" role="button"></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>	
+													
+												</div>
+												<div class="row">
+													<button class="btn btn-lg btn-link" type="button">
+													<i class="fa fa-plus-circle text-light-blue"></i>
+													Configure Another Topic
+													</button>
+												</div>	
+											</div>
+											<div class="col-md-5">
+												<h4>Quote and Follow Up Configuration Prerequisites</h4>
+												<p> 
+													Before you configure your quote and follow up forms, make sure you have the following prerequisites in place.
+												</p>
+												<p>
+													1) Create the Interaction Properties that are required in your quote. This includes values like price, quantity, delivery date that will be in your stock response. If any of the properties require a list, create the list in the Additional Details page. In addition to properties used to generate the quote, you might need a property to track the reason for the final disposition of your quote (won, lost, etc.).
+												</p>
+												<p> 
+													2) Create your Stock Responses that will be sent to your customer. The stock response will include the values you enter into the interaction properties created in step 1 above, and is what the customer will receive via email when you send the quote.
+												</p>
+												<p> 
+													3) Create Topics for new quote requests ("To Quote") and tracking pending quotes ("Open Quotes"). Questions in the To Quote queue will presented using the custom quote form you configure below. When quotes are sent, a tracking ticket will be created in the topic you specify for "Open Quotes."
+												</p>	
+											</div>
+										</div>	
+										
+										<div class="row">
+											<div class="col-md-12">
+												<button type="button" class="btn btn-primary margin-r-5">Save</button>
+												<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+											</div>
+										</div>	
+									</div>	
+								</div>	 
+							</div>	
+						</div>
+					</div> 
+				</div>
+     	</section>
+		</div>
+        <!-- /.content-wrapper -->
+    {% include common-footer.html %}
+        <!-- Control Sidebar -->
+		{% include right-panel-setting-menu.html %}
+		<!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    {% include common-javascript.html %}
+       <!-- DataTables -->
+  <script>
+	$(document).ready(function() {
+    // DataTable
+	  	$('.custom-scroll').slimScroll({
+			height: '325px'
+		});
+	}); 
+	</script>
+	<script>
+	var count = 1;
+	var i = 1;
+	var app =  angular.module('iService');
+	app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+	{ 
+
+				$scope.dtMailingListsOptions = DTOptionsBuilder
+						.newOptions()
+						.withOption('language', {
+							search: 'Filter Criteria'
+						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+				$scope.toggle = {};
+
+				$scope.formItemList = [];
+			
+				$scope.dtSubscriberOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Unsubscribes'
+				})
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+				
+				$scope.dtUnSubscriberOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter Subscribers '
+				})
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+				$scope.dtSearchOptions = DTOptionsBuilder
+						.newOptions()
+						.withOption('language', {
+							search: 'Filter Search Results'
+						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+
+				$scope.cancelForm = function(step){
+					for(var i =1; i<=2; i++){
+						if(i == step){
+						$scope['formstep'+i] = true;
+						}	   
+						else	
+						$scope['formstep'+i] = false;
+					}
+				};		
+
+				$scope.showNewFormStep = function(step){
+					for(var i =1; i<=2; i++){
+						if(i == step){
+						$scope['formstep'+i] = true;
+						}	   
+						else	
+						$scope['formstep'+i] = false;
+				}
+
+		};
+		
+		$scope.toggleFormStep = function(segmentName){
+			for(var i =1; i<=2; i++){
+				$scope['row'+i] = false;  
+			}
+			$scope[segmentName] = !$scope[segmentName];
+				$scope['formstep'+2] = !$scope['formstep'+2];
+		};
+
+		$scope.toggleFormStepResponse = function(segmentName){
+			for(var i =1; i<=4; i++){
+				$scope['rowresponse'+i] = false;  
+			}
+			$scope[segmentName] = !$scope[segmentName];
+				$scope['formstepresponse'+4] = !$scope['formstepresponse'+4];
+		};
+
+		$scope.showNewFormResponse = function(){
+			$scope['formstepresponse'+4] = true;
+		};
+       
+		$scope.customForm = function(){
+			$scope.customform = true;
+		}
+		$scope.builtinForm = function(){
+			$scope.customform = false;
+		}
+	});
+	app.controller('myCtrlDetail', function ($scope) {
+      
+	  $scope.toggleSegmentCollapsedState = function (segmentName)
+	  { 
+			$scope[segmentName] = !$scope[segmentName];
+	  };
+  });
+
+	angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			vm.availableTopics = [
+					{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'},
+					{Topic: '.._Newsletter Subscription (0)'},
+					{Topic: '.._Spam (0)'},
+					{Topic: '.._Undeliverable (0)'},
+					{Topic: '..Account Questions (0)'},
+					{Topic: '....Orders (0)'},
+					{Topic: '....Refunds (0)'},
+					{Topic: '....Returns (0)'},
+					{Topic: '..Products(0)'},
+					{Topic: '....Audio-Video (0)'},
+					{Topic: '....Cameras (0)'},
+					{Topic: '....Cell Phones (0)'},
+					{Topic: '....Computers (0)'},
+					{Topic: '....Televisions(0)'},
+					{Topic: '..Shipping (0)'},
+					{Topic: '..Technical Support (0)'},
+					{Topic: '....Open Quotes (1)'}
+				
+			];
+		vm.multipleDemo = {};
+		vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
+				{Topic: '.._Feedback (2)'}];
+	});
+
+	</script>
+</body>
+</html>
