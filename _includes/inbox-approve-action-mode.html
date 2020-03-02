@@ -1,0 +1,352 @@
+<div class="row" ng-show="getthis">  
+    <div class="col-md-12 form-horizontal"> 
+        <div class="col-md-12 form-action">
+            <div class="form-group" ng-hide="qouteresponse">
+                <div class="btn-group dropdown margin-r-5">
+                    <button type="button" class="btn btn-primary"> <i class="fa fa-check"></i>
+                    Approve</button>										 
+                    <div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                        <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-btn-option" uib-dropdown-menu auto-close="outsideClick">
+                            <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-send-leave-open"></i> Leave Open</li>
+                            <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-expect-customer-reply"></i> Expect Customer Reply</li>
+                            <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-add-reference-number"></i> Add Reference Number</li>
+                            <li>
+                              <a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"><i class="fa icon-c icon-send-secure"></i> Send Secure (Notification)..</a>
+                              <div ng-show="shownotificationdropdown">
+                                <select class="form-control">
+                                  <option>Select a notification</option>
+                                </select>
+                              </div>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="button">
+                    <i class="fa  fa-ban"></i>
+                    Reject
+                </button>
+              
+                <div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                    <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+                        <i class="fa fa-mail-forward"></i>
+                        Forward
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
+                        <li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
+                            <div class="btn-list-options form-group" ng-show="selectAgent">
+                                <div class="ng-cloak" ng-controller="AgentCtrl2 as ctrl">
+                                    <ui-select ng-model="ctrl.agentselected.selected" theme="select2">
+                                      <ui-select-match placeholder="Select or search an agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                      <ui-select-choices  repeat="item in ctrl.agentnames | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                      <span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span><span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
+                                      <br>
+                                      <span ng-attr-title="{{ item.email }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.email | highlight: $select.search"></span>
+                                      </ui-select-choices>
+                                    </ui-select>
+                                  </div>
+                                <button class="btn btn-primary btn-xs">Assign To Agent</button>
+                            </div>    
+                        </li>
+                        <li><a href="javascript:void(0)" class="text-primary"> Unassign Question</a></li>
+                        <li ng-class="{'option-selected' : forwardSegment}">
+                            <a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
+                            <div class="btn-list-options form-group" ng-show="forwardSegment" >
+                                <div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
+                                    <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+                                        <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                        <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+                                            <span ng-bind-html="item.name | highlight: $select.search"></span><br>
+                                            email: <span ng-bind-html="item.email | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                                <button class="btn btn-primary btn-xs">Forward Now</button> 
+                            </div>   
+                        </li>
+                        <li ng-class="{'option-selected' : forwardExternalSegment}">
+                            <a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Agent</a>
+                            <div class="btn-list-options form-group" ng-show="forwardExternalSegment">
+                                <div class="form-group ng-cloak" ng-controller="extAgentCtrl as ctrl">
+                                    <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+                                        <ui-select-match placeholder="Select or search for a notification template" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                        <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+                                        <span ng-bind-html="agent.name | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                                <div class="form-group">
+                                  <input type="text" class="form-control" placeholder="Enter the email address for the external agent">	
+                                  <button class="btn btn-primary btn-xs">Forward Now</button> 
+                                </div>
+                            </div>    
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="btn-group dropdown margin-r-5">
+                        <button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
+                        Save</button>										 
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Private Note</a></li>
+                                    <li><a href="#">Public Note</a></li>
+                            </ul>
+                        </div>
+                </div>
+                <div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                    <button class="btn btn-primary" title="Spam"  uib-dropdown-toggle>
+                        <i class="fa  fa-arrows-alt"></i>
+                        Change Topic
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                        <li>
+                            <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+                                <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+                                    <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                    <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                        <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn btn-primary" title="Spam">
+                    <i class="fa fa-ban"></i>
+                    Spam
+                </button>
+                <a class="btn btn-link" ng-click="cancel('getthis')">Cancel</a>
+            </div>
+
+            <div class="form-group" ng-show="qouteresponse">
+              
+                <button type="button" class="btn btn-primary"> <i class="fa fa-send"></i>
+                Send Quote</button>	
+            
+                <button class="btn btn-primary" type="button" ng-click="qouteresponse = false;">
+                      Show Standard Response Time
+                </button>
+            </div>    
+            <div class="row">
+               <!-- Custom Tabs -->
+               {% include email-address-subject-responses-include.html tab="3" %}
+                <!-- nav-tabs-custom -->  
+            </div>
+        </div>    
+    </div> 
+  
+    <div class="col-md-12" > 
+        <div class="nav-tabs-custom" ng-hide="qouteresponse">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+                <li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+                <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                    <a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+                    {% include variables-and-stock-responses.html %}
+                </div>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="draftbody">
+                    <div class="form-group text-editor-container">
+                        <textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor ><p>Hello,</p>
+
+                            <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+                            
+                            <p>Regards,</p>
+                            
+                            <p>John Doe</p>
+                        </textarea>
+                    </div>
+                </div>
+                <div class="tab-pane" id="plainhtml">
+                    <p>Hello,</p>
+
+                    <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+                    
+                    <p>Regards,</p>
+                    
+                    <p>John Doe</p>
+                </div>										   
+            </div>
+        </div>
+
+    
+      <!--form data start-->	
+
+        <div class="col-md-12" ng-show="qouteresponse">
+        <div class="row">
+                        
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+                        <li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+                        <li><a href="#tab_property_3" data-toggle="tab"  uib-tooltip="There are private comments for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
+                        </ul>
+                        <div class="tab-content">
+                        <div class="tab-pane active" id="tab_detail_1">
+                            <div class="row">
+                                <div class="message-box-header">
+                                <div class="col-md-12">
+                                    <div class="user-container">
+                                    <span class="user">
+                                        <img src="/dist/img/agent.png">
+                                        <b>Agent</b>
+                                    </span>
+                                    <!--For ellipsis or limit the character add  class="username-ellipsis"
+                                                                    eg :- <span class="username-ellipsis">Alek Packard</span>
+                                        -->
+                                        <span>John Doe</span>
+                                    </div>  
+                                    <div class="message-info">
+                                    <b>From : </b> john.doe@example.com<br>
+                                    <b>To : </b> alek.packard@1to1service.com<br>
+                                    <b>CC : </b> justin.time@1to1service.com<br>
+                                    </div>	
+                                    <div class="clear"></div>
+                                    <div class="int-det-box pull-right"> 
+                                    <div><b>Interaction ID : </b>4645646</div>
+                                    <div><b> Segment / Topic : </b>All Topic</div>
+                                    <div><b> Resolved By : </b>Alek Packard</div>
+                                    <div><b> Approved By : </b>&nbsp;</div><div><b> Assigned To : </b>&nbsp;</div>		
+                                    <div><b> Interaction Status : </b><small class="bg-green-active label">Resolved</small></div>									
+                                    <div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+                                </div>
+                            </div>	
+                        </div>
+                        <div class="tab-pane" id="tab_property_2">
+                            <div class="row form-horizontal">
+                            <div class="col-md-4">
+                                <h4>Case Properties</h4>
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control pull-right">
+                                </div>
+                                </div>
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left">Delivery Date</label>
+                                <div class="col-sm-12">
+                                    <div class="input-group date">
+                                    <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                                    </div>
+                                </div>
+                                </div>  
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left">Detail</label>
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                                </div> 
+                            </div> 
+                            <div class="col-md-4">
+                                <h4>Question Properties</h4>
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label control-label text-left">Quantity</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control pull-right">
+                                </div>
+                                </div>  
+                            <div class="form-group">    
+                                <label class="col-md-12 control-label control-label text-left">Team</label>
+                                <div class="col-sm-12">
+                                    <div class="simple-label multiple">
+                                    <div class="float-btn-group">
+                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="float-btn-group">
+                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="float-btn-group">
+                                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                                    </div>
+                                </div>
+                                </div>   
+                            </div> 
+                            <div class="col-md-4">
+                                <h4>Answer Properties</h4>
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left">Priority</label>
+                                <div class="col-sm-12">
+                                    <select class="form-control">
+                                        <option>High</option>
+                                        <option>Low</option>
+                                    </select>    
+                                </div>
+                                </div> 
+                                <div class="form-group">    
+                                <label class="col-md-12 control-label text-left">isOpen</label>
+                                <div class="col-sm-12">
+                                    <select class="form-control">
+                                        <option>True</option>
+                                        <option>False</option>
+                                    </select>    
+                                </div>
+                                </div>  
+                            </div>    
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                            </div>    
+                        </div>
+                        <!--tab 3 start-->
+                        <div class="tab-pane" id="tab_property_3">
+                            Please show me the other ranges in Plasma tv.
+                        </div>
+                        <!--tab 3 end-->	
+                        </div>	
+                    </div>
+                </div>	
+            </div>	
+            <div class="message-box">
+                <div class="message-box-body"> 
+                <div class="clear"></div>
+                <div>										   
+                    <p>Hello,<br>
+                    I'm looking for a flat screen. Any suggestions?
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    
+      <!--form data end-->
+
+
+        <div class="row" ng-hide="qouteresponse">
+            <div class="col-sm-12">
+                <div class="panel panel-default form-group">
+                    <div class="panel-heading">
+                    <i class="fa fa-fw fa-pencil-square-o"></i>
+                        Private Comments
+                    </div>
+                    <div class="panel-body">
+                        <textarea class="full-width full-height"></textarea>
+                    </div>
+                </div>	
+            </div>
+        </div>    
+    </div>
+      
+    <!--Message history-->
+    {% include inbox-message-history.html %}
+    <!--Message history-->
+</div>

@@ -1,14 +1,15 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?lt80ns');
-  src:  url('fonts/icomoon.eot?lt80ns#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?lt80ns') format('truetype'),
-    url('fonts/icomoon.woff?lt80ns') format('woff'),
-    url('fonts/icomoon.svg?lt80ns#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?y87jew');
+  src:  url('fonts/icomoon.eot?y87jew#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?y87jew') format('truetype'),
+    url('fonts/icomoon.woff?y87jew') format('woff'),
+    url('fonts/icomoon.svg?y87jew#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
+
 
 [class^="icon-c"], [class*=" icon-c"] {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -23,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-get-next-message-inbox:before {
+  content: "\e921";
+}
 .icon-qoute-admin:before {
   content: "\e91f";
 }
@@ -47,7 +51,7 @@
 .icon-unassign-question:before {
   content: "\e919";
 }
-.icon-send-leave-open:before {
+.icon-sen-leave-open:before {
   content: "\e91a";
 }
 .icon-add-reference-number:before {
