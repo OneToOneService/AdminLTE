@@ -21,7 +21,7 @@ form .ng-invalid {
   }
   from,
   to {
-    background-color: #dd4b39;
+    /*background-color: #dd4b39;*/
     border: 1px solid #ac2d1e;
   }
 }
