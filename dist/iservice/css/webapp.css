@@ -25,6 +25,11 @@ form .ng-invalid {
     border: 1px solid #ac2d1e;
   }
 }
+.form-error {
+  font-size: 16px;
+  font-style: italic;
+  color: #ac2d1e;
+}
 .ui-pnotify-icon {
   margin-top: 3px;
 }
