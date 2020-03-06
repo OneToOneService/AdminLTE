@@ -3,31 +3,39 @@
     <div class="col-md-12 form-horizontal"> 
         <div class="col-md-12 form-action">
             <div class="form-group">
-                <div class="btn-group dropdown margin-r-5">
-                    <button type="button" class="btn btn-primary"> <i class="fa fa-check"></i>
-                    Approve</button>										 
-                    <div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-                        <button type="button" class="btn btn-primary" uib-dropdown-toggle>
-                          <span class="caret"></span>
-                       </button>
-                        <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-                            <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)"> Leave Open</a></li>
-                            <li><a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
-                                <div ng-show="shownotificationdropdown">
-                                    <select class="form-control">
-                                        <option>Select a notification</option>
-                                    </select>    
-                                </div>    
-                            </li>
-                            <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Expect Customer Reply</a></li>
-                            <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Add Reference Number</a></li>
-                        </ul>
+                {% if include.replytype %}
+                    <button class="btn btn-primary" type="button">
+                        <i class="fa fa-chevron-circle-right"></i>
+                        Submit
+                    </button>
+                {% else %}   
+                    <div class="btn-group dropdown margin-r-5">
+                        <button type="button" class="btn btn-primary"> <i class="fa fa-check"></i>
+                        Approve</button>										 
+                        <div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+                            <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                        </button>
+                            <ul class="dropdown-menu dropdown-menu-btn-option"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                                <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)"> Leave Open</a></li>
+                                <li><a href="javascript:void(0)" class="text-primary" ng-click="shownotificationdropdown = !shownotificationdropdown"> Send Secure (Notification)..</a>
+                                    <div ng-show="shownotificationdropdown">
+                                        <select class="form-control">
+                                            <option>Select a notification</option>
+                                        </select>    
+                                    </div>    
+                                </li>
+                                <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Expect Customer Reply</a></li>
+                                <li><input type="checkbox" class="flat-red margin-r-5"><a href="javascript:void(0)">Add Reference Number</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <button class="btn btn-primary" type="button">
-                    <i class="fa fa-times"></i>
-                    Reject
-                </button>
+                    <button class="btn btn-primary" type="button">
+                        <i class="fa fa-times"></i>
+                        Reject
+                    </button> 
+                {% endif %}
+
                <!-- <button class="btn btn-primary" type="button">
                     <i class="fa  fa-check"></i>
                     Resolve
