@@ -21,14 +21,9 @@ form .ng-invalid {
   }
   from,
   to {
-    /*background-color: #dd4b39;*/
+    background-color: #dd4b39;
     border: 1px solid #ac2d1e;
   }
-}
-.form-error {
-  font-size: 16px;
-  font-style: italic;
-  color: #ac2d1e;
 }
 .ui-pnotify-icon {
   margin-top: 3px;
@@ -3724,6 +3719,13 @@ span.glyphicon-sort-by-attributes-alt {
   right: -30px;
   bottom: 5px;
   top: inherit;
+}
+.popover {
+  max-width: 500px;
+}
+.multiple .select2-container {
+  width: 100% !important;
+  z-index: auto;
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {

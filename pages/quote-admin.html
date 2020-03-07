@@ -18,216 +18,311 @@ title: Quote Admin
 		
     <div class="content-wrapper">
 						<!-- Content Header (Page header) -->
-			<div class="clearfix"></div>	
-			<section class="content-header">
-				<h1>
-					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h1>
-					<ol class="breadcrumb">
-						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-						<li class="active">Custom Forms Admin</li>
-						<li class="active">{{ page.title }}</li>
-					</ol>
-			</section>
+		<div class="clearfix"></div>	
+		<section class="content-header" ng-controller="popoverCtrl"> 
+			<h1>
+				{{ page.title }} <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="popover.templateUrl" popover-title="Quote and Follow Up Configuration Prerequisites" type="button"  popover-trigger="outsideClick"></i></h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li class="active">Custom Forms Admin</li>
+					<li class="active">{{ page.title }}</li>
+				</ol>
+		</section>
 
-  				<!-- Main content -->
-      <section class="content"  ng-controller="myCtrl">
-				<div class="row p-l-0">
-					<div class="col-md-12">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="box box-info">
-									<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
-										<i class="fa icon-c icon-qoute-admin"></i>
-										<h3 class="box-title head-title-padding">Messages</h3>
-										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
-									</div>
-									<!-- /.box-header -->
-									<!-- form start -->
-									<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
-										<table class="table table-striped table-hover" datatable dt-options="dtCampaignListsOptions" dt-column-defs="dtMailingListsColumnDefs">
-											<thead>
-												<tr>
-													<!--<th class="no-sort"  name="name" width="30"></th>-->
-													<th class="text-capitalize">
-														Segment
-													</th>
-													<th class="text-capitalize">
-														Quote Topic
-													</th>
-													<th class="text-capitalize">
-													  Followup Topic
-													</th>
-													<th class="text-capitalize">
-													 Stock Responses
-													</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
-													<!--<th class="no-sort"  name="name" width="30"></th>-->
-													<td class="text-capitalize">
-														Segment 1
-													</td>
-													<td class="text-capitalize">
-														Sales
-													</td>
-													<td class="text-capitalize">
-														--
-													</td>
-													<td>
-														--
-													</td>
-												</tr>
-											
-											</tbody>
-										</table>
-									</div>
-								</div> 
-							</div>                         
-						</div>
-					<!-- /.col -->
-						<div class="row">
-							<div class="col-md-12 form-group">
-								<button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
-										New Topic Config
+			<!-- Main content -->
+		<section class="content"  ng-controller="myCtrl">
+			<div class="row p-l-0">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box box-info">
+								<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
+									<i class="fa icon-c icon-qoute-admin"></i>
+									<h3 class="box-title head-title-padding">Quote Configure</h3>
+									<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
+								</div>
+								<!-- /.box-header -->
+								<!-- form start -->
+								<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
+									<table class="table table-striped table-hover" datatable dt-options="dtQuoteListsOptions" dt-column-defs="dtQuoteListsColumnDefs">
+										<thead>
+											<tr>
+												<!--<th class="no-sort"  name="name" width="30"></th>-->
+												<th class="text-capitalize">
+													Segment
+												</th>
+												<th class="text-capitalize">
+													Quote Topic
+												</th>
+												<th class="text-capitalize">
+													Follow Up Topic
+												</th>
+												<th class="text-capitalize">
+													Stock Responses
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+												<!--<th class="no-sort"  name="name" width="30"></th>-->
+												<td class="text-capitalize">
+													Segment 1
+												</td>
+												<td class="text-capitalize">
+													Sales
+												</td>
+												<td class="text-capitalize">
+													--
+												</td>
+												<td>
+													--
+												</td>
+											</tr>
+										
+										</tbody>
+									</table>
+								</div>
+							</div> 
+						</div>                         
+					</div>
+				<!-- /.col -->
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
+									New Topic Config
+							</button>
+							<button class="btn btn-danger btn-delete" type="button" ng-click="showAlert = true">
+									Remove Topic Config...
 								</button>
-								<button class="btn btn-danger btn-delete" type="button" ng-click="showAlert = true">
-										Remove Topic Config...
-									</button>
-							</div>	
-						</div>		
+						</div>	
+					</div>		
 
-						<div class="row" ng-show="showAlert">
-							<div class="col-md-12">
-								<div class="box box-danger">
-									<div class="box-header with-border">
-										<i class="fa fa-warning"></i>
-										<h3 class="box-title">Alerts</h3>
-									</div>
-									<div class="box-body">
-										<div class="row">
-											<div class="col-md-12">
-												<p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
-											</div>
-											<div class="col-md-12">
-												<button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
-												<button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
-											</div>
+					<div class="row" ng-show="showAlert">
+						<div class="col-md-12">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+									<i class="fa fa-warning"></i>
+									<h3 class="box-title">Alerts</h3>
+								</div>
+								<div class="box-body">
+									<div class="row">
+										<div class="col-md-12">
+											<p class="text-red">Deletion is immediate and irrevocable upon confirmation.</p>
 										</div>
-									</div>	
+										<div class="col-md-12">
+											<button type="button" class="btn btn-danger btn-sm">Confirm Deletion</button>
+											<button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+										</div>
+									</div>
 								</div>	
 							</div>	
 						</div>	
-						<div class="row" ng-show="formstep1">
-								<div class="col-md-12">
-									<div class="box box-primary">
-										<div class="box-header with-border">
-											<i class="fa icon-c icon-qoute-admin"></i>
-											<h3 class="box-title text-right">New Topic Config</h3>
-										</div>
-										<div class="box-body">
-											<section class="search-parameters">
-												<div class="row">
-													<div class="form-horizontal">
+					</div>	
+					<div class="row" ng-show="formstep1">
+							<div class="col-md-12">
+								<div class="box box-primary">
+									<div class="box-header with-border">
+										<i class="fa icon-c icon-qoute-admin"></i>
+										<h3 class="box-title text-right">New Topic Config</h3>
+									</div>
+									<div class="box-body">
+										<section class="search-parameters">
+											<div class="row">
+												<div class="col-md-7">
+													<div class="panel panel-default col-md-12 col-xs-12 bg-gray-light">
+														<div class="row">
+															<div class="form-horizontal mtop-15">
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<p class="col-md-12"><strong>Step 1:</strong> Select the topic that designates new requests to quote. Questions in this topic will be answered with your custom "To Quote" form.</p>
+																		<label for="inputPassword3" class="col-md-12 control-label text-left">"To Quote" Topic</label>
+																		<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
+																			<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+																			  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
+																			  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
+																				<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
+																			  </ui-select-choices>
+																			</ui-select>
+																		 </div>
+																	</div>
+																</div>
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<p class="col-md-12"><strong>Step 2:</strong> Select the stock responses used for the "To Quote" topic.</p>
+																		<label for="inputPassword3" class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
+																		<div class="col-md-12">
+																			<div class="simple-label multiple" ng-controller="QuoteCtrl as ctrl">
+																				<div class="float-btn-group">
+																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																					<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																						<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																						<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																						  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																						</ui-select-choices>
+																					</ui-select>
+																				</div>
+																				<div class="float-btn-group" >
+																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																					<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																						<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																						<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																						  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																						</ui-select-choices>
+																					</ui-select>
+																				</div>
+																				<div class="float-btn-group">
+																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																					<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																						<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																						<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																						  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																						</ui-select-choices>
+																					</ui-select>
+																				</div>
+																				<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+																			</div>
+																		</div>		
+																	</div>
+																</div>
+																<div class="col-md-12">
+																	<div class="form-group">
+																		<p class="col-md-12">
+																			<strong>Step 3:</strong> Select the topic for the "Open Quotes" tickets. When a quote is sent, a copy of the quote will be queued in this topic for follow up tracking.
+																		</p>	
+																		<label for="inputPassword3" class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
+																		<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
+																			<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+																			  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
+																			  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
+																				<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
+																			  </ui-select-choices>
+																			</ui-select>
+																		 </div>
+																	</div>
+																</div>
 															
+															</div>
+														</div>	
+														
+													</div>
+											
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="col-md-12">
+													<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
+													<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+												</div>
+											</div>	
+										</section>
+									</div>
+								</div>
+							</div>	
+					</div>
+					<div class="row" ng-show="formstep2">
+						<div class="col-md-12">
+							<div class="box box-primary">
+								<div class="box-header with-border">
+									<i class="fa icon-c icon-qoute-admin"></i>
+									<h3 class="box-title text-right">Quote Admin Configuration</h3>
+								</div>	
+								<div class="box-body">
+									<div class="row">
+										<div class="col-md-7">
+											<div class="panel panel-default col-md-12 col-xs-12 bg-gray-light">
+												<div class="row">
+													<div class="form-horizontal mtop-15">
+														<div class="col-md-12">
+															<div class="form-group">
+																<p class="col-md-12"><strong>Step 1:</strong> Select the topic that designates new requests to quote. Questions in this topic will be answered with your custom "To Quote" form.</p>
+																<label for="inputPassword3" class="col-md-12 control-label text-left">"To Quote" Topic</label>
+																<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
+																	<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+																	  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
+																	  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
+																		<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
+																	  </ui-select-choices>
+																	</ui-select>
+																 </div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="form-group">
+																<p class="col-md-12"><strong>Step 2:</strong> Select the stock responses used for the "To Quote" topic.</p>
+																<label for="inputPassword3" class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
+																<div class="col-md-12">
+																	<div class="simple-label multiple" ng-controller="QuoteCtrl as ctrl">
+																		<div class="float-btn-group">
+																			<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																			<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																				<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																				<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																				  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																				</ui-select-choices>
+																			</ui-select>
+																		</div>
+																		<div class="float-btn-group" >
+																			<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																			<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																				<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																				<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																				  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																				</ui-select-choices>
+																			</ui-select>
+																		</div>
+																		<div class="float-btn-group">
+																			<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																			<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																				<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																				<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																				  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																				</ui-select-choices>
+																			</ui-select>
+																		</div>
+																		<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+																	</div>
+																</div>		
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="form-group">
+																<p class="col-md-12">
+																	<strong>Step 3:</strong> Select the topic for the "Open Quotes" tickets. When a quote is sent, a copy of the quote will be queued in this topic for follow up tracking.
+																</p>	
+																<label for="inputPassword3" class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
+																<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
+																	<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+																	  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
+																	  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
+																		<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
+																	  </ui-select-choices>
+																	</ui-select>
+																 </div>
+															</div>
+														</div>
+													
 													</div>
 												</div>	
 												
-												<div class="row">
-													<div class="col-md-12">
-														<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create</button>
-														<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
-													</div>
-												</div>	
-											</section>
+											</div>
+									
 										</div>
-									</div>
+									</div>	
+									
+									<div class="row">
+										<div class="col-md-12">
+											<button type="button" class="btn btn-primary margin-r-5">Save</button>
+										</div>
+									</div>	
 								</div>	
-						</div>
-						<div class="row" ng-show="formstep2">
-							<div class="col-md-12">
-								<div class="box box-primary">
-                                    <div class="box-header with-border">
-										<i class="fa icon-c icon-qoute-admin"></i>
-										<h3 class="box-title text-right">Quote Admin Configuration</h3>
-									</div>	
-									<div class="box-body">
-										<div class="row">
-											<div class="col-md-7">
-												<div class="panel panel-default col-md-12 col-xs-12 bg-gray-light">
-													<div class="row">
-														<div class="form-horizontal mtop-15">
-															<div class="col-md-12">
-																<div class="form-group">
-																	<p class="col-md-12"><strong>Step 1:</strong> Select the topic that designates new requests to quote. Questions in this topic will be answered with your custom "To Quote" form.</p>
-																	<label for="inputPassword3" class="col-md-12 control-label text-left">"To Quote" Topic</label>
-																	<div class="col-sm-12">
-																		<input type="text" class="form-control">
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-12">
-																<div class="form-group">
-																	<p class="col-md-12"><strong>Step 2:</strong> Select the stock responses used for the "To Quote" topic.</p>
-																	<label for="inputPassword3" class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
-																	<div class="col-sm-12">
-																		<input type="text" class="form-control">
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-12">
-																<div class="form-group">
-																	<p class="col-md-12">
-																		<strong>Step 3:</strong> Select the topic for the "Open Quotes" tickets. When a quote is sent, a copy of the quote will be queued in this topic for follow up tracking.
-																	</p>	
-																	<label for="inputPassword3" class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
-																	<div class="col-sm-12 ng-scope" ng-controller="FromEmailCtrl as ctrl">
-																		<div class="ui-select-container select2 select2-container ng-not-empty ng-valid" ng-class="{'select2-container-active select2-dropdown-open open': $select.open, 'select2-container-disabled': $select.disabled, 'select2-container-active': $select.focus, 'select2-allowclear': $select.allowClear &amp;&amp; !$select.isEmpty()}" ng-model="ctrl.mailboxselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox list"><a class="select2-choice ui-select-match ng-binding ng-scope" ng-class="{'select2-default': $select.isEmpty()}" ng-click="$select.toggle($event)" aria-label="Choose a mailbox list select" placeholder="Select or search a mailbox in the list..." ng-bind="$select.selected.name || $select.selected">Sales (sales@1to1service.com)</a><div class="ui-select-dropdown select2-drop select2-with-searchbox select2-drop-active select2-display-none" ng-class="{'select2-display-none': !$select.open}"><div class="search-container select2-search" ng-class="{'ui-select-search-hidden':!$select.searchEnabled, 'select2-search':$select.searchEnabled}"><input type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="combobox" aria-expanded="true" aria-owns="ui-select-choices-0" aria-label="Choose a mailbox list" aria-activedescendant="ui-select-choices-row-0-0" class="ui-select-search select2-input ng-pristine ng-untouched ng-valid ng-empty" ng-model="$select.search" style="width: 10px;"></div><ul tabindex="-1" class="ui-select-choices ui-select-choices-content select2-results ng-scope" repeat="mailboxlist in ctrl.mailboxname | filter: $select.search"><li class="ui-select-choices-group" ng-class="{'select2-result-with-children': $select.choiceGrouped($group) }"><div ng-show="$select.choiceGrouped($group)" class="ui-select-choices-group-label select2-result-label ng-binding ng-hide" ng-bind="$group.name"></div><ul role="listbox" id="ui-select-choices-0" ng-class="{'select2-result-sub': $select.choiceGrouped($group), 'select2-result-single': !$select.choiceGrouped($group) }" class="select2-result-single"><!-- ngRepeat: mailboxlist in $select.items --><!-- ngIf: $select.open --><!-- end ngRepeat: mailboxlist in $select.items --></ul></li></ul><div class="ui-select-no-choice"></div></div><ui-select-single></ui-select-single><input ng-disabled="$select.disabled" class="ui-select-focusser ui-select-offscreen ng-scope" type="text" id="focusser-0" aria-label="Choose a mailbox list focus" aria-haspopup="true" role="button"></div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>	
-													
-												</div>
-												<div class="row">
-													<button class="btn btn-lg btn-link" type="button">
-													<i class="fa fa-plus-circle text-light-blue"></i>
-													Configure Another Topic
-													</button>
-												</div>	
-											</div>
-											<div class="col-md-5">
-												<h4>Quote and Follow Up Configuration Prerequisites</h4>
-												<p> 
-													Before you configure your quote and follow up forms, make sure you have the following prerequisites in place.
-												</p>
-												<p>
-													1) Create the Interaction Properties that are required in your quote. This includes values like price, quantity, delivery date that will be in your stock response. If any of the properties require a list, create the list in the Additional Details page. In addition to properties used to generate the quote, you might need a property to track the reason for the final disposition of your quote (won, lost, etc.).
-												</p>
-												<p> 
-													2) Create your Stock Responses that will be sent to your customer. The stock response will include the values you enter into the interaction properties created in step 1 above, and is what the customer will receive via email when you send the quote.
-												</p>
-												<p> 
-													3) Create Topics for new quote requests ("To Quote") and tracking pending quotes ("Open Quotes"). Questions in the To Quote queue will presented using the custom quote form you configure below. When quotes are sent, a tracking ticket will be created in the topic you specify for "Open Quotes."
-												</p>	
-											</div>
-										</div>	
-										
-										<div class="row">
-											<div class="col-md-12">
-												<button type="button" class="btn btn-primary margin-r-5">Save</button>
-												<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
-											</div>
-										</div>	
-									</div>	
-								</div>	 
-							</div>	
-						</div>
-					</div> 
-				</div>
-     	</section>
-		</div>
+							</div>	 
+						</div>	
+					</div>
+				</div> 
+			</div>
+		</section>
+	</div>
         <!-- /.content-wrapper -->
     {% include common-footer.html %}
         <!-- Control Sidebar -->
@@ -239,7 +334,21 @@ title: Quote Admin
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-       <!-- DataTables -->
+	   <!-- DataTables -->
+	   
+	<script type="text/ng-template" id="myPopoverTemplate.html">
+		<div>
+			Before you configure your quote and follow up forms, make sure you have the following prerequisites in place.
+			<br><br>
+
+			1) Create the Interaction Properties that are required in your quote. This includes values like price, quantity, delivery date that will be in your stock response. If any of the properties require a list, create the list in the Additional Details page. In addition to properties used to generate the quote, you might need a property to track the reason for the final disposition of your quote (won, lost, etc.).
+			<br><br>
+			2) Create your Stock Responses that will be sent to your customer. The stock response will include the values you enter into the interaction properties created in step 1 above, and is what the customer will receive via email when you send the quote.
+			<br><br>
+			3) Create Topics for new quote requests ("To Quote") and tracking pending quotes ("Open Quotes"). Questions in the To Quote queue will presented using the custom quote form you configure below. When quotes are sent, a tracking ticket will be created in the topic you specify for "Open Quotes."
+
+		</div>
+	</script>	   
   <script>
 	$(document).ready(function() {
     // DataTable
@@ -251,14 +360,15 @@ title: Quote Admin
 	<script>
 	var count = 1;
 	var i = 1;
-	var app =  angular.module('iService');
+
+	
 	app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
 	{ 
 
-				$scope.dtMailingListsOptions = DTOptionsBuilder
+				$scope.dtQuoteListsOptions = DTOptionsBuilder
 						.newOptions()
 						.withOption('language', {
-							search: 'Filter Criteria'
+							search: 'topic Criteria'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
@@ -274,7 +384,7 @@ title: Quote Admin
 			
 				$scope.dtSubscriberOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
-					search: 'Filter Unsubscribes'
+					search: 'Filter Quote Configuration'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
 					extend: 'colvis',
@@ -289,7 +399,7 @@ title: Quote Admin
 				
 				$scope.dtUnSubscriberOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
-					search: 'Filter Subscribers '
+					search: 'topic Subscribers '
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
 					extend: 'colvis',
@@ -304,7 +414,7 @@ title: Quote Admin
 				$scope.dtSearchOptions = DTOptionsBuilder
 						.newOptions()
 						.withOption('language', {
-							search: 'Filter Search Results'
+							search: 'topic Search Results'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
@@ -372,34 +482,47 @@ title: Quote Admin
 	  };
   });
 
-	angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+  angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
 		var vm = this;
-			vm.availableTopics = [
-					{Topic: 'e-shop -- All Topics(0)'},
-					{Topic: '.._Feedback (2)'},
-					{Topic: '.._Newsletter Subscription (0)'},
-					{Topic: '.._Spam (0)'},
-					{Topic: '.._Undeliverable (0)'},
-					{Topic: '..Account Questions (0)'},
-					{Topic: '....Orders (0)'},
-					{Topic: '....Refunds (0)'},
-					{Topic: '....Returns (0)'},
-					{Topic: '..Products(0)'},
-					{Topic: '....Audio-Video (0)'},
-					{Topic: '....Cameras (0)'},
-					{Topic: '....Cell Phones (0)'},
-					{Topic: '....Computers (0)'},
-					{Topic: '....Televisions(0)'},
-					{Topic: '..Shipping (0)'},
-					{Topic: '..Technical Support (0)'},
-					{Topic: '....Open Quotes (1)'}
-				
-			];
-		vm.multipleDemo = {};
-		vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
-				{Topic: '.._Feedback (2)'}];
+			vm.topic = {};
+	        vm.topicselected = {selected : "e-shop -- All Topics"};
+		    vm.topicname = [ 
+					{Topic: 'e-shop -- All Topic'},
+					{Topic: '.._Feedback'},
+					{Topic: '.._Newsletter Subscription'},
+					{Topic: '.._Spam'},
+					{Topic: '.._Undeliverable'},
+					{Topic: '..Account Questions'},
+					{Topic: '....Orders'},
+					{Topic: '....Refunds'},
+					{Topic: '....Returns'},
+					{Topic: '..Product'},
+					{Topic: '....Audio-Video'},
+					{Topic: '....Cameras'},
+					{Topic: '....Cell Phones'},
+					{Topic: '....Computers'},
+					{Topic: '....Television'},
+					{Topic: '..Shipping'},
+					{Topic: '..Technical Support'},
+					{Topic: '....Open Quotes'}
+		
+		];
 	});
-
+	angular.module('iService').controller('QuoteCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.quote = {};
+	        vm.quoteselected = {selected : "Test filter"};
+		    vm.quotename = [ 
+			{name: 'Stock Response', code: ''},
+			{name: 'Empty Response', code: ''},
+		
+		];
+	});
+	app.controller('popoverCtrl', function ( $scope) {
+		$scope.popover = {
+			templateUrl: 'myPopoverTemplate.html'
+		};
+	});
 	</script>
 </body>
 </html>
