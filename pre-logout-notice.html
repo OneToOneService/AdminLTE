@@ -186,7 +186,7 @@ title: My Dashboard
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-    <script type="text/ng-template" id="logoutNotice.html">
+    <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
             <h4 class="modal-title"><i class="icon fa fa-warning text-yellow"></i>Your session is about to expire.</h4>
           </div>
@@ -194,8 +194,12 @@ title: My Dashboard
             <p class="text">You will be logged out in 30 seconds.<br></p>
             <div class="row mtop15">
                 <div class="col-md-12 form-group">
-                    <p class="text">You were automatically logged out of iService. This could be because you were inactive too long, or you were logged out from another browser window.<br></p>
-                    <a href="/pages/examples/login.html">Refresh </a> to log back into iService.
+                    <button class="btn btn-sm btn-primary" type="button">
+                        Continue Session
+                    </button>
+                    <button class="btn btn-sm btn-danger btn-delete" type="button">
+                        Logout
+                    </button>
                 </div>	
             </div> 
         </div>
@@ -205,7 +209,7 @@ title: My Dashboard
 app.controller('myCtrl', function( $scope, $uibModal ){
   $scope.openLogoutModal  = function(){
     $uibModal.open({
-      templateUrl : 'logoutNotice.html',
+      templateUrl : 'myModalContent.html',
       backdrop  : 'static'
     });
   }
