@@ -211,8 +211,8 @@ title: My Dashboard
     app.controller("myCtrl",['$scope','$timeout','$uibModal', function($scope,$timeout,$uibModal){
         $scope.openLogoutModal  = function(){
             $uibModal.open({
-            templateUrl : 'myModalContent.html'//,
-            //backdrop  : 'static'
+            templateUrl : 'myModalContent.html',
+            backdrop  : 'static'
             });
         }
 
@@ -234,7 +234,8 @@ title: My Dashboard
         var stopped;
         $scope.countdown = function() {
             stopped = $timeout(function() {
-            $scope.counter--;   
+            if($scope.counter > 0)    
+                $scope.counter--;   
             $scope.countdown();   
             }, 1000);
         };
