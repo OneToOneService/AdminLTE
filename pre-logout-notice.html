@@ -190,14 +190,14 @@ title: My Dashboard
         <div class="modal-header">
             <h4 class="modal-title"><i class="icon fa fa-warning text-yellow"></i>Your session is about to expire.</h4>
           </div>
-        <div class="modal-body logout-notice" id="modal-body">
-            <p class="text">You will be logged out in 30 seconds.<br></p>
+        <div class="modal-body logout-notice" ng-controller="countdownCtrl" id="modal-body" ng-init="countdown()">
+            <p class="text">You will be logged out in <span ng-bind="counter"></span> seconds.<br></p>
             <div class="row mtop15">
                 <div class="col-md-12 form-group">
-                    <button class="btn btn-sm btn-primary" type="button">
+                    <button class="btn btn-primary" type="button" >
                         Continue Session
                     </button>
-                    <button class="btn btn-sm btn-danger btn-delete" type="button">
+                    <button class="btn btn-danger btn-delete" type="button">
                         Logout
                     </button>
                 </div>	
@@ -206,13 +206,39 @@ title: My Dashboard
      </script>    
 </body>
 <script>
-app.controller('myCtrl', function( $scope, $uibModal ){
-  $scope.openLogoutModal  = function(){
-    $uibModal.open({
-      templateUrl : 'myModalContent.html',
-      backdrop  : 'static'
-    });
-  }
-}) 
+
+
+    app.controller("myCtrl",['$scope','$timeout','$uibModal', function($scope,$timeout,$uibModal){
+        $scope.openLogoutModal  = function(){
+            $uibModal.open({
+            templateUrl : 'myModalContent.html'//,
+            //backdrop  : 'static'
+            });
+        }
+
+        $scope.counter = 100;
+        var stopped;
+
+        $scope.countdown = function() {
+             stopped = $timeout(function() {
+            console.log($scope.counter);
+            $scope.counter--;   
+            $scope.countdown();   
+            }, 1000);
+        };
+   
+    }]);
+
+    app.controller("countdownCtrl",['$scope','$timeout','$uibModal', function($scope,$timeout,$uibModal){
+        $scope.counter = 30;
+        var stopped;
+        $scope.countdown = function() {
+            stopped = $timeout(function() {
+            $scope.counter--;   
+            $scope.countdown();   
+            }, 1000);
+        };
+   
+    }]);
 </script>    
 </html>
