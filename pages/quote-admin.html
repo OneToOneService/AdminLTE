@@ -38,7 +38,7 @@ title: Quote Admin
 							<div class="box box-info">
 								<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
 									<i class="fa icon-c icon-qoute-admin"></i>
-									<h3 class="box-title head-title-padding">Quote Configure</h3>
+									<h3 class="box-title head-title-padding">Quote Configurations</h3>
 									<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
 								</div>
 								<!-- /.box-header -->
@@ -69,16 +69,15 @@ title: Quote Admin
 													Segment 1
 												</td>
 												<td class="text-capitalize">
-													Sales
+													_Feedback
 												</td>
 												<td class="text-capitalize">
-													--
+													_Feedback
 												</td>
 												<td>
-													--
+													Stock Response
 												</td>
 											</tr>
-										
 										</tbody>
 									</table>
 								</div>
@@ -128,86 +127,73 @@ title: Quote Admin
 									<div class="box-body">
 										<section class="search-parameters">
 											<div class="row">
-												<div class="col-md-7">
-													<div class="panel panel-default col-md-12 col-xs-12 bg-gray-light">
-														<div class="row">
-															<div class="form-horizontal mtop-15">
-																<div class="col-md-12">
-																	<div class="form-group">
-																		<p class="col-md-12"><strong>Step 1:</strong> Select the topic that designates new requests to quote. Questions in this topic will be answered with your custom "To Quote" form.</p>
-																		<label for="inputPassword3" class="col-md-12 control-label text-left">"To Quote" Topic</label>
-																		<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
-																			<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
-																			  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
-																			  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
-																				<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
-																			  </ui-select-choices>
-																			</ui-select>
-																		 </div>
-																	</div>
-																</div>
-																<div class="col-md-12">
-																	<div class="form-group">
-																		<p class="col-md-12"><strong>Step 2:</strong> Select the stock responses used for the "To Quote" topic.</p>
-																		<label for="inputPassword3" class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
-																		<div class="col-md-12">
-																			<div class="simple-label multiple" ng-controller="QuoteCtrl as ctrl">
-																				<div class="float-btn-group">
-																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																					<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
-																						<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																						<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
-																						  <span ng-bind-html="quote.name | highlight: $select.search"></span>
-																						</ui-select-choices>
-																					</ui-select>
-																				</div>
-																				<div class="float-btn-group" >
-																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																					<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
-																						<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																						<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
-																						  <span ng-bind-html="quote.name | highlight: $select.search"></span>
-																						</ui-select-choices>
-																					</ui-select>
-																				</div>
-																				<div class="float-btn-group">
-																					<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																					<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
-																						<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																						<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
-																						  <span ng-bind-html="quote.name | highlight: $select.search"></span>
-																						</ui-select-choices>
-																					</ui-select>
-																				</div>
-																				<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
-																			</div>
-																		</div>		
-																	</div>
-																</div>
-																<div class="col-md-12">
-																	<div class="form-group">
-																		<p class="col-md-12">
-																			<strong>Step 3:</strong> Select the topic for the "Open Quotes" tickets. When a quote is sent, a copy of the quote will be queued in this topic for follow up tracking.
-																		</p>	
-																		<label for="inputPassword3" class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
-																		<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
-																			<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
-																			  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
-																			  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
-																				<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
-																			  </ui-select-choices>
-																			</ui-select>
-																		 </div>
-																	</div>
-																</div>
-															
-															</div>
-														</div>	
-														
+												<div class="form-horizontal mtop-15">
+													<div class="col-md-7">
+														<div class="form-group">
+															<label class="col-md-12 control-label text-left">"To Quote" Topic</label>
+															<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
+																<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+																  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
+																  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
+																	<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
+																  </ui-select-choices>
+																</ui-select>
+															 </div>
+														</div>
 													</div>
-											
+													<div class="col-md-7">
+														<div class="form-group">
+															<label class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
+															<div class="col-md-12">
+																<div class="simple-label multiple" ng-controller="QuoteCtrl as ctrl">
+																	<div class="float-btn-group">
+																		<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																		<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																			<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																			<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																			  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																			</ui-select-choices>
+																		</ui-select>
+																	</div>
+																	<div class="float-btn-group" >
+																		<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																		<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																			<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																			<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																			  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																			</ui-select-choices>
+																		</ui-select>
+																	</div>
+																	<div class="float-btn-group">
+																		<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																		<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																			<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																			<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																			  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																			</ui-select-choices>
+																		</ui-select>
+																	</div>
+																	<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+																</div>
+															</div>		
+														</div>
+													</div>
+													<div class="col-md-7">
+														<div class="form-group">
+															<label class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
+															<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
+																<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+																  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
+																  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
+																	<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
+																  </ui-select-choices>
+																</ui-select>
+															 </div>
+														</div>
+													</div>
+												
 												</div>
-											</div>
+											</div>	
 											
 											<div class="row">
 												<div class="col-md-12">
@@ -225,88 +211,75 @@ title: Quote Admin
 							<div class="box box-primary">
 								<div class="box-header with-border">
 									<i class="fa icon-c icon-qoute-admin"></i>
-									<h3 class="box-title text-right">Quote Admin Configuration</h3>
+									<h3 class="box-title text-right">Quote Configuration Details</h3>
 								</div>	
 								<div class="box-body">
 									<div class="row">
-										<div class="col-md-7">
-											<div class="panel panel-default col-md-12 col-xs-12 bg-gray-light">
-												<div class="row">
-													<div class="form-horizontal mtop-15">
-														<div class="col-md-12">
-															<div class="form-group">
-																<p class="col-md-12"><strong>Step 1:</strong> Select the topic that designates new requests to quote. Questions in this topic will be answered with your custom "To Quote" form.</p>
-																<label for="inputPassword3" class="col-md-12 control-label text-left">"To Quote" Topic</label>
-																<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
-																	<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
-																	  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
-																	  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
-																		<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
-																	  </ui-select-choices>
-																	</ui-select>
-																 </div>
-															</div>
-														</div>
-														<div class="col-md-12">
-															<div class="form-group">
-																<p class="col-md-12"><strong>Step 2:</strong> Select the stock responses used for the "To Quote" topic.</p>
-																<label for="inputPassword3" class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
-																<div class="col-md-12">
-																	<div class="simple-label multiple" ng-controller="QuoteCtrl as ctrl">
-																		<div class="float-btn-group">
-																			<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																			<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
-																				<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																				<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
-																				  <span ng-bind-html="quote.name | highlight: $select.search"></span>
-																				</ui-select-choices>
-																			</ui-select>
-																		</div>
-																		<div class="float-btn-group" >
-																			<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																			<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
-																				<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																				<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
-																				  <span ng-bind-html="quote.name | highlight: $select.search"></span>
-																				</ui-select-choices>
-																			</ui-select>
-																		</div>
-																		<div class="float-btn-group">
-																			<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																			<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
-																				<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																				<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
-																				  <span ng-bind-html="quote.name | highlight: $select.search"></span>
-																				</ui-select-choices>
-																			</ui-select>
-																		</div>
-																		<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
-																	</div>
-																</div>		
-															</div>
-														</div>
-														<div class="col-md-12">
-															<div class="form-group">
-																<p class="col-md-12">
-																	<strong>Step 3:</strong> Select the topic for the "Open Quotes" tickets. When a quote is sent, a copy of the quote will be queued in this topic for follow up tracking.
-																</p>	
-																<label for="inputPassword3" class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
-																<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
-																	<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
-																	  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
-																	  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
-																		<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
-																	  </ui-select-choices>
-																	</ui-select>
-																 </div>
-															</div>
-														</div>
-													
-													</div>
-												</div>	
-												
+										<div class="form-horizontal mtop-15">
+											<div class="col-md-7">
+												<div class="form-group">
+												    <label class="col-md-12 control-label text-left">"To Quote" Topic</label>
+													<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
+														<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+														  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
+														  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
+															<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
+														  </ui-select-choices>
+														</ui-select>
+													 </div>
+												</div>
 											</div>
-									
+											<div class="col-md-7">
+												<div class="form-group">
+													<label class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
+													<div class="col-md-12">
+														<div class="simple-label multiple" ng-controller="QuoteCtrl as ctrl">
+															<div class="float-btn-group">
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																	<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																	<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																	  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																	</ui-select-choices>
+																</ui-select>
+															</div>
+															<div class="float-btn-group" >
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																	<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																	<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																	  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																	</ui-select-choices>
+																</ui-select>
+															</div>
+															<div class="float-btn-group">
+																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																	<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																	<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
+																	  <span ng-bind-html="quote.name | highlight: $select.search"></span>
+																	</ui-select-choices>
+																</ui-select>
+															</div>
+															<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+														</div>
+													</div>		
+												</div>
+											</div>
+											<div class="col-md-7">
+												<div class="form-group">
+													<label class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
+													<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
+														<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+														  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
+														  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
+															<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
+														  </ui-select-choices>
+														</ui-select>
+													 </div>
+												</div>
+											</div>
+										
 										</div>
 									</div>	
 									
@@ -368,7 +341,7 @@ title: Quote Admin
 				$scope.dtQuoteListsOptions = DTOptionsBuilder
 						.newOptions()
 						.withOption('language', {
-							search: 'topic Criteria'
+							search: 'Filter Quote Configuration'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
@@ -485,7 +458,7 @@ title: Quote Admin
   angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
 		var vm = this;
 			vm.topic = {};
-	        vm.topicselected = {selected : "e-shop -- All Topics"};
+	        vm.topicselected = {selected : ".._Feedback"};
 		    vm.topicname = [ 
 					{Topic: 'e-shop -- All Topic'},
 					{Topic: '.._Feedback'},
@@ -511,7 +484,7 @@ title: Quote Admin
 	angular.module('iService').controller('QuoteCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.quote = {};
-	        vm.quoteselected = {selected : "Test filter"};
+	        vm.quoteselected = {selected : "Stock Response"};
 		    vm.quotename = [ 
 			{name: 'Stock Response', code: ''},
 			{name: 'Empty Response', code: ''},
