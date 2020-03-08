@@ -59,81 +59,111 @@ title: Manage Messages Tree View
 								</span>
 							</div>
 							<div class="box-body search-criteria topic-list-container">
-								<div class="row">
-									<div class="col-md-12 message-head">
-										<label class="pull-left select-all-topic"><input type="checkbox" class="minimal">Select All</label> 
-										<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="Proposed Answers">
-											<i class="fa fa-mail-reply"></i>
-										</div>
-										<div class="pull-right count-block">
-											<span class="fa-stack stack-icon-label" data-toggle="tooltip" data-placement="bottom" data-original-title="Assigned questions">
-												<i class="fa fa-envelope"></i>
-												<i class="fa fa-arrow-circle-o-right text-green"></i> 
-											</span>
-										</div>
-										<div class="pull-right count-block">
-											<span class="fa-stack stack-icon-label"  data-toggle="tooltip" data-placement="bottom" data-original-title="Unassigned questions">
-												<i class="fa fa-envelope"></i>
-												<i class="fa fa-clock-o"></i> 
-											</span>
-										</div>
-										<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="Agents skilled for this topic">
-											<i class="fa fa-user"></i>
-										</div>
-									
-									</div> 
-								</div>	
-								<div ng-hide="toggle.switchshowtopics" class="treeview topic-list  active-chat">
-										<ul id="tree1" class="tree">
+								<div ng-hide="loader" ng-cloak  ng-init="loader = true;">
+									<div class="row">
+										<div class="col-md-12 message-head">
+											<label class="pull-left select-all-topic"><input type="checkbox" class="minimal">Select All</label> 
+											<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="Proposed Answers">
+												<i class="fa fa-mail-reply"></i>
+											</div>
+											<div class="pull-right count-block">
+												<span class="fa-stack stack-icon-label" data-toggle="tooltip" data-placement="bottom" data-original-title="Assigned questions">
+													<i class="fa fa-envelope"></i>
+													<i class="fa fa-arrow-circle-o-right text-green"></i> 
+												</span>
+											</div>
+											<div class="pull-right count-block">
+												<span class="fa-stack stack-icon-label"  data-toggle="tooltip" data-placement="bottom" data-original-title="Unassigned questions">
+													<i class="fa fa-envelope"></i>
+													<i class="fa fa-clock-o"></i> 
+												</span>
+											</div>
+											<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="Agents skilled for this topic">
+												<i class="fa fa-user"></i>
+											</div>
+										
+										</div> 
+									</div>	
+								
+									<div ng-hide="toggle.switchshowtopics"  class="treeview topic-list  active-chat">
+											<ul id="tree1" class="tree">
+												<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
+													<ul>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+															</ul>
+														</li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+															</ul>
+														</li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+									</div>
+									<div ng-show="toggle.switchshowtopics" class="treeview  topic-list  active-chat">
+										<ul id="tree2" class="tree">
 											<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
-												<ul>
+											<ul>
 													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
 													<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
 													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
 													<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
-														<ul>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-														</ul>
-													</li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
-														<ul>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-														</ul>
-													</li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div>
-														<ul>
-															<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-														</ul>
-													</li>
-												</ul>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+											</ul>
 											</li>
+											
 										</ul>
+									</div>
 								</div>
-
-
-								<div ng-show="toggle.switchshowtopics" class="treeview  topic-list  active-chat">
-									<ul id="tree2" class="tree">
-										<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
-										  <ul>
-												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-												<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-												<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-												<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
-										  </ul>
-										</li>
-										
-									</ul>
-						    	</div>
+								<!--Loader place holder-->
+								<div class="box-placeholder" ng-show="loader">
+									<div class="p-4 mbottom-15">
+									  <span class="category text link"></span>
+									  <h4 class="text line"></h4>
+									  <h4 class="text"></h4>
+									</div>
+									<div class="excerpt p-4 mbottom-15">
+									  <div class="text line"></div>
+									  <div class="text line"></div>
+									  <div class="text"></div>
+									</div>
+									<div class="excerpt p-4 mbottom-15">
+										<div class="text title line"></div>
+										<div class="text title line"></div>
+										<div class="text"></div>
+									</div>
+									<div class="excerpt p-4 mbottom-15">
+										<div class="text line"></div>
+										<div class="text line"></div>
+										<div class="text title"></div>
+									</div>
+									<div class="excerpt p-4 mbottom-15">
+										<span class="category text link"></span>
+										<div class="text line"></div>
+										<div class="text title"></div>
+									</div>
+								</div>
+								<!--Loader place holder-->  
 							</div>
 					<!-- /.box-body -->
 						</div>
@@ -1677,9 +1707,13 @@ title: Manage Messages Tree View
 		e.stopPropagation();
 	});
 
-	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+	angular.module('iService').controller('myCtrl', function ($scope, $log,$timeout, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
-			
+			$scope.loaderTimeout = function() {
+				$scope.loader = false;
+			}
+
+            $timeout( function(){ $scope.loaderTimeout(); }, 5000);
 		
 			$scope.dtContactMessagesOptions = DTOptionsBuilder
 			.newOptions()

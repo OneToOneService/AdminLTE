@@ -3727,6 +3727,75 @@ span.glyphicon-sort-by-attributes-alt {
   width: 100% !important;
   z-index: auto;
 }
+.topic-list-container {
+  min-height: 450px;
+}
+.box-placeholder {
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
+  vertical-align: top;
+  width: 100%;
+}
+.box-placeholder hr {
+  margin: 0;
+  border-color: #f3f3f3;
+}
+.box-placeholder {
+  font-size: 0;
+  line-height: 0;
+}
+.box-placeholder .text {
+  display: inline-block;
+  background-color: #444;
+  height: 12px;
+  border-radius: 100px;
+  margin: 5px 0;
+  min-width: 100px;
+  opacity: .1;
+  animation: fading 1.5s infinite;
+}
+.box-placeholder .text:first-child {
+  margin-top: 0;
+}
+.box-placeholder .text:last-child {
+  margin-bottom: 0;
+}
+.box-placeholder .text.link {
+  background-color: blue;
+  opacity: .2;
+}
+.box-placeholder .text.line {
+  width: 100%;
+}
+.box-placeholder .text.category {
+  width: 100px;
+  margin-bottom: 10px;
+}
+.box-placeholder .text.title {
+  width: 100%;
+  background-color: blue;
+  margin-bottom: 10px;
+}
+.box-placeholder h4.text {
+  height: 20px;
+  margin: 3px 0;
+  opacity: .2;
+}
+.box-placeholder .image {
+  background-color: #f9f9f9;
+}
+@keyframes fading {
+  0% {
+    opacity: .1;
+  }
+  50% {
+    opacity: .2;
+  }
+  100% {
+    opacity: .1;
+  }
+}
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {
   .info-box .info-box-container .infobox-icon {
