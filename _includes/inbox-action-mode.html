@@ -34,69 +34,73 @@
                         <i class="fa fa-mail-forward"></i>
                         Forward
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
-                        <li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
-                            <div class="btn-list-options form-group" ng-show="selectAgent">
-                                <div class="ng-cloak" ng-controller="AgentCtrl2 as ctrl">
-                                    <ui-select ng-model="ctrl.agentselected.selected" theme="select2">
-                                      <ui-select-match placeholder="Select or search an agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                      <ui-select-choices  repeat="item in ctrl.agentnames | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
-                                      <span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span><span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
-                                      <br>
-                                      <span ng-attr-title="{{ item.email }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.email | highlight: $select.search"></span>
-                                      </ui-select-choices>
-                                    </ui-select>
-                                  </div>
-                                <button class="btn btn-primary btn-xs">Assign To Agent</button>
-                            </div>    
+                    <ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                        <li ng-class="{'option-selected' : selectAgent}">
+                          <a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"><i class="fa icon-c icon-forward-to-agent"></i> Forward To Agent</a>
+                          <div class="btn-list-options form-group" ng-show="selectAgent">
+                            <div class="ng-cloak" ng-controller="AgentCtrl2 as ctrl">
+                              <ui-select ng-model="ctrl.agentselected.selected" theme="select2">
+                                <ui-select-match placeholder="Select or search an agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                <ui-select-choices  repeat="item in ctrl.agentnames | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                <span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span><span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
+                                <br>
+                                <span ng-attr-title="{{ item.email }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.email | highlight: $select.search"></span>
+                                </ui-select-choices>
+                              </ui-select>
+                            </div>
+                            <button class="btn btn-primary btn-xs">Assign To Agent</button>
+                          </div>
                         </li>
-                        <li><a href="javascript:void(0)" class="text-primary"> Unassign Question</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary"><i class="fa icon-c icon-unassign-question"></i> Unassign Question</a></li>
                         <li ng-class="{'option-selected' : forwardSegment}">
-                            <a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> Forward To Segment</a>
-                            <div class="btn-list-options form-group" ng-show="forwardSegment" >
-                                <div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
-                                    <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
-                                        <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                        <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
-                                            <span ng-bind-html="item.name | highlight: $select.search"></span><br>
-                                            email: <span ng-bind-html="item.email | highlight: $select.search"></span>
-                                        </ui-select-choices>
-                                    </ui-select>
-                                </div>
-                                <button class="btn btn-primary btn-xs">Forward Now</button> 
-                            </div>   
+                          <a href="javascript:void(0)" class="text-primary" ng-click="forwardSegment = !forwardSegment;selectAgent=false;forwardExternalSegment=false;"> <i class="fa icon-c icon-forward-to-segment"></i> Forward To Segment</a>
+                          <div class="btn-list-options form-group" ng-show="forwardSegment">
+                            <div class="ng-cloak" ng-controller="DemoCtrl as ctrl">
+                                <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
+                                  <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                  <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
+                                    <span ng-bind-html="item.name | highlight: $select.search"></span><br>
+                                    <span ng-bind-html="item.email | highlight: $select.search"></span>
+                                  </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <button class="btn btn-primary btn-xs">Forward Now</button>
+                          </div>
                         </li>
                         <li ng-class="{'option-selected' : forwardExternalSegment}">
-                            <a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"> Forward To External Agent</a>
-                            <div class="btn-list-options form-group" ng-show="forwardExternalSegment">
-                                <div class="form-group ng-cloak" ng-controller="extAgentCtrl as ctrl">
-                                    <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-                                        <ui-select-match placeholder="Select or search for a notification template" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                        <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
-                                        <span ng-bind-html="agent.name | highlight: $select.search"></span>
-                                        </ui-select-choices>
-                                    </ui-select>
-                                </div>
-                                <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="Enter the email address for the external agent">	
-                                  <button class="btn btn-primary btn-xs">Forward Now</button> 
-                                </div>
-                            </div>    
+                          <a href="javascript:void(0)" class="text-primary" ng-click="forwardExternalSegment = !forwardExternalSegment;selectAgent=false;forwardSegment=false;"><i class="fa icon-c icon-forward-to-external-agent"></i> Forward To External Agent</a>
+                          <div class="btn-list-options form-group" ng-show="forwardExternalSegment">
+                            <div class="form-group ng-cloak" ng-controller="extAgentCtrl as ctrl">
+                              <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+                                <ui-select-match placeholder="Select or search for a notification template" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+                                <span ng-bind-html="agent.name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                              </ui-select>
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Enter the email address for the external agent">
+                              <button class="btn btn-primary btn-xs">Forward Now</button> 
+                            </div>
+                          </div>
                         </li>
-                    </ul>
+                      </ul>
                 </div>
 
                 <div class="btn-group dropdown margin-r-5">
-                        <button type="button" class="btn btn-primary"> <i class="fa fa-save"></i>
-                        Save</button>										 
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Private Note</a></li>
-                                    <li><a href="#">Public Note</a></li>
-                            </ul>
-                        </div>
+                    <button type="button" class="btn btn-primary">
+                      <i class="fa fa-save"></i>
+                      Save
+                    </button>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-btn-option dd-width-auto" role="menu">
+                        <li><a href="#" class="text-primary"><i class="fa icon-c icon-private-note"></i>Private Note</a></li>
+                        <li><a href="#" class="text-primary"><i class="fa icon-c icon-public-note"></i>Public Note</a></li>
+                      </ul>
+                    </div>
                 </div>
                 <div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
                     <button class="btn btn-primary" title="Spam"  uib-dropdown-toggle>
