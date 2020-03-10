@@ -45,7 +45,7 @@ title: Manage Messages Tree View
 					</div>
 				</div>
 				<div class="row"> 
-					<div class="col-md-4" ng-class="{'col-md-1 treeview-collapse': !menuCollapse, 'treeview-expand': menuCollapse}" ng-init="menuCollapse = true;">
+					<div class="col-md-4" ng-cloak ng-class="{'col-md-1 treeview-collapse': !menuCollapse, 'treeview-expand': menuCollapse}" ng-init="menuCollapse = true;">
 						<!-- Profile Image -->
 						<div class="box box-primary">
 							<div class="box-header with-border heading-with-toggle" >
@@ -135,7 +135,7 @@ title: Manage Messages Tree View
 										</ul>
 									</div>
 								</div>
-								<!--Loader place holder-->
+								<!--Loader Place holder-->
 								<div class="box-placeholder" ng-show="loader">
 									<div class="p-4 mbottom-15">
 									  <span class="category text link"></span>
@@ -157,19 +157,14 @@ title: Manage Messages Tree View
 										<div class="text line"></div>
 										<div class="text title"></div>
 									</div>
-									<div class="excerpt p-4 mbottom-15">
-										<span class="category text link"></span>
-										<div class="text line"></div>
-										<div class="text title"></div>
-									</div>
 								</div>
-								<!--Loader place holder-->  
+								  
 							</div>
 					<!-- /.box-body -->
 						</div>
 					<!-- /.box -->
 					</div>
-					<div class="p-l-0"  ng-class="{'col-md-8': menuCollapse, 'treeview-expand col-md-11': !menuCollapse}">
+					<div class="p-l-0 col-md-8"  ng-class="{'col-md-8': menuCollapse, 'treeview-expand col-md-11': !menuCollapse}">
 						<div class="row" >
 							<div class="col-md-12" ng-show="showAlert" ng-cloak>
 								<div class="box box-danger">
@@ -193,7 +188,7 @@ title: Manage Messages Tree View
 									</div>	
 								</div>	
 							</div>	
-							<div class="col-md-12">
+							<div class="col-md-12" ng-cloak>
 								<div class="box box-primary">
 									<div class="box-header with-border" ng-click="massUpdate();">
 										<h3 class="box-title head-title-padding"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
@@ -611,7 +606,7 @@ title: Manage Messages Tree View
 									</div>
 								</div>
 							</div>	      
-							<div class="col-md-12">
+							<div class="col-md-12" ng-cloak>
 								<div class="box box-info">
 									<div class="box-header with-border">
 										<i class="fa  fa-list-alt"></i>
