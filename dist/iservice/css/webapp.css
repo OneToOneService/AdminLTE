@@ -3752,7 +3752,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder .text {
   display: inline-block;
-  background-color: #444;
+  background-color: #222121;
   height: 12px;
   border-radius: 100px;
   margin: 5px 0;
@@ -3787,8 +3787,11 @@ span.glyphicon-sort-by-attributes-alt {
   margin: 3px 0;
   opacity: .2;
 }
-.box-placeholder .image {
-  background-color: #f9f9f9;
+.box-placeholder .loading-text {
+  color: #000;
+  font-size: 18px;
+  text-align: center;
+  animation: fadingtext 1.5s infinite;
 }
 @keyframes fading {
   0% {
@@ -3799,6 +3802,17 @@ span.glyphicon-sort-by-attributes-alt {
   }
   100% {
     opacity: .1;
+  }
+}
+@keyframes fadingtext {
+  0% {
+    opacity: .4;
+  }
+  50% {
+    opacity: .8;
+  }
+  100% {
+    opacity: .4;
   }
 }
 /* Portrait tablet to landscape and desktop */

@@ -4798,7 +4798,7 @@ span.glyphicon-sort, span.glyphicon-sort-by-attributes, span.glyphicon-sort-by-a
     
   .text {
     display: inline-block;
-    background-color: #444;
+    background-color: rgb(34, 33, 33);
     height: 12px;
     border-radius: 100px;
     margin: 5px 0;
@@ -4839,10 +4839,13 @@ span.glyphicon-sort, span.glyphicon-sort-by-attributes, span.glyphicon-sort-by-a
     margin: 3px 0;
     opacity: .2;
   }
-  
-  .image {
-    background-color: #f9f9f9;
-  }
+ 
+  .loading-text{
+    color: #000;
+    font-size: 18px;
+    text-align: center;
+    animation: fadingtext 1.5s infinite;
+   }
 }
 
 @keyframes fading {
@@ -4858,6 +4861,22 @@ span.glyphicon-sort, span.glyphicon-sort-by-attributes, span.glyphicon-sort-by-a
     opacity: .1;
   }
 }
+@keyframes fadingtext {
+    0% {
+      opacity: .4;
+    }
+    
+    50% {
+      opacity: .8;
+    }
+    
+    100% {
+      opacity: .4;
+    }
+  }
+
+
+
 /* Portrait tablet to landscape and desktop */
 
 //@media (min-width: 768px) and (max-width: 979px) { 
