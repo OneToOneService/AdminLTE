@@ -73,9 +73,13 @@ form .ng-invalid
 
     from, to
     {
-        background-color: @red;
         border: 1px solid darken(@red, 15%);
     }
+}
+.form-error {
+  font-size: 16px;
+  font-style: italic;
+  color: #ac2d1e;
 }
 
 .ui-pnotify-icon
@@ -4398,9 +4402,9 @@ table.dataTable
 
 .dropdown-bg{background:@dropdown-bg;border:1px solid @box-border;
    li{padding:4px 8px;}
-   li:hover {	
-	background: #e1e3e9	
-   }	
+   li:hover {   
+    background: #e1e3e9 
+   }    
 
    //li:hover{background:@dropdown-hover;}
    li label{font-weight: normal; color:@font-color;}
@@ -4421,11 +4425,11 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
     float: none !important;
 }
 .private_comment{
-    width: 100%;	
-	white-space: pre-line;	
-	max-height: 250px;	
-	overflow-y: scroll;	
-	height: 250px
+    width: 100%;    
+    white-space: pre-line;  
+    max-height: 250px;  
+    overflow-y: scroll; 
+    height: 250px
 
 }
 .box-header a.responses{margin-top:0px;}
@@ -4438,18 +4442,18 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 .chevron-p-top{padding-top:4px;}
 .item-count{font-weight:bold;}
 
-ul li .treeviewitem label {	
-	cursor: pointer;	
-	display: block !important;	
-}	
-.datetime-picker-dropdown {	
-	left: -60px !important;	
-}	
-@media(max-width: 1024px) {	
-	.datetime-picker-dropdown {	
-		left: -150px !important;	
-	}	
-}	
+ul li .treeviewitem label { 
+    cursor: pointer;    
+    display: block !important;  
+}   
+.datetime-picker-dropdown { 
+    left: -60px !important; 
+}   
+@media(max-width: 1024px) { 
+    .datetime-picker-dropdown { 
+        left: -150px !important;    
+    }   
+}   
 
 .icheckbox_square-blue, .iradio_square-blue{width:19px; height:19px;}
 .icheckbox_square-blue.checked {
@@ -4482,11 +4486,11 @@ table .uib-weeks td.h6:first-child{visibility:hidden !important;}
     white-space: nowrap;
     float:left;
 }
-div.dataTables_wrapper div.dataTables_filter label,	
-div.dataTables_wrapper div.dataTables_length label,	
-.agent-prop-ans,	
-.incoming-ques {	
-	font-weight: normal !important;	
+div.dataTables_wrapper div.dataTables_filter label, 
+div.dataTables_wrapper div.dataTables_length label, 
+.agent-prop-ans,    
+.incoming-ques {    
+    font-weight: normal !important; 
 }
 .f16{font-size:16px;}
 .op-level-0{font-weight:normal;}
@@ -4567,12 +4571,12 @@ small.disabled{cursor:default;}
      li.branch{padding-left:0.65em !important;}
 } 
 
-@media (min-width: @screen-sm-max) and (max-width: 1024px)  {	
+@media (min-width: @screen-sm-max) and (max-width: 1024px)  {   
     .topic-list-container{overflow-x:scroll;}
     .topic-list{min-width:280px;}
     .message-head, .chat-head{min-width: 310px;}
     .my-topic-switch{margin-top:8px;}
-}	
+}   
 
 .info-box{
    .info-box-container{
