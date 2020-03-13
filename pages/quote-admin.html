@@ -69,13 +69,13 @@ title: Quote Admin
 													Segment 1
 												</td>
 												<td class="text-capitalize">
-													_Feedback
+													Quote Requests
 												</td>
 												<td class="text-capitalize">
-													_Feedback
+													Open Quotes
 												</td>
 												<td>
-													Stock Response
+													Electronics Quote, Audio Quote
 												</td>
 											</tr>
 										</tbody>
@@ -157,16 +157,7 @@ title: Quote Admin
 																	</div>
 																	<div class="float-btn-group" >
 																		<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																		<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
-																			<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																			<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
-																			  <span ng-bind-html="quote.name | highlight: $select.search"></span>
-																			</ui-select-choices>
-																		</ui-select>
-																	</div>
-																	<div class="float-btn-group">
-																		<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																		<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																		<ui-select ng-model="ctrl.quoteselected2.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
 																			<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 																			<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
 																			  <span ng-bind-html="quote.name | highlight: $select.search"></span>
@@ -182,7 +173,7 @@ title: Quote Admin
 														<div class="form-group">
 															<label class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
 															<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
-																<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+																<ui-select ng-model="ctrl.topicselected2.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
 																  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
 																  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
 																	<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
@@ -245,16 +236,7 @@ title: Quote Admin
 															</div>
 															<div class="float-btn-group" >
 																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
-																	<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																	<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
-																	  <span ng-bind-html="quote.name | highlight: $select.search"></span>
-																	</ui-select-choices>
-																</ui-select>
-															</div>
-															<div class="float-btn-group">
-																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																<ui-select ng-model="ctrl.quoteselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
+																<ui-select ng-model="ctrl.quoteselected2.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a filter">
 																	<ui-select-match placeholder="Select or search a quote in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 																	<ui-select-choices repeat="quote in ctrl.quotename | filter: $select.search">
 																	  <span ng-bind-html="quote.name | highlight: $select.search"></span>
@@ -270,7 +252,7 @@ title: Quote Admin
 												<div class="form-group">
 													<label class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
 													<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
-														<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
+														<ui-select ng-model="ctrl.topicselected2.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
 														  <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
 														  <ui-select-choices repeat="topic in ctrl.topicname | filter: $select.search">
 															<span ng-bind-html="topic.Topic | highlight: $select.search"></span>
@@ -458,7 +440,8 @@ title: Quote Admin
   angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
 		var vm = this;
 			vm.topic = {};
-	        vm.topicselected = {selected : ".._Feedback"};
+	        vm.topicselected = {selected : "Quote Requests"};
+			vm.topicselected2 = {selected : "Open Quotes"};
 		    vm.topicname = [ 
 					{Topic: 'e-shop -- All Topic'},
 					{Topic: '.._Feedback'},
@@ -477,17 +460,20 @@ title: Quote Admin
 					{Topic: '....Television'},
 					{Topic: '..Shipping'},
 					{Topic: '..Technical Support'},
-					{Topic: '....Open Quotes'}
+					{Topic: '....Open Quotes'},
+					{Topic: 'Quote Requests'},
+					{Topic: 'Open Quotes'}
 		
-		];
+		    ];
 	});
 	angular.module('iService').controller('QuoteCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.quote = {};
-	        vm.quoteselected = {selected : "Stock Response"};
+	        vm.quoteselected = {selected : "Electronics Quote"};
+			vm.quoteselected2 = {selected : "Audio Quote"};
 		    vm.quotename = [ 
-			{name: 'Stock Response', code: ''},
-			{name: 'Empty Response', code: ''},
+			{name: 'Electronics Quote', code: ''},
+			{name: 'Audio Quote', code: ''},
 		
 		];
 	});
