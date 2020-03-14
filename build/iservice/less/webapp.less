@@ -9,6 +9,7 @@
 @import (reference) "../../less/variables.less";
 
 @logo-blue: #3c8dbc;
+@primary-blue: #3c8dbc;
 @treeview-color: #369;
 @avatar-bg: #fafafa;
 @f12: 12px;
@@ -3626,7 +3627,7 @@ body > .ui-select-bootstrap.open
         position: absolute;
         bottom: 15px;
         right: 10px;
-        color: #3c8dbc;
+        color: @primary-blue;
     }
     //.button-delete, .button-add-row{margin-bottom: 21px;}
     .input-with-desc
@@ -4786,7 +4787,7 @@ span.glyphicon-sort, span.glyphicon-sort-by-attributes, span.glyphicon-sort-by-a
 .topic-list-container{min-height:450px;}
 .box-placeholder {
   display: inline-block;
-  background-color: #fff;
+  background-color: white;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .0);
   vertical-align: top;
   width: 100%;
@@ -4819,7 +4820,7 @@ span.glyphicon-sort, span.glyphicon-sort-by-attributes, span.glyphicon-sort-by-a
     }
     
     &.link {
-      background-color: blue;
+      background-color: @primary-blue;
       opacity: .2;
     }
     
@@ -4833,7 +4834,7 @@ span.glyphicon-sort, span.glyphicon-sort-by-attributes, span.glyphicon-sort-by-a
     }
     &.title {
         width: 100%;
-        background-color: blue;
+        background-color: @primary-blue;
         margin-bottom: 10px;
     }
   }
