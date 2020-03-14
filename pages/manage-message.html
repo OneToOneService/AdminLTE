@@ -1,77 +1,170 @@
 ---
-title: Manage Messages List View
+title: Manage Messages Tree View
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
 <head>
     {% include common-head.html %}
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
-	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+		<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
-        {% include common-header.html %}
-        {% include common-menu.html %}
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
+  <div class="wrapper">
+		{% include common-header.html %}
+		{% include common-menu.html %}
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
 					{{ page.title }}
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">Manage Work Queues</li>
-					<li class="active"> {{ page.title }}</li>
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li class="active">Manage Work Queues</li>
+						<li class="active"> {{ page.title }}</li>
 				</ol>
 			</section>
-  				<!-- Main content -->
-            <section class="content">
-                <!-- START CUSTOM TABS -->
-              	<div div class="row"> 
+  		<!-- Main content -->
+			<section class="content" ng-controller="myCtrl">
+				<div class="row"> 
 					<div class="col-md-12">
 						<div class="alert alert-warning alert-dismissible alert-inline pull-left mbottom-15">
 							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-							<h4><i class="icon fa fa-warning"></i>Alert! <span class="text">You have 3200 unresolved questions but the page is limited to 2500<span class="more" ng-click="showmore = !showmore" ng-show="!showmore">...more</span><span class="more"  ng-click="showmore = !showmore" ng-show="showmore">...less</span></span></h4>
-							<div class="mtop-15" ng-hide="!showmore">
-									This page displays a maximum of 2500 unresolved questions to avoid performance issues caused by loading details of too many interactions. Since you have more than 2500 unresolved questions, some of your questions are not displayed. Answer or reolve enough questions to keep your total unresolved questions below 2500.
+							<h4><i class="icon fa fa-warning"></i>Alert! <span class="text">You have reached the maximum number of interactions that can be displayed on this page (2500).<span class="more" ng-click="showmore = !showmore" ng-show="!showmore">...more</span><span class="more"  ng-click="showmore = !showmore" ng-show="showmore" ng-cloak>...less</span></span></h4>
+							<div class="mtop-15" ng-hide="!showmore" ng-cloak>
+									This page displays a maximum of 2500 unresolved questions to avoid performance issues caused by loading details of too many interactions. Since you have more than 2500 unresolved questions, some of your questions are not displayed. Answer or resolve enough questions to keep your total unresolved questions below 2500.
 							</div>	
 						</div>	
-						<div class="btn-group pull-right mbottom-15" id="realtime" data-toggle="btn-toggle">
-							<a class="btn btn-primary active" data-toggle="off" href="/pages/manage-message.html">List View</a>
-							<a class="btn btn-default " data-toggle="on" href="/pages/manage-message-treeview.html">Tree View</a>
-						</div>
 					</div>
 				</div>
-              	<div class="row p-l-0">
-                	<div class="col-md-12" ng-controller="myCtrl">
-
-                  	<!-- Custom Tabs -->
-						<div class="row">
-							<div class="form-horizontal">
-								<div class="col-md-6">
-									<div class="form-group" ng-controller="TopicCtrl as ctrl">
-										<label for="inputPassword3" class="col-sm-4 control-label text-left">Topic Selection</label>
-										<div class="col-sm-8" ng-cloak>
-											<ui-select multiple ng-model="ctrl.multipleDemo.colors" theme="select2" ng-disabled="ctrl.disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
-												<ui-select-match placeholder="Select topics..." >{% raw %}{{ $item.Topic }}{% endraw %}</ui-select-match>
-												<ui-select-choices repeat="color in ctrl.availableTopics | filter:$select.search">
-														<span ng-bind-html="color.Topic | highlight: $select.search"></span>
-												</ui-select-choices>
-											</ui-select>
-										</div>
+				<div class="row"> 
+					<div class="col-md-4" ng-cloak ng-class="{'col-md-1 treeview-collapse': !menuCollapse, 'treeview-expand': menuCollapse}" ng-init="menuCollapse = true;">
+						<!-- Profile Image -->
+						<div class="box box-primary">
+							<div class="box-header with-border heading-with-toggle" >
+								<i class="fa fa-list-ul"></i>
+								<h3 class="box-title text-right">Topic List</h3>
+                                
+								<span aria-hidden="true" class="pull-right  mleft-15 menu-collapse" ng-click="menuCollapse = !menuCollapse;" ng-init="menuCollapse = true;"><i class="fa fa-reorder treeview-collapse-icon"></i></span>
+								<span ng-click="treeView()" aria-hidden="true" class="menu-collapse glyphicon  pull-right glyphicon-chevron-right mleft-15 treeview-expand-icon" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedTreeView}" ng-init="isCollapsedTreeView = false;"></span>
+								<span class="pull-right my-topic-switch" uib-collapse="isCollapsedTreeView">
+								  <iservice-switch switched="toggle.switchshowtopics">Show My Topics</iservice-switch>
+								</span>
+							</div>
+							<div class="box-body search-criteria topic-list-container">
+								<div ng-hide="loader" ng-cloak  ng-init="loader = true;">
+									<div class="row">
+										<div class="col-md-12 message-head">
+											<label class="pull-left select-all-topic"><input type="checkbox" class="minimal">Select All</label> 
+											<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="Proposed Answers">
+												<i class="fa fa-mail-reply"></i>
+											</div>
+											<div class="pull-right count-block">
+												<span class="fa-stack stack-icon-label" data-toggle="tooltip" data-placement="bottom" data-original-title="Assigned questions">
+													<i class="fa fa-envelope"></i>
+													<i class="fa fa-arrow-circle-o-right text-green"></i> 
+												</span>
+											</div>
+											<div class="pull-right count-block">
+												<span class="fa-stack stack-icon-label"  data-toggle="tooltip" data-placement="bottom" data-original-title="Unassigned questions">
+													<i class="fa fa-envelope"></i>
+													<i class="fa fa-clock-o"></i> 
+												</span>
+											</div>
+											<div class="pull-right count-block"  data-toggle="tooltip" data-placement="bottom" data-original-title="Agents skilled for this topic">
+												<i class="fa fa-user"></i>
+											</div>
+										
+										</div> 
+									</div>	
+								
+									<div ng-hide="toggle.switchshowtopics"  class="treeview topic-list  active-chat">
+											<ul id="tree1" class="tree">
+												<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
+													<ul>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+															</ul>
+														</li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+															</ul>
+														</li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div>
+															<ul>
+																<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+									</div>
+									<div ng-show="toggle.switchshowtopics" class="treeview  topic-list  active-chat">
+										<ul id="tree2" class="tree">
+											<li><input type="checkbox" class="minimal "><div class="treeviewitem"><div class="treeviewrow"><div class="div1">e-shop All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
+											<ul>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+													<li> <input type="checkbox" class="minimal" checked><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+													<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+													<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div><div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+											</ul>
+											</li>
+											
+										</ul>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="form-group mtop-5 mbottom-15">
-										<iservice-switch switched="toggle.switchshowtopics">Show My Topics</iservice-switch>
+								<!--Loader Place holder-->
+								<div class="box-placeholder" ng-show="loader">
+									<div class="p-4 mbottom-15">
+									  <span class="category text link"></span>
+									  <h4 class="text line"></h4>
+									  <h4 class="text"></h4>
 									</div>
+									<div class="excerpt p-4 mbottom-15">
+									  <div class="text line"></div>
+									  <div class="text line"></div>
+									  <div class="text"></div>
+									</div>
+									<div class="excerpt p-4 mbottom-15">
+										<div class="text title line"></div>
+										<div class="text title line"></div>
+										<div class="text"></div>
+									</div>
+									<div class="excerpt p-4 mbottom-15">
+										<div class="text line"></div>
+										<div class="text line"></div>
+										<div class="text title"></div>
+									</div>
+									<p class="loading-text">
+										Gathering Topics..
+									</p>	
 								</div>
-							</div>	
+								  
+							</div>
+					<!-- /.box-body -->
 						</div>
-						<div class="row">
+					<!-- /.box -->
+					</div>
+					<div class="p-l-0 col-md-8"  ng-class="{'col-md-8': menuCollapse, 'treeview-expand col-md-11': !menuCollapse}">
+						<div class="row" >
 							<div class="col-md-12" ng-show="showAlert" ng-cloak>
 								<div class="box box-danger">
 									<div class="box-header with-border">
@@ -93,12 +186,12 @@ title: Manage Messages List View
 										</div>
 									</div>	
 								</div>	
-							</div>
-							<div class="col-md-12">
+							</div>	
+							<div class="col-md-12" ng-cloak>
 								<div class="box box-primary">
 									<div class="box-header with-border" ng-click="massUpdate();">
-										<h3 class="box-title  head-title-padding"><i class="fa fa-fw fa-edit"></i>  Mass Update</h3> 
-                                        <span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right mleft-15 chevron-p-top" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
+										<h3 class="box-title head-title-padding"> <i class="fa fa-fw fa-edit"></i> Mass Update</h3>
+										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right mleft-15 chevron-p-top" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedMassUpdate}" ng-init="isCollapsedMassUpdate = true;"></span>
 										<span class="pull-right"> 
 												<button class="btn btn-sm margin-r-5 btn-primary" type="button" ng-click="$event.stopPropagation()">
 													<i class="fa  fa-check"></i>
@@ -113,15 +206,16 @@ title: Manage Messages List View
 														<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"><i class="fa icon-c icon-forward-to-agent"></i> Forward To Agent</a>
 															<div class="btn-list-options form-group" ng-show="selectAgent">
 																<div class="ng-cloak" ng-controller="AgentCtrl2 as ctrl">
-																	<ui-select ng-model="ctrl.agentselected.selected" theme="select2">
-																	  <ui-select-match placeholder="Select or search an agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-																	  <ui-select-choices  repeat="item in ctrl.agentnames | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
-																		<span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span><span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
+																	<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+																		<ui-select-match placeholder="Select or search a agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																		<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+																		<span ng-bind-html="agent.name | highlight: $select.search"></span>
+																		<small ng-bind-html="agent.code | highlight: $select.search"></small>
 																		<br>
-																		<span ng-attr-title="{{ item.email }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.email | highlight: $select.search"></span>
-																	  </ui-select-choices>
+																		email: <span ng-bind-html="agent.email | highlight: $select.search"></span>
+																		</ui-select-choices>
 																	</ui-select>
-																  </div>
+																</div> 	  
 																<button class="btn btn-primary btn-xs">Assign To Agent</button>
 															</div>    
 														</li>
@@ -151,18 +245,17 @@ title: Manage Messages List View
 																		<span ng-bind-html="agent.name | highlight: $select.search"></span>
 																		</ui-select-choices>
 																	</ui-select>
-																</div>
+																</div>	
 																<div class="form-group">
 																	<input type="text" class="form-control" placeholder="Enter the email address for the external agent">	
-																<button class="btn btn-primary btn-xs">Forward Now</button> 
+																	<button class="btn btn-primary btn-xs">Forward Now</button> 
 																</div>
 															</div>    
-
 														</li>
 													</ul>
 												</div>
 												<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-													<button class="btn btn-sm btn-primary" title="Change Topic"  uib-dropdown-toggle ng-click="$event.stopPropagation()">
+													<button class="btn btn-sm btn-primary" title="Spam"  uib-dropdown-toggle ng-click="$event.stopPropagation()">
 														<i class="fa  fa-arrows-alt"></i>
 														Change Topic
 													</button>
@@ -187,10 +280,10 @@ title: Manage Messages List View
 										<div class="pull-right item-count mtop-5 mright-15 ">
 											<span class="text-primary font-weight-bold"><small class="label bg-yellow">2</small> Items Selected</span>
 										</div>
-									</div>
+									</div> 
 									<div class="box-body manage-message" uib-collapse="isCollapsedMassUpdate">
 										<div class="col-md-12 bg-box box-bg-color">
-										    <div class="row">	
+											<div class="row">
 												<div class="col-md-12 form-horizontal"> 
 													<div class="col-md-12 form-action">
 														<div class="form-group">
@@ -224,15 +317,15 @@ title: Manage Messages List View
 																<i class="fa fa-unlock"></i>
 																Public Note
 															</button>
+														
 															<button class="btn btn-primary pull-right" title="Save Draft">
 																<i class="fa fa-save"></i>
 																Save Draft
 															</button>
-
 														</div>
 														<div class="row">
-															<!-- Custom Tabs -->
-															<div class="nav-tabs-custom">
+														   <!-- Custom Tabs -->
+														   <div class="nav-tabs-custom">
 																<ul class="nav nav-tabs">
 																	<li class="active"><a href="#tab_massupdate_1" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Email Addresses & Subject</span></a></li>
 																	<li><a href="#tab_massupdate_3" data-toggle="tab"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span></a> </li>
@@ -245,11 +338,11 @@ title: Manage Messages List View
 																				<div class="form-group">
 																					<label class="col-sm-2 control-label text-left">From</label>
 																					<div class="col-sm-10" ng-controller="FromEmail as ctrl"> 
-																							<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="min-width: 300px;" title="Single property binding with async data">
+																						<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
 																							<ui-select-match placeholder="Select or search for a mailbox..." ng-bind="$select.selected.name|| $select.selected"></ui-select-match>
 																							<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
-																							<div ng-bind-html="person.name | highlight: $select.search"></div>
 																							<span ng-bind-html="agent.name | highlight: $select.search"></span>
+																							<small ng-bind-html="agent.code | highlight: $select.search"></small>
 																							</ui-select-choices>
 																						</ui-select>
 																					</div>
@@ -323,7 +416,7 @@ title: Manage Messages List View
 																	<div class="tab-pane" id="tab_massupdate_3">
 																		<div class="row form-horizontal">
 																			<div class="col-md-12">
-																				<div class="col-md-12">
+																			    <div class="col-md-12">
 																					<div class="form-group"> 
 																						<label class="control-label">
 																							<input type="checkbox"> Add properties to all answers regardless of topic
@@ -353,7 +446,7 @@ title: Manage Messages List View
 																				</div>
 																			</div>
 																			<div class="col-md-6">	
-																			<div class="form-group">    
+                                                                               <div class="form-group">    
 																					<label class="col-md-12 control-label text-left">isOpen</label>
 																					<div class="col-sm-12">
 																						<select class="form-control">
@@ -362,9 +455,10 @@ title: Manage Messages List View
 																						</select>    
 																					</div>
 																				</div>
-																			</div>		
+																		    </div>		
 																		</div>	
 																	</div>
+											
 																</div>    
 																<!-- /.tab-content -->
 															</div>
@@ -372,22 +466,107 @@ title: Manage Messages List View
 														</div>
 													</div>    
 												</div> 
-													  
+											  
 												<div class="col-md-12"> 
 													<div class="nav-tabs-custom">
 														<ul class="nav nav-tabs">
-															<li class="active"><a href="#draftbody" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
-															<li><a href="#plainhtml" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+															<li class="active"><a href="#draftbodymassupdate" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+															<li><a href="#plainhtmlmassupdate" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
 															<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
 																<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
-																{% include variables-and-stock-responses.html %}
+															    <div class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-response" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+																	<div class="variables">
+																		<div class="col-md-12">   
+																		<div class="btn-group" data-toggle="btn-toggle">
+																			<a class="btn btn-default btn-sm" data-toggle="off" href="javascript:void(0)" ng-class="{true: 'active btn-primary'}[customform]" ng-click="customForm();" ng-init="customform =false;">Variables</a>
+																			<a class="btn btn-default btn-sm" data-toggle="on" href="javascript:void(0)" ng-class="{false: 'active btn-primary'}[customform]" ng-click="builtinForm();">Stock Responses</a>
+																		</div>
+																		</div>   
+																		<div class="col-md-12  mtop-15">
+																		<div class="row form-group">
+																			<label class="col-md-12 control-label text-left">Filter</label>
+																			<div class="col-md-12">
+																			<input type="text" class="form-control">
+																			</div>
+																		</div>
+																		</div>
+																		<div class="col-xs-12" ng-show="customform">
+																		<div class="custom-scroll">
+																			<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">
+																				Contact
+																				<ul class="segment-variables">
+																				<li class="section-var-link">Name</li>
+																				<li class="segment-lable">
+																					Global
+																					<ul>
+																					<li class="section-var-link">Address1</li>
+																					<li class="section-var-link">Address2</li>
+																					<li class="section-var-link">City</li>
+																					<li class="section-var-link">Country</li>
+																					<li class="section-var-link">Company</li>
+																					</ul>
+																				</li>
+																				<li class="segment-lable">
+																					JC Segment
+																					<ul>
+																					<li class="section-var-link">Contact View Only Property</li>
+																					<li class="section-var-link">Contact Viewable and Editable Property</li>
+																					<li class="section-var-link">Multi value No Descr</li>
+																					<li class="section-var-link">Shared Property from JC - cust can't see</li>
+																					</ul>
+																				</li>
+																				</ul>
+																			</li>
+																			</ul>
+																			<ul class="list-unstyled segment-variable-list">
+																			<li class="section-label">
+																				Answer
+																				<ul class="segment-variables">
+																				<li class="section-var-link">Email</li>
+																				<li class="section-var-link">Reference Number</li>
+																				<li class="section-var-link">Original Date</li>
+																				<li class="section-var-link">Original Time</li>
+																				<li class="section-var-link">Subject</li>
+																				<li class="section-var-link">Original Body</li>
+																				<li class="section-var-link">Quoted Question</li>
+																				</ul>
+																			</li>
+																			</ul>
+																		</div>
+																		</div>
+																		<div class="col-xs-12" ng-hide="customform">
+																			<div class="custom-scroll">
+																				<ul class="list-unstyled segment-variable-list">
+																				<li class="section-label">
+																					Segment Responses
+																					<ul class="segment-variables">
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip" data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Closing</li>
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Opening</li>
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Chat Wait</li>
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>iService Website</li>
+																					</ul>
+																				</li>
+																				</ul>
+																				<ul class="list-unstyled segment-variable-list">
+																				<li class="section-label">
+																					Agent Response
+																					<ul class="segment-variables">
+																					<li class="section-var-link"><i class="fa fa-eye mright-5" data-toggle="tooltip"  data-placement="right" data-original-title="Also, if you need to access this information in the future you can find it in your interaction history of iService. Just click here and login with your email address. if you dont't know your password"></i>Test</li>
+																					</ul>
+																				</li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div> 
 															</div>
 														</ul>
 														<div class="tab-content">
-															<div class="tab-pane active" id="draftbody">
+															<div class="tab-pane active" id="draftbodymassupdate">
 																<div class="form-group text-editor-container">
-																	<textarea class="form-control" rows="5" placeholder="" id="massUpdateDraftBody" name="massUpdateDraftBody" ckeditor><p>Hello,</p>
-										
+																	<textarea class="form-control" rows="10" placeholder="" id="editormassupdate" ckeditor ><p>Hello,</p>
+											
 																		<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
 																		
 																		<p>Regards,</p>
@@ -396,9 +575,9 @@ title: Manage Messages List View
 																	</textarea>
 																</div>
 															</div>
-															<div class="tab-pane" id="plainhtml">
+															<div class="tab-pane" id="plainhtmlmassupdate">
 																<p>Hello,</p>
-										
+											
 																<p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
 																
 																<p>Regards,</p>
@@ -419,35 +598,34 @@ title: Manage Messages List View
 																</div>
 															</div>	
 														</div>
-													</div>  
+													</div>    
 												</div>
-											</div>	
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>	  
-						</div>
-						<div class="row">
-							<div class="col-md-12">
+							</div>	      
+							<div class="col-md-12" ng-cloak>
 								<div class="box box-info">
 									<div class="box-header with-border">
 										<i class="fa  fa-list-alt"></i>
-										<h3 class="box-title head-title-padding">Message List</h3>
-									    <div class="pull-right">
+										<h3 class="box-title">Message List</h3>
+										<div class="pull-right">
 											 <label class="incoming-ques"><input type="checkbox" value="" class="minimal" checkbox ng-model="incomingList" ng-init="incomingList = true">Incoming Questions</label>
 											 <label class="agent-prop-ans"><input type="checkbox" value="" class="minimal" checkbox ng-model="praposedList">Agent Proposed Answers</label>
-										</div>	
+										</div>
+											
 									</div>
 									<!-- /.box-header -->
 									<!-- form start -->
 									<div class="box-body table-responsive">
-										<table id="example1" class="table  table-striped table-hover" datatable dt-options="dtContactMessagesOptions" dt-column-defs="dtContactMessagesColumnDefs">
+										<table class="table  table-striped table-hover" datatable dt-options="dtContactMessagesOptions" dt-column-defs="">
 											<thead>
 												<tr>
-													<th class="no-sort"  name="name">
-														<input type="checkbox" checkbox> 
+													<th class="no-sort" name="name">
+														<input type="checkbox" checkbox>
 													</th>
-													<th class="text-capitalize">
+													<th class="text-capitalize" style="width:250px;">
 														Subject 
 													</th>
 													<th class="text-capitalize">
@@ -507,7 +685,7 @@ title: Manage Messages List View
 													<td>
 														<a href="/pages/contact-summary.html">James Williams</a>
 													</td>
-													
+												
 													<td>
 														<small class="bg-black disabled label" uib-tooltip="2018-08-03 11:55:44 AM" tooltip-placement="bottom">30 min ago</small>
 													</td>
@@ -533,12 +711,12 @@ title: Manage Messages List View
 													<td>
 														<a href="/pages/contact-summary.html">James Williams</a>
 													</td>
-												
+													
 													<td>
 														<small class="bg-yellow disabled label" uib-tooltip="2018-08-03 11:47:44 AM" tooltip-placement="bottom">5 hours ago</small>
 													</td>
 													<td>
-														<a href="/pages/contact-summary.html">Jacob Smith</a>
+														Jacob Smith
 													</td>
 													<td>
 														Televisions
@@ -583,9 +761,10 @@ title: Manage Messages List View
 													<td>
 														Feedback provided
 													</td>
-													<td ng-show="!row6">
+													<td ng-show="!row5">
 														<a href="/pages/contact-summary.html">James Williams</a>
 													</td>
+												
 													<td ng-show="!row5">
 														<small class="bg-red disabled label" uib-tooltip="2018-08-03 11:41:44 AM" tooltip-placement="bottom">a day ago</small>
 													</td>
@@ -611,7 +790,7 @@ title: Manage Messages List View
 													<td ng-show="!row6">
 														<a href="/pages/contact-summary.html">James Williams</a>
 													</td>
-													
+												
 													<td ng-show="!row6">
 														<small class="bg-red disabled label" uib-tooltip="2018-08-03 11:41:44 AM" tooltip-placement="bottom">a day ago</small>
 													</td>
@@ -621,74 +800,72 @@ title: Manage Messages List View
 													<td ng-show="!row6">
 														Cameras
 													</td>
-												
+													
 												</tr>
 												<!--Agent Proposed answer rows displayed when tab is clicked-->
 											</tbody>
 										</table>
 									</div>
 								</div> 
-							</div>                         
+							</div>                               
 						</div>
-                    <!-- /.col -->
-                 	</div> 
-                </div>
-                <!-- /.row -->
-    			<!-- END ACCORDION & CAROUSEL-->
-            </section>
+					</div>		
+				</div> 
+			</section>   
 		</div>
+		<!-- /.content-wrapper -->
 		<!--expanded row content start-->
 		<script id="expandedrow" type="text/ng-template">
 			<!--form data start-->	
 			<div class="row" ng-hide="hidetrue"> 
-				<div class="col-md-12 ">
-					<div class="row">
-						<div class="col-md-12 mbottom-15">
-							<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to John Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
-								<i class="fa fa-envelope"></i>
-								Agent email
-							</button>
-							<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to John Doe" tooltip-placement="bottom" ng-click="show('createnote')">
-								<i class="fa fa-pencil-square-o"></i>
-								Note
-							</button>
-							<button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for John Doe" tooltip-placement="bottom" ng-click="show('createticket')">
-								<i class="fa fa-ticket"></i>
-								Ticket
-							</button>
-							<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show('forwardcopy')">
-								<i class="fa fa-mail-forward"></i>
-								Forward Copy
-							</button>
-							<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
-								<button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
-									<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+					<div class="col-md-12 ">
+						<div class="row">
+							<div class="col-md-12">
+								<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to John Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+									<i class="fa fa-envelope"></i>
+									Agent email
 								</button>
-								<ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-									<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
-										<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
-									</li>
-									<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
-									<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
-									<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
-								</ul>
+								<button class="btn  btn-success margin-r-5"  uib-tooltip="Add note to John Doe" tooltip-placement="bottom" ng-click="show('createnote')">
+									<i class="fa fa-pencil-square-o"></i>
+									Note
+								</button>
+								<button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for John Doe" tooltip-placement="bottom" ng-click="show('createticket')">
+									<i class="fa fa-ticket"></i>
+									Ticket
+								</button>
+								<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show('forwardcopy')">
+									<i class="fa fa-mail-forward"></i>
+									Forward Copy
+								</button>
+                                <div class="option-btn">
+									<button class="btn bg-info btn-info margin-r-5" uib-tooltip="Assign this to me" tooltip-placement="bottom" ng-click="show('getthis')">
+										<i class="fa fa-sign-in"></i>
+										Get This
+									</button>
+									<div class="btn-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+										<button type="button" class="btn btn-default margin-r-5" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
+											<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+										</button>
+										<ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+											<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+											<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
+											</li>
+											<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+											<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
+											<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
-							<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this to me" tooltip-placement="bottom" ng-click="show('getthis')">
-								<i class="fa fa-sign-in"></i>
-								Get This
-							</button>
-						</div>
-						
-
-						<div class="col-md-12">
-							<div class="box status-box" ng-show="toggle.switchshowstatus">
+							<div class="col-md-12 mtop-15">
+								<div class="box status-box" ng-show="toggle.switchshowstatus">
 								<div class="box-header with-border">
 									<h3 class="box-title">Status Audit</h3>
 									<div class="box-tools pull-right">
 										<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
 									</div>
 								</div>
-							   <div class="box-body table-responsive">
+								<div class="box-body table-responsive">
 									<table id="example2" class="table  table-striped">
 										<thead>
 											<tr>
@@ -718,7 +895,7 @@ title: Manage Messages List View
 												11/11/2017 12:19:20PM
 												</td>
 												<td>
-												John Doe
+												Jhon Doe
 												</td>
 												<td>
 												<small class="label label-success">Resolved</small>
@@ -727,178 +904,173 @@ title: Manage Messages List View
 												Contact 1 -> Form Submit (3) -> Ticket/AAQ -> Ask A Question -> Create Composition
 												</td>
 												<td>
-												John Doe
+												Jhon Doe
 												</td>
 												<td>
-												Segment1 -- All Topics -- s1topic1
+														Segment1 -- All Topics -- s1topic1
 												</td>
 											</tr>
 										</tbody>
 									</table>  
 								</div>
+								</div>
 							</div>
-						</div>
-
-						<div class="col-md-12 full-case-panel" ng-show="toggle.switchshowfullcase">
-							<div class="box">
-								<div class="box-header with-border">
-									<h3 class="box-title">Full Case History Ref#:42733</h3>
-									<div class="box-tools pull-right">
-										<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            <!--full case panel-->
+							<div class="col-md-12 full-case-panel" ng-show="toggle.switchshowfullcase">
+								<div class="box">
+									<div class="box-header with-border">
+										<h3 class="box-title">Full Case History Ref:4545646</h3>
+										<div class="box-tools pull-right">
+											<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+										</div>
 									</div>
-								</div>
-								<div class="box-body">
-									<div class="full-case-panel-data"></div>
-								</div>
-							</div>	
-						</div>	
-					</div>	
-
-					<div class="row">
-						<div class="col-md-12">
-							<div class="nav-tabs-custom">
-								<ul class="nav nav-tabs">
-									<li class="active"><a href="#tab_case_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
-									<li><a href="#tab_case_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
-								</ul>
-								<div class="tab-content">
-									<div class="tab-pane active" id="tab_case_1">
-										<div class="row">
-											<div class="message-box-header">
-												<div class="col-md-12">
-													<div class="user-container">
-														<span class="user">
-															<img src="/dist/img/agent.png">
-															<b>Agent</b>
-														</span>
-														<!--For ellipsis or limit the character add  class="username-ellipsis"
-																					eg :- <span class="username-ellipsis">Alek Packard</span>
-														-->
-														<span>John Doe</span>
-													</div>
-													<div class="message-info">
-														<b>From : </b> john.doe@example.com<br>
-														<b>To : </b> alek.packard@1to1service.com<br>
-														<b>CC : </b> justin.time@1to1service.com<br>
-													</div>	
-													<div class="clear"></div>
-													<div class="int-det-box pull-right"> 
-														<div><b>Interaction ID : </b>4645646</div>
-														<div><b> Segment / Topic : </b>All Topic</div>
-														<div><b> Resolved By : </b>Alek Packard</div>
-														<div><b> Approved By : </b>&nbsp;</div><div><b> Assigned To : </b>&nbsp;</div>		
-														<div><b> Interaction Status : </b><small class="bg-green-active label">Resolved</small></div>									
-														<div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download"  uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
-													</div>
-												</div>
-												<div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
-											</div>
-										</div>	
-									</div>
-									<div class="tab-pane" id="tab_case_2">
-										<div class="row form-horizontal">
-											<div class="col-md-4">
-												<h4>Case Properties</h4>
-												<div class="form-group">    
-													<label class="col-md-12 control-label text-left">Change Request Type <span class="required">(Required)</span></label>
-													<div class="col-sm-12">
-														<input type="text" class="form-control pull-right">
-													</div>
-												</div>
-												<div class="form-group">    
-													<label class="col-md-12 control-label text-left">Delivery Date</label>
-													<div class="col-sm-12">
-														<div class="input-group date">
-															<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
-																<i class="fa fa-calendar"></i>
-															</div>
-															<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
-														</div>
-													</div>
-												</div>  
-												<div class="form-group">    
-													<label class="col-md-12 control-label text-left">Detail</label>
-													<div class="col-sm-12">
-														<textarea class="form-control" rows="3"></textarea>
-													</div>
-												</div> 
-												
-											</div> 
-											<div class="col-md-4">
-												<h4>Question Properties</h4>
-												<div class="form-group">    
-													<label class="col-md-12 control-label control-label text-left">Quantity</label>
-													<div class="col-sm-12">
-														<input type="text" class="form-control pull-right">
-													</div>
-												</div>  
-												<div class="form-group">    
-													<label class="col-md-12 control-label control-label text-left">Team</label>
-													<div class="col-sm-12">
-														<div class="simple-label multiple">
-															<div class="float-btn-group">
-																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																<label class="control-label text-left">Team1</label>
-																<input type="text" class="form-control">
-															</div>
-															<div class="float-btn-group">
-																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																<label class="control-label text-left">Team2</label>
-																<input type="text" class="form-control">
-															</div>
-															<div class="float-btn-group">
-																<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
-																<label class="control-label text-left">Team3</label>
-																<input type="text" class="form-control">
-															</div>
-															<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
-														</div>
-													</div>
-												</div> 
-												
-											</div> 
-											<div class="col-md-4">
-												<h4>Answer Properties</h4>
-												<div class="form-group">    
-													<label class="col-md-12 control-label text-left">Priority</label>
-													<div class="col-sm-12">
-														<select class="form-control">
-																<option>High</option>
-																<option>Low</option>
-														</select>    
-													</div>
-												</div> 
-												<div class="form-group">    
-													<label class="col-md-12 control-label text-left">isOpen</label>
-													<div class="col-sm-12">
-														<select class="form-control">
-																<option>True</option>
-																<option>False</option>
-														</select>    
-													</div>
-												</div>  
-											</div>    
-											<div class="col-md-12">
-												<button type="submit" class="btn btn-primary">Save</button>
-											</div>
-										</div>    
+									<div class="box-body">
+										<div class="full-case-panel-data"></div>
 									</div>
 								</div>	
 							</div>
+							 <!--full case panel-->	
 						</div>	
-					</div>	
-					<div class="message-box">
-						<div class="message-box-body"> 
-							<div class="clear"></div>
-							<div>										   
-								<p>Hello,<br>
-									I'm looking for a flat screen. Any suggestions?
-								</p>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="nav-tabs-custom">
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#tab_case_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+										<li><a href="#tab_case_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="tab_case_1">
+											<div class="row">
+												<div class="message-box-header">
+													<div class="col-md-12">
+														<div class="user-container">
+															<span class="user">
+																<img src="/dist/img/agent.png">
+																<b>Agent</b>
+															</span>
+															<!--For ellipsis or limit the character add  class="username-ellipsis"
+																						eg :- <span class="username-ellipsis">Alek Packard</span>
+															-->
+															<span>John Doe</span>
+														</div> 
+														<div class="message-info">
+															<b>From : </b> john.doe@example.com<br>
+															<b>To : </b> alek.packard@1to1service.com<br>
+															<b>CC : </b> justin.time@1to1service.com<br>
+														</div>	
+														<div class="clear"></div>
+														<div class="int-det-box pull-right"> 
+															<div><b>Interaction ID : </b>4645646</div>
+															<div><b> Segment / Topic : </b>All Topic</div>
+															<div><b> Resolved By : </b>Alek Packard</div>
+															<div><b> Approved By : </b>&nbsp;</div><div><b> Assigned To : </b>&nbsp;</div>		
+															<div><b> Interaction Status : </b><small class="bg-green-active label">Resolved</small></div>									
+															<div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
+														</div>
+													</div>
+													<div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+												</div>
+											</div>	
+										</div>
+										<div class="tab-pane" id="tab_case_2">
+											<div class="row form-horizontal">
+												<div class="col-md-4">
+													<h4>Case Properties</h4>
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+														<div class="col-sm-12">
+															<input type="text" class="form-control pull-right">
+														</div>
+													</div>
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left">Delivery Date</label>
+														<div class="col-sm-12">
+															<div class="input-group date">
+																<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+																	<i class="fa fa-calendar"></i>
+																</div>
+																<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+															</div>
+														</div>
+													</div>  
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left">Detail</label>
+														<div class="col-sm-12">
+															<textarea class="form-control" rows="3"></textarea>
+														</div>
+													</div> 
+												</div> 
+												<div class="col-md-4">
+													<h4>Question Properties</h4>
+													<div class="form-group">    
+														<label class="col-md-12 control-label control-label text-left">Quantity</label>
+														<div class="col-sm-12">
+															<input type="text" class="form-control pull-right">
+														</div>
+													</div>  
+													<div class="form-group">    
+														<label class="col-md-12 control-label control-label text-left">Team</label>
+														<div class="col-sm-12">
+															<div class="simple-label multiple">
+																<div class="float-btn-group">
+																	<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																	<input type="text" class="form-control">
+																</div>
+																<div class="float-btn-group">
+																	<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																	<input type="text" class="form-control">
+																</div>
+																<div class="float-btn-group">
+																	<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+																	<input type="text" class="form-control">
+																</div>
+																<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+															</div>
+														</div>
+													</div>    
+												</div> 
+												<div class="col-md-4">
+													<h4>Answer Properties</h4>
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left">Priority</label>
+														<div class="col-sm-12">
+															<select class="form-control">
+																	<option>High</option>
+																	<option>Low</option>
+															</select>    
+														</div>
+													</div> 
+													<div class="form-group">    
+														<label class="col-md-12 control-label text-left">isOpen</label>
+														<div class="col-sm-12">
+															<select class="form-control">
+																	<option>True</option>
+																	<option>False</option>
+															</select>    
+														</div>
+													</div>  
+												</div>    
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-primary">Save</button>
+												</div>
+											</div>    
+										</div>
+									</div>	
+								</div>
+							</div>	
+						</div>	
+						<div class="message-box">
+							<div class="message-box-body"> 
+								<div class="clear"></div>
+								<div>										   
+									<p>Hello,<br>
+										I'm looking for a flat screen. Any suggestions?
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 			<!--form data end-->
 			<!--agent email start-->
 			{% include agent-email-include.html %}    
@@ -916,39 +1088,627 @@ title: Manage Messages List View
 			{% include get-this-include.html %}
 			<!--Get thisa-->
 		</script>	
-		 <!--expanded row content end-->
+		<!--expanded row content end-->
+		<script id="expandedrow2" type="text/ng-template">
+			<!--form data start-->
+			<div class="row" ng-hide="hidetrue2">
+			  <div class="col-md-12 ">
+				<div class="row">
+				  <div class="col-md-12">
+					<button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to John Doe" tooltip-placement="bottom" ng-click="show2('agentemail2')">
+					  <i class="fa fa-envelope"></i>
+					  Agent email
+					</button>
+					<button class="btn  btn-success margin-r-5" uib-tooltip="Add note to John Doe" tooltip-placement="bottom" ng-click="show2('createnote2')">
+					  <i class="fa fa-pencil-square-o"></i>
+					  Note
+					</button>
+					<button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for John Doe" tooltip-placement="bottom" ng-click="show2('createticket2')">
+					  <i class="fa fa-ticket"></i>
+					  Ticket
+					</button>
+					<button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show2('forwardcopy2')">
+					  <i class="fa fa-mail-forward"></i>
+					  Forward Copy
+					</button>
+					<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+					  <button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
+						<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+					  </button>
+					  <ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+						<li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+						  <iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
+						</li>
+						<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+						<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
+						<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+					  </ul>
+					</div>
+					<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this to me" tooltip-placement="bottom" ng-click="show2('getthis2')">
+					  <i class="fa fa-sign-in"></i>
+					  Get This
+					</button>
+				  </div>
+				  <div class="col-md-12 mtop-15">
+					<div class="box status-box" ng-show="toggle.switchshowstatus">
+					  <div class="box-header with-border">
+						<h3 class="box-title">Status Audit</h3>
+						<div class="box-tools pull-right">
+						  <button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+						</div>
+					  </div>
+					  <div class="box-body table-responsive">
+						<table id="example2" class="table  table-striped">
+						  <thead>
+							<tr>
+							  <th class="text-capitalize">
+								Time
+							  </th>
+							  <th class="text-capitalize">
+								Modifier
+							  </th>
+							  <th class="text-capitalize">
+								Status
+							  </th>
+							  <th class="text-capitalize">
+								Action
+							  </th>
+							  <th class="text-capitalize">
+								Assigned To
+							  </th>
+							  <th class="text-capitalize">
+								Topic
+							  </th>
+							</tr>
+						  </thead>
+						  <tbody>
+							<tr>
+							  <td>
+								11/11/2017 12:19:20PM
+							  </td>
+							  <td>
+								Jaswantchouhan
+							  </td>
+							  <td>
+								<small class="label label-success">Resolved</small>
+							  </td>
+							  <td>
+								Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+							  </td>
+							  <td>
+								Jaswantchouhan
+							  </td>
+							  <td>
+								JC - Segment- All Topic - To- Quote - Open Quotes
+							  </td>
+							</tr>
+						  </tbody>
+						</table>
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<div class="row">
+				  <div class="col-md-12">
+					<div class="nav-tabs-custom">
+					  <ul class="nav nav-tabs">
+						<li class="active"><a href="#tab_case_2_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+						<li><a href="#tab_case__2_2" data-toggle="tab" uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+						<li><a href="#tab_property_3" data-toggle="tab"  uib-tooltip="There are private comments for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
+					  </ul>
+					  <div class="tab-content">
+						<div class="tab-pane active" id="tab_case_2_1">
+						  <div class="row">
+							<div class="message-box-header">
+							  <div class="col-md-12">
+								<div class="user-container">
+								  <span class="user">
+									<img src="/dist/img/agent.png">
+								  </span>
+								  <!--For ellipsis or limit the character add  class="username-ellipsis"
+												eg :- <span class="username-ellipsis">Alek Packard</span>
+								  -->
+								  <span>John Doe</span>
+								</div>
+								<div class="message-info">
+								  <b>From : </b>john.doe@example.com<br>
+								  <b>To : </b>alek.packard@1to1service.com<br>
+								  <b>CC : </b>justin.time@1to1service.com<br>
+								  <b>BCC : </b>jonie.hewlett@1to1service.com<br>
+								</div>
+								<div class="clear"></div>
+								<div class="int-det-box pull-right">
+								  <div><b>Interaction ID :</b> 4645646</div>
+								  <div><b> Segment / Topic : </b>All Topic</div>
+								  <div><b> Resolved By : </b>Alek Packard</div>
+								  <div><b> Approved By : </b>&nbsp;</div><div><b> Assigned To : </b>&nbsp;</div>	
+								  <small class="bg-green-active label">Resolved</small>
+								</div>
+							  </div>
+							  <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href="" class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+							</div>
+						  </div>
+						</div>
+						<div class="tab-pane" id="tab_case__2_2">
+						  <div class="row form-horizontal">
+							<div class="col-md-4">
+							  <h4>Case Properties</h4>
+							  <div class="form-group">
+								<label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+								<div class="col-sm-12">
+								  <input type="text" class="form-control pull-right">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-md-12 control-label text-left">Delivery Date</label>
+								<div class="col-sm-12">
+								  <div class="input-group date">
+									<div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+									  <i class="fa fa-calendar"></i>
+									</div>
+									<input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+								  </div>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-md-12 control-label text-left">Detail</label>
+								<div class="col-sm-12">
+								  <textarea class="form-control" rows="3"></textarea>
+								</div>
+							  </div>
+							</div>
+							<div class="col-md-4">
+							  <h4>Question Properties</h4>
+							  <div class="form-group">
+								<label class="col-md-12 control-label control-label text-left">Quantity</label>
+								<div class="col-sm-12">
+								  <input type="text" class="form-control pull-right">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-md-12 control-label control-label text-left">Team</label>
+								<div class="col-sm-12">
+								  <div class="simple-label multiple">
+									<div class="float-btn-group">
+									  <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+									  <input type="text" class="form-control">
+									</div>
+									<div class="float-btn-group">
+									  <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+									  <input type="text" class="form-control">
+									</div>
+									<div class="float-btn-group">
+									  <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+									  <input type="text" class="form-control">
+									</div>
+									<button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+								  </div>
+								</div>
+							  </div>
+							</div>
+							<div class="col-md-4">
+							  <h4>Answer Properties</h4>
+							  <div class="form-group">
+								<label class="col-md-12 control-label text-left">Priority</label>
+								<div class="col-sm-12">
+								  <select class="form-control">
+									<option>High</option>
+									<option>Low</option>
+								  </select>
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label class="col-md-12 control-label text-left">isOpen</label>
+								<div class="col-sm-12">
+								  <select class="form-control">
+									<option>True</option>
+									<option>False</option>
+								  </select>
+								</div>
+							  </div>
+							</div>
+							<div class="col-md-12">
+							  <button type="submit" class="btn btn-primary">Save</button>
+							</div>
+						  </div>
+						</div>
+						<!--tab 3 start-->
+						<div class="tab-pane" id="tab_property_3">
+						  These are the private comments. I believe this is a rather large field. These are the private comments. I believe this is a rather large field. These are the private compments. I believe this is a rather large field. These are the private comments. I believe this is a rather large field. These are the private comments. I believe this is a rather large field. a rather large field.
+	  
+						  And now some numbers. 12879837593745982374759834598345 
+						</div>
+						<!--tab 3 end-->	
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<div class="message-box">
+				  <div class="message-box-body">
+					<div class="clear"></div>
+					<div>
+					  <p>
+						Hello,<br>
+						I'm looking for a flat screen. Any suggestions?
+					  </p>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<!--form data end-->
+			<!--agent email start-->
+			{% include agent-email-include-2.html %}
+			<!--agent email end-->
+			<!--create note start-->
+			{% include create-note-include.html num="2" %}
+			<!--create note end-->
+			<!--create ticket start-->
+			{% include create-ticket-include-2.html %}
+			<!--create ticket end-->
+			<!--forward start-->
+			{% include forward-copy-include-2.html %}
+			<!--forward end-->
+			<!--Get this-->
+			{% include get-this-include-2.html %}
+			<!--Get thisa-->
+		  </script>
+		  <!--expanded row content end-->
+	  
+			 <!--expanded row content start-->
+			 <script id="expandedrowviewmode" type="text/ng-template">
+			  <!--form data start-->
+			  <div class="row" ng-hide="hidetrue">
+				<div class="col-md-12">
+				  <div class="row">
+					<div class="col-md-12">
+					  <button class="btn btn-primary bg-aqua-active btn-info margin-r-5" uib-tooltip="Send new agent email to John Doe" tooltip-placement="bottom" ng-click="show('agentemail')">
+						<i class="fa fa-envelope"></i>
+						Agent email
+					  </button>
+					  <button class="btn  btn-success margin-r-5" uib-tooltip="Add note to John Doe" tooltip-placement="bottom" ng-click="show('createnote')">
+						<i class="fa fa-pencil-square-o"></i>
+						Note
+					  </button>
+					  <button class="btn  btn-warning margin-r-5" uib-tooltip="Create Ticket for John Doe" tooltip-placement="bottom" ng-click="show('createticket')">
+						<i class="fa fa-ticket"></i>
+						Ticket
+					  </button>
+					  <button class="btn  btn-purple margin-r-5" uib-tooltip="Forward a copy of this via email" tooltip-placement="bottom" ng-click="show('forwardcopy')">
+						<i class="fa fa-mail-forward"></i>
+						Forward Copy
+					  </button>
+					  <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+						<button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
+						  <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+						  <li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+							<iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
+						  </li>
+						  <li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+						  <li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
+						  <li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+						</ul>
+					  </div>
+					</div>
+					<div class="col-md-12 mtop-15">
+					  <div class="box status-box" ng-show="toggle.switchshowstatus">
+						<div class="box-header with-border">
+						  <h3 class="box-title">Status Audit</h3>
+						  <div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool cancel-widget"><i class="fa fa-times"></i></button>
+						  </div>
+						</div>
+						<div class="box-body table-responsive">
+						  <table id="example" class="table  table-striped table-hover">
+							<thead>
+							  <tr>
+								<th class="text-capitalize">
+								  Time
+								</th>
+								<th class="text-capitalize">
+								  Modifier
+								</th>
+								<th class="text-capitalize">
+								  Status
+								</th>
+								<th class="text-capitalize">
+								  Action
+								</th>
+								<th class="text-capitalize">
+								  Assigned To
+								</th>
+								<th class="text-capitalize">
+								  Topic
+								</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr>
+								<td>
+								  11/11/2017 12:19:20PM
+								</td>
+								<td>
+								  Jaswantchouhan
+								</td>
+								<td>
+								  <small class="label label-success">Resolved</small>
+								</td>
+								<td>
+								  Contact 181 - [#Myqueue:MessageQueueQouteRequest / QouteSend] Form submit(webapp-api)
+								</td>
+								<td>
+								  Jaswantchouhan
+								</td>
+								<td>
+								  JC - Segment- All Topic - To- Quote - Open Quotes
+								</td>
+							  </tr>
+							</tbody>
+						  </table>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				 <div class="row">
+					<div class="col-md-12">
+					  <div class="nav-tabs-custom">
+						<ul class="nav nav-tabs">
+						  <li class="active"><a href="#tab_detail_1" data-toggle="tab" uib-tooltip="This interaction has file attachments." tooltip-placement="bottom"><i class="fa fa-paperclip"></i> <span>Details & Attachments</span><span class="new-inside"></span></a></li>
+						  <li><a href="#tab_property_2" data-toggle="tab"  uib-tooltip=" There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+						  <li><a href="#tab_property_3" data-toggle="tab"  uib-tooltip="There are private comments for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-pencil-square-o"></i> <span>Private Comments </span></a> </li>
+						</ul>
+						<div class="tab-content">
+						  <div class="tab-pane active" id="tab_detail_1">
+							<div class="row">
+								<div class="message-box-header">
+								  <div class="col-md-12">
+									<div class="user-container">
+									  <span class="user">
+										<img src="/dist/img/agent.png">
+										<b>Agent</b>
+									  </span>
+									  <span>John Doe</span>
+									</div> 
+									<div class="message-info">
+									  <b>From : </b> john.doe@example.com<br>
+									  <b>To : </b> alek.packard@1to1service.com<br>
+									  <b>CC : </b> justin.time@1to1service.com<br>
+									</div>	
+									<div class="clear"></div>
+									<div class="int-det-box pull-right"> 
+										<div><b>Interaction ID : </b>4645646</div>
+										<div><b> Segment / Topic : </b>All Topic</div>
+										<div><b> Resolved By : </b>Alek Packard</div>
+										<div><b> Approved By : </b>&nbsp;</div><div><b> Assigned To : </b>&nbsp;</div>		
+										<div><b> Interaction Status : </b><small class="bg-green-active label">Resolved</small></div>									
+										<div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
+									  </div>
+								  </div>
+								  <div class="col-md-12 mtop-15"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+								</div>
+							</div>	
+						  </div>
+						  <div class="tab-pane" id="tab_property_2">
+							<div class="row form-horizontal">
+							  <div class="col-md-4">
+								<h4>Case Properties</h4>
+								<div class="form-group">    
+								  <label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+								  <div class="col-sm-12">
+									<input type="text" class="form-control pull-right">
+								  </div>
+								</div>
+								<div class="form-group">    
+								  <label class="col-md-12 control-label text-left">Delivery Date</label>
+								  <div class="col-sm-12">
+									<div class="input-group date">
+									  <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+										<i class="fa fa-calendar"></i>
+									  </div>
+									  <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+									</div>
+								  </div>
+								</div>  
+								<div class="form-group">    
+								  <label class="col-md-12 control-label text-left">Detail</label>
+								  <div class="col-sm-12">
+									<textarea class="form-control" rows="3"></textarea>
+								  </div>
+								</div> 
+							  </div> 
+							  <div class="col-md-4">
+								<h4>Question Properties</h4>
+								<div class="form-group">    
+								  <label class="col-md-12 control-label control-label text-left">Quantity</label>
+								  <div class="col-sm-12">
+									<input type="text" class="form-control pull-right">
+								  </div>
+								</div>  
+								<div class="form-group">    
+								  <label class="col-md-12 control-label control-label text-left">Team</label>
+								  <div class="col-sm-12">
+									<div class="simple-label multiple">
+									  <div class="float-btn-group">
+										<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+										<input type="text" class="form-control">
+									  </div>
+									  <div class="float-btn-group">
+										<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+										<input type="text" class="form-control">
+									  </div>
+									  <div class="float-btn-group">
+										<button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+										<input type="text" class="form-control">
+									  </div>
+									  <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+									</div>
+								  </div>
+								</div>   
+							  </div> 
+							  <div class="col-md-4">
+								<h4>Answer Properties</h4>
+								<div class="form-group">    
+								  <label class="col-md-12 control-label text-left">Priority</label>
+								  <div class="col-sm-12">
+									<select class="form-control">
+										<option>High</option>
+										<option>Low</option>
+									</select>    
+								  </div>
+								</div> 
+								<div class="form-group">    
+								  <label class="col-md-12 control-label text-left">isOpen</label>
+								  <div class="col-sm-12">
+									<select class="form-control">
+										<option>True</option>
+										<option>False</option>
+									</select>    
+								  </div>
+								</div>  
+							  </div>    
+							  <div class="col-md-12">
+								<button type="submit" class="btn btn-primary">Save</button>
+							  </div>
+							</div>    
+						  </div>
+						  <!--tab 3 start-->
+						   <div class="tab-pane" id="tab_property_3">
+							Please show me the other ranges in Plasma tv.
+						  </div>
+						  <!--tab 3 end-->	
+						</div>	
+					  </div>
+					</div>	
+				  </div>	
+				  <div class="message-box">
+					<div class="message-box-body"> 
+					  <div class="clear"></div>
+					  <div>										   
+						<p>Hello,<br>
+						  I'm looking for a flat screen. Any suggestions?
+						</p>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <!--agent email start-->
+			  {% include agent-email-include.html %}
+			  <!--agent email end-->
+			  <!--create note start-->
+			  {% include create-note-include.html %}
+			  <!--create note end-->
+			  <!--create ticket start-->
+			  {% include create-ticket-include.html %}
+			  <!--create ticket end-->
+			  <!--forward start-->
+			  {% include forward-copy-include.html %}
+			  <!--forward end-->
+			  <!--form data end-->
+			</script>
 
-		
+
+
 		{% include expanded-row-content.html item="2" replytype="bg-customer-reply" %}
 		{% include expanded-row-content.html item="3" replytype="bg-agent-reply" %}
-		<!--expanded row content end-->
-        <!-- /.content-wrapper -->
+		
         {% include common-footer.html %}
         <!-- Control Sidebar -->
 		{% include right-panel-setting-menu.html %}
 		<!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-             immediately after the control sidebar -->
-        <div class="control-sidebar-bg"></div>
+		<!-- Add the sidebar's background. This div must be placed
+					immediately after the control sidebar -->
+		<div class="control-sidebar-bg"></div>
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
+
 <script>
 	$(document).ready(function() {
-	   // SLIMSCROLL FOR CHAT WIDGET
-	  $('.custom-scroll').slimScroll({
-		height: '250px'
-	  });
-	  $('.message-attachments').slimScroll({
-            height: '178px'
-       });
-    });
-    
-	
-	//CKEDITOR.replace('massUpdateDraftBody', {height:400});
- 	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
-    {
+		//$('.selectpicker').selectpicker('refresh');
+		$.fn.extend({
+			treed: function (o) {
 			
+			var openedClass = 'glyphicon-minus-sign';
+			var closedClass = 'glyphicon-plus-sign';
+			
+			if (typeof o != 'undefined'){
+				if (typeof o.openedClass != 'undefined'){
+				openedClass = o.openedClass;
+				}
+				if (typeof o.closedClass != 'undefined'){
+				closedClass = o.closedClass;
+				}
+			};
+			
+				//initialize each of the top levels
+				var tree = $(this);
+				tree.addClass("tree");
+				tree.find('li').has("ul").each(function () {
+					var branch = $(this); //li with children ul
+					branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+					branch.addClass('branch');
+					branch.on('click', function (e) {
+						if (this == e.target) {
+							var icon = $(this).children('i:first');
+							icon.toggleClass(openedClass + " " + closedClass);
+							$(this).children().children().not('.treeviewrow').toggle();
+						}
+					})
+					branch.children().children().toggle();
+				});
+				//fire event from the dynamically added icon
+			tree.find('.branch .indicator').each(function(){
+				$(this).on('click', function () {
+					$(this).closest('li').click();
+				});
+			});
+				//fire event to open branch if the li contains an anchor instead of text
+				tree.find('.branch>a').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+				//fire event to open branch if the li contains a button instead of text
+				tree.find('.branch>button').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+			}
+		});
+			$('#tree1,#tree2').treed();	
+			$('#tree1 .branch, #tree2 .branch').each(function(){
+				var icon = $(this).children('i:first');
+				icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
+				$(this).children().children().toggle();
+			});	
+
+			$('.custom-scroll').slimScroll({
+				height: '250px'
+			});
+			$('.message-attachments').slimScroll({
+				height: '178px'
+			});
+    });
+	$(document).on('change', '.tree input[type=checkbox]', function(e) {
+		$(this).siblings('ul').find("input[type='checkbox']").prop('checked', this.checked);
+		$(this).parentsUntil('.tree').children("input[type='checkbox']").prop('checked', this.checked);
+		e.stopPropagation();
+	});
+
+	angular.module('iService').controller('myCtrl', function ($scope, $log,$timeout, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    {
+			$scope.loaderTimeout = function() {
+				$scope.loader = false;
+			}
+
+            $timeout( function(){ $scope.loaderTimeout(); }, 5000);
+		
 			$scope.dtContactMessagesOptions = DTOptionsBuilder
 			.newOptions()
 			.withOption('language', {
@@ -966,12 +1726,10 @@ title: Manage Messages List View
 				DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px")
 			];
 
-
-
 			$scope.toggleRow = function (segmentName)
 			{ 
 				$scope.showexpanded1 = !false; 
-				for(var i = 1; i<=5;i++){
+				for(var i = 1; i<=6;i++){
 					if(!$scope[segmentName]){
 						removeFunction(segmentName);
 						$scope['row'+i] = false;
@@ -983,10 +1741,9 @@ title: Manage Messages List View
 				}else{
 					removeFunction(segmentName);
 				}
-			}
+			};
 
-			function myCreateFunction(row)
-			{
+			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
 				angular.element('#' + row).after($compile('<tr class="expandedrowcontent"><td class="white-bg" style="width:40px;">&nbsp;</td><td colspan="6" style="padding:0px;"><table class="table"><tr class="bg-customer-reply" ng-show="showexpanded1"><td colspan="7">' + document.getElementById('expandedrow').innerHTML + '</td></tr></table></td></tr>')($scope));
 				if($scope.hidetrue != true || $scope.hidetrue2 != true)
@@ -996,6 +1753,7 @@ title: Manage Messages List View
 					angular.element('.full-case-panel-data').append($compile('<table class="table"><tr id="row3" class="bg-agent-reply" ng-show="toggle.switchshowfullcase"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded3 = false;" ng-show="showexpanded3"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded3" ng-click="showexpanded3 = true;"></i></button></td><td>[ref#: 42733-42733] Feedback provided</td><td> All Topic</td><td><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small></td><td>--</td><td><small class="bg-black disabled label">2018-08-03 11:55:44 AM</small><td></tr><tr class="bg-agent-reply" ng-show="showexpanded3"><td>&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow3').innerHTML + '</td></tr><tr id="row2" class="bg-customer-reply" ng-show="toggle.switchshowfullcase"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></td><td>[ref#: 42733-42733] Feedback provided</td><td> All Topic</td><td><small class="label bg-green label-with-icon"><i class="fa icon-c icon-agent-email-3"></i>Agent Email</small></td><td>--</td><td><small class="bg-black disabled label">2018-08-03 11:55:44 AM</div><td></tr><tr class="bg-customer-reply" ng-show="showexpanded2"><td>&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow2').innerHTML + '</td></tr></table>')($scope));
 				}
 			}
+
 			function removeFunction(row){
 				angular.element('.expandedrowcontent').remove();
 			}
@@ -1013,17 +1771,17 @@ title: Manage Messages List View
 			$scope.cancel = function(action) {
 				$scope.hidetrue = false;
 				$scope[action] = !$scope[action];
-			};	
+			};
 			$scope.show2 = function(action) {
 				$scope.hidetrue2 = true;
+
 				$scope[action] = !$scope[action];
 			};	
 
 			$scope.cancel2 = function(action) {
 				$scope.hidetrue2 = false;
 				$scope[action] = !$scope[action];
-			};
-
+			};	
 			$scope.customForm = function(){
 				$scope.customform = true;
 			}
@@ -1048,8 +1806,12 @@ title: Manage Messages List View
 					$scope.isCollapsedMassUpdate = !$scope.isCollapsedMassUpdate;
 				}
 			}
+			$scope.treeView = function(){
+					$scope.isCollapsedTreeView = !$scope.isCollapsedTreeView;
+			}
 
 		});	 
+
 		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
@@ -1071,35 +1833,6 @@ title: Manage Messages List View
 				{name: 'Template 2'},
 		    ];
 		});
-	    
-		angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
-		var vm = this;
-			vm.availableTopics = [
-					{Topic: 'e-shop -- All Topics(0)'},
-					{Topic: '.._Feedback (2)'},
-					{Topic: '.._Newsletter Subscription (0)'},
-					{Topic: '.._Spam (0)'},
-					{Topic: '.._Undeliverable (0)'},
-					{Topic: '..Account Questions (0)'},
-					{Topic: '....Orders (0)'},
-					{Topic: '....Refunds (0)'},
-					{Topic: '....Returns (0)'},
-					{Topic: '..Products(0)'},
-					{Topic: '....Audio-Video (0)'},
-					{Topic: '....Cameras (0)'},
-					{Topic: '....Cell Phones (0)'},
-					{Topic: '....Computers (0)'},
-					{Topic: '....Televisions(0)'},
-					{Topic: '..Shipping (0)'},
-					{Topic: '..Technical Support (0)'},
-					{Topic: '....Open Quotes (1)'}
-				
-			];
-			vm.multipleDemo = {};
-			vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
-					{Topic: '.._Feedback (2)'}];
-		});
-
 		app.filter('propsFilter', function() {
 			return function(items, props) {
 				var out = [];
@@ -1159,18 +1892,19 @@ title: Manage Messages List View
 				{name: 'Justin Time', code: 'JT'},
 			];
 		});
-		angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+     angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
 			vm.agentselected = {selected : "--Default MailBox--"};
 			vm.agentname = [ 
-				{name: '--Default MailBox--', code: ''},
+		   	{name: '--Default MailBox--', code: ''},
 				{name: 'Customer Support (support@example.com)', code: ''},
 				{name: 'Sales (Sales@example.com)', code: ''},
 				{name: 'Technical Support (technicalsupport@example.com)', code: ''},
 			];
 		});
- 
+
+		
 </script>
 {% include common-controller-function.html %}
 </body>
