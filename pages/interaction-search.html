@@ -166,10 +166,10 @@ title:  Search Interactions
 								      </div>
 								</section>
 								<footer class="box-footer text-right">
-									<button type="submit" class="btn btn-primary btn-sm">
+									<button type="submit" class="btn btn-primary btn-sm" ng-disabled="submitted" ng-click="submitted = true" >
 										Search
-										<i class="fa fa-fw fa-arrow-circle-right"></i>
-										<i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
+										<i class="fa fa-fw fa-arrow-circle-right" ng-hide="submitted"></i>
+										<i class="fa fa-spinner fa-spin fa-fw" ng-show="submitted"></i>
 									</button>
 									<button type="button" class="btn btn-link btn-sm">Reset</button>
 								</footer>

@@ -3819,6 +3819,9 @@ span.glyphicon-sort-by-attributes-alt {
     opacity: .4;
   }
 }
+.dis-flex {
+  display: flex;
+}
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {
   .info-box .info-box-container .infobox-icon {
