@@ -267,42 +267,47 @@ title: Customer Chat Panel 1
 						</form>
 					</div>
 					<div class="box box-primary" ng-show="step2">
-							<div class="box-header with-border">
-								<h3 class="box-title"></h3>
-							</div>
-							<form role="form" >
-								<div class="box-body">
-									<div class="row"> 
-										<div class="col-md-6 col-sm-6">
-											<div class="form-group">
-												<label for="firstname">First Name</label>
-												<input type="text" class="form-control" id="firstname" placeholder="First Name">
-											</div>
+						<div class="box-header with-border">
+							<h3 class="box-title"></h3>
+						</div>
+						<form role="form" name="chatForm" novalidate ng-submit="submit()">
+							<div class="box-body">
+								<div class="row"> 
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group" ng-class="{ 'has-error' : chatForm.firstname.$invalid && !chatForm.firstname.$pristine}">
+											<label for="firstname" class="control-label">First Name <span class="required">*</span></label>
+											<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="firstname" ng-required="true">
+											<p ng-show="chatForm.firstname.$invalid &amp;&amp; !chatForm.firstname.$pristine" class="help-block">First name is required.</p>
 										</div>
-										<div class="col-md-6 col-sm-6">
-											<div class="form-group">
-												<label for="lastname">Last Name</label>
-												<input type="text" class="form-control" id="lastname" placeholder="Last Name">
-											</div>
-										</div>         
 									</div>
-									<div class="form-group">
-										<label for="email">Email</label>
-										<input type="email" class="form-control ng-valid-email" id="email" placeholder="Email">
-									</div>
-									<div class="form-group">
-										<label for="subject">Subject for your question</label>
-										<input type="text" class="form-control" id="subject" placeholder="Subject for question">
-									</div>
-									<div class="form-group">
-										<label for="subject">Short description of your question</label>
-										<textarea class="form-control" rows="3" placeholder="Type your question here"></textarea>
-									</div>
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group" ng-class="{ 'has-error' : chatForm.lastname.$invalid && !chatForm.lastname.$pristine}">
+											<label for="lastname" class="control-label">Last Name <span class="required">*</span></label>
+											<input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" ng-model="lastname"  ng-required="true">
+											<p ng-show="chatForm.lastname.$invalid &amp;&amp; !chatForm.lastname.$pristine" class="help-block">Last name is required.</p>
+										</div>
+									</div>         
 								</div>
-								<div class="box-footer">
-									<button type="submit" class="btn btn-primary" ng-click="step1=false; step2=false; step3=true; showChat();">Submit Question</button>
+								<div class="form-group" ng-class="{ 'has-error' : chatForm.email.$invalid && !chatForm.email.$pristine}">
+									<label for="email" class="control-label">Email <span class="required">*</span></label>
+									<input type="email" class="form-control ng-valid-email" id="email" placeholder="Email" name="email" ng-model="email" ng-required="true">
+									<p ng-show="chatForm.email.$invalid &amp;&amp; !chatForm.email.$pristine" class="help-block">Email  is required.</p>
 								</div>
-							</form>
+								<div class="form-group" ng-class="{ 'has-error' : chatForm.subject.$invalid && !chatForm.subject.$pristine}">
+									<label for="subject" class="control-label">Subject for your question <span class="required">*</span></label>
+									<input type="text" class="form-control" id="subject" placeholder="Subject for question" name="subject" ng-model="subject" ng-required="true">
+									<p ng-show="chatForm.subject.$invalid &amp;&amp; !chatForm.subject.$pristine" class="help-block">Subect is required.</p>
+								</div>
+								<div class="form-group" ng-class="{ 'has-error' : chatForm.description.$invalid && !chatForm.description.$pristine}">
+									<label for="subject" class="control-label">Short description of your question <span class="required">*</span></label>
+									<textarea class="form-control" rows="3" placeholder="Type your question here" name="description" ng-model="description" ng-required="true"></textarea>
+									<p ng-show="chatForm.description.$invalid &amp;&amp; !chatForm.description.$pristine" class="help-block">Description is required.</p>
+								</div>
+							</div>
+							<div class="box-footer">
+								<button type="submit" class="btn btn-primary" ng-disabled="chatForm.$invalid">Submit Question</button>
+							</div>
+						</form>
 					</div>
 					<div class="pull-left" ng-show="step3">
 						<i class="fa fa-spinner fa-spin"></i>
