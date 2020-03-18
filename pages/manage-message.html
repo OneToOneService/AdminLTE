@@ -1,5 +1,5 @@
 ---
-title: Manage Messages Tree View
+title: Manage Messages
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -645,7 +645,7 @@ title: Manage Messages Tree View
 												</tr>
 											</thead>  
 											<tbody>
-												<tr id="row1"  ng-show="incomingList">
+												<tr id="row1" class="color-normal"  ng-show="incomingList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red" checked>
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
@@ -660,8 +660,8 @@ title: Manage Messages Tree View
 														<a href="/pages/contact-summary.html">Jacob Smith</a>
 													</td>
 												
-													<td>
-														<p uib-tooltip="2018-08-03 11:59:44 AM" tooltip-placement="bottom">10 min ago</p>
+													<td class="column-date">
+														<p uib-tooltip="2018-08-03 11:59:44 AM" tooltip-placement="bottom">5 min ago</p>
 													</td>
 													<td>
 														<i class="fa icon-c icon-external-agent external-agent" uib-tooltip="This interaction is assigned to an external agent" tooltip-placement="bottom"></i> Justin Time
@@ -671,7 +671,7 @@ title: Manage Messages Tree View
 													</td>
 													
 												</tr>
-												<tr id="row2"  ng-show="incomingList">
+												<tr id="row2" class="color-warning"   ng-show="incomingList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red" checked>
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
@@ -686,7 +686,7 @@ title: Manage Messages Tree View
 														<a href="/pages/contact-summary.html">James Williams</a>
 													</td>
 												
-													<td>
+													<td class="column-date">
 														<p uib-tooltip="2018-08-03 11:55:44 AM" tooltip-placement="bottom">30 min ago</p>
 													</td>
 													<td>
@@ -697,7 +697,7 @@ title: Manage Messages Tree View
 													</td>
 													
 												</tr>
-												<tr id="row3"  ng-show="incomingList">
+												<tr id="row3" class="color-warning"  ng-show="incomingList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
@@ -712,7 +712,7 @@ title: Manage Messages Tree View
 														<a href="/pages/contact-summary.html">James Williams</a>
 													</td>
 													
-													<td>
+													<td class="column-date">
 														<p uib-tooltip="2018-08-03 11:47:44 AM" tooltip-placement="bottom">5 hours ago</p>
 													</td>
 													<td>
@@ -723,7 +723,7 @@ title: Manage Messages Tree View
 													</td>
 													
 												</tr>
-												<tr id="row4"  ng-show="incomingList">
+												<tr id="row4" class="color-urgent"  ng-show="incomingList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
@@ -738,7 +738,7 @@ title: Manage Messages Tree View
 														<a href="/pages/contact-summary.html">John Doe</a>
 													</td>
 													
-													<td>
+													<td class="column-date">
 														<p uib-tooltip="2018-08-03 11:41:44 AM" tooltip-placement="bottom">a day ago</p>
 													</td>
 													<td>
@@ -750,7 +750,7 @@ title: Manage Messages Tree View
 													
 												</tr>
 												<!--Agent Praposed answer rows displayed when tab is clicked-->
-												<tr id="row5" ng-show="praposedList">
+												<tr id="row5" class="color-urgent" ng-show="praposedList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
@@ -765,7 +765,7 @@ title: Manage Messages Tree View
 														<a href="/pages/contact-summary.html">James Williams</a>
 													</td>
 												
-													<td ng-show="!row5">
+													<td class="column-date" ng-show="!row5">
 														<p uib-tooltip="2018-08-03 11:41:44 AM" tooltip-placement="bottom">a day ago</p>
 													</td>
 													<td ng-show="!row5">
@@ -776,7 +776,7 @@ title: Manage Messages Tree View
 													</td>
 													
 												</tr>
-												<tr id="row6" ng-show="praposedList">
+												<tr id="row6" class="color-urgent" ng-show="praposedList">
 													<td name="name" class="icon-col">
 														<input type="checkbox" class="flat-red">
 														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row6')">
@@ -791,7 +791,7 @@ title: Manage Messages Tree View
 														<a href="/pages/contact-summary.html">James Williams</a>
 													</td>
 												
-													<td ng-show="!row6">
+													<td class="column-date" ng-show="!row6">
 														<p uib-tooltip="2018-08-03 11:41:44 AM" tooltip-placement="bottom">a day ago</p>
 													</td>
 													<td ng-show="!row6">
