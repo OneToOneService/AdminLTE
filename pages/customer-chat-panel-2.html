@@ -9,6 +9,7 @@ title: Customer Chat Panel 1
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 `   <style>
 	  body{max-width: 1024px; margin: 0 auto;    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif; background:#f5f5f5; }
 	  .header{padding: 15px 5px 15px 5px;}
@@ -202,7 +203,7 @@ title: Customer Chat Panel 1
 		}
 		.btn-mute .fa-stack{width:auto; height:auto; line-height:18px;}
 		.btn-mute .fa-ban { color: #c51f1f; font-size: 12px; margin-left: -4px; margin-top: -17px; position: relative; top: -2px; }
-        .required{ color:#c51f1f;}
+		
   </style>	   
 </head>
 <body  ng-controller="BodyController">
@@ -211,8 +212,8 @@ title: Customer Chat Panel 1
 			<img class="sitelogo ng-scope" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAAEAZABkAAD//gAfTEVBRCBUZWNobm9sb2dpZXMgSW5jLiBWMS4wMQD/2wCEAAUFBQgFCAwHBwwMCQkJDA0MDAwMDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0BBQgICgcKDAcHDA0MCgwNDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDf/EAaIAAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKCwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+foRAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/AABEIADcAmgMBEQACEQEDEQH/2gAMAwEAAhEDEQA/APsugBrNt471LdtOo7GJqevWekjN5PFB7MRu/Lr+lcrqPaP/AJKr/jsaxhfocv8A8LH0QttF4q+7Iyr+ZXFYylVWyl9yNfZ23R0lnr8F2gmidJ4j/HEwYfoT+XB9qwWMdN8taP4Wa+T3+QOjdXizdilSZQ8ZDKe4r1YTjUipwd0+qOZpxdnoyStCQoAKACgAoAKACgAoAKACgAoAKACgAoAazbRUt2X5DSPNPGPiySxf+zNOI+0sMySdfKB6YH989RnhRz1xXNbn/wAK3/vP/I7aVPm1fyPN08OPdEzSlpJG5Z2JZifcnmtlpotEekqY2bwOrJ5t3LHZQnoz8s3+6g5I9zgVjKpy6Qi5Pstl6swkknaOve3Qit/AN1pg/tLwtqQaX/nmygQTEdY32kgZ6fMuR1yOteXVxEZfusVSsu6+KPmv+AY8rWsdH2Ow8M+OhcRmd0NvNBL5F9at96GYdfqp+9G3deO1cdNywFVa81KeqfSUX9pdpLqEoqrHtJfg+3oezwTJcIssZyrAEEehr6vzWx5mxlav4hsdDA+2SBGbJVFBZ2A6kIoJwPXGKxnVhSspvV7Jat/JHfh8HWxd3Rj7sd5NqMV6ydl8jmtN+Jmh6lN9nSYxuTtXzF2qW/u7ugY9g2DXPDFUpy9ndxl0Ula/oehWyfF0KbxHKp00rtwkpcq7tLW3pctJ8QdHN19heVoZ9zKyyoU2Mo3YcnhcjlT0bIwTVvEU4y9nJuMtfiVtvMxjlmInSeJoxVSmrawkpN3dtEtfXt1GSfEfQYphA1yoLEDdtbaMnA3HHygnuRj3pfWqSai5b6J2dvvLWU4twlONP4Fdx5o8yW+1/wAjY1PxRp+khfPky8mNkcY3yPk4G1V5OT09a1qVYUrKT1eyWrfojiw+DrYu8qUbQjfmnJ8sI21d5PRW6lGw8baZfXRsNzwXSjPkzLscg85XkhuOeD6+hpRqxlL2bTjK10pKza8u5dXBVKVP6zFwqUU+Vzpy5lFvZS2av0bVjrVYMMryK6DzRaACgAoAKACgAoAoX1wLWN5W6RIzn8AT/IVyVZW0Xb8XoawV/vPnLQpX1W6a4fLy3Ehc+pLHIA+gwPYCtElBW2SR7FOy30SPfNO02K3iAlA3dx/SrjZq6OOrWk3+7vbuch4qhtpy24sj44Y4KD0BHVR7jIHcVm7x2WnbqdVNSUOlvufr5mN4O02Wxtp5ZQVWeUFF9lGN/phj0PcDNeJjZKUkl9lav16EddDxvX9SWy8cXVrEcR31ukcoHTzkh8xG/wB4EY9cMaahzYOEnvCTa/wt2aML8tRruvxse+fC3WzqmmhHOTGSPyOK9fDv92k+mny6HHU0ldddTzHWfEEum+Lb6K9ygbZGjHqkJVWjdf8AYY7lcjoeveuHnWHxMpVdppKMukbdPK59nGg8xyunSwX8ShJyqU1o6jd9fNpbIXx74Stzp665aOgmDIj7SMTo5xg4+9IudyMPm4IPFa4yEHSdV2urcrXV9PW5yZJWxFPFxwkb+zlze0hK6UYpe83f4bHGSK41uJZ/mkxah93JJEYHOeprhmnLE0VNa2jdedj6Ki408qxjw7tHmr8klppz2TT9DW+INqI5LOZsEyQzDOOwZePp7dq2zHRQS7/qcPDK/jt9kvvTMxr+VNdCySGF4vKEbsNwCPEAjYJHyk5XPY1nUjKOKjNyUeZLlk1dL3bWsdNCpSq5VWowpuo6cpe0pwfLKV6jk3dJu1t7LW1jv7/wupmh1XUbkxSRqnlpDGN/DblLMX43E8LnODwOa2rRk5xnGTnOnb4UoxTfRtvd9lqfP4fGwp0KuDw+G92qpOXPOU5WS1dklZR3u9LnfaL43toMW8pZlZiiSYwBIOfKkB+aJz/DuGD2NdNLFe0k6c4uFTpFvR+jPnZUuVc0XzR7nQx+LoWm8to3SLy94kP9/ODGV6hscg5waVPFxnOVPlfMnZJat239LeY3RcUpXVn30sVx45tfNWPy5QjP5ZcjHlvjI3j+63Z1JGTzVRxN6vsKkXB9Lve+3oJ0rR54u66+RtX2vQ2YXGCzruwTjC9ievXsK1nVfP7GilKdru7sorzeur6IhQVuebstlpq35GXYeMre6nFrKjQOylkLcq4B2ttb1U4yO4IIyOjpVlOUqUlyzhur3+afYJQ5UpLWL2ex2CsGGR0NdRkLQBz/AIgjM1tPCvWWCRR9SrD+deXiJckl6L8HqdNP9Txv4QwLdNLO33odsS/7OQS5+uBt9ua0qvmnCktFK7fojpnK0dDtovESrqslteMIlWRkCsdoGPuA+gYc56HNbzbjH3Ft0XbqaqypJQ3te/5nYXlvY3YBmjD7egI4P9CPzrjnXp20ck+y0OWPtI6J6M43xX4os/DFqbq6IQKCIoARvkbHyqq9cdNzfdUV5HLLEz5KasuvaK6tvq/zNvgV2fFVtqcuq+IBqM5+dmmupCOigRucfReFHtivfqxVOj7KO1oxXzaOVO87+rPpz4Bu8unCZs4laVh9N2BW9OPKmvP9EYyd/uO48daJpWtzKt4v+kxDh0BEiK3ONynO0n+E8Z7V5OMxEIv2Mqan1d3y2vtZnq4KrXwz9th6jg+1rp+qZyNh4asNOIMbyvtOVEis6qfVUJ2hvQ4zXl08RTpNONFaaq9RtJ+StY9bEY3F4qLhOooqStLkpqMpLtKS95rurkd14S0u7uGvHebz32ksNwGUGFIAPBHt35rSeLjUkqkqXvLZqo019yMMPiMRhKUsNRnH2Ur3jKmpp33WvTyLWpeHtO1dYheNLI1srJGwDLw+C24A4YnA5NOpjY1ko1KSaW3v2f32M8NVr4GUp4Wag57rkTj6JPRf5HC+L49L0URJcQy3QSF3jlD+XKoV0Ty9zdUJcEbjtGDxnFdMK0cTH2cqasmkrzbaum97X6ExxVfCVniaM1CUtZKMFGD9Y7Xd9To4bC3s0t57Vbi5hkRXLzFmaEsAVxGSRgA4LAZU9OKzw9ajTm4zjy2ejcnKz2b10+drl4rF4rFQabjFS+JU4Rp8y/vNav0vY6W80C3VPtoYF5U2uo/jwcozD+8h6MecHFdtdxxE6P1eSlJT1ae0Vq2/+CePC9OM+dNK2ifV+RVupBJ5RByD8pI5G4KMgkd/auTCaYqpfT4//Sjat/Cjby/It6okcEYjQg7QjMByV3EHLAcge5oqu2Oi3orw306BD+A0vP8AMxW1v7XMNyfvUJifIJKEAbPl/wCebryrgEZ4JFKlBUKs4V5yhfZqXKnrfVhJ80Iumk7bq17fI2ZbSdgsr+oK5x8mB/CP4ARxxwa9SnCh7X2lOTlU1u1K6tb7VtPQ5ZOajyyVo9rW+49W0UsbVN3XFeic5q0AZ+oxkx716pz+Hf8AxrzsXTcoc8VrHp5df8zek7Oz6/mfP0d6Phvrsk8vyaPqzhllAJW2uMk7ZMdEYk4P90/7Jrz6dR4iEZUn+/o9P54+R1yXLpL4X+DPUp4rTV3W8eKG4JAKSABxjthhkMPTOa4pYmpzSbbi3ulp+BcY8qtHY8j8f6mfCytJYalJbvIeLEHzME9ShyTCvfDcdlr0MO/rDtUpJpfb2+T7v0In7vXU+Ztc8QT6k5luJGlfH3nYsfzPQV7kYqC5YJJdlocjZHFaXFtCtpCpOqaztggi/jitmOXkcdVMvUA8iNcnrXI37WenwU3dvo59EvT8w+Feb/Bf8E+7/hr4fTQdOjgT7sMaxKf7xUfO3/Amya7ErKxizc13w4upSedEqpKwAZ+jMF6AnuB2rOVKE3ecYt+aKUpR0i2vQ57/AIQqf+8PzP8AjUewpf8APuP3IftJ/wAz+8888VSXHhnUYLN1U204i33HzusUkswiVJVjO+FWGfLmKtG0mEbb1o9hS/59x+5D9pP+Z/eYdnrN/qFtc3sNuiQWyagT5koDwyWJbakyb/MYzhG+4g8slclgc0vYUv8An3H7kHtJ/wAz+8n1G31O10WDxFqEFhNYzm1aXaZZDb2d0IzJK+4EN5UjAuo+XaNx5U1So04/DCK9FYXPJ7tlnVbu90K4t45445Y7m01C8RIS/nGKyTfCqqTjdOhUkAfJnAzil7Cl/wA+4/cPnmvtP7yObXbq0s7G+drW4g1eS0jieCRmW2a4DM4ucsM+WFCodyB5CVO0itYwjTVoRUV5KxDblq236mpfajHoukSX1zEkGoRQXFz/AGfFIrtNHBL5bTIULjyzlZJMkvGCwOSKn2cL8zhG/eyv94+aS0u7eoy6vbqGewtybGV9YlWOC9gdjCii3MxE/O4vx5cC7gJAc8EFacqcJ6zjFvzSYlJx2bXocwniG8vBA9vBbRzS22qSsZnkwG0x9rmFlGXhn6xk4wc5ziiUIyXLKKaWyavYFJx1TaOv8FahdeI75LG7EUSz6Xa6rEYpGYiO4Yp5Um4DLqRncvGDiqjGMFaCUV2St+Qm29W2/U+gLW3FrGIl6LVCLFABQB594q0LzYJFES3NrKCJIWGRg+36gjlT0NfPV8FKnP2+FbWt+VaNPvHun1R3Qqprkqff/n/mfLeseF104sukajcaahzm2maXyx7LIhBx/vKT7mrhim9K9JSkuqST+aZThb4JWXbp+B5vd6K8DFp9Qs1z95t8rsfqNuSfqa9FV7q0Kc/SyS/MwcbbyX4kemW6TzCLRYJtavs/LLJH5dpCf7+w8MV6gyHA9KGqlTSb5I/yxd5P1fT5E3UdtX3eiXy6n0b8M/hZLZTtqepP9q1Kf/XTnlIVPWOHPUkcMwxxwoA69UYqCUYqyWyXQybufT1vAlrGsUYwqDAFWSTUAFAFKfTbW6kWeaGOSWP7rsillGcgAkZwDyB0B5HPNAEJ0Sw8ySb7NB5lwMTN5SbpB6SHblwe4bOe9AFkWFsIPsgij+zkFfK2L5e09V2Y249sYoAR7C2klWd4o2liGEcopZB6K2MqD3AIB70AVF0DTY4pLdbW3WGc7pYxDGEkPq67cMc85I4PNAFqPTrWEKscMSiNDGgEajajfeRcDhW7qOD3FAFVNB06KA2qWtukDNvMaxIqFv720KBuHY4yOxoAlbR7F9u63hPloY0zGnyoeqLxwhycqMA9xQA+30uztHEkEEUTquwMkaqwTsgIAIQdlHyjsKAL1ABQAUAGKAOa1Twnp+rZ86JcnvgfyqJQjL4kn6opNx2djjn+Eejs27yYT/vRg/1xUqnGOyt94cz7nT6d4LsdPUKqjaP4FUIv5KBmtEktiTq4okgUJGAqjoBwKYElABQAUAFABQAUAFABQAUAFABQAUAFABQB/9k=">
 		<div class="chat-btn pull-right ng-scope">
 		<button type="button" title="Leave Message" ng-show="ShowLeaveMessage()" class="btn btn-primary btn-sm ng-hide" ng-click="cancelChatRequest(true)"><span class="glyphicon glyphicon-envelope"></span> </button>
-		<button type="button" title="Volume" ng-show="soundOn &amp;&amp; ShowVolume()" class="btn btn-primary btn-sm ng-hide" ng-click="TurnOffSound()"><span class="fa fa-volume-up"></span></button>
-		<button type="button" title="Volume" ng-show="!soundOn &amp;&amp; ShowVolume()" class="btn btn-primary btn-sm btn-mute volumeoff ng-hide" ng-click="TurnOnSound()"><span class="fa-stack"><i class="fa fa-volume-off"></i><i class="fa fa-ban"></i></span></button>
+		<button type="button" title="Volume" ng-show="soundOn && ShowVolume()" class="btn btn-primary btn-sm ng-hide" ng-click="TurnOffSound()"><span class="fa fa-volume-up"></span></button>
+		<button type="button" title="Volume" ng-show="!soundOn && ShowVolume()" class="btn btn-primary btn-sm btn-mute volumeoff ng-hide" ng-click="TurnOnSound()"><span class="fa-stack"><i class="fa fa-volume-off"></i><i class="fa fa-ban"></i></span></button>
 		<button type="button" title="Print" ng-show="ShowPrint()" class="btn btn-primary btn-sm ng-hide" onclick="CallPrint()"><span class="glyphicon glyphicon-print"></span> </button>
 		<button type="button" title="Cancel Chat Request" ng-show="ShowCancel()" class="btn btn-primary btn-sm close-btn ng-hide" ng-click="cancelChatRequest(false)"><span class="glyphicon glyphicon glyphicon-remove"></span></button>
 		<button type="button" title="End Chat" ng-show="ShowEnd()" class="btn btn-primary btn-sm close-btn ng-hide" ng-click="EndChat()"><span class="glyphicon glyphicon glyphicon-remove"></span></button>
@@ -237,19 +238,22 @@ title: Customer Chat Panel 1
             <div class="box-header with-border">
               <h3 class="box-title"></h3>
             </div>
-            <form>
+            <form role="form" name="topicSelectionForm" novalidate ng-submit="submitTopicSelection();">
               <div class="box-body">
 					<div class="row"> 
 						<div class="col-md-6 col-sm-6">
-							<div class="form-group">
-							<label for="topicID">Topic / Department</label>
-							<select class="form-control" id="topicID" name="topicID"><option value="?" selected="selected">--Select Topic--</option><option label="JC Segment -- All Topics" value="string:31">JC Segment -- All Topics</option><option label=". . To Quote" value="string:36">. . To Quote</option><option label="QA -- All Topics" value="string:1">QA -- All Topics</option><option label=". . A test topic" value="string:15">. . A test topic</option><option label=". . Desert Schools" value="string:7">. . Desert Schools</option><option label=". . Game Codes" value="string:13">. . Game Codes</option><option label=". . Manuals" value="string:12">. . Manuals</option><option label=". . User Auth" value="string:4">. . User Auth</option><option label="QA2 - Second Segment -- All Topics" value="string:9">QA2 - Second Segment -- All Topics</option><option label=". . Topic1" value="string:38">. . Topic1</option><option label=". . Topic2" value="string:39">. . Topic2</option></select>
+							<div class="form-group" ng-class="{ 'has-error' : topicSelectionForm.topicid.$invalid && !topicSelectionForm.topicid.$pristine || (topicSelectionForm.$submitted && topicSelectionForm.$invalid)  }">
+								<label class="control-label">Topic / Department <span class="required">*</span></label>
+								<select class="form-control" name="topicid" ng-model="topicid" ng-required="true"><option value="" selected="selected">-- Select Topic--</option><option label="JC Segment -- All Topics" value="string:31">JC Segment -- All Topics</option><option label=". . To Quote" value="string:36">. . To Quote</option><option label="QA -- All Topics" value="string:1">QA -- All Topics</option><option label=". . A test topic" value="string:15">. . A test topic</option><option label=". . Desert Schools" value="string:7">. . Desert Schools</option><option label=". . Game Codes" value="string:13">. . Game Codes</option><option label=". . Manuals" value="string:12">. . Manuals</option><option label=". . User Auth" value="string:4">. . User Auth</option><option label="QA2 - Second Segment -- All Topics" value="string:9">QA2 - Second Segment -- All Topics</option><option label=". . Topic1" value="string:38">. . Topic1</option><option label=". . Topic2" value="string:39">. . Topic2</option></select>
+							    <p ng-show="topicSelectionForm.topicid.$invalid && !topicSelectionForm.topicid.$pristine || (topicSelectionForm.$submitted && topicSelectionForm.$invalid)" class="help-block">Topic  is required.</p>
 							</div>
+
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Start The Chat</button>
+							</div>	
 						</div>
 					</div>
-					<div class="box-footer">
-						<button type="submit" class="btn btn-primary" ng-click="step1=false; step2=true;">Start The Chat</button>
-					</div>
+			
          		 </div>
 		   	</form>
       	</div>
@@ -262,38 +266,39 @@ title: Customer Chat Panel 1
 						<div class="box-body">
 							<div class="row"> 
 								<div class="col-md-6 col-sm-6">
-									<div class="form-group" ng-class="{ 'has-error' : chatForm.firstname.$invalid && !chatForm.firstname.$pristine}">
+									<div class="form-group" ng-class="{ 'has-error' : chatForm.firstname.$invalid && !chatForm.firstname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.firstname.$invalid)}">
 										<label for="firstname" class="control-label">First Name <span class="required">*</span></label>
 										<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="firstname" ng-required="true">
-										<p ng-show="chatForm.firstname.$invalid &amp;&amp; !chatForm.firstname.$pristine" class="help-block">First name is required.</p>
+										<p ng-show="chatForm.firstname.$invalid && !chatForm.firstname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.firstname.$invalid)" class="help-block">First name is required.</p>
 									</div>
 								</div>
 								<div class="col-md-6 col-sm-6">
-									<div class="form-group" ng-class="{ 'has-error' : chatForm.lastname.$invalid && !chatForm.lastname.$pristine}">
+									<div class="form-group" ng-class="{ 'has-error' : chatForm.lastname.$invalid && !chatForm.lastname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.lastname.$invalid) }">
 										<label for="lastname" class="control-label">Last Name <span class="required">*</span></label>
 										<input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" ng-model="lastname"  ng-required="true">
-										<p ng-show="chatForm.lastname.$invalid &amp;&amp; !chatForm.lastname.$pristine" class="help-block">Last name is required.</p>
+										<p ng-show="chatForm.lastname.$invalid && !chatForm.lastname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.lastname.$invalid)" class="help-block">Last name is required.</p>
 									</div>
 								</div>         
 							</div>
-							<div class="form-group" ng-class="{ 'has-error' : chatForm.email.$invalid && !chatForm.email.$pristine}">
+							<div class="form-group" ng-class="{ 'has-error' : chatForm.email.$invalid && !chatForm.email.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.email.$invalid) || (validemail)}">
 								<label for="email" class="control-label">Email <span class="required">*</span></label>
-								<input type="email" class="form-control ng-valid-email" id="email" placeholder="Email" name="email" ng-model="email" ng-required="true">
-								<p ng-show="chatForm.email.$invalid &amp;&amp; !chatForm.email.$pristine" class="help-block">Email  is required.</p>
+								<input type="text" class="form-control ng-valid-email" id="email" placeholder="Email" name="email" ng-model="email" ng-required="true" email-validation>
+								<p ng-show="chatForm.email.$invalid && !chatForm.email.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.email.$invalid)" class="help-block">Email  is required.</p>
+								<p ng-show="validemail" class="help-block">Please enter valid email .</p>
 							</div>
-							<div class="form-group" ng-class="{ 'has-error' : chatForm.subject.$invalid && !chatForm.subject.$pristine}">
+							<div class="form-group" ng-class="{ 'has-error' : chatForm.subject.$invalid && !chatForm.subject.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.subject.$invalid)}">
 								<label for="subject" class="control-label">Subject for your question <span class="required">*</span></label>
 								<input type="text" class="form-control" id="subject" placeholder="Subject for question" name="subject" ng-model="subject" ng-required="true">
-								<p ng-show="chatForm.subject.$invalid &amp;&amp; !chatForm.subject.$pristine" class="help-block">Subect is required.</p>
+								<p ng-show="chatForm.subject.$invalid && !chatForm.subject.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.subject.$invalid)" class="help-block">Subject is required.</p>
 							</div>
-							<div class="form-group" ng-class="{ 'has-error' : chatForm.description.$invalid && !chatForm.description.$pristine}">
+							<div class="form-group" ng-class="{ 'has-error' : chatForm.description.$invalid && !chatForm.description.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.description.$invalid)}">
 								<label for="subject" class="control-label">Short description of your question <span class="required">*</span></label>
 								<textarea class="form-control" rows="3" placeholder="Type your question here" name="description" ng-model="description" ng-required="true"></textarea>
-								<p ng-show="chatForm.description.$invalid &amp;&amp; !chatForm.description.$pristine" class="help-block">Description is required.</p>
+								<p ng-show="chatForm.description.$invalid && !chatForm.description.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.description.$invalid)" class="help-block">Description is required.</p>
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" class="btn btn-primary" ng-disabled="chatForm.$invalid">Submit Question</button>
+							<button type="submit" class="btn btn-primary">Submit Question</button>
 						</div>
 					</form>
 			</div>
@@ -331,7 +336,39 @@ title: Customer Chat Panel 1
 					return false;
 				}
 			}
+
+           $scope.submitTopicSelection = function($event){
+			    $scope.submitted = true;
+				if (!$scope.topicSelectionForm.$valid) 
+				{
+					return false;
+				}else{
+					$scope.step1=false; $scope.step2=true;
+
+				}
+		   }
+
+		});
+		app.directive('emailValidation', function() {
+			var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+			return {
+				require: 'ngModel',
+				link: function(scope, elm, attr, mCtrl) {
+					elm.on("blur",function(){
+							var isMatchRegex = EMAIL_REGEXP.test(elm.val());
+							if( isMatchRegex && elm.val() !=''){
+								scope.validemail = false;
+							}else if(isMatchRegex == false && elm.val() !=''){
+								scope.validemail = true;
+							}
+					});
+					elm.on("focus",function(){
+						scope.validemail = false;	
+					});
+				}
+			};
 		});
 	</script>
 </body>
+
 </html>

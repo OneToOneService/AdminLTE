@@ -250,20 +250,23 @@ title: Customer Chat Panel 1
 						<div class="box-header with-border">
 							<h3 class="box-title"></h3>
 						</div>
-						<form>
+						<form role="form" name="topicSelectionForm" novalidate ng-submit="submitTopicSelection();">
 							<div class="box-body">
 								<div class="row"> 
 									<div class="col-md-6 col-sm-6">
-										<div class="form-group">
-										<label for="topicID">Topic / Department</label>
-										<select class="form-control" id="topicID" name="topicID"><option value="?" selected="selected">--Select Topic--</option><option label="JC Segment -- All Topics" value="string:31">JC Segment -- All Topics</option><option label=". . To Quote" value="string:36">. . To Quote</option><option label="QA -- All Topics" value="string:1">QA -- All Topics</option><option label=". . A test topic" value="string:15">. . A test topic</option><option label=". . Desert Schools" value="string:7">. . Desert Schools</option><option label=". . Game Codes" value="string:13">. . Game Codes</option><option label=". . Manuals" value="string:12">. . Manuals</option><option label=". . User Auth" value="string:4">. . User Auth</option><option label="QA2 - Second Segment -- All Topics" value="string:9">QA2 - Second Segment -- All Topics</option><option label=". . Topic1" value="string:38">. . Topic1</option><option label=". . Topic2" value="string:39">. . Topic2</option></select>
+										<div class="form-group" ng-class="{ 'has-error' : topicSelectionForm.topicid.$invalid && !topicSelectionForm.topicid.$pristine || (topicSelectionForm.$submitted && topicSelectionForm.$invalid)  }">
+											<label class="control-label">Topic / Department <span class="required">*</span></label>
+											<select class="form-control" name="topicid" ng-model="topicid" ng-required="true"><option value="" selected="selected">-- Select Topic--</option><option label="JC Segment -- All Topics" value="string:31">JC Segment -- All Topics</option><option label=". . To Quote" value="string:36">. . To Quote</option><option label="QA -- All Topics" value="string:1">QA -- All Topics</option><option label=". . A test topic" value="string:15">. . A test topic</option><option label=". . Desert Schools" value="string:7">. . Desert Schools</option><option label=". . Game Codes" value="string:13">. . Game Codes</option><option label=". . Manuals" value="string:12">. . Manuals</option><option label=". . User Auth" value="string:4">. . User Auth</option><option label="QA2 - Second Segment -- All Topics" value="string:9">QA2 - Second Segment -- All Topics</option><option label=". . Topic1" value="string:38">. . Topic1</option><option label=". . Topic2" value="string:39">. . Topic2</option></select>
+											<p ng-show="topicSelectionForm.topicid.$invalid && !topicSelectionForm.topicid.$pristine || (topicSelectionForm.$submitted && topicSelectionForm.$invalid)" class="help-block">Topic  is required.</p>
 										</div>
+			
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary">Start The Chat</button>
+										</div>	
 									</div>
 								</div>
-								<div class="box-footer">
-									<button type="submit" class="btn btn-primary" ng-click="step1=false; step2=true;">Start The Chat</button>
-								</div>
-							</div>
+						
+							  </div>
 						</form>
 					</div>
 					<div class="box box-primary" ng-show="step2">
@@ -274,34 +277,35 @@ title: Customer Chat Panel 1
 							<div class="box-body">
 								<div class="row"> 
 									<div class="col-md-6 col-sm-6">
-										<div class="form-group" ng-class="{ 'has-error' : chatForm.firstname.$invalid && !chatForm.firstname.$pristine}">
+										<div class="form-group" ng-class="{ 'has-error' : chatForm.firstname.$invalid && !chatForm.firstname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.firstname.$invalid}">
 											<label for="firstname" class="control-label">First Name <span class="required">*</span></label>
 											<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="firstname" ng-required="true">
-											<p ng-show="chatForm.firstname.$invalid &amp;&amp; !chatForm.firstname.$pristine" class="help-block">First name is required.</p>
+											<p ng-show="chatForm.firstname.$invalid &amp;&amp; !chatForm.firstname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.firstname.$invalid" class="help-block">First name is required.</p>
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-6">
-										<div class="form-group" ng-class="{ 'has-error' : chatForm.lastname.$invalid && !chatForm.lastname.$pristine}">
+										<div class="form-group" ng-class="{ 'has-error' : chatForm.lastname.$invalid && !chatForm.lastname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.lastname.$invalid) }">
 											<label for="lastname" class="control-label">Last Name <span class="required">*</span></label>
 											<input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" ng-model="lastname"  ng-required="true">
-											<p ng-show="chatForm.lastname.$invalid &amp;&amp; !chatForm.lastname.$pristine" class="help-block">Last name is required.</p>
+											<p ng-show="chatForm.lastname.$invalid &amp;&amp; !chatForm.lastname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.lastname.$invalid) " class="help-block">Last name is required.</p>
 										</div>
 									</div>         
 								</div>
-								<div class="form-group" ng-class="{ 'has-error' : chatForm.email.$invalid && !chatForm.email.$pristine}">
+								<div class="form-group" ng-class="{ 'has-error' : chatForm.email.$invalid && !chatForm.email.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.email.$invalid) || (validemail)}">
 									<label for="email" class="control-label">Email <span class="required">*</span></label>
 									<input type="email" class="form-control ng-valid-email" id="email" placeholder="Email" name="email" ng-model="email" ng-required="true">
 									<p ng-show="chatForm.email.$invalid &amp;&amp; !chatForm.email.$pristine" class="help-block">Email  is required.</p>
+									<p ng-show="validemail" class="help-block">Please enter valid email .</p>
 								</div>
-								<div class="form-group" ng-class="{ 'has-error' : chatForm.subject.$invalid && !chatForm.subject.$pristine}">
+								<div class="form-group" ng-class="{ 'has-error' : chatForm.subject.$invalid && !chatForm.subject.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.subject.$invalid}">
 									<label for="subject" class="control-label">Subject for your question <span class="required">*</span></label>
 									<input type="text" class="form-control" id="subject" placeholder="Subject for question" name="subject" ng-model="subject" ng-required="true">
-									<p ng-show="chatForm.subject.$invalid &amp;&amp; !chatForm.subject.$pristine" class="help-block">Subect is required.</p>
+									<p ng-show="chatForm.subject.$invalid &amp;&amp; !chatForm.subject.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.subject.$invalid" class="help-block">Subject is required.</p>
 								</div>
-								<div class="form-group" ng-class="{ 'has-error' : chatForm.description.$invalid && !chatForm.description.$pristine}">
+								<div class="form-group" ng-class="{ 'has-error' : chatForm.description.$invalid && !chatForm.description.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.description.$invalid)}">
 									<label for="subject" class="control-label">Short description of your question <span class="required">*</span></label>
 									<textarea class="form-control" rows="3" placeholder="Type your question here" name="description" ng-model="description" ng-required="true"></textarea>
-									<p ng-show="chatForm.description.$invalid &amp;&amp; !chatForm.description.$pristine" class="help-block">Description is required.</p>
+									<p ng-show="chatForm.description.$invalid &amp;&amp; !chatForm.description.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.description.$invalid)" class="help-block">Description is required.</p>
 								</div>
 							</div>
 							<div class="box-footer">
@@ -442,6 +446,25 @@ title: Customer Chat Panel 1
 			    $timeout(function() {
 					$scope.step4=true;  $scope.step3=false;  
 				}, 3000); 
+			};
+		});
+		app.directive('emailValidation', function() {
+			var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+			return {
+				require: 'ngModel',
+				link: function(scope, elm, attr, mCtrl) {
+					elm.on("blur",function(){
+							var isMatchRegex = EMAIL_REGEXP.test(elm.val());
+							if( isMatchRegex && elm.val() !=''){
+								scope.validemail = false;
+							}else if(isMatchRegex == false && elm.val() !=''){
+								scope.validemail = true;
+							}
+					});
+					elm.on("focus",function(){
+						scope.validemail = false;	
+					});
+				}
 			};
 		});
 	</script>
