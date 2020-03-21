@@ -3741,7 +3741,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder {
   display: inline-block;
-  background-color: #fff;
+  background-color: white;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
   vertical-align: top;
   width: 100%;
@@ -3771,7 +3771,7 @@ span.glyphicon-sort-by-attributes-alt {
   margin-bottom: 0;
 }
 .box-placeholder .text.link {
-  background-color: blue;
+  background-color: #3c8dbc;
   opacity: .2;
 }
 .box-placeholder .text.line {
@@ -3783,7 +3783,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder .text.title {
   width: 100%;
-  background-color: blue;
+  background-color: #3c8dbc;
   margin-bottom: 10px;
 }
 .box-placeholder h4.text {
@@ -3818,6 +3818,19 @@ span.glyphicon-sort-by-attributes-alt {
   100% {
     opacity: .4;
   }
+}
+.dis-flex {
+  display: flex;
+}
+/* Manage message date time column color codes*/
+tr.color-normal td.column-date {
+  background-color: #e0e0e0;
+}
+tr.color-warning td.column-date {
+  background-color: #F7DC6F;
+}
+tr.color-urgent td.column-date {
+  background-color: #F1948A;
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {
