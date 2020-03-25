@@ -20,6 +20,7 @@ title:  My Pending Messages
       <section class="content-header">
         <h1>
             {{ page.title }}
+            <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'pendingMessagePopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -1392,7 +1393,13 @@ title:  My Pending Messages
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
-
+  <script type="text/ng-template" id="pendingMessagePopover.html">
+    <div>
+      When you check the Expect Customer Reply option in your answer, a copy of your answer is placed in this list. You can send follow-up requests from this page, and your requests will quote your original answer. When a contact replies to your response, their question will be automatically assigned to you and your pending message will be removed from this list.
+      <br>  <br>
+      The page looks and functions identically to the My Message Inbox, except it is a list of your answers instead of customer questions.
+    </div>
+  </script>
   <script>
     $(document).ready(function ()
     {

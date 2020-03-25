@@ -266,17 +266,15 @@ title: Customer Chat Panel 1
 						<div class="box-body">
 							<div class="row"> 
 								<div class="col-md-6 col-sm-6">
-									<div class="form-group" ng-class="{ 'has-error' : chatForm.firstname.$invalid && !chatForm.firstname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.firstname.$invalid)}">
+									<div class="form-group">
 										<label for="firstname" class="control-label">First Name <span class="required">*</span></label>
-										<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="firstname" ng-required="true">
-										<p ng-show="chatForm.firstname.$invalid && !chatForm.firstname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.firstname.$invalid)" class="help-block">First name is required.</p>
+										<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="firstname">
 									</div>
 								</div>
 								<div class="col-md-6 col-sm-6">
-									<div class="form-group" ng-class="{ 'has-error' : chatForm.lastname.$invalid && !chatForm.lastname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.lastname.$invalid) }">
+									<div class="form-group">
 										<label for="lastname" class="control-label">Last Name <span class="required">*</span></label>
-										<input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" ng-model="lastname"  ng-required="true">
-										<p ng-show="chatForm.lastname.$invalid && !chatForm.lastname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.lastname.$invalid)" class="help-block">Last name is required.</p>
+										<input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" ng-model="lastname">
 									</div>
 								</div>         
 							</div>

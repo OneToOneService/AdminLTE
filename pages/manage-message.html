@@ -20,6 +20,8 @@ title: Manage Messages
 			<section class="content-header">
 				<h1>
 					{{ page.title }}
+
+					<i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'manageMessagePopover.html'" type="button"  popover-trigger="outsideClick"></i>
 				</h1>
 				<ol class="breadcrumb">
 						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -1624,7 +1626,17 @@ title: Manage Messages
     </div>
     <!-- ./wrapper -->
     {% include common-javascript.html %}
-
+	<script type="text/ng-template" id="manageMessagePopover.html">
+		<div>
+			This page lists the questions waiting for an answer and proposed answers waiting for approval for all the segments that you can access. Select the topics that you need to monitor from the Topic List to display their questions in the message list to the right.
+            <br><br>
+			Use the mass update panel to take actions on multiple messages at once by selecting them from the Message List. When you send answers from the mass update panel, each contact will receive their own personalized response.
+			<br><br>
+			The Message List is updated automatically as changes occur. There is no need to reload the page to see new messages, assignment changes, etc.
+			<br><br>
+			Read the <a href="https://www.iservice.info/guides/users/manage-messages.html">user guide</a> to learn more about this page.
+		</div>
+	</script>
 <script>
 	$(document).ready(function() {
 		//$('.selectpicker').selectpicker('refresh');

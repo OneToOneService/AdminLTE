@@ -19,7 +19,8 @@ title: My Open Quotes
             <!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+					{{ page.title }}
+					<i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'openQuotePopover.html'" type="button"  popover-trigger="outsideClick"></i>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -1884,6 +1885,13 @@ title: My Open Quotes
 				<button type="button" class="btn btn-danger btn-xs"  ng-click="confirm()">Confirm</button>
 				<button type="button" class="btn btn-link btn-xs" ng-click="cancel()">Cancel</button>
 			</div>
+		</div>
+	</script>
+	<script type="text/ng-template" id="openQuotePopover.html">
+		<div>
+			After you preview and send a quote, a copy is moved into this page. You can use this page to track your quotes that are waiting for customer acceptance. Actions are built into the quote ticket to send quick follow up emails and document call notes. Your quotes are also aggregated with quotes from other agents and displayed to managers in the Manage Open Quotes page.
+            <br><br>
+			View the <a href="https://www.iservice.info/guides/users/my-open-quotes.html">user guide</a> to learn more about working with open quotes.
 		</div>
 	</script>
   <script>

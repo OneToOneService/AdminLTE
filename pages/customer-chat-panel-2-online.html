@@ -277,39 +277,37 @@ title: Customer Chat Panel 1
 							<div class="box-body">
 								<div class="row"> 
 									<div class="col-md-6 col-sm-6">
-										<div class="form-group" ng-class="{ 'has-error' : chatForm.firstname.$invalid && !chatForm.firstname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.firstname.$invalid}">
+										<div class="form-group">
 											<label for="firstname" class="control-label">First Name <span class="required">*</span></label>
-											<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="firstname" ng-required="true">
-											<p ng-show="chatForm.firstname.$invalid &amp;&amp; !chatForm.firstname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.firstname.$invalid" class="help-block">First name is required.</p>
+											<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="firstname">
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-6">
-										<div class="form-group" ng-class="{ 'has-error' : chatForm.lastname.$invalid && !chatForm.lastname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.lastname.$invalid) }">
+										<div class="form-group">
 											<label for="lastname" class="control-label">Last Name <span class="required">*</span></label>
-											<input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" ng-model="lastname"  ng-required="true">
-											<p ng-show="chatForm.lastname.$invalid &amp;&amp; !chatForm.lastname.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.lastname.$invalid) " class="help-block">Last name is required.</p>
+											<input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" ng-model="lastname">
 										</div>
 									</div>         
 								</div>
 								<div class="form-group" ng-class="{ 'has-error' : chatForm.email.$invalid && !chatForm.email.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.email.$invalid) || (validemail)}">
 									<label for="email" class="control-label">Email <span class="required">*</span></label>
-									<input type="email" class="form-control ng-valid-email" id="email" placeholder="Email" name="email" ng-model="email" ng-required="true">
-									<p ng-show="chatForm.email.$invalid &amp;&amp; !chatForm.email.$pristine" class="help-block">Email  is required.</p>
+									<input type="text" class="form-control ng-valid-email" id="email" placeholder="Email" name="email" ng-model="email" ng-required="true" email-validation>
+									<p ng-show="chatForm.email.$invalid && !chatForm.email.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.email.$invalid)" class="help-block">Email  is required.</p>
 									<p ng-show="validemail" class="help-block">Please enter valid email .</p>
 								</div>
-								<div class="form-group" ng-class="{ 'has-error' : chatForm.subject.$invalid && !chatForm.subject.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.subject.$invalid}">
+								<div class="form-group" ng-class="{ 'has-error' : chatForm.subject.$invalid && !chatForm.subject.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.subject.$invalid)}">
 									<label for="subject" class="control-label">Subject for your question <span class="required">*</span></label>
 									<input type="text" class="form-control" id="subject" placeholder="Subject for question" name="subject" ng-model="subject" ng-required="true">
-									<p ng-show="chatForm.subject.$invalid &amp;&amp; !chatForm.subject.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.subject.$invalid" class="help-block">Subject is required.</p>
+									<p ng-show="chatForm.subject.$invalid && !chatForm.subject.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.subject.$invalid)" class="help-block">Subject is required.</p>
 								</div>
 								<div class="form-group" ng-class="{ 'has-error' : chatForm.description.$invalid && !chatForm.description.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.description.$invalid)}">
 									<label for="subject" class="control-label">Short description of your question <span class="required">*</span></label>
 									<textarea class="form-control" rows="3" placeholder="Type your question here" name="description" ng-model="description" ng-required="true"></textarea>
-									<p ng-show="chatForm.description.$invalid &amp;&amp; !chatForm.description.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.description.$invalid)" class="help-block">Description is required.</p>
+									<p ng-show="chatForm.description.$invalid && !chatForm.description.$pristine || (chatForm.$submitted && chatForm.$invalid && chatForm.description.$invalid)" class="help-block">Description is required.</p>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" class="btn btn-primary" ng-disabled="chatForm.$invalid">Submit Question</button>
+								<button type="submit" class="btn btn-primary">Submit Question</button>
 							</div>
 						</form>
 					</div>
@@ -440,13 +438,26 @@ title: Customer Chat Panel 1
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
 	<script>
 		var app = angular.module('iService', []);
-		app.controller('BodyController', function($scope,$timeout) {
-			$scope.showChat = function () {
-			
-			    $timeout(function() {
-					$scope.step4=true;  $scope.step3=false;  
-				}, 3000); 
-			};
+		app.controller('BodyController', function($scope) {
+			$scope.submit = function($event) {
+				$scope.submitted = true;
+				if (!$scope.chatForm.$valid) 
+				{
+					return false;
+				}
+			}
+
+           $scope.submitTopicSelection = function($event){
+			    $scope.submitted = true;
+				if (!$scope.topicSelectionForm.$valid) 
+				{
+					return false;
+				}else{
+					$scope.step1=false; $scope.step2=true;
+
+				}
+		   }
+
 		});
 		app.directive('emailValidation', function() {
 			var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;

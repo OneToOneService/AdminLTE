@@ -20,6 +20,7 @@ title:  My Message Inbox
       <section class="content-header">
         <h1>
             {{ page.title }}
+            <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'messageInboxPopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -1628,6 +1629,14 @@ title:  My Message Inbox
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
+
+  <script type="text/ng-template" id="messageInboxPopover.html">
+    <div>
+      The Message List shows all questions that have been assigned to you. When new messages are assigned to you they will automatically appear in this list. To assign a new message to yourself, click the Get Next button next to your name in the top right corner of the page. The number of available messages is displayed in a red badge on top of the button.
+      <br><br>
+      Select a message to compose a response in the panel below. The interaction will be displayed using the Action Mode for questions. Learn more about the Action Mode in the <a href="https://www.iservice.info/guides/users/understanding-interactions.html?anchor=actionmode"> user guide</a>.
+    </div>
+  </script>
 
   <script>
     $(document).ready(function ()

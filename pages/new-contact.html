@@ -22,6 +22,7 @@ title: New Contact
       <section class="content-header">
         <h1>
           {{ page.title }}
+          <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'newContactPopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -354,7 +355,12 @@ title: New Contact
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
-  
+  <script type="text/ng-template" id="newContactPopover.html">
+    <div>
+      This page only displays contact properties for your segments, and properties designated as shared.
+Segment Membership determines the agents that can view the contact. Make sure you set Segment Membership so the appropriate agents can view this contact.
+    </div>
+  </script>
   <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>

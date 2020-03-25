@@ -20,6 +20,7 @@ title:  My Messages To Approve
       <section class="content-header">
         <h1>
             {{ page.title }}
+            <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'messagesToBeApprovePopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -1100,6 +1101,13 @@ title:  My Messages To Approve
   <!-- ./wrapper -->
   {% include common-javascript.html %}
 
+  <script type="text/ng-template" id="messagesToBeApprovePopover.html">
+    <div>
+      Answers submitted by a QA CSR must be reviewed and approved before they're sent to the customer. Proposed answers assigned to you for approval are shown in this list. Click a row to review the answer that was proposed. When you approve the message it will be sent to the customer. When you reject an answer it will be returned to the QA CSR for correction. You can leave comments for the agent in the Private Comments box.
+      <br><br>
+      You can assign proposed answers to yourself by clicking the Get Next QA button in the top right corner of the page. The number of proposed answers that are available for you are shown in a red badge on the Get Next QA button.
+    </div>
+  </script>
   <script>
     $(document).ready(function ()
     {

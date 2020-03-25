@@ -37,6 +37,7 @@ title:  Search Interactions
 							<div class="box-header with-border">
 								<i class="fa fa-search"></i>
 								<h3 class="box-title">Search Parameters</h3>
+								<i class="fa fa-question-circle text-info help-icon"  uib-tooltip-template="'searchParamTooltip.html'" tooltip-placement="bottom"></i>
 							</div>
 							<div class="box-body">
 								<section class="search-parameters">
@@ -181,6 +182,7 @@ title:  Search Interactions
 									<div class="box-header with-border">
 										<i class="fa  fa-list-alt"></i>
 										<h3 class="box-title head-title-padding">Search Result</h3>
+										<i class="fa fa-question-circle text-info help-icon"  uib-tooltip-template="'searchResultTooltip.html'" tooltip-placement="bottom"></i>
 									</div>
 								<!-- /.box-header -->
 								<!-- form start -->
@@ -652,6 +654,18 @@ title:  Search Interactions
 			<!--Get thisa-->
 		</script>	
 		 <!--expanded row content end-->
+
+		 <script type="text/ng-template" id="searchResultTooltip.html">
+			<p>Use the "Column Visibility" button to add or remove columns to the search results table. Use the filter box to limit the search results to matching text. Text filtering is applied to all properties, not just those displayed.
+                <br> <br>
+				Expand a row to load the View Mode for the interaction.</p>
+		  </script>
+
+		  <script type="text/ng-template" id="searchParamTooltip.html">
+			<p>Compose your search query using up to 10 parameters separated by the "And/Or" operator to narrow or expand your search results. Leave the "Search For" field blank for a wildcard search. Use the date parameter to limit your results to the date the interaction was created (not the date resolved). Search results are limited to interactions within segments to which you've been granted access.
+			<br><br>
+				You can save your search parameters as a bookmark after you click submit. For more guidance searching for interactions, view the <a href="https://www.iservice.info/guides/users/searching-interactions.html"> User Guide</a>.</p>
+		  </script>  
         <!-- /.content-wrapper -->
         {% include common-footer.html %}
         <!-- Control Sidebar -->
