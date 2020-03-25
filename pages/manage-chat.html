@@ -20,6 +20,7 @@ title: Manage Chats
 			<section class="content-header">
 				<h1>
 						{{ page.title }}
+						<i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'manageChatPopover.html'" type="button"  popover-trigger="outsideClick"></i>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -432,7 +433,15 @@ title: Manage Chats
   </div>
     <!-- ./wrapper -->
   {% include common-javascript.html %}
-   
+    <script type="text/ng-template" id="manageChatPopover.html">
+		<div>
+			This page shows all waiting and active chats, and the number of chat agents available for each topic (hover over the number next to the topic to see the list of available chat agents). Select topics to see the chats in their queues, and expand a chat to view its contents.
+            <br><br>
+			The Chat List is updated automatically as changes occur. There is no need to reload the page to see new chats. Expand a chat to see the real-time display of the conversation between your agent and the customer. You can take actions on the chat (end, change topic, reassign, etc.) from inside the chat details panel.
+			<br><br>
+			Read the <a href="https://www.iservice.info/guides/users/manage-chats.html">user guide</a> to learn more about this page.
+		</div>
+    </script>
     <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
