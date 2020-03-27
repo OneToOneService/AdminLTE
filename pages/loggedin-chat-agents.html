@@ -15,7 +15,8 @@ title: Logged In Chat Agents
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-				    {{ page.title }}
+                    {{ page.title }}
+                    <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'loggedInChatPopover.html'" type="button"  popover-trigger="outsideClick"></i>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -117,6 +118,13 @@ title: Logged In Chat Agents
         <div class="control-sidebar-bg"></div>
     </div>
     {% include common-javascript.html %}
+    <script type="text/ng-template" id="loggedInChatPopover.html">
+		<div>
+			This page is designed to give you real-time insight into your chat agents. It only lists agents that have the chat.answer access right that are currently logged into iService. The availability column indicates whether they are currently available to chat for their skilled topics.
+             <br><br>
+            This page also shows the number of chats completed and in progress for each agent for today (since midnight). If you need to see agents available by topic, view the <a href="https://github.com/manage#/chats">Manage Chats</a> page and hover over the agent number next to the topic.
+		</div>
+	</script>
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 	

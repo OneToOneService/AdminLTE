@@ -19,7 +19,8 @@ title: Manage Open Quotes
             <!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+					{{ page.title }} 
+					<i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'manageOpenQuotePopover.html'" type="button"  popover-trigger="outsideClick"></i>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -1928,6 +1929,15 @@ title: Manage Open Quotes
 			</div>
 		</div>
 	</script>
+	<script type="text/ng-template" id="manageOpenQuotePopover.html">
+		<div>
+			When a quote is prepared and sent, a special tracking ticket is created for the open quote. This tracking ticket is used to streamline the follow up process and document the final resolution of the quote. Agents can see their own quote follow up ticket in their My Open Quotes page.
+            <br><br>
+			This page provides a summary of all tracking tickets created by every agent in your segment. A separate panel is shown for each follow-up topic. The panel is identical to the My Open Quotes page, except the assigned agent is shown. You can reassign these tickets and take all of the standard actions, such as adding notes or sending agent emails.
+		</div>
+	</script>
+
+	
   <script>
 	$(document).ready(function() {
     // DataTable
