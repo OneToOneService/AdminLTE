@@ -2827,7 +2827,7 @@ ul.update-list li::before {
 .select2-container-multi .select2-choices {
   border-bottom-color: transparent;
   border-radius: 0px !important;
-  background-color: white !important;
+  background-color: white;
   background-image: none !important;
   border: 1px solid #cccccc !important;
   height: 34px !important;
