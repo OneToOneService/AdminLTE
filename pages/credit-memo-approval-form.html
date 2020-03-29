@@ -17,6 +17,7 @@ title: Credit Memo Approval
       <section class="content-header">
         <h1>
           {{ page.title }}
+          <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'submitCreditMemoPopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -137,6 +138,26 @@ title: Credit Memo Approval
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
+  <script type="text/ng-template" id="submitCreditMemoPopover.html">
+		<div>
+      To accept the credit memo request, click the Approve Credit button. To reject the request, click the Reject Credit" button and enter a short explanation for your denial. Your explanation will be emailed to the person that requested the credit memo.
+      <br><br>
+      There are four conditions that can prevent the form from loading. Visit the user guide to learn more about these conditions and the workaround for each scenario.
+      <br><br>
+      <ul>
+        <li>
+        Ticket assigned to someone else</li>
+        <li>
+        Ticket not assigned to anyone</li>
+        <li>
+        Ticket already resolved</li>
+        <li>
+        Ticket isn't a credit memo </li>
+      <ul>
+
+		</div>
+  </script>
+
 	<script>
 		angular.module('iService').controller('myCtrl', function ($scope) {
 				$scope.toggleSegmentCollapsedState = function (segmentName)

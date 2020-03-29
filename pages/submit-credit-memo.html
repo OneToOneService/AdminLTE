@@ -17,6 +17,7 @@ title: Submit Credit Memo
       <section class="content-header">
         <h1>
           {{ page.title }}
+          <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'submitCreditMemoPopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -188,6 +189,19 @@ title: Submit Credit Memo
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
+
+  <script type="text/ng-template" id="submitCreditMemoPopover.html">
+		<div>
+      This form creates a credit memo request and sends email to the selected approver requesting approval. If the approver rejects your request you'll be notified by email. If the request is approved it will be forwarded to finance for processing.
+      <br><br>
+      There are two errors you might see on this page.
+      <br><br>
+      Specified email address is bounced - If the email address for the approver you select is marked as "Bounced" in iService, the system will not be able to send them the approval request. The approver's email address must be update before you can request their approval.
+      <br><br>
+      Order number already exists - You can only request one credit memo per order. If a request has already been submitted (even if rejected) you will see this notice. Contact your administrator for guidance on how to proceed.
+		</div>
+  </script>
+
 	<script>
 		angular.module('iService').controller('myCtrl', function ($scope) {
 				$scope.toggleSegmentCollapsedState = function (segmentName)
