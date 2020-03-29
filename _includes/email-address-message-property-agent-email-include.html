@@ -10,7 +10,7 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-btn-option" uib-dropdown-menu auto-close="outsideClick">
-          <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-send-leave-open"></i> Leave Open</li>
+          
           <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-expect-customer-reply"></i> Expect Customer Reply</li>
           <li><input type="checkbox" class="margin-r-5"><i class="fa icon-c icon-add-reference-number"></i> Add Reference Number</li>
           <li>
@@ -24,11 +24,13 @@
         </ul>
       </div>
     </div>
-    
+    <button type="button" class="btn btn-link">
+      Cancel
+    </button>
 </div>
 <div class="nav-tabs-custom form-horizontal">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#tab_1_{{ include.tab }}" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Email Addresses & Subject for Response</span></a></li>
+      <li class="active"><a href="#tab_1_{{ include.tab }}" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Agent Email Details</span></a></li>
       <li><a href="#tab_2_{{ include.tab }}" data-toggle="tab" uib-tooltip="There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
     </ul>
     <div class="tab-content">
