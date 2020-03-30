@@ -208,6 +208,7 @@ title: Customer Chat Panel 1
 		}
 		.btn-mute .fa-stack{width:auto; height:auto; line-height:18px;}
 		.btn-mute .fa-ban { color: #c51f1f; font-size: 12px; margin-left: -4px; margin-top: -17px; position: relative; top: -2px; }
+        span.required{color:#c51f1f}  
    </style>	   
 </head>
 <body ng-controller="BodyController">
@@ -278,13 +279,13 @@ title: Customer Chat Panel 1
 								<div class="row"> 
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
-											<label for="firstname" class="control-label">First Name</label>
+											<label for="firstname" class="control-label">First Name (optional)</label>
 											<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="firstname">
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
-											<label for="lastname" class="control-label">Last Name</label>
+											<label for="lastname" class="control-label">Last Name (optional)</label>
 											<input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" ng-model="lastname">
 										</div>
 									</div>         
