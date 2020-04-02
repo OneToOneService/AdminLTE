@@ -2829,9 +2829,15 @@ ul.update-list li::before {
   border-radius: 0px !important;
   background-color: white;
   background-image: none !important;
-  border: 1px solid #cccccc !important;
+  border: 1px solid #d2d6de !important;
   height: 34px !important;
   line-height: 34px !important;
+}
+.select2-dropdown-open .select2-choice {
+  background: white !important;
+}
+.select2-container-active .select2-choice {
+  box-shadow: none !important;
 }
 .select2-container-multi .select2-choices .select2-search-field input {
   height: 28px;

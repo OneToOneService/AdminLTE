@@ -22,6 +22,7 @@ title: Quick Agent Email
       <section class="content-header">
         <h1>
           {{ page.title }}
+          <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'quickAgentEmailPopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -185,6 +186,16 @@ title: Quick Agent Email
     </div>
     <!-- /.content-wrapper -->
     {% include common-footer.html %}
+
+    <script type="text/ng-template" id="quickAgentEmailPopover.html">
+      <div>
+        The topic menu displays the full topic tree for all segments that have been configured for this form. Your configuration might not include all of your topics. The from address that corresponds to each topic has been set by your administrator and can't be changed from this page.
+        <br><br>
+        If you need to send the message to more than one person, put the additional recipients in the cc line. You can use the "Add Group to CC Line" link to paste a preconfigured list of addresses into the cc line. Select a group in that drop down menu, or search for a group using the filter box.
+        <br><br>
+        Learn more about the Quick Agent Email page in the <a href="https://www.iservice.info/guides/users/quick-agent-email.html">user guide</a>.
+      </div>
+    </script>
     <!-- Control Sidebar -->
     {% include right-panel-setting-menu.html %}
 	<!-- /.control-sidebar -->
