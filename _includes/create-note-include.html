@@ -1,70 +1,254 @@
 <div class="row" ng-show="createnote{{ include.num }}">
-  <!-- form start -->
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="form-group">
       <button class="btn btn-primary" title="Save Private Note">
-        <i class="fa fa-lock"></i>
-        Private Note
+          <i class="fa fa-lock"></i>
+          Private Note
       </button>
       <button class="btn btn-primary" title="Save Public Note">
-        <i class="fa fa-unlock"></i>
-        Public Note
+          <i class="fa fa-unlock"></i>
+          Public Note
       </button>
-      <a class="btn btn-link" ng-click="cancel{{ include.num }}('createnote{{ include.num }}')">Cancel</a><!-- end ngIf: !inline -->
+      <button class="btn btn-link ng-scope" ng-click="cancel{{ include.num }}('createnote{{ include.num }}')">Cancel</button><!-- end ngIf: !inline -->
     </div>
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Topic</label>
-        <div class="col-sm-10">
-          <select class="form-control">
-            <option>Select Topic 1</option>
-            <option>Select Topic 2</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Customer Email/Login</label>
-        <div class="col-sm-10">
-          <input class="form-control" type="text">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Subject</label>
-        <div class="col-sm-10">
-          <input class="form-control" type="text">
-        </div>
-      </div>
-
-      <div class="row">
-          <div class="col-md-12">
-              <div class="drop-box">Drop files here or click to upload
-              </div>
-              <p> (Maximum 10 MB upload at one time.)</p>
-              <div class="imageuploadify">
-                      <div class="imageuploadify-details">
-                          <button class="icon-button button-delete" type="button">
-                              <i class="fa fa-times-circle"></i>
-                          </button>
-                          <span>Invoice 1456549.pdf(20 KB)</span>
-                      </div>
-                      <div class="imageuploadify-details">
-                          <button class="icon-button button-delete" type="button">
-                              <i class="fa fa-times-circle"></i>
-                          </button>
-                          <span>order_details_45875034.pdf(30 KB)</span>
-                      </div>
-                      <div class="imageuploadify-details">
-                          <button class="icon-button button-delete" type="button">
-                              <i class="fa fa-times-circle"></i>
-                          </button>
-                          <span>product_image-full-size-58476098.jpg(120 KB)</span>
-                      </div>   
+    <div class="nav-tabs-custom form-horizontal">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab_1_cn{{ include.num }}{{ include.tab }}" data-toggle="tab"><i class="fa fa-fw fa-envelope-o"></i> <span>Note Details</span></a></li>
+          <li><a href="#tab_2_cn{{ include.num }}{{ include.tab }}" data-toggle="tab" uib-tooltip="There are property values set for this interaction." tooltip-placement="bottom"><i class="fa fa-fw fa-exchange"></i> <span>Interaction Properties</span><span class="new-inside"></span></a> </li>
+        </ul>
+        <div class="tab-content">
+          
+          <!-- /.tab-pane -->
+          <div class="tab-pane active" id="tab_1_cn{{ include.num }}{{ include.tab }}">
+            <!--Standard Response start-->
+            <div class="row" >
+              <div class="col-md-8">
+                <div class="form-group" ng-controller="TopicCtrl as ctrl">
+                  <label class="col-sm-2 control-label text-left">Topic</label>
+                  <div class="col-sm-10">
+                    <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic" ng-disabled>
+                      <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                      <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                        <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                      </ui-select-choices>
+                    </ui-select>
                   </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label text-left">Subject</label>
+                  <div class="col-sm-10">
+                  <input class="form-control" type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <iservice-files-upload ng-init="uploads = []" files="uploads"></iservice-files-upload>
+              </div>
+              
+            </div>
+            <!--Standard Response End-->
+            
           </div>
-      </div> 
-      <div class="form-group text-editor-container">
-        <div class="col-sm-12">
-          <textarea id="editor4" class="form-control" rows="5" ckeditor></textarea>
+          <!-- /.tab-pane -->
+          <div class="tab-pane" id="tab_2_cn{{ include.num }}{{ include.tab }}">
+            <div class="row form-horizontal">
+              <div class="col-md-4">
+                <h4>Case Properties</h4>
+                <div class="form-group">
+                  <label class="col-md-12 control-label text-left required">Change Request Type <span class="required">(Required)</span></label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control pull-right">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label text-left">Delivery Date</label>
+                  <div class="col-sm-12">
+                    <div class="input-group date">
+                      <div class="input-group-addon" ng-click="isDatepickerOpenDelivery = !isDatepickerOpenDelivery">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="text" class="form-control pull-right" ng-focus="isDatepickerOpenDelivery = !isDatepickerOpenDelivery" uib-datepicker-popup="dd/MM/yyyy" ng-model="date" is-open="isDatepickerOpenDelivery" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label text-left">Detail</label>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h4>Question Properties</h4>
+                <div class="form-group">
+                  <label class="col-md-12 control-label control-label text-left">Quantity</label>
+                  <div class="col-sm-12">
+                    <input type="number" class="form-control pull-right">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label control-label text-left">Team</label>
+                  <div class="col-sm-12">
+                    <div class="simple-label multiple">
+                      <div class="float-btn-group">
+                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                        <input type="text" class="form-control">
+                      </div>
+                      <div class="float-btn-group">
+                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                        <input type="text" class="form-control">
+                      </div>
+                      <div class="float-btn-group">
+                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                        <input type="text" class="form-control">
+                      </div>
+                      <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label control-label text-left">Team (with description)</label>
+                  <div class="col-sm-12">
+                    <div class="simple-label multiple">
+                      <div class="float-btn-group">
+                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                        <div class="input-with-desc">
+                              <select class="form-control group-property-1">
+                              <option>Fax</option>
+                              <option>Home</option>
+                              <option>Mobile</option>
+                          </select>  
+                          <input type="text" class="form-control group-property-2">
+                        </div>  
+                      </div>
+                      <div class="float-btn-group">
+                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                        <div class="input-with-desc">
+                          <select class="form-control group-property-1">
+                            <option>Fax</option>
+                            <option>Home</option>
+                            <option>Mobile</option>
+                          </select>  
+                          <input type="text" class="form-control group-property-2">
+                        </div> 
+                      </div>
+                      <div class="float-btn-group">
+                        <button class="margin-5 icon-button button-delete" type="button"><i class="fa fa-times-circle"></i> </button>
+                        <div class="input-with-desc">
+                          <select class="form-control group-property-1">
+                            <option>Fax</option>
+                            <option>Home</option>
+                            <option>Mobile</option>
+                          </select>  
+                          <input type="text" class="form-control group-property-2">
+                        </div> 
+                      </div>
+                      <button class="margin-5 icon-button button-add-row" type="button"><i class="fa fa-plus-circle"></i> </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h4>Answer Properties</h4>
+                <div class="form-group">
+                  <label class="col-md-12 control-label text-left">Priority</label>
+                  <div class="col-sm-12">
+                    <select class="form-control">
+                      <option>High</option>
+                      <option>Low</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label text-left">isOpen</label>
+                  <div class="col-sm-12">
+                    <select class="form-control">
+                      <option>True</option>
+                      <option>False</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group bg-group">
+                    <label class="col-md-12 control-label text-left">Interaction Property Based Skills</label>
+                    <div class="col-md-12">
+                      <div class="form-group group-bg group-input detail-g-borderbottom"> 
+                        <label class="col-md-12 control-label text-left group-input-label">Interaction Property</label>
+                        <div class="col-md-12">
+                          <select class="form-control group-input-item" ng-change="setFocus()" ng-model="myValue" ng-init="myValue = 21;">
+                            <option value="21">Answer Property  (QA) (Answer)</option>
+                            <option value="2">Authorization Type  (QA) (Question)</option>
+                            <option value="42">Carrier Adjument Amount (AR)  (1to1Service) (Case)</option>
+                            <option value="48">Case Property</option>
+                            <option value="7">Change Designation  (QA) (Question)</option>
+                            <option value="6">Change Priority  (QA) (Question)</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group group-bg group-input detail-g-borderbottom detail-g-bordertop">
+                        <label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value</label>
+                        <div class="col-md-12">														
+                          <input type="text" class="form-control group-input-item" id="propertyValue">
+                        </div>
+                      </div>
+                      <div class="form-group group-bg group-input detail-g-bordertop">
+                        <label class="col-md-12 control-label text-left  group-input-label">Interaction Property Value Type</label>
+                        <div class="col-md-12">														
+                          <input type="text" class="form-control group-input-item" id="propertyValue2">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label text-left">Price</label>
+                  <div class="col-sm-12">
+                      <input type="number" step="any" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <!-- /.tab-pane -->
+          </div>
+        </div>
+        <!-- /.tab-content -->
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#draftbody_cn{{ include.num }}{{ include.page }}" data-toggle="tab" aria-expanded="true">Draft Body</a></li>
+            <li><a href="#plainhtml_cn{{ include.num }}{{ include.page }}" data-toggle="tab" aria-expanded="false">Preview<br></a></li>
+            
+            <div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+              <a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
+              {% include variables-and-stock-responses.html %}
+            </div>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="draftbody_cn{{ include.num }}">
+              <div class="form-group text-editor-container">
+                <textarea class="form-control" rows="10" placeholder="" id="editorgetthis" ckeditor="options"><p>Hello,</p>
+    
+                <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+                                
+                <p>Regards,</p>
+                                
+                <p>John Doe</p>
+                            </textarea>
+              </div>
+            </div>
+            <div class="tab-pane" id="plainhtml_cn{{ include.num }}">
+              <p>Hello,</p>
+    
+              <p>I&#39;m looking for s small TV for our bedroom, but don&#39;t want to spend more than $100. Do you have any option for me to consider?</p>
+    
+              <p>Regards,</p>
+    
+              <p>John Doe</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-sm-12">
@@ -74,111 +258,12 @@
             Private Comments
           </div>
           <div class="panel-body">
-            <textarea class="full-width full-height ng-pristine ng-valid ng-empty ng-touched" ng-model="operationDetails.note"></textarea>
+            <textarea class="full-width full-height"></textarea>
           </div>
         </div>
       </div>
-    </form>
-  </div>
-  <div class="col-md-4">
-    <div class="box box-warning stock-responses ng-scope">
-      <div class="box-header with-border">
-        <h3 class="box-title">
-          <i class="fa fa-fw fa-envelope"></i>
-          Message Properties
-        </h3>
-      </div>
-      <div class="box-body">
-        <div class="form-group ng-binding">
-          --
-        </div>
-      </div>
-    </div>
-    <div class="nav-tabs-custom">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab_5" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-        <li><a href="#tab_6" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="tab_5">
-          <div class="row" id="variable-box3">
-            <div class="col-xs-12 variable-responses custom-scroll">
-              <ul class="list-unstyled segment-variable-list">
-                <li class="section-label">
-                  Contact
-                  <ul class="segment-variables">
-                    <li class="section-var-link">Name</li>
-                    <li class="segment-lable">
-                      Global
-                      <ul>
-                        <li class="section-var-link">Address1</li>
-                        <li class="section-var-link">Address2</li>
-                        <li class="section-var-link">City</li>
-                        <li class="section-var-link">Country</li>
-                        <li class="section-var-link">Company</li>
-                      </ul>
-                    </li>
-                    <li class="segment-lable">
-                      JC Segment
-                      <ul>
-                        <li class="section-var-link">Contact View Only Property</li>
-                        <li class="section-var-link">Contact Viewable and Editable Property</li>
-                        <li class="section-var-link">Multi value No Descr</li>
-                        <li class="section-var-link">Shared Property from JC - cust can't see</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="list-unstyled segment-variable-list">
-                <li class="section-label">
-                  Answer
-                  <ul class="segment-variables">
-                    <li class="section-var-link">Email</li>
-                    <li class="section-var-link">Reference Number</li>
-                    <li class="section-var-link">Original Date</li>
-                    <li class="section-var-link">Original Time</li>
-                    <li class="section-var-link">Subject</li>
-                    <li class="section-var-link">Original Body</li>
-                    <li class="section-var-link">Quoted Question</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- /.tab-pane -->
-        <div class="tab-pane" id="tab_6">
-          <div class="row" id="stock-responses3">
-            <div class="col-xs-12 stock-responses custom-scroll">
-              <div>
-                <input type="text" class="form-control" placeholder="Keyword Search">
-              </div>
-              <ul class="list-unstyled segment-variable-list">
-                <li class="section-label">
-                  Segment Responses
-                  <ul class="segment-variables">
-                    <li class="section-var-link">Chat Closing</li>
-                    <li class="section-var-link">Chat Opening</li>
-                    <li class="section-var-link">Chat Wait</li>
-                    <li class="section-var-link">iService Website</li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="list-unstyled segment-variable-list">
-                <li class="section-label">
-                  Agent Response
-                  <ul class="segment-variables">
-                    <li class="section-var-link">Test</li>
-
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /.tab-content -->
-    </div>
-  </div>
-</div> 
+    </div>  
+    
+    
+  </div>  
+</div>  

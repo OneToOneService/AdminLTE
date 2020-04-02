@@ -39,161 +39,11 @@ title: Create Note
 								<!-- /.box-header -->
 								<!-- form start -->
 								    <div class="box-body" ng-controller="myCtrl">
-                                        <div class="col-md-8 form-horizontal"> 
-                                            <div class="form-group">
-                                                <button class="btn btn-primary" title="Save Private Note">
-                                                    <i class="fa fa-lock"></i>
-                                                    Private Note
-                                                </button>
-                                                <button class="btn btn-primary" title="Save Public Note">
-                                                    <i class="fa fa-unlock"></i>
-                                                    Public Note
-                                                </button>
-                                                <a class="btn btn-link ng-scope" href="#/contact/1/summary">Cancel</a><!-- end ngIf: !inline -->
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Topic</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control">
-                                                        <option>Select Topic 1</option>
-                                                        <option>Select Topic 2</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Customer Email/Login</label>
-                                                <div class="col-sm-10">
-                                                     <input class="form-control" type="text">
-                                                </div>
-                                            </div>
-                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Subject</label>
-                                                <div class="col-sm-10">
-                                                <input class="form-control" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="drop-box">Drop files here or click to upload
-                                                    </div>
-                                                    <p> (Maximum 10 MB upload at one time.)</p>
-                                                </div>
-                                            </div>
-                                            <div class="form-group text-editor-container">
-                                            <div class="col-sm-12">
-                                                <textarea class="form-control" rows="5" ckeditor name="editor1"></textarea>
-                                            </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="panel panel-default form-group">
-                                                    <div class="panel-heading">
-                                                        <i class="fa fa-fw fa-pencil-square-o"></i>
-                                                        Private Comments
-                                                    </div>
-                                                    <div class="panel-body">
-                                                        <textarea class="full-width full-height"></textarea>
-                                                    </div>
-                                                </div>	
-                                            </div>
-                                        </div> 
-                                        <div class="col-md-4">
-                                            <div class="box box-warning stock-responses ng-scope">
-                                                <div class="box-header with-border">
-                                                    <h3 class="box-title">
-                                                        <i class="fa fa-fw fa-envelope"></i>
-                                                        Message Properties
-                                                    </h3>
-                                                </div>
-                                                <div class="box-body">
-                                                    <div class="form-group ng-binding">
-                                                        --
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="nav-tabs-custom">
-                                                <ul class="nav nav-tabs">
-                                                    <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-fw fa-cubes"></i><span>Variables</span></a></li>
-                                                    <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-list"></i><span>Stock Responses</span></a></li>
-                                                </ul>
-                                                <div class="tab-content">
-                                                    <div class="tab-pane active" id="tab_1">
-                                                        <div class="row" id="variable-box">
-                                                            <div class="col-xs-12 variable-responses">
-																<div>
-                                                                    <input type="text" class="form-control" placeholder="Filter Variables">
-                                                                </div>
-                                                                <ul class="list-unstyled segment-variable-list">
-                                                                    <li class="section-label">Contact
-                                                                        <ul class="segment-variables">
-                                                                            <li class="section-var-link">Name</li>
-                                                                            <li class="segment-lable">Global
-                                                                                <ul>
-                                                                                <li class="section-var-link">Address1</li>
-                                                                                <li class="section-var-link">Address2</li>
-                                                                                <li class="section-var-link">City</li>
-                                                                                <li class="section-var-link">Country</li>
-                                                                                <li class="section-var-link">Company</li>
-                                                                                </ul>
-                                                                            </li>
-                                                                            <li class="segment-lable">JC Segment
-                                                                                <ul>
-                                                                                <li class="section-var-link">Contact View Only Property</li>
-                                                                                <li class="section-var-link">Contact Viewable and Editable Property</li>
-                                                                                <li class="section-var-link">Multi value No Descr</li>
-                                                                                <li class="section-var-link">Shared Property from JC - cust can't see</li>
-                                                                                </ul>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </li>
-                                                                </ul>
-                                                                <ul class="list-unstyled segment-variable-list">
-                                                                    <li class="section-label">Answer
-                                                                    <ul class="segment-variables">
-                                                                        <li class="section-var-link">Email</li>
-                                                                        <li class="section-var-link">Reference Number</li>
-                                                                        <li class="section-var-link">Original Date</li>
-                                                                        <li class="section-var-link">Original Time</li>
-                                                                        <li class="section-var-link">Subject</li>
-                                                                        <li class="section-var-link">Original Body</li>
-                                                                        <li class="section-var-link">Quoted Question</li>
-                                                                    </ul>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.tab-pane -->
-                                                    <div class="tab-pane" id="tab_2">
-                                                        <div class="row" id="stock-responses">
-                                                            <div class="col-xs-12 stock-responses">
-                                                                <div>
-                                                                    <input type="text" class="form-control" placeholder="Filter Stock Responses">
-                                                                </div>
-                                                                <ul class="list-unstyled segment-variable-list">
-                                                                    <li class="section-label">Segment Responses
-                                                                    <ul class="segment-variables">
-                                                                        <li class="section-var-link">Chat Closing</li>
-                                                                        <li class="section-var-link">Chat Opening</li>
-                                                                        <li class="section-var-link">Chat Wait</li>
-                                                                        <li class="section-var-link">iService Website</li>
-                                                                    </ul>
-                                                                    </li>
-                                                                </ul>
-                                                                <ul class="list-unstyled segment-variable-list">
-                                                                    <li class="section-label">Agent Response
-                                                                    <ul class="segment-variables">
-                                                                        <li class="section-var-link">Test</li>
-                                                                        
-                                                                    </ul>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                 </div>
-                                                <!-- /.tab-content -->
-                                             </div>
-                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"> 
+                                                {% include email-address-message-property-create-note-include.html includetype='cn'  %}  
+                                             </div> 
+                                        </div>    
 								    </div>
 							    </div> 
 						    </div>
@@ -235,6 +85,36 @@ title: Create Note
         {
 
         });
+        angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+        vm.topicselected = {selected : "e-shop -- All Topics"};
+            vm.topic = [
+            {name: 'Agent Notification',segment:"System Generated Responses"},
+            {name: 'Alert',segment:"System Generated Responses"},
+            {name: 'Contact Creation', segment:"System Generated Responses"},
+            {name: 'External Agent Notification',segment:"System Generated Responses"},
+            {name: 'Find Answer Article Update',segment:"System Generated Responses"},
+            {name: 'Mass Mailing', segment:"System Generated Responses"},
+            {name: 'Message Acknowledgment',segment:"System Generated Responses"},
+            {name: 'Notification',segment:"System Generated Responses"},
+            {name: 'Password Reset', segment:"System Generated Responses"},
+            {name: 'Private Email',segment:"System Generated Responses"},
+            {name: 'Secure Response',segment:"System Generated Responses"},
+            {name: 'Agent Ticket', segment:"Questions"},
+            {name: 'Chat', segment:"Questions"},
+            {name: 'Contact Email', segment:"Questions"},
+            {name: 'Customer Ticket', segment:"Questions"},
+            {name: 'Agent Email', segment:"Answers (Message Sent)"},
+            {name: 'Agent Response', segment:"Answers (Message Sent)"},
+            {name: 'Secure Email', segment:"Answers (Message Sent)"},
+            {name: 'Find Answer Article', segment:"Answers (No Message Sent)"},
+            {name: 'Public Note', segment:"Answers (No Message Sent)"},
+            {name: 'Private Note', segment:"Answers (No Message Sent)"},
+            {name: 'Resolve Note', segment:"Answers (No Message Sent)"},
+            {name: 'Unsent Response', segment:"Answers (No Message Sent)"},
+        ];
+		
+	});
 	</script>
 </body>
 </html>
