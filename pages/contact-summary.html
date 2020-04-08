@@ -67,8 +67,8 @@ title: Contact
               </li>
             </ul>
             <div class="tab-content box-bg-color">
-              <div class="tab-pane contact-summary active" id="tab_1">
-                <div class="row">
+              <div class="tab-pane contact-summary active" id="tab_1" ng-controller="quickAction">
+                <div class="row" ng-hide="summarypanel">
                   <div class="col-md-5">
                     <div class="box box-info">
                       <div class="box-header with-border">
@@ -115,19 +115,19 @@ title: Contact
                       <div class="box-body">
                         <nav>
                           <div class="col-xs-4 text-center">
-                            <a>
+                            <a ng-click="showpanel('agentemail')">
                               <i class="fa fa-envelope bg-blue"></i>
                               Agent Email
                             </a>
                           </div>
                           <div class="col-xs-4 text-center">
-                            <a>
+                            <a ng-click="showpanel('createnote')">
                               <i class="fa fa-file-text-o bg-teal-active"></i>
                               Note
                             </a>
                           </div>
                           <div class="col-xs-4 text-center">
-                            <a>
+                            <a ng-click="showpanel('createticket')">
                               <i class="fa fa-ticket bg-orange"></i>
                               Ticket
                             </a>
@@ -217,6 +217,24 @@ title: Contact
                     </div>
                   </div>
                 </div>
+
+                <div class="row" ng-show="agentemail">  
+                  <div class="col-md-12"> 
+                     {% include email-address-message-property-agent-email-include.html action='summary' %}  
+                  </div> 
+                </div> 
+
+                <div class="row" ng-show="createticket">  
+                  <div class="col-md-12"> 
+                     {% include email-address-message-property-create-ticket-include.html action='summary' %}  
+                  </div> 
+                </div> 
+
+                <div class="row" ng-show="createnote">  
+                  <div class="col-md-12"> 
+                     {% include email-address-message-property-create-note-include.html action='summary' %}  
+                  </div> 
+                </div> 
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane contact-detail" id="tab_2" ng-controller="myCtrlDetail">
@@ -1768,6 +1786,22 @@ title: Contact
             $scope[segmentName] = !$scope[segmentName];
           };
       });
+
+      app.controller('quickAction', function ($scope) {
+        $scope.showpanel = function(action) {
+          $scope.summarypanel = true;
+          $scope.agentemail = false;
+          $scope.createticket = false;
+          $scope.createnote = false;
+          $scope[action] = true;
+        };
+        $scope.cancelsummary = function() {
+          $scope.summarypanel = false;
+          $scope.agentemail = false;
+          $scope.createticket = false;
+          $scope.createnote = false;
+        };
+      });
       
 			app.controller('myCtrl', function($scope,$log,$compile, DTOptionsBuilder, DTColumnDefBuilder) {
       $scope.isCollapsed = true;
@@ -1882,6 +1916,8 @@ title: Contact
 			$scope.builtinForm = function(){
 				$scope.customform = false;
 			}
+
+     
 
 		});	 
     angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {

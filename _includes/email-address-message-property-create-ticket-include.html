@@ -3,7 +3,14 @@
   <i class="fa fa-ticket"></i>
    Create Ticket
   </button>
+  {% if include.action %}
+  <button type="button" class="btn btn-link" ng-click="cancelsummary()">
+    Cancel
+  </button>
+  {% else %}
   <button class="btn btn-link ng-scope" ng-click="cancel{{ include.page }}('createticket{{ include.page }}')">Cancel</button>
+  {% endif %}
+  
 </div>
 <div class="nav-tabs-custom form-horizontal">
     <ul class="nav nav-tabs">

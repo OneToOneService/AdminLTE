@@ -24,9 +24,17 @@
         </ul>
       </div>
     </div>
-    <button type="button" class="btn btn-link" ng-click="cancel{{ include.page }}('agentemail{{ include.page }}')">
-      Cancel
-    </button>
+    {% if include.action %}
+      <button type="button" class="btn btn-link" ng-click="cancelsummary()">
+        Cancel
+      </button>
+    {% else %}
+      <button type="button" class="btn btn-link" ng-click="cancel{{ include.page }}('agentemail{{ include.page }}')">
+        Cancel
+      </button>
+    {% endif %}
+    
+    
 </div>
 <div class="nav-tabs-custom form-horizontal">
     <ul class="nav nav-tabs">
