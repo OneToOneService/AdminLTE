@@ -679,6 +679,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .contact-summary nav a {
   text-align: center;
+  cursor: pointer;
 }
 .contact-summary nav a i {
   width: 56px;
@@ -2827,11 +2828,17 @@ ul.update-list li::before {
 .select2-container-multi .select2-choices {
   border-bottom-color: transparent;
   border-radius: 0px !important;
-  background-color: white !important;
+  background-color: white;
   background-image: none !important;
-  border: 1px solid #cccccc !important;
+  border: 1px solid #d2d6de !important;
   height: 34px !important;
   line-height: 34px !important;
+}
+.select2-dropdown-open .select2-choice {
+  background: white !important;
+}
+.select2-container-active .select2-choice {
+  box-shadow: none !important;
 }
 .select2-container-multi .select2-choices .select2-search-field input {
   height: 28px;
@@ -3744,7 +3751,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder {
   display: inline-block;
-  background-color: #fff;
+  background-color: white;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
   vertical-align: top;
   width: 100%;
@@ -3774,7 +3781,7 @@ span.glyphicon-sort-by-attributes-alt {
   margin-bottom: 0;
 }
 .box-placeholder .text.link {
-  background-color: blue;
+  background-color: #3c8dbc;
   opacity: .2;
 }
 .box-placeholder .text.line {
@@ -3786,7 +3793,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder .text.title {
   width: 100%;
-  background-color: blue;
+  background-color: #3c8dbc;
   margin-bottom: 10px;
 }
 .box-placeholder h4.text {
@@ -3821,6 +3828,29 @@ span.glyphicon-sort-by-attributes-alt {
   100% {
     opacity: .4;
   }
+}
+.dis-flex {
+  display: flex;
+}
+/* Manage message date time column color codes*/
+tr.color-normal td.column-date {
+  background-color: #e0e0e0;
+}
+tr.color-warning td.column-date {
+  background-color: #F7DC6F;
+}
+tr.color-urgent td.column-date {
+  background-color: #F1948A;
+}
+.google-btn {
+  background: #4285f4;
+  width: 100%;
+  text-align: left;
+}
+.microsoft-btn {
+  background: #2f2f2f;
+  width: 100%;
+  text-align: left;
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 991px) {
