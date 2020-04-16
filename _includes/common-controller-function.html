@@ -67,7 +67,7 @@ app.controller('ChangeTopicCtrl', function ($scope, $http, $timeout, $interval) 
 
   app.controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
 		var vm = this;
-        vm.topicselected = {selected : "e-shop -- All Topics"};
+        vm.topicselected = {selected : "Select or search a topic in the list"};
             vm.topic = [
             {name: 'e-shop -- All Topics',topiclevel:0, disabled: '', segment:"Segment"},
             {name: '_Feedback',topiclevel:1, disabled: 'false', segment:"Segment"},
@@ -89,5 +89,21 @@ app.controller('ChangeTopicCtrl', function ($scope, $http, $timeout, $interval) 
             {name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
         ];
 		
+
+      //  var vm = this;
+			vm.segmentObj = {
+				'1' : { name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
+				'2' : { name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },
+				'3' : { name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
+				'4' : { name: 'Human Resources',email:'human.resources@1to1service.com', segmentname: 'Human Resources' },
+			};
+        vm.segmentselected = {selected : "Select or search for a mailbox to use as the From address"};
+			vm.segment = [
+				{ name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
+				{ name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },
+				{ name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
+				{ name: 'Human Resources',email:'human.resources@1to1service.com',  segmentname: 'Human Resource' },
+			];
 	});
+   
  </script> 
