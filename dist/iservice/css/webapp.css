@@ -3851,7 +3851,8 @@ tr.color-urgent td.column-date {
   width: 100%;
   text-align: left;
 }
-.microsoft-auth {
+.microsoft-auth-btn {
+  background: #2672ec;
   width: 100%;
   text-align: left;
 }
