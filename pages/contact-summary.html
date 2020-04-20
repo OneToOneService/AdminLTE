@@ -762,7 +762,8 @@ title: Contact
                           <!-- /.box-header -->
                           <!-- form start -->
                             <div class="box-body table-responsive">
-                              <table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+                          
+                              <table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs" >
                                 <thead>
                                   <tr>
                                     <th class="no-sort" name="name"></th>
@@ -790,7 +791,38 @@ title: Contact
                                   </tr>
                                 </thead>  
                                 <tbody>
-                                  <tr id="row1">
+                                  <tr ng-show="loader">
+                                    <td colspan="8">
+                                      <!--Loader Place holder-->
+                                      <div class="box-placeholder" >
+                                        <div class="p-4 mbottom-15">
+                                          <span class="category text link"></span>
+                                          <div class="text line"></div>
+                                          <div class="text"></div>
+                                        </div>
+                                        <div class="excerpt p-4 mbottom-15">
+                                          <div class="text line"></div>
+                                          <div class="text line"></div>
+                                          <div class="text"></div>
+                                        </div>
+                                        <div class="excerpt p-4 mbottom-15">
+                                          <div class="text title line"></div>
+                                          <div class="text title line"></div>
+                                          <div class="text"></div>
+                                        </div>
+                                        <div class="excerpt p-4 mbottom-15">
+                                          <div class="text line"></div>
+                                          <div class="text line"></div>
+                                          <div class="text title"></div>
+                                        </div>
+                                        <p class="loading-text">
+                                          Gathering Data...
+                                        </p>	
+                                      </div>
+                                       <!--Loader Place holder-->
+                                    </td>  
+                                </tr>  
+                                  <tr id="row1" ng-hide="loader" ng-cloak  ng-init="loader = true;">
                                     <td name="name">
                                       <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
                                           <i class="fa fa-plus-circle" ng-show="!row1"></i>
@@ -823,7 +855,7 @@ title: Contact
                                     </td>
                                     
                                   </tr>
-                                  <tr id="row2">
+                                  <tr id="row2" ng-hide="loader" ng-cloak  ng-init="loader = true;">
                                     <td name="name">
                                       <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
                                           <i class="fa fa-plus-circle" ng-show="!row2"></i>
@@ -856,7 +888,7 @@ title: Contact
                                       2016-07-18 9:36:26 AM
                                     </td>
                                   </tr>
-                                  <tr id="row3">
+                                  <tr id="row3" ng-hide="loader" ng-cloak  ng-init="loader = true;">
                                     <td name="name">
                                       <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
                                           <i class="fa fa-plus-circle" ng-show="!row3"></i>
@@ -889,7 +921,7 @@ title: Contact
                                       2016-07-18 9:36:26 AM
                                     </td>
                                   </tr>
-                                  <tr id="row4">
+                                  <tr id="row4" ng-hide="loader" ng-cloak  ng-init="loader = true;">
                                     <td name="name">
                                       <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
                                           <i class="fa fa-plus-circle" ng-show="!row4"></i>
@@ -1803,7 +1835,15 @@ title: Contact
         };
       });
       
-			app.controller('myCtrl', function($scope,$log,$compile, DTOptionsBuilder, DTColumnDefBuilder) {
+			app.controller('myCtrl', function($scope,$log,$timeout,$compile, DTOptionsBuilder, DTColumnDefBuilder) {
+       //loader
+      $scope.loaderTimeout = function() {
+				$scope.loader = false;
+			}
+
+      $timeout( function(){ $scope.loaderTimeout(); }, 5000);
+      //loader    
+    
       $scope.isCollapsed = true;
 			$scope.toggleRow = function (segmentName)
 			{ 
@@ -1836,7 +1876,7 @@ title: Contact
 					removeFunction(segmentName);
 				}
 			};
-
+     
       $scope.dtContactHistoryOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
 					search: 'Filter History'
