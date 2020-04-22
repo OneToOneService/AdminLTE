@@ -761,202 +761,237 @@ title: Contact
                             </div>
                           <!-- /.box-header -->
                           <!-- form start -->
-                            <div class="box-body table-responsive">
-                          
-                              <table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs" >
-                                <thead>
-                                  <tr>
-                                    <th class="no-sort" name="name"></th>
-                                    <th class="text-capitalize">
-                                      Subject
-                                    </th>
-                                    <th class="text-capitalize">
-                                      Topic
-                                    </th>
-                                    <th class="text-capitalize">
-                                      Status
-                                    </th>
-                                    <th class="text-capitalize">
-                                      Type
-                                    </th>
-                                    <th class="text-capitalize">
-                                      Username
-                                    </th>
-                                    <th class="text-capitalize">
-                                      Properties
-                                    </th>
-                                    <th class="text-capitalize">
-                                      Date
-                                    </th>
-                                  </tr>
-                                </thead>  
-                                <tbody>
-                                  <tr ng-show="loader">
-                                    <td colspan="8">
-                                      <!--Loader Place holder-->
-                                      <div class="box-placeholder" >
-                                        <div class="p-4 mbottom-15">
-                                          <span class="category text link"></span>
-                                          <div class="text line"></div>
-                                          <div class="text"></div>
+                            <div class="box-body">
+                              <div ng-show="loader" ng-cloak  ng-init="loader = true;">
+                                <table class="table table-striped table-hover lazyloader">
+                                  <thead>
+                                    <tr>
+                                      <th class="no-sort" name="name"></th>
+                                      <th class="text-capitalize">
+                                        Subject
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Topic
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Status
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Type
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Username
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Properties
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Date
+                                      </th>
+                                    </tr>
+                                  </thead>  
+                                  <tbody>
+                                    <tr class="lazyloader" ng-show="loader">
+                                      <td colspan="8">
+                                        <!--Loader Place holder-->
+                                        <div class="box-placeholder" >
+                                          <div class="p-4 mbottom-15">
+                                            <span class="category text link"></span>
+                                            <div class="text line"></div>
+                                            <div class="text"></div>
+                                          </div>
+                                          <div class="excerpt p-4 mbottom-15">
+                                            <div class="text line"></div>
+                                            <div class="text line"></div>
+                                            <div class="text"></div>
+                                          </div>
+                                          <div class="excerpt p-4 mbottom-15">
+                                            <div class="text title line"></div>
+                                            <div class="text title line"></div>
+                                            <div class="text"></div>
+                                          </div>
+                                          <div class="excerpt p-4 mbottom-15">
+                                            <div class="text line"></div>
+                                            <div class="text line"></div>
+                                            <div class="text title"></div>
+                                          </div>
+                                          <p class="loading-text">
+                                            Gathering History Data...
+                                          </p>	
                                         </div>
-                                        <div class="excerpt p-4 mbottom-15">
-                                          <div class="text line"></div>
-                                          <div class="text line"></div>
-                                          <div class="text"></div>
-                                        </div>
-                                        <div class="excerpt p-4 mbottom-15">
-                                          <div class="text title line"></div>
-                                          <div class="text title line"></div>
-                                          <div class="text"></div>
-                                        </div>
-                                        <div class="excerpt p-4 mbottom-15">
-                                          <div class="text line"></div>
-                                          <div class="text line"></div>
-                                          <div class="text title"></div>
-                                        </div>
-                                        <p class="loading-text">
-                                          Gathering Data...
-                                        </p>	
-                                      </div>
-                                       <!--Loader Place holder-->
-                                    </td>  
-                                </tr>  
-                                  <tr id="row1" ng-hide="loader" ng-cloak  ng-init="loader = true;">
-                                    <td name="name">
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
-                                          <i class="fa fa-plus-circle" ng-show="!row1"></i>
-                                          <i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
-                                      </button>
-                                    </td>
-                                    <td class="subject-col-width">
-                                      [ref#: 42733-42733] I need help picking a camera
-                                    </td>
-                                    <td>
-                                      All Topics
-                                    </td>
-                                    <td>
-                                      <small class="bg-green-active label">Resolved</small>
-                                    </td>
-                                    <td> 
-                                      <small class="label bg-blue disabled label-with-icon">
-                                        <i class="fa fa-comments"></i>Chat
-                                      </small>
-                                    </td>
-                                    <td>
-                                    Jacob Smith
-                                    </td>
-                                    <td>
-                                      <b>Urgency Level</b> : High 
-                                      <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                    </td>
-                                    <td>
-                                        2016-07-18 9:36:26 AM
-                                    </td>
-                                    
-                                  </tr>
-                                  <tr id="row2" ng-hide="loader" ng-cloak  ng-init="loader = true;">
-                                    <td name="name">
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
-                                          <i class="fa fa-plus-circle" ng-show="!row2"></i>
-                                          <i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
-                                      </button>
-                                    </td>
-                                    <td>
-                                      [ref#: 6680-6680] Return policy
-                                    </td>
-                                    <td>
-                                      Returns
-                                    </td>
-                                    <td>
-                                      <small class="bg-green-active label">Resolved</small>
-                                    </td>
-                                    <td>
-                                      <small class="label label-with-icon bg-blue">
-                                        <i class="fa fa-envelope"></i>
-                                        Customer Email
-                                      </small>
-                                    </td>
-                                    <td>
+                                         <!--Loader Place holder-->
+                                      </td>  
+                                  </tr>  
+                                  </tbody>
+                                
+                                </table>
+                              </div>
+
+                              <div ng-hide="loader" ng-cloak  ng-init="loader = true;">
+                                <table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs" >
+                                  <thead>
+                                    <tr>
+                                      <th class="no-sort" name="name"></th>
+                                      <th class="text-capitalize">
+                                        Subject
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Topic
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Status
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Type
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Username
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Properties
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Date
+                                      </th>
+                                    </tr>
+                                  </thead>  
+                                  <tbody>
+                                    <tr id="row1">
+                                      <td name="name">
+                                        <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
+                                            <i class="fa fa-plus-circle" ng-show="!row1"></i>
+                                            <i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
+                                        </button>
+                                      </td>
+                                      <td class="subject-col-width">
+                                        [ref#: 42733-42733] I need help picking a camera
+                                      </td>
+                                      <td>
+                                        All Topics
+                                      </td>
+                                      <td>
+                                        <small class="bg-green-active label">Resolved</small>
+                                      </td>
+                                      <td> 
+                                        <small class="label bg-blue disabled label-with-icon">
+                                          <i class="fa fa-comments"></i>Chat
+                                        </small>
+                                      </td>
+                                      <td>
                                       Jacob Smith
-                                    </td>
-                                    <td>
-                                      <b>Urgency Level</b> : High
-                                      <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                    </td>
-                                    <td>
-                                      2016-07-18 9:36:26 AM
-                                    </td>
-                                  </tr>
-                                  <tr id="row3" ng-hide="loader" ng-cloak  ng-init="loader = true;">
-                                    <td name="name">
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
-                                          <i class="fa fa-plus-circle" ng-show="!row3"></i>
-                                          <i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
-                                      </button>
-                                    </td>
-                                    <td>
-                                      [ref#: 42912-42912] Best price on LG Plasma
-                                    </td>
-                                    <td>
-                                      Open Quotes
-                                    </td>
-                                    <td>
-                                      <small class="bg-red-disabled label">Queued</small>
-                                    </td>
-                                    <td>
-                                      <small class="label label-with-icon bg-blue">
-                                        <i class="fa fa-ticket"></i>
-                                        Agent Ticket
-                                      </small>
-                                    </td>
-                                    <td>
-                                      Alek Packard
-                                    </td>
-                                    <td>
+                                      </td>
+                                      <td>
+                                        <b>Urgency Level</b> : High 
+                                        <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row1')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                      </td>
+                                      <td>
+                                          2016-07-18 9:36:26 AM
+                                      </td>
+                                      
+                                    </tr>
+                                    <tr id="row2">
+                                      <td name="name">
+                                        <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
+                                            <i class="fa fa-plus-circle" ng-show="!row2"></i>
+                                            <i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
+                                        </button>
+                                      </td>
+                                      <td>
+                                        [ref#: 6680-6680] Return policy
+                                      </td>
+                                      <td>
+                                        Returns
+                                      </td>
+                                      <td>
+                                        <small class="bg-green-active label">Resolved</small>
+                                      </td>
+                                      <td>
+                                        <small class="label label-with-icon bg-blue">
+                                          <i class="fa fa-envelope"></i>
+                                          Customer Email
+                                        </small>
+                                      </td>
+                                      <td>
+                                        Jacob Smith
+                                      </td>
+                                      <td>
                                         <b>Urgency Level</b> : High
-                                      <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row3')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                    </td>
-                                    <td>
-                                      2016-07-18 9:36:26 AM
-                                    </td>
-                                  </tr>
-                                  <tr id="row4" ng-hide="loader" ng-cloak  ng-init="loader = true;">
-                                    <td name="name">
-                                      <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
-                                          <i class="fa fa-plus-circle" ng-show="!row4"></i>
-                                          <i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
-                                      </button>
-                                    </td>
-                                    <td>
-                                      [ref#: 42883-42883] Need a travel camera
-                                    </td>
-                                    <td>
-                                        To Quote
-                                    </td>
-                                    <td>
-                                      <small class="bg-green-active label">Resolved</small>
-                                    </td>
-                                    <td>
-                                      <small class="label bg-blue label-with-icon"> 
-                                        <i class="fa icon-c icon-customer-ticket"></i>
-                                        Customer Ticket
-                                      </small>
-                                    </td>
-                                    <td>
-                                      Alek Packard
-                                    </td>
-                                    <td>
-                                      <b>Urgency Level</b>: High 
-                                      <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row4')"><i class="fa fa-fw fa-pencil"></i></a>-->
-                                    </td>
-                                    <td>
-                                      2016-07-18 9:36:26 AM
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              
-                              </table>
+                                        <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row2')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                      </td>
+                                      <td>
+                                        2016-07-18 9:36:26 AM
+                                      </td>
+                                    </tr>
+                                    <tr id="row3">
+                                      <td name="name">
+                                        <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
+                                            <i class="fa fa-plus-circle" ng-show="!row3"></i>
+                                            <i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
+                                        </button>
+                                      </td>
+                                      <td>
+                                        [ref#: 42912-42912] Best price on LG Plasma
+                                      </td>
+                                      <td>
+                                        Open Quotes
+                                      </td>
+                                      <td>
+                                        <small class="bg-red-disabled label">Queued</small>
+                                      </td>
+                                      <td>
+                                        <small class="label label-with-icon bg-blue">
+                                          <i class="fa fa-ticket"></i>
+                                          Agent Ticket
+                                        </small>
+                                      </td>
+                                      <td>
+                                        Alek Packard
+                                      </td>
+                                      <td>
+                                          <b>Urgency Level</b> : High
+                                        <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row3')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                      </td>
+                                      <td>
+                                        2016-07-18 9:36:26 AM
+                                      </td>
+                                    </tr>
+                                    <tr id="row4">
+                                      <td name="name">
+                                        <button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
+                                            <i class="fa fa-plus-circle" ng-show="!row4"></i>
+                                            <i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
+                                        </button>
+                                      </td>
+                                      <td>
+                                        [ref#: 42883-42883] Need a travel camera
+                                      </td>
+                                      <td>
+                                          To Quote
+                                      </td>
+                                      <td>
+                                        <small class="bg-green-active label">Resolved</small>
+                                      </td>
+                                      <td>
+                                        <small class="label bg-blue label-with-icon"> 
+                                          <i class="fa icon-c icon-customer-ticket"></i>
+                                          Customer Ticket
+                                        </small>
+                                      </td>
+                                      <td>
+                                        Alek Packard
+                                      </td>
+                                      <td>
+                                        <b>Urgency Level</b>: High 
+                                        <!-- <a href="javascript:void(0)" ng-click="togglePropertyRow('row4')"><i class="fa fa-fw fa-pencil"></i></a>-->
+                                      </td>
+                                      <td>
+                                        2016-07-18 9:36:26 AM
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                
+                                </table>
+                              </div>
                               <!-- /.row -->
                               <div class="modal fade" id="modal-default">
                                 <div class="modal-dialog">
@@ -1839,9 +1874,46 @@ title: Contact
        //loader
       $scope.loaderTimeout = function() {
 				$scope.loader = false;
+        angular.element('.lazyloader').remove();
 			}
 
-      $timeout( function(){ $scope.loaderTimeout(); }, 5000);
+      $timeout( function(){ $scope.loaderTimeout(); 
+      
+        $scope.dtContactHistoryOptions = DTOptionsBuilder
+				.newOptions().withOption('language', {
+					search: 'Filter History'
+				})
+				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+			}]);
+ 
+			$scope.dtContactHistoryColumnDefs = [
+					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px"),
+			];
+      $scope.togglePropertyRow = function (segmentName)
+			{ 
+				for(var i = 1; i<=5;i++){
+					if(!$scope[segmentName]){
+						removeFunction(segmentName);
+						$scope['row'+i] = false;
+					}	
+				}
+				$scope[segmentName] = !$scope[segmentName];
+				if($scope[segmentName]){
+					myCreateFunction(segmentName);
+				}else{
+					removeFunction(segmentName);
+				}
+        $scope.isCollapsed = false;
+			};
+      
+      }, 5000);
       //loader    
     
       $scope.isCollapsed = true;
@@ -1877,39 +1949,7 @@ title: Contact
 				}
 			};
      
-      $scope.dtContactHistoryOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
-					search: 'Filter History'
-				})
-				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
-					extend: 'colvis',
-					columns: function (index, apiObj, headCell)
-					{
-						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
-						// disable the show/hide column functionality for certain columns
-						return headCell.dataset.noColVis === undefined;
-					}
-			}]);
- 
-			$scope.dtContactHistoryColumnDefs = [
-					DTColumnDefBuilder.newColumnDef('no-sort').notSortable().withOption("width", "30px"),
-			];
-      $scope.togglePropertyRow = function (segmentName)
-			{ 
-				for(var i = 1; i<=5;i++){
-					if(!$scope[segmentName]){
-						removeFunction(segmentName);
-						$scope['row'+i] = false;
-					}	
-				}
-				$scope[segmentName] = !$scope[segmentName];
-				if($scope[segmentName]){
-					myCreateFunction(segmentName);
-				}else{
-					removeFunction(segmentName);
-				}
-        $scope.isCollapsed = false;
-			};
+    
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
