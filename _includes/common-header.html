@@ -48,12 +48,12 @@
         </li>
         <!-- Tasks: style can be found in dropdown.less -->
         <!-- User Account: style can be found in dropdown.less -->
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <li class="dropdown user user-menu" uib-dropdown="" auto-close="outsideClick" >
+          <a href="#" class="dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
             <img width="25" class="round" height="25" avatar="Alek Packard">
             <span class="hidden-xs">Alek Packard</span>
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" uib-dropdown-menu>
             <!-- User image -->
             <li class="user-header">
               <img width="60" class="round" height="60" avatar="Alek Packard">
@@ -82,13 +82,13 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left dropdown">
-                <button class="btn btn-default btn-flat" data-toggle="collapse" data-target="#forget-password">Change Password</button>
+                <button class="btn btn-default btn-flat" ng-model="showChangePassword" uib-btn-checkbox>Change Password</button>
               </div>
               <div class="pull-right">
                 <button class="btn btn-default btn-flat">Sign out</button>
               </div>
               <div class="clearfix"></div>
-              <div class="change-password collapse">
+              <div class="change-password collapse"  uib-collapse="!showChangePassword">
                 <br>
                 <div class="form-group has-feedback">
                   <input type="password" class="form-control" placeholder="Old Password">
@@ -102,8 +102,10 @@
                   <input type="password" class="form-control" placeholder="Confirm Password">
                   <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
-                <div class="col-xs-12">
-                  <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+                  </div>
                 </div>
               </div>
             </li>
