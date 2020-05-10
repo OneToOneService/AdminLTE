@@ -353,7 +353,19 @@
             </div>
         </div>    
     </div>
-      
+     <script> 
+        angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+            var vm = this;
+            vm.agent = {};
+            vm.agentselected = {selected : "--Default MailBox--"};
+            vm.agentname = [ 
+                {name: '--Default MailBox--', code: ''},
+                {name: 'Customer Support (support@example.com)', code: ''},
+                {name: 'Sales (Sales@example.com)', code: ''},
+                {name: 'Technical Support (technicalsupport@example.com)', code: ''},
+            ];
+        });
+     </script>
     <!--Message history-->
     {% include inbox-message-history.html %}
     <!--Message history-->

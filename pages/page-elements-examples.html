@@ -573,6 +573,54 @@ title: Page Elements Examples
                                                     </div>
                                                 </div>
                                             </div>
+
+
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label text-left">Mailbox List</label>
+                                                <div class="col-md-12">
+                                                    <div ng-controller="FromEmail as ctrl"> 
+                                                        <ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="min-width: 300px;" title="Single property binding with async data">
+                                                            <ui-select-match placeholder="Select or search for a mailbox..." ng-bind="$select.selected.name|| $select.selected"></ui-select-match>
+                                                            <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+                                                            <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                                            <span ng-bind-html="agent.name | highlight: $select.search"></span>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                </div>    
+                                            </div> 
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label text-left">Agent List</label>
+                                                <div class="col-md-12">
+                                                    <div class="ng-cloak" ng-controller="AgentCtrl2 as ctrl">
+                                                        <ui-select ng-model="ctrl.agentselected.selected" theme="select2">
+                                                          <ui-select-match placeholder="Select or search an agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                                          <ui-select-choices  repeat="item in ctrl.agentnames | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                                          <span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span><span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
+                                                          <br>
+                                                          <span ng-attr-title="{{ item.email }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.email | highlight: $select.search"></span>
+                                                          </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                </div> 
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label text-left">Topic List</label>
+                                                <div class="col-md-12">
+                                                    <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+                                                        <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+                                                            <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                                            <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                                                <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                </div> 
+                                           
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -595,5 +643,22 @@ title: Page Elements Examples
     <!-- ./wrapper -->
     <!-- jQuery 3.1.1 -->
     {% include common-javascript.html %}
+
+    {% include common-controller-function.html %}
+
+
+    <script>
+	angular.module('iService').controller('FromEmail', function ($scope, $http, $timeout, $interval) {
+				var vm = this;
+				vm.agent = {};
+				vm.agentselected = {selected : "--Default MailBox--"};
+				vm.agentname = [ 
+					{name: '--Default MailBox--', code: ''},
+					{name: 'Customer Support (support@example.com)', code: ''},
+					{name: 'Sales (Sales@example.com)', code: ''},
+					{name: 'Technical Support (technicalsupport@example.com)', code: ''},
+				];
+			});
+    </script>    
 </body>
 </html>
