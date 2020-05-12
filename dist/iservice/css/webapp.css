@@ -3621,6 +3621,7 @@ small.disabled {
 }
 .agent-list label {
   white-space: nowrap;
+  width: 100%;
 }
 .login-logo .register-trade-mark {
   font-size: 32px;
