@@ -3857,6 +3857,8 @@ tr.color-urgent td.column-date {
 /* Portrait tablet to landscape and desktop */
 .agent-list label {
   width: 100%;
+  font-weight: normal!important;
+  margin-bottom: 8px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .info-box .info-box-container .infobox-icon {
