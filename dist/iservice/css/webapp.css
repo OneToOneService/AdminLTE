@@ -3862,6 +3862,9 @@ tr.color-urgent td.column-date {
 .list-container .select2-search {
   z-index: 999;
 }
+.treeview-collapse {
+  width: 65px;
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .info-box .info-box-container .infobox-icon {
     padding-left: 64px;
