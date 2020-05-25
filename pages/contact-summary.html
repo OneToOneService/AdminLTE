@@ -762,6 +762,72 @@ title: Contact
                           <!-- /.box-header -->
                           <!-- form start -->
                             <div class="box-body">
+                              <div ng-show="loader" ng-cloak  ng-init="loader = true;">
+                                <table class="table table-striped table-hover lazyloader">
+                                 <!-- <thead>
+                                    <tr>
+                                      <th class="no-sort" name="name"></th>
+                                      <th class="text-capitalize">
+                                        Subject
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Topic
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Status
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Type
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Username
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Properties
+                                      </th>
+                                      <th class="text-capitalize">
+                                        Date
+                                      </th>
+                                    </tr>
+                                  </thead>  -->
+                                  <tbody>
+                                    <tr class="lazyloader" ng-show="loader">
+                                      <td colspan="8">
+                                        <!--Loader Place holder-->
+                                        <div class="box-placeholder" >
+                                          <div class="p-4 mbottom-15">
+                                            <span class="category text link"></span>
+                                            <div class="text line"></div>
+                                            <div class="text"></div>
+                                          </div>
+                                          <div class="excerpt p-4 mbottom-15">
+                                            <div class="text line"></div>
+                                            <div class="text line"></div>
+                                            <div class="text"></div>
+                                          </div>
+                                          <div class="excerpt p-4 mbottom-15">
+                                            <div class="text title line"></div>
+                                            <div class="text title line"></div>
+                                            <div class="text"></div>
+                                          </div>
+                                          <div class="excerpt p-4 mbottom-15">
+                                            <div class="text line"></div>
+                                            <div class="text line"></div>
+                                            <div class="text title"></div>
+                                          </div>
+                                          <p class="loading-text">
+                                            Gathering History Data...
+                                          </p>	
+                                        </div>
+                                         <!--Loader Place holder-->
+                                      </td>  
+                                  </tr>  
+                                  </tbody>
+                                
+                                </table>
+                              </div>
+
+
                               <div ng-hide="loader" ng-cloak  ng-init="loader = true;">
                                 <table id="example1" class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs" >
                                   <thead>
@@ -1812,7 +1878,7 @@ title: Contact
         angular.element('.lazyloader').remove();
 			}
 
-      $timeout( function(){ $scope.loaderTimeout(); 
+      $timeout( function(){ $scope.loaderTimeout(); }, 5000);
       
         $scope.dtContactHistoryOptions = DTOptionsBuilder
 				.newOptions().withOption('language', {
@@ -1848,7 +1914,7 @@ title: Contact
         $scope.isCollapsed = false;
 			};
       
-      }, 5000);
+     // }, 5000);
       //loader    
     
       $scope.isCollapsed = true;
