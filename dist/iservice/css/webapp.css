@@ -127,6 +127,9 @@ iservice-message-notification {
 iservice-message-notification.full-row .alert-dismissible {
   margin-bottom: 15px;
 }
+.color-tab-icon .answer-panel .nav.nav-tabs:first-child {
+  margin-bottom: 15px;
+}
 .sidebar-menu,
 .main-sidebar .user-panel,
 .sidebar-menu > li.header {
@@ -679,7 +682,6 @@ ul.timeline span.stack-icon .aqua {
 }
 .contact-summary nav a {
   text-align: center;
-  cursor: pointer;
 }
 .contact-summary nav a i {
   width: 56px;
@@ -1854,6 +1856,9 @@ label .icheckbox_square-blue {
 .nav-tabs-custom > .tab-content {
   padding: 15px !important;
 }
+.nav-tabs-custom > .tab-content {
+  padding-top: 0 !important;
+}
 .bg-box {
   padding: 15px;
 }
@@ -2824,17 +2829,11 @@ ul.update-list li::before {
 .select2-container-multi .select2-choices {
   border-bottom-color: transparent;
   border-radius: 0px !important;
-  background-color: white;
+  background-color: white !important;
   background-image: none !important;
-  border: 1px solid #d2d6de !important;
+  border: 1px solid #cccccc !important;
   height: 34px !important;
   line-height: 34px !important;
-}
-.select2-dropdown-open .select2-choice {
-  background: white !important;
-}
-.select2-container-active .select2-choice {
-  box-shadow: none !important;
 }
 .select2-container-multi .select2-choices .select2-search-field input {
   height: 28px;
@@ -3748,7 +3747,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder {
   display: inline-block;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
   vertical-align: top;
   width: 100%;
@@ -3765,6 +3764,7 @@ span.glyphicon-sort-by-attributes-alt {
   display: inline-block;
   background-color: #222121;
   height: 12px;
+  border-radius: 100px;
   margin: 5px 0;
   min-width: 100px;
   opacity: .1;
@@ -3777,7 +3777,7 @@ span.glyphicon-sort-by-attributes-alt {
   margin-bottom: 0;
 }
 .box-placeholder .text.link {
-  background-color: #3c8dbc;
+  background-color: blue;
   opacity: .2;
 }
 .box-placeholder .text.line {
@@ -3789,7 +3789,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder .text.title {
   width: 100%;
-  background-color: #3c8dbc;
+  background-color: blue;
   margin-bottom: 10px;
 }
 .box-placeholder h4.text {
@@ -3825,46 +3825,7 @@ span.glyphicon-sort-by-attributes-alt {
     opacity: .4;
   }
 }
-.dis-flex {
-  display: flex;
-}
-/* Manage message date time column color codes*/
-tr.color-normal td.column-date {
-  background-color: #e0e0e0;
-}
-tr.color-warning td.column-date {
-  background-color: #F7DC6F;
-}
-tr.color-urgent td.column-date {
-  background-color: #F1948A;
-}
-.google-btn {
-  background: #4285f4;
-  width: 100%;
-  text-align: left;
-}
-.microsoft-btn {
-  background: #2f2f2f;
-  width: 100%;
-  text-align: left;
-}
-.microsoft-auth-btn {
-  background: #2672ec;
-  width: 100%;
-  text-align: left;
-}
 /* Portrait tablet to landscape and desktop */
-.agent-list label {
-  width: 100%;
-  font-weight: normal!important;
-  margin-bottom: 8px;
-}
-.list-container .select2-search {
-  z-index: 999;
-}
-.treeview-collapse {
-  width: 65px;
-}
 @media (min-width: 768px) and (max-width: 991px) {
   .info-box .info-box-container .infobox-icon {
     padding-left: 64px;
