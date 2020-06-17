@@ -547,12 +547,7 @@
 			
 			CKEDITOR.config.disallowedContent = 'script; *[on*]';
             var ck = CKEDITOR.replace(elm[0], options);
-            CKEDITOR.replace( 'editor', {
-				protectedSource: [
-					/^[\s\S]*<body>\s*/i,
-					/\s*<\/body>[\s\S]*$/i
-			   ]
-			} );
+           
             ck.on('instanceReady', function ()
             {
               ck.resize('100%', 450, true);
