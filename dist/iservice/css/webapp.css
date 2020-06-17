@@ -3355,11 +3355,9 @@ small.disabled {
 }
 .treeview-collapse {
   transition: width 0.25s ease-in-out;
-  cursor: pointer;
 }
 .treeview-expand {
   transition: width 0.25s ease-in-out;
-  cursor: pointer;
 }
 .treeview-collapse .box-header i,
 .treeview-collapse .box-header h3 {
@@ -3910,4 +3908,7 @@ tr.color-urgent td.column-date {
 .form-horizontal .dropdown-menu-btn-option .form-group {
   margin-right: 0px;
   margin-left: 0px;
+}
+.menu-collapse {
+  cursor: pointer;
 }
