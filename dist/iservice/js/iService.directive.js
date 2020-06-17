@@ -540,21 +540,19 @@
             CKEDITOR.config.entities_additional = '';
             //CKEDITOR.config.contentsCss = rootPath + 'css/ckeditor.css';
             CKEDITOR.config.extraAllowedContent = 'img[alt,!src]{width,height}';
-			//CKEDITOR.config.allowedContent = true;
+			CKEDITOR.config.allowedContent = true;
+			CKEDITOR.config.fullPage = true;
             CKEDITOR.config.disableNativeSpellChecker = false;
 			//config.disallowedContent = 'script; *[on*]';
-			CKEDITOR.config.allowedContent = {
-			$1: {
-			// Use the ability to specify elements as an object.
-				elements: CKEDITOR.dtd,
-				attributes: true,
-				styles: true,
-				classes: true
-			  }
-			};
+			
 			CKEDITOR.config.disallowedContent = 'script; *[on*]';
             var ck = CKEDITOR.replace(elm[0], options);
-
+            CKEDITOR.replace( 'editor', {
+				protectedSource: [
+					/^[\s\S]*<body>\s*/i,
+					/\s*<\/body>[\s\S]*$/i
+			   ]
+			} );
             ck.on('instanceReady', function ()
             {
               ck.resize('100%', 450, true);
