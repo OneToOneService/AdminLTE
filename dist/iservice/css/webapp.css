@@ -3226,6 +3226,7 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
 }
 .item-count {
   font-weight: bold;
+  margin-top: 5px;
 }
 ul li .treeviewitem label {
   cursor: pointer;
@@ -3908,6 +3909,13 @@ tr.color-urgent td.column-date {
 .form-horizontal .dropdown-menu-btn-option .form-group {
   margin-right: 0px;
   margin-left: 0px;
+}
+.user-container span {
+  float: left;
+}
+.user-container b {
+  width: 100%;
+  float: left;
 }
 .menu-collapse {
   cursor: pointer;

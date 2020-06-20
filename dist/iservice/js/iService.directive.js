@@ -547,7 +547,14 @@
 			
 			CKEDITOR.config.disallowedContent = 'script; *[on*]';
             var ck = CKEDITOR.replace(elm[0], options);
-           
+			    CKEDITOR.replace('content', {
+				extraPlugins: 'font,panelbutton,colorbutton,colordialog,justify,indentblock,aparat,buyLink',
+				autoGrow_onStartup: true,
+				enterMode: CKEDITOR.ENTER_BR,
+				FullPage : false,
+				allowedContent : true,
+				ProtectedTags : 'html|head|body'
+			});
             ck.on('instanceReady', function ()
             {
               ck.resize('100%', 450, true);
