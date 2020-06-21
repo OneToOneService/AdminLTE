@@ -1104,6 +1104,7 @@ iservice-switch {
   background: #ffffff;
   display: inline-block;
   width: 100%;
+  padding-top: 10px;
 }
 .message-box-body {
   padding: 10px;
@@ -2699,7 +2700,7 @@ ul li ul li.branch ul li .treeviewitem {
 .managequeue-topictree .count-block {
   display: inline-block;
   padding: 0px 3px 0px 3px;
-  width: 25px;
+  width: 30px;
   text-align: center;
   font-weight: 500;
 }
@@ -3877,6 +3878,9 @@ tr.color-urgent td.column-date {
 .message-box table {
   max-width: 100%;
 }
+[class^="bg-"] .btn {
+  margin-top: 5px;
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .info-box .info-box-container .infobox-icon {
     padding-left: 64px;
@@ -3912,6 +3916,8 @@ tr.color-urgent td.column-date {
 }
 .user-container span {
   float: left;
+  text-align: center;
+  width: 100%;
 }
 .user-container b {
   width: 100%;
@@ -3919,4 +3925,7 @@ tr.color-urgent td.column-date {
 }
 .menu-collapse {
   cursor: pointer;
+}
+.select-all-topic lable {
+  margin-left: 0px !important;
 }
