@@ -58,6 +58,9 @@ a[disabled] {
 .full-height {
   height: 100%;
 }
+.answer-panel {
+  padding-top: 15px;
+}
 .truncate {
   white-space: nowrap;
   overflow: hidden;
@@ -149,19 +152,19 @@ iservice-message-notification.full-row .alert-dismissible {
   position: relative;
   border: 1px solid #d2d6de;
   /*&.multiple label,
-     input:focus + label,
-     textarea:focus + label,
-     input.ng-not-empty + label,
-     select + label,
-     .focus + input + label
-     {
-         opacity: 1;
-         font-weight: normal;
-         top: -2px;
-         transform: none;
-         font-size: unset;
-         color: @input-border-focus;
-     }*/
+      input:focus + label,
+      textarea:focus + label,
+      input.ng-not-empty + label,
+      select + label,
+      .focus + input + label
+      {
+          opacity: 1;
+          font-weight: normal;
+          top: -2px;
+          transform: none;
+          font-size: unset;
+          color: @input-border-focus;
+      }*/
 }
 .floating-label.multiple {
   height: auto;
@@ -2960,9 +2963,9 @@ ul.update-list li::before {
   background: #f7f7f7;
 }
 /**
- * The dnd-list should always have a min-height,
- * otherwise you can't drop to it once it's empty
- */
+  * The dnd-list should always have a min-height,
+  * otherwise you can't drop to it once it's empty
+  */
 .filtergroup ul[dnd-list] {
   min-height: 42px;
   padding-left: 0px;
@@ -2978,19 +2981,19 @@ ul.update-list li::before {
   margin-left: -4px;
 }
 /**
- * The dndDraggingSource class will be applied to
- * the source element of a drag operation. It makes
- * sense to hide it to give the user the feeling
- * that he's actually moving it.
- */
+  * The dndDraggingSource class will be applied to
+  * the source element of a drag operation. It makes
+  * sense to hide it to give the user the feeling
+  * that he's actually moving it.
+  */
 .filtergroup ul[dnd-list] .dndDraggingSource {
   display: none;
 }
 /**
- * An element with .dndPlaceholder class will be
- * added to the dnd-list while the user is dragging
- * over it.
- */
+  * An element with .dndPlaceholder class will be
+  * added to the dnd-list while the user is dragging
+  * over it.
+  */
 .filtergroup ul[dnd-list] .dndPlaceholder {
   background-color: #cccccc;
   display: block;
