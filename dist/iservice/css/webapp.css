@@ -685,6 +685,7 @@ ul.timeline span.stack-icon .aqua {
 }
 .contact-summary nav a {
   text-align: center;
+  cursor: pointer;
 }
 .contact-summary nav a i {
   width: 56px;
@@ -1608,8 +1609,8 @@ iservice-switch {
   left: 11px;
 }
 .count-block {
-  padding: 0px 3px 0px 3px;
-  width: 25px;
+  padding: 0px 2px 0px 2px;
+  width: 30px;
   text-align: center;
   font-weight: 500;
 }
@@ -2055,7 +2056,6 @@ label .icheckbox_square-blue {
   cursor: auto;
   outline-width: 3px;
   outline-offset: -4px;
-  background-color: lightyellow;
 }
 .drop-box_hover {
   outline-width: 3px;
@@ -2206,7 +2206,7 @@ label.agent-prop-ans {
   font-weight: normal;
 }
 .tree .icheckbox_square-blue {
-  margin-right: 8px;
+  margin-right: 1px;
 }
 .select-all-topic {
   padding-left: 19px !important;
@@ -2710,26 +2710,26 @@ ul li ul li.branch ul li .treeviewitem {
   display: inline-block;
 }
 .managequeue-topictree .columns-3 .treeviewitem {
-  width: calc(100% - 130px);
+  width: calc(100% - 150px);
 }
 .managequeue-topictree .columns-4 .treeviewitem {
   width: calc(100% - 150px);
 }
 .active-chat ul li .treeviewitem {
   display: inline-block;
-  width: calc(100% - 150px);
+  width: calc(100% - 170px);
 }
 .active-chat ul li ul li .treeviewitem {
   display: inline-block;
-  width: calc(100% - 153px);
+  width: calc(100% - 173px);
 }
 .active-chat ul li ul li.branch .treeviewitem {
   display: inline-block;
-  width: calc(100% - 153px);
+  width: calc(100% - 173px);
 }
 .active-chat ul li ul li.branch ul li .treeviewitem {
   display: inline-block;
-  width: calc(100% - 130px);
+  width: calc(100% - 150px);
 }
 .show-notifications {
   margin-right: 15px;
@@ -2836,11 +2836,17 @@ ul.update-list li::before {
 .select2-container-multi .select2-choices {
   border-bottom-color: transparent;
   border-radius: 0px !important;
-  background-color: white !important;
+  background-color: white;
   background-image: none !important;
-  border: 1px solid #cccccc !important;
+  border: 1px solid #d2d6de !important;
   height: 34px !important;
   line-height: 34px !important;
+}
+.select2-dropdown-open .select2-choice {
+  background: white !important;
+}
+.select2-container-active .select2-choice {
+  box-shadow: none !important;
 }
 .select2-container-multi .select2-choices .select2-search-field input {
   height: 28px;
@@ -3223,6 +3229,7 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
 }
 .item-count {
   font-weight: bold;
+  margin-top: 5px;
 }
 ul li .treeviewitem label {
   cursor: pointer;
@@ -3352,11 +3359,9 @@ small.disabled {
 }
 .treeview-collapse {
   transition: width 0.25s ease-in-out;
-  cursor: pointer;
 }
 .treeview-expand {
   transition: width 0.25s ease-in-out;
-  cursor: pointer;
 }
 .treeview-collapse .box-header i,
 .treeview-collapse .box-header h3 {
@@ -3429,7 +3434,7 @@ small.disabled {
 }
 .example .tree li {
   margin: 0;
-  padding: 0 0em 0px 2em;
+  padding: 0 0em 0px 1.6em;
   line-height: 2em;
   color: #336699;
   font-weight: 700;
@@ -3443,7 +3448,7 @@ small.disabled {
   width: 8px !important;
 }
 .example li.branch {
-  padding-left: 0.65em !important;
+  padding-left: 0.1em !important;
 }
 @media (min-width: 991px) and (max-width: 1024px) {
   .topic-list-container {
@@ -3754,7 +3759,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder {
   display: inline-block;
-  background-color: #fff;
+  background-color: white;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
   vertical-align: top;
   width: 100%;
@@ -3771,7 +3776,6 @@ span.glyphicon-sort-by-attributes-alt {
   display: inline-block;
   background-color: #222121;
   height: 12px;
-  border-radius: 100px;
   margin: 5px 0;
   min-width: 100px;
   opacity: .1;
@@ -3784,7 +3788,7 @@ span.glyphicon-sort-by-attributes-alt {
   margin-bottom: 0;
 }
 .box-placeholder .text.link {
-  background-color: blue;
+  background-color: #3c8dbc;
   opacity: .2;
 }
 .box-placeholder .text.line {
@@ -3796,7 +3800,7 @@ span.glyphicon-sort-by-attributes-alt {
 }
 .box-placeholder .text.title {
   width: 100%;
-  background-color: blue;
+  background-color: #3c8dbc;
   margin-bottom: 10px;
 }
 .box-placeholder h4.text {
@@ -3832,7 +3836,50 @@ span.glyphicon-sort-by-attributes-alt {
     opacity: .4;
   }
 }
+.dis-flex {
+  display: flex;
+}
+/* Manage message date time column color codes*/
+tr.color-normal td.column-date {
+  background-color: #e0e0e0;
+}
+tr.color-warning td.column-date {
+  background-color: #F7DC6F;
+}
+tr.color-urgent td.column-date {
+  background-color: #F1948A;
+}
+.google-btn {
+  background: #4285f4;
+  width: 100%;
+  text-align: left;
+}
+.microsoft-btn {
+  background: #2f2f2f;
+  width: 100%;
+  text-align: left;
+}
+.microsoft-auth-btn {
+  background: #2672ec;
+  width: 100%;
+  text-align: left;
+}
 /* Portrait tablet to landscape and desktop */
+.agent-list label {
+  width: 100%;
+  font-weight: normal!important;
+  margin-bottom: 8px;
+}
+.list-container .select2-search {
+  z-index: 999;
+}
+.treeview-collapse {
+  width: 65px;
+}
+.message-box img,
+.message-box table {
+  max-width: 100%;
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .info-box .info-box-container .infobox-icon {
     padding-left: 64px;
@@ -3865,4 +3912,76 @@ span.glyphicon-sort-by-attributes-alt {
 .form-horizontal .dropdown-menu-btn-option .form-group {
   margin-right: 0px;
   margin-left: 0px;
+}
+.user-container span {
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+.user-container b {
+  width: 100%;
+  float: left;
+}
+.menu-collapse {
+  cursor: pointer;
+}
+.select-all-topic lable {
+  margin-left: 0px !important;
+}
+.graph-heading {
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+.chart-legend-container {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  position: relative;
+}
+.chart-legend-container ul {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.chart-legend-container ul li {
+  display: inline-block;
+  margin-right: 8px;
+}
+.chart-container {
+  display: block;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+.chart-legend li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 8px;
+}
+.chart-legend li span,
+.legend {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+.support-container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.support-container .supportimg-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.support-container .supportimg-container img {
+  width: 100px;
+}
+.support-container .support-text {
+  font-size: 18px;
+  text-align: center;
 }
