@@ -1542,6 +1542,7 @@ ul.timeline span.stack-icon
     background: @white;
     display: inline-block;
     width: 100%;
+    padding-top:10px;
 }
 
 .message-box-body
@@ -3824,7 +3825,7 @@ ul li ul li.branch ul li .treeviewitem
   .managequeue-topictree .count-block {
     display: inline-block;
     padding: 0px 3px 0px 3px;
-    width: 25px;
+    width: 30px;
     text-align: center;
     font-weight: 500;
   }
@@ -4914,13 +4915,14 @@ tr.color-urgent td.column-date { background-color: #F1948A;}
 .message-box {
     img,table{max-width:100%;}
 }
+[class^="bg-"] .btn {margin-top:5px;}
 //@media (min-width: 768px) and (max-width: 979px) { 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max){  
     .info-box .info-box-container .infobox-icon{
         padding-left: 64px;
     }
     .detail-legend{margin-left:0px;}
-}
+   }
 
 /* Landscape phone to portrait tablet */
 //@media (max-width: 991px) {
@@ -4944,9 +4946,32 @@ margin-right: 0px;
 margin-left: 0px;
 }
 .user-container {
-    span {float:left;}
+    span {float: left;
+        text-align: center;
+        width: 100%;}
     b {width:100%;float:left;}
 } 
 .menu-collapse{cursor:pointer;}
-
+.select-all-topic lable{margin-left:0px !important;}
+.graph-heading{font-size:18px; text-align:center;font-weight:bold;}
+.chart-legend-container{width:100%; margin:0 auto; display:block; text-align:center;position:relative;
+   ul {width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;}
+   ul li{display:inline-block; margin-right:8px;}
+}
+.chart-container {display:block; text-align:center; max-width:700px; width:100%; margin:0 auto;}
+.chart-legend li{display: inline-block; list-style:none; margin-right:8px;}
+.chart-legend li span, .legend{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+.support-container{width:100%; margin-bottom:30px;
+  .supportimg-container{width:100%;text-align:center;    margin-bottom: 15px;}
+  .supportimg-container img{width:100px;}
+  .support-text{font-size:18px; text-align:center;}
+}
 
