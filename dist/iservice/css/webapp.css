@@ -1102,6 +1102,10 @@ iservice-switch {
 .message-box img,
 .message-box table {
   max-width: 100%;
+  height: auto;
+}
+.message-box img {
+  height: auto !important;
 }
 .message-box-header {
   background: #ffffff;
