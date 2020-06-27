@@ -42,7 +42,11 @@
                               <ui-select ng-model="ctrl.agentselected.selected" theme="select2">
                                 <ui-select-match placeholder="Select or search an agent in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                                 <ui-select-choices  repeat="item in ctrl.agentnames | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
-                                <span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span><span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
+                                <span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                                <span ng-if="item.disabled == 'disabled'">
+                                    <i class="fa  fa-ban text-red" uib-tooltip="This agent is not available because they  are logged out and have the Empty Inbox setting" tooltip-placement="bottom"></i>
+                                   </span>
+                                <span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
                                 <br>
                                 <span ng-attr-title="{{ item.email }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.email | highlight: $select.search"></span>
                                 </ui-select-choices>
