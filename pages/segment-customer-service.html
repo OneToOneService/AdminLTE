@@ -2446,7 +2446,7 @@ $(document).ready(function() {
     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
         $scope.dtContactHistoryOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Properties'
 				})
 				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
@@ -2468,7 +2468,7 @@ $(document).ready(function() {
 
 
         $scope.dtMailboxOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Mailboxes'
 				})
 				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
@@ -2482,7 +2482,7 @@ $(document).ready(function() {
 				}]);
 
         $scope.dtAutoresponsesOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Notifications'
 				})
 				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
@@ -2496,7 +2496,7 @@ $(document).ready(function() {
 				}]);
 
         $scope.dtStockresponsesOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Stock Responses'
 				})
 				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
@@ -2510,7 +2510,7 @@ $(document).ready(function() {
 				}]);
 
         $scope.dtFiltersOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Filters'
 				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',
@@ -2524,7 +2524,7 @@ $(document).ready(function() {
 				
 
         $scope.dtConfigurationOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Errors'
 				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',

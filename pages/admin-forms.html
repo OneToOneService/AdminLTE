@@ -1735,7 +1735,7 @@ title: Forms
 	angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
 		   $scope.dtFormOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Forms'
 				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 				extend: 'colvis',
@@ -1748,7 +1748,7 @@ title: Forms
 			}]);
 
 			$scope.dtFormBuiltInOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Forms'
 				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 				extend: 'colvis',

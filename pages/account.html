@@ -1479,7 +1479,7 @@ title:  Account
 			};
 
       $scope.dtContactHistoryOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter History'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {

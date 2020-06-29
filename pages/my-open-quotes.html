@@ -1926,7 +1926,7 @@ function showchronological(){
     {
 			
 			$scope.dtQuotesOptions = DTOptionsBuilder
-					.newOptions().withOption('language', {
+					.newOptions().withDisplayLength(5).withOption('language', {
 						search: 'Filter Quotes'
 					}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',
@@ -1946,7 +1946,7 @@ function showchronological(){
 				];
 			
       $scope.dtInboxOptions = DTOptionsBuilder
-        .newOptions()
+        .newOptions().withDisplayLength(5)
         .withOption('language', {
           search: 'Filter Inbox'
         }).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1960,7 +1960,7 @@ function showchronological(){
 		}]);
 
       $scope.dtContactHistoryOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter History'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {

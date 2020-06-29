@@ -403,7 +403,7 @@ title: Skills Settings
             };
 
 				$scope.dtSkillsOptions = DTOptionsBuilder
-					.newOptions().withOption('language', {
+					.newOptions().withDisplayLength(5).withOption('language', {
 						search: 'Filter Skills'
 					}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',

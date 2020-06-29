@@ -422,7 +422,7 @@ title: Department Settings
             };
 
 				$scope.dtSkillsOptions = DTOptionsBuilder
-					.newOptions().withOption('language', {
+					.newOptions().withDisplayLength(5).withOption('language', {
 						search: 'Filter Departments'
 					}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',

@@ -135,7 +135,7 @@ title: Logged In Chat Agents
     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
        $scope.dtAgentListOptions = DTOptionsBuilder
-        .newOptions()
+        .newOptions().withDisplayLength(5)
         .withOption('language', {
           search: 'Filter Agents'
         }).withBootstrap().withButtons(['copy', 'excel', 'pdf', {

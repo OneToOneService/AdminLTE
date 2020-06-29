@@ -1688,7 +1688,7 @@ title:  My Message Inbox
     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
        $scope.dtInboxOptions = DTOptionsBuilder
-        .newOptions()
+        .newOptions().withDisplayLength(5)
         .withOption('language', {
           search: 'Filter Inbox'
         }).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1702,7 +1702,7 @@ title:  My Message Inbox
 		}]);
 
       $scope.dtContactHistoryOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter History'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {

@@ -352,7 +352,7 @@ title: Lists Settings
             };
 
 				$scope.dtSkillsOptions = DTOptionsBuilder
-					.newOptions().withOption('language', {
+					.newOptions().withDisplayLength(5).withOption('language', {
 						search: 'Filter Lists'
 					}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 					extend: 'colvis',

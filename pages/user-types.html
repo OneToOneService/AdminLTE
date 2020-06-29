@@ -914,7 +914,7 @@ title: User Types
 	{ 
 
 				$scope.dtMailingListsOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter User Types'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -931,7 +931,7 @@ title: User Types
 				$scope.formItemList = [];
 			
 				$scope.dtSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Unsubscribes'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -946,7 +946,7 @@ title: User Types
 
 				
 				$scope.dtUnSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Subscribers '
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -960,7 +960,7 @@ title: User Types
 				}]);
 
 				$scope.dtSearchOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Search Results'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {

@@ -205,7 +205,7 @@ title: SMTP Out Monitor
 		angular.module('iService').controller('myCtrl', function ($scope, $log, $compile,$window , DTOptionsBuilder, DTColumnDefBuilder,)
 		{
 				$scope.dtSmtpOptions = DTOptionsBuilder
-						.newOptions().withOption('language', {
+						.newOptions().withDisplayLength(5).withOption('language', {
 							search: 'Filter Messages'
 						}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
 						extend: 'colvis',

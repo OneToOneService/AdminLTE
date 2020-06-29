@@ -404,7 +404,7 @@ title: Mailing Criteria
 	{ 
 
 				$scope.dtMailingListsOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Criteria'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -421,7 +421,7 @@ title: Mailing Criteria
 				$scope.formItemList = [];
 			
 				$scope.dtSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Unsubscribes'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -436,7 +436,7 @@ title: Mailing Criteria
 
 				
 				$scope.dtUnSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Subscribers '
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -450,7 +450,7 @@ title: Mailing Criteria
 				}]);
 
 				$scope.dtSearchOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Search Results'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {

@@ -999,7 +999,7 @@ title: Mailing Lists
 		app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder) {
 
 			$scope.dtMailingListsOptions = DTOptionsBuilder
-				.newOptions()
+				.newOptions().withDisplayLength(5)
 				.withOption('language', {
 					search: 'Filter Mailing Lists'
 				}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1015,7 +1015,7 @@ title: Mailing Lists
 			$scope.formItemList = [];
 
 			$scope.dtSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Unsubscribes'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1029,7 +1029,7 @@ title: Mailing Lists
 
 
 			$scope.dtUnSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Subscribers '
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1042,7 +1042,7 @@ title: Mailing Lists
 				}]);
 
 			$scope.dtSearchOptions = DTOptionsBuilder
-				.newOptions()
+				.newOptions().withDisplayLength(5)
 				.withOption('language', {
 					search: 'Filter Subscribers'
 				}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {

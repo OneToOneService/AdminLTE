@@ -321,7 +321,7 @@ title: Quote Admin
 	{ 
 
 				$scope.dtQuoteListsOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Quote Configurations'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -338,7 +338,7 @@ title: Quote Admin
 				$scope.formItemList = [];
 			
 				$scope.dtSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Quote Configurations'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -353,7 +353,7 @@ title: Quote Admin
 
 				
 				$scope.dtUnSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'topic Subscribers '
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -367,7 +367,7 @@ title: Quote Admin
 				}]);
 
 				$scope.dtSearchOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'topic Search Results'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {

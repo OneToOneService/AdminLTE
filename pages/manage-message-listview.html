@@ -950,7 +950,7 @@ title: Manage Messages List View
     {
 			
 			$scope.dtContactMessagesOptions = DTOptionsBuilder
-			.newOptions()
+			.newOptions().withDisplayLength(5)
 			.withOption('language', {
 			search: 'Filter Messages'
 			}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {

@@ -1153,7 +1153,7 @@ title: Agent Settings
 	{ 
 
 				$scope.dtStockResponsesOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Agents'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1186,7 +1186,7 @@ title: Agent Settings
 				}
 
 				$scope.dtContactHistoryOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Agents'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {

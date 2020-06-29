@@ -557,7 +557,7 @@ title: Manage Chats
 		angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
 			$scope.dtContactMessagesOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 				search: 'Filter Chats'
 			})
 				.withBootstrap();

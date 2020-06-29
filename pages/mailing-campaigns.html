@@ -1041,7 +1041,7 @@ title: Mailing Campaigns
 	{ 
               
 				$scope.dtCampaignListsOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Campaigns'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1055,7 +1055,7 @@ title: Mailing Campaigns
 				}]);
 
 				$scope.dtCampaignMessageOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Messages'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1087,7 +1087,7 @@ title: Mailing Campaigns
 				$scope.formItemList = [];
 			
 				$scope.dtSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Unsubscribes'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1102,7 +1102,7 @@ title: Mailing Campaigns
 
 				
 				$scope.dtUnSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Subscribers '
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1116,7 +1116,7 @@ title: Mailing Campaigns
 				}]);
 
 				$scope.dtSearchOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Subscribers'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {

@@ -784,7 +784,7 @@ function stopPropagation(evt) {
 	{   
 		$scope.toggle = {};
 		$scope.dtContactHistoryOptions = DTOptionsBuilder
-		.newOptions().withOption('language', {
+		.newOptions().withDisplayLength(5).withOption('language', {
 			search: 'Filter Search Results'
 		})
 		.withBootstrap().withButtons(['copy', 'excel', 'pdf', {

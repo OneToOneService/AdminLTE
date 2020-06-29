@@ -1152,7 +1152,7 @@ title:  My Messages Inbox QA CSR
 
 
       $scope.dtInboxOptions = DTOptionsBuilder
-        .newOptions()
+        .newOptions().withDisplayLength(5)
         .withOption('language', {
           search: 'Filter Inbox'
         }).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -1166,7 +1166,7 @@ title:  My Messages Inbox QA CSR
 		  }]);
 
        $scope.dtContactHistoryOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter History'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {

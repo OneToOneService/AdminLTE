@@ -1881,7 +1881,7 @@ title: Contact
       $timeout( function(){ $scope.loaderTimeout(); }, 5000);
       
         $scope.dtContactHistoryOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter History'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {

@@ -376,7 +376,7 @@ title: Mailings
 					}
 				};	 
 				$scope.dtMailingListsOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Mailings'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -393,7 +393,7 @@ title: Mailings
 				$scope.formItemList = [];
 			
 				$scope.dtSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Unsubscribes'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -408,7 +408,7 @@ title: Mailings
 
 				
 				$scope.dtUnSubscriberOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Subscribers '
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -422,7 +422,7 @@ title: Mailings
 				}]);
 
 				$scope.dtSearchOptions = DTOptionsBuilder
-						.newOptions()
+						.newOptions().withDisplayLength(5)
 						.withOption('language', {
 							search: 'Filter Search Results'
 						}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {

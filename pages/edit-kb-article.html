@@ -2838,7 +2838,7 @@ title: Manage KB Article
 			
 		
 			$scope.dtContactMessagesOptions = DTOptionsBuilder
-			.newOptions()
+			.newOptions().withDisplayLength(5)
 			.withOption('language', {
 			search: 'Filter Lists'
 			}).withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -2855,7 +2855,7 @@ title: Manage KB Article
 			];
 
 			$scope.dtArticleOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Unsubscribes'
 				})
 				.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
@@ -2869,7 +2869,7 @@ title: Manage KB Article
 
 
 			$scope.dtUnArticleOptions = DTOptionsBuilder
-				.newOptions().withOption('language', {
+				.newOptions().withDisplayLength(5).withOption('language', {
 					search: 'Filter Articles '
 			})
 			.withBootstrap().withButtons(['copy', 'excel', 'pdf', {
