@@ -22,7 +22,9 @@ title: Forms
             <!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i>
+					{{ page.title }} 
+					<i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'formPopover.html'" type="button"  popover-trigger="outsideClick"></i>
+				
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -1705,7 +1707,11 @@ title: Forms
     <!-- ./wrapper -->
     {% include common-javascript.html %}
        <!-- DataTables -->
-
+	   <script type="text/ng-template" id="formPopover.html">
+		<div>
+			There are two groups of forms on this page: Custom Forms and Built-In Forms. Forms that you create for your tenant are listed in the Custom Forms panel. iService also includes a set of built-in forms that you cannot modify. The built-in forms include the HTML for the user interface, API forms, and other content required for every tenant. You can read more about iService Forms in the <a href="https://www.iservice.info/guides/developers/index.html" target="_blank">Forms User Guide</a>
+		</div>
+	</script>
 <!-- code mirror-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/codemirror.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.41.0/mode/javascript/javascript.js"></script>
