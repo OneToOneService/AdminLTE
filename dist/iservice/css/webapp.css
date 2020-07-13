@@ -3996,3 +3996,6 @@ tr.color-urgent td.column-date {
   width: 100%;
   margin-bottom: 15px;
 }
+.sub-menus {
+  padding-left: 20px !important;
+}
