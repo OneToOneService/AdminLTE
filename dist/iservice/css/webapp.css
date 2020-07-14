@@ -3999,3 +3999,10 @@ tr.color-urgent td.column-date {
 .sub-menus {
   padding-left: 20px !important;
 }
+.sidebar-menu li > a > .pull-right-container {
+  right: 0px;
+  margin-top: -7px;
+}
+.sidebar-menu .treeview-menu > li > a {
+  padding-right: 28px;
+}
