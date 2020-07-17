@@ -4008,4 +4008,18 @@ tr.color-urgent td.column-date {
   white-space: normal;
   line-height: 18px;
 }
-.sidebar-menu>li>.treeview-menu{padding-left:20px;}
+.sidebar-menu > li > .treeview-menu {
+  padding-left: 20px;
+}
+.sidebar-menu li > a > .pull-right-container {
+  right: 0px;
+  margin-top: -7px;
+}
+.sidebar-menu .treeview-menu > li > a {
+  padding-right: 28px;
+  white-space: normal;
+  line-height: 18px;
+}
+.sidebar-menu > li > .treeview-menu {
+  padding-left: 20px;
+}
