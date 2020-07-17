@@ -35,12 +35,16 @@ title: Manage Agent Email Form
           <div class="col-md-6 form-horizontal">
               <div class="form-group">
                 <label for="inputPassword3" class="col-sm-12 control-label text-left">Target Segment</label>
-                <div class="col-sm-12">
-                  <select class="form-control">
-                    <option value="CSR">Customer Service</option>
-                    <option value="CSR Manager">Sales</option>
-                  </select>
-                </div>
+                <div class="col-md-12 ng-cloak" ng-controller="SegmentCtrl as ctrl">
+                  <ui-select ng-model="ctrl.segmentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a segment">
+                    <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.Segment || $select.selected"></ui-select-match>
+                    <ui-select-choices repeat="segment in ctrl.segmentname | filter: $select.search">
+                    <span ng-if="segment.Configured"><i class="fa fa-check text-green"> </i></span>
+                    <span ng-if="!segment.Configured" class="mright-15"></span>
+                    <span ng-bind-html="segment.Segment | highlight: $select.search"></span>
+                    </ui-select-choices>
+                  </ui-select>
+                 </div>
               </div>
               <div class="form-group">
                 <div class="checkbox">
@@ -238,30 +242,16 @@ title: Manage Agent Email Form
 					{List: 'WG SMF'}];
 		});
 
-    app.controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
-      var vm = this;
-      vm.topicselected = {selected : "e-shop -- All Topics"};
-        vm.topic = [
-            {name: 'e-shop -- All Topics',topiclevel:0, disabled: '', segment:"Segment"},
-            {name: '_Feedback',topiclevel:1, disabled: 'false', segment:"Segment"},
-            {name: '_Newsletter Subscription ',topiclevel:1, disabled: 'disabled', segment:"Segment"},
-            {name: '_Spam',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: '_Undeliverable',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Account Questions',topiclevel:0, disabled: '', segment:"Segment"},
-            {name: 'Orders',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Refunds',topiclevel:1, disabled: 'disabled', segment:"Segment"},
-            {name: 'Returns',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Products',topiclevel:0, disabled: '', segment:"Segment"},
-            {name: 'Audio-Video',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Cameras',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Cell Phones',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Computers',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Televisions',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Shipping',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Technical Support',topiclevel:1, disabled: '', segment:"Segment"},
-            {name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
-        ];
-    });
+    angular.module('iService').controller('SegmentCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			vm.segment = {};
+	        vm.segmentselected = {selected : "Finance"};
+		    vm.segmentname = [ 
+					{Segment: 'Finance', Configured : 0},
+					{Segment: 'Sales', Configured : 0},
+					{Segment: 'Marketing', Configured : 1},
+		    ];
+	});
     
     app.controller('CCLineCtrl', function ($scope, $http, $timeout, $interval) {
       var vm = this;
