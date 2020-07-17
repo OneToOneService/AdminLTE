@@ -4004,5 +4004,8 @@ tr.color-urgent td.column-date {
   margin-top: -7px;
 }
 .sidebar-menu .treeview-menu > li > a {
-  padding-right: 28px;
+  padding-right: 28px !important;
+  white-space: normal;
+  line-height: 18px;
 }
+.sidebar-menu>li>.treeview-menu{padding-left:20px;}
