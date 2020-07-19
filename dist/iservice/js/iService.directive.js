@@ -229,7 +229,7 @@
 
     return {
       restrict: 'E',
-      require: '?ngModel',
+      require: '',
       link: function ($scope, elem, attr, ngModel)
       {
         var isCheckBox = false;
@@ -242,9 +242,9 @@
         {
           case 'checkbox':
             isCheckBox = true;
-
-            elem.iCheck(checkBoxOptions);
-
+            if(!elem.hasClass('defaulttype')){
+                elem.iCheck(checkBoxOptions);
+            }
             break;
 
           case 'radio':
