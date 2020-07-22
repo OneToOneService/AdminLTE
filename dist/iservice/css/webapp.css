@@ -4023,3 +4023,6 @@ tr.color-urgent td.column-date {
 .sidebar-menu > li > .treeview-menu {
   padding-left: 20px;
 }
+.control-label > .help-icon {
+  font-size: 16px;
+}

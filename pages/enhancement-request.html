@@ -16,6 +16,7 @@ title: Enhancement Request Form
       <section class="content-header">
         <h1>
           {{ page.title }}
+          <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'enhancementReportPopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -36,7 +37,9 @@ title: Enhancement Request Form
                       <label class="col-sm-8 control-label text-left"></label>
                     </div>  
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">User Name</label>
+                      <label class="col-sm-4 control-label text-left">User Name
+                        <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="We will create the bug request using your login details. The iService team will follow up with you at this address if additional information is needed." tooltip-placement="bottom"></i>
+                      </label>
                       <div class="col-sm-6">
                         <input type="text" value="scott" class="form-control" disabled>
                       </div>
@@ -47,8 +50,9 @@ title: Enhancement Request Form
                         <input type="text" value="scott@1t01service.com" class="form-control" disabled>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Tenant Url</label>
+                    <div class="form-group" style="display: none;">
+                      <label class="col-sm-4 control-label text-left">Tenant Url
+                      </label>
                       <div class="col-sm-6">
                         <input type="text" value="styleguide" class="form-control" disabled>
                       </div>
@@ -69,7 +73,9 @@ title: Enhancement Request Form
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Problem with current page or process</label>
+                      <label class="col-sm-4 control-label text-left">Problem with current page or process
+                        <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Provide a short description of the problem and how it affected your workflow." tooltip-placement="bottom"></i>
+                      </label>
                       <div class="col-sm-6">
                         <textarea class="form-control"></textarea>
                       </div>
@@ -117,6 +123,13 @@ title: Enhancement Request Form
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
+
+  <script type="text/ng-template" id="enhancementReportPopover.html">
+    <div>
+      Use this page to report a enhancement to iService. Please be as detailed as possible.
+    </div>
+  </script>
+
 	<script>
 		angular.module('iService').controller('myCtrl', function ($scope) {
 				$scope.toggleSegmentCollapsedState = function (segmentName)

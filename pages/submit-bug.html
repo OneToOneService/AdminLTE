@@ -16,6 +16,7 @@ title: Report A Bug
       <section class="content-header">
         <h1>
           {{ page.title }}
+          <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'bugReportPopover.html'" type="button"  popover-trigger="outsideClick"></i>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -36,7 +37,9 @@ title: Report A Bug
                       <label class="col-sm-8 control-label text-left"></label>
                     </div>  
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">User Name</label>
+                      <label class="col-sm-4 control-label text-left">User Name   
+                         <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="We will create the bug request using your login details. The iService team will follow up with you at this address if additional information is needed." tooltip-placement="bottom"></i>
+                      </label>
                       <div class="col-sm-6">
                         <input type="text" value="scott" class="form-control" disabled>
                       </div>
@@ -47,32 +50,40 @@ title: Report A Bug
                         <input type="text" value="scott@1t01service.com" class="form-control" disabled>
                       </div>
                     </div>
+                    <div class="form-group" style="display: none;">
+                      <label class="col-sm-4 control-label text-left">Submitting URL</label>
+                      <div class="col-sm-6">
+                        <input type="hidden" value="" class="form-control">
+                      </div>
+                    </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Submitting Url</label>
+                      <label class="col-sm-4 control-label text-left" >URL of the page with the bug
+                       <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Please copy and paste the exact URL from your browser's address bar for the page that had the problem." tooltip-placement="bottom"></i>
+                      </label>
                       <div class="col-sm-6">
                         <input type="text" value="" class="form-control">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Url Where Bug Occur</label>
-                      <div class="col-sm-6">
-                        <input type="text" value="" class="form-control">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">What You Were Doing When The Problem Occurred</label>
+                      <label class="col-sm-4 control-label text-left">How to reproduce the error
+                        <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Please do your best to tell us how to reproduce  your error. Be as detailed as possible." tooltip-placement="bottom"></i>
+                      </label>
                       <div class="col-sm-6">
                         <textarea class="form-control"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Error Message Displayed</label>
+                      <label class="col-sm-4 control-label text-left">Error message displayed
+                        <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Provide any error messages that were displayed on the page." tooltip-placement="bottom"></i>
+                      </label>
                       <div class="col-sm-6">
                         <textarea class="form-control"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Description Of The Problem</label>
+                      <label class="col-sm-4 control-label text-left">Description of the problem
+                        <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Provide a short description of the problem and how it affected your workflow." tooltip-placement="bottom"></i>
+                      </label>
                       <div class="col-sm-6">
                         <textarea class="form-control"></textarea>
                       </div>
@@ -110,6 +121,13 @@ title: Report A Bug
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
+
+  <script type="text/ng-template" id="bugReportPopover.html">
+    <div>
+      Use this page to report a bug to iService technical support. Please be as detailed as possible when describing what happened and how it affected your workflow.
+    </div>
+  </script>
+
 	<script>
 		angular.module('iService').controller('myCtrl', function ($scope) {
 				$scope.toggleSegmentCollapsedState = function (segmentName)
