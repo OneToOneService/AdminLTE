@@ -4034,3 +4034,12 @@ tr.color-urgent td.column-date {
   border-radius: 15px;
   margin-left: -18px;
 }
+.data-loader {
+  min-height: 100px;
+  position: relative;
+}
+.data-loader .fa-spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}

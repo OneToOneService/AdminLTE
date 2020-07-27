@@ -45,7 +45,7 @@ title:  My Message Inbox
                   <!-- /.box-header -->
                   <!-- form start -->
                   <div class="box-body table-responsive" uib-collapse="isCollapsedInboxList">
-                    <table class="table table-striped table-hover" datatable dt-options="dtInboxOptions" >
+                    <table style="display:none;" class="table table-striped table-hover" datatable dt-options="dtInboxOptions" >
                       <thead>
                         <tr>
                           <!--<th class="no-sort"  name="name" width="30"></th>-->
@@ -380,6 +380,10 @@ title:  My Message Inbox
                         </tr>
                       </tbody>
                     </table>
+
+                    <div class="data-loader" ng-hide="!datatableshow">
+                      <i ng-show="!ctrl.loaded" class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
+                    </div>  
                   </div>
                 </div>
               </div>
@@ -1712,6 +1716,7 @@ title:  My Message Inbox
     var i = 1;
     angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
+      $scope.datatableshow = false;
        $scope.dtInboxOptions = DTOptionsBuilder
         .newOptions().withDisplayLength(5)
         .withOption('language', {
@@ -1724,6 +1729,7 @@ title:  My Message Inbox
 				// disable the show/hide column functionality for certain columns
 				return headCell.dataset.noColVis === undefined;
 			}
+     
 		}]);
 
       $scope.dtContactHistoryOptions = DTOptionsBuilder
