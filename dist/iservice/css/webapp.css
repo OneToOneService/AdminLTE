@@ -4026,3 +4026,11 @@ tr.color-urgent td.column-date {
 .control-label > .help-icon {
   font-size: 16px;
 }
+.text-with-label {
+  padding-left: 20px;
+  display: block;
+}
+.text-with-label .label {
+  border-radius: 15px;
+  margin-left: -18px;
+}
