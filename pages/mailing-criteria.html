@@ -21,7 +21,8 @@ title: Mailing Criteria
 			<div class="clearfix"></div>	
 			<section class="content-header">
 				<h1>
-					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h1>
+					{{ page.title }} 
+				</h1>
 					<ol class="breadcrumb">
 						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 						<li class="active">Mass Mailing</li>
@@ -396,6 +397,13 @@ title: Mailing Criteria
 		});
 	}); 
 	</script>
+	<script type="text/ng-template" id="mailingCriteriaPopover.html">
+		<div>
+			Mailing Criteria are used to limit the recipients of a mass mailing. By default, mailing messages are sent to all contacts subscribed to a list that have not opted out of mailings for the list. Mailing Criteria are contact search parameters that limit the recipients in a mass mailing.
+			<i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'mailingCriteriaPopover.html'" type="button"  popover-trigger="outsideClick"></i>
+		</div>
+	</script>
+	
 	<script>
 	var count = 1;
 	var i = 1;

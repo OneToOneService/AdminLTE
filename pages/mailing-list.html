@@ -25,8 +25,10 @@ title: Mailing Lists
 			<div class="clearfix"></div>
 			<section class="content-header">
 				<h1>
-					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip"
-						data-placement="bottom" data-original-title="Help"></i></h1>
+					{{ page.title }} 
+
+					 <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'mailingListPopover.html'" type="button"  popover-trigger="outsideClick"></i>
+				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 					<li class="active">Mass Mailing</li>
@@ -984,6 +986,13 @@ title: Mailing Lists
 	<!-- ./wrapper -->
 	{% include common-javascript.html %}
 	<!-- DataTables -->
+
+	<script type="text/ng-template" id="mailingListPopover.html">
+		<div>
+			Mailings lists contain the recipients for your mass mailings. The Segment setting is used to determine when to display the list to customers in the customer portal. The list will only be shown to contacts that have membership to the segment, and if the Shown in My Account is set to True (on). Search for contacts using the Subscribers tab to add them to your list.
+		</div>
+	  </script>
+	
 	<script>
 		$(document).ready(function () {
 			// DataTable
