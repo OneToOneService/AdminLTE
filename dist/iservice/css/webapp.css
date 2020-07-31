@@ -4043,3 +4043,19 @@ tr.color-urgent td.column-date {
   left: 50%;
   top: 50%;
 }
+.count-columns {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.treeview-segment-name {
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 3px solid #3c8dbc;
+  width: auto;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+ul.tree {
+  margin-bottom: 15px !important;
+}
