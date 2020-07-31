@@ -314,7 +314,7 @@ title: Manage Messages
 															<div class="btn-list-options form-group" ng-show="forwardSegment" >
 																	<div class="ng-cloak"  ng-controller="DemoCtrl as ctrl">
 																		<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
-																			<ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																			<ui-select-match placeholder="Select or search for mailbox to receive interaction..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 																			<ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
 																				<span ng-bind-html="item.name | highlight: $select.search"></span><br>
 																				email: <span ng-bind-html="item.email | highlight: $select.search"></span>
