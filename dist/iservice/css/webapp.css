@@ -4059,7 +4059,9 @@ tr.color-urgent td.column-date {
 ul.tree {
   margin-bottom: 15px !important;
 }
+.select2-results {
+  outline: none;
+}
 .select2-highlighted  > .topicLoader {
-  color: blue;
   background: none !important;
 }

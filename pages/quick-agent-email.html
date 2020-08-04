@@ -66,20 +66,20 @@ title: Quick Agent Email
                                                
                                                 <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="item.name == 'Gathering Topics'" >
                                                   <div class="box-placeholder" ng-show="topicLoader">
-                                                    <div class="excerpt p-4 mbottom-15">                                                   
+                                                    <div class="excerpt p-4 mbottom-15">
+                                                      <div class="text line"></div>
                                                       <div class="text line"></div>
                                                       <div class="text"></div>
-                                                      <div class="text line"></div>
-                                                      <div class="text"></div>
-                                                      <div class="text line"></div>
+                                                    </div>
+                                                    <div class="excerpt p-4 mbottom-15">
+                                                      <div class="text title line"></div>
+                                                      <div class="text title line"></div>
                                                       <div class="text"></div>
                                                     </div>
                                                   </div>
                                                   <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search">
                                                   </span>
                                                 </ui-select-choices>
-
-
 
                                               </ui-select>
                                             </div>
