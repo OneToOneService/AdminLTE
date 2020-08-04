@@ -63,9 +63,24 @@ title: Quick Agent Email
                                             <div class="ng-cloak" ng-controller="TopicCtrl as ctrl">
                                               <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic" ng-disabled>
                                                 <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                                <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
-                                                  <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                                               
+                                                <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="item.name == 'Gathering Topics'" >
+                                                  <div class="box-placeholder" ng-show="topicLoader">
+                                                    <div class="excerpt p-4 mbottom-15">                                                   
+                                                      <div class="text line"></div>
+                                                      <div class="text"></div>
+                                                      <div class="text line"></div>
+                                                      <div class="text"></div>
+                                                      <div class="text line"></div>
+                                                      <div class="text"></div>
+                                                    </div>
+                                                  </div>
+                                                  <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search">
+                                                  </span>
                                                 </ui-select-choices>
+
+
+
                                               </ui-select>
                                             </div>
                                           </div>
@@ -398,8 +413,15 @@ title: Quick Agent Email
 
     app.controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
       var vm = this;
-      vm.topicselected = {selected : "e-shop -- All Topics"};
-        vm.topic = [
+      $scope.topicLoader=true;
+      vm.topicselected = {selected : "Select or search a topic in the list..."};
+
+      vm.topic =  vm.topic = [
+            {name: 'Gathering Topics',topiclevel:0, disabled: 'disabled', segment:""}];
+
+            setTimeout(function () {
+              $scope.topicLoader=false;
+              vm.topic = [
             {name: 'e-shop -- All Topics',topiclevel:0, disabled: '', segment:"Segment"},
             {name: '_Feedback',topiclevel:1, disabled: 'false', segment:"Segment"},
             {name: '_Newsletter Subscription ',topiclevel:1, disabled: 'disabled', segment:"Segment"},
@@ -419,6 +441,8 @@ title: Quick Agent Email
             {name: 'Technical Support',topiclevel:1, disabled: '', segment:"Segment"},
             {name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
         ];
+            }, 5000);    
+       
     });
     
     app.controller('CCLineCtrl', function ($scope, $http, $timeout, $interval) {
@@ -429,6 +453,7 @@ title: Quick Agent Email
 					{name: 'Service'},
 			];
 		});
+    
 	</script>
 </body>
 </html>
