@@ -90,7 +90,7 @@ title: Manage Messages
 										<div class="treeview-segment-name">   
 										  E-shop
 										</div>		
-										<ul id="tree1" class="tree">
+										<ul id="tree1" class="topictree">
 											<li>
 												
 												<input type="checkbox" class="minimal">
@@ -136,7 +136,7 @@ title: Manage Messages
                                         <div class="treeview-segment-name">   
 										   Financial Services
 										</div>	
-										<ul id="tree1" class="tree">
+										<ul id="tree3" class="topictree">
 											
 											<li>
 												
@@ -185,7 +185,7 @@ title: Manage Messages
 										<div class="treeview-segment-name">   
 											Financial Services
 										 </div>
-										<ul id="tree2" class="tree">
+										<ul id="tree2" class="topictree">
 											<li>
 												<input type="checkbox" class="minimal ">
 												<div class="treeviewitem"><div class="treeviewrow"><div class="div1"> All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="count-columns"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></div>
@@ -1811,8 +1811,8 @@ title: Manage Messages
 				});
 			}
 		});
-			$('.tree,#tree2').treed();	
-			$('.tree .branch, #tree2 .branch').each(function(){
+			$('.topictree').treed();	
+			$('.topictree .branch').each(function(){
 				var icon = $(this).children('i:first');
 				icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
 				$(this).children().children().toggle();
@@ -1825,9 +1825,9 @@ title: Manage Messages
 				height: '178px'
 			});
     });
-	$(document).on('change', '.tree input[type=checkbox]', function(e) {
+	$(document).on('change', '.topictree input[type=checkbox]', function(e) {
 		$(this).siblings('ul').find("input[type='checkbox']").prop('checked', this.checked);
-		$(this).parentsUntil('.tree').children("input[type='checkbox']").prop('checked', this.checked);
+		$(this).parentsUntil('.topictree').children("input[type='checkbox']").prop('checked', this.checked);
 		e.stopPropagation();
 	});
 
