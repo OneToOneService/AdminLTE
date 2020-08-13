@@ -1836,6 +1836,7 @@ label .icheckbox_square-blue {
   min-width: 400px;
   background: #fbfbfb;
   border: 1px solid #dddddd;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .dd-width-auto {
   min-width: auto !important;
@@ -4067,4 +4068,7 @@ ul.tree {
 }
 .select2-highlighted  > .topicLoader {
   background: none !important;
+}
+.btn-group .btn + .btn-group {
+  margin-left: 0;
 }
