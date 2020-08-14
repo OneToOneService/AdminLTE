@@ -4072,3 +4072,7 @@ ul.tree {
 .btn-group .btn + .btn-group {
   margin-left: 0;
 }
+.message-box-body {
+  max-width: 100%;
+  overflow-x: scroll;
+}
