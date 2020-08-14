@@ -924,7 +924,7 @@ title: Manage Messages
 		<!--expanded row content start-->
 		<script id="expandedrow" type="text/ng-template">
 			<!--form data start-->	
-			<div class="row" ng-hide="hidetrue"> 
+			<div class="row" ng-hide="hidetrue" style="width:{% raw %}{{ containerwidth}}{% endraw %};overflow-x:auto;"> 
 					<div class="col-md-12 ">
 						<div class="row">
 							<div class="col-md-12">
@@ -965,7 +965,7 @@ title: Manage Messages
 								</div>
 							</div>
 							<div class="col-md-12 mtop-15">
-								<div class="box status-box" ng-show="toggle.switchshowstatus" style="width:100%; max-width:100%; overflow-x:auto;">
+								<div class="box status-box" ng-show="toggle.switchshowstatus" >
 								<div class="box-header with-border">
 									<h3 class="box-title">Status Audit</h3>
 									<div class="box-tools pull-right">
@@ -1170,7 +1170,7 @@ title: Manage Messages
 							</div>	
 						</div>	
 						<div class="message-box">
-							<div class="message-box-body" ng-style="{width : '{% raw %}{{ containerwidth}}{% endraw %}' }"> 
+							<div class="message-box-body" style="width:{% raw %}{{ containerwidth}}{% endraw %};overflow-x:auto;"> 
 								<div class="clear"></div>
 								<div>										   
 									<p>Hello,<br>
@@ -1470,7 +1470,7 @@ title: Manage Messages
 			 <!--expanded row content start-->
 			 <script id="expandedrowviewmode" type="text/ng-template">
 			  <!--form data start-->
-			  <div class="row" ng-hide="hidetrue">
+			  <div class="row" ng-hide="hidetrue"  >
 				<div class="col-md-12">
 				  <div class="row">
 					<div class="col-md-12">
@@ -1859,10 +1859,7 @@ title: Manage Messages
 
 			$scope.toggleRow = function (segmentName)
 			{    
-				//manage message body width
-				var elmnt = document.getElementById("messagecontainer");
-				$scope.containerwidth = (elmnt.offsetWidth - 130) + "px";
-				//manage message body width
+				
 
 				$scope.showexpanded1 = !false; 
 				for(var i = 1; i<=6;i++){
@@ -1881,13 +1878,21 @@ title: Manage Messages
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#' + row).after($compile('<tr class="expandedrowcontent"><td class="white-bg" style="width:40px;">&nbsp;</td><td colspan="5" style="padding:0px;"><table class="table"><tr class="bg-customer-reply" ng-show="showexpanded1"><td colspan="6">' + document.getElementById('expandedrow').innerHTML + '</td></tr></table></td></tr>')($scope));
+				angular.element('#' + row).after($compile('<tr class="expandedrowcontent"><td class="white-bg" id="white-bg" style="width:40px;">&nbsp;</td><td colspan="5" style="padding:0px;"><table class="table"><tr class="bg-customer-reply" ng-show="showexpanded1"><td colspan="6">' + document.getElementById('expandedrow').innerHTML + '</td></tr></table></td></tr>')($scope));
 				if($scope.hidetrue != true || $scope.hidetrue2 != true)
 				{
 					document.getElementsByClassName('full-case-action-panel-data').innerHTML = '';
 					document.getElementsByClassName('full-case-panel-data').innerHTML = '';
 					angular.element('.full-case-panel-data').append($compile('<table class="table"><tr id="row3" class="bg-agent-reply" ng-show="toggle.switchshowfullcase"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded3 = false;" ng-show="showexpanded3"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded3" ng-click="showexpanded3 = true;"></i></button></td><td>[ref#: 42733-42733] Feedback provided</td><td> All Topic</td><td><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small></td><td>--</td><td><small class="bg-black disabled label">2018-08-03 11:55:44 AM</small><td></tr><tr class="bg-agent-reply" ng-show="showexpanded3"><td>&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow3').innerHTML + '</td></tr><tr id="row2" class="bg-customer-reply" ng-show="toggle.switchshowfullcase"><td name="name" class="" style="width:40px !important;"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></td><td>[ref#: 42733-42733] Feedback provided</td><td> All Topic</td><td><small class="label bg-green label-with-icon"><i class="fa icon-c icon-agent-email-3"></i>Agent Email</small></td><td>--</td><td><small class="bg-black disabled label">2018-08-03 11:55:44 AM</div><td></tr><tr class="bg-customer-reply" ng-show="showexpanded2"><td>&nbsp;</td><td colspan="6">' + document.getElementById('expandedrow2').innerHTML + '</td></tr></table>')($scope));
 				}
+
+
+				//manage message body width
+				var col2 = document.getElementById("messagecontainer");
+				var col1 = document.getElementById("white-bg").offsetWidth;
+				$scope.containerwidth = (col2.offsetWidth - col1 - 10) + "px";
+				//alert(col2.offsetWidth - col1);
+				//manage message body width
 			}
 
 			function removeFunction(row){
