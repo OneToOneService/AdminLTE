@@ -437,7 +437,7 @@ title: Websites Settings
 																		<div class="col-md-12">
 																		
 																			<div class="dataTables_filter">
-																				<label>Filter List<input type="search" class="form-control input-sm" placeholder=""></label>
+																				<label>Filter Placeholder Names <input type="search" class="form-control input-sm" placeholder=""></label>
 																			</div>
 			
 																			<button class="btn btn-primary pull-left" ng-click="addFormItem();">Add</button>
@@ -445,8 +445,8 @@ title: Websites Settings
 																				<thead>
 																					<tr>
 																						<td class="delete-col"></td>
-																						<td>Placeholder Name</td>
-																						<td>Form ID/Builtin Name</td>
+																						<td><label class="control-label text-left">Placeholder Name <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="Help" tooltip-placement="bottom"></i> </label></td>
+																						<td><label class="control-label text-left">Form ID/Builtin Name <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="Help" tooltip-placement="bottom"></i> </label></td>
 																					</tr>
 																				</thead>
 																				<tbody>
@@ -511,15 +511,15 @@ title: Websites Settings
 																	<div class="form-horizontal">
 																		<div class="col-md-12">
 																			<div class="dataTables_filter">
-																				<label>Filter List<input type="search" class="form-control input-sm" placeholder=""></label>
+																				<label>Filter Placeholder Names <input type="search" class="form-control input-sm" placeholder=""></label>
 																			</div>
 																			
 																			<table class="table table-striped">
 																				<thead>
 																					<tr>
-																						<td>Placeholder Name</td>
-																						<td>Form ID/Builtin Name</td>
-																						<td></td>
+																						<td><label class="control-label text-left">Placeholder Name <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="Help" tooltip-placement="bottom"></i> </label></td>
+																						<td><label class="control-label text-left">Form ID/Builtin Name <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="Help" tooltip-placement="bottom"></i> </label></td>
+																					     <td></td>
 																					</tr>
 																				</thead>
 																				<tbody>
@@ -528,48 +528,23 @@ title: Websites Settings
 																						<td><input type="text" class="form-control" value="ngappbuiltin-admin"></td>
 																						<td></td>
 																					</tr>
-																					<tr>
+																					<tr id="formoptionlist1">
 																						<td><label class="control-label">admin-monitor</label></td>
 																						<td><input type="text" class="form-control" value="ngappbuiltin-admin-monitor"></td>
-																						<td><button class="btn btn-primary btn-sm" ng-click="formoptionlist =!formoptionlist">...</button></td>
+																						<td><button class="btn btn-primary btn-sm"  ng-click="toggleRowOption('formoptionlist1')">...</button></td>
 																					</tr>
-																					<tr ng-show="formoptionlist">
-																						<td colspan="3">
-																							<p>Choose Form</p>
-																							<div class="col-md-12">
-																								<div class="form-group">
-																									<select class="form-control">
-																										<option>agentapp-plugins-body</option>
-																										<option>agentapp-plugins-head</option>
-																										<option>agentemail-footer-fixed</option>
-																										<option>Approval Form</option>
-																										<option>captcha test</option>
-																									</select>
-																								</div>	
-																							</div>	
-																						</td>
-																					</tr>
+																				
 																					<tr>
 																						<td><label class="control-label">admin-openid</label></td>
 																						<td><input type="text" class="form-control" value="ngappbuiltin-admin-openid"></td>
 																						<td></td>
 																					</tr>
-																					<tr>
+																					<tr id="formoption">
 																						<td><label class="control-label">common-javascript</label></td>
 																						<td><input type="text" class="form-control" value="ngappbuiltin-common-javascript"></td>
-																						<td><button class="btn btn-primary btn-sm" ng-click="formoption =!formoption">...</button></td>
+																						<td><button class="btn btn-primary btn-sm" ng-click="toggleRowOption1('formoption')">...</button></td>
 																					</tr>
-																					<tr ng-show="formoption">
-																						<td colspan="3">
-																							<p>Pick version of javascript to use:</p>
-																							<div class="col-md-12">
-																								<div class="form-group">
-																									<button class="btn btn-primary btn-sm">Release (Minimised)</button>
-																									<button class="btn btn-primary btn-sm">Debug</button>
-																								</div>	
-																							</div>	
-																						</td>
-																					</tr>
+																				
 																					<tr>
 																						<td><label class="control-label">common-agentchat</label></td>
 																						<td><input type="text" class="form-control" value="ngappbuiltin-common-agentchat"></td>
@@ -630,6 +605,31 @@ title: Websites Settings
 			</div>
 		</div>
 	</script>
+
+	<script id="formoptionlistitem" type="text/ng-template">
+		<p>Choose Form</p>
+				<div class="col-md-12">
+					<div class="form-group">
+						<select class="form-control">
+							<option>agentapp-plugins-body</option>
+							<option>agentapp-plugins-head</option>
+							<option>agentemail-footer-fixed</option>
+							<option>Approval Form</option>
+							<option>captcha test</option>
+						</select>
+					</div>	
+				</div>	
+	</script>	
+	<script id="formoptionitem" type="text/ng-template">
+		<p>Pick version of javascript to use:</p>
+		<div class="col-md-12">
+			<div class="form-group">
+				<button class="btn btn-primary btn-sm">Release (Minimised)</button>
+				<button class="btn btn-primary btn-sm">Debug</button>
+			</div>	
+		</div>	
+	</script>	
+
   <script>
 	$(document).ready(function() {
     // DataTable
@@ -724,6 +724,48 @@ title: Websites Settings
 				}
       };
       
+
+
+	  $scope.toggleRowOption = function (segmentName)
+		{    
+			$scope[segmentName] = !$scope[segmentName];
+			if($scope[segmentName]){
+				myCreateFunction(segmentName);
+			}else{
+				removeFunction(segmentName);
+			}
+		};
+
+		function myCreateFunction(row) {
+			var innerHTML = document.getElementById('formoptionlistitem').innerHTML;
+			angular.element('#' + row).after($compile('<tr class="expandedrowcontent"><td colspan="3">' + innerHTML + '</td></tr>')($scope));
+		}
+
+		function removeFunction(row){
+			angular.element('.expandedrowcontent').remove();
+		}
+
+		$scope.toggleRowOption1 = function (segmentName)
+		{    
+			$scope[segmentName] = !$scope[segmentName];
+			if($scope[segmentName]){
+				myCreateFunction1(segmentName);
+			}else{
+				removeFunction1(segmentName);
+			}
+		};
+
+		function myCreateFunction1(row) {
+			var innerHTML = document.getElementById('formoptionitem').innerHTML;
+			angular.element('#' + row).after($compile('<tr class="expandedrowcontent1"><td colspan="3">' + innerHTML + '</td></tr>')($scope));
+		}
+
+		function removeFunction1(row){
+			angular.element('.expandedrowcontent1').remove();
+		}
+
+
+
       $scope.toggleFormStep = function(segmentName){
 		for(var i =1; i<=2; i++){
 			$scope['row'+i] = false;  
