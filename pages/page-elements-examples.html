@@ -583,7 +583,7 @@ title: Page Elements Examples
                                                             <ui-select-match placeholder="Select or search a segment in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                                                             <ui-select-choices group-by="'segmentname'" repeat="item in ctrl.segment | filter: $select.search">
                                                                 <span ng-bind-html="item.name | highlight: $select.search"></span> <span ng-if="item.default == 'y'">(Default)</span><br>
-                                                                email: <span ng-bind-html="item.email | highlight: $select.search"></span>
+                                                                <span ng-bind-html="item.email | highlight: $select.search"></span>
                                                             </ui-select-choices>
                                                         </ui-select>
                                                     </div>
