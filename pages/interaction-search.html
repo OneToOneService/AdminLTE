@@ -408,7 +408,7 @@ title:  Search Interactions
 		<!--expanded row content start-->
 		<script id="expandedrow" type="text/ng-template">
 			<!--form data start-->	
-			<div class="row" ng-hide="hidetrue"> 
+			<div class="row" ng-hide="hidetrue"  style="width:{% raw %}{{ containerwidth}}{% endraw %};overflow-x:auto;"> 
 				<div class="col-md-12 ">
 					<div class="row">
 						<div class="col-md-12">
@@ -637,7 +637,7 @@ title:  Search Interactions
 						</div>	
 					</div>	
 					<div class="message-box">
-						<div class="message-box-body" ng-style="{width : '{% raw %}{{ containerwidth}}{% endraw %}' }"> 
+						<div class="message-box-body"  style="width:{% raw %}{{ containerwidth}}{% endraw %};overflow-x:auto;"> 
 							<div class="clear"></div>
 							<div>										   
 								<p>Hello,<br>
@@ -928,9 +928,10 @@ function stopPropagation(evt) {
 		$scope.toggleRow = function (segmentName)
 			{ 
 				//manage message body width
-				var elmnt = document.getElementById(segmentName);
-				$scope.containerwidth = (elmnt.offsetWidth - 130) + "px";
-				//manage message body width
+				//var elmnt = document.getElementById(segmentName);
+				//$scope.containerwidth = (elmnt.offsetWidth - 130) + "px";
+
+			
 				
 				$scope.showexpanded1 = !false; 
 				for(var i = 1; i<=5;i++){
@@ -949,14 +950,22 @@ function stopPropagation(evt) {
 
 			function myCreateFunction(row) {
 				var innerHTML = document.getElementById('expandedrow').innerHTML;
-				angular.element('#'+row).after($compile('<tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+				angular.element('#'+row).after($compile('<tr class="expandedrowcontent bg-customer-reply rowborder" ng-show="showexpanded1"><td class="white-bg" id="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
 			   //<tr id="row_2" class="bg-agent-reply expandedrowcontent rowborder"><td class="white-bg">&nbsp;</td><td style="width:auto;"><span class="expanded-button"><button class="btn btn-xs btn-link btn-expand"><i class="fa fa-minus-circle" style="" ng-click="showexpanded2 = false;" ng-show="showexpanded2"></i><i class="fa fa-plus-circle" style="" ng-hide="showexpanded2" ng-click="showexpanded2 = true;"></i></button></span>Feedback provided</td><td>Feed Account</td><td>Feedback Account</td><td><small class="bg-black disabled label">2018-08-03 11:59:44 AM</small></td><td>Jacob Smith	</td><td>All Topic</td></tr><tr class="bg-agent-reply rowborder" ng-show="showexpanded2"><td class="white-bg">&nbsp;</td><td colspan="7" class="rowdata">'+document.getElementById('expandedrow2').innerHTML+'</td></tr>
 				//angular.element('#'+row).after($compile('<tr class="expandedrowcontent box-bg-color"><td>&nbsp;</td><td colspan="6">'+document.getElementById('expandedrow').innerHTML+'</td></tr>')($scope));
+			
+				//manage message body width
+				var col2 = document.getElementById("messagecontainer");
+			    var col1 = document.getElementById("white-bg").offsetWidth;
+				$scope.containerwidth = (col2.offsetWidth - col1 - 40) + "px";
+				//manage message body width
 			}
 
 			function removeFunction(row){
 				angular.element('.expandedrowcontent').remove();
 			}
+
+			
         
 	});
 
