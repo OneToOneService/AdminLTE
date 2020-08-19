@@ -4078,3 +4078,7 @@ ul.tree {
 h3 {
   font-size: 20px;
 }
+.callout-small h4 {
+  font-size: 16px;
+  margin-bottom: 0px;
+}
