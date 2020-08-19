@@ -110,7 +110,7 @@ title: Contact
                     <div class="box box-warning">
                       <div class="box-header with-border">
                         <i class="fa fa-flash"></i>
-                        <h3 class="box-title">Quick Actions</h3>
+                        <h3 class="box-title">Quick Actions <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'quickActionPopover.html'" type="button"  popover-trigger="outsideClick"></i></h3>
                       </div>
                       <div class="box-body">
                         <nav>
@@ -140,10 +140,10 @@ title: Contact
                     <div class="box box-success">
                       <div class="box-header with-border">
                         <i class="fa fa-info"></i>
-                        <h3 class="box-title">Status Information</h3>
+                        <h3 class="box-title">Status Information <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'statusInformationPopover.html'" type="button"  popover-trigger="outsideClick"></i></h3>
                       </div>
                       <div class="box-body right-container">
-                        <div class="eq-container"> 
+                        <div class="equal-container"> 
                          
                           <div class="row mbottom-15">
                             <div class="col-xs-4 text-center report-counts"><h3 class="text-green"><a href="" class="text-orange">6</a></h3><span><a href="" class="text-primary">Questions Past Week </a></span></div>
@@ -175,11 +175,22 @@ title: Contact
                           </li>
                         </ul>
                         <div class="view-more">
-                          <a class="btn btn-primary btn-xs pull-right">View 2 more</a>
+                          <a class="btn btn-primary btn-xs pull-right">View all unresolved questions</a>
                         </div>
 
-                          <h3>Recent History</h3>
-                          <div>
+                          
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="box box-warning">
+                        <div class="box-header with-border">
+                          <i class="fa fa-history"></i>
+                          <h3 class="box-title"> Recent History </h3>
+                        </div> 
+                        <div class="box-body">
+                         
+                          <div class="equal-container">
                             <div class="qa-message-list">
                               <i class="fa fa-envelope bg-blue"></i>
                               <div class="message-item">
@@ -212,9 +223,9 @@ title: Contact
                               <a href="#tab_4" class="btn btn-primary btn-xs pull-right" data-toggle="tab">View all history</a>
                             </div>
                           </div>
+
                         </div>
-                      </div>
-                    </div>
+                    </div>  
                   </div>
                 </div>
 
@@ -1823,7 +1834,20 @@ title: Contact
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
- 
+
+  <script type="text/ng-template" id="statusInformationPopover.html">
+		<div>
+      This section provides a summary of your interactions with this contact. Click the Last Agent link to see the last comments made to the customer. Click an unresolved question or the View all unresolved questions button to see details.
+		</div>
+  </script>
+  
+
+  <script type="text/ng-template" id="quickActionPopover.html">
+		<div>
+      Use these buttons to email the contact, add notes to their history, or create a new ticket them. The Quick Actions buttons will create a new case. To add your interaction to an existing case, first locate the case in history and then perform your action using the View Mode for an interaction within the case.
+		</div>
+  </script>
+  
   <script>
     
     function stopPropagation(evt) {
