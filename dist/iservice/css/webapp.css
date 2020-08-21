@@ -4085,3 +4085,6 @@ h3 {
 .equal-container {
   height: 264px;
 }
+table th .help-icon {
+  font-size: 16px;
+}
