@@ -112,7 +112,7 @@
                         <li>
                             <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
                                 <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
-                                    <ui-select-match placeholder="Select or search a topic in the list..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                    <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
                                     <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
                                         <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
                                     </ui-select-choices>

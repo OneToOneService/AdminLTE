@@ -22,14 +22,22 @@ title: Mailing Criteria
 			<section class="content-header">
 				<h1>
 					{{ page.title }} 
+
+					<i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'criteriaPopover.html'" type="button"  popover-trigger="outsideClick"></i>
+				
 				</h1>
+				
 					<ol class="breadcrumb">
 						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 						<li class="active">Mass Mailing</li>
 						<li class="active">{{ page.title }}</li>
 					</ol>
 			</section>
-
+			<script type="text/ng-template" id="criteriaPopover.html">
+				<div>
+					Criteria are used to select a subset of list members, and are based on the same search options as found in the Search Contacts page. These predefined searches are saved and can be selected when sending the mailing. Contacts will only receive the message from the mailing if they match the search criteria.
+				</div>
+			</script>
   				<!-- Main content -->
       <section class="content"  ng-controller="myCtrl">
 				<div class="row p-l-0">

@@ -131,7 +131,9 @@ title:  Sales Settings
                           </div> 
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Parent</label>
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Parent
+                                <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Your segment structure can be hierarchical. Select a segment to make it the parent of this segment." tooltip-placement="bottom"></i>
+                              </label>
                               <div class="col-sm-12">
                                 <select class="form-control">
                                   <option>Salesforce</option>
@@ -142,7 +144,7 @@ title:  Sales Settings
                           <div class="col-md-12">
                             <div class="form-group">
                               <div class="checkbox">
-                                <iservice-switch switched="toggle.switch3">This Segment Manages Interactions (Standard Segment)</iservice-switch>
+                                <iservice-switch switched="toggle.switch3">This Segment Manages Interactions (Standard Segment)</iservice-switch> <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Enabled the switch to configure the segment for messaging." tooltip-placement="bottom"></i>
                               </div>
                             </div> 
                           </div>
@@ -153,7 +155,7 @@ title:  Sales Settings
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group bg-group">
-                              <label class="col-md-12 control-label text-left">Default Notifications</label>
+                              <label class="col-md-12 control-label text-left">Default Notifications <i class="fa fa-question-circle text-info help-icon" uib-tooltip="These will be used as the Segment Default notifications when configuring topics." tooltip-placement="bottom"></i></label>
                               <div class="col-md-12">
                                 <div class="form-group group-bg group-input detail-g-borderbottom"> 
                                   <label class="col-md-12 control-label text-left group-input-label">Message Acknowledgment</label>
@@ -192,7 +194,7 @@ title:  Sales Settings
                                 </div>
 
                                 <div class="form-group group-bg group-input detail-g-bordertop">
-                                  <label for="inputPassword3" class="col-sm-12 control-label text-left group-input-label">Find Answers Article Update</label>
+                                  <label for="inputPassword3" class="col-sm-12 control-label text-left group-input-label">Knowledge Base Article Update</label>
                                   <div class="col-sm-12">
                                     <select class="form-control">
                                       <option>-None-</option>
@@ -209,7 +211,7 @@ title:  Sales Settings
                           </div> 
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Service Lavel</label>
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Service Level <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Set a service level to be used as the default for all questions in the segment." tooltip-placement="bottom"></i></label>
                               <div class="col-sm-12">
                                 <select class="form-control">
                                   <option>-None-</option>
@@ -223,7 +225,7 @@ title:  Sales Settings
                           </div> 
                           <div class="col-md-12"  ng-controller="MailboxCtrl as ctrl">
                             <div class="form-group">
-                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Mailbox</label>
+                              <label for="inputPassword3" class="col-sm-12 control-label text-left">Segment Default Mailbox <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The default mailbox is used when answer questions that don't have a from address. For example, answering an Agent or Customer Ticket. Select a mailbox that is generic in nature." tooltip-placement="bottom"></i></label>
                               <div class="col-sm-12" ng-controller="Mailbox as ctrl">
                                 <ui-select ng-model="ctrl.mailboxselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a mailbox">
                                   <ui-select-match placeholder="Select or search for a mailbox in the list" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
@@ -238,7 +240,7 @@ title:  Sales Settings
                           <div class="col-md-12">
                             <div class="form-group">
                               <div class="checkbox">
-                                <iservice-switch switched="toggle.switch6">Queue all unassigned interactions for same contact with Get Next</iservice-switch>
+                                <iservice-switch switched="toggle.switch6">Queue all unassigned interactions for same contact with Get Next</iservice-switch> <i class="fa fa-question-circle text-info help-icon" uib-tooltip="When this is enabled, iService will assign all of the open questions submitted by the same contact when Get Next is used." tooltip-placement="bottom"></i>
                               </div>  
                             </div>
                           </div>  
@@ -1837,7 +1839,8 @@ title:  Sales Settings
                                   Id
                                 </th>
                                 <th class="text-capitalize">
-                                  Name
+                                  Name  <i class="fa fa-question-circle text-info help-icon" uib-tooltip="This value will be displayed in the Stock Response menu when composing interactions." tooltip-placement="bottom"></i>
+                                  
                                 </th>
                                 <th class="text-capitalize">
                                   Description
@@ -1942,7 +1945,8 @@ title:  Sales Settings
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type</label>
+                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Response Type  
+                                    </label>
                                     <div class="col-sm-12">
                                       <select class="form-control">
                                         <option>Chat</option>
@@ -1955,7 +1959,7 @@ title:  Sales Settings
                                 <div class="col-md-12">
                                   <div class="form-group">
                                     <label class="col-md-6 control-label text-left">
-                                         Response Body</label>
+                                         Response Body <i class="fa fa-question-circle text-info help-icon" uib-tooltip="This text will be pasted into the composition when the stock response is selected." tooltip-placement="bottom"></i></label>
                                     <div class="col-md-6  pull-right">           
                                       <div class="btn-group pull-right btn-inline-with-label mbottom-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
                                         <a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
@@ -2017,7 +2021,7 @@ title:  Sales Settings
                               <div class="col-md-12">
                                 <div class="form-group">
                                   <label class="col-md-6 control-label text-left">
-                                      Response Body</label>
+                                      Response Body <i class="fa fa-question-circle text-info help-icon" uib-tooltip="This text will be pasted into the composition when the stock response is selected." tooltip-placement="bottom"></i></label>
                                   <div class="col-md-6 pull-right">           
                                     <div class="btn-group pull-right btn-inline-with-label mbottom-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
                                       <a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>

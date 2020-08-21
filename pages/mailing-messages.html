@@ -21,14 +21,21 @@ title: Mailing Messages
 			<div class="clearfix"></div>	
 			<section class="content-header">
 				<h1>
-					{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h1>
+					{{ page.title }} 
+					<i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'mailingMessagePopover.html'" type="button"  popover-trigger="outsideClick"></i>
+				</h1>
+					
 					<ol class="breadcrumb">
 						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 						<li class="active">Mass Mailing</li>
 						<li class="active">{{ page.title }}</li>
 					</ol>
 			</section>
-
+			<script type="text/ng-template" id="mailingMessagePopover.html">
+				<div>
+					Create mailing messages on this page and then select them from the Mailings or Campaigns page to deliver them to contacts.
+				</div>
+			</script>
   				<!-- Main content -->
       <section class="content"  ng-controller="myCtrl">
 				<div class="row p-l-0">
@@ -209,7 +216,7 @@ title: Mailing Messages
 														<div class="box box-info">
 															<div class="box-header with-border">
 																	<i class="fa fa-file"></i>
-																	<h3 class="box-title">Plain Text Message <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h3>
+																	<h3 class="box-title">Plain Text Message <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Your message should include a plain text and HTML version. Although most users can view HTML email, there are some scenarios where the plain text version will be displayed by default. Be sure to only use the plain text version of any $link commands." tooltip-placement="bottom"></i></h3>
 															</div>
 																<div class="box-body">
 																	<textarea class="form-control" rows="17" name="editor1"></textarea>
@@ -307,7 +314,7 @@ title: Mailing Messages
 														<div class="box box-info">
 															<div class="box-header with-border">
 																	<i class="fa fa-file"></i>
-																	<h3 class="box-title">Rich Text Message <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h3>
+																	<h3 class="box-title">Rich Text Message <i class="fa fa-question-circle text-info help-icon" uib-tooltip="If you've prepared the HTML version of your message in a separate editor, toggle the editor to Source view and paste the contents into that panel. Use the save button after you toggle back to the preview mode." tooltip-placement="bottom"></i></h3>
 															</div>
 															<div class="box-body">
 																	<textarea class="form-control" rows="5" ckeditor name="editor1"></textarea>
@@ -476,7 +483,7 @@ title: Mailing Messages
 												<div class="box box-info">
 													<div class="box-header with-border">
 															<i class="fa fa-file"></i>
-															<h3 class="box-title">Plain Text Message <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h3>
+															<h3 class="box-title">Plain Text Message <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Your message should include a plain text and HTML version. Although most users can view HTML email, there are some scenarios where the plain text version will be displayed by default. Be sure to only use the plain text version of any $link commands." tooltip-placement="bottom"></i></h3>
 															<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
 																<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
 																{% include variables-and-stock-responses.html %}
@@ -493,7 +500,7 @@ title: Mailing Messages
 												<div class="box box-info">
 													<div class="box-header with-border">
 															<i class="fa fa-file"></i>
-															<h3 class="box-title">Rich Text Message <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></h3>
+															<h3 class="box-title">Rich Text Message <i class="fa fa-question-circle text-info help-icon" uib-tooltip="If you've prepared the HTML version of your message in a separate editor, toggle the editor to Source view and paste the contents into that panel. Use the save button after you toggle back to the preview mode." tooltip-placement="bottom"></i></h3>
 															<div class="btn-group pull-right" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
 																<a class="btn btn-default btn-sm responses"  uib-dropdown-toggle data-toggle="off" href="javascript:void(0)">Variables & Stock Responses</a>
 																{% include variables-and-stock-responses.html %}
