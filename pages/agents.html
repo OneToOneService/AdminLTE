@@ -36,7 +36,7 @@ title: Agent Settings
 			</section>
 
   				<!-- Main content -->
-      <section class="content"  ng-controller="myCtrl">
+    		<section class="content"  ng-controller="myCtrl">
 				<div class="row p-l-0">
 					<div class="col-md-12">
 						<div class="row">
@@ -85,192 +85,235 @@ title: Agent Settings
 									<!-- /.box-header -->
 									<!-- form start -->
 									<div class="box-body table-responsive" uib-collapse="isCollapsedForm">
-										<table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
-										<thead>
-											<tr>
-												<!--<th class="no-sort"  name="name" width="30"></th>-->
-												<th class="text-capitalize">
-													Id
-												</th>
-												<th class="text-capitalize">
-													Email
-												</th>
-												<th class="text-capitalize">
-													Full Name
-												</th>
-												<th class="text-capitalize">
-													User Type
-												</th>
-												<th class="text-capitalize">
-													Segment Access
-												</th>
-												<th class="text-capitalize">
-													Skills
-												</th>
-												<th class="text-capitalize">
-													Department Membership
-												</th>
-												<th class="text-capitalize">
-													Receive Notifications
-												</th>
-												<th class="text-capitalize">
-													Logged In 
-												</th>
-												<th class="text-capitalize">
-													Chat Available
-												</th>
-												<th class="text-capitalize">
-													Last Activity
-												</th>
-												<th class="text-capitalize">
-													Empty Inbox
-												</th>
-												<th class="text-capitalize">
-													Inactivity Timeout
-												</th>		
-											</tr>
-										</thead>
-										<tbody>
-											<tr ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
-												<!--<th class="no-sort"  name="name" width="30"></th>-->
-												<td class="text-capitalize">
-													1
-												</td>
-												<td class="text-capitalize">
-													jacob.smith@1to1Service.com
-												</td>
-												<td class="text-capitalize">
-													Jacob Smith
-												</td>
-												<td class="text-capitalize">
-													CSR
-												</td>
-												<td class="text-capitalize">
-													Sales, Customer Service
-												</td>
-												<td class="text-capitalize">
-													Product,Shipping, Support
-												</td>
-												<td class="text-capitalize">
-													Escalation Team
-												</td>
-												<td ng-click="$event.stopPropagation()">
-													<span style="display:none;" ng-bind="toggle.switch1">false</span>
-													<iservice-switch switched="toggle.switch1"></iservice-switch>
-												</td>
-												<td class="text-capitalize">
-													<div style="display: none;">1</div>
-													<i class="fa fa-circle text-success"></i>
-												</td>
-												<td class="text-capitalize">
-													<div style="display: none;">0</div>
-													<i class="fa fa-circle text-danger"></i>
-												</td>
-												<td>
-													<p uib-tooltip="2020-06-03 11:59:46 AM" tooltip-placement="bottom">10 min ago</p>
-												</td>
-												<td>
-													<span style="display:none;" ng-bind="toggle.switch5">false</span>
-													<iservice-switch switched="toggle.switch5"></iservice-switch>
-												</td>
-												<td>
-													2 minutes
-												</td>		
-											</tr>
-											<tr ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
-												<!--<th class="no-sort"  name="name" width="30"></th>-->
-												<td class="text-capitalize">
-													2
-												</td>
-												<td class="text-capitalize">
-													Justin.Time@1to1service.com
-												</td>
-												<td class="text-capitalize">
-													Justin Time
-												</td>
-												<td class="text-capitalize">
-													CSR
-												</td>
-												<td class="text-capitalize">
-													Sales,Customer Service, Human Resources
-												</td>
-												<td class="text-capitalize">
-													Shipping, Support, Tier 2 support
-												</td>
-												<td class="text-capitalize">
-													Sales Team
-												</td>
-												<td ng-click="$event.stopPropagation()">
-													<span style="display:none;" ng-bind="toggle.switch2">false</span>
-													<iservice-switch switched="toggle.switch2"></iservice-switch>
-												</td>
-												<td class="text-capitalize">
-													<i class="fa fa-circle text-success"></i>
-													<div style="display: none;">1</div>
-												</td>
-												<td class="text-capitalize">
-													<div style="display: none;">0</div>
-													<i class="fa fa-circle text-danger"></i>
-												</td>
-												<td>
-													<p uib-tooltip="2020-06-03 11:59:45 AM" tooltip-placement="bottom">9 min ago</p>
-												</td>
-												<td>
-													<span style="display:none;" ng-bind="toggle.switch6">false</span>
-													<iservice-switch switched="toggle.switch6"></iservice-switch>
-												</td>
-												<td>
-													5 minutes
-												</td>		
-											</tr>
-											<tr ng-click="toggleFormStep('row3')" ng-class="{true: 'row-active', false: ''}[row3]">
-												<!--<th class="no-sort"  name="name" width="30"></th>-->
-												<td class="text-capitalize">
-													3
-												</td>
-												<td class="text-capitalize">
-													Alek.Packard@1to1service.com
-												</td>
-												<td class="text-capitalize">
-													Alek Packard
-												</td>
-												<td class="text-capitalize">
-													CSR
-												</td>
-												<td class="text-capitalize">
-													Sales,Customer Service, Human Resources
-												</td>
-												<td class="text-capitalize">
-													Product,Shipping, Support, Tier 2 support
-												</td>
-												<td class="text-capitalize">
-													Escalation Team
-												</td>
-												<td ng-click="$event.stopPropagation()">
-													<span style="display:none;" ng-bind="toggle.switch3">false</span>
-													<iservice-switch switched="toggle.switch3"></iservice-switch>
-												</td>
-												<td class="text-capitalize">
-													<div style="display: none;">0</div>
-													<i class="fa fa-circle text-danger"></i>
-												</td>
-												<td class="text-capitalize">
-													<div style="display: none;">1</div>
-													<i class="fa fa-circle text-success"></i>
-												</td>
-												<td>
-													<p uib-tooltip="2020-06-03 11:59:44 AM" tooltip-placement="bottom">8 min ago</p>
-												</td>
-												<td>
-													<span style="display:none;" ng-bind="toggle.switch7">false</span>
-													<iservice-switch switched="toggle.switch7"></iservice-switch>
-												</td>
-												<td>
-													2 minutes
-												</td>		
-											</tr>
-										</tbody>
-										</table>
+										
+										<div ng-show="loader" ng-cloak  ng-init="loader = true;">
+											<table class="table table-striped table-hover lazyloader">
+											
+											  <tbody>
+												<tr class="lazyloader" ng-show="loader">
+												  <td colspan="8">
+													<!--Loader Place holder-->
+													<div class="box-placeholder" >
+													  <div class="p-4 mbottom-15">
+														<span class="category text link"></span>
+														<div class="text line"></div>
+														<div class="text"></div>
+													  </div>
+													  <div class="excerpt p-4 mbottom-15">
+														<div class="text line"></div>
+														<div class="text line"></div>
+														<div class="text"></div>
+													  </div>
+													  <div class="excerpt p-4 mbottom-15">
+														<div class="text title line"></div>
+														<div class="text title line"></div>
+														<div class="text"></div>
+													  </div>
+													  <div class="excerpt p-4 mbottom-15">
+														<div class="text line"></div>
+														<div class="text line"></div>
+														<div class="text title"></div>
+													  </div>
+													  <p class="loading-text">
+														Gathering Agent Data...
+													  </p>	
+													</div>
+													 <!--Loader Place holder-->
+												  </td>  
+											  </tr>  
+											  </tbody>
+											
+											</table>
+										  </div>
+
+										<div ng-hide="loader" ng-cloak  ng-init="loader = true;">  
+											<table class="table table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
+											<thead>
+												<tr>
+													<!--<th class="no-sort"  name="name" width="30"></th>-->
+													<th class="text-capitalize">
+														Id
+													</th>
+													<th class="text-capitalize">
+														Email
+													</th>
+													<th class="text-capitalize">
+														Full Name
+													</th>
+													<th class="text-capitalize">
+														User Type
+													</th>
+													<th class="text-capitalize">
+														Segment Access
+													</th>
+													<th class="text-capitalize">
+														Skills
+													</th>
+													<th class="text-capitalize">
+														Department Membership
+													</th>
+													<th class="text-capitalize">
+														Receive Notifications
+													</th>
+													<th class="text-capitalize">
+														Logged In 
+													</th>
+													<th class="text-capitalize">
+														Chat Available
+													</th>
+													<th class="text-capitalize">
+														Last Activity
+													</th>
+													<th class="text-capitalize">
+														Empty Inbox
+													</th>
+													<th class="text-capitalize">
+														Inactivity Timeout
+													</th>		
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-click="toggleFormStep('row1')" ng-class="{true: 'row-active', false: ''}[row1]">
+													<!--<th class="no-sort"  name="name" width="30"></th>-->
+													<td class="text-capitalize">
+														1
+													</td>
+													<td class="text-capitalize">
+														jacob.smith@1to1Service.com
+													</td>
+													<td class="text-capitalize">
+														Jacob Smith
+													</td>
+													<td class="text-capitalize">
+														CSR
+													</td>
+													<td class="text-capitalize">
+														Sales, Customer Service
+													</td>
+													<td class="text-capitalize">
+														Product,Shipping, Support
+													</td>
+													<td class="text-capitalize">
+														Escalation Team
+													</td>
+													<td ng-click="$event.stopPropagation()">
+														<span style="display:none;" ng-bind="toggle.switch1">false</span>
+														<iservice-switch switched="toggle.switch1"></iservice-switch>
+													</td>
+													<td class="text-capitalize">
+														<div style="display: none;">1</div>
+														<i class="fa fa-circle text-success"></i>
+													</td>
+													<td class="text-capitalize">
+														<div style="display: none;">0</div>
+														<i class="fa fa-circle text-danger"></i>
+													</td>
+													<td>
+														<p uib-tooltip="2020-06-03 11:59:46 AM" tooltip-placement="bottom">10 min ago</p>
+													</td>
+													<td>
+														<span style="display:none;" ng-bind="toggle.switch5">false</span>
+														<iservice-switch switched="toggle.switch5"></iservice-switch>
+													</td>
+													<td>
+														2 minutes
+													</td>		
+												</tr>
+												<tr ng-click="toggleFormStep('row2')" ng-class="{true: 'row-active', false: ''}[row2]">
+													<!--<th class="no-sort"  name="name" width="30"></th>-->
+													<td class="text-capitalize">
+														2
+													</td>
+													<td class="text-capitalize">
+														Justin.Time@1to1service.com
+													</td>
+													<td class="text-capitalize">
+														Justin Time
+													</td>
+													<td class="text-capitalize">
+														CSR
+													</td>
+													<td class="text-capitalize">
+														Sales,Customer Service, Human Resources
+													</td>
+													<td class="text-capitalize">
+														Shipping, Support, Tier 2 support
+													</td>
+													<td class="text-capitalize">
+														Sales Team
+													</td>
+													<td ng-click="$event.stopPropagation()">
+														<span style="display:none;" ng-bind="toggle.switch2">false</span>
+														<iservice-switch switched="toggle.switch2"></iservice-switch>
+													</td>
+													<td class="text-capitalize">
+														<i class="fa fa-circle text-success"></i>
+														<div style="display: none;">1</div>
+													</td>
+													<td class="text-capitalize">
+														<div style="display: none;">0</div>
+														<i class="fa fa-circle text-danger"></i>
+													</td>
+													<td>
+														<p uib-tooltip="2020-06-03 11:59:45 AM" tooltip-placement="bottom">9 min ago</p>
+													</td>
+													<td>
+														<span style="display:none;" ng-bind="toggle.switch6">false</span>
+														<iservice-switch switched="toggle.switch6"></iservice-switch>
+													</td>
+													<td>
+														5 minutes
+													</td>		
+												</tr>
+												<tr ng-click="toggleFormStep('row3')" ng-class="{true: 'row-active', false: ''}[row3]">
+													<!--<th class="no-sort"  name="name" width="30"></th>-->
+													<td class="text-capitalize">
+														3
+													</td>
+													<td class="text-capitalize">
+														Alek.Packard@1to1service.com
+													</td>
+													<td class="text-capitalize">
+														Alek Packard
+													</td>
+													<td class="text-capitalize">
+														CSR
+													</td>
+													<td class="text-capitalize">
+														Sales,Customer Service, Human Resources
+													</td>
+													<td class="text-capitalize">
+														Product,Shipping, Support, Tier 2 support
+													</td>
+													<td class="text-capitalize">
+														Escalation Team
+													</td>
+													<td ng-click="$event.stopPropagation()">
+														<span style="display:none;" ng-bind="toggle.switch3">false</span>
+														<iservice-switch switched="toggle.switch3"></iservice-switch>
+													</td>
+													<td class="text-capitalize">
+														<div style="display: none;">0</div>
+														<i class="fa fa-circle text-danger"></i>
+													</td>
+													<td class="text-capitalize">
+														<div style="display: none;">1</div>
+														<i class="fa fa-circle text-success"></i>
+													</td>
+													<td>
+														<p uib-tooltip="2020-06-03 11:59:44 AM" tooltip-placement="bottom">8 min ago</p>
+													</td>
+													<td>
+														<span style="display:none;" ng-bind="toggle.switch7">false</span>
+														<iservice-switch switched="toggle.switch7"></iservice-switch>
+													</td>
+													<td>
+														2 minutes
+													</td>		
+												</tr>
+											</tbody>
+											</table>
+										</div>
 									</div>
 								</div> 
 							</div>                         
@@ -281,8 +324,33 @@ title: Agent Settings
 									<button class="btn btn-primary" type="button" ng-click="showNewFormStep(1)">
 											New Agent
 									</button>
+									<button class="btn btn-danger btn-delete" type="button" ng-click="showAlert = true">
+										Remove Agent...
+									</button>
 								</div>	
-						</div>	
+						</div>
+						<div class="row" ng-cloak ng-show="showAlert">
+							<div class="col-md-12">
+								<div class="box box-danger">
+									<div class="box-header with-border">
+										<i class="fa fa-warning"></i>
+				
+										<h3 class="box-title">Alerts</h3>
+									</div>
+									<div class="box-body">
+										<div class="row">
+											<div class="col-md-12">
+												<p class="text-red">Click continue to convert the user type of this agent to Customer.</p>
+											</div>
+											<div class="col-md-12">
+												<button type="button" class="btn btn-danger btn-sm">Continue</button>
+												<button type="button" class="btn btn-link" ng-click="showAlert = false">Cancel</button>
+											</div>
+										</div>
+									</div>	
+								</div>	
+							</div>	
+						</div>		
 						<div class="row" ng-show="formstep1">
 								<div class="col-md-12">
 									<div class="box box-primary">
@@ -1157,9 +1225,14 @@ title: Agent Settings
 	var count = 1;
 	var i = 1;
 	var app =  angular.module('iService');
-	app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+	app.controller('myCtrl', function ($scope,$timeout, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
 	{ 
-
+				$scope.loaderTimeout = function() {
+					$scope.loader = false;
+					angular.element('.lazyloader').remove();
+				}
+				$timeout( function(){ $scope.loaderTimeout(); }, 5000);
+				
 				$scope.dtStockResponsesOptions = DTOptionsBuilder
 						.newOptions().withDisplayLength(5)
 						.withOption('language', {
