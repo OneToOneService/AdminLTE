@@ -190,13 +190,13 @@ title:  My Draft Messages
     <!--expanded row content start-->
    <script id="expandedrow" type="text/ng-template">
       <div class="box box-info with-border">
-        <div class="box-header">
+        <div class="box-header with-border">
           <h3 class="box-title head-title-padding" ng-show="agentemail">Agent Email</h3>
           <h3 class="box-title head-title-padding" ng-show="createnote">Create Note</h3>
           <h3 class="box-title head-title-padding" ng-show="createticket">Create Ticket</h3>
           <h3 class="box-title head-title-padding" ng-show="forwardcopy">Forward Copy</h3>
         </div>  
-        <div class="box-body table-responsive">
+        <div class="box-body">
           {% include agent-email-include.html %}  
           {% include create-note-include.html %}
           {% include create-ticket-include.html %}  
