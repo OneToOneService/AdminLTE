@@ -36,7 +36,7 @@ title:  Search Interactions
 						<div class="box box-primary">
 							<div class="box-header with-border" ng-click="isCollapsedSearchParameter = !isCollapsedSearchParameter" ng-init="isCollapsedSearchParameter = false;">
 								<i class="fa fa-search"></i>
-								<h3 class="box-title">Search Parameters  <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-right" uib-popover-template="'searchParamTooltip.html'" type="button"  popover-trigger="outsideClick"></i></h3>
+								<h3 class="box-title">Search Parameters  <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-right" uib-popover-template="'searchParamTooltip.html'" type="button"  popover-trigger="outsideClick" ng-click="$event.stopPropagation();"></i></h3>
 								<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedSearchParameter}"></span>
 							</div>
 							<div class="box-body" uib-collapse="isCollapsedSearchParameter">
@@ -181,7 +181,7 @@ title:  Search Interactions
                             	<div class="box box-info">
 									<div class="box-header with-border" ng-click="isCollapsedSearchResult = !isCollapsedSearchResult" ng-init="isCollapsedSearchResult = false;">
 										<i class="fa  fa-list-alt"></i>
-										<h3 class="box-title head-title-padding">Search Result <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-right" uib-popover-template="'searchResultTooltip.html'" type="button"  popover-trigger="outsideClick"></i></h3>
+										<h3 class="box-title head-title-padding">Search Result <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-right" uib-popover-template="'searchResultTooltip.html'" type="button"  popover-trigger="outsideClick"  ng-click="$event.stopPropagation();"></i></h3>
 										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedSearchResult}"></span>
 									</div>
 								<!-- /.box-header -->
