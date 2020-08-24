@@ -179,14 +179,14 @@ title:  Search Interactions
                         <div class="row">
 						  	<div class="col-md-12">
                             	<div class="box box-info">
-									<div class="box-header with-border" ng-click="isCollapsedSearchResult = !isCollapsedSearchResult" ng-init="isCollapsedSearchResult = false;">
+									<div class="box-header with-border">
 										<i class="fa  fa-list-alt"></i>
 										<h3 class="box-title head-title-padding">Search Result <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-right" uib-popover-template="'searchResultTooltip.html'" type="button"  popover-trigger="outsideClick"  ng-click="$event.stopPropagation();"></i></h3>
-										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedSearchResult}"></span>
+										
 									</div>
 								<!-- /.box-header -->
 								<!-- form start -->
-									<div class="box-body table-responsive"  id="messagecontainer" uib-collapse="isCollapsedSearchResult">
+									<div class="box-body table-responsive"  id="messagecontainer">
 										<table id="example1" class="table  table-striped table-hover" datatable dt-options="dtContactHistoryOptions" dt-column-defs="dtContactHistoryColumnDefs">
 											<thead>
 												<tr>
