@@ -4092,3 +4092,9 @@ h1 .help-icon {
 .ptop-0 {
   padding-top: 0px;
 }
+.mail-config-box {
+  display: flex;
+}
+.mail-config-box .radio-option {
+  width: 100px;
+}
