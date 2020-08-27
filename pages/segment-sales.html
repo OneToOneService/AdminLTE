@@ -1,5 +1,5 @@
 ---
-title:  Sales Settings
+title:  Topic Preview 
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -2047,66 +2047,211 @@ title:  Sales Settings
               </div> 
               <div class="tab-pane" id="tab_topics">
                 <div class="row">
+                  <div class="col-md-12">
+
+                    <div class="box box-info">
+                      <div class="box-header with-border">
+                        <i class="fa fa-list-ul"></i>
+                        <h3 class="box-title text-right">Topic List</h3>
+                        <span class="pull-right">
+                          <iservice-switch class="mright-15" switched="toggle.switchdeletedtopic">Show Deleted Topics</iservice-switch>
+                        </span>
+                        
+                        <a href="/pages/topic-preview.html" target="_blank"><button class="btn btn-primary btn-sm pull-right mright-5"><i class="fa fa-eye"></i> Preview</button></a>
+                       
+                      </div>  
+                      <div class="box-body table-responsive with-border">
+                          <table class="table table-striped table-hover" datatable dt-options="dtTopicsOptions" dt-column-defs="dtTopicsColumnDefs"> 
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Topic Name
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Parent Name
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Visibility 
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Skills 
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Properties
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-click="toggleFormStepTopic('rowtopic1')" ng-class="{true: 'row-active', false: ''}[rowtopic1]">
+                                  <td>
+                                    e-shop -- All Topics
+                                  </td>
+                                  <td>
+                                   --
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepTopic('rowtopic2')" ng-class="{true: 'row-active', false: ''}[rowtopic2]">
+                                  <td>
+                                    _Feedback
+
+                                  </td>
+                                  <td>
+                                    e-shop -- All Topics
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepTopic('rowtopic3')" ng-class="{true: 'row-active', false: ''}[rowtopic3]">
+                                  <td>
+                                    _Newsletter Subscription
+                                  </td>
+                                  <td>
+                                    e-shop -- All Topics
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepTopic('rowtopic4')" ng-class="{true: 'row-active', false: ''}[rowtopic4]">
+                                  <td>
+                                    _Spam
+                                  </td>
+                                  <td>
+                                    e-shop -- All Topics
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepTopic('rowtopic5')" ng-class="{true: 'row-active', false: ''}[rowtopic5]">
+                                  <td>
+                                    _Undeliverable
+                                  </td>
+                                  <td>
+                                    e-shop -- All Topics
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepTopic('rowtopic6')" ng-class="{true: 'row-active', false: ''}[rowtopic6]">
+                                  <td>
+                                    Account Questions
+                                  </td>
+                                  <td>
+                                    e-shop -- All Topics
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepTopic('rowtopic7')" ng-class="{true: 'row-active', false: ''}[rowtopic7]">
+                                  <td>
+                                    Orders
+                                  </td>
+                                  <td>
+                                    Account Questions 
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepTopic('rowtopic8')" ng-class="{true: 'row-active', false: ''}[rowtopic8]">
+                                  <td>
+                                    Refunds
+                                  </td>
+                                  <td>
+                                    Account Questions 
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                                <tr ng-click="toggleFormStepTopic('rowtopic9')" ng-class="{true: 'row-active', false: ''}[rowtopic9]">
+                                  <td>
+                                    Returns
+                                  </td>
+                                  <td>
+                                    Account Questions 
+                                  </td>
+                                  <td>
+                                    Public
+                                  </td>
+                                  <td>
+                                    Sales
+                                  </td>
+                                  <td>
+                                    isFollowUp (Answer)
+                                  </td>
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div> 
+                    </div>   
+                  </div>  
+                </div>
+                <div class="row">
                   <div class="col-md-12 form-group">
-                    <button class="btn btn-primary" type="button" ng-click="showNewForm = true;">
+                    <button class="btn btn-primary" type="button" ng-click="showNewFormStepTopic(1)">
                       New Topic
                     </button>
                   </div>	
                 </div>
                 <div class="row">
-                  <div class="col-md-4">
-                    <!-- Profile Image -->
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                        <i class="fa fa-list-ul"></i>
-                        <h3 class="box-title text-right">Topic List</h3>
-                      </div>
-                      <div class="box-body search-criteria">
-                        <div class="checkbox">
-                          <iservice-switch class="mright-15" switched="toggle.switchdeletedtopic">Show Deleted Topics</iservice-switch>
-                        </div>
-                        <div class="treeview without-numbers">
-                            <ul id="tree1" class="tree">
-                              <li><a href="#" class="selected"> e-shop -- All Topics </a>
-                                <ul>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow topic-selected"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> </li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div></li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div></li>
-                                  <li> <div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div></li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
-                                    <ul>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div></li>
-                                    </ul>
-                                  </li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
-                                    <ul>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div></li>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div></li>
-                                    </ul>
-                                  </li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> </li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div></li>
-                                  <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
-                                    <ul>
-                                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div></li>
-                                    </ul>
-                                  </li>
-                                </ul>
-                              </li>
-                            </ul>
-                        </div>
-                      </div>
-                  <!-- /.box-body -->
-                    </div>
-                  <!-- /.box -->
-                  </div>
-                  
-                  <div class="col-md-8 p-l-0" ng-show="showNewForm">
+                  <div class="col-md-12 p-l-0" ng-show="formstepTopic1">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                           <i class="fa fa-list-ul"></i>
@@ -2128,9 +2273,14 @@ title:  Sales Settings
                                   <div class="form-group">
                                     <label for="inputPassword3" class="col-sm-12 control-label text-left">Parent Topic</label>
                                     <div class="col-sm-12">
-                                    <select class="form-control">
-                                      <option>--None--</option>
-                                    </select>
+                                      <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+                                        <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+                                            <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                            <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                                <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -2145,7 +2295,7 @@ title:  Sales Settings
                         </div>
                     </div>	
                   </div>
-                  <div class="col-md-8 p-l-0" ng-hide="showNewFormStep2">
+                  <div class="col-md-12 p-l-0" ng-show="formstepTopic2">
                     <div class="box box-primary">
                       <div class="box-header with-border">
                         <h3 class="box-title text-right">Topic Details - _Feedback</h3>
@@ -2162,9 +2312,14 @@ title:  Sales Settings
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>Parent Topic</label>
-                              <select class="form-control">
-                                <option>--Parent--</option>
-                              </select>  
+                              <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+                                <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+                                    <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                    <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                        <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                              </div>
                             </div>
                           </div> 
                           <div class="col-md-6">
@@ -2302,7 +2457,7 @@ title:  Sales Settings
                       </div>  
                     </div>  
                   </div>  
-                </div>
+                 </div>
               </div> 
               <div class="tab-pane" id="tab_filters">
                 <div class="row">
@@ -3708,11 +3863,11 @@ $(document).ready(function() {
           //DTColumnDefBuilder.newColumnDef(10).notVisible()
 				];
 
-        $scope.dtAutoresponsesOptions = DTOptionsBuilder
+        $scope.dtTopicsOptions = DTOptionsBuilder
 				.newOptions().withDisplayLength(5).withOption('language', {
-					search: 'Filter Notifications'
+					search: 'Filter Topics'
 				})
-				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+				.withBootstrap().withButtons([  'excel', {
 					extend: 'colvis',
 					columns: function (index, apiObj, headCell)
 					{
@@ -3861,8 +4016,26 @@ $(document).ready(function() {
         $scope[segmentName] = !$scope[segmentName];
           $scope['formstepAutoResponse'+2] = !$scope['formstepAutoResponse'+2];
       };
-
       
+
+      $scope.toggleFormStepTopic = function(segmentName){
+        for(var i =1; i<=10; i++){
+         // $scope['rowtopic'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepTopic'+2] = !$scope['formstepTopic'+2];
+      };
+
+      $scope.showNewFormStepTopic = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepTopic'+i] = true;
+					}	   
+					else	
+						$scope['formstepTopic'+i] = false;
+				}
+      }; 
+
       $scope.showNewFormStepAutoResponse = function(step){
 				for(var i =1; i<=2; i++){
 					if(i == step){
@@ -4031,6 +4204,31 @@ $(document).ready(function() {
 		
 		];
 	});
+
+  app.controller('ChangeTopicCtrl', function ($scope, $http, $timeout, $interval) {
+        var vm = this;
+        vm.topicselected = {selected : "e-shop -- All Topics"};
+            vm.topic = [
+                {name: 'e-shop -- All Topics',topiclevel:0, disabled: '', segment:"Segment"},
+                {name: '_Feedback',topiclevel:1, disabled: 'false', segment:"Segment"},
+                {name: '_Newsletter Subscription ',topiclevel:1, disabled: 'disabled', segment:"Segment"},
+                {name: '_Spam',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: '_Undeliverable',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Account Questions',topiclevel:0, disabled: '', segment:"Segment"},
+                {name: 'Orders',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Refunds',topiclevel:1, disabled: 'disabled', segment:"Segment"},
+                {name: 'Returns',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Products',topiclevel:0, disabled: '', segment:"Segment"},
+                {name: 'Audio-Video',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Cameras',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Cell Phones',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Computers',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Televisions',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Shipping',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Technical Support',topiclevel:1, disabled: '', segment:"Segment"},
+                {name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
+            ];
+        });
    
  </script>  
 </body>

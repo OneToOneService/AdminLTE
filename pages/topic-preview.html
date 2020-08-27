@@ -1,0 +1,714 @@
+---
+title:  Sales Settings
+---
+<!DOCTYPE html>
+<html ng-app="iService">
+<head>
+    {% include common-head.html %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Profile Image -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <i class="fa fa-list-ul"></i>
+            <h3 class="box-title text-right">Topic List</h3>
+          </div>
+          <div class="box-body search-criteria">
+           
+            <div class="treeview without-numbers">
+                <ul id="tree1" class="tree">
+                  <li><a href="#" class="selected"> e-shop -- All Topics </a>
+                    <ul>
+                      <li> <div class="treeviewitem"><div class="treeviewrow topic-selected"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> </li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div></li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div></li>
+                      <li> <div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div></li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
+                        <ul>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div></li>
+                        </ul>
+                      </li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
+                        <ul>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Computers</div> </div> </div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Televisions</div> </div></div></li>
+                        </ul>
+                      </li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Shipping</div></div></div> </li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Technical Support</div></div></div></li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
+                        <ul>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">Open Quotes </div><div class="div2">&nbsp;</div> </div></div></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+          </div>
+      <!-- /.box-body -->
+        </div>
+      <!-- /.box -->
+      </div>
+      </div>
+  </div>
+  <!-- ./wrapper -->
+  {% include common-javascript.html %}
+
+ <script>
+
+$(document).ready(function() {
+
+    $('.custom-scroll').slimScroll({
+			height: '280px'
+		});
+		//$('.selectpicker').selectpicker('refresh');
+		$.fn.extend({
+			treed: function (o) {
+			
+			var openedClass = 'glyphicon-minus-sign';
+			var closedClass = 'glyphicon-plus-sign';
+			
+			if (typeof o != 'undefined'){
+				if (typeof o.openedClass != 'undefined'){
+				openedClass = o.openedClass;
+				}
+				if (typeof o.closedClass != 'undefined'){
+				closedClass = o.closedClass;
+				}
+			};
+			
+				//initialize each of the top levels
+				var tree = $(this);
+				tree.addClass("tree");
+				tree.find('li').has("ul").each(function () {
+					var branch = $(this); //li with children ul
+					branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+					branch.addClass('branch');
+					branch.on('click', function (e) {
+						if (this == e.target) {
+							var icon = $(this).children('i:first');
+							icon.toggleClass(openedClass + " " + closedClass);
+							$(this).children().children().not('.treeviewrow').toggle();
+						}
+					})
+					branch.children().children().toggle();
+				});
+				//fire event from the dynamically added icon
+			tree.find('.branch .indicator').each(function(){
+				$(this).on('click', function () {
+					$(this).closest('li').click();
+				});
+			});
+				//fire event to open branch if the li contains an anchor instead of text
+				tree.find('.branch>a').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+				//fire event to open branch if the li contains a button instead of text
+				tree.find('.branch>button').each(function () {
+					$(this).on('click', function (e) {
+						$(this).closest('li').click();
+						e.preventDefault();
+					});
+				});
+			}
+		});
+			$('#tree1').treed();	
+			$('#tree1 .branch').each(function(){
+				var icon = $(this).children('i:first');
+				icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
+				$(this).children().children().toggle();
+			});	
+    });
+
+    angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    {
+        $scope.notification = {};
+        $scope.template = {};
+
+        var allnotificationtypes = [{
+        Id: 1,
+        NotificationType: "Agent"
+        }, 
+        {
+            Id: 2,
+            NotificationType: "Alert"
+        },
+        {
+            Id: 3,
+            NotificationType: "Contact Creation"
+        },
+        {
+            Id: 4,
+            NotificationType: "Knowledge Base Article"
+        },
+        {
+            Id: 5,
+            NotificationType: "Message Acknowledgment"
+        },
+        {
+            Id: 6,
+            NotificationType: "Password Reset"
+        },
+        {
+            Id: 7,
+            NotificationType: "Secure Message"
+        }];
+
+
+        var allTemplates = [{
+            Id: 1,
+            TemplateName: "Notification Only",
+            NotificationTypeId: 1
+        },
+        {
+            Id: 2,
+            TemplateName: "Reply at Start",
+            NotificationTypeId: 1
+        },
+        {
+            Id: 3,
+            TemplateName: "Reply at End",
+            NotificationTypeId:1
+        },
+        {
+            Id: 4,
+            TemplateName: "Link to Answer Form",
+            NotificationTypeId:1
+        },
+        , {
+            Id: 1,
+            TemplateName: "Style 1 - Blue",
+            NotificationTypeId: 2
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 2 -Red",
+            NotificationTypeId: 2
+        },
+        {
+            Id: 3,
+            TemplateName: "Style 3 -Green",
+            NotificationTypeId: 2
+        },
+        {
+            Id: 4,
+            TemplateName: "Style 4 -Black",
+            NotificationTypeId: 2
+        },
+        {
+            Id: 1,
+            TemplateName: "Login Details",
+            NotificationTypeId: 3
+        },
+        {
+            Id: 1,
+            TemplateName: "Style 1 - Blue",
+            NotificationTypeId: 4
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 2 -Red",
+            NotificationTypeId: 4
+        },
+        {
+            Id: 3,
+            TemplateName: "Style 3 -Green",
+            NotificationTypeId: 4
+        },
+        {
+            Id: 4,
+            TemplateName: "Style 4 -Black",
+            NotificationTypeId: 4
+        },
+       
+        {
+            Id: 1,
+            TemplateName: "Without Support Portal",
+            NotificationTypeId: 5
+        },
+        {
+            Id: 2,
+            TemplateName: "With Support Portal",
+            NotificationTypeId: 5
+        },
+        {
+            Id: 1,
+            TemplateName: "Style 1 - Blue",
+            NotificationTypeId: 6
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 2 -Red",
+            NotificationTypeId: 6
+        },
+        {
+            Id: 1,
+            TemplateName: "Style 3 -Green",
+            NotificationTypeId: 6
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 4 -Black",
+            NotificationTypeId: 6
+        },
+        {
+            Id: 1,
+            TemplateName: "Style 1 - Blue",
+            NotificationTypeId: 7
+        },
+        {
+            Id: 2,
+            TemplateName: "Style 2 -Red",
+            NotificationTypeId: 7
+        },
+        {
+            Id: 3,
+            TemplateName: "Style 3 -Green",
+            NotificationTypeId: 7
+        },
+        {
+            Id:4,
+            TemplateName: "Style 4 -Black",
+            NotificationTypeId: 7
+        }
+
+        ];
+
+        $scope.notificationtypes = allnotificationtypes;
+
+        $scope.$watch('notification', function () {
+            $scope.templates = allTemplates.filter(function (s) {
+                return s.NotificationTypeId == $scope.notification.Id;
+            });
+            $scope.template = {};
+        });  
+        
+         
+
+        $scope.dtContactHistoryOptions = DTOptionsBuilder
+				.newOptions().withDisplayLength(5).withOption('language', {
+					search: 'Filter Properties'
+				})
+				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+        $scope.dtContactHistoryColumnDefs = [
+          DTColumnDefBuilder.newColumnDef(7).notVisible(),
+					DTColumnDefBuilder.newColumnDef(8).notVisible(),
+					DTColumnDefBuilder.newColumnDef(9).notVisible()
+          //DTColumnDefBuilder.newColumnDef(10).notVisible()
+				];
+
+        $scope.notificationtypelist = {
+
+          'Agent': ['Notification Only',
+                    'Reply at Start',
+                    'Reply at End',
+                    'Link to Answer Form'],
+          'Alert': ['Style 1 - Blue',
+                    'Style 2 -Red',
+                    'Style 3 -Green',
+                    'Style 4 -Black'],
+          'Contact Creation': ['Login Details'],
+          'Knowledge Base Article': ['Style 1 - Blue',
+                    'Style 2 -Red',
+                    'Style 3 -Green',
+                    'Style 4 -Black'],
+          'Message Acknowledgment':['Without Support Portal','With Support Portal'],
+          'Password Reset':['Style 1 - Blue',
+                    'Style 2 -Red',
+                    'Style 3 -Green',
+                    'Style 4 -Black'],
+          'Secure Message': ['Style 1 - Blue',
+                    'Style 2 -Red',
+                    'Style 3 -Green',
+                    'Style 4 -Black']
+          };
+
+          $scope.GetSelectedNotificationType = function () {
+            $scope.strNotificationType = document.getElementById("notificationtype").value;
+          };
+          $scope.GetSelectedTemplate = function () {
+            $scope.strTemplate = document.getElementById("template").value;
+          };
+        $scope.dtMailboxOptions = DTOptionsBuilder
+				.newOptions().withDisplayLength(5).withOption('language', {
+					search: 'Filter Mailboxes'
+				})
+				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+        $scope.dtMailboxColumnDefs = [
+          DTColumnDefBuilder.newColumnDef(1).notVisible(),
+          DTColumnDefBuilder.newColumnDef(2).notVisible(),
+					DTColumnDefBuilder.newColumnDef(3).notVisible(),
+					DTColumnDefBuilder.newColumnDef(4).notVisible(),
+          DTColumnDefBuilder.newColumnDef(5).notVisible(),
+          DTColumnDefBuilder.newColumnDef(7).notVisible(),
+          DTColumnDefBuilder.newColumnDef(8).notVisible(),
+          DTColumnDefBuilder.newColumnDef(9).notVisible(),
+          DTColumnDefBuilder.newColumnDef(10).notVisible(),
+          DTColumnDefBuilder.newColumnDef(13).notVisible(),
+          DTColumnDefBuilder.newColumnDef(14).notVisible(),
+          DTColumnDefBuilder.newColumnDef(15).notVisible(),
+          DTColumnDefBuilder.newColumnDef(16).notVisible()
+          //DTColumnDefBuilder.newColumnDef(10).notVisible()
+				];
+
+        $scope.dtAutoresponsesOptions = DTOptionsBuilder
+				.newOptions().withDisplayLength(5).withOption('language', {
+					search: 'Filter Notifications'
+				})
+				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+        $scope.dtStockresponsesOptions = DTOptionsBuilder
+				.newOptions().withDisplayLength(5).withOption('language', {
+					search: 'Filter Stock Responses'
+				})
+				.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+        $scope.dtFiltersOptions = DTOptionsBuilder
+				.newOptions().withDisplayLength(5).withOption('language', {
+					search: 'Filter Filters'
+				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+
+
+        $scope.dtGroupOptions = DTOptionsBuilder
+				.newOptions().withDisplayLength(5).withOption('language', {
+					search: 'Filter Groups'
+				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+				
+
+        $scope.dtConfigurationOptions = DTOptionsBuilder
+				.newOptions().withDisplayLength(5).withOption('language', {
+					search: 'Filter Errors'
+				}).withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+					extend: 'colvis',
+					columns: function (index, apiObj, headCell)
+					{
+						// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+						// disable the show/hide column functionality for certain columns
+						return headCell.dataset.noColVis === undefined;
+					}
+				}]);
+        
+        $scope.showNewSegment = function(step){
+              $scope['newformsegment'] = !$scope['newformsegment'];
+        };
+
+        $scope.cancelFormSegment = function(){
+              $scope['newformsegment'] = false;
+        };
+
+        $scope.cancelForm = function(step){
+				for(var i =1; i<=2; i++){
+					 $scope['formstep'+i] = false;
+        }
+		  	};	
+
+        $scope.cancelFormGroup = function(step){
+          for(var i =1; i<=2; i++){
+            $scope['formstepGroup'+i] = false;
+          }
+		  	};  
+        $scope.cancelFormFilter = function(step){
+          for(var i =1; i<=2; i++){
+            $scope['formstepFilter'+i] = false;
+          }
+		  	};
+		 	$scope.showNewFormStep = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstep'+i] = true;
+					}	   
+					else	
+						$scope['formstep'+i] = false;
+				}
+      }; 
+
+      $scope.toggleFormStep = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['row'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstep'+2] = !$scope['formstep'+2];
+      };
+
+      $scope.toggleFormStepInteraction = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowinteraction'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepInteraction'+2] = !$scope['formstepInteraction'+2];
+      };
+
+     	$scope.showNewFormStepInteraction = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepInteraction'+i] = true;
+					}	   
+					else	
+						$scope['formstepInteraction'+i] = false;
+				}
+      }; 
+
+      $scope.toggleFormStepMailbox = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowmailbox'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepMailbox'+2] = !$scope['formstepMailbox'+2];
+      };
+      $scope.showNewFormStepMailbox = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepMailbox'+i] = true;
+					}	   
+					else	
+						$scope['formstepMailbox'+i] = false;
+				}
+      }; 
+
+      $scope.toggleFormStepAutoResponse = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowautoresponse'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepAutoResponse'+2] = !$scope['formstepAutoResponse'+2];
+      };
+
+      
+      $scope.showNewFormStepAutoResponse = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepAutoResponse'+i] = true;
+					}	   
+					else	
+						$scope['formstepAutoResponse'+i] = false;
+				}
+      }; 
+
+      $scope.toggleFormStepStockResponse = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowstockresponse'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepStockResponse'+2] = !$scope['formstepStockResponse'+2];
+      };
+
+      
+      $scope.showNewFormStepStockResponse = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepStockResponse'+i] = true;
+					}	   
+					else	
+						$scope['formstepStockResponse'+i] = false;
+				}
+      }; 
+
+      $scope.toggleFormStepFilter = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowfilter'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepFilter'+2] = !$scope['formstepFilter'+2];
+      };
+
+      $scope.toggleFormStepGroup = function(segmentName){
+        for(var i =1; i<=2; i++){
+          $scope['rowGroup'+i] = false;  
+        }
+        $scope[segmentName] = !$scope[segmentName];
+          $scope['formstepGroup'+2] = !$scope['formstepGroup'+2];
+      };
+
+      
+      $scope.showNewFormStepFilter = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepFilter'+i] = true;
+					}	   
+					else	
+						$scope['formstepFilter'+i] = false;
+				}
+      }; 
+
+      $scope.showNewFormStepGroup = function(step){
+				for(var i =1; i<=2; i++){
+					if(i == step){
+						$scope['formstepGroup'+i] = true;
+					}	   
+					else	
+						$scope['formstepGroup'+i] = false;
+				}
+      }; 
+      $scope.customForm = function(){
+			$scope.customform = true;
+			}
+			$scope.builtinForm = function(){
+				$scope.customform = false;
+			}
+    });
+
+    angular.module('iService').controller('MailboxCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			vm.availableMailboxes = [
+					{Mailbox: 'iService Support(support@1to1service.com)'},
+					{Mailbox: 'Sales Support (sales@1to1service.com)'},
+					{Mailbox: 'iService Criticle Support (criticle@1to1service.com)'},				
+			];
+			vm.multipleDemo = {};
+		});
+
+    angular.module('iService').controller('Mailbox', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.mailbox = {};
+			vm.mailboxname = [ 
+			   	{name: 'iService Support(support@1to1service.com)'},
+					{name: 'Sales Support (sales@1to1service.com)'},
+					{name: 'iService Criticle Support (criticle@1to1service.com)'},
+			];
+		});
+
+    angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+			vm.availableTopics = [
+					{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'},
+					{Topic: '.._Newsletter Subscription (0)'},
+					{Topic: '.._Spam (0)'},
+					{Topic: '.._Undeliverable (0)'},
+					{Topic: '..Account Questions (0)'},
+					{Topic: '....Orders (0)'},
+					{Topic: '....Refunds (0)'},
+					{Topic: '....Returns (0)'},
+					{Topic: '..Products(0)'},
+					{Topic: '....Audio-Video (0)'},
+					{Topic: '....Cameras (0)'},
+					{Topic: '....Cell Phones (0)'},
+					{Topic: '....Computers (0)'},
+					{Topic: '....Televisions(0)'},
+					{Topic: '..Shipping (0)'},
+					{Topic: '..Technical Support (0)'},
+					{Topic: '....Open Quotes (1)'}
+				
+			];
+			vm.multipleDemo = {};
+			vm.multipleDemo.topics = [{Topic: 'e-shop -- All Topics(0)'},
+					{Topic: '.._Feedback (2)'}];
+		});
+
+
+
+   app.controller("SimpleDemoController", function($scope) {
+
+      $scope.models = {
+          selected: null,
+          lists: {"Availablefilter": [], "Includedfilter": []},
+
+      };
+
+      // Generate initial model
+      for (var i = 1; i <= 3; ++i) {
+          $scope.models.lists.Availablefilter.push({label: "Item A" + i});
+          $scope.models.lists.Includedfilter.push({label: "Item B" + i});
+      }
+
+      // Model to JSON for demo purpose
+      $scope.$watch('models', function(model) {
+          $scope.modelAsJson = angular.toJson(model, true);
+      }, true);
+
+      });
+
+      app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			
+      vm.segmentselected = {selected : "Integer"};
+			vm.segment = [
+				{ name: 'Date', segmentname: 'Value Types' },
+				{ name: 'Integer', segmentname: 'Value Types' },
+        { name: 'Number', segmentname: 'Value Types' },
+				{ name: 'Text', segmentname: 'Value Types' },
+				{ name: 'Customer Types', segmentname: 'Lists' },
+				{ name: 'Priorities',  segmentname: 'Lists' },
+        { name: 'Important Dates',  segmentname: 'Based On Other Properties' },
+			];
+		});
+
+    angular.module('iService').controller('FilterCtrl', function ($scope, $http, $timeout, $interval) {
+			var vm = this;
+			vm.filter = {};
+	      vm.filterselected = {selected : "Test filter"};
+		    vm.filtername = [ 
+			{name: 'Test filter', code: ''},
+		
+		];
+	});
+   
+ </script>  
+</body>
+</html>

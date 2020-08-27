@@ -486,7 +486,7 @@ title: Agent Settings
 								<div class="nav-tabs-custom">
 									<ul class="nav nav-tabs">
 										<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-user"></i> <span>Agent Details</span></a></li>
-										<li><a href="#tab_2" data-toggle="tab"><i class="fa fa-fw fa-gear"></i> <span>Agent Settings</span></a></li>
+										
 										<li><a href="#tab_3" data-toggle="tab"><i class="fa fa-fw fa-ellipsis-h"></i> <span>Agent Contact Details</span></a> </li>
 										<li><a href="#tab_4" data-toggle="tab"><i class="fa fa-fw fa-reply"></i> <span>Agent Stock Responses</span></a> </li>
 									</ul>
@@ -499,7 +499,7 @@ title: Agent Settings
 
 														<div class="col-md-3">
 															<div class="form-group">
-																<label for="inputPassword3" class="col-sm-12 control-label text-left">Windows Domain Login Name</label>
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Windows Domain Login Name <i class="fa fa-question-circle text-info help-icon" uib-tooltip="If you use Windows Authentication to login to iService, enter the domain and windows username in the format domain\username." tooltip-placement="bottom"></i></label>
 																<div class="col-sm-12">
 																	<input type="text" class="form-control">
 																</div>
@@ -507,7 +507,7 @@ title: Agent Settings
 														</div>
 														<div class="col-md-3">
 															<div class="form-group">
-																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent User Type</label>
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent User Type <i class="fa fa-question-circle text-info help-icon" uib-tooltip="User Types determine the pages and features available to the agent. Visit the User Types settings page to review the types configured for your tenant." tooltip-placement="bottom"></i></label>
 																<div class="col-sm-12">
 																	<select class="form-control">
 																		<option>CSR</option>
@@ -532,6 +532,8 @@ title: Agent Settings
 																	<label class="control-label">Last Action</label> 16 min ago 
 																</span>
 																<button type="button" class="btn btn-xs btn-primary margin-r-5">Logout Agent</button>
+
+																<i class="fa fa-question-circle text-info help-icon" uib-tooltip="This section provides the agent's current logged in status and availability for chat. Click the Logout Agent button to log the agent out of the system." tooltip-placement="bottom"></i>
 															</div>	
 														</div> 
 													   </div>	
@@ -609,8 +611,65 @@ title: Agent Settings
 																	
 															</div>	
 	
-														</div>																		
+														</div>
+														
+														
+
 													</div>
+
+													<div class="col-md-12 mbottom-15">
+														<div class="row">
+															<div class="form-horizontal">
+																<div class="col-md-6">
+																	<label class="col-md-12 control-label text-left ptop-0">
+																		Notification
+																		<i class="fa fa-question-circle text-info help-icon" uib-tooltip="Turn on notifications if you want the agent to be notified when new questions arrive that match their skills and segment access. You can select any of the agent's email addresses for notification. You must specify an Agent Notification template for the topic before notifications will be sent to agents." tooltip-placement="bottom"></i>
+																	</label>
+																	<div class="form-group group-bg group-input">    
+																		
+																		<div class="col-md-6">
+																			<div class="form-group">  
+																				<label class="col-md-12 control-label text-left">Receive Notifications</label>
+																				<div class="col-sm-12">
+																					<iservice-switch switched="toggle.switch6" ng-model="receiveNotification"></iservice-switch>
+																				</div>
+																			</div>
+																		</div>	
+																		<div class="col-md-6">
+																			<div class="form-group"> 
+																				<label class="col-md-12 control-label text-left">Notification Address</label>
+																				<div class="col-sm-12">
+																					<select class="form-control" ng-disabled="!toggle.switch6">
+																						<option>Address1</option>
+																					</select>
+																				</div>
+																			</div>
+																		</div>
+																	</div>  
+																</div>	
+																
+															
+																<div class="col-md-3">
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label text-left">Empty Inbox When Logged Out <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Enable this switch to automatically unassign all questions assigned to the agent when they logout. This is typically used by organizations that operate 24x7 and have other agents that can continue working on answers when the agent logs out. When this is enabled, you cannot assign questions to the agent unless they are logged into iService." tooltip-placement="bottom"></i></label>
+																		<div class="col-sm-12">
+																			<iservice-switch switched="toggle.switch7"></iservice-switch>
+																		</div>
+																	</div>    
+																</div>
+																
+																<div class="col-md-3">
+																	<div class="form-group">    
+																		<label class="col-md-12 control-label text-left">Inactivity Timeout Minutes <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The default period for logging out inactive agents is 90 minutes. Enter a different value to override the default setting." tooltip-placement="bottom"></i></label>
+																		<div class="col-sm-12">
+																			<input type="text" class="form-control" placeholder="90">
+																		</div>
+																	</div>    
+																</div>
+																
+															</div>
+														</div>  
+													</div>	
 													<div class="col-md-12">
 														<button type="button" class="btn btn-primary margin-r-5">Save</button>
 														<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
@@ -619,50 +678,7 @@ title: Agent Settings
 											</div>	
 										</div>
 										<!-- /.tab-pane -->
-										<div class="tab-pane" id="tab_2">
-											<div class="row">
-												<div class="form-horizontal">
-													<div class="col-md-3">
-														<div class="form-group">    
-															<label class="col-md-12 control-label text-left">Receive Notifications</label>
-															<div class="col-sm-12">
-																<iservice-switch switched="toggle.switch6"></iservice-switch>
-															</div>
-														</div>  
-													</div>
-													<div class="col-md-3">
-														<div class="form-group">    
-															<label class="col-md-12 control-label text-left">Empty Inbox When Logged Out</label>
-															<div class="col-sm-12">
-																<iservice-switch switched="toggle.switch7"></iservice-switch>
-															</div>
-														</div>    
-													</div>
-													<div class="col-md-3">
-														<div class="form-group">    
-															<label class="col-md-12 control-label text-left">Notification Address</label>
-															<div class="col-sm-12">
-																<select class="form-control">
-																	<option>Address1</option>
-																</select>
-															</div>
-														</div>    
-													</div>
-													<div class="col-md-3">
-														<div class="form-group">    
-															<label class="col-md-12 control-label text-left">Inactivity Timeout Minutes</label>
-															<div class="col-sm-12">
-																<input type="text" class="form-control" placeholder="90">
-															</div>
-														</div>    
-													</div>
-													
-													<div class="col-md-12">
-														<button type="submit" class="btn btn-primary">Save</button>
-													</div>
-												</div>
-											</div>    
-										</div>
+										
 										<div class="tab-pane" id="tab_3" ng-controller="myCtrlDetail">
 											<div class="row">
 											<div class="col-xs-12 col-sm-9 panel-group">
