@@ -1,5 +1,5 @@
 ---
-title:  Topic Preview 
+title:  Sales Settings
 ---
 <!DOCTYPE html>
 <html ng-app="iService">
@@ -2138,8 +2138,7 @@ title:  Topic Preview
                           <iservice-switch class="mright-15" switched="toggle.switchdeletedtopic">Show Deleted Topics</iservice-switch>
                         </span>
                         
-                        <a href="/pages/topic-preview.html" target="_blank"><button class="btn btn-primary btn-sm pull-right mright-5"><i class="fa fa-eye"></i> Preview</button></a>
-                       
+                        
                       </div>  
                       <div class="box-body table-responsive with-border">
                           <table class="table table-striped table-hover" datatable dt-options="dtTopicsOptions" dt-column-defs="dtTopicsColumnDefs"> 
@@ -2341,37 +2340,161 @@ title:  Topic Preview
                         <div class="box-body">
                           <section class="search-parameters">
                             <div class="row">
-                              <div class="form-horizontal">
-                                <div class="col-md-4">
-                                  <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Topic Name</label>
-                                    <div class="col-sm-12">
-                                      <input type="text" class="form-control">
-                                    </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Topic Name <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The topic name will be displayed when viewing interactions and in topic menus." tooltip-placement="bottom"></i></label>
+                                  <input type="email" class="form-control">
+                                </div>
+                              </div>  
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Parent Topic <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Your topic tree can be hierarchical. Select the topic that is above this one." tooltip-placement="bottom"></i></label>
+                                  <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+                                    <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+                                        <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                        <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                            <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
                                   </div>
                                 </div>
-                                <div class="col-md-4">
-                                  <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Parent Topic</label>
-                                    <div class="col-sm-12">
-                                      <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
-                                        <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
-                                            <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                            <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
-                                                <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
-                                            </ui-select-choices>
-                                        </ui-select>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-4">
-                                  <label class="control-label col-md-12">&nbsp;</label>
-                                  <button type="button" class="btn btn-primary margin-r-5 mtop-5" ng-click="showNewFormStep2 = false; showNewForm = false;">Create</button>
-                                  <button type="button" class="btn btn-link mtop-5" ng-click="showNewForm = false;">Cancel</button>
+                              </div> 
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Visibility <i class="fa fa-question-circle text-info help-icon" uib-tooltip="To prevent customers from seeing this topic, set it's visibility to Private." tooltip-placement="bottom"></i></label>
+                                  <select class="form-control">
+                                    <option>Public</option>
+                                    <option>Private</option>
+                                    <option>Deleted</option>
+                                  </select>  
                                 </div>
                               </div>
-                            </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Customer Ticket Filter <i class="fa fa-question-circle text-info help-icon" uib-tooltip="You can apply Filters to incoming questions submitted via customer ticket forms. Select the filter for the topic here. Filters for incoming customer email are set on the mailbox, not the topic." tooltip-placement="bottom"></i></label>
+                                  <select class="form-control">
+                                    <option>--None--</option>
+                                  </select>  
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Message Acknowledgment Notification <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the notification template to send to the customer when we receive their question in this topic." tooltip-placement="bottom"></i></label>
+                                  <select class="form-control">
+                                    <option>--Segment Default--</option>
+                                  </select>  
+                                </div>
+                              </div> 
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Agent Notification <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the notification template to send to agents when new questions are created in this topic." tooltip-placement="bottom"></i></label>
+                                  <select class="form-control">
+                                    <option>--Segment Default--</option>
+                                  </select>  
+                                </div>
+                              </div>
+                           
+                             
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Service Level <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the service level that will apply to questions in this topic. When multiple service levels are available for a question, iService will use the one that has the lowest value." tooltip-placement="bottom"></i></label>
+                                  <select class="form-control">
+                                    <option>--Segment Default--</option>
+                                  </select>  
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="col-md-6">
+                                <div class="box box-primary">
+                                  <div class="box-header with-border">
+                                    <h3 class="box-title text-right">Skills Required For Get Next <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the skills that an agent must have to be assigned questions from this topic when they click the Get Next button." tooltip-placement="bottom"></i></h3>
+                                  </div>
+                                  <div class="box-body">
+                                    <div class="form-group">
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox> No Route
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>Sales
+                                        </label>
+                                      </div>
+                                    </div>  
+                                  </div>     
+                                </div>  
+                              </div>  
+            
+                              <div class="col-md-6">
+                                  <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                      <h3 class="box-title text-right">Interaction Properties <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the interaction properties that are associated with this topic. These will be presented to agents when adding tickets to the topic and composing answers." tooltip-placement="bottom"></i></h3>
+                                    </div>
+                                    <div class="box-body">
+                                      <label class="col-md-12 control-label text-left">Sales Segment Properties</label>
+                                      <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox> isFollowUp (Answer)
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox>isOpen (Answer)
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox> Follow Up Date (Answer)
+                                          </label>
+                                        </div>
+                                        <h4 class="col-md-12 mtop-15">Shared Properties From Other Segments</h4>
+                                        <label class="col-md-12 control-label text-left">Human Resource Segment</label>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox>Priority (Answer)
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox> No Rout
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox>Sales
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox> Owner (Answer)
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox>Prop1-Quantity (Question)
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox> Prop2-Weight (Question)
+                                          </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" checkbox>topic 1 property (Question)
+                                          </label>
+                                        </div>
+                                    </div>     
+                                  </div>  
+                              </div> 
+                              <div class="col-md-12 col-sm-12">
+                                <button class="btn btn-primary pull-left mright-5" type="button">Save</button>
+    
+                                <a href="/pages/topic-preview.html" target="_blank"><button class="btn btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
+                           
+                              </div>
+                            </div>   
                           </section>
                         </div>
                     </div>	
@@ -2383,123 +2506,81 @@ title:  Topic Preview
                       </div>
                       <div class="box-body">
                         <div class="box-content box-bg-color">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Topic Name</label>
-                              <input type="email" class="form-control">
-                            </div>
-                          </div>  
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Parent Topic</label>
-                              <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
-                                <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
-                                    <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
-                                    <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
-                                        <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
-                                    </ui-select-choices>
-                                </ui-select>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Topic Name <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The topic name will be displayed when viewing interactions and in topic menus." tooltip-placement="bottom"></i></label>
+                                <input type="email" class="form-control">
                               </div>
-                            </div>
-                          </div> 
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Visibility</label>
-                              <select class="form-control">
-                                <option>Public</option>
-                                <option>Private</option>
-                                <option>Deleted</option>
-                              </select>  
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Message Acknowledgment Notification</label>
-                              <select class="form-control">
-                                <option>--Segment Default--</option>
-                              </select>  
-                            </div>
-                          </div> 
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Agent Notification</label>
-                              <select class="form-control">
-                                <option>--Segment Default--</option>
-                              </select>  
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Customer Ticket Filter</label>
-                              <select class="form-control">
-                                <option>--None--</option>
-                              </select>  
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Service Level</label>
-                              <select class="form-control">
-                                <option>--Segment Default--</option>
-                              </select>  
-                            </div>
-                          </div>
-                          <div class="clearfix"></div>
-                          <div class="col-md-6">
-                            <div class="box box-primary">
-                              <div class="box-header with-border">
-                                <h3 class="box-title text-right">Skills Required For Get Next</h3>
-                              </div>
-                              <div class="box-body">
-                                <div class="form-group">
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" checkbox> No Route
-                                    </label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" checkbox>Sales
-                                    </label>
-                                  </div>
-                                </div>  
-                              </div>     
                             </div>  
-                          </div>  
-        
-                          <div class="col-md-6">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Parent Topic <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Your topic tree can be hierarchical. Select the topic that is above this one." tooltip-placement="bottom"></i></label>
+                                <div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+                                  <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+                                      <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                      <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+                                          <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+                                      </ui-select-choices>
+                                  </ui-select>
+                                </div>
+                              </div>
+                            </div> 
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Visibility <i class="fa fa-question-circle text-info help-icon" uib-tooltip="To prevent customers from seeing this topic, set it's visibility to Private." tooltip-placement="bottom"></i></label>
+                                <select class="form-control">
+                                  <option>Public</option>
+                                  <option>Private</option>
+                                  <option>Deleted</option>
+                                </select>  
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Customer Ticket Filter <i class="fa fa-question-circle text-info help-icon" uib-tooltip="You can apply Filters to incoming questions submitted via customer ticket forms. Select the filter for the topic here. Filters for incoming customer email are set on the mailbox, not the topic." tooltip-placement="bottom"></i></label>
+                                <select class="form-control">
+                                  <option>--None--</option>
+                                </select>  
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Message Acknowledgment Notification <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the notification template to send to the customer when we receive their question in this topic." tooltip-placement="bottom"></i></label>
+                                <select class="form-control">
+                                  <option>--Segment Default--</option>
+                                </select>  
+                              </div>
+                            </div> 
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Agent Notification <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the notification template to send to agents when new questions are created in this topic." tooltip-placement="bottom"></i></label>
+                                <select class="form-control">
+                                  <option>--Segment Default--</option>
+                                </select>  
+                              </div>
+                            </div>
+                         
+                           
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Service Level <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the service level that will apply to questions in this topic. When multiple service levels are available for a question, iService will use the one that has the lowest value." tooltip-placement="bottom"></i></label>
+                                <select class="form-control">
+                                  <option>--Segment Default--</option>
+                                </select>  
+                              </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-6">
                               <div class="box box-primary">
                                 <div class="box-header with-border">
-                                  <h3 class="box-title text-right">Interaction Properties</h3>
+                                  <h3 class="box-title text-right">Skills Required For Get Next <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the skills that an agent must have to be assigned questions from this topic when they click the Get Next button." tooltip-placement="bottom"></i></h3>
                                 </div>
                                 <div class="box-body">
-                                  <label class="col-md-12 control-label text-left">Sales Segment Properties</label>
-                                  <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> isFollowUp (Answer)
-                                      </label>
-                                    </div>
+                                  <div class="form-group">
                                     <div class="checkbox">
                                       <label>
-                                        <input type="checkbox" checkbox>isOpen (Answer)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> Follow Up Date (Answer)
-                                      </label>
-                                    </div>
-                                    <h4 class="col-md-12 mtop-15">Shared Properties From Other Segments</h4>
-                                    <label class="col-md-12 control-label text-left">Human Resource Segment</label>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox>Priority (Answer)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> No Rout
+                                        <input type="checkbox" checkbox> No Route
                                       </label>
                                     </div>
                                     <div class="checkbox">
@@ -2507,33 +2588,80 @@ title:  Topic Preview
                                         <input type="checkbox" checkbox>Sales
                                       </label>
                                     </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> Owner (Answer)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox>Prop1-Quantity (Question)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox> Prop2-Weight (Question)
-                                      </label>
-                                    </div>
-                                    <div class="checkbox">
-                                      <label>
-                                        <input type="checkbox" checkbox>topic 1 property (Question)
-                                      </label>
-                                    </div>
+                                  </div>  
                                 </div>     
                               </div>  
-                          </div> 
-                          <div class="col-md-12 col-sm-12">
-                            <button class="btn btn-primary pull-left" type="button">Save</button>
-                          </div>
-                        </div>   
+                            </div>  
+          
+                            <div class="col-md-6">
+                                <div class="box box-primary">
+                                  <div class="box-header with-border">
+                                    <h3 class="box-title text-right">Interaction Properties <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the interaction properties that are associated with this topic. These will be presented to agents when adding tickets to the topic and composing answers." tooltip-placement="bottom"></i></h3>
+                                  </div>
+                                  <div class="box-body">
+                                    <label class="col-md-12 control-label text-left">Sales Segment Properties</label>
+                                    <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox> isFollowUp (Answer)
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>isOpen (Answer)
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox> Follow Up Date (Answer)
+                                        </label>
+                                      </div>
+                                      <h4 class="col-md-12 mtop-15">Shared Properties From Other Segments</h4>
+                                      <label class="col-md-12 control-label text-left">Human Resource Segment</label>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>Priority (Answer)
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox> No Rout
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>Sales
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox> Owner (Answer)
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>Prop1-Quantity (Question)
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox> Prop2-Weight (Question)
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" checkbox>topic 1 property (Question)
+                                        </label>
+                                      </div>
+                                  </div>     
+                                </div>  
+                            </div> 
+                            <div class="col-md-12 col-sm-12">
+                              <button class="btn btn-primary pull-left mright-5" type="button">Save</button>
+  
+                              <a href="/pages/topic-preview.html" target="_blank"><button class="btn btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
+                         
+                            </div>
+                          </div>   
                         </div>
                       </div>  
                     </div>  
