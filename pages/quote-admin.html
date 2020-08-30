@@ -207,9 +207,12 @@ title: Quote Admin
 								<div class="box-body">
 									<div class="row">
 										<div class="form-horizontal mtop-15">
+											<div class="nested-panel-heading">
+												<h3 class="nested-title">Quote Request Details</h3>
+											 </div>
 											<div class="col-md-7">
 												<div class="form-group">
-												    <label class="col-md-12 control-label text-left">"To Quote" Topic</label>
+												    <label class="col-md-12 control-label text-left">"To Quote" Topic <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the topic that will receive the quote requests. IService will present the quote form when answering questions in this topic. After you select your topic, verify that the interaction properties used to capture quote inputs are correct." tooltip-placement="bottom"></i></label>
 													<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
 														<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
 														  <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
@@ -222,7 +225,7 @@ title: Quote Admin
 											</div>
 											<div class="col-md-7">
 												<div class="form-group">
-													<label class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
+													<label class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the stock responses that contain the quote templates for this topic." tooltip-placement="bottom"></i></label>
 													<div class="col-md-12">
 														<div class="simple-label multiple" ng-controller="QuoteCtrl as ctrl">
 															<div class="float-btn-group">
@@ -248,9 +251,13 @@ title: Quote Admin
 													</div>		
 												</div>
 											</div>
+											<div class="clearfix"></div>																					
+											<div class="nested-panel-heading">
+												<h3 class="nested-title">Follow Up Ticket Details</h3>
+											 </div>
 											<div class="col-md-7">
 												<div class="form-group">
-													<label class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
+													<label class="col-md-12 control-label text-left">"Open Quotes" Topic <i class="fa fa-question-circle text-info help-icon" uib-tooltip="When a quote is sent to the customer, iService will create a ticket for following up with the customer. Select the topic that will contain these follow-up tickets for open quotes." tooltip-placement="bottom"></i></label>
 													<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
 														<ui-select ng-model="ctrl.topicselected2.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
 														  <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
