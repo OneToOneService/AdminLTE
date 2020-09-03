@@ -1207,49 +1207,52 @@ title:  Sales Settings
                                   <div class="row">
                                     <div class="col-md-12">
                                      
+                                    
                                       <div class="form-group">
                                         <label class="col-md-12 control-label text-left">Protocol <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Choose the appropriate protocol for retrieving incoming email."></i> </label>
-                                        <div class="radio col-md-12">
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                              <input type="radio" name="optionsRadios" ng-model="imap" ng-click="Enable('imap')"> Use IMAP
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!imap" type="text" class="form-control" placeholder="Enter Mail Server Name. Ex. imap.example.com">
-                                            </span>
-                                            <span>
-                                              <iservice-switch switched="toggle.useEncryptionimap">
-                                                Use Encryption
-                                              </iservice-switch> 
-                                            </span>
+                                        <div class="col-md-12">
+                                         <select class="form-control" ng-model="obj.protocol">
+                                            <option value="">Select protocol</option>
+                                            <option value="imap">IMAP</option>
+                                            <option value="pop">POP</option>
+                                            <option value="ews">EWS</option>
+                                         </select>
+                                        </div>                                       
+                                      </div> 
+                                      <div class="form-group" ng-show="obj.protocol == 'imap'">
+                                        <label class="col-md-12 control-label text-left">Mail Server Name</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                           Ex. imap.example.com
+                                          <div class="clearfix"></div>
+                                           <span>
+                                            <iservice-switch switched="toggle.useEncryptionimap">
+                                              Use Encryption
+                                            </iservice-switch> 
                                           </span>
                                         </div>
-                                        <div class="radio col-md-12" >
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                             <input type="radio" name="optionsRadios" ng-click="Enable('pop')">Use POP
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!pop" type="text" class="form-control" placeholder="Enter Mail Server Name. Ex. imap.example.com">
-                                            </span>
-                                            <span>
-                                              <iservice-switch switched="toggle.useEncryptionpop">
-                                                Use Encryption
-                                              </iservice-switch>
-                                            </span>
+                                      </div>
+                                      <div class="form-group" ng-show="obj.protocol == 'pop'">
+                                        <label class="col-md-12 control-label text-left">Mail Server Name</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                           Ex. pop.example.com
+                                          <div class="clearfix"></div>
+                                           <span>
+                                            <iservice-switch switched="toggle.useEncryptionimap">
+                                              Use Encryption
+                                            </iservice-switch> 
                                           </span>
                                         </div>
-                                        <div class="radio col-md-12" >
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                             <input type="radio" name="optionsRadios" ng-click="Enable('ews')">EWS
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!ews" type="text" class="form-control" placeholder=" Enter the path to EWS. Ex. https://outlook.office365.cm/EWS/exchange.aspx">
-                                            </span>
-                                          </span>
+                                      </div>
+                                      <div class="form-group" ng-show="obj.protocol == 'ews'">
+                                        <label class="col-md-12 control-label text-left">Enter Path To EWS</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                           Ex. https://outlook.office365.cm/EWS/exchange.aspx
                                         </div>
-                                      </div>  
+                                      </div>
+
                                       <div class="form-group">
                                         <label class="col-md-12 control-label text-left">Username <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enter the username required to log into the mailbox."></i></label>
                                         <div class="col-md-12">
@@ -1292,14 +1295,7 @@ title:  Sales Settings
                                           </ui-select>
                                         </div>
                                       </div>
-                                      <div class="form-group">
-                                        <div class="col-md-12">
-                                          <iservice-switch switched="toggle.switchmailretrive">
-                                            User Encryption
-                                          </iservice-switch>
-                                          <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
-                                        </div>
-                                      </div>
+                                  
                                       <div class="form-group">
                                         <div class="col-md-12">
                                           <iservice-switch switched="toggle.switch3">
@@ -1323,33 +1319,35 @@ title:  Sales Settings
                                     <div class="col-md-12">
                                       <div class="form-group">
                                         <label class="col-md-12 control-label text-left">Protocol <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Choose the appropriate protocol for retrieving incoming email."></i> </label>
-                                        <div class="radio col-md-12">
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                              <input type="radio" name="outgoingoptionsRadios" ng-model="outgoingews" ng-click="Enable('outgoingews')"> EWS
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!outgoingews" type="text" class="form-control" placeholder=" Enter the path to EWS. Ex. https://outlook.office365.cm/EWS/exchange.aspx">
-                                            </span>
-                                          </span>
-                                        </div>
-                                        <div class="radio col-md-12">
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                              <input type="radio" name="outgoingoptionsRadios" ng-model="outgoingsmtp" ng-click="Enable('outgoingsmtp')"> SMTP
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!outgoingsmtp" type="text" class="form-control" placeholder=" SMTP server name. Ex. smtp.example.com">
-                                            </span>
-                                          </span>
-                                        </div>
+                                        <div class="col-md-12">
+                                         <select class="form-control" ng-model="obj.outputprotocol">
+                                            <option value="">Select protocol</option>
+                                            <option value="ews">EWS</option>
+                                            <option value="smtp">SMTP</option>
+                                         </select>
+                                        </div>                                       
                                       </div> 
-                                      <div class="form-group">
+                                      <div class="form-group" ng-show="obj.outputprotocol == 'ews'">
+                                        <label class="col-md-12 control-label text-left">Enter Path To EWS</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                           Ex. https://outlook.office365.cm/EWS/exchange.aspx
+                                        </div>
+                                      </div>
+                                      <div class="form-group" ng-show="obj.outputprotocol == 'smtp'">
+                                        <label class="col-md-12 control-label text-left">SMTP Server Name</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                          Ex. smtp.example.com
+                                          <div class="clearfix"></div>
+                                          </div>
+
                                         <div class="col-md-12">
                                           <input type="checkbox" class="form-control" ng-click="smtpauthentication = !smtpauthentication" ng-model="smtpauthentication" ng-init="checked=false">
                                           <label class="control-label text-left">Use SMTP Authentication <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i></label>
                                         </div>
                                       </div>
+                                      
                                       <div class="form-group bg-group" ng-show="smtpauthentication">
                                           <label class="col-md-12 control-label text-left">SMTP Authentication Settings</label>
                                           <div class="col-md-12">
@@ -1416,49 +1414,52 @@ title:  Sales Settings
                                   <div class="row">
                                     <div class="col-md-12">
                                      
+                                    
                                       <div class="form-group">
                                         <label class="col-md-12 control-label text-left">Protocol <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Choose the appropriate protocol for retrieving incoming email."></i> </label>
-                                        <div class="radio col-md-12">
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                              <input type="radio" name="optionsRadios" ng-model="imap" ng-click="Enable('imap')"> Use IMAP
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!imap" type="text" class="form-control" placeholder="Enter Mail Server Name. Ex. imap.example.com">
-                                            </span>
-                                            <span>
-                                              <iservice-switch switched="toggle.useEncryptionimap">
-                                                Use Encryption
-                                              </iservice-switch> 
-                                            </span>
+                                        <div class="col-md-12">
+                                         <select class="form-control" ng-model="obj.protocol">
+                                            <option value="">Select protocol</option>
+                                            <option value="imap">IMAP</option>
+                                            <option value="pop">POP</option>
+                                            <option value="ews">EWS</option>
+                                         </select>
+                                        </div>                                       
+                                      </div> 
+                                      <div class="form-group" ng-show="obj.protocol == 'imap'">
+                                        <label class="col-md-12 control-label text-left">Mail Server Name</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                           Ex. imap.example.com
+                                          <div class="clearfix"></div>
+                                           <span>
+                                            <iservice-switch switched="toggle.useEncryptionimap">
+                                              Use Encryption
+                                            </iservice-switch> 
                                           </span>
                                         </div>
-                                        <div class="radio col-md-12" >
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                             <input type="radio" name="optionsRadios" ng-click="Enable('pop')">Use POP
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!pop" type="text" class="form-control" placeholder="Enter Mail Server Name. Ex. imap.example.com">
-                                            </span>
-                                            <span>
-                                              <iservice-switch switched="toggle.useEncryptionpop">
-                                                Use Encryption
-                                              </iservice-switch>
-                                            </span>
+                                      </div>
+                                      <div class="form-group" ng-show="obj.protocol == 'pop'">
+                                        <label class="col-md-12 control-label text-left">Mail Server Name</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                           Ex. pop.example.com
+                                          <div class="clearfix"></div>
+                                           <span>
+                                            <iservice-switch switched="toggle.useEncryptionimap">
+                                              Use Encryption
+                                            </iservice-switch> 
                                           </span>
                                         </div>
-                                        <div class="radio col-md-12" >
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                             <input type="radio" name="optionsRadios" ng-click="Enable('ews')">EWS
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!ews" type="text" class="form-control" placeholder=" Enter the path to EWS. Ex. https://outlook.office365.cm/EWS/exchange.aspx">
-                                            </span>
-                                          </span>
+                                      </div>
+                                      <div class="form-group" ng-show="obj.protocol == 'ews'">
+                                        <label class="col-md-12 control-label text-left">Enter Path To EWS</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                           Ex. https://outlook.office365.cm/EWS/exchange.aspx
                                         </div>
-                                      </div>  
+                                      </div>
+
                                       <div class="form-group">
                                         <label class="col-md-12 control-label text-left">Username <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Enter the username required to log into the mailbox."></i></label>
                                         <div class="col-md-12">
@@ -1501,14 +1502,7 @@ title:  Sales Settings
                                           </ui-select>
                                         </div>
                                       </div>
-                                      <div class="form-group">
-                                        <div class="col-md-12">
-                                          <iservice-switch switched="toggle.switchmailretrive">
-                                            User Encryption
-                                          </iservice-switch>
-                                          <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="If your email server requires encryption, enable this option and set your port number above to the appropriate value (typically 995 for POP or 993 for IMAP)."></i>
-                                        </div>
-                                      </div>
+                                  
                                       <div class="form-group">
                                         <div class="col-md-12">
                                           <iservice-switch switched="toggle.switch3">
@@ -1532,33 +1526,35 @@ title:  Sales Settings
                                     <div class="col-md-12">
                                       <div class="form-group">
                                         <label class="col-md-12 control-label text-left">Protocol <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Choose the appropriate protocol for retrieving incoming email."></i> </label>
-                                        <div class="radio col-md-12">
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                              <input type="radio" name="outgoingoptionsRadios" ng-model="outgoingews" ng-click="Enable('outgoingews')"> EWS
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!outgoingews" type="text" class="form-control" placeholder=" Enter the path to EWS. Ex. https://outlook.office365.cm/EWS/exchange.aspx">
-                                            </span>
-                                          </span>
-                                        </div>
-                                        <div class="radio col-md-12">
-                                          <span class="mail-config-box">
-                                            <span class="radio-option">
-                                              <input type="radio" name="outgoingoptionsRadios" ng-model="outgoingsmtp" ng-click="Enable('outgoingsmtp')"> SMTP
-                                            </span>
-                                            <span>
-                                              <input ng-disabled="!outgoingsmtp" type="text" class="form-control" placeholder=" SMTP server name. Ex. smtp.example.com">
-                                            </span>
-                                          </span>
-                                        </div>
+                                        <div class="col-md-12">
+                                         <select class="form-control" ng-model="obj.outputprotocol">
+                                            <option value="">Select protocol</option>
+                                            <option value="ews">EWS</option>
+                                            <option value="smtp">SMTP</option>
+                                         </select>
+                                        </div>                                       
                                       </div> 
-                                      <div class="form-group">
+                                      <div class="form-group" ng-show="obj.outputprotocol == 'ews'">
+                                        <label class="col-md-12 control-label text-left">Enter Path To EWS</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                           Ex. https://outlook.office365.cm/EWS/exchange.aspx
+                                        </div>
+                                      </div>
+                                      <div class="form-group" ng-show="obj.outputprotocol == 'smtp'">
+                                        <label class="col-md-12 control-label text-left">SMTP Server Name</label>
+                                        <div class="col-md-12">
+                                          <input type="text" class="form-control" value="">
+                                          Ex. smtp.example.com
+                                          <div class="clearfix"></div>
+                                          </div>
+
                                         <div class="col-md-12">
                                           <input type="checkbox" class="form-control" ng-click="smtpauthentication = !smtpauthentication" ng-model="smtpauthentication" ng-init="checked=false">
                                           <label class="control-label text-left">Use SMTP Authentication <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title=" If your SMTP server requires login to send email, enable this setting and the Port Number, User Name, and Password required for the mailbox."></i></label>
                                         </div>
                                       </div>
+                                      
                                       <div class="form-group bg-group" ng-show="smtpauthentication">
                                           <label class="col-md-12 control-label text-left">SMTP Authentication Settings</label>
                                           <div class="col-md-12">
@@ -1600,7 +1596,6 @@ title:  Sales Settings
                                 </div>  
                               </div>  
                             </div>
-                            
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary">Save</button>
                               </div>
@@ -2134,10 +2129,12 @@ title:  Sales Settings
                       <div class="box-header with-border">
                         <i class="fa fa-list-ul"></i>
                         <h3 class="box-title text-right">Topic List</h3>
-                        <span class="pull-right">
+                        <span class="pull-right ">
                           <iservice-switch class="mright-15" switched="toggle.switchdeletedtopic">Show Deleted Topics</iservice-switch>
                         </span>
-                        
+                        <span class="pull-right mright-15">
+                          <a href="" target="_blank" ng-click = "openPreviewModal()"><button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
+                        </span>  
                         
                       </div>  
                       <div class="box-body table-responsive with-border">
@@ -3754,7 +3751,43 @@ title:  Sales Settings
   </div>
   <!-- ./wrapper -->
   {% include common-javascript.html %}
-
+  <script type="text/ng-template" id="preview.html">
+   
+    <div class="modal-body logout-notice" id="modal-body">
+        <div class="row mtop15">
+            <div class="col-md-12 form-group">
+              <div class="treeview without-numbers">
+                <ul id="tree1" class="tree">
+                  <li><a href="#" class="selected"> e-shop -- All Topics </a>
+                    <ul>
+                      <li ng-click="toggleFormStepTopic('rowtopic1')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> </li>
+                      <li ng-click="toggleFormStepTopic('rowtopic2')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div></li>
+                      <li ng-click="toggleFormStepTopic('rowtopic3')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div></li>
+                      <li ng-click="toggleFormStepTopic('rowtopic4')"> <div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div></li>
+                      <li ng-click="toggleFormStepTopic('rowtopic5')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
+                        <ul>
+                          <li ng-click="toggleFormStepTopic('rowtopic6')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div></li>
+                          <li ng-click="toggleFormStepTopic('rowtopic7')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div></li>
+                          <li ng-click="toggleFormStepTopic('rowtopic8')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div></li>
+                        </ul>
+                      </li>
+                      <li ng-click="toggleFormStepTopic('rowtopic9')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
+                        <ul>
+                          <li ng-click="toggleFormStepTopic('rowtopic10')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div></li>
+                          <li ng-click="toggleFormStepTopic('rowtopic11')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div></li>
+                          <li ng-click="toggleFormStepTopic('rowtopic12')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div></li>
+                         
+                        </ul>
+                      </li>
+                     
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+            </div>	
+        </div> 
+    </div>
+  </script>    
  <script>
 
 $(document).ready(function() {
@@ -3816,7 +3849,7 @@ $(document).ready(function() {
 				});
 			}
 		});
-			$('#tree1').treed();	
+		$('#tree1').treed();	
 			$('#tree1 .branch').each(function(){
 				var icon = $(this).children('i:first');
 				icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
@@ -3824,8 +3857,20 @@ $(document).ready(function() {
 			});	
     });
 
-    angular.module('iService').controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
+    angular.module('iService').controller('myCtrl', function ($scope,$uibModal,$uibModalInstance $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
+
+        $scope.openPreviewModal  = function(){
+          $uibModal.open({
+            templateUrl : 'preview.html',
+            controller: function ($scope, $uibModalInstance) {
+              $scope.cancel = function () {
+                $uibModalInstance.dismiss('cancel');
+              };
+            }
+          });
+        }
+
         $scope.notification = {};
         $scope.template = {};
 
@@ -4260,9 +4305,12 @@ $(document).ready(function() {
       
 
       $scope.toggleFormStepTopic = function(segmentName){
+        
         for(var i =1; i<=10; i++){
-         // $scope['rowtopic'+i] = false;  
+          if('rowtopic'+i == segmentName){ continue;}
+          $scope['rowtopic'+i] = false;  
         }
+        
         $scope[segmentName] = !$scope[segmentName];
           $scope['formstepTopic'+2] = !$scope['formstepTopic'+2];
       };
