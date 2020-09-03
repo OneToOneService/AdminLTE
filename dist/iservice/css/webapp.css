@@ -4098,3 +4098,16 @@ h1 .help-icon {
 .mail-config-box .radio-option {
   width: 100px;
 }
+.property-table {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.property-table div {
+  width: 33%;
+}
+.property-table div.table-item-heading {
+  font-weight: bold;
+}
+.interactionproperty .filter-box {
+  min-height: auto;
+}

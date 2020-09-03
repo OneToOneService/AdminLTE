@@ -130,7 +130,7 @@ title: Quote Admin
 												<div class="form-horizontal mtop-15">
 													<div class="col-md-7">
 														<div class="form-group">
-															<label class="col-md-12 control-label text-left">"To Quote" Topic</label>
+															<label class="col-md-12 control-label text-left">"To Quote" Topic <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the topic that will receive the quote requests. IService will present the quote form when answering questions in this topic. After you select your topic, verify that the interaction properties used to capture quote inputs are correct." tooltip-placement="bottom"></i></label>
 															<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
 																<ui-select ng-model="ctrl.topicselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
 																  <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
@@ -141,9 +141,51 @@ title: Quote Admin
 															 </div>
 														</div>
 													</div>
+													<div class="col-md-12" ng-controller="SimpleDemoController"> 
+														<div class="interactionproperty filtergroup row">
+														  <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
+															<label class="control-label text-left">Interaction properties for topic: Quote Requests</label>
+															<div class="col-md-12 filter-box">
+																<ul dnd-list="list">
+																	<li>
+																		<div class="property-table">
+																			<div class="table-item-heading">
+																				Property Name
+																			</div>
+																			<div class="table-item-heading">
+																				Property Type
+																			</div>
+																			<div class="table-item-heading">
+																				Value Type
+																			</div>
+																		</div>	
+																	</li>
+																	<li ng-repeat="item in list"
+																		dnd-draggable="item"
+																		dnd-moved="list.splice($index, 1)"
+																		dnd-effect-allowed="move"
+																		dnd-selected="models.selected = item"
+																		ng-class="{'selected': models.selected === item}">
+																		<div class="property-table">
+																			<div class="table-item">
+																				{% raw %}{{item.property_name}}{% endraw %}
+																			</div>
+																			<div class="table-item">
+																				{% raw %}{{item.property_type}}{% endraw %}
+																			</div>
+																			<div class="table-item">
+																				{% raw %}{{item.value_type}}{% endraw %}
+																			</div>
+																		</div>	
+																	</li>
+																</ul>
+															</div>
+														  </div>
+														</div>
+													</div>
 													<div class="col-md-7">
 														<div class="form-group">
-															<label class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic</label>
+															<label class="col-md-12 control-label text-left"> Stock responses used for the "To Quote" topic <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Select the stock responses that contain the quote templates for this topic." tooltip-placement="bottom"></i></label>
 															<div class="col-md-12">
 																<div class="simple-label multiple" ng-controller="QuoteCtrl as ctrl">
 																	<div class="float-btn-group">
@@ -169,9 +211,13 @@ title: Quote Admin
 															</div>		
 														</div>
 													</div>
+													<div class="clearfix"></div>																					
+													<div class="nested-panel-heading">
+														<h3 class="nested-title">Follow Up Ticket Details</h3>
+													 </div>
 													<div class="col-md-7">
 														<div class="form-group">
-															<label class="col-md-12 control-label text-left">"Open Quotes" Topic</label>
+															<label class="col-md-12 control-label text-left">"Open Quotes" Topic <i class="fa fa-question-circle text-info help-icon" uib-tooltip="When a quote is sent to the customer, iService will create a ticket for following up with the customer. Select the topic that will contain these follow-up tickets for open quotes." tooltip-placement="bottom"></i></label>
 															<div class="col-md-12 ng-cloak" ng-controller="TopicCtrl as ctrl">
 																<ui-select ng-model="ctrl.topicselected2.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a topic">
 																  <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.Topic || $select.selected"></ui-select-match>
@@ -221,6 +267,48 @@ title: Quote Admin
 														  </ui-select-choices>
 														</ui-select>
 													 </div>
+												</div>
+											</div>
+											<div class="col-md-12" ng-controller="SimpleDemoController"> 
+												<div class="interactionproperty filtergroup row">
+												  <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
+													<label class="control-label text-left">Interaction properties for topic: Quote Requests</label>
+													<div class="col-md-12 filter-box">
+														<ul dnd-list="list">
+															<li>
+																<div class="property-table">
+                                                                    <div class="table-item-heading">
+																		Property Name
+																	</div>
+																	<div class="table-item-heading">
+																		Property Type
+																	</div>
+																	<div class="table-item-heading">
+																		Value Type
+																    </div>
+																</div>	
+														    </li>
+															<li ng-repeat="item in list"
+																dnd-draggable="item"
+																dnd-moved="list.splice($index, 1)"
+																dnd-effect-allowed="move"
+																dnd-selected="models.selected = item"
+																ng-class="{'selected': models.selected === item}">
+																<div class="property-table">
+                                                                    <div class="table-item">
+																		{% raw %}{{item.property_name}}{% endraw %}
+																	</div>
+																	<div class="table-item">
+																		{% raw %}{{item.property_type}}{% endraw %}
+																	</div>
+																	<div class="table-item">
+																		{% raw %}{{item.value_type}}{% endraw %}
+																    </div>
+																</div>	
+															</li>
+														</ul>
+													</div>
+												  </div>
 												</div>
 											</div>
 											<div class="col-md-7">
@@ -489,6 +577,35 @@ title: Quote Admin
 			templateUrl: 'myPopoverTemplate.html'
 		};
 	});
+
+	app.controller("SimpleDemoController", function($scope) {
+
+		$scope.models = {
+			selected: null,
+			lists: {"Availablefilter": [
+
+			{property_name: "Quote #", property_type: "Case", value_type:"Integer"},
+			{property_name: "Quantity", property_type: "Case", value_type:"Integer"},
+			{property_name: "Item #", property_type: "Case", value_type:"Integer"},
+			{property_name: "Item Description", property_type: "Case", value_type:"text"},
+			{property_name: "Unit Price", property_type: "Case", value_type:"Number"},
+			{property_name: "Total Price", property_type: "Case", value_type:"Number"},
+			{property_name: "Comment", property_type: "Case", value_type:"text"}
+			]},
+
+		};
+
+		// Generate initial model
+		
+		//$scope.models.lists.Availablefilter.push();
+		
+
+		// Model to JSON for demo purpose
+		$scope.$watch('models', function(model) {
+			$scope.modelAsJson = angular.toJson(model, true);
+		}, true);
+
+		});
 	</script>
 </body>
 </html>
