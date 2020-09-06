@@ -124,9 +124,9 @@ title: Manage Chats
 										<ul id="tree2" class="topictree">
 											<li>
 												<input type="checkbox" class="minimal ">
-												<div class="treeviewitem"><div class="treeviewrow"><div class="div1"> All Topic</div> </div></div><div class="pull-right count-block">--</div><div class="count-columns"><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></div>
+												<div class="treeviewitem"><div class="treeviewrow"><div class="div1"> All Topic</div> </div></div><div class="count-columns"><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></div>
 												<ul>
-														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div><div class="count-columns"></div> <div class="pull-right count-block">--</div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div><div class="count-columns"></div><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></li>
 														<li> <input type="checkbox" class="minimal" checked>
 															<div class="treeviewitem">
 																<div class="treeviewrow">
@@ -134,17 +134,17 @@ title: Manage Chats
 																</div>
 															</div>
 															<div class="count-columns">
-																<div class="pull-right count-block">--</div>
+																
 																<div class="pull-right count-block">--</div>
 																<div class="pull-right count-block text-red">--</div>
 																<div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
 														    </div>	
 														</li>
-														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="count-columns"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></div></li>
-														<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="count-columns"><div class="pull-right count-block">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></div></li>
+														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div><div class="count-columns"><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></div></li>
+														<li> <input type="checkbox" class="minimal" ><div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div><div class="count-columns"><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-red">--</div><div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div></div></li>
 														<li> <input type="checkbox" class="minimal"><div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
 															<div class="count-columns">
-																<div class="pull-right count-block">--</div>
+															
 																<div class="pull-right count-block">--</div>
 																<div class="pull-right count-block text-red">--</div>
 																<div class="pull-right count-block text-aqua" uib-tooltip="Alek Packard" tooltip-placement="bottom">1</div>
@@ -606,8 +606,8 @@ title: Manage Chats
 				});
 			}
 		});
-			$('#tree1').treed();	
-		$('#tree1 .branch').each(function(){
+		$('#tree1,#tree2').treed();	
+		$('#tree1 .branch,#tree2 .branch').each(function(){
 			var icon = $(this).children('i:first');
 			icon.toggleClass('glyphicon-minus-sign glyphicon-plus-sign');
 			$(this).children().children().toggle();

@@ -2133,7 +2133,7 @@ title:  Sales Settings
                           <iservice-switch class="mright-15" switched="toggle.switchdeletedtopic">Show Deleted Topics</iservice-switch>
                         </span>
                         <span class="pull-right mright-15">
-                          <a href="" target="_blank" ng-click = "openPreviewModal()"><button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
+                          <a href=""  ng-click = "openPreviewModal()"><button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
                         </span>  
                         
                       </div>  
@@ -2488,7 +2488,7 @@ title:  Sales Settings
                               <div class="col-md-12 col-sm-12">
                                 <button class="btn btn-primary pull-left mright-5" type="button">Save</button>
     
-                                <a href="/pages/topic-preview.html" target="_blank"><button class="btn btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
+                                <a href=""  ng-click = "openPreviewModalBottom()"><button class="btn btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
                            
                               </div>
                             </div>   
@@ -2655,7 +2655,7 @@ title:  Sales Settings
                             <div class="col-md-12 col-sm-12">
                               <button class="btn btn-primary pull-left mright-5" type="button">Save</button>
   
-                              <a href="/pages/topic-preview.html" target="_blank"><button class="btn btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
+                              <a href="" ng-click = "openPreviewModalBottom()"><button class="btn btn-primary"><i class="fa fa-eye"></i> Preview</button></a>
                          
                             </div>
                           </div>   
@@ -3757,25 +3757,26 @@ title:  Sales Settings
         <div class="row mtop15">
             <div class="col-md-12 form-group">
               <div class="treeview without-numbers">
+                <h3>Select A Topic To View Its Details </h3>
                 <ul id="tree1" class="tree">
-                  <li><a href="#" class="selected"> e-shop -- All Topics </a>
+                  <li><a href="#" class="selected" ng-click="toggleFormStepTopicPreview('rowtopic1')"> e-shop -- All Topics </a>
                     <ul>
-                      <li ng-click="toggleFormStepTopic('rowtopic1')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> </li>
-                      <li ng-click="toggleFormStepTopic('rowtopic2')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div></li>
-                      <li ng-click="toggleFormStepTopic('rowtopic3')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div></li>
-                      <li ng-click="toggleFormStepTopic('rowtopic4')"> <div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div></li>
-                      <li ng-click="toggleFormStepTopic('rowtopic5')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic2')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> </li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic3')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div></li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic4')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div></li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic5')"> <div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div></li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic6')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
                         <ul>
-                          <li ng-click="toggleFormStepTopic('rowtopic6')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div></li>
-                          <li ng-click="toggleFormStepTopic('rowtopic7')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div></li>
-                          <li ng-click="toggleFormStepTopic('rowtopic8')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic7')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic8')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic9')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div></li>
                         </ul>
                       </li>
-                      <li ng-click="toggleFormStepTopic('rowtopic9')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic10')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
                         <ul>
-                          <li ng-click="toggleFormStepTopic('rowtopic10')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div></li>
-                          <li ng-click="toggleFormStepTopic('rowtopic11')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div></li>
-                          <li ng-click="toggleFormStepTopic('rowtopic12')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic11')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic12')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic13')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div></li>
                          
                         </ul>
                       </li>
@@ -3787,7 +3788,46 @@ title:  Sales Settings
             </div>	
         </div> 
     </div>
-  </script>    
+  </script>  
+  
+  <script type="text/ng-template" id="previewBottom.html">
+   
+    <div class="modal-body logout-notice" id="modal-body">
+        <div class="row mtop15">
+            <div class="col-md-12 form-group">
+              <div class="treeview without-numbers">
+                <h3>Topic List </h3>
+                <ul id="tree1" class="tree">
+                  <li><a href="#" class="selected"> e-shop -- All Topics </a>
+                    <ul>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> </li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div></li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div></li>
+                      <li> <div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div></li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
+                        <ul>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div></li>
+                        </ul>
+                      </li>
+                      <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
+                        <ul>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div></li>
+                          <li> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div></li>
+                         
+                        </ul>
+                      </li>
+                     
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+            </div>	
+        </div> 
+    </div>
+  </script>  
  <script>
 
 $(document).ready(function() {
@@ -3856,18 +3896,30 @@ $(document).ready(function() {
 				$(this).children().children().toggle();
 			});	
     });
-
+ 
+  angular.module('iService').controller('childCtrl', function ($scope,$rootScope,$uibModalInstance)
+  {
+    $scope.toggleFormStepTopicPreview = function (segmentName) {
+      $scope.toggleFormStepTopic(segmentName);
+      $uibModalInstance.dismiss();
+    };
+  });  
     angular.module('iService').controller('myCtrl', function ($scope,$uibModal, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
     {
 
         $scope.openPreviewModal  = function(){
           $uibModal.open({
             templateUrl : 'preview.html',
-            controller: function ($scope, $uibModalInstance) {
-              $scope.cancel = function () {
-                $uibModalInstance.dismiss('cancel');
-              };
-            }
+            controller: 'childCtrl',
+            scope: $scope
+          });
+        }
+
+        $scope.openPreviewModalBottom  = function(){
+          $uibModal.open({
+            templateUrl : 'previewBottom.html',
+            controller: 'childCtrl',
+            scope: $scope
           });
         }
 
@@ -4305,7 +4357,6 @@ $(document).ready(function() {
       
 
       $scope.toggleFormStepTopic = function(segmentName){
-        
         for(var i =1; i<=10; i++){
           if('rowtopic'+i == segmentName){ continue;}
           $scope['rowtopic'+i] = false;  
