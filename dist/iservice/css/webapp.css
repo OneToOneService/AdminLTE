@@ -4111,3 +4111,6 @@ h1 .help-icon {
 .interactionproperty .filter-box {
   min-height: auto;
 }
+.overflow-box {
+  overflow-x: scroll;
+}
