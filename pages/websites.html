@@ -124,7 +124,7 @@ title: Websites Settings
 										<div class="form-horizontal">
 											<div class="col-md-8">
 												<div class="form-group">
-													<label class="col-sm-3 control-label text-left">Website Name</label>
+													<label class="col-sm-3 control-label text-left">Website Name </label>
 													<div class="col-sm-6">
 														<input type="text" class="form-control">
 													</div>
@@ -147,7 +147,7 @@ title: Websites Settings
 																			</span>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left">Domain Values</label>
+																			<label class="col-sm-12 control-label text-left">Domain Values <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The domain specifies the URL that agents use to login this configuration." tooltip-placement="bottom"></i></label>
 																			<div class="col-sm-12">
 																				<div class="domain-list">
 																					<div class="list-item" ng-repeat="domain in domains">
@@ -163,7 +163,7 @@ title: Websites Settings
 																	<div class="col-md-6">
 																		<div class="form-group">
 																			<label class="col-sm-8 control-label text-left">
-																					Segments <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
+																					Segments <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Segments selected for the website will have their topics included in public interfaces, like knowledge bases topic lists and customer ticket forms." tooltip-placement="bottom"></i>
 																			</label>
 																		</div>
 																		<div class="col-sm-12">
@@ -199,13 +199,13 @@ title: Websites Settings
 													<div class="col-md-12">
 														<div class="box box-primary">	
 															<div class="box-header with-border">
-																<h3 class="box-title text-right">Website URLs</h3>
+																<h3 class="box-title text-right">Website URLs </h3>
 															</div>
 															<div class="box-body">
 																<div class="row">
 																	<div class="col-md-6">	
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left required">Website Root URL <span class="required">(Required)</span> <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																			<label class="col-sm-12 control-label text-left required">Website Root URL <span class="required">(Required)</span><i class="fa fa-question-circle text-info help-icon" uib-tooltip="When variables are inserted into your auto response template or mass mailing, a URL must be generated (e.g., an unsubscribe link). Specify the URL to be used, which is typically one of the domains listed for the website. If using a virtual directory, the root path for your website should be listed rather than just the domain." tooltip-placement="bottom"></i></label>
 																			<div class="col-sm-12">
 																				<input type="text" class="form-control" value="http://www.example.com">
 																			</div>
@@ -214,7 +214,7 @@ title: Websites Settings
 																	
 																	<div class="col-md-6">	
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left">Anti-Spam Policy URL <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																			<label class="col-sm-12 control-label text-left">Anti-Spam Policy URL <i class="fa fa-question-circle text-info help-icon" uib-tooltip=" If you enter a URL in this box, it will display a link to this page on the bottom of each iService page with the text 'Anti-Spam Policy'. Clicking this link will load the page specified, which should provide a description of your policy for ensuring your iService tenant is not used to send unsolicited commercial email." tooltip-placement="bottom"></i></label>
 																			<div class="col-sm-12">
 																				<input type="text" class="form-control" value="http://www.1to1service.com/antispam.asp">
 																			</div>
@@ -234,7 +234,7 @@ title: Websites Settings
 																<div class="row">
 																	<div class="col-md-6">	
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left">Outbound Mailbox <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
+																			<label class="col-sm-12 control-label text-left">Outbound Mailbox <i class="fa fa-question-circle text-info help-icon" uib-tooltip="When a user of the iService Website requests their password, it is sent using the mailbox selected from this list. Mailboxes are created and maintained from the Segments > Mailboxes tab. The forgot password link will not appear on the login panel if this mailbox is not set." tooltip-placement="bottom"></i></label>
 																			<div class="col-sm-12">
 																				<div class="ng-cloak"  ng-controller="MailboxCtrl as ctrl">
 																					<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
@@ -250,7 +250,7 @@ title: Websites Settings
 																	</div>
 																	<div class="col-md-6">
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left">Password Reset Notification Template <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
+																			<label class="col-sm-12 control-label text-left">Password Reset Notification Template <i class="fa fa-question-circle text-info help-icon" uib-tooltip="When a user of the iService Website requests their password, it is sent using the notification selected from this list. Password Reset notifications are created in the Segments - Notifications page. Only notifications that are marked as password reset are displayed in this drop down." tooltip-placement="bottom"></i> </label>
 																			<div class="col-sm-12">
 																				<div class="ng-cloak"  ng-controller="TemplateCtrl as ctrl">
 																					<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
@@ -320,7 +320,7 @@ title: Websites Settings
 																				</span>
 																			</div>
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left">Domain Values</label>
+																			<label class="col-sm-12 control-label text-left">Domain Values <i class="fa fa-question-circle text-info help-icon" uib-tooltip=" The domain specifies the URL that agents use to login this configuration." tooltip-placement="bottom"></i></label>
 																			<div class="col-sm-12">
 																				<div class="domain-list">
 																					<div class="list-item" ng-repeat="domain in domains">
@@ -338,7 +338,7 @@ title: Websites Settings
 																	<div class="col-md-6">
 																		<div class="form-group">
 																			<label class="col-sm-8 control-label text-left">
-																					Segments <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
+																					Segments <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Segments selected for the website will have their topics included in public interfaces, like knowledge bases topic lists and customer ticket forms." tooltip-placement="bottom"></i>
 																			</label>
 																		</div>
 																		<div class="col-sm-12">
@@ -381,7 +381,7 @@ title: Websites Settings
 																<div class="row">
 																	<div class="col-md-6">	
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left required">Website Root URL <span class="required">(Required)</span> <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																			<label class="col-sm-12 control-label text-left required">Website Root URL <span class="required">(Required)</span> <i class="fa fa-question-circle text-info help-icon" uib-tooltip="When variables are inserted into your auto response template or mass mailing, a URL must be generated (e.g., an unsubscribe link). Specify the URL to be used, which is typically one of the domains listed for the website. If using a virtual directory, the root path for your website should be listed rather than just the domain." tooltip-placement="bottom"></i></label>
 																			<div class="col-sm-12">
 																				<input type="text" class="form-control" value="http://www.example.com">
 																			</div>
@@ -390,7 +390,7 @@ title: Websites Settings
 																	
 																	<div class="col-md-6">	
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left">Anti-Spam Policy URL <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i></label>
+																			<label class="col-sm-12 control-label text-left">Anti-Spam Policy URL <i class="fa fa-question-circle text-info help-icon" uib-tooltip="If you enter a URL in this box, it will display a link to this page on the bottom of each iService page with the text 'Anti-Spam Policy'. Clicking this link will load the page specified, which should provide a description of your policy for ensuring your iService tenant is not used to send unsolicited commercial email." tooltip-placement="bottom"></i></label>
 																			<div class="col-sm-12">
 																				<input type="text" class="form-control" value="http://www.1to1service.com/antispam.asp">
 																			</div>
@@ -410,7 +410,7 @@ title: Websites Settings
 																<div class="row">
 																	<div class="col-md-6">	
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left">Outbound Mailbox <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
+																			<label class="col-sm-12 control-label text-left">Outbound Mailbox <i class="fa fa-question-circle text-info help-icon" uib-tooltip="When a user of the iService Website requests their password, it is sent using the mailbox selected from this list. Mailboxes are created and maintained from the Segments > Mailboxes tab. The forgot password link will not appear on the login panel if this mailbox is not set." tooltip-placement="bottom"></i> </label>
 																			<div class="col-sm-12">
 																				<div class="ng-cloak"  ng-controller="MailboxCtrl as ctrl">
 																					<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
@@ -426,7 +426,7 @@ title: Websites Settings
 																	</div>
 																	<div class="col-md-6">
 																		<div class="form-group">
-																			<label class="col-sm-12 control-label text-left">Password Reset Notification Template <i class="fa  fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> </label>
+																			<label class="col-sm-12 control-label text-left">Password Reset Notification Template <i class="fa fa-question-circle text-info help-icon" uib-tooltip="When a user of the iService Website requests their password, it is sent using the notification selected from this list. Password Reset notifications are created in the Segments - Notifications page. Only notifications that are marked as password reset are displayed in this drop down." tooltip-placement="bottom"></i></label>
 																			<div class="col-sm-12">
 																				<div class="ng-cloak"  ng-controller="TemplateCtrl as ctrl">
 																					<ui-select ng-model="ctrl.segmentselected.selected" theme="select2" title="Choose a segment">
@@ -467,8 +467,8 @@ title: Websites Settings
 																				<thead>
 																					<tr>
 																						<td class="delete-col"></td>
-																						<td><label class="control-label text-left">Placeholder Name <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="Help" tooltip-placement="bottom"></i> </label></td>
-																						<td><label class="control-label text-left">Form ID/Builtin Name <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="Help" tooltip-placement="bottom"></i> </label></td>
+																						<td><label class="control-label text-left">Placeholder Name <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The forms displayed in the user interface have placeholder names that correspond to a custom or built-in form name. You can replace pages in the interface with new pages by updating these form references. This allows you to customize the interface as needed for your business requirements." tooltip-placement="bottom"></i> </label></td>
+																						<td><label class="control-label text-left">Form ID/Builtin Name <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The name of the builtin form or the ID for a custom form is listed here to correspond to the placeholder name." tooltip-placement="bottom"></i></label></td>
 																					</tr>
 																				</thead>
 																				<tbody>
@@ -539,9 +539,9 @@ title: Websites Settings
 																			<table class="table table-striped">
 																				<thead>
 																					<tr>
-																						<td><label class="control-label text-left">Placeholder Name <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="Help" tooltip-placement="bottom"></i> </label></td>
-																						<td><label class="control-label text-left">Form ID/Builtin Name <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="Help" tooltip-placement="bottom"></i> </label></td>
-																					     <td></td>
+																						<td><label class="control-label text-left">Placeholder Name <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The forms displayed in the user interface have placeholder names that correspond to a custom or built-in form name. You can replace pages in the interface with new pages by updating these form references. This allows you to customize the interface as needed for your business requirements." tooltip-placement="bottom"></i>  </label></td>
+																						<td><label class="control-label text-left">Form ID/Builtin Name <i class="fa fa-question-circle text-info help-icon" uib-tooltip="The name of the builtin form or the ID for a custom form is listed here to correspond to the placeholder name." tooltip-placement="bottom"></i> </label></td>
+																					    <td></td>
 																					</tr>
 																				</thead>
 																				<tbody>
