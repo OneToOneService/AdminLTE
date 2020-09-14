@@ -23,7 +23,8 @@ title: Websites Settings
 			<div class="clearfix"></div>	
 			<section class="content-header">
 					<h1>
-						{{ page.title }} <i class="fa fa-question-circle text-info help-icon" data-toggle="tooltip" data-placement="bottom" data-original-title="Help"></i> 
+						{{ page.title }} <i class="fa fa-question-circle text-info help-icon" popover-placement="auto bottom-left" uib-popover-template="'websitePopover.html'" type="button"  popover-trigger="outsideClick"></i>
+				
 					</h1>
 					<ol class="breadcrumb">
 						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -31,6 +32,11 @@ title: Websites Settings
 						<li class="active">{{ page.title }}</li>
 					</ol>
 			</section>
+			<script type="text/ng-template" id="websitePopover.html">
+				<div>
+					iService can be configured to support multiple Internet domains, different user interfaces for agents and customers, and other aspects to fit the needs of your user base. Agents will log into the specified domain to use the configuration settings for the website.
+				</div>
+			</script>
   				<!-- Main content -->
        <section class="content"  ng-controller="myCtrl">
         <div class="row p-l-0">
