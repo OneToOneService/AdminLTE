@@ -144,7 +144,7 @@ title:  Segment Dashboard
         <div class="col-md-8">
            <!-- TABLE: LATEST ORDERS -->
           <div class="row">
-            <div class="col-lg-7 col-md-12"> 
+            <div class="col-lg-12 col-md-12"> 
               <div class="box box-info">
                 <div class="box-header with-border">
                   <i class="fa fa-user"></i>
@@ -168,7 +168,7 @@ title:  Segment Dashboard
                       </div>  
                     </div>  
                   </div>
-                  <div class="logged-in-container table-responsive custom-scroll">
+                  <div class="logged-in-container table-responsive">
                     <table class="table no-margin">
                       <thead>
                       <tr>
@@ -204,7 +204,7 @@ title:  Segment Dashboard
                         <td><span class="text-green">7</span></td>
                         <td><span class="text-yellow">5</span></td>
                         <td><span class="text-green">9</span></td>
-                        <td><span class="text-yellow">7</span></td>
+                        <td><span class="text-yellow">5</span></td>
                       </tr>
                       <tr>
                         <td><a href="pages/examples/invoice.html">Alex Hall</a></td>
@@ -242,86 +242,7 @@ title:  Segment Dashboard
                 <!-- /.box-body -->
               </div>
             </div>
-            <div class="col-lg-5 col-md-12">
-              <div class="box box-primary">
-                <div class="box-header with-border">
-                  <i class="fa fa-trophy"></i>
-                  <h3 class="box-title">Agents Leader Board</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  <ul class="user-list leaderbord">
-                    <li class="item">
-                      <div class="user-img">
-                          <div class="user-initials round no-select bg-primary">JP</div>
-                      </div>
-                      <div class="points pull-right">
-                          <span>100</span>
-                      </div>  
-                      <div class="user-info">
-                          <a href="javascript:void(0)" class="user-title">Jacob Smith</a>
-                      </div>
-                      
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                      <div class="user-img">
-                          <div class="user-initials round no-select bg-primary">JT</div>
-                      </div>
-                      <div class="points pull-right">
-                          <span>90</span>
-                         
-                      </div>  
-                      <div class="user-info">
-                        <a href="javascript:void(0)" class="user-title">Justin Time
-                          </a>
-                      </div>
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                      <div class="user-img">
-                          <div class="user-initials round no-select bg-primary">AP</div>
-                      </div>
-                      <div class="points pull-right">
-                          <span>80</span>
-                         
-                      </div>  
-                      <div class="user-info">
-                        <a href="javascript:void(0)" class="user-title">Alek Packard </a>
-                      </div>
-                    </li>
-                    <!-- /.item -->
-                    <li class="item">
-                      <div class="user-img">
-                          <div class="user-initials round no-select bg-primary">JH</div>
-                      </div>
-                      <div class="points pull-right">
-                          <span>50</span>
-                          
-                      </div>  
-                      <div class="user-info">
-                        <a href="javascript:void(0)" class="product-title">Jonie Hewlett</a>
-                      </div>
-                    </li>
-                    <li class="item">
-                      <div class="user-img">
-                          <div class="user-initials round no-select bg-primary">JD</div>
-                      </div>
-                      <div class="points pull-right">
-                          <span>50</span>
-                          
-                      </div>  
-                      <div class="user-info">
-                        <a href="javascript:void(0)" class="product-title">Jhon Doe</a>
-                      </div>
-                    </li>
-                    <!-- /.item -->
-                  </ul>
-                </div>
-              
-              </div>
-              <!-- /.box -->
-            </div>
+         
           </div>  
           <div class="row">
             <div class="col-lg-6 col-md-12">
@@ -340,7 +261,7 @@ title:  Segment Dashboard
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                   <div class="que-ans-container custom-scroll">
+                   <div class="que-ans-container">
                     <ul>
                       <li class="question"><span class="text">Samsung 32” 1080p 60Hz LED Smart HDTV</span><span class="time pull-right">a minute ago</span></li>
                       <li class="question"><span class="text"> 26" Mongoose Dolomite Men's 7-speed, Navy Blue.</span><span class="time pull-right">an hour ago</span></li>
@@ -370,7 +291,7 @@ title:  Segment Dashboard
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                   <div class="que-ans-container custom-scroll">
+                   <div class="que-ans-container">
                         <ul>
                           <li class="answer"><span class="text">Samsung 32” 1080p 60Hz LED Smart HDTV</span><span class="agent-name pull-left">-Alek Packard</span><span class="time pull-right">a minute ago</span></li>
                           <li class="answer"><span class="text"> 26" Mongoose Dolomite Men's 7-speed, Navy Blue.</span><span class="agent-name pull-left">-Steve Smith</span><span class="time pull-right">an hour ago</span></li>
@@ -411,7 +332,7 @@ title:  Segment Dashboard
                   </p>
                   <div class="chart">
                     <!-- Sales Chart Canvas -->
-                    <canvas id="salesChart" style="height: 180px;"></canvas>
+                    <canvas id="line-chart" width="800" height="300"></canvas>
                   </div>
                 </div>
                
@@ -426,6 +347,86 @@ title:  Segment Dashboard
 
         <!-- /.col -->
         <div class="col-md-4">
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-trophy"></i>
+              <h3 class="box-title">Agents Leader Board</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <ul class="user-list leaderbord">
+                <li class="item">
+                  <div class="user-img">
+                      <div class="user-initials round no-select bg-primary">JP</div>
+                  </div>
+                  <div class="points pull-right">
+                      <span>100</span>
+                  </div>  
+                  <div class="user-info">
+                      <a href="javascript:void(0)" class="user-title">Jacob Smith</a>
+                  </div>
+                  
+                </li>
+                <!-- /.item -->
+                <li class="item">
+                  <div class="user-img">
+                      <div class="user-initials round no-select bg-primary">JT</div>
+                  </div>
+                  <div class="points pull-right">
+                      <span>90</span>
+                     
+                  </div>  
+                  <div class="user-info">
+                    <a href="javascript:void(0)" class="user-title">Justin Time
+                      </a>
+                  </div>
+                </li>
+                <!-- /.item -->
+                <li class="item">
+                  <div class="user-img">
+                      <div class="user-initials round no-select bg-primary">AP</div>
+                  </div>
+                  <div class="points pull-right">
+                      <span>80</span>
+                     
+                  </div>  
+                  <div class="user-info">
+                    <a href="javascript:void(0)" class="user-title">Alek Packard </a>
+                  </div>
+                </li>
+                <!-- /.item -->
+                <li class="item">
+                  <div class="user-img">
+                      <div class="user-initials round no-select bg-primary">JH</div>
+                  </div>
+                  <div class="points pull-right">
+                      <span>50</span>
+                      
+                  </div>  
+                  <div class="user-info">
+                    <a href="javascript:void(0)" class="product-title">Jonie Hewlett</a>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="user-img">
+                      <div class="user-initials round no-select bg-primary">JD</div>
+                  </div>
+                  <div class="points pull-right">
+                      <span>50</span>
+                      
+                  </div>  
+                  <div class="user-info">
+                    <a href="javascript:void(0)" class="product-title">Jhon Doe</a>
+                  </div>
+                </li>
+                <!-- /.item -->
+              </ul>
+            </div>
+          
+          </div>
+          <!-- /.box -->
+
           <div class="box box-default">
             <div class="box-header with-border">
               <i class="fa fa-list-alt"></i>
@@ -442,7 +443,7 @@ title:  Segment Dashboard
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <canvas id="pieChart" height="150"></canvas>
+                    <canvas id="doughnut-chart" width="220"  height="220"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
@@ -477,8 +478,11 @@ title:  Segment Dashboard
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <canvas id="pieChart2" height="150"></canvas>
+                    <canvas id="doughnut-chart2" width="220"  height="220"></canvas>
                   </div>
+
+
+                
                   <!-- ./chart-responsive -->
                 </div>
                 <!-- /.col -->
@@ -527,8 +531,10 @@ title:  Segment Dashboard
 <!-- SlimScroll 1.3.0 -->
 <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS 1.0.1 -->
-<script src="plugins/chartjs/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard2.js"></script>
 <script src="dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
@@ -541,6 +547,133 @@ title:  Segment Dashboard
 	  });
 
   });
+  new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels  : ['1 Dec', '2 Dec', '3 Dec', '4 Dec', '5 Dec', '6 Dec', '7 Dec'],
+    datasets: [
+      {
+        label               : 'Question',
+        strokeColor         : 'rgb(210, 214, 222)',
+        pointColor          : 'rgb(210, 214, 222)',
+        pointStrokeColor    : '#c1c7d1',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgb(220,220,220)',
+        data                : [65, 70, 80, 81, 70, 68,65]
+      },
+      {
+        label               : 'Answer',
+        strokeColor         : 'rgba(60,141,188,0.8)',
+        pointColor          : '#3b8bba',
+        pointStrokeColor    : 'rgba(60,141,188,1)',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgba(60,141,188,1)',
+        data                : [60, 65, 75, 75, 65, 62, 57],
+        backgroundColor: 'rgba(75,148,191,1)'
+      }
+    ]
+  },
+  options: {
+        title: {
+            display: false
+        },
+        legend: {
+            display: false,
+            position: 'bottom',
+            labels: {
+                boxWidth: 20,
+                fontColor: '#111',
+                padding: 15
+            }
+        } 
+      }     
+});
+
+var ctx = document.getElementById('doughnut-chart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Logged In Agents', 'Logged Out Agents'],
+        datasets: [{
+            data: [15, 5],
+            backgroundColor: ['#337ab7', '#dd4b39'],
+            borderWidth: 0.5 ,
+            borderColor: '#ddd'
+        }]
+    },
+    options: {
+        title: {
+            display: false
+        },
+        legend: {
+            display: false,
+            position: 'bottom',
+            labels: {
+                boxWidth: 20,
+                fontColor: '#111',
+                padding: 15
+            }
+        },
+        tooltips: {
+            enabled: true
+        },
+        plugins: {
+            datalabels: {
+                color: '#fff',
+                textAlign: 'center',
+                font: {
+                    lineHeight: 1.6,
+                    fontSize:20
+                }
+                
+            }
+        }
+    }
+});
+
+
+var ctx = document.getElementById('doughnut-chart2').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Logged In Agents', 'Logged Out Agents'],
+        datasets: [{
+            data: [20,7],
+            backgroundColor: ['#00a65a', '#f39c12'],
+            borderWidth: 0.5 ,
+            borderColor: '#ddd'
+        }]
+    },
+    options: {
+        title: {
+            display: false
+        },
+        legend: {
+            display: false,
+            position: 'bottom',
+            labels: {
+                boxWidth: 20,
+                fontColor: '#111',
+                padding: 15
+            }
+        },
+        tooltips: {
+            enabled: true
+        },
+        plugins: {
+            datalabels: {
+                color: '#fff',
+                textAlign: 'center',
+                font: {
+                    lineHeight: 1.6,
+                    fontSize:20
+                }
+                
+            }
+        }
+    }
+});
+
   </script>
 </body>
 </html>
