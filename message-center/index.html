@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+
+<head>
+    <!-- NAME: 1 COLUMN -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iService Message Center</title>
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+	 <link rel="stylesheet" href="css/dataTables.bootstrap.css">
+	 <link rel="stylesheet" href="css/AdminLTE.min.css">
+     <link rel="stylesheet" href="css/style.css">  
+	 
+	 <link rel="stylesheet" href="css/select2.min.css">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css"> 
+	 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+	  <script src="ckeditor/ckeditor.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+	 <script src="js/scripts.js"></script>
+	  
+	 <script src="js/iService.directive.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ng.ckeditor/2.0.2/ng-ckeditor.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-drag-and-drop-lists/2.1.0/angular-drag-and-drop-lists.js"></script>
+
+</head>
+
+<body>
+  <header class="header_wrapper">
+    <div class="top_head_sect">
+      <div class="logo_box"><a href="/"><img src="images/logo.png" alt="webdunia"></a></div>
+    </div> 
+  </header>
+  
+  <div class="mailbox-container" ng-controller="mailboxCtrl">
+      <!--LOGIN BOX START-->
+      <div class="login-box" ng-if = "type == 'login'">
+	
+		<div class="login-box-body">
+			<p class="login-box-msg">Login</p>
+			<form action="" method="post">
+			  <div class="form-group has-feedback">
+				<input class="form-control" placeholder="Login Name">
+				<span class="glyphicon form-control-feedback"><i class="fa fa-user"></i></span>
+			  </div>
+			  <div class="form-group has-feedback">
+				<input type="password" class="form-control" placeholder="Password">
+				<span class="glyphicon form-control-feedback"><i class="fa fa-lock"></i></span>
+			  </div>
+			  <div class="row">
+				<div class="col-xs-8">
+				  <a href="/pages/examples/forget-password.html">
+					<button type="button" class="btn btn-link">Forgot Password</button>
+				  </a>  
+				</div>
+				<!-- /.col -->
+				<div class="col-xs-4">
+				  <button type="submit" class="btn btn-primary btn-block btn-flat" ng-click="showOption('inbox')">Sign In</button>
+				</div>
+				<!-- /.col -->
+			  </div>
+			</form>
+			<div class="social-auth-links text-center">
+			  <p>- OR -</p>
+			  <a href="#" class="google-btn pull-left mbottom-15" ng-click="showOption('inbox')">
+			   <img src="images/btn_google_signin_dark_normal_web.png">
+			  </a>
+			 
+			</div>
+			<div class="clearfix"></div>
+			<!-- /.social-auth-links -->
+		  </div>
+		<!-- /.login-box-body -->
+		<div class="copy-text mt-15">
+		   &copy; 2008-{{ site.time | date: '%Y' }} One-to-One Service.com. All rights reserved.
+		   <span>Powered by iService Version: 8.0 - {{ site.time | date: '%Y.%m.%d - %H:%M:%S' }}</span>
+		</div>
+	  </div>
+	  
+	  <!--LOGIN BOX END-->
+	 <div class="inbox-content" ng-if = "type != 'login'">
+		 <div class="login-menu">
+		   <a class="pull-right" href="" ng-click="showOption('login')">Logout</a>
+		 </div>
+		 <div class="mail-notification">
+		   <h1>12 New Messages</h1>
+		 </div>
+		 <div class="button-container">
+			<a class="btn btn-primary pull-left" ng-click="showOption('composemessage');"> <i class="fa fa-plus"></i> COMPOSE</a>
+			<a class="btn btn-link" ng-if = " type != 'inbox'" ng-click="showOption('inbox')"> Back to Inbox</a>
+			<a class="btn pull-right chat-btn"> <i class="fa fa fa-comments-o"></i> Chat With Us</a>
+		 </div>
+		 <div class="clearfix"></div>
+		 <!--INBOX START--> 
+		 <div class="nav-tabs-custom color-tab-icon" ng-if="type == 'inbox'" >
+			<div class="tab-content box-bg-color" >	
+				<uib-tabset active="active">
+				
+						<uib-tab>
+						  <uib-tab-heading>
+									<i class="fa fa-inbox"></i> Inbox <small class="label pull-right bg-yellow inbox-alert">12</small>
+						  </uib-tab-heading>
+						   <div class="inbox">
+							  <div class="mailbox-controls">
+									<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 20 of 20 entries</div>
+									<div class="pull-right">
+									  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+									</div>
+									<!-- /.pull-right -->
+							  </div>
+							  <div class="clearfix"></div>
+							  <div class="table-responsive mailbox-messages">
+								<table class="table table-hover">
+								    <th>&nbsp;</th>
+									<th>From</th>	
+									<th>Subject</th>
+									<th>&nbsp;</th>
+									<th>Received</th>
+								  </thead>			
+								  <tbody>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								    <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">5 mins ago</td>
+								  </tr>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								    <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">28 mins ago</td>
+								  </tr>
+								  <tr ng-click="showOption('readmessage');">
+								    <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">11 hours ago</td>
+								  </tr>
+								  <tr ng-click="showOption('readmessage');">
+								     <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">15 hours ago</td>
+								  </tr>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								     <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">Yesterday</td>
+								  </tr>
+								  <tr ng-click="showOption('readmessage');">
+								    <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">2 days ago</td>
+								  </tr>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								    <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">2 days ago</td>
+								  </tr>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								   <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+								  <td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">2 days ago</td>
+								  </tr>
+								  <tr ng-click="showOption('readmessage');">
+									
+									 <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">2 days ago</td>
+								  </tr>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								   <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">2 days ago</td>
+								  </tr>
+								  <tr ng-click="showOption('readmessage');">
+								    <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">4 days ago</td>
+								  </tr>
+								  <tr ng-click="showOption('readmessage');">
+									
+									 <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">12 days ago</td>
+								  </tr>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								     <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">12 days ago</td>
+								  </tr>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								    <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">14 days ago</td>
+								  </tr>
+								  <tr class="unread" ng-click="showOption('readmessage');">
+								    <td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">15 days ago</td>
+								  </tr>
+								  </tbody>
+								</table>
+								<!-- /.table -->
+							  </div>
+							  <!-- /.mail-box-messages -->
+							  <div class="clearfix"></div>
+							  <div class="mailbox-controls-bottom">
+									<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 20 of 20 entries</div>
+									<div class="pull-right">
+									  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+									</div>
+									<!-- /.pull-right -->
+							  </div>
+							  <div class="clearfix"></div>
+						   </div>
+						 </uib-tab>
+						 <uib-tab>
+						  <uib-tab-heading>
+									<i class="fa fa-send"></i> Sent 
+						  </uib-tab-heading>
+							<div class="inbox">
+							  <div class="mailbox-controls">
+									<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 4 of 4 entries</div>
+									<div class="pull-right">
+									  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+									</div>
+									<!-- /.pull-right -->
+							  </div>
+							  <div class="clearfix"></div>
+							  <div class="table-responsive mailbox-messages">
+								<table class="table table-hover">
+								  <thead>
+									<th>From</th>	
+									<th>Subject</th>
+									<th>&nbsp;</th>
+									<th>Received</th>
+								  </thead>			
+								  <tbody>
+								  <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">5 mins ago</td>
+								  </tr>
+								  <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">28 mins ago</td>
+								  </tr>
+								  
+								  <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">14 days ago</td>
+								  </tr>
+								  <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">15 days ago</td>
+								  </tr>
+								  </tbody>
+								</table>
+								<!-- /.table -->
+							  </div>
+							  <!-- /.mail-box-messages -->
+							  <div class="clearfix"></div>
+							  <div class="mailbox-controls-bottom">
+									<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 4 of 4 entries</div>
+									<div class="pull-right">
+									  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+									</div>
+									<!-- /.pull-right -->
+							  </div>
+							  <div class="clearfix"></div>
+						   </div>
+						 </uib-tab>
+						  <uib-tab>
+						  <uib-tab-heading>
+									<i class="fa  fa-folder"></i> Archived
+						  </uib-tab-heading>
+<div class="inbox">
+							  <div class="mailbox-controls">
+									<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 5 of 5 entries</div>
+									<div class="pull-right">
+									  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+									</div>
+									<!-- /.pull-right -->
+							  </div>
+							  <div class="clearfix"></div>
+							  <div class="table-responsive mailbox-messages">
+								<table class="table table-hover">
+								  <thead>
+									<th>From</th>	
+									<th>Subject</th>
+									<th>&nbsp;</th>
+									<th>Received</th>
+								  </thead>			
+								  <tbody>
+								  <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">5 mins ago</td>
+								  </tr>
+								  <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">28 mins ago</td>
+								  </tr>
+								  
+								  <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">14 days ago</td>
+								  </tr>
+								  <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">15 days ago</td>
+								  </tr>
+								   <tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">15 days ago</td>
+								  </tr>
+								  </tbody>
+								</table>
+								<!-- /.table -->
+							  </div>
+							  <!-- /.mail-box-messages -->
+							  <div class="clearfix"></div>
+							  <div class="mailbox-controls-bottom">
+									<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 5 of 5 entries</div>
+									<div class="pull-right">
+									  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+									</div>
+									<!-- /.pull-right -->
+							  </div>
+							  <div class="clearfix"></div>
+						   </div>
+						 
+						 </uib-tab>
+						 <div class="search-mail">
+							<div class="input-group">
+							  <input type="text" class="form-control" placeholder="Search Mail">
+							  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+							</div>
+						</div>	
+				  </uib-tabset>
+		   
+		   </div>		
+		  </div>		  
+		 <!--INBOX END-->
+		 <!--READ MESSAGE START-->
+		 <div class="message-panel" ng-if="type == 'readmessage'">
+		   <div class="row">
+			   <div class="col-md-12">
+				   <div class="box box-primary">
+					  <div class="box-header with-border">
+						<h3 class="box-title"><i class="fa fa-envelope-open"></i> Trying to find a solution to this problem</h3>
+					  </div>
+					  <div class="box-body">
+						 <div class="from-container mb-15">
+							 <div class="message-info">
+								<b>From : </b>Customer Lending Team<br>
+								9/15/2020 11.03 AM
+							  </div>
+						 </div>
+						 <div class="message-body-container mb-15">
+						   <div class="message-box">
+							  <div class="message-box-body"> 
+								  <div class="clear"></div>
+									<div>										   
+									  <p>Hello,<br>
+										I'm looking for a flat screen. Any suggestions?
+									  </p>
+									</div>
+							  </div>
+						  </div>
+						 </div>
+						 <div class="message-attachments">
+						   <div class="row">
+							   <div class="col-md-12 mb-15">
+								   <b> <i class="fa fa-paperclip attachment-icon mr-15"></i></b> 
+								   <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> 
+								   <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a>
+								   <a href="" class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> 
+							   </div>
+							</div>   
+						 </div>
+					  </div>
+					  <div class="box-footer">
+						<button type="button" class="btn btn-primary mr-15" ng-click="showOption('replymessage');"><i class="fa fa-reply"></i> Reply</button>
+						<button type="button" class="btn mr-15"><i class="fa  fa-trash"></i> Delete</button>
+						<button type="button" class="btn btn-link" ng-click="showOption('inbox')">Close</button>
+				   </div>
+			   </div>
+			</div>   
+		 </div>
+		 
+		 </div>
+		 <!--READ MESSAGE END-->
+		 
+		 <!--REPLY MESSAGE START-->
+		  <div class="message-panel" ng-if="type == 'replymessage'">
+		   <div class="row">
+			   <div class="col-md-12">
+				   <div class="box box-primary">
+					  <div class="box-header with-border">
+						<h3 class="box-title"><i class="fa fa-reply"></i> Compose A Reply</h3>
+					  </div>
+					  <div class="box-body">
+						 <div class="message-body-container mb-15">
+						   <div class="row form-horizontal">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-12 control-label text-left">Subject</label>
+									<div class="col-sm-12">
+										<input type="text" class="form-control" value="Re:Trying to find solution">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-12 control-label text-left">Body</label>
+									<div class="col-sm-12">
+										<textarea class="form-control"  ckeditor="options">
+										    &nbsp;
+											<br />
+											<br />
+
+											<div>On 8/25/2020 1:59 PM, Customer 7 &lt;customer7@qavmmail02&gt; wrote:
+											<br /><br />
+											<blockquote style="border-left: 4px solid #cccccc; margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+											<div>Hello,<br /><br />
+											I'm looking for a flat screen. Any suggestions?<br />
+											<br />
+											&nbsp;</div>
+											</blockquote>
+											</div>
+
+										</textarea>
+									</div>
+								</div>
+							</div>
+						   </div>
+						 </div>
+						 <div class="message-attachments">
+						   <div class="row">
+							  <div class="col-sm-12 col-md-6 col-lg-6 mb-15">
+									<label class="drop-box">
+									  Drop files here or click to upload
+									  <input type="file" class="ng-hide" multiple="">
+									</label>
+									<div>(Maximum 10 MB upload at one time.)</div>
+									<div class="imageuploadify">
+									  <!-- ngRepeat: file in files -->
+									</div>
+							   </div>
+							</div>   
+						 </div>
+					  </div>
+					  <div class="box-footer">
+						<button type="button" class="btn btn-primary mr-15" ><i class="fa fa-send"></i> Send</button>
+						<button type="button" class="btn mr-15"><i class="fa  fa-trash"></i> Delete</button>
+						<button type="button" class="btn btn-link" ng-click="showOption('inbox')">Close</button>
+				   </div>
+			   </div>
+			</div>   
+		   </div>
+			
+		  </div>
+		<!--REPLY MESSAGE END-->
+		
+		<!--COMPOSE MESSAGE START-->
+		  <div class="message-panel" ng-if="type == 'composemessage'">
+		   <div class="row">
+			   <div class="col-md-12">
+				   <div class="box box-primary">
+					  <div class="box-header with-border">
+						<h3 class="box-title"><i class="fa fa-plus"></i> Compose New Message</h3>
+					  </div>
+					  <div class="box-body">
+						 <div class="message-body-container mb-15">
+						   <div class="row form-horizontal">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-12 control-label text-left">Topic</label>
+									<div class="col-sm-12" ng-controller="TopicCtrl as ctrl">
+										<ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic" ng-disabled>
+										  <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+										  <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{{ item.disabled}}" >
+											<span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{{ item.topiclevel }}{{ item.disabled }}"  ng-bind-html="item.name | highlight: $select.search">{{ item.name }}</span>
+										  </ui-select-choices>
+										</ui-select>
+									  </div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-12 control-label text-left">Subject</label>
+									<div class="col-sm-12">
+										<input type="text" class="form-control" value="Re:Trying to find solution">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-12 control-label text-left">Body</label>
+									<div class="col-sm-12">
+										<textarea class="form-control" ckeditor="options"></textarea>
+									</div>
+								</div>
+							</div>
+						   </div>
+						 </div>
+						 <div class="message-attachments">
+						   <div class="row">
+							  <div class="col-sm-12 col-md-6 col-lg-6 mb-15">
+									<label class="drop-box">
+									  Drop files here or click to upload
+									  <input type="file" class="ng-hide" multiple="">
+									</label>
+									<div>(Maximum 10 MB upload at one time.)</div>
+									<div class="imageuploadify">
+									  <!-- ngRepeat: file in files -->
+									</div>
+							   </div>
+							</div>   
+						 </div>
+					  </div>
+					  <div class="box-footer">
+						<button type="button" class="btn btn-primary mr-15" ><i class="fa fa-send"></i> Send</button>
+						<button type="button" class="btn mr-15"><i class="fa  fa-trash"></i> Delete</button>
+						<button type="button" class="btn btn-link" ng-click="showOption('inbox')">Close</button>
+				   </div>
+			   </div>
+			</div>   
+		   </div>
+			
+		  </div>
+		<!--COMPOSE MESSAGE END-->
+	 </div>	
+  </div>
+</body>
+
+</html> 
