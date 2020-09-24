@@ -36,52 +36,31 @@ title: Enhancement Request Form
                     <div class="form-group">
                       <label class="col-sm-8 control-label text-left"></label>
                     </div>  
+                    <input type="hidden" value="scott" class="form-control" disabled>
+                    <input type="hidden" value="scott@1t01service.com" class="form-control" disabled>
+                    <input type="hidden" value="styleguide" class="form-control" disabled>
+                 
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">User Name
-                        <i class="fa  fa-question-circle text-info help-icon" uib-tooltip="We will create the bug request using your login details. The iService team will follow up with you at this address if additional information is needed." tooltip-placement="bottom"></i>
-                      </label>
+                      <label class="col-sm-4 control-label text-left">Page To Update <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Enter the URL or the name of the page that needs to be updated. If you need a new page, or a changes to a process, indicate that here." tooltip-placement="bottom"></i></label>
                       <div class="col-sm-6">
-                        <input type="text" value="scott" class="form-control" disabled>
+                        <input type="text" value="styleguide" class="form-control" >
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Email</label>
-                      <div class="col-sm-6">
-                        <input type="text" value="scott@1t01service.com" class="form-control" disabled>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Tenant Url
-                      </label>
-                      <div class="col-sm-6">
-                        <input type="text" value="styleguide" class="form-control" disabled>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Page To Update</label>
-                      <div class="col-sm-6">
-                       <select class="form-control">
-                          <option>Reports</option>
-                          <option>Others</option>
-                       </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Business Purpose</label>
+                      <label class="col-sm-4 control-label text-left">Business Purpose <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Tell us about the business need you're trying to solve. Please don't describe the change in terms of updates to a page. Instead, tell us as much about your business process as possible. We'll follow up with you for clarification if needed." tooltip-placement="bottom"></i></label>
                       <div class="col-sm-6">
                         <textarea class="form-control"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Problem with current page or process
-                        <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Provide a short description of the problem and how it affected your workflow." tooltip-placement="bottom"></i>
+                      <label class="col-sm-4 control-label text-left">Problem with current page or process <i class="fa fa-question-circle text-info help-icon" uib-tooltip="Explain the difficulty you have with the current process." tooltip-placement="bottom"></i>
                       </label>
                       <div class="col-sm-6">
                         <textarea class="form-control"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Urgency </label>
+                      <label class="col-sm-4 control-label text-left">Urgency <i class="fa fa-question-circle text-info help-icon" uib-tooltip-html="tooltipContent" tooltip-placement="bottom"></i></label>
                       <div class="col-sm-6">
                         <select class="form-control">
                           <option>Low</option>
@@ -91,7 +70,7 @@ title: Enhancement Request Form
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label text-left">Attachments</label>
+                      <label class="col-sm-4 control-label text-left">Attachments <i class="fa fa-question-circle text-info help-icon" uib-tooltip="If possible, provide a page mockup that shows changes required." tooltip-placement="bottom"></i></label>
                       <div class="col-sm-6">
                         <iservice-files-upload ng-init="uploads = []" files="uploads"></iservice-files-upload>
                   
@@ -131,11 +110,15 @@ title: Enhancement Request Form
   </script>
 
 	<script>
-		angular.module('iService').controller('myCtrl', function ($scope) {
+		angular.module('iService').controller('myCtrl', function ($scope,$sce) {
 				$scope.toggleSegmentCollapsedState = function (segmentName)
 				{ 
 					$scope[segmentName] = !$scope[segmentName];
 				};
+
+        $scope.tooltipContent = $sce.trustAsHtml("High - You are unable to complete your task in iService.<br/>"+
+"Medium - The current process has a workaround that is cumbersome.<br/>"+
+"Low - The enhancement would be nice, but it's a minor convenience.");
 		});
 
     angular.module('iService').controller('ListCtrl', function ($scope, $http, $timeout, $interval) {
