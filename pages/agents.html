@@ -43,7 +43,7 @@ title: Agent Settings
 							<div class="col-md-12">
 								<div class="box box-info">
 									<div class="box-header with-border" ng-click="isCollapsedFormLicense = !isCollapsedFormLicense">
-										<i class="fa fa-user"></i> 
+										<i class="fa icon-c icon-support"></i> 
 										<h3 class="box-title head-title-padding">Agent License Details</h3>
 										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedFormLicense}" ng-init="isCollapsedFormLicense = false;"></span>
 									</div>
@@ -78,7 +78,7 @@ title: Agent Settings
 							<div class="col-md-12">
 								<div class="box box-info">
 									<div class="box-header with-border" ng-click="isCollapsedForm = !isCollapsedForm">
-										<i class="fa fa-users"></i> 
+										<i class="fa icon-c icon-support"></i> 
 										<h3 class="box-title head-title-padding">Agents</h3>
 										<span aria-hidden="true" class="glyphicon pull-right glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right__expanded': !isCollapsedForm}" ng-init="isCollapsedForm = false;"></span>
 									</div>
@@ -350,12 +350,194 @@ title: Agent Settings
 									</div>	
 								</div>	
 							</div>	
-						</div>		
+						</div>
+
 						<div class="row" ng-show="formstep1">
 								<div class="col-md-12">
 									<div class="box box-primary">
 										<div class="box-header with-border">
-											<i class="fa fa-user"></i>
+											<i class="fa icon-c icon-support"></i>
+											<h3 class="box-title text-right">Create New Agent</h3>
+										</div>
+										<div class="box-body">
+												<div class="row"  ng-if = "type == 'showcontinue-0'" ng-init = " type = 'showcontinue-0';">
+													<div class="form-horizontal">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Email/Login</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control newagentemail" value="Justin.Time@1to1service.com" >
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="form-group">
+																<div class="col-sm-12">
+																	<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormContinue('showcontinue-1')">Continue</button>
+																	<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="row" ng-if = "type == 'showcontinue-1'">
+													<div class="form-horizontal">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Email/Login</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control newagentemail" value="Justin.Time@1to1service.com" disabled>
+																	<span class="message-alert text-danger">
+																		A contact already exists in your tenant with this logins. Since the user already has a password, they will use it when logging in as an agent. If the user doesn't know their password, they can use the reset process to set a new one.
+																	</span>	
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="form-group">
+															    <div class="col-sm-12">
+																	<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormContinue('showcontinue-2')">Continue</button>
+																	<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+												<div class="row" ng-if = "type == 'showcontinue-2'">
+													<div class="form-horizontal">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Email/Login</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control newagentemail" value="Justin.Time@1to1service.com" disabled>
+																	<span class="message-alert">
+																		Select the User Type for this agent, which will determine their access level within iService. Then continue to promote the contact from Customer to an agent user type.
+																	</span>	
+																</div>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent User Type <i class="fa fa-question-circle text-info help-icon" uib-tooltip="User Types determine the pages and features available to the agent. Visit the User Types settings page to review the types configured for your tenant." tooltip-placement="bottom"></i></label>
+																<div class="col-sm-12">
+																	<select class="form-control">
+																		<option>CSR</option>
+																		<option>CSR Manager</option>
+																		<option>Customer Agent</option>
+																		<option>Developer</option>
+																		<option>QA CSR</option>
+																		<option>QA Manager</option>
+																	</select>
+																</div>
+															</div>
+														</div>	
+
+														<div class="col-md-12">
+															<div class="form-group">
+															
+															<div class="col-sm-12"> 
+																	<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create Agent</button>
+																	<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+												<div class="row" ng-if = "type == 'showcontinue-1-newemail'">
+													<div class="form-horizontal">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Email/Login</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control newagentemail" value="Justin.Time@1to1service.com" disabled>
+																	<span class="message-alert">
+																		Enter an initial password for the agent. The agent should change their password immediately after signing into iService.
+																	</span>	
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Password</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control newagentemail">
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="form-group">
+															    <div class="col-sm-12">
+																	<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormContinue('showcontinue-2-newemail')">Continue</button>
+																	<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="row" ng-if = "type == 'showcontinue-2-newemail'">
+													<div class="form-horizontal">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent Email/Login</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control newagentemail" value="Justin.Time@1to1service.com" disabled>
+																	<span class="message-alert text-danger">
+																		Enter an initial password for the agent. The agent should change their password immediately after signing into iService.
+																	</span>	
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Password</label>
+																<div class="col-sm-12">
+																	<input type="text" class="form-control newagentemail">
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="inputPassword3" class="col-sm-12 control-label text-left">Agent User Type <i class="fa fa-question-circle text-info help-icon" uib-tooltip="User Types determine the pages and features available to the agent. Visit the User Types settings page to review the types configured for your tenant." tooltip-placement="bottom"></i></label>
+																<div class="col-sm-12">
+																	<select class="form-control">
+																		<option>CSR</option>
+																		<option>CSR Manager</option>
+																		<option>Customer Agent</option>
+																		<option>Developer</option>
+																		<option>QA CSR</option>
+																		<option>QA Manager</option>
+																	</select>
+																</div>
+															</div>
+														</div>	
+
+														<div class="col-md-12">
+															<div class="form-group">
+															
+															<div class="col-sm-12"> 
+																	<button type="button" class="btn btn-primary margin-r-5" ng-click="showNewFormStep(2)">Create Agent</button>
+																	<button type="button" class="btn btn-link" ng-click="cancelForm(2)">Cancel</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+										</div>
+									</div>
+								</div>	
+						</div>		
+						<div class="row" ng-show="formstepcontinue">
+								<div class="col-md-12">
+									<div class="box box-primary">
+										<div class="box-header with-border">
+											<i class="fa icon-c icon-support"></i>
 											<h3 class="box-title text-right">New Agent</h3>
 										</div>
 										<div class="box-body">
@@ -485,7 +667,7 @@ title: Agent Settings
 								<!-- Custom Tabs -->
 								<div class="nav-tabs-custom">
 									<ul class="nav nav-tabs">
-										<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-user"></i> <span>Agent Details</span></a></li>
+										<li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa icon-c icon-support"></i> <span>Agent Details</span></a></li>
 										
 										<li><a href="#tab_3" data-toggle="tab"><i class="fa fa-fw fa-ellipsis-h"></i> <span>Agent Contact Details</span></a> </li>
 										<li><a href="#tab_4" data-toggle="tab"><i class="fa fa-fw fa-reply"></i> <span>Agent Stock Responses</span></a> </li>
@@ -1269,6 +1451,20 @@ title: Agent Settings
 						return headCell.dataset.noColVis === undefined;
 					}
 				}]);
+				$scope.type = 'showcontinue-0';
+			
+				$scope.showNewFormContinue = function(step){
+				
+					var email = document.getElementsByClassName("newagentemail"); 
+					if(email[0].value == 'Justin.Time@1to1service.com')
+					{ 
+						$scope.type = step;
+					}else{
+                        $scope.type = step + '-newemail';
+					}
+
+				}
+
 				$scope.toggle = {};
 
 				$scope.domains = [{'title':'example1.com'},{'title':'example1.com'}];

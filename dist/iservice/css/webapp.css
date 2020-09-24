@@ -4114,3 +4114,7 @@ h1 .help-icon {
 .overflow-box {
   overflow-x: scroll;
 }
+.message-alert {
+  padding-left: 0px;
+  display: inline-block;
+}
