@@ -4118,3 +4118,6 @@ h1 .help-icon {
   padding-left: 0px;
   display: inline-block;
 }
+.row-edit {
+  width: 150px;
+}
