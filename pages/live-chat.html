@@ -59,16 +59,16 @@ title: Live Chat
 																		Forward <span class="caret"></span>
 																	</button>
 																	<ul class="dropdown-menu dropdown-menu-btn-option dropdown-forward"  uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" >
-																		<li><a href="javascript:void(0)" class="text-primary"> Unassign Question</a></li>
-																		<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"> Forward To Agent</a>
+																		<li><a href="javascript:void(0)" class="text-primary"> <i class="fa icon-c icon-unassign-question"></i> Unassign Question</a></li>
+																		<li ng-class="{'option-selected' : selectAgent}"><a href="javascript:void(0)" class="text-primary" ng-click="selectAgent = !selectAgent;forwardSegment=false;forwardExternalSegment=false;"><i class="fa icon-c icon-forward-to-agent"></i> Forward To Agent</a>
 																			<div class="btn-list-options form-group" ng-show="selectAgent">
 																				<div class="ng-cloak" ng-controller="AgentCtrl as ctrl">
 																					<ui-select ng-model="ctrl.agentselected.selected" theme="select2">
-																						<ui-select-match placeholder="Select or search an agent in the list" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+																						<ui-select-match placeholder="Select or search a chat agent in the list" ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 																						<ui-select-choices  repeat="item in ctrl.agentnames | filter: $select.search" ui-disable-choice="item.name == 'Gathering Agents'" >
 																						<span ng-attr-title="{{ item.name }}"  ng-attr-class="{% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
 																						<span ng-if="item.disabled == 'disabled'">
-																						  <i class="fa  fa-ban text-red" uib-tooltip="This agent is not available because they  are logged out and have the Empty Inbox setting" tooltip-placement="bottom"></i>
+																						  <i class="fa  fa-ban text-red" uib-tooltip="This agent is not available for chat." tooltip-placement="bottom"></i>
 																						 </span>
 																						<span ng-if="item.loggedout == 'loggedout'"><i class="fa fa-fw fa-sign-out text-red" uib-tooltip="Logged Out Agent" tooltip-placement="bottom"></i></span>
 																						<br>
@@ -376,7 +376,7 @@ title: Live Chat
 		angular.module('iService').controller('AgentCtrl', function ($scope, $http, $timeout, $interval) {
 			var vm = this;
 			vm.agent = {};
-			vm.agentselected = {selected : "Select or search for an agent in the list"};
+			vm.agentselected = {selected : "Select or search for a chat agent in the list"};
 			vm.agentnames = [ 
 				{name: 'Alek Packard ' , email:'alek.packard@example.com', code: 'AP',topiclevel:0, disabled: '' ,loggedout:''},
 				{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS',topiclevel:0, disabled: 'disabled',loggedout:''},
