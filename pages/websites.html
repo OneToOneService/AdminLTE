@@ -567,9 +567,12 @@ title: Websites Settings
 																								<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit" ng-click="showedit('1')">
 																									<i class="fa fa-pencil"></i>
 																								</button>
+																								<span class="text-success" ng-if=" saved == 'saved1'">
+																									Saved successfully
+																								</span>	
 																							</div>
 																							<div class="" ng-if = " row == 'showedit1'">	
-																								<button class="btn btn-primary btn-sm" type="button">
+																								<button class="btn btn-primary btn-sm" type="button" ng-click="saveedit('saved',1)">
 																									Save
 																								</button>
 																								<button class="btn btn-link btn-sm" type="button" ng-click="canceledit()">
@@ -600,9 +603,12 @@ title: Websites Settings
 																								<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit" ng-click="showedit('2')">
 																									<i class="fa fa-pencil"></i>
 																								</button>
+																								<span class="text-success" ng-if=" saved == 'saved2'">
+																									Saved successfully
+																								</span>	
 																							</div>
 																							<div class="" ng-if = " row == 'showedit2'">	
-																								<button class="btn btn-primary btn-sm" type="button">
+																								<button class="btn btn-primary btn-sm" type="button" ng-click="saveedit('saved',2)">
 																									Save
 																								</button>
 																								<button class="btn btn-link btn-sm" type="button" ng-click="canceledit()">
@@ -634,9 +640,12 @@ title: Websites Settings
 																								<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit" ng-click="showedit('3')">
 																									<i class="fa fa-pencil"></i>
 																								</button>
+																								<span class="text-success" ng-if=" saved == 'saved3'">
+																									Saved successfully
+																								</span>	
 																							</div>
 																							<div class="" ng-if = " row == 'showedit3'">	
-																								<button class="btn btn-primary btn-sm" type="button">
+																								<button class="btn btn-primary btn-sm" type="button" ng-click="saveedit('saved',3)">
 																									Save
 																								</button>
 																								<button class="btn btn-link btn-sm" type="button" ng-click="canceledit()">
@@ -668,9 +677,12 @@ title: Websites Settings
 																								<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit" ng-click="showedit('4')">
 																									<i class="fa fa-pencil"></i>
 																								</button>
+																								<span class="text-success" ng-if=" saved == 'saved4'">
+																									Saved successfully
+																								</span>	
 																							</div>
 																							<div class="" ng-if = " row == 'showedit4'">	
-																								<button class="btn btn-primary btn-sm" type="button">
+																								<button class="btn btn-primary btn-sm" type="button" ng-click="saveedit('saved',4)">
 																									Save
 																								</button>
 																								<button class="btn btn-link btn-sm" type="button" ng-click="canceledit()">
@@ -703,9 +715,12 @@ title: Websites Settings
 																								<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit" ng-click="showedit('5')">
 																									<i class="fa fa-pencil"></i>
 																								</button>
+																								<span class="text-success" ng-if=" saved == 'saved5'">
+																									Saved successfully
+																								</span>	
 																							</div>
 																							<div class="" ng-if = " row == 'showedit5'">	
-																								<button class="btn btn-primary btn-sm" type="button">
+																								<button class="btn btn-primary btn-sm" type="button" ng-click="saveedit('saved',5)">
 																									Save
 																								</button>
 																								<button class="btn btn-link btn-sm" type="button" ng-click="canceledit()">
@@ -725,6 +740,7 @@ title: Websites Settings
 																								  <input type="text" class="form-control col-md-6" value="common-footer">
 																							   </div>
 																							   <div class="col-md-6">
+
 																								  <select class="form-control col-md-6">
 																									<option>Select form</option>	
 																								  </select>	
@@ -736,9 +752,13 @@ title: Websites Settings
 																								<button class="icon-button btn btn-xs btn-link mright-5" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit" ng-click="showedit('6')">
 																									<i class="fa fa-pencil"></i>
 																								</button>
+																								<span class="text-success" ng-if=" saved == 'saved6'">
+																									Saved successfully
+																								</span>	
 																							</div>
+																							
 																							<div class="" ng-if = " row == 'showedit6'">	
-																								<button class="btn btn-primary btn-sm" type="button">
+																								<button class="btn btn-primary btn-sm" type="button" ng-click="saveedit('saved',6)">
 																									Save
 																								</button>
 																								<button class="btn btn-link btn-sm" type="button" ng-click="canceledit()">
@@ -972,14 +992,28 @@ title: Websites Settings
 			$scope.row = "showedit"+rownumber;
        };
 
-		$scope.canceledit = function(rownumber){
+		$scope.canceledit = function(action){
 			//for(var i=1;i<=2;i++){
 			//$scope['showedit'+i] = false; 
 		//	}
 		//	angular.element('.campign-editrow').remove();
+		   
 			$scope.row = "showedit";
        };
 
+	   
+	   $scope.saveedit = function(action,row){
+			//for(var i=1;i<=2;i++){
+			//$scope['showedit'+i] = false; 
+		//	}
+		//	angular.element('.campign-editrow').remove();
+		    if(action == 'saved' )
+			{
+				$scope.saved = action + row;
+			}
+
+			$scope.row = "showedit";
+       };
 
 		  $(".select2").select2();
 			$scope.domains = [{'title':'example1.com'},{'title':'example1.com'}];
