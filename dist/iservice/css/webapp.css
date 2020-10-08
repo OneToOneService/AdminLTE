@@ -3991,9 +3991,7 @@ tr.color-urgent td.column-date {
   display: block;
 }
 .container-place-holder {
-  border: 1px solid #f1f1f1;
   background: #fbfbfb;
-  min-height: 200px;
   width: 100%;
   margin-bottom: 15px;
 }
