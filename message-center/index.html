@@ -87,9 +87,7 @@
 		 <div class="login-menu">
 		   <a class="pull-right" href="" ng-click="showOption('login')">Logout</a>
 		 </div>
-		 <div class="mail-notification">
-		   <h1>12 New Messages</h1>
-		 </div>
+		 
 		 <div class="button-container">
 			<a class="btn btn-primary pull-left" ng-click="showOption('composemessage');"> <i class="fa fa-plus"></i> COMPOSE</a>
 			<a class="btn btn-link" ng-if = " type != 'inbox'" ng-click="showOption('inbox')"> Back to Inbox</a>
@@ -454,7 +452,7 @@
 					  </div>
 					  <div class="box-footer">
 						<button type="button" class="btn btn-primary mr-15" ng-click="showOption('replymessage');"><i class="fa fa-reply"></i> Reply</button>
-						<button type="button" class="btn mr-15"><i class="fa  fa-trash"></i> Delete</button>
+						
 						<button type="button" class="btn btn-link" ng-click="showOption('inbox')">Close</button>
 				   </div>
 			   </div>
@@ -595,7 +593,7 @@
 					  </div>
 					  <div class="box-footer">
 						<button type="button" class="btn btn-primary mr-15" ><i class="fa fa-send"></i> Send</button>
-						<button type="button" class="btn mr-15"><i class="fa  fa-trash"></i> Delete</button>
+						
 						<button type="button" class="btn btn-link" ng-click="showOption('inbox')">Close</button>
 				   </div>
 			   </div>
