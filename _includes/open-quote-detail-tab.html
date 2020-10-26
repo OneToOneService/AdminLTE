@@ -97,9 +97,13 @@
                   <button type="button" class="btn btn-default" uib-dropdown-toggle uib-tooltip="More" tooltip-placement="bottom">
                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                   </button>
-                  <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-                    <li role="menuitem"><a href="#">Print</a></li>
-                    <li role="menuitem"><a href="#">Display Plain Text/HTML</a></li>
+                  <ul class="dropdown-menu dropdown-menu-right dropdown-bg dropdown-more" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                    <li role="menuitem" ng-class="{ 'bg-primary': isStatusAuditSectionExpanded }">
+                      <iservice-switch switched="toggle.switchshowstatus">Show Status Audit</iservice-switch>
+                    </li>
+                    <li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
+                    <li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
+                    <li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
                   </ul>
                 </div>
                 <button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this to me" tooltip-placement="bottom" ng-hide="getthis" ng-init="getthis = false;" ng-click="getthis = true;">
@@ -107,6 +111,28 @@
                   Get This
                 </button>
             </div>
+
+            <div class="row">
+              {% include show-status-audit.html %}
+            </div>
+            <div class="row">
+
+            <!--full case panel-->
+            <div class=" full-case-panel" ng-show="toggle.switchshowfullcase">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Full Case History Ref:4545646</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <div class="full-case-panel-data"></div>
+                </div>
+              </div>	
+            </div>
+            <!--full case panel-->		
+           </div>
             <div class="row">
                <!-- Custom Tabs -->
               <div class="nav-tabs-custom">
