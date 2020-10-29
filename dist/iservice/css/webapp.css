@@ -12,7 +12,7 @@
 }
 [ng-form] .ng-invalid,
 form .ng-invalid {
-  animation: error-blink 0.3s step-end 0s 3 normal forwards;
+  animation: error-blink step-end 0s 3 normal forwards;
 }
 @keyframes error-blink {
   50% {
