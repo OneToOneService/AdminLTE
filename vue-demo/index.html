@@ -1,0 +1,86 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+	  <style>
+		.container {
+		  padding: 20px 0
+		}
+
+		.column:last-child:not(:first-child),
+		.columns:last-child:not(:first-child) {
+		  float: left;
+		}
+
+		.main_heading {
+		  margin: 10px 0 30px;
+		}
+
+		.callout {
+		  margin-bottom: 40px;
+		}
+
+		select {
+		  text-transform: capitalize;
+		}
+
+		.loader {
+		  text-align: center;
+		  padding: 40px;
+		}
+
+		.uppercase {
+		  text-transform: uppercase;
+		}
+	  </style>
+   </head>
+   <body>
+      <div class="container" id="app">
+		  		  <section class="callout secondary">
+			<h5 class="text-center">Get Template With Data</h5>
+			<form>
+			  <div class="row">
+				<div class="large-2 columns">
+				  <a @click="getPosts()" class="button expanded">Retrieve</a>
+				</div>
+			  </div>
+			</form>
+		  </section>
+
+		  <data-list  :results="results"></data-list>
+		</div>
+		
+		<template id="my-template">
+		  <div style="border: 1px solid; padding: 5px; width:500px; margin:0 auto">
+		     <div class="form-group">
+			    <label class="col-md-2 lable">First Name</label>
+				<div class="col-md-4">
+				
+				  <input type="text" class="" v-bind:value="processedPosts[0].fname" >
+				</div>
+			 </div>
+			 <div class="form-group">
+			    <label class="col-md-2 lable">Last Name</label>
+				<div class="col-md-4">
+				  <input type="text" class="" v-bind:value="processedPosts[0].lname">
+				</div>
+			 </div>
+			 <div class="form-group">
+			    <label class="col-md-2 lable">Email</label>
+				<div class="col-md-4">
+				  <input type="text" class="" v-bind:value="processedPosts[0].email">
+				</div>
+			 </div>
+			 <div class="form-group">
+			   
+				<div class="col-md-4">
+				  <input class="button" type="submit" value="Submit">
+				</div>
+			 </div>
+		   </div>
+		</template>
+       <script type = "text/javascript" src = "template.js"></script>
+   </body>
+</html>
