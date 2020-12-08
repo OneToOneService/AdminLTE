@@ -4120,3 +4120,7 @@ h1 .help-icon {
 .row-edit {
   width: 150px;
 }
+.treeview.without-numbers ul.tree {
+  max-height: 430px;
+  overflow-y: scroll;
+}
