@@ -3713,7 +3713,8 @@ table.dataTable thead .sorting_desc_disabled:after {
   padding-left: 0px;
 }
 .treeviewitem .topic-selected {
-  background: #f7f7f7;
+  background: #dcdcdc;
+  padding-right: 20px;
 }
 .inline-delete {
   margin-top: 7px;
