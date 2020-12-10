@@ -903,6 +903,8 @@ ul.timeline span.stack-icon .aqua {
   font-weight: normal;
   list-style: none;
   padding-left: 10px;
+}
+.section-var-link span {
   cursor: pointer;
 }
 .li.segment-lable {
