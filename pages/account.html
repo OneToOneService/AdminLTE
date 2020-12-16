@@ -183,7 +183,7 @@ title:  Account
                               <div class="box-header with-border">
                                 <i class="fa fa-search"></i>
                                 <h3 class="box-title">Search For Contacts To Add To This
-                                  Lists</h3>
+                                  Account</h3>
                               </div>
                               <div class="box-body table-responsive">
                                 <div class="row" uib-collapse="isCollapsedSavePanel"
@@ -333,7 +333,7 @@ title:  Account
                                   </div>
                                 </section>
                                 <footer class="box-footer text-right">
-                                  <button type="submit" class="btn btn-primary btn-sm">
+                                  <button type="submit" class="btn btn-primary btn-sm" ng-click="showlist = true;">
                                     Search
                                     <i class="fa fa-fw fa-arrow-circle-right"></i>
                                     <i class="fa fa-spinner fa-spin fa-fw ng-hide"></i>
@@ -343,7 +343,7 @@ title:  Account
                                 </footer>
                               </div>
                             </div>
-                            <div class="row">
+                            <div class="row" ng-show="showlist">
                               <div class="col-md-12">
                                 <div class="box box-info" ng-controller="myCtrl">
                                   <div class="box-header with-border">
