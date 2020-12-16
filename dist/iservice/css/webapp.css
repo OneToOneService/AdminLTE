@@ -1117,6 +1117,9 @@ iservice-switch {
 .message-box-body {
   padding: 10px;
 }
+.message-box-header .subject-heading {
+  padding: 15px;
+}
 .message-box-header .user-container {
   width: 100px;
   float: left;
