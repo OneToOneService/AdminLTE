@@ -4129,3 +4129,6 @@ h1 .help-icon {
   max-height: 430px;
   overflow-y: scroll;
 }
+.search-container.select2-search input {
+  margin-top: 0;
+}
