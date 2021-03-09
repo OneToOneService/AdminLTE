@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+
+<head>
+    <!-- NAME: 1 COLUMN -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iService Message Center</title>
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+	 <link rel="stylesheet" href="css/dataTables.bootstrap.css">
+	 <link rel="stylesheet" href="css/AdminLTE.min.css">
+     <link rel="stylesheet" href="css/style.css">  
+	 
+	 <link rel="stylesheet" href="css/select2.min.css">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css"> 
+	 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+	  <script src="ckeditor/ckeditor.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+	 <script src="js/scripts.js"></script>
+	  
+	 <script src="js/iService.directive.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ng.ckeditor/2.0.2/ng-ckeditor.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-drag-and-drop-lists/2.1.0/angular-drag-and-drop-lists.js"></script>
+
+</head>
+
+<body ng-controller="knowledgebaseCtrl">
+  <header class="header_wrapper">
+    <div class="top_head_sect">
+	  <div class="logo_box"><a href="/"><img src="images/logo.png" alt="webdunia"></a></div>
+	  <nav class="navbar navbar-static-top header-custom-color">
+		<div class="navbar-custom-menu">
+		  <ul class="nav navbar-nav">
+			<li>
+			  <a href="https://1to1service.com" class="">Message Center</a>
+			</li>
+			<li>
+				<a href="https://1to1service.com" class="active">Knowledge Base</a>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+	</div> 
+  </header>
+
+  <div class="row-container-full-width" >
+     <div class="row">
+		<div class="col-md-12">
+			<div class="container">
+				<h1 class="text-center mtop30">iService Knowledge Base</h1>
+				<div class="search-container">
+				   <span class="sub-topic-option"> 
+				    <input type="checkbox"> Include Sub Topics
+				   </span>
+				   <div class="search-box-container">
+					   <div class="col-1">
+						<select class="form-control select-topic-box">
+						  <option>Select Topic</option>
+						  <option></option>
+						</select>
+						</div>
+						<div class="col-2">
+							<div class="input-group knowledge-search-box">
+								<input class="form-control" placeholder="Search the support knowledge base">
+								<span class="input-group-addon" ng-click="showOption('searchresults')"><i class="fa fa-search"></i></span>
+							</div>
+						</div>	
+					</div>
+				</div>
+            </div>
+		</div>
+	 </div>	
+  </div>
+ <!--Index page custom section start-->
+  <div class="row-container-full-width mtop30" ng-if = "type == 'home'" ng-init = "type = 'home'">
+	<div class="row" >
+        <div class="col-md-12">
+			<div class="content-container">
+				<div class="col-md-4">
+					<div class="category-box" ng-click="showOption('topiclistquestion')">
+						<div class="icon-container">
+							<a href="" target="_blank">
+								<span class="c-icon">
+									<i class="fa  fa-desktop"></i>
+								</span>
+							</a>   
+						</div>
+						<div class="c-heading"> 
+							Agent User Guide
+						</div>
+						<p class="p-detail" style="height: 50px;">    
+							Set up your account, configure support
+							channels, customize your portal to reflect 
+							your brand and more. 
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="category-box" ng-click="showOption('topiclistquestion')">
+						<div class="icon-container">
+							<a href="" target="_blank">
+								<span class="c-icon">
+								<i class="fa  fa-gears "></i>
+								</span>
+							</a>   
+						</div>
+						<div class="c-heading"> 
+							Customer Portal Setup
+						</div>
+						<p class="p-detail" style="height: 50px;">    
+							Save time and manual effort by 
+							automating mundane tasks in your 
+							helpdesk.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="category-box" ng-click="showOption('topiclistquestion')">
+						<div class="icon-container">
+							<a href="" target="_blank">
+								<span class="c-icon">
+								<i class="fa  fa-comments-o"></i>
+								</span>
+							</a>   
+						</div>
+						<div class="c-heading"> 
+							Live Chat
+						</div>
+						<p class="p-detail" style="height: 50px;">    
+							Make it easy for customers to reach out
+							via instant messaging by setting up the 
+							live chat channel in Freshdesk.
+						</p>
+					</div>
+				</div>
+            </div>
+		</div>
+	</div> 
+	
+	<div class="row mtop30">
+		<div class="col-md-12">
+			<div class="content-container">
+			    <h1 class="heading page-sub-heading">FAQ's Topic List</h1>		
+				<div class="col-md-4">
+					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+					    <h2 class="root-topic">iService All Topics <span>(12)</span></h2>
+						<ul class="topic-list">
+							<li>
+								<ul>
+									<li ng-click="showOption('topiclistquestion')">_Feedback <span>(5)</span></li>
+									<li ng-click="showOption('topiclistquestion')">iService All Topics<span>(0)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Spam <span>(4)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Undelivered <span>(4)</span></li>
+								</ul>	
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+					    <h2 class="root-topic">Products <span>(12)</span></h2>
+						<ul class="topic-list">
+							<li>
+								<ul>
+									<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+								</ul>	
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+					    <h2 class="root-topic">Account Questions <span>(12)</span></h2>
+						<ul class="topic-list">
+							<li>
+								<ul>
+									<li ng-click="showOption('topiclistquestion')">Open Quotes <span>(5)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Shipping<span>(0)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Technical <span>(4)</span></li>
+								</ul>	
+							</li>
+						</ul>
+					</div>
+				</div>
+            </div>
+		</div>
+		<div class="col-md-12">
+			<div class="content-container">
+				<button class="btn btn-primary btn-custom-lg" ng-click="showOption('topiclist')">View All Category Topics</button>
+			</div>
+		</div>	
+	</div>
+	
+	<div class="row mtop30">
+		<div class="col-md-12">
+			<div class="content-container">
+			    <h1 class="heading page-sub-heading">Top FAQ's</h1>		
+				<div class="col-md-6">
+					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+						<ul class="topic-list">
+							<li>
+								<ul>
+									<li ng-click="showOption('questiondetail')">Adding a file attachment to email using iService web services</span></li>
+									<li ng-click="showOption('questiondetail')">How can an administrator retrieve the forgot password URL?</li>
+									<li ng-click="showOption('questiondetail')">Simple example for filtering messages to a new topic</span></li>
+									<li ng-click="showOption('questiondetail')">Message received with a blank body</li>
+									<li ng-click="showOption('questiondetail')">URL for iService Reports</li>
+								</ul>	
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+						<ul class="topic-list">
+							<li>
+								<ul>
+									<li ng-click="showOption('questiondetail')">Adding a file attachment to email using iService web services</span></li>
+									<li ng-click="showOption('questiondetail')">How can an administrator retrieve the forgot password URL?</li>
+									<li ng-click="showOption('questiondetail')">Simple example for filtering messages to a new topic</span></li>
+									<li ng-click="showOption('questiondetail')">Message received with a blank body</li>
+									<li ng-click="showOption('questiondetail')">URL for iService Reports</li>
+								</ul>	
+							</li>
+						</ul>
+					</div>
+				</div>
+            </div>
+		</div>
+	
+	</div>
+	
+	
+	<div class="row mtop30">
+		<div class="col-md-12 text-center">
+			<div class="container">
+				<h1 class="heading page-sub-heading">iService User Guides</h1>
+				<h3 class="heading-desc">User guides provide detailed inormation about the different roles for iService agents and administrator.</h3>
+			</div>
+		</div>    
+	</div>
+	<section id="services" class="section-padding mtop30">
+		<div class="container">
+			<div class="body-container">
+				<div class="row">
+					<div class="col-lg-4 col-sm-6" data-aos="fade-up">
+						<div class="box-container">
+							<div class="icon-container">
+								<a href="https://www.iservice.info/guides/users/index.html" target="_blank">
+								<span class="c-icon">
+									<img class="icon agent" src="images/icon-sprite.png">
+								</span>
+								</a>   
+							</div>    
+							<div class="c-heading"> 
+								Agent User Guide
+							</div>
+							<p class="p-detail">    
+								For agents that use or configure iService
+							</p> 
+							<a href="https://www.iservice.info/guides/users/index.html" class="read-more" target="_blank"> Read More</a> 
+							<div class="container-option">	
+								<div class="btn-option">
+									<a class="btn-custom" href="https://www.iservice.info/guides/users/userguide.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
+									</a>
+									<a class="btn-custom" href="https://www.iservice.info/guides/users/userguide.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
+									</a>
+								</div>
+								<div class="search-option">
+									<form name="documentation_search" method="GET" action="user_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
+										<div class="input-group input-group-sm">
+										<input name="zoom_query" type="text" class="form-control">
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+										</span>
+										</div>
+									</form>	
+								</div>
+							</div>
+						</div>    
+					</div>  
+				
+					<div class="col-lg-4 col-sm-6" data-aos="fade-up">
+						<div class="box-container">
+							<div class="icon-container">
+								<a href="https://www.iservice.info/guides/developers/index.html" target="_blank">
+								<span class="c-icon">
+									<img class="icon forms" src="images/icon-sprite.png">
+								</span>   
+								</a>
+							</div>    
+							<div class="c-heading"> 
+								Forms Developer Guide
+							</div>
+							<p class="p-detail">    
+								Primarily for developers that create custom forms within iService
+							</p> 
+							<a href="https://www.iservice.info/guides/developers/index.html" class="read-more" target="_blank"> Read More</a>
+							<div class="container-option">	
+								<div class="btn-option">
+									<a class="btn-custom" href="https://www.iservice.info/guides/developers/developers.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
+									</a>
+									<a class="btn-custom" href=" https://www.iservice.info/guides/developers/developers.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
+									</a>
+								</div>
+								<div class="search-option">
+									<form name="documentation_search" method="GET" action="developers_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
+										<div class="input-group input-group-sm">
+										<input name="zoom_query" type="text" class="form-control">
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+										</span>
+										</div>
+									</form>	
+								</div>
+							</div>
+						</div>    
+					</div>   
+					<div class="col-lg-4 col-sm-6" data-aos="fade-up">
+						<div class="box-container">
+							<div class="icon-container">
+								<a href="http://www.iservice.info/guides/admin/index.html" target="_blank"> 
+								<span class="c-icon">
+									<img class="icon administration" src="images/icon-sprite.png">
+								</span> 
+								</a>  
+							</div>    
+							<div class="c-heading"> 
+								Technical Guide
+							</div>
+							<p class="p-detail">    
+								For on-premise administrators that install and upgrade iService
+							</p> 
+							<a href="http://www.iservice.info/guides/admin/index.html" class="read-more" target="_blank"> Read More</a> 
+							<div class="container-option">	
+								<div class="btn-option">
+									<a class="btn-custom" href="https://www.iservice.info/guides/technical/technicalguide.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
+									</a>
+									<a class="btn-custom" href="https://www.iservice.info/guides/technical/technicalguide.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
+									</a>
+	
+								</div>
+								<div class="search-option">
+									<form name="documentation_search" method="GET" action="technical_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
+										<div class="input-group input-group-sm">
+										<input name="zoom_query" type="text" class="form-control">
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+										</span>
+										</div>
+									</form>	
+								</div>
+							</div>
+						</div>    
+					</div>        
+				
+				</div>  
+			</div>   
+		 </div>    
+	 </section>
+ 
+   </div>
+ <!--Index page custom section end--> 
+ 
+ <!-- Topic Listing Start-->
+   <div class="row-container-full-width mtop30" ng-if = "type == 'topiclist'"> 
+		<div class="row">
+			<div class="col-md-12">
+			    <div class="container text-center">
+				    <div class="breadcrumb-container">
+						<ol class="breadcrumb">
+						  <li><a href="#" ng-click="showOption('home')">Home</a></li>
+						  <li class="active">Topic List</li>
+						</ol>
+					</div>
+				    <h1 class="heading page-sub-heading text-left">Knowledge Base Topic Listing</h1>
+					
+				    <div class="segment-topic-container">
+                     <div class="row">
+						 <div class="col-md-12">
+							 <div>
+								<h2 class="heading page-sub-heading text-color-segment-heading  text-left">Segment 1</h2>
+							</div>
+						 </div>	
+						 <div class="col-md-4">
+							<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+								<h2 class="root-topic">iService All Topics <span>(12)</span></h2>
+								<ul class="topic-list">
+									<li>
+										<ul>
+											<li ng-click="showOption('topiclistquestion')">_Feedback <span>(5)</span></li>
+											<li ng-click="showOption('topiclistquestion')">iService All Topics<span>(0)</span></li>
+											<li ng-click="showOption('topiclistquestion')">Spam <span>(4)</span></li>
+											<li ng-click="showOption('topiclistquestion')">Undelivered <span>(4)</span></li>
+										</ul>	
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+								<h2 class="root-topic">Products <span>(12)</span></h2>
+								<ul class="topic-list">
+									<li>
+										<ul>
+											<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
+											<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
+											<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+										</ul>	
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+								<h2 class="root-topic">Account Questions <span>(12)</span></h2>
+								<ul class="topic-list">
+									<li>
+										<ul>
+											<li ng-click="showOption('topiclistquestion')">Open Quotes <span>(5)</span></li>
+											<li ng-click="showOption('topiclistquestion')">Shipping<span>(0)</span></li>
+											<li ng-click="showOption('topiclistquestion')">Technical <span>(4)</span></li>
+										</ul>	
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-4">
+							<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+								<h2 class="root-topic">Products <span>(12)</span></h2>
+								<ul class="topic-list">
+									<li>
+										<ul>
+											<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
+											<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
+											<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+										</ul>	
+									</li>
+								</ul>
+							</div>
+						</div>
+
+                      </div>
+					</div>
+
+					<div class="segment-topic-container">
+						 <div class="row">
+							 <div class="col-md-12">
+								 <div>
+									<h2 class="heading page-sub-heading text-color-segment-heading  text-left">Segment 2</h2>
+								</div>
+							 </div>	
+							 <div class="col-md-4">
+								<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+									<h2 class="root-topic">iService All Topics <span>(12)</span></h2>
+									<ul class="topic-list">
+										<li>
+											<ul>
+												<li ng-click="showOption('topiclistquestion')">_Feedback <span>(5)</span></li>
+												<li ng-click="showOption('topiclistquestion')">iService All Topics<span>(0)</span></li>
+												<li ng-click="showOption('topiclistquestion')">Spam <span>(4)</span></li>
+												<li ng-click="showOption('topiclistquestion')">Undelivered <span>(4)</span></li>
+											</ul>	
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+									<h2 class="root-topic">Products <span>(12)</span></h2>
+									<ul class="topic-list">
+										<li>
+											<ul>
+												<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
+												<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
+												<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+											</ul>	
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+									<h2 class="root-topic">Account Questions <span>(12)</span></h2>
+									<ul class="topic-list">
+										<li>
+											<ul>
+												<li ng-click="showOption('topiclistquestion')">Open Quotes <span>(5)</span></li>
+												<li ng-click="showOption('topiclistquestion')">Shipping<span>(0)</span></li>
+												<li ng-click="showOption('topiclistquestion')">Technical <span>(4)</span></li>
+											</ul>	
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<div class="col-md-4">
+								<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+									<h2 class="root-topic">Products <span>(12)</span></h2>
+									<ul class="topic-list">
+										<li>
+											<ul>
+												<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
+												<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
+												<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+											</ul>	
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						  </div>
+					</div>					
+				</div>	
+			</div>
+		</div>	
+	
+   </div>
+ <!-- Topic Listing End-->
+
+
+  <!-- Topic Listing Start-->
+ <div class="row-container-full-width mtop30" ng-if = "type == 'topiclistquestion'">
+	<div class="row">
+		  <div class="col-md-12">
+			  <div class="container text-center">
+				 
+				  <div class="breadcrumb-container">
+					<ol class="breadcrumb">
+					  <li><a href="#" ng-click="showOption('home')"> Home</a></li>
+					  <li><a href="#" ng-click="showOption('topiclist')"> Topic List</a></li>
+					  <li class="active">All Topic</li>
+					</ol>
+				  </div>
+				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">All Topics <span class="span-blue">(18)</span></h1>
+				  <div class="segment-topic-container">
+                     <div class="row">
+                        <div class="col-md-12">
+						    <ol class="question-results">
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								  <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+							</ol>
+						</div>
+					 </div>	
+				  </div>	
+
+			  </div>
+		  </div>	
+	</div>	
+   </div>
+  <!-- Topic Listing End-->
+  
+  <!-- Search Results Start-->
+ <div class="row-container-full-width mtop30" ng-if = "type == 'searchresults'">
+	<div class="row">
+		  <div class="col-md-12">
+			  <div class="container text-center">
+				 
+				  <div class="breadcrumb-container">
+					<ol class="breadcrumb">
+					  <li><a href="#" ng-click="showOption('home')"> Home</a></li>
+					  <li class="active">Search Results</li>
+					</ol>
+				  </div>
+				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">36 Results Found for  You Search Query</h1>
+				  <div class="segment-topic-container">
+                     <div class="row">
+                        <div class="col-md-12">
+						    <ol class="question-results">
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								  <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+								<li class="question-list" ng-click="showOption('questiondetail')">
+								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
+								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
+	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
+								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+								</li>
+							</ol>
+						</div>
+					 </div>	
+				  </div>	
+
+			  </div>
+		  </div>	
+	</div>	
+   </div>
+  <!-- Search Results End-->
+  
+  
+  <!-- Question Detail Start-->
+  <div class="row-container-full-width mtop30" ng-if = "type == 'questiondetail'">
+	<div class="row">
+		  <div class="col-md-12">
+			  <div class="container">
+				 <div class="breadcrumb-container">
+						<ol class="breadcrumb">
+						  <li><a href="#" ng-click="showOption('home')">Home</a></li>
+						  <li><a href=""  ng-click="showOption('topiclist')">Topic List</a></li>
+						  <li class="active">What are...</li>
+						</ol>
+				</div>
+				 <div class="row">	 
+					<div class="col-md-8">
+                       <div class="question-container">
+						    <div class="qa-title">
+								What are the important details about the setup of this QA tenant related 
+to service levels?
+							</div>
+							<div class="qa-title">
+								Question:		
+						    </div>
+							<div class="answer">
+							 When I try to create a contact from the Customer Info page, I get the error message "Access Denied".
+Why can't I add a new contact?<br><br>
+							</div>
+							<div class="qa-title">
+								Answer:		
+						    </div>
+							<div class="answer">
+								
+								The service level configuration within this QA site is as follows.<br>
+
+								Service Levels:<br>
+								* The default time for all topics in Segment1 and Segment2 is 60 minutes.<br>
+								* Topic S1Topic Int Prop Svc Lvl - 20 min has the interaction property of "20 Minute Interaction" <br>
+								associated with it. <br>
+								This property sets a service level of 20 min for any question in that topic that has the property<br>
+								value set to True.<br>
+								* Topic S1 SvcLvl10-min has a 10 minute service level.<br>
+								* Customer5@1to1service.com has a 5 minutes service level.<br>
+								* Topic S1TopicSvcLvl1-min as a 1 minute service level<br>
+								<br>
+								Order of Testing:<br>
+								1- S1topic1 (60 min SL)<br>
+								2- S1Topic-Int Prop Svc Lvl-20<br>
+								3- S1TopicSvcLvl-10<br>
+								4- S1Topic1 but submitted from customer5<br>
+								5- S1TopicSvcLvl-1<br><br>
+
+								These messages should then be delivered in reverse order to the agent - 5, 4, 3, 2, then 1.<br>
+							</div>	
+							<div class="qa-title mtop30">
+								Article Details	
+							</div>
+							<div class="answer">
+								Article ID - 25155Date Updated -2010-07-26 3:50:34 AM#Views - 7Article Creator - Landlord Administrat
+							</div>	
+							<div class="share-link-btn-container mtop30">
+								 <button class="btn btn-primary btn-custom-lg share-link-btn"> Share Link To Article</button>
+							</div>	
+					   </div>	   
+					</div>
+					<div class="col-md-4">	
+                        <h2 class="heading page-heading-related text-left">Top FAQ's</h2>
+						<ul  class="question-list">
+							<li>
+								<ul class="related-article">
+									<li  ng-click="showOption('questiondetail')">_QA Site Service Level Testing Setup Information</li>
+									<li  ng-click="showOption('questiondetail')"> All topics article - 25,000 subscriber test</li>
+									<li  ng-click="showOption('questiondetail')"> _QA Site Service Level Testing Setup Information</li>
+									<li  ng-click="showOption('questiondetail')"> All topics article - 25,000 subscriber test</li>
+									<li  ng-click="showOption('questiondetail')"> _QA Site Service Level Testing Setup Information</li>
+									<li  ng-click="showOption('questiondetail')"> All topics article - 25,000 subscriber test</li>
+								</ul>	
+							</li>
+						</ul>	
+					</div>	
+				 </div>	
+			  </div>
+		  </div>	
+	</div>	
+   </div>
+  <!-- Question Detail End-->
+
+  <!--Question Form Start-->
+  <div class="row-container-full-width mtop30" ng-if = "type == 'questionform'">
+	<div class="row">
+		  <div class="col-md-12">
+			  <div class="container">
+			      <div class="breadcrumb-container">
+						<ol class="breadcrumb">
+						  <li><a href="#" ng-click="showOption('home')">Home</a></li>
+						  <li class="active">Ask Question</li>
+						</ol>
+				  </div>
+				  <h1 class="heading page-sub-heading">Ask Questions To Experts </h1>
+				  
+                    <div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+							<label for="exampleInputEmail1">From</label>
+							<select class="form-control">
+								<option>Select ..</option>
+							</select>	
+							<span class="field-label">The answer to your question will be sent to the specified address.</span>
+							</div>
+							<div class="form-group">
+							<label for="exampleInputPassword1">Subject</label>
+							<input type="text" class="form-control" placeholder="Subject">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Please pick the topic of your question:</label>
+								<select class="form-control">
+									<option>Select topic</option>
+								</select>	
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="form-group">
+								<label for="exampleInputPassword1">Enter the body of your question:</label>
+								<textarea  class="form-control"></textarea>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</div>
+			  </div>
+		  </div>	
+	</div>	
+  </div>
+  <!--Question Form End-->
+  <!-- Topic Listing End-->
+  <div class="row-container-full-width mtop30">
+	  <div class="row">
+			<div class="col-md-12">
+				<div class="container text-center ask-question-container">
+					<h1 class="heading page-sub-heading">Not Finding What You Need ?</h1>
+					<button class="btn btn-primary btn-custom-lg mtop30"  ng-click="showOption('questionform')">Ask A Question ?</button>
+				</div>
+			</div>	
+	  </div>	
+  </div>
+</body>
+
+</html> 
