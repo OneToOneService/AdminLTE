@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<!DOCTYPE html>
+<html ng-app="myApp">
 
 <head>
     <!-- NAME: 1 COLUMN -->
@@ -11,13 +11,16 @@
 	 <link rel="stylesheet" href="css/dataTables.bootstrap.css">
 	 <link rel="stylesheet" href="css/AdminLTE.min.css">
      <link rel="stylesheet" href="css/style.css">  
+	 <link rel="stylesheet" href="http://styleguide.iservice.info/dist/iservice/css/webapp.css">  
 	 
 	 <link rel="stylesheet" href="css/select2.min.css">
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css"> 
 	 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-	  <script src="ckeditor/ckeditor.js"></script>
+	 <script src="http://styleguide.iservice.info/plugins/jQuery/jquery-3.1.1.min.js"></script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
+	 <script src="ckeditor/ckeditor.js"></script>
+	 <script src="http://styleguide.iservice.info/plugins/iCheck/icheck.js"></script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
@@ -27,6 +30,29 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/ng.ckeditor/2.0.2/ng-ckeditor.min.js"></script>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.js"></script>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-drag-and-drop-lists/2.1.0/angular-drag-and-drop-lists.js"></script>
+    
+		<!-- Datatables -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.34/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.34/vfs_fonts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.6.2/angular-datatables.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.6.2/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.6.2/plugins/buttons/angular-datatables.buttons.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-sanitize.min.js"></script>
+
+
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
+
 
 </head>
 
@@ -55,22 +81,27 @@
 			<div class="container">
 				<h1 class="text-center mtop30">iService Knowledge Base</h1>
 				<div class="search-container">
-				   <span class="sub-topic-option"> 
-				    <input type="checkbox"> Include Sub Topics
-				   </span>
-				   <div class="search-box-container">
-					   <div class="col-1">
+				    <div class="search-container">
+						<div class="input-group knowledge-search-box">
+							<input class="form-control" placeholder="Search the support knowledge base">
+							<span class="input-group-addon"><i class="fa fa-search"></i></span>
+						</div>
+						<span class="advanced-search-option" ng-click = "openPreviewModal()"> 
+				          Advanced Search
+				        </span>
+				    </div>
+				</div>
+				<div class="advanced-search-container" ng-show="showadvanced">
+				    <div class="col-1">
+					   <span class="sub-topic-option"> 
+						<input type="checkbox" checked> Include Sub Topics
+					   </span>
+				   </div>
+				   <div class="col-2">
 						<select class="form-control select-topic-box">
 						  <option>Select Topic</option>
 						  <option></option>
 						</select>
-						</div>
-						<div class="col-2">
-							<div class="input-group knowledge-search-box">
-								<input class="form-control" placeholder="Search the support knowledge base">
-								<span class="input-group-addon" ng-click="showOption('searchresults')"><i class="fa fa-search"></i></span>
-							</div>
-						</div>	
 					</div>
 				</div>
             </div>
@@ -208,11 +239,11 @@
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOption('questiondetail')">Adding a file attachment to email using iService web services</span></li>
-									<li ng-click="showOption('questiondetail')">How can an administrator retrieve the forgot password URL?</li>
-									<li ng-click="showOption('questiondetail')">Simple example for filtering messages to a new topic</span></li>
-									<li ng-click="showOption('questiondetail')">Message received with a blank body</li>
-									<li ng-click="showOption('questiondetail')">URL for iService Reports</li>
+									<li ng-click="showOption('questiondetail')">Pick up for Ship to Store</span></li>
+									<li ng-click="showOption('questiondetail')">Face detection technology</li>
+									<li ng-click="showOption('questiondetail')">Shipping for large items</span></li>
+									<li ng-click="showOption('questiondetail')">What is "Zoom? and why is it important"</li>
+									<li ng-click="showOption('questiondetail')">What browsers do you recommend for using your site?</li>
 								</ul>	
 							</li>
 						</ul>
@@ -223,11 +254,11 @@
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOption('questiondetail')">Adding a file attachment to email using iService web services</span></li>
-									<li ng-click="showOption('questiondetail')">How can an administrator retrieve the forgot password URL?</li>
-									<li ng-click="showOption('questiondetail')">Simple example for filtering messages to a new topic</span></li>
-									<li ng-click="showOption('questiondetail')">Message received with a blank body</li>
-									<li ng-click="showOption('questiondetail')">URL for iService Reports</li>
+									<li ng-click="showOption('questiondetail')">Changing Billing Information</span></li>
+									<li ng-click="showOption('questiondetail')">Changing Email Address and Password</li>
+									<li ng-click="showOption('questiondetail')">Changing Shipping Information</span></li>
+									<li ng-click="showOption('questiondetail')">My item arrived damaged. What do I do now?</li>
+									<li ng-click="showOption('questiondetail')">What exceptions are there to returning my item(s)?</li>
 								</ul>	
 							</li>
 						</ul>
@@ -544,41 +575,49 @@
 				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">All Topics <span class="span-blue">(18)</span></h1>
 				  <div class="segment-topic-container">
                      <div class="row">
-                        <div class="col-md-12">
-						    <ol class="question-results">
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								  <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-							</ol>
-						</div>
-					 </div>	
+					    <div class="col-md-12">
+					        <table class="table table-striped table-hover" datatable dt-options="dtResultOptions" dt-column-defs="dtResultColumnDefs">
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Subject
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Topic
+                                  </th>
+								 </thead>
+								  <tbody>
+										<tr ng-click="showOption('questiondetail')">
+										  <td>
+											  <div class="question-list">
+												   <div class="question-title">Where can I find information about Energy Star televisions? Do they really save much energy?</div>
+												   <div class="answer-brief">Yes, ENERGY STAR qualified TVs use about 30% less energy than standard units.
+
+In early February 2008, EPA revised the ENERGY STAR television specification to significantly raise the bar on its efficiency requirements. Effective November 2008 you will be able to buy an ENERGY STAR qualified television that is 30% more efficient than non-qualified products in all modes ... <a href="">Read More</a></div>
+												   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+											   </div>
+										  </td>
+										  <td class="topic-col">
+											All Topic
+										  </td>
+										</tr>
+										<tr ng-click="showOption('questiondetail')">
+										  <td>
+											  <div class="question-list">
+												   <div class="question-title">I need a camera to take on a trip this summer. Can you give me some recommendations?</div>
+												   <div class="answer-brief">There are several types of travel cameras on the market (Point and Shoot, Advanced Compact Cameras, DSLR, Mirrorless) and each one has its own list of benefits. First, and most importantly, you should consider what is most important to you – size, ... <a href="">Read More</a></div>
+												   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+											   </div>
+										  </td>
+										  <td class="topic-col">
+											All Topic
+										  </td>
+										</tr>
+								</tbody>
+							</table>
+                        </div>
+                       </div>	
 				  </div>	
 
 			  </div>
@@ -603,39 +642,49 @@
 				  <div class="segment-topic-container">
                      <div class="row">
                         <div class="col-md-12">
-						    <ol class="question-results">
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								  <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-								<li class="question-list" ng-click="showOption('questiondetail')">
-								   <div class="question-title">_QA Site Service Level Testing Setup Information (All Topics)</div>
-								   <div class="answer-brief">Only a Super User can create new segments within a tenant. You will need the super user (Landlord for iService OnDemand users) to create 
-	the segment, then grant you access. Once you are granted access as an Administrator you will have full ... <a href="">Read More</a></div>
-								   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
-								</li>
-							</ol>
-						</div>
+					        <table class="table table-striped table-hover" datatable dt-options="dtResultOptions" dt-column-defs="dtResultColumnDefs">
+                              <thead>
+                                <tr>
+                                  <!--<th class="no-sort"  name="name" width="30"></th>-->
+                                  <th class="text-capitalize">
+                                    Subject
+                                  </th>
+                                  <th class="text-capitalize">
+                                    Topic
+                                  </th>
+								 </thead>
+								  <tbody>
+										<tr ng-click="showOption('questiondetail')">
+										  <td>
+											  <div class="question-list">
+												   <div class="question-title">Where can I find information about Energy Star televisions? Do they really save much energy?</div>
+												   <div class="answer-brief">Yes, ENERGY STAR qualified TVs use about 30% less energy than standard units.
+
+In early February 2008, EPA revised the ENERGY STAR television specification to significantly raise the bar on its efficiency requirements. Effective November 2008 you will be able to buy an ENERGY STAR qualified television that is 30% more efficient than non-qualified products in all modes ... <a href="">Read More</a></div>
+												   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+											   </div>
+										  </td>
+										  <td class="topic-col">
+											All Topic
+										  </td>
+										</tr>
+										<tr ng-click="showOption('questiondetail')">
+										  <td>
+											  <div class="question-list">
+												   <div class="question-title">I need a camera to take on a trip this summer. Can you give me some recommendations?</div>
+												   <div class="answer-brief">There are several types of travel cameras on the market (Point and Shoot, Advanced Compact Cameras, DSLR, Mirrorless) and each one has its own list of benefits. First, and most importantly, you should consider what is most important to you – size, ... <a href="">Read More</a></div>
+												   <div class="time"><i class="fa fa-clock-o"></i> 2010-03-02  12:46:34 AM   </div>
+											   </div>
+										  </td>
+										  <td class="topic-col">
+											All Topic
+										  </td>
+										</tr>
+								</tbody>
+							</table>
+                        </div>
+                       </div>	
+				  
 					 </div>	
 				  </div>	
 
@@ -791,5 +840,47 @@ Why can't I add a new contact?<br><br>
 	  </div>	
   </div>
 </body>
+ <script type="text/ng-template" id="preview.html">
+   
+    <div class="modal-body logout-notice" id="modal-body">
+        <div class="row mtop15">
+            <div class="col-md-12 form-group">
+              <div class="treeview without-numbers">
+                <h3>Select A Topic to limit your search specific to a topic </h3>
+				<span class="sub-topic-option"> 
+				  <input type="checkbox" checked> Include Sub Topics
+			    </span>
+                <ul id="tree1" class="tree">
+                  <li><a href="#" class="selected" ng-click="toggleFormStepTopicPreview('rowtopic1')"> e-shop -- All Topics </a>
+                    <ul>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic2')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">  _Feedback</div> <div class="div2">&nbsp;</div></div></div> </li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic3')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Newsletter Subscription</div></div></div></li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic4')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1 text-red">_Spam</div><div class="div2">&nbsp;</div> </div></div></li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic5')"> <div class="treeviewitem"> <div class="treeviewrow"><div class="div1 text-red">_Undeliverable</div> </div></div></li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic6')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Account Questions</div></div></div>
+                        <ul>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic7')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Orders </div> </div> </div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic8')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Refunds </div></div></div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic9')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Returns </div> </div> </div></li>
+                        </ul>
+                      </li>
+                      <li ng-click="toggleFormStepTopicPreview('rowtopic10')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Products</div><div class="div2">&nbsp;</div> </div></div>
+                        <ul>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic11')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Audio-Video</div></div> </div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic12')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cameras </div> </div></div></li>
+                          <li ng-click="toggleFormStepTopicPreview('rowtopic13')"> <div class="treeviewitem"><div class="treeviewrow"><div class="div1">Cell Phones</div></div></div></li>
+                         
+                        </ul>
+                      </li>
+                     
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+            </div>	
+        </div> 
+    </div>
+  </script> 
+  
 
 </html> 

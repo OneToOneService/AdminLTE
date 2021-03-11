@@ -1,7 +1,27 @@
-var app = angular.module('app', ['ui.bootstrap','iService.directive','ui.select']);
-   
- app.controller('knowledgebaseCtrl', function ($scope, $window) {
+var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimate','ui.select','datatables', 'datatables.bootstrap', 'datatables.buttons']);
+
+ app.controller('knowledgebaseCtrl', function ($scope, $window,$uibModal, DTOptionsBuilder, DTColumnDefBuilder) {
     $scope.type = 'home';
+	$scope.openPreviewModal  = function(){
+	  $uibModal.open({
+		templateUrl : 'preview.html',
+		controller: 'knowledgebaseCtrl',
+		scope: $scope
+	  });
+	}
+	$scope.dtResultOptions = DTOptionsBuilder
+		.newOptions().withDisplayLength(5).withOption('language', {
+			search: 'Filter Results'
+		})
+		.withBootstrap().withButtons([ 'copy', 'excel', 'pdf', {
+			extend: 'colvis',
+			columns: function (index, apiObj, headCell)
+			{
+				// The attribute data-no-col-vis in the markup is a custom marker that indicates that I want to
+				// disable the show/hide column functionality for certain columns
+				return headCell.dataset.noColVis === undefined;
+			}
+		}]);
 	$scope.showOption = function (segmentName)
 	{ 
 	   $scope.type = segmentName;
