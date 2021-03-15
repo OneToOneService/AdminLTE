@@ -1088,7 +1088,8 @@ transition: ease 0.8s;}
 .text-color-segment-heading{  color: #3c8dbc; border-bottom: 2px solid #3c8dbc; padding-bottom: 3px; width: auto; display: inline-block; float:left ; font-size:20px;}
 .topic-list{text-align: left; font-size: 16px; }
 ul.topic-list{padding:0; margin: 0;padding-left:0px; font-size: 16px; }
-ul.topic-list span{color: #3c8dbc;}
+ul.topic-list span,.link-color{color: #3c8dbc;}
+.pointer{color: #3c8dbc;cursor: pointer;}
 ul.topic-list li, ul.topic-list li ul{padding-bottom: 6px; padding-top:6px; cursor:pointer;}
 li{list-style: none;}
 ul.topic-list ul li:before {
