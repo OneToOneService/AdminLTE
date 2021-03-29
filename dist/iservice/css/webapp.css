@@ -4132,3 +4132,6 @@ h1 .help-icon {
 .search-container.select2-search input {
   margin-top: 0;
 }
+.has-error .select2-container .select2-choice {
+  border-color: #dd4b39 !important;
+}
