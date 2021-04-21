@@ -174,170 +174,208 @@ title:  Customer Info Search
 								<div class="box-header with-border">
 									<i class="fa  fa-users"></i>
 									<h3 class="box-title head-title-padding">Search Results <i class="fa fa-question-circle text-info help-icon" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Use the  &quot;Column Visibility&quot; button to add or remove columns to the search results table. Use the filter box to limit the search results to matching text.<br/> <br/> Click the hyperlink in the  &quot;Name&quot; column to load that contact's summary page. Or, expand a row to create an  &quot;Agent Email, Note, or Ticket&quot; without leaving the search page. " data-html="true" data-original-title="" title=""></i></h3>
-									
+									<button class="btn btn-primary btn-sm pull-right" ng-click = " showpd = !showpd">Load Preview Dialer</button>
 								</div>
 								<!-- /.box-header -->
 								<!-- form start -->
-								<div class="box-body table-responsive">
-								<table id="example1" class="table  table-striped table-hover">
-									<thead>
-										<tr>
-											<th class="no-sort"  name="name" width="30"></th>
-											<th class="text-capitalize">
-												Name
-											</th>
-											<th class="text-capitalize">
-												First Name
-											</th>
-											<th class="text-capitalize">
-												Last Name
-											</th>
-											<th class="text-capitalize">
-												Email
-											</th>
-											<th class="text-capitalize">
-												Company 
-											</th>
-											<th class="text-capitalize">
-												Phone (work)
-											</th>
-										</tr>
-									</thead>  
-									<tbody>
-										<tr id="row1">
-											<td name="name" width="30">
-												<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
-													<i class="fa fa-plus-circle" ng-show="!row1"></i>
-													<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
-												</button>
-											</td>
-											<td>
-												John Doe
-											</td>
-											<td>
-												John
-											</td>
-											<td>
-												Doe
-											</td>
-											<td>
-												john.doe@example.com
-											</td>
-											<td>
-												Example Company, Inc.
-											</td>
-											<td>
-												312-555-5555
-											</td>
-										</tr>
-										
-										<tr id="row2">
-											<td name="name" width="30">
-												<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
-													<i class="fa fa-plus-circle" ng-show="!row2"></i>
-													<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
-												</button>
-											</td>
-											<td>
-												Albert Metricman
-											</td>
-											<td>
-												Albert
-											</td>
-											<td>
-												Metricman
-											</td>
-											<td>
-												albert.metricman@example.com
-											</td>
-											<td>
-												Example Company, Inc.
-											</td>
-											<td>
-												312-555-5555
-											</td>
-										</tr>
-										
-										<tr id="row3">
-											<td name="name" width="30">
-												<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
-													<i class="fa fa-plus-circle" ng-show="!row3"></i>
-													<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
-												</button>
-											</td>
-											<td>
-												Julie Persuavia
-											</td>
-											<td>
-												Julie
-											</td>
-											<td>
-												Persuavia
-											</td>
-											<td>
-												julie.persuavia@example.com
-											</td>
-											<td>
-												Example Company, Inc.
-											</td>
-											<td>
-											312-555-5555
-											</td>
-										</tr>
-										<tr id="row4">
-												<td name="name" width="30">
-													<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
-														<i class="fa fa-plus-circle" ng-show="!row4"></i>
-														<i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
-													</button>
-												</td>
-											<td>
-												Howard Smith
-											</td>
-											<td>
-												Howard
-											</td>
-											<td>
-												Smith
-											</td>
-											<td>
-												howard.smith@example.net
-											</td>
-											<td>
-												Example Network
-											</td>
-											<td>
-												487-555-2222
-											</td>
-										</tr>
-										<tr id="row5">
-												<td name="name" width="30">
-													<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
-														<i class="fa fa-plus-circle" ng-show="!row5"></i>
-														<i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
-													</button>
-												</td>
-											<td>
-												Robert Williams
-											</td>
-											<td>
-												Robert
-											</td>
-											<td>
-												Williams
-											</td>
-											<td>
-												robert.williams@example.net
-											</td>
-											<td>
-												Example Network
-											</td>
-											<td>
-												487-555-2223
-											</td>
-										</tr>
-									</tbody>
-								</table>
+								<div class="box-body " >
+								  <!-- preview dialer start-->
+                                  <div class="box-content box-bg-color mbottom-15" ng-show = " showpd ">
+                                    <div class="row">
+									 <h4 class="col-md-12 text-primary">Configure Your Session</h4>
+									 <div class="form-horizontal">
+										<div class="col-md-7">
+                                          <div class="form-group">
+											<label class="col-md-4 control-label text-left">Pick A Topic For Call Notes</label>
+											<div class="col-md-8 ng-cloak" ng-controller="PDTopicCtrl as ctrl">
+												<ui-select ng-change=" getresponses();" ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+												<ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+												<ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+													<span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+												</ui-select-choices>
+												</ui-select>
+											</div>
+                                          </div>
+										  <div class="form-group" ng-show=" showstockresponses ">
+											<label class="col-md-4 control-label text-left">Pick A Stock Response For Your Script</label>
+											<div class="col-md-8 ng-cloak" ng-controller="StockResponsesCtrl as ctrl">
+												<ui-select ng-change = " beginpd() " ng-model="ctrl.stockselected.selected" theme="select2" title="Choose a stock">
+												<ui-select-match placeholder="Select or search for a stock in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+												<ui-select-choices group-by="'segment'" repeat="item in ctrl.stock | filter: $select.search" ui-disable-choice="{% raw %}{{ item.disabled}}{% endraw %}" >
+													<span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{% raw %}{{ item.topiclevel }}{% endraw %} {% raw %}{{ item.disabled }}{% endraw %}"  ng-bind-html="item.name | highlight: $select.search"></span>
+												</ui-select-choices> 
+												</ui-select>
+											</div>
+                                          </div>
+										  <a ng-show =" beginpreviewdialer " ng-init=" beginpreviewdialer = false;"  type="submit" class="btn btn-primary" href="http://qadesign/f/124?topicID=4&contactID=1">Begin Preview Dialer Session</a>
+										</div>
+									</div>
+                                   </div>
+								  </div>
+
+                                  <div class="clearfix"></div>
+								  <!-- preview dialer start-->	
+								  <div class="table-responsive">
+										<table id="example1" class="table  table-striped table-hover">
+											<thead>
+												<tr>
+													<th class="no-sort"  name="name" width="30"></th>
+													<th class="text-capitalize">
+														Name
+													</th>
+													<th class="text-capitalize">
+														First Name
+													</th>
+													<th class="text-capitalize">
+														Last Name
+													</th>
+													<th class="text-capitalize">
+														Email
+													</th>
+													<th class="text-capitalize">
+														Company 
+													</th>
+													<th class="text-capitalize">
+														Phone (work)
+													</th>
+												</tr>
+											</thead>  
+											<tbody>
+												<tr id="row1">
+													<td name="name" width="30">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row1')">
+															<i class="fa fa-plus-circle" ng-show="!row1"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row1" ng-cloak></i>
+														</button>
+													</td>
+													<td>
+														John Doe
+													</td>
+													<td>
+														John
+													</td>
+													<td>
+														Doe
+													</td>
+													<td>
+														john.doe@example.com
+													</td>
+													<td>
+														Example Company, Inc.
+													</td>
+													<td>
+														312-555-5555
+													</td>
+												</tr>
+												
+												<tr id="row2">
+													<td name="name" width="30">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row2')">
+															<i class="fa fa-plus-circle" ng-show="!row2"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row2" ng-cloak></i>
+														</button>
+													</td>
+													<td>
+														Albert Metricman
+													</td>
+													<td>
+														Albert
+													</td>
+													<td>
+														Metricman
+													</td>
+													<td>
+														albert.metricman@example.com
+													</td>
+													<td>
+														Example Company, Inc.
+													</td>
+													<td>
+														312-555-5555
+													</td>
+												</tr>
+												
+												<tr id="row3">
+													<td name="name" width="30">
+														<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row3')">
+															<i class="fa fa-plus-circle" ng-show="!row3"></i>
+															<i class="fa fa-minus-circle ng-hide" ng-show="row3" ng-cloak></i>
+														</button>
+													</td>
+													<td>
+														Julie Persuavia
+													</td>
+													<td>
+														Julie
+													</td>
+													<td>
+														Persuavia
+													</td>
+													<td>
+														julie.persuavia@example.com
+													</td>
+													<td>
+														Example Company, Inc.
+													</td>
+													<td>
+													312-555-5555
+													</td>
+												</tr>
+												<tr id="row4">
+														<td name="name" width="30">
+															<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row4')">
+																<i class="fa fa-plus-circle" ng-show="!row4"></i>
+																<i class="fa fa-minus-circle ng-hide" ng-show="row4" ng-cloak></i>
+															</button>
+														</td>
+													<td>
+														Howard Smith
+													</td>
+													<td>
+														Howard
+													</td>
+													<td>
+														Smith
+													</td>
+													<td>
+														howard.smith@example.net
+													</td>
+													<td>
+														Example Network
+													</td>
+													<td>
+														487-555-2222
+													</td>
+												</tr>
+												<tr id="row5">
+														<td name="name" width="30">
+															<button class="btn btn-xs btn-link text-default btn-expand" title="Operations" ng-click="toggleRow('row5')">
+																<i class="fa fa-plus-circle" ng-show="!row5"></i>
+																<i class="fa fa-minus-circle ng-hide" ng-show="row5" ng-cloak></i>
+															</button>
+														</td>
+													<td>
+														Robert Williams
+													</td>
+													<td>
+														Robert
+													</td>
+													<td>
+														Williams
+													</td>
+													<td>
+														robert.williams@example.net
+													</td>
+													<td>
+														Example Network
+													</td>
+													<td>
+														487-555-2223
+													</td>
+												</tr>
+											</tbody>
+										</table>
+								  </div>
 							</div>
 						</div> 
 					</div>
@@ -519,6 +557,14 @@ title:  Customer Info Search
 	var app =  angular.module('iService');
 	app.controller('myCtrl', function ($scope, $log, $compile, DTOptionsBuilder, DTColumnDefBuilder)
 	{
+		$scope.getresponses = function (){
+			$scope.showstockresponses = true;
+		};
+		$scope.beginpd = function (){
+			$scope.beginpreviewdialer = true;
+		};
+
+		$scope.showpd = false;
 		$scope.toggle = {};
 		$scope.dtContactHistoryOptions = DTOptionsBuilder
 		.newOptions().withDisplayLength(5).withOption('language', {
@@ -595,6 +641,43 @@ title:  Customer Info Search
 		    ];
 		});
 	    
+		angular.module('iService').controller('PDTopicCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+		    vm.topicselected = {selected : "Choose Topic"};
+			vm.topic = [
+				{name: 'e-shop -- All Topics',topiclevel:0, disabled: '', segment:"Segment"},
+				{name: '_Feedback',topiclevel:1, disabled: 'false', segment:"Segment"},
+				{name: '_Newsletter Subscription ',topiclevel:1, disabled: 'disabled', segment:"Segment"},
+				{name: '_Spam',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: '_Undeliverable',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Account Questions',topiclevel:0, disabled: '', segment:"Segment"},
+				{name: 'Orders',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Refunds',topiclevel:1, disabled: 'disabled', segment:"Segment"},
+				{name: 'Returns',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Products',topiclevel:0, disabled: '', segment:"Segment"},
+				{name: 'Audio-Video',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Cameras',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Cell Phones',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Computers',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Televisions',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Shipping',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Technical Support',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
+			];
+			
+		});
+		angular.module('iService').controller('StockResponsesCtrl', function ($scope, $http, $timeout, $interval) {
+		var vm = this;
+		vm.stockselected = {selected : "Select Stock Responses"};
+			vm.stock = [
+				{name: 'Chat Closing',topiclevel:0, disabled: '', segment:"Segment Responses"},
+				{name: 'Chat Opening',topiclevel:1, disabled: '', segment:"Segment Responses"},
+				{name: 'Chat Wait',topiclevel:1, disabled: '', segment:"Segment Responses"},
+				{name: 'iService',topiclevel:1, disabled: '', segment:"Segment Responses"},
+				
+			];
+		});
+
 		angular.module('iService').controller('TopicCtrl', function ($scope, $http, $timeout, $interval) {
 		var vm = this;
 			vm.availableTopics = [
