@@ -186,7 +186,7 @@ title:  Customer Info Search
 									 <div class="form-horizontal">
 										<div class="col-md-7">
                                           <div class="form-group">
-											<label class="col-md-4 control-label text-left">Pick A Topic For Call Notes</label>
+											<label class="col-md-4 control-label text-left">Pick a topic for call notes</label>
 											<div class="col-md-8 ng-cloak" ng-controller="PDTopicCtrl as ctrl">
 												<ui-select ng-change=" getresponses();" ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
 												<ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
@@ -197,7 +197,7 @@ title:  Customer Info Search
 											</div>
                                           </div>
 										  <div class="form-group" ng-show=" showstockresponses ">
-											<label class="col-md-4 control-label text-left">Pick A Stock Response For Your Script</label>
+											<label class="col-md-4 control-label text-left">Pick a stock response for your script</label>
 											<div class="col-md-8 ng-cloak" ng-controller="StockResponsesCtrl as ctrl">
 												<ui-select ng-change = " beginpd() " ng-model="ctrl.stockselected.selected" theme="select2" title="Choose a stock">
 												<ui-select-match placeholder="Select or search for a stock in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
