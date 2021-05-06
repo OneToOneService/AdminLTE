@@ -966,7 +966,7 @@
 
 /*Category box container*/
 .content-container{max-width:1040px;margin:0 auto; margin-top:50px; text-align: center;}
-.category-box{border-radius: 15px; padding:15px; text-align: center; background:#fafafa; border:1px solid #d7d7d7; cursor: pointer;}
+.category-box{border-radius: 15px;    margin-bottom: 15px; padding:15px; text-align: center; background:#fafafa; border:1px solid #d7d7d7; cursor: pointer;}
 .category-box .icon-container {
     text-align: center;
     margin-left: calc(50% - 60px);
@@ -1146,7 +1146,7 @@ ul.question-list ul li:before {
 
 /*top menu section*/
 .top-menu-section{width: 100%;margin-top:30px;text-align: center;}
-.top-menu-section a{display:inline-block ; margin-right:30px; font-size:18px;    letter-spacing: 1px;}
+.top-menu-section a{display:inline-block ; margin-right:30px; font-size:18px;    letter-spacing: 1px; margin-bottom: 15px;}
 .top-menu-section a i{margin-right:6px; font-size:24px;}
 .top-menu-section a.selected{border-bottom: 3px solid #f7941d;padding-bottom:4px;}
 .top-menu-section a.selected i{color:#f7941d;}
