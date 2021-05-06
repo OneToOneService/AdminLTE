@@ -207,13 +207,16 @@
 				<div class="clearfix"></div>
 				<!--login section-->
                 <!--top menu section-->
-				<div class="top-menu-section">
+				<a class="mobile-menu pull-left" ng-click = " showmenu = !showmenu;" ng-init = "showmenu = false"><i class="fa fa-bars"></i></a>
+				<div class="top-menu-section" ng-class="{true:'showmenu'}[showmenu]">
 	              <a href="" class="selected"><i class="fa  fa-home"></i> Support Home</a>
+				  <a href=""><i class="fa  fa-book"></i> Knowledge Base</a>
 				  <a href=""><i class="fa  fa-bell-o"></i>My Subscription</a>
 				  <a href=""><i class="fa  fa-question-circle-o"></i>Ask A Question</a>
 				  <a href=""><i class="fa  fa-history"></i>Access History</a>
 				  <a href=""><i class="fa  fa-user-o"></i>Update Profile</a>
 				</div>
+				<div class="clearfix"></div>
 				<!--top menu section-->
 				<h1 class="text-center mtop30">iService Knowledge Base</h1>
 				<div class="search-container">

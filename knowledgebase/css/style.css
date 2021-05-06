@@ -1146,7 +1146,7 @@ ul.question-list ul li:before {
 
 /*top menu section*/
 .top-menu-section{width: 100%;margin-top:30px;text-align: center;}
-.top-menu-section a{display:inline-block ; margin-right:30px; font-size:18px;    letter-spacing: 1px; margin-bottom: 15px;}
+.top-menu-section a{display:inline-block ; margin-right:30px; font-size:17px;  margin-bottom: 15px;}
 .top-menu-section a i{margin-right:6px; font-size:24px;}
 .top-menu-section a.selected{border-bottom: 3px solid #f7941d;padding-bottom:4px;}
 .top-menu-section a.selected i{color:#f7941d;}
@@ -1243,4 +1243,14 @@ ul.question-list ul li:before {
   height: 35px;
 }
 .login-link a{margin-right:8px;margin-left:8px;}
+.mobile-menu{display: none;}
 /*login container*/
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 767px) {
+  .mobile-menu{display: block;}
+  .mobile-menu{font-size:28px;margin-top:5px;}
+  .top-menu-section {margin-top:15px;float: left; display: none;}
+  .top-menu-section a{width:100%; text-align: left;}
+  .showmenu{display: block  !important;}
+}
