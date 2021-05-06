@@ -1164,7 +1164,7 @@ ul.question-list ul li:before {
 
 .box_wrap {
   width: 100%;
-  z-index: 9999;
+  z-index: 9;
   background: #fffae7;
   margin-bottom: 20px;
   border-radius: 6px;
