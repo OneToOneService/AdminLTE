@@ -1146,7 +1146,7 @@ ul.question-list ul li:before {
 
 /*top menu section*/
 .top-menu-section{width: 100%;margin-top:30px;text-align: center;}
-.top-menu-section a{display:inline-block ; margin-right:30px; font-size:18px;}
+.top-menu-section a{display:inline-block ; margin-right:30px; font-size:18px;    letter-spacing: 1px;}
 .top-menu-section a i{margin-right:6px; font-size:24px;}
 .top-menu-section a.selected{border-bottom: 3px solid #f7941d;padding-bottom:4px;}
 .top-menu-section a.selected i{color:#f7941d;}
@@ -1170,7 +1170,7 @@ ul.question-list ul li:before {
   border-radius: 6px;
   float: left;
   margin-top: 15px;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid #f7941d;
   position: relative;
 }
