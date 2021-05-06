@@ -1143,3 +1143,104 @@ ul.question-list ul li:before {
 .question-list .time{font-size:14px;}
 .border-bottom{border-bottom:1px solid #ccc; padding-bottom:5px;}
 /*Search List*/
+
+/*top menu section*/
+.top-menu-section{width: 100%;margin-top:30px;text-align: center;}
+.top-menu-section a{display:inline-block ; margin-right:30px; font-size:18px;}
+.top-menu-section a i{margin-right:6px; font-size:24px;}
+.top-menu-section a.selected{border-bottom: 3px solid #f7941d;padding-bottom:4px;}
+.top-menu-section a.selected i{color:#f7941d;}
+/*top menu section*/
+
+/*login container*/
+.login_container{float: right;
+  padding-right: 10px; margin-top:30px;}
+  
+.login_container a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-size:16px;
+}
+
+.box_wrap {
+  width: 100%;
+  z-index: 9999;
+  background: #fffae7;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  float: left;
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #f7941d;
+  position: relative;
+}
+.box-login:after,
+.box-login:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.box-login:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fffae7;
+  border-width: 14px;
+  left: calc(100% - 110px);
+  margin-left: -14px;
+}
+
+.box-login:before {
+  border-color: rgba(247, 148, 29, 0);
+  border-bottom-color: #f7941d;
+  border-width: 15px;
+  left: calc(100% - 110px);
+  margin-left: -15px;
+}
+
+.box-signup:after,
+.box-signup:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.box-signup:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fffae7;
+  border-width: 14px;
+  left: calc(100% - 38px);
+  margin-left: -14px;
+}
+
+.box-signup:before {
+  border-color: rgba(247, 148, 29, 0);
+  border-bottom-color: #f7941d;
+  border-width: 15px;
+  left: calc(100% - 38px);
+  margin-left: -15px;
+}
+.support-login-box h2{font-size:18px; font-weight: 500; margin:0px; padding:0px;margin-bottom:8px; color:#3c8dbc;}
+.support-login-box .form-container{background: none;}
+.support-login-box input, .support-login-box select{border-radius: 4px; padding-left:35px;}
+.support-login-box i {
+  position: absolute;
+  color:#999999;
+  font-size:18px;
+  top: -2px;
+}
+.support-login-box .icon {
+  padding: 10px;
+  min-width: 35px;
+  width:35px;
+  height: 35px;
+}
+.login-link a{margin-right:8px;margin-left:8px;}
+/*login container*/

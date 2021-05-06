@@ -57,7 +57,7 @@
 </head>
 
 <body ng-controller="knowledgebaseCtrl">
-  <header class="header_wrapper">
+  <header class="header_wrapper" style="display: none;">
     <div class="top_head_sect">
 	  <div class="logo_box"><a href="/"><img src="images/logo.png" alt="webdunia"></a></div>
 	  <nav class="navbar navbar-static-top header-custom-color">
@@ -74,11 +74,147 @@
 	  </nav>
 	</div> 
   </header>
-
+  
   <div class="row-container-full-width" >
      <div class="row">
 		<div class="col-md-12">
 			<div class="container">
+				<!--login section-->
+				<div class="login_container">
+				  <a href="javascript:void(0)" id="show_login" ng-click="showLogin = true; showRegister = false;showForgetPassword = false; ">Login</a>
+				  <a href="javascript:void(0)" id="show_register" ng-click="showRegister = true; showLogin = false;showForgetPassword = false;">Sign Up</a>
+				</div>
+				<div class="box_wrap box-login" ng-show = "showLogin">
+					<div class="support-login-box">
+                      <h2>Login</h2>
+					  <div class="form-container">
+							<div class="form-horizontal">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+										<div class="col-md-12">
+											<i class="fa fa-user icon"></i>
+											<input type="text" class="form-control username">
+										</div>
+										</div>
+									</div>
+									<div class="col-md-5">
+										<div class="form-group">
+										<div class="col-md-12">
+											<i class="fa fa-lock icon"></i>
+											<input type="text" class="form-control">
+										</div>
+										</div>
+									</div>
+									<div class="col-md-2">
+											<button type="button" class="btn btn-primary">Login</button>
+											<button type="button" class="btn btn-link" ng-click="showLogin = false; showRegister = false;showForgetPassword = false; ">Cancel</button>
+									</div>
+
+									<div class="col-md-12 login-link">
+                                      <a href="" ng-click="showLogin = false; showRegister = true;showForgetPassword = false; ">Register New Account</a> |
+									  <a href="" ng-click="showLogin = false; showRegister = false;showForgetPassword = true; ">Forgot Password</a>
+									</div>
+								</div>
+							</div>
+					  </div>
+					</div>
+				</div>
+				<div class="box_wrap box-login" ng-show = "showForgetPassword">
+					<div class="support-login-box">
+                      <h2>Forgot Password</h2>
+					  <p>Please enter the email address associated with your iService account. We will send you a link so you can change your password.</p>
+					  <div class="form-container">
+							<div class="form-horizontal">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+										<div class="col-md-12">
+											<i class="fa fa-user icon"></i>
+											<input type="text" class="form-control username">
+										</div>
+										</div>
+									</div>
+								
+									<div class="col-md-2">
+											<button type="button" class="btn btn-primary">Submit</button>
+											<button type="button" class="btn btn-link" ng-click="showLogin = false; showRegister = false;showForgetPassword = false; ">Cancel</button>
+									</div>
+
+									<div class="col-md-12 login-link">
+                                      <a href="" ng-click="showLogin = true; showRegister = false;showForgetPassword = false; ">Login</a>
+									</div>
+								</div>
+							</div>
+					  </div>
+					</div>
+				</div>
+				<div class="box_wrap box-signup" ng-show = "showRegister">
+					<div class="support-login-box">
+                      <h2>Create an account</h2>
+					  <div class="form-container">
+							<div class="form-horizontal">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+										<div class="col-md-12">
+											<i class="fa fa-user icon"></i>
+											<input type="text" class="form-control username" placeholder="FirstName">
+										</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+										<div class="col-md-12">
+											<i class="fa fa-user icon"></i>
+											<input type="text" class="form-control" placeholder="LastName">
+										</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+										<div class="col-md-12">
+											<i class="fa fa-envelope icon"></i>
+											<input type="text" class="form-control" placeholder="Email">
+										</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+										<div class="col-md-12">
+											<i class="fa fa-lock icon"></i>
+											<input type="text" class="form-control" placeholder="Password">
+										</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+										<div class="col-md-12">
+											<i class="fa fa-lock icon"></i>
+											<input type="text" class="form-control" placeholder="Confirm Password">
+										</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+											<button type="button" class="btn btn-primary">Register Now</button>
+											<button type="button" class="btn btn-link" ng-click="showLogin = false; showRegister = false;showForgetPassword = false; ">Cancel</button>
+									</div>
+								</div>
+							</div>
+					  </div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<!--login section-->
+                <!--top menu section-->
+				<div class="top-menu-section">
+	              <a href="" class="selected"><i class="fa  fa-home"></i> Support Home</a>
+				  <a href=""><i class="fa  fa-bell-o"></i>My Subscription</a>
+				  <a href=""><i class="fa  fa-question-circle-o"></i>Ask A Question</a>
+				  <a href=""><i class="fa  fa-history"></i>Access History</a>
+				  <a href=""><i class="fa  fa-user-o"></i>Update Profile</a>
+				</div>
+				<!--top menu section-->
 				<h1 class="text-center mtop30">iService Knowledge Base</h1>
 				<div class="search-container">
 				    <div class="search-container">
