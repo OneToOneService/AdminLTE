@@ -4135,3 +4135,6 @@ h1 .help-icon {
 .has-error .select2-container .select2-choice {
   border-color: #dd4b39 !important;
 }
+.table-kb-article .select2-drop-active {
+  min-width: 170px;
+}
