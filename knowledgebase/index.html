@@ -94,7 +94,7 @@
 										<div class="form-group">
 										<div class="col-md-12">
 											<i class="fa fa-user icon"></i>
-											<input type="text" class="form-control username">
+											<input type="text" class="form-control username" placeholder="Username">
 										</div>
 										</div>
 									</div>
@@ -102,7 +102,7 @@
 										<div class="form-group">
 										<div class="col-md-12">
 											<i class="fa fa-lock icon"></i>
-											<input type="text" class="form-control">
+											<input type="text" class="form-control" placeholder="Password">
 										</div>
 										</div>
 									</div>
@@ -130,8 +130,8 @@
 									<div class="col-md-5">
 										<div class="form-group">
 										<div class="col-md-12">
-											<i class="fa fa-user icon"></i>
-											<input type="text" class="form-control username">
+											<i class="fa fa-envelope icon"></i>
+											<input type="text" class="form-control username" placeholder="Email / Username">
 										</div>
 										</div>
 									</div>
@@ -209,38 +209,40 @@
                 <!--top menu section-->
 				<a class="mobile-menu pull-left" ng-click = " showmenu = !showmenu;" ng-init = "showmenu = false"><i class="fa fa-bars"></i></a>
 				<div class="top-menu-section" ng-class="{true:'showmenu'}[showmenu]">
-	              <a href="" class="selected"><i class="fa  fa-home"></i> Support Home</a>
-				  <a href=""><i class="fa  fa-book"></i> Knowledge Base</a>
-				  <a href=""><i class="fa  fa-bell-o"></i>My Subscription</a>
-				  <a href=""><i class="fa  fa-question-circle-o"></i>Ask A Question</a>
-				  <a href=""><i class="fa  fa-history"></i>Access History</a>
-				  <a href=""><i class="fa  fa-user-o"></i>Update Profile</a>
+	              <a href="" class="selected" ng-click="showOption('home');" ng-class="{true:'selected'}[home]"><i class="fa  fa-home"></i> Support Home</a>
+				  <a href="" ng-click="showOption('topiclist');" ng-class="{true:'selected'}[topiclist]" ><i class="fa  fa-book"></i> Knowledge Base</a>
+				  <a href="" ng-click="showOption('subscription');" ng-class="{true:'selected'}[subscription]" ><i class="fa  fa-bell-o"></i>My Subscription</a>
+				  <a href="" ng-click="showOption('questionform');" ng-class="{true:'selected'}[questionform]" ><i class="fa  fa-question-circle-o"></i>Ask A Question</a>
+				  <a href="" ng-click="showOption('history');" ng-class="{true:'selected'}[history]" ><i class="fa  fa-history"></i>Access History</a>
+				  <a href="" ng-click="showOption('profile');" ng-class="{true:'selected'}[profile]" ><i class="fa  fa-user-o"></i>Update Profile</a>
 				</div>
 				<div class="clearfix"></div>
 				<!--top menu section-->
-				<h1 class="text-center mtop30">iService Knowledge Base</h1>
-				<div class="search-container">
-				    <div class="search-container">
-						<div class="input-group knowledge-search-box">
-							<input class="form-control" placeholder="Search the support knowledge base">
-							<span class="input-group-addon" ng-click="showOption('searchresults')"><i class="fa fa-search"></i></span>
+				<div ng-if = "type == 'home'" ng-init = "type = 'home'">
+					<h1 class="text-center mtop30">iService Knowledge Base</h1>
+					<div class="search-container">
+						<div class="search-container">
+							<div class="input-group knowledge-search-box">
+								<input class="form-control" placeholder="Search the support knowledge base">
+								<span class="input-group-addon" ng-click="showOption('searchresults')"><i class="fa fa-search"></i></span>
+							</div>
+							<span class="advanced-search-option" ng-click = "openPreviewModal()"> 
+							Advanced Search
+							</span>
 						</div>
-						<span class="advanced-search-option" ng-click = "openPreviewModal()"> 
-				          Advanced Search
-				        </span>
-				    </div>
-				</div>
-				<div class="advanced-search-container" ng-show="showadvanced">
-				    <div class="col-1">
-					   <span class="sub-topic-option"> 
-						<input type="checkbox" checked> Include Sub Topics
-					   </span>
-				   </div>
-				   <div class="col-2">
-						<select class="form-control select-topic-box">
-						  <option>Select Topic</option>
-						  <option></option>
-						</select>
+					</div>
+					<div class="advanced-search-container" ng-show="showadvanced">
+						<div class="col-1">
+						<span class="sub-topic-option"> 
+							<input type="checkbox" checked> Include Sub Topics
+						</span>
+					</div>
+					<div class="col-2">
+							<select class="form-control select-topic-box">
+							<option>Select Topic</option>
+							<option></option>
+							</select>
+						</div>
 					</div>
 				</div>
             </div>
@@ -947,6 +949,317 @@ Why can't I add a new contact?<br><br>
    </div>
   <!-- Question Detail End-->
 
+<!--My Subscription-->
+	<div class="row-container-full-width mtop30" ng-if = "type == 'subscription'">
+		<div class="row">
+				<div class="col-md-12">
+					<div class="container">
+						<div class="breadcrumb-container">
+							<ol class="breadcrumb">
+								<li><a href="#" ng-click="showOption('home')">Home</a></li>
+								<li><a href=""  ng-click="showOption('topiclist')">My Subscription</a></li>
+							</ol>
+					    </div>
+					    <h2 class="heading page-sub-heading text-left text-blue">Mailing List</h2>
+						<div class="subscriptions">
+						<div class="table-row table-row-head">
+						  <div class="list-name text-blue">List Name</div>
+						  <div class="list-desc text-blue">Description</div>
+						  <div class="member-of text-blue">Member Of</div>
+						</div>
+						<div class="table-row table-data" style="">
+						  <div class="list-name">25,000</div>
+						  <div class="list-desc">Mass mailing to 25,000 contacts.</div>
+						  <div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="list.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_List0IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+						</div>
+						<div class="table-row">
+						  <div class="list-name">Customer Only</div>
+						  <div class="list-desc">Contacts with name Customer</div>
+						  <div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="list.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_List1IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+						</div>
+						<div class="table-row">
+						  <div class="list-name">S1 and S2</div>
+						  <div class="list-desc">All customers that are members of both S1 and S2 only.</div>
+						  <div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="list.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_List2IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+						</div>
+						<div class="table-row">
+						  <div class="list-name">S1 Exclusive</div>
+						  <div class="list-desc">The only customer solely in S1</div>
+						  <div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="list.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_List3IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+						</div>
+						<div class="table-row">
+						  <div class="list-name">S1 Only</div>
+						  <div class="list-desc">All original customers in S1.</div>
+						  <div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="list.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_List4IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+						</div>
+						<div class="table-row">
+						  <div class="list-name">S1 or S2</div>
+						  <div class="list-desc">Customers that are a member of EITHER S1 or S2.</div>
+						  <div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="list.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_List5IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+						</div>
+						<div class="table-row">
+						  <div class="list-name">S2 Exclusive</div>
+						  <div class="list-desc">The customer that is solely in S2.</div>
+						  <div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="list.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_List6IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+						</div>
+						<div class="table-row">
+						  <div class="list-name">S2 Only</div>
+						  <div class="list-desc">All original customers in S2 only</div>
+						  <div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="list.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_List7IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+						</div>
+					  	</div>
+                        <div class="clearfix"></div>
+						  <div class="s-container subscriptions">
+							<h2 class="heading page-sub-heading text-left text-blue">Campaigns</h2>
+							<div class="table-row">
+							  <div class="table-row table-row-head">
+								<div class="list-name text-blue">Name</div>
+								<div class="list-desc text-blue">Description</div>
+								<div class="member-of text-blue">Member Of</div>
+							  </div>
+							 <div class="table-row ng-scope">
+								<div class="list-name">Test Campaign</div>
+								<div class="list-desc">Test campaign with one welcome message.</div>
+								<div class="member-of"><div class="icheckbox_square-blue" style="position: relative;"><input ng-attr-id="{{idPrefix}}IsOn" type="checkbox" ng-model="campaign.isOnList" class="ng-pristine ng-untouched ng-valid ng-empty" id="Subscriptions_Campaign0IsOn" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></div>
+							  </div>
+							 
+							</div>
+						  </div>
+						  <div class="clearfix"></div>
+						  <div class="s-container subscriptions">
+							<h2 class="heading page-sub-heading text-left text-blue">Subscribed Articles</h2>
+							<div class="table-row">
+							  <div class="table-row table-row-head">
+								<div class="list-name text-blue">Topic</div>
+								<div class="list-desc text-blue">Subject</div>
+								<div class="member-of text-blue">Stay Subscribed</div>
+							  </div>
+							  <!-- ngRepeat: article in articles -->
+							  <div class="table-row"><div colspan="3">No Articles</div></div>
+							</div>
+						  </div>
+
+						  <button class="btn btn-primary btn-custom-lg mtop30">Save Subscriptions</button>
+					</div>
+				</div>	
+		</div>	
+	</div>
+<!--My Subscription-->
+<!--My Details-->
+	<div class="row-container-full-width mtop30" ng-if = "type == 'profile'">
+		<div class="row">
+				<div class="col-md-12">
+					<div class="container">
+						<div class="breadcrumb-container">
+							<ol class="breadcrumb">
+								<li><a href="#" ng-click="showOption('home')">Home</a></li>
+								<li><a href=""  ng-click="showOption('topiclist')">My Details</a></li>
+							</ol>
+						</div>
+							<h2 class="heading page-sub-heading text-left text-blue">My Details</h2>
+							<div class="heading-bar">
+								Contact Information
+							</div>
+							<div class="col-md-8 mbottom40 support-form">
+								<div class="form-horizontal">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">First Name</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Last Name</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>	
+									<div class="row multiple-input">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Phone</label>
+											</div>
+										</div>
+										<div class="col-md-12 groupinput">
+											<button class="col-md-2 margin-5 icon-button button-delete" type="button">
+												<i class="fa fa-times-circle"></i>
+											</button>
+											<div class="col-md-5">
+												<select class="form-control">
+													<option>Phone</option>
+													<option>Fax</option>
+												</select>
+											</div>
+											<div class="col-md-5">
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="clearfix"></div>
+										<div class="col-md-12 groupinput">
+											<button class="col-md-2 margin-5 icon-button button-delete" type="button">
+												<i class="fa fa-times-circle"></i>
+											</button>
+											<div class="col-md-5">
+												<select class="form-control">
+													<option>Phone</option>
+													<option>Fax</option>
+												</select>
+											</div>
+											<div class="col-md-5">
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<button class="margin-5 icon-button button-add-row" type="button">
+											<i class="fa fa-plus-circle"></i>
+										</button>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Company</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Job Title</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>	
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Notification Address</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Address1</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>	
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Address2</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Address3</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>	
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">City</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">State</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>	
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Postal Code</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-12 control-label text-left">Country</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>	
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<div class="heading-bar">
+								Logins
+							</div>
+							<div class="col-md-8">
+								<div class="form-horizontal">
+									<div class="row multiple-input">
+										<div class="col-md-12 groupinput">
+											<button class="col-md-2 margin-5 icon-button button-delete" type="button">
+												<i class="fa fa-times-circle"></i>
+											</button>
+											<div class="col-md-5">
+												<select class="form-control">
+													<option>Email</option>
+												</select>
+											</div>
+											<div class="col-md-5">
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="clearfix"></div>
+										<div class="col-md-12 groupinput">
+											<button class="col-md-2 margin-5 icon-button button-delete" type="button">
+												<i class="fa fa-times-circle"></i>
+											</button>
+											<div class="col-md-5">
+												<select class="form-control">
+													<option>Email</option>
+												</select>
+											</div>
+											<div class="col-md-5">
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<button class="margin-5 icon-button button-add-row" type="button">
+											<i class="fa fa-plus-circle"></i>
+										</button>
+									</div>
+								
+								</div>
+								
+							</div>
+						</div>
+						
+					</div>
+				</div>	
+	</div>	
+</div>
+<!--My Details-->	  
   <!--Question Form Start-->
   <div class="row-container-full-width mtop30" ng-if = "type == 'questionform'">
 	<div class="row">
@@ -958,9 +1271,125 @@ Why can't I add a new contact?<br><br>
 						  <li class="active">Ask Question</li>
 						</ol>
 				  </div>
-				  <h1 class="heading page-sub-heading">Ask Questions To Experts </h1>
-				  
-                    <div class="row">
+				   <div class="heading-bar">
+					Ask Questions To Experts 
+				   </div>
+				   <div class="col-md-12 support-form">
+						<div class="row form-horizontal mtop30">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="col-md-12 control-label text-left" for="exampleInputEmail1">Please pick the topic of your question</label>
+										<div class="col-sm-12" ng-controller="TopicCtrl as ctrl">
+											<ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic" ng-disabled>
+											  <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+											  <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{{ item.disabled}}" >
+												<span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{{ item.topiclevel }}{{ item.disabled }}"  ng-bind-html="item.name | highlight: $select.search">{{ item.name }}</span>
+											  </ui-select-choices>
+											</ui-select>
+										</div>
+									</div>
+								</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+							   <h3 class="submit-ticket-heading f18 text-blue mtop30 mbottom30">We might have an answer to your question</h3>
+							   <ul class="suggested-question-list">
+                                  <li>
+                                      <div class="question-button">
+											<button class="margin-5 icon-button button-add-row text-orange" type="button">
+												<i class="fa fa-minus-circle"></i>
+											</button>
+									  </div>
+
+									  <div class="question text-blue">
+										_QA Site Service Level Testing Setup Information
+									  </div>
+									  <div class="question-details">
+										Service Levels:
+										* The default time for all topics in Segment1 and Segment2 is 60 minutes.
+										* Topic S1Topic Int Prop Svc Lvl - 20 min has the interaction property of "20 Minute Interaction" associated with it. This property sets a service level of 20 min for any question in that topic that has the property value set to True.
+										* Topic S1 SvcLvl10-min has a 10 minute service level.
+										* Customer5@1to1service.com has a 5 minutes service level.
+										* Topic S1TopicSvcLvl1-min as a 1 minute service level
+									  </div>
+								  </li>
+
+									<li>
+										<div class="question-button">
+											<button class="margin-5 icon-button button-add-row text-orange" type="button">
+												<i class="fa fa-plus-circle"></i>
+											</button>
+										</div>
+										<div class="question text-blue">
+											Topic1 Question
+										</div>
+									</li>
+									<li>
+										<div class="question-button">
+											<button class="margin-5 icon-button button-add-row text-orange" type="button">
+												<i class="fa fa-plus-circle"></i>
+											</button>
+										</div>
+										<div class="question text-blue">
+											Topic1 Question
+										</div>
+									</li>
+								</ul>
+								<div class="clearfix"></div>
+								<h3 class="submit-ticket-heading f18 text-orange mtop30">We might have an answer to your question</h3>
+								<h3 class="submit-ticket-heading f18 text-blue mtop15">Submit A Ticket</h3>
+								<div class="row form-horizontal">
+                                    <div class="col-md-6">
+                                        <div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 control-label text-left">Subject</label>
+													<div class="col-sm-12">
+														<input type="text" class="form-control" value="Re:Trying to find solution">
+													</div>
+												</div>
+											</div>
+											<div class="clearfix"></div>
+											<div class="col-md-12">
+												<span class="f16 text-orange">Additional information for your selected topic</span>
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-12 control-label text-left">Product Type</label>
+													<div class="col-sm-12" ng-controller="TopicCtrl as ctrl">
+														<select class="form-control">
+															<option>Select...</option>
+														</select>	
+													</div>
+												</div>
+											</div>
+                                        </div>
+									</div>
+									<div class="col-sm-12 col-md-6 col-lg-6 mb-15 mtop15">
+										<label class="drop-box">
+										  Drop files here or click to upload
+										  <input type="file" class="ng-hide" multiple="">
+										</label>
+										<div>(Maximum 10 MB upload at one time.)</div>
+										<div class="imageuploadify">
+										  <!-- ngRepeat: file in files -->
+										</div>
+								     </div>
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="inputPassword3" class="col-sm-12 control-label text-left">Body</label>
+											<div class="col-sm-12">
+												<textarea class="form-control" ckeditor="options"></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<button class="btn btn-primary btn-custom-lg mtop30">Submit Ticket</button>
+									</div>
+								</div>
+								 
+							</div>
+						</div>
+					</div>
+                    <div class="row" style="display: none;">
 						<div class="col-md-6">
 							<div class="form-group">
 							<label for="exampleInputEmail1">From</label>
@@ -1006,6 +1435,8 @@ Why can't I add a new contact?<br><br>
 			</div>	
 	  </div>	
   </div>
+
+
 </body>
  <script type="text/ng-template" id="preview.html">
    

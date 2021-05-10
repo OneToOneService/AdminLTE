@@ -32,11 +32,68 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
 			{ name: 'forms', groups: [ 'forms' ] },
 			{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-			{ name: 'links', groups: [ 'links' ] },
-			
+			{ name: 'links', groups: [ 'links' ] }
 		];
-	  // alert(segmentName);
+		angular.element(document.querySelectorAll(".top-menu-section a")).removeClass("selected");
+	
+		this.addActive(segmentName);
+		 // 
 	};
+
+	$scope.addActive = function (segmentName)
+	{ 
+		if(segmentName == 'home')
+		{
+		  $scope.home = true;
+		  $scope.topiclist = false;
+		  $scope.subscription = false;
+		  $scope.questionform = false;
+		  $scope.history = false;
+		  $scope.profile = false;
+		}
+		if(segmentName == 'topiclist'){
+			$scope.home = false;
+			$scope.topiclist = true;
+			$scope.subscription = false;
+			$scope.questionform = false;
+			$scope.history = false;
+			$scope.profile = false;
+		}
+		if(segmentName == 'subscription')
+		{
+			$scope.home = false;
+			$scope.topiclist = false;
+			$scope.subscription = true;
+			$scope.questionform = false;
+			$scope.history = false;
+			$scope.profile = false;
+		}
+		if(segmentName == 'questionform'){
+			$scope.home = false;
+			$scope.topiclist = false;
+			$scope.subscription = false;
+			$scope.questionform = true;
+			$scope.history = false;
+			$scope.profile = false;
+		}
+		if(segmentName == 'history')
+		{
+			$scope.home = false;
+			$scope.topiclist = false;
+			$scope.subscription = false;
+			$scope.questionform = false;
+			$scope.history = true;
+			$scope.profile = false;
+		}
+		if(segmentName == 'profile'){
+			$scope.home = false;
+			$scope.topiclist = false;
+			$scope.subscription = false;
+			$scope.questionform = false;
+			$scope.history = false;
+			$scope.profile = true;
+		}
+	}
 			
 });
 
