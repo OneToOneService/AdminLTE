@@ -1249,7 +1249,7 @@ Why can't I add a new contact?<br><br>
 											<i class="fa fa-plus-circle"></i>
 										</button>
 									</div>
-								
+									<button class="btn btn-primary btn-custom-lg mtop30">Save Details</button>
 								</div>
 								
 							</div>
@@ -1424,8 +1424,9 @@ Why can't I add a new contact?<br><br>
 	</div>	
   </div>
   <!--Question Form End-->
+
   <!-- Topic Listing End-->
-  <div class="row-container-full-width mtop30">
+  <div class="row-container-full-width" ng-if = "type == 'home'" ng-init = "type = 'home'">
 	  <div class="row">
 			<div class="col-md-12">
 				<div class="container text-center ask-question-container">
@@ -1435,7 +1436,9 @@ Why can't I add a new contact?<br><br>
 			</div>	
 	  </div>	
   </div>
-
+  <!--Bottom spacer-->
+  <div class="mtop30 mbottom40">&nbsp;</div>
+  <!--Bottom spacer-->
 
 </body>
  <script type="text/ng-template" id="preview.html">
