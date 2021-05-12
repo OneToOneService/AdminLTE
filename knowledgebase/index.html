@@ -10,10 +10,12 @@
      <link rel="stylesheet" href="css/bootstrap.min.css">
 	 <link rel="stylesheet" href="css/dataTables.bootstrap.css">
 	 <link rel="stylesheet" href="css/AdminLTE.min.css">
-     <link rel="stylesheet" href="css/style.css">  
-	 <link rel="stylesheet" href="http://styleguide.iservice.info/dist/iservice/css/webapp.css">  
-	 
 	 <link rel="stylesheet" href="css/select2.min.css">
+	 <!-- css for customer portal and message center-->
+	 <link rel="stylesheet" href="http://styleguide.iservice.info/dist/iservice/css/webapp.css">  
+	 <link rel="stylesheet" href="css/style.css"> 
+	 <link rel="stylesheet" href="css/style-mc.css"> 
+	 <!--  css for customer portal and message center-->
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css"> 
 	 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
@@ -209,22 +211,22 @@
                 <!--top menu section-->
 				<a class="mobile-menu pull-left" ng-click = " showmenu = !showmenu;" ng-init = "showmenu = false"><i class="fa fa-bars"></i></a>
 				<div class="top-menu-section" ng-class="{true:'showmenu'}[showmenu]">
-	              <a href="" class="selected" ng-click="showOption('home');" ng-class="{true:'selected'}[home]"><i class="fa  fa-home"></i> Support Home</a>
-				  <a href="" ng-click="showOption('topiclist');" ng-class="{true:'selected'}[topiclist]" ><i class="fa  fa-book"></i> Knowledge Base</a>
-				  <a href="" ng-click="showOption('subscription');" ng-class="{true:'selected'}[subscription]" ><i class="fa  fa-bell-o"></i>My Subscription</a>
-				  <a href="" ng-click="showOption('questionform');" ng-class="{true:'selected'}[questionform]" ><i class="fa  fa-question-circle-o"></i>Ask A Question</a>
-				  <a href="" ng-click="showOption('history');" ng-class="{true:'selected'}[history]" ><i class="fa  fa-history"></i>Access History</a>
-				  <a href="" ng-click="showOption('profile');" ng-class="{true:'selected'}[profile]" ><i class="fa  fa-user-o"></i>Update Profile</a>
+	              <a href="" class="selected" ng-click="showOptionTab('home');" ng-class="{true:'selected'}[home]"><i class="fa  fa-home"></i> Support Home</a>
+				  <a href="" ng-click="showOptionTab('topiclist');" ng-class="{true:'selected'}[topiclist]" ><i class="fa  fa-book"></i> Knowledge Base</a>
+				  <a href="" ng-click="showOptionTab('subscription');" ng-class="{true:'selected'}[subscription]" ><i class="fa  fa-bell-o"></i>My Subscription</a>
+				  <a href="" ng-click="showOptionTab('questionform');" ng-class="{true:'selected'}[questionform]" ><i class="fa  fa-question-circle-o"></i>Ask A Question</a>
+				  <a href="" ng-click="showOptionTab('history');showOption('inbox');" ng-class="{true:'selected'}[history]" ><i class="fa  fa-history"></i>Access History</a>
+				  <a href="" ng-click="showOptionTab('profile');" ng-class="{true:'selected'}[profile]" ><i class="fa  fa-user-o"></i>Update Profile</a>
 				</div>
 				<div class="clearfix"></div>
 				<!--top menu section-->
-				<div ng-if = "type == 'home'" ng-init = "type = 'home'">
+				<div ng-if = "tabtype == 'home'" ng-init = "tabtype = 'home'">
 					<h1 class="text-center mtop30">iService Knowledge Base</h1>
 					<div class="search-container">
 						<div class="search-container">
 							<div class="input-group knowledge-search-box">
 								<input class="form-control" placeholder="Search the support knowledge base">
-								<span class="input-group-addon" ng-click="showOption('searchresults')"><i class="fa fa-search"></i></span>
+								<span class="input-group-addon" ng-click="showOptionTab('searchresults')"><i class="fa fa-search"></i></span>
 							</div>
 							<span class="advanced-search-option" ng-click = "openPreviewModal()"> 
 							Advanced Search
@@ -250,12 +252,12 @@
 	 </div>	
   </div>
  <!--Index page custom section start-->
-  <div class="row-container-full-width mtop30" ng-if = "type == 'home'" ng-init = "type = 'home'">
+  <div class="row-container-full-width mtop30" ng-if = "tabtype == 'home'" ng-init = "tabtype = 'home'">
 	<div class="row" >
         <div class="col-md-12">
 			<div class="content-container">
 				<div class="col-md-4">
-					<div class="category-box" ng-click="showOption('topiclistquestion')">
+					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
 						<div class="icon-container">
 							<a href="" target="_blank">
 								<span class="c-icon">
@@ -274,7 +276,7 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="category-box" ng-click="showOption('topiclistquestion')">
+					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
 						<div class="icon-container">
 							<a href="" target="_blank">
 								<span class="c-icon">
@@ -293,7 +295,7 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="category-box" ng-click="showOption('topiclistquestion')">
+					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
 						<div class="icon-container">
 							<a href="" target="_blank">
 								<span class="c-icon">
@@ -320,46 +322,46 @@
 			<div class="content-container">
 			    <h1 class="heading page-sub-heading">FAQ's Topic List</h1>		
 				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 					    <h2 class="root-topic">iService All Topics</h2>
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOption('topiclistquestion')">_Feedback <span>(5)</span></li>
-									<li ng-click="showOption('topiclistquestion')">iService All Topics<span>(0)</span></li>
-									<li ng-click="showOption('topiclistquestion')">Spam <span>(4)</span></li>
-									<li ng-click="showOption('topiclistquestion')">Undelivered <span>(4)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(5)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">iService All Topics<span>(0)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">Spam <span>(4)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">Undelivered <span>(4)</span></li>
 								</ul>	
 							</li>
 						</ul>
-						<span class="link-color pointer" ng-click="showOption('topiclist')">...9 More Topics</span>
+						<span class="link-color pointer" ng-click="showOptionTab('topiclist')">...9 More Topics</span>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 					    <h2 class="root-topic">Products</h2>
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
-									<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
-									<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
-									<li ng-click="showOption('topiclistquestion')">cancellation <span>(4)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">cancellation <span>(4)</span></li>
 								</ul>	
 							</li>
 						</ul>
-						<span class="link-color pointer" ng-click="showOption('topiclist')">...5 More Topics</span>
+						<span class="link-color pointer" ng-click="showOptionTab('topiclist')">...5 More Topics</span>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 					    <h2 class="root-topic">Account Questions</h2>
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOption('topiclistquestion')">Open Quotes <span>(5)</span></li>
-									<li ng-click="showOption('topiclistquestion')">Shipping<span>(0)</span></li>
-									<li ng-click="showOption('topiclistquestion')">Technical <span>(4)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">Open Quotes <span>(5)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">Shipping<span>(0)</span></li>
+									<li ng-click="showOptionTab('topiclistquestion')">Technical <span>(4)</span></li>
 								</ul>	
 							</li>
 						</ul>
@@ -369,7 +371,7 @@
 		</div>
 		<div class="col-md-12">
 			<div class="content-container">
-				<button class="btn btn-primary btn-custom-lg" ng-click="showOption('topiclist')">View All Category Topics</button>
+				<button class="btn btn-primary btn-custom-lg" ng-click="showOptionTab('topiclist')">View All Category Topics</button>
 			</div>
 		</div>	
 	</div>
@@ -379,30 +381,30 @@
 			<div class="content-container">
 			    <h1 class="heading page-sub-heading">Top FAQ's</h1>		
 				<div class="col-md-6">
-					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOption('questiondetail')">Pick up for Ship to Store</span></li>
-									<li ng-click="showOption('questiondetail')">Face detection technology</li>
-									<li ng-click="showOption('questiondetail')">Shipping for large items</span></li>
-									<li ng-click="showOption('questiondetail')">What is "Zoom? and why is it important"</li>
-									<li ng-click="showOption('questiondetail')">What browsers do you recommend for using your site?</li>
+									<li ng-click="showOptionTab('questiondetail')">Pick up for Ship to Store</span></li>
+									<li ng-click="showOptionTab('questiondetail')">Face detection technology</li>
+									<li ng-click="showOptionTab('questiondetail')">Shipping for large items</span></li>
+									<li ng-click="showOptionTab('questiondetail')">What is "Zoom? and why is it important"</li>
+									<li ng-click="showOptionTab('questiondetail')">What browsers do you recommend for using your site?</li>
 								</ul>	
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOption('questiondetail')">Changing Billing Information</span></li>
-									<li ng-click="showOption('questiondetail')">Changing Email Address and Password</li>
-									<li ng-click="showOption('questiondetail')">Changing Shipping Information</span></li>
-									<li ng-click="showOption('questiondetail')">My item arrived damaged. What do I do now?</li>
-									<li ng-click="showOption('questiondetail')">What exceptions are there to returning my item(s)?</li>
+									<li ng-click="showOptionTab('questiondetail')">Changing Billing Information</span></li>
+									<li ng-click="showOptionTab('questiondetail')">Changing Email Address and Password</li>
+									<li ng-click="showOptionTab('questiondetail')">Changing Shipping Information</span></li>
+									<li ng-click="showOptionTab('questiondetail')">My item arrived damaged. What do I do now?</li>
+									<li ng-click="showOptionTab('questiondetail')">What exceptions are there to returning my item(s)?</li>
 								</ul>	
 							</li>
 						</ul>
@@ -546,13 +548,13 @@
  <!--Index page custom section end--> 
  
  <!-- Topic Listing Start-->
-   <div class="row-container-full-width mtop30" ng-if = "type == 'topiclist'"> 
+   <div class="row-container-full-width mtop30" ng-if = "tabtype == 'topiclist'"> 
 		<div class="row">
 			<div class="col-md-12">
 			    <div class="container text-center">
 				    <div class="breadcrumb-container">
 						<ol class="breadcrumb">
-						  <li><a href="#" ng-click="showOption('home')">Home</a></li>
+						  <li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
 						  <li class="active">Topic List</li>
 						</ol>
 					</div>
@@ -566,15 +568,15 @@
 							</div>
 						 </div>	
 						 <div class="col-md-4">
-							<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 								<h2 class="root-topic">iService All Topics <span>(12)</span></h2>
 								<ul class="topic-list">
 									<li>
 										<ul>
-											<li ng-click="showOption('topiclistquestion')">_Feedback <span>(5)</span></li>
-											<li ng-click="showOption('topiclistquestion')">iService All Topics<span>(0)</span></li>
-											<li ng-click="showOption('topiclistquestion')">Spam <span>(4)</span></li>
-											<li ng-click="showOption('topiclistquestion')">Undelivered <span>(4)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(5)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">iService All Topics<span>(0)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Spam <span>(4)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Undelivered <span>(4)</span></li>
 										</ul>	
 									</li>
 								</ul>
@@ -582,28 +584,28 @@
 							</div>
 						</div>
 						<div class="col-md-4">
-							<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 								<h2 class="root-topic">Products <span>(12)</span></h2>
 								<ul class="topic-list">
 									<li>
 										<ul>
-											<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
-											<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
-											<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
 										</ul>	
 									</li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-4">
-							<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 								<h2 class="root-topic">Account Questions <span>(12)</span></h2>
 								<ul class="topic-list">
 									<li>
 										<ul>
-											<li ng-click="showOption('topiclistquestion')">Open Quotes <span>(5)</span></li>
-											<li ng-click="showOption('topiclistquestion')">Shipping<span>(0)</span></li>
-											<li ng-click="showOption('topiclistquestion')">Technical <span>(4)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Open Quotes <span>(5)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Shipping<span>(0)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Technical <span>(4)</span></li>
 										</ul>	
 									</li>
 								</ul>
@@ -611,14 +613,14 @@
 						</div>
 						<div class="clearfix"></div>
 						<div class="col-md-4">
-							<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 								<h2 class="root-topic">Products <span>(12)</span></h2>
 								<ul class="topic-list">
 									<li>
 										<ul>
-											<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
-											<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
-											<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+											<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
 										</ul>	
 									</li>
 								</ul>
@@ -636,43 +638,43 @@
 								</div>
 							 </div>	
 							 <div class="col-md-4">
-								<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+								<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 									<h2 class="root-topic">iService All Topics <span>(12)</span></h2>
 									<ul class="topic-list">
 										<li>
 											<ul>
-												<li ng-click="showOption('topiclistquestion')">_Feedback <span>(5)</span></li>
-												<li ng-click="showOption('topiclistquestion')">iService All Topics<span>(0)</span></li>
-												<li ng-click="showOption('topiclistquestion')">Spam <span>(4)</span></li>
-												<li ng-click="showOption('topiclistquestion')">Undelivered <span>(4)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(5)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">iService All Topics<span>(0)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Spam <span>(4)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Undelivered <span>(4)</span></li>
 											</ul>	
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="col-md-4">
-								<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+								<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 									<h2 class="root-topic">Products <span>(12)</span></h2>
 									<ul class="topic-list">
 										<li>
 											<ul>
-												<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
-												<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
-												<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
 											</ul>	
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="col-md-4">
-								<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+								<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 									<h2 class="root-topic">Account Questions <span>(12)</span></h2>
 									<ul class="topic-list">
 										<li>
 											<ul>
-												<li ng-click="showOption('topiclistquestion')">Open Quotes <span>(5)</span></li>
-												<li ng-click="showOption('topiclistquestion')">Shipping<span>(0)</span></li>
-												<li ng-click="showOption('topiclistquestion')">Technical <span>(4)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Open Quotes <span>(5)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Shipping<span>(0)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Technical <span>(4)</span></li>
 											</ul>	
 										</li>
 									</ul>
@@ -680,14 +682,14 @@
 							</div>
 							<div class="clearfix"></div>
 							<div class="col-md-4">
-								<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+								<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
 									<h2 class="root-topic">Products <span>(12)</span></h2>
 									<ul class="topic-list">
 										<li>
 											<ul>
-												<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
-												<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
-												<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+												<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
 											</ul>	
 										</li>
 									</ul>
@@ -705,15 +707,15 @@
 
 
   <!-- Topic Listing Start-->
- <div class="row-container-full-width mtop30" ng-if = "type == 'topiclistquestion'">
+ <div class="row-container-full-width mtop30" ng-if = "tabtype == 'topiclistquestion'">
 	<div class="row">
 		  <div class="col-md-12">
 			  <div class="container text-center">
 				 
 				  <div class="breadcrumb-container">
 					<ol class="breadcrumb">
-					  <li><a href="#" ng-click="showOption('home')"> Home</a></li>
-					  <li><a href="#" ng-click="showOption('topiclist')"> Topic List</a></li>
+					  <li><a href="#" ng-click="showOptionTab('home')"> Home</a></li>
+					  <li><a href="#" ng-click="showOptionTab('topiclist')"> Topic List</a></li>
 					  <li class="active">All Topic</li>
 					</ol>
 				  </div>
@@ -739,7 +741,7 @@
                                   </th>
 								 </thead>
 								  <tbody>
-										<tr ng-click="showOption('questiondetail')">
+										<tr ng-click="showOptionTab('questiondetail')">
 										  <td>
 											  <div class="question-list">
 												   <div class="question-title">Access rights for creating new segments</div>
@@ -755,7 +757,7 @@
 											property1
 										  </td>
 										</tr>
-										<tr ng-click="showOption('questiondetail')">
+										<tr ng-click="showOptionTab('questiondetail')">
 										  <td>
 											  <div class="question-list">
 												   <div class="question-title">Adding a file attachment to email using iService web services</div>
@@ -791,7 +793,7 @@
 				 
 				  <div class="breadcrumb-container">
 					<ol class="breadcrumb">
-					  <li><a href="#" ng-click="showOption('home')"> Home</a></li>
+					  <li><a href="#" ng-click="showOptionTab('home')"> Home</a></li>
 					  <li class="active">Search Results</li>
 					</ol>
 				  </div>
@@ -817,7 +819,7 @@
                                   </th>
 								 </thead>
 								  <tbody>
-										<tr ng-click="showOption('questiondetail')">
+										<tr ng-click="showOptionTab('questiondetail')">
 										  <td>
 											  <div class="question-list">
 												   <div class="question-title">Access rights for creating new segments</div>
@@ -833,7 +835,7 @@
 											property1
 										  </td>
 										</tr>
-										<tr ng-click="showOption('questiondetail')">
+										<tr ng-click="showOptionTab('questiondetail')">
 										  <td>
 											  <div class="question-list">
 												   <div class="question-title">Adding a file attachment to email using iService web services</div>
@@ -860,19 +862,19 @@
 			  </div>
 		  </div>	
 	</div>	
-   </div>
+
   <!-- Search Results End-->
   
   
   <!-- Question Detail Start-->
-  <div class="row-container-full-width mtop30" ng-if = "type == 'questiondetail'">
+  <div class="row-container-full-width mtop30" ng-if = "tabtype == 'questiondetail'">
 	<div class="row">
 		  <div class="col-md-12">
 			  <div class="container">
 				 <div class="breadcrumb-container">
 						<ol class="breadcrumb">
-						  <li><a href="#" ng-click="showOption('home')">Home</a></li>
-						  <li><a href=""  ng-click="showOption('topiclist')">Topic List</a></li>
+						  <li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
+						  <li><a href=""  ng-click="showOptionTab('topiclist')">Topic List</a></li>
 						  <li class="active">What are...</li>
 						</ol>
 				</div>
@@ -932,12 +934,12 @@ Why can't I add a new contact?<br><br>
 						<ul  class="question-list">
 							<li>
 								<ul class="related-article">
-									<li  ng-click="showOption('questiondetail')">_QA Site Service Level Testing Setup Information</li>
-									<li  ng-click="showOption('questiondetail')"> All topics article - 25,000 subscriber test</li>
-									<li  ng-click="showOption('questiondetail')"> _QA Site Service Level Testing Setup Information</li>
-									<li  ng-click="showOption('questiondetail')"> All topics article - 25,000 subscriber test</li>
-									<li  ng-click="showOption('questiondetail')"> _QA Site Service Level Testing Setup Information</li>
-									<li  ng-click="showOption('questiondetail')"> All topics article - 25,000 subscriber test</li>
+									<li  ng-click="showOptionTab('questiondetail')">_QA Site Service Level Testing Setup Information</li>
+									<li  ng-click="showOptionTab('questiondetail')"> All topics article - 25,000 subscriber test</li>
+									<li  ng-click="showOptionTab('questiondetail')"> _QA Site Service Level Testing Setup Information</li>
+									<li  ng-click="showOptionTab('questiondetail')"> All topics article - 25,000 subscriber test</li>
+									<li  ng-click="showOptionTab('questiondetail')"> _QA Site Service Level Testing Setup Information</li>
+									<li  ng-click="showOptionTab('questiondetail')"> All topics article - 25,000 subscriber test</li>
 								</ul>	
 							</li>
 						</ul>	
@@ -950,14 +952,14 @@ Why can't I add a new contact?<br><br>
   <!-- Question Detail End-->
 
 <!--My Subscription-->
-	<div class="row-container-full-width mtop30" ng-if = "type == 'subscription'">
+	<div class="row-container-full-width mtop30" ng-if = "tabtype == 'subscription'">
 		<div class="row">
 				<div class="col-md-12">
 					<div class="container">
 						<div class="breadcrumb-container">
 							<ol class="breadcrumb">
-								<li><a href="#" ng-click="showOption('home')">Home</a></li>
-								<li><a href=""  ng-click="showOption('topiclist')">My Subscription</a></li>
+								<li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
+								<li><a href=""  ng-click="showOptionTab('topiclist')">My Subscription</a></li>
 							</ol>
 					    </div>
 					    <h2 class="heading page-sub-heading text-left text-blue">Mailing List</h2>
@@ -1046,14 +1048,14 @@ Why can't I add a new contact?<br><br>
 	</div>
 <!--My Subscription-->
 <!--My Details-->
-	<div class="row-container-full-width mtop30" ng-if = "type == 'profile'">
+	<div class="row-container-full-width mtop30" ng-if = "tabtype == 'profile'">
 		<div class="row">
 				<div class="col-md-12">
 					<div class="container">
 						<div class="breadcrumb-container">
 							<ol class="breadcrumb">
-								<li><a href="#" ng-click="showOption('home')">Home</a></li>
-								<li><a href=""  ng-click="showOption('topiclist')">My Details</a></li>
+								<li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
+								<li><a href=""  ng-click="showOptionTab('topiclist')">My Details</a></li>
 							</ol>
 						</div>
 							<h2 class="heading page-sub-heading text-left text-blue">My Details</h2>
@@ -1261,13 +1263,13 @@ Why can't I add a new contact?<br><br>
 </div>
 <!--My Details-->	  
   <!--Question Form Start-->
-  <div class="row-container-full-width mtop30" ng-if = "type == 'questionform'">
+  <div class="row-container-full-width mtop30" ng-if = "tabtype == 'questionform'">
 	<div class="row">
 		  <div class="col-md-12">
 			  <div class="container">
 			      <div class="breadcrumb-container">
 						<ol class="breadcrumb">
-						  <li><a href="#" ng-click="showOption('home')">Home</a></li>
+						  <li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
 						  <li class="active">Ask Question</li>
 						</ol>
 				  </div>
@@ -1424,14 +1426,555 @@ Why can't I add a new contact?<br><br>
 	</div>	
   </div>
   <!--Question Form End-->
+  <!--message center-->
+  <div class="row-container-full-width mtop30" ng-if = "tabtype == 'history'">
+    <div class="row message-portal">
+            <div class="col-md-12">
+                <div class="container">
+                
+                <div class="breadcrumb-container">
+                    <ol class="breadcrumb">
+                    <li><a href="#" ng-click="showOption('home')"> Home</a></li>
+                    <li><a href="#" ng-click="showOption('topiclist')"> Topic List</a></li>
+                    <li class="active">All Topic</li>
+                    </ol>
+                </div>
+                <div class="row">
+                    <div class="mailbox-container">
+    
+                        <div class="inbox-content" >
+                            <!--INBOX START--> 
+                            <div class="nav-tabs-custom color-tab-icon" ng-if = "type == 'inbox'">
+                                <uib-tabset active="active">
+									<uib-tab>
+									<uib-tab-heading>
+											<i class="fa fa-inbox"></i> Inbox <small class="label pull-right bg-yellow inbox-alert">12</small>
+									</uib-tab-heading>
+									<div class="inbox">
+										<div class="mailbox-controls">
+											<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 20 of 20 entries</div>
+											<div class="pull-right">
+												<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+											</div>
+											<!-- /.pull-right -->
+										</div>
+										<div class="clearfix"></div>
+										<div class="table-responsive mailbox-messages">
+											<div class="button-container button-container2">
+												<a class="btn btn-primary pull-left buttons-custom-color compose-button" ng-click="showOption('composemessage', null, 0);"> <i class="fa fa-plus"></i> COMPOSE</a>
+											</div>
+
+											<div class="notdatatable form-inline ng-isolate-scope" iservice-id-prefix="'TableControls'" viewer="InboxView" show-export="false">
+												<!-- ngIf: viewer.showButtons -->
+												<div class="table-controls table-pagesize table-columns">
+													<label>Show <select  class="form-control" ng-options="+(unit) as unit for unit in [5, 10, 25, 50, 100, 250, 500, 1000]" id="TableControls_PageSize"><option label="5" value="number:5">5</option><option label="10" value="number:10" selected="selected">10</option><option label="25" value="number:25">25</option><option label="50" value="number:50">50</option><option label="100" value="number:100">100</option><option label="250" value="number:250">250</option><option label="500" value="number:500">500</option><option label="1000" value="number:1000">1000</option></select> entries</label>
+												</div>
+												<div class="table-controls  table-filter">
+													<span> Filter by Subject <i class="fa fa-question-circle text-info help-icon ng-scope" uib-tooltip="You can filter the message list by typing text in the filter box. The table will only display results that match your text in the subject column." tooltip-placement="top"></i> </span>
+													<div class="input-group search-mail">
+																		<input iservice-id="Filter"  type="search" class="form-control" placeholder="" id="TableControls_Filter">
+																<span class="input-group-addon"><i class="fa fa-search"></i></span>
+															</div>
+												</div><!-- end ngIf: viewer.showCustomSearch -->
+												</div>
+										<table class="table table-hover">
+											<th>&nbsp;</th>
+											<th>From</th>	
+											<th>Subject</th>
+											<th>&nbsp;</th>
+											<th>Received</th>
+											</thead>			
+											<tbody>
+											<tr class="unread" ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"></td>
+											<td class="mailbox-date">5 mins ago</td>
+											</tr>
+											<tr class="unread" ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">28 mins ago</td>
+											</tr>
+											<tr ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">11 hours ago</td>
+											</tr>
+											<tr ng-click="showOption('readmessage');">
+												<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"></td>
+											<td class="mailbox-date">15 hours ago</td>
+											</tr>
+											<tr class="unread" ng-click="showOption('readmessage');">
+												<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">Yesterday</td>
+											</tr>
+											<tr ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">2 days ago</td>
+											</tr>
+											<tr class="unread" ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">2 days ago</td>
+											</tr>
+											<tr class="unread" ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"></td>
+											<td class="mailbox-date">2 days ago</td>
+											</tr>
+											<tr ng-click="showOption('readmessage');">
+											
+												<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"></td>
+											<td class="mailbox-date">2 days ago</td>
+											</tr>
+											<tr class="unread" ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"></td>
+											<td class="mailbox-date">2 days ago</td>
+											</tr>
+											<tr ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">4 days ago</td>
+											</tr>
+											<tr ng-click="showOption('readmessage');">
+											
+												<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"></td>
+											<td class="mailbox-date">12 days ago</td>
+											</tr>
+											<tr class="unread" ng-click="showOption('readmessage');">
+												<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">12 days ago</td>
+											</tr>
+											<tr class="unread" ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">14 days ago</td>
+											</tr>
+											<tr class="unread" ng-click="showOption('readmessage');">
+											<td class="mailbox-archive"><i class="fa  fa-folder archive" uib-tooltip="Archive" tooltip-placement="right"></i></td>
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">15 days ago</td>
+											</tr>
+											</tbody>
+										</table>
+										<!-- /.table -->
+										</div>
+										<!-- /.mail-box-messages -->
+										<div class="clearfix"></div>
+										<div class="mailbox-controls-bottom">
+											<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 20 of 20 entries</div>
+											<div class="pull-right">
+												<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+											</div>
+											<!-- /.pull-right -->
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									</uib-tab>
+									<uib-tab>
+									<uib-tab-heading>
+											<i class="fa fa-send"></i> Sent 
+									</uib-tab-heading>
+									<div class="inbox">
+										<div class="mailbox-controls">
+											<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 4 of 4 entries</div>
+											<div class="pull-right">
+												<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+											</div>
+											<!-- /.pull-right -->
+										</div>
+										<div class="clearfix"></div>
+										<div class="table-responsive mailbox-messages">
+										<table class="table table-hover">
+											<thead>
+											<th>From</th>	
+											<th>Subject</th>
+											<th>&nbsp;</th>
+											<th>Received</th>
+											</thead>			
+											<tbody>
+											<tr class="" ng-click="showOption('readmessage');">
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"></td>
+											<td class="mailbox-date">5 mins ago</td>
+											</tr>
+											<tr class="" ng-click="showOption('readmessage');">
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">28 mins ago</td>
+											</tr>
+											
+											<tr class="" ng-click="showOption('readmessage');">
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">14 days ago</td>
+											</tr>
+											<tr class="" ng-click="showOption('readmessage');">
+											<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+											<td class="mailbox-subject"> Trying to find a solution to this problem...
+											</td>
+											<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+											<td class="mailbox-date">15 days ago</td>
+											</tr>
+											</tbody>
+										</table>
+										<!-- /.table -->
+										</div>
+										<!-- /.mail-box-messages -->
+										<div class="clearfix"></div>
+										<div class="mailbox-controls-bottom">
+											<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 4 of 4 entries</div>
+											<div class="pull-right">
+												<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+											</div>
+											<!-- /.pull-right -->
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									</uib-tab>
+									<uib-tab>
+										<uib-tab-heading>
+												<i class="fa  fa-folder"></i> Archived
+										</uib-tab-heading>
+										<div class="inbox">
+											<div class="mailbox-controls">
+												<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 5 of 5 entries</div>
+												<div class="pull-right">
+													<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+												</div>
+												<!-- /.pull-right -->
+											</div>
+											<div class="clearfix"></div>
+											<div class="table-responsive mailbox-messages">
+												
+											<table class="table table-hover">
+												<thead>
+												<th>From</th>	
+												<th>Subject</th>
+												<th>&nbsp;</th>
+												<th>Received</th>
+												</thead>			
+												<tbody>
+												<tr class="" ng-click="showOption('readmessage');">
+												<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+												<td class="mailbox-subject"> Trying to find a solution to this problem...
+												</td>
+												<td class="mailbox-attachment"></td>
+												<td class="mailbox-date">5 mins ago</td>
+												</tr>
+												<tr class="" ng-click="showOption('readmessage');">
+												<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+												<td class="mailbox-subject"> Trying to find a solution to this problem...
+												</td>
+												<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+												<td class="mailbox-date">28 mins ago</td>
+												</tr>
+												
+												<tr class="" ng-click="showOption('readmessage');">
+												<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+												<td class="mailbox-subject"> Trying to find a solution to this problem...
+												</td>
+												<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+												<td class="mailbox-date">14 days ago</td>
+												</tr>
+												<tr class="" ng-click="showOption('readmessage');">
+												<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+												<td class="mailbox-subject"> Trying to find a solution to this problem...
+												</td>
+												<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+												<td class="mailbox-date">15 days ago</td>
+												</tr>
+												<tr class="" ng-click="showOption('readmessage');">
+												<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+												<td class="mailbox-subject"> Trying to find a solution to this problem...
+												</td>
+												<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+												<td class="mailbox-date">15 days ago</td>
+												</tr>
+												</tbody>
+											</table>
+											<!-- /.table -->
+											</div>
+											<!-- /.mail-box-messages -->
+											<div class="clearfix"></div>
+											<div class="mailbox-controls-bottom">
+												<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 5 of 5 entries</div>
+												<div class="pull-right">
+													<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+												</div>
+												<!-- /.pull-right -->
+											</div>
+											<div class="clearfix"></div>
+										</div>
+									</uib-tab> 
+                                </uib-tabset>
+                            </div>		  
+                            <!--INBOX END-->
+                            <!--READ MESSAGE START-->
+                            <div class="message-panel" ng-if="type == 'readmessage'">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box box-primary">
+                                        <div class="box-header with-border">
+                                        <h3 class="box-title"><i class="fa fa-envelope-open"></i> Trying to find a solution to this problem</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="from-container mb-15">
+                                                <div class="message-info">
+                                                <b>From : </b>Customer Lending Team<br>
+                                                9/15/2020 11.03 AM
+                                                </div>
+                                            </div>
+                                            <div class="message-body-container mb-15">
+                                            <div class="message-box">
+                                                <div class="message-box-body"> 
+                                                    <div class="clear"></div>
+                                                    <div>										   
+                                                        <p>Hello,<br>
+                                                        I'm looking for a flat screen. Any suggestions?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="message-attachments">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-15">
+                                                    <b> <i class="fa fa-paperclip attachment-icon mr-15"></i></b> 
+                                                    <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> 
+                                                    <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a>
+                                                    <a href="" class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> 
+                                                </div>
+                                            </div>   
+                                            </div>
+                                        </div>
+                                        <div class="box-footer">
+                                        <button type="button" class="btn btn-primary mr-15" ng-click="showOption('replymessage');"><i class="fa fa-reply"></i> Reply</button>
+                                        <button type="button" class="btn mr-15"><i class="fa  fa-trash"></i> Delete</button>
+                                        <button type="button" class="btn btn-link" ng-click="showOption('inbox')">Close</button>
+                                    </div>
+                                </div>
+                            </div>   
+                            </div>
+                            
+                            </div>
+                            <!--READ MESSAGE END-->
+                            
+                            <!--REPLY MESSAGE START-->
+                            <div class="message-panel" ng-if="type == 'replymessage'">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box box-primary">
+                                        <div class="box-header with-border">
+                                        <h3 class="box-title"><i class="fa fa-reply"></i> Compose A Reply</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="message-body-container mb-15">
+                                            <div class="row form-horizontal">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Subject</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" value="Re:Trying to find solution">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Body</label>
+                                                    <div class="col-sm-12">
+                                                        <textarea class="form-control"  ckeditor="options">
+                                                            &nbsp;
+                                                            <br />
+                                                            <br />
+                    
+                                                            <div>On 8/25/2020 1:59 PM, Customer 7 &lt;customer7@qavmmail02&gt; wrote:
+                                                            <br /><br />
+                                                            <blockquote style="border-left: 4px solid #cccccc; margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+                                                            <div>Hello,<br /><br />
+                                                            I'm looking for a flat screen. Any suggestions?<br />
+                                                            <br />
+                                                            &nbsp;</div>
+                                                            </blockquote>
+                                                            </div>
+                    
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="message-attachments">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6 mb-15">
+                                                    <label class="drop-box">
+                                                        Drop files here or click to upload
+                                                        <input type="file" class="ng-hide" multiple="">
+                                                    </label>
+                                                    <div>(Maximum 10 MB upload at one time.)</div>
+                                                    <div class="imageuploadify">
+                                                        <!-- ngRepeat: file in files -->
+                                                    </div>
+                                                </div>
+                                            </div>   
+                                            </div>
+                                        </div>
+                                        <div class="box-footer">
+                                        <button type="button" class="btn btn-primary mr-15" ><i class="fa fa-send"></i> Send</button>
+                                        <button type="button" class="btn mr-15"><i class="fa  fa-trash"></i> Delete</button>
+                                        <button type="button" class="btn btn-link" ng-click="showOption('inbox')">Close</button>
+                                    </div>
+                                </div>
+                            </div>   
+                            </div>
+                            
+                            </div>
+                        <!--REPLY MESSAGE END-->
+                        
+                        <!--COMPOSE MESSAGE START-->
+                            <div class="message-panel" ng-if="type == 'composemessage'">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box box-primary">
+                                        <div class="box-header with-border">
+                                        <h3 class="box-title"><i class="fa fa-plus"></i> Compose New Message</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="message-body-container mb-15">
+                                            <div class="row form-horizontal">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Topic</label>
+                                                    <div class="col-sm-12" ng-controller="TopicCtrl as ctrl">
+                                                        <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic" ng-disabled>
+                                                            <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+                                                            <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{{ item.disabled}}" >
+                                                            <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{{ item.topiclevel }}{{ item.disabled }}"  ng-bind-html="item.name | highlight: $select.search">{{ item.name }}</span>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Subject</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" value="Re:Trying to find solution">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-12 control-label text-left">Body</label>
+                                                    <div class="col-sm-12">
+                                                        <textarea class="form-control" ckeditor="options"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="message-attachments">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6 col-lg-6 mb-15">
+                                                    <label class="drop-box">
+                                                        Drop files here or click to upload
+                                                        <input type="file" class="ng-hide" multiple="">
+                                                    </label>
+                                                    <div>(Maximum 10 MB upload at one time.)</div>
+                                                    <div class="imageuploadify">
+                                                        <!-- ngRepeat: file in files -->
+                                                    </div>
+                                                </div>
+                                            </div>   
+                                            </div>
+                                        </div>
+                                        <div class="box-footer">
+                                        <button type="button" class="btn btn-primary  buttons-custom-color mr-15" ><i class="fa fa-send"></i> Send</button>
+                                        <button type="button" class="btn mr-15"><i class="fa  fa-trash"></i> Delete</button>
+                                        <button type="button" class="btn btn-link" ng-click="showOption('inbox')">Close</button>
+                                    </div>
+                                </div>
+                            </div>   
+                            </div>
+                            
+                            </div>
+                        <!--COMPOSE MESSAGE END-->
+                        </div>	
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--message center-->
+
 
   <!-- Topic Listing End-->
-  <div class="row-container-full-width" ng-if = "type == 'home'" ng-init = "type = 'home'">
+  <div class="row-container-full-width" ng-if = "tabtype == 'home'" ng-init = "tabtype = 'home'">
 	  <div class="row">
 			<div class="col-md-12">
 				<div class="container text-center ask-question-container">
 					<h1 class="heading page-sub-heading">Not Finding What You Need ?</h1>
-					<button class="btn btn-primary btn-custom-lg mtop30"  ng-click="showOption('questionform')">Ask A Question ?</button>
+					<button class="btn btn-primary btn-custom-lg mtop30"  ng-click="showOptionTab('questionform')">Ask A Question ?</button>
 				</div>
 			</div>	
 	  </div>	

@@ -1,7 +1,7 @@
 var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimate','ui.select','datatables', 'datatables.bootstrap', 'datatables.buttons']);
 
  app.controller('knowledgebaseCtrl', function ($scope, $window,$uibModal, DTOptionsBuilder, DTColumnDefBuilder) {
-    $scope.type = 'home';
+    $scope.tabtype = 'home';
 	$scope.openPreviewModal  = function(){
 	  $uibModal.open({
 		templateUrl : 'preview.html',
@@ -22,11 +22,11 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 				return headCell.dataset.noColVis === undefined;
 			}
 		}]);
-	$scope.showOption = function (segmentName)
+	$scope.showOptionTab = function (segmentName)
 	{ 
-	   $scope.type = segmentName;
-	   $scope.config = {}; 
-            $scope.config.toolbarGroups = [
+		$scope.tabtype = segmentName;
+		$scope.config = {}; 
+			$scope.config.toolbarGroups = [
 			{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 			{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
 			{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
@@ -37,6 +37,20 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 		angular.element(document.querySelectorAll(".top-menu-section a")).removeClass("selected");
 	
 		this.addActive(segmentName);
+			// 
+	};
+	$scope.showOption = function (segmentName)
+	{   
+	   $scope.type = segmentName;
+	   $scope.config = {}; 
+            $scope.config.toolbarGroups = [
+			{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+			{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+			{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+			{ name: 'forms', groups: [ 'forms' ] },
+			{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+			{ name: 'links', groups: [ 'links' ] }
+		];
 		 // 
 	};
 
@@ -84,6 +98,7 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			$scope.questionform = false;
 			$scope.history = true;
 			$scope.profile = false;
+
 		}
 		if(segmentName == 'profile'){
 			$scope.home = false;
@@ -121,6 +136,5 @@ vm.topicselected = {selected : "Select or search for a topic in the list ..."};
 	{name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
 ];
 });
-
 
 
