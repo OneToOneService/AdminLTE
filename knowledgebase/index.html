@@ -220,8 +220,8 @@
 				</div>
 				<div class="clearfix"></div>
 				<!--top menu section-->
-				<div ng-if = "tabtype == 'home'" ng-init = "tabtype = 'home'">
-					<h1 class="text-center mtop30">iService Knowledge Base</h1>
+				<div ng-if = "tabtype == 'home' || tabtype=='topiclist'" ng-init = "tabtype = 'home'" >
+					<h1 class="text-center mtop30">Knowledge Base</h1>
 					<div class="search-container">
 						<div class="search-container">
 							<div class="input-group knowledge-search-box">
@@ -327,41 +327,41 @@
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(5)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">iService All Topics<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Spam <span>(4)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Undelivered <span>(4)</span></li>
+									<li ng-click="showOption('topiclistquestion')">_Feedback <span>(5)</span></li>
+									<li ng-click="showOption('topiclistquestion')">iService All Topics<span>(0)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Spam <span>(4)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Undelivered <span>(4)</span></li>
 								</ul>	
 							</li>
 						</ul>
-						<span class="link-color pointer" ng-click="showOptionTab('topiclist')">...9 More Topics</span>
+						<span class="link-color pointer" ng-click="showOption('topiclist')">...9 More Topics</span>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
 					    <h2 class="root-topic">Products</h2>
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">cancellation <span>(4)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+									<li ng-click="showOption('topiclistquestion')">cancellation <span>(4)</span></li>
 								</ul>	
 							</li>
 						</ul>
-						<span class="link-color pointer" ng-click="showOptionTab('topiclist')">...5 More Topics</span>
+						<span class="link-color pointer" ng-click="showOption('topiclist')">...5 More Topics</span>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+					<div class="topic-listing" ng-click="showOption('topiclistquestion')">
 					    <h2 class="root-topic">Account Questions</h2>
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">Open Quotes <span>(5)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Shipping<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Technical <span>(4)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Open Quotes <span>(5)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Shipping<span>(0)</span></li>
+									<li ng-click="showOption('topiclistquestion')">Technical <span>(4)</span></li>
 								</ul>	
 							</li>
 						</ul>

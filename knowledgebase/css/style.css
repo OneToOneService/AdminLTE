@@ -1353,3 +1353,20 @@ ul.suggested-question-list li{list-style: none; width:100%; float: left;    marg
   .top-menu-section a{width:100%; text-align: left;}
   .showmenu{display: block  !important;}
 }
+
+/*kb support tabs*/
+
+
+.kb-support-tabs  .nav>li>a{
+  border:none;
+  font-size:17px;
+  padding:0px;
+  padding-bottom: 4px;
+}
+.kb-support-tabs .nav-tabs>li.active>a,.kb-support-tabs .nav-tabs>li.active>a:focus,.kb-support-tabs .nav-tabs>li.active>a:hover{
+
+}
+.kb-support-tabs .nav-tabs>li.active>a{border-bottom:3px solid #f7941d; }
+.kb-support-tabs .nav-tabs>li.active>a i{ color: #f7941d;}
+.kb-support-tabs .nav-tabs>li a i{font-size:24px;margin-right:5px;}
+/*kb support tabls*/
