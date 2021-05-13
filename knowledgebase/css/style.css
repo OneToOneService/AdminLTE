@@ -1084,7 +1084,7 @@ transition: ease 0.8s;}
 /*Ask Question Container */
 
 /*Topic listing*/
-.root-topic{font-size:18px; background:#daf1fe; padding:8px 15px 8px 15px; text-align:left; margin-bottom: 0px;}
+.root-topic{font-size:18px; cursor: pointer; background:#daf1fe; padding:8px 15px 8px 15px; text-align:left; margin-bottom: 0px;}
 .text-color-segment-heading{  color: #3c8dbc; border-bottom: 2px solid #3c8dbc; padding-bottom: 3px; width: auto; display: inline-block; float:left ; font-size:20px;}
 .topic-list{text-align: left; font-size: 16px; }
 ul.topic-list{padding:0; margin: 0;padding-left:0px; font-size: 16px; }
@@ -1118,6 +1118,13 @@ ul.question-list ul li:before {
     color: #333;
   }
 .topic-col{width:150px;text-align:left;}
+.all-topic-link{
+  font-size: 16px;
+  margin-top: 15px;
+  text-decoration: underline;
+  color: #3c8dbc;
+  cursor: pointer;
+}
 /*Topic listing*/
 
 /*Question detail start */
@@ -1354,6 +1361,7 @@ ul.suggested-question-list li{list-style: none; width:100%; float: left;    marg
   .showmenu{display: block  !important;}
 }
 
+
 /*kb support tabs*/
 
 
@@ -1363,10 +1371,22 @@ ul.suggested-question-list li{list-style: none; width:100%; float: left;    marg
   padding:0px;
   padding-bottom: 4px;
 }
-.kb-support-tabs .nav-tabs>li.active>a,.kb-support-tabs .nav-tabs>li.active>a:focus,.kb-support-tabs .nav-tabs>li.active>a:hover{
-
+.kb-support-tabs .nav>li>a:hover, .kb-support-tabs .nav>li>a:active, .kb-support-tabs .nav>li>a:focus{
+  color: #3c8dbc;
 }
-.kb-support-tabs .nav-tabs>li.active>a{border-bottom:3px solid #f7941d; }
+.kb-support-tabs .nav-tabs>li>a,.kb-support-tabs .nav-tabs>li>a:focus,.kb-support-tabs .nav-tabs>li>a:hover{
+  border:none;
+  background:none;
+}
+.kb-support-tabs .nav-tabs>li.active>a,.kb-support-tabs .nav-tabs>li.active>a:focus,.kb-support-tabs .nav-tabs>li.active>a:hover{
+  border:none;
+  background:none;
+  color: #3c8dbc;
+}
+
+.kb-support-tabs .nav-tabs>li.active>a{border-bottom:3px solid #f7941d !important; }
+
 .kb-support-tabs .nav-tabs>li.active>a i{ color: #f7941d;}
 .kb-support-tabs .nav-tabs>li a i{font-size:24px;margin-right:5px;}
+.kb-support-tabs .tab-content .tab-pane{background: none;}
 /*kb support tabls*/

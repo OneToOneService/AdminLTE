@@ -208,442 +208,601 @@
 				</div>
 				<div class="clearfix"></div>
 				<!--login section-->
-                <!--top menu section-->
-				<a class="mobile-menu pull-left" ng-click = " showmenu = !showmenu;" ng-init = "showmenu = false"><i class="fa fa-bars"></i></a>
-				<div class="top-menu-section" ng-class="{true:'showmenu'}[showmenu]">
-	              <a href="" class="selected home" ng-click="showOptionTab('home');" ng-class="{true:'selected'}[home]"><i class="fa  fa-home"></i> Support Home</a>
-				  <a href="" class="topiclist" ng-click="showOptionTab('topiclist');" ng-class="{true:'selected'}[topiclist]" ><i class="fa  fa-book"></i> Knowledge Base</a>
-				  <a href="" class="subscription" ng-click="showOptionTab('subscription');" ng-class="{true:'selected'}[subscription]" ><i class="fa  fa-bell-o"></i>My Subscription</a>
-				  <a href="" class="questionform" ng-click="showOptionTab('questionform');" ng-class="{true:'selected'}[questionform]" ><i class="fa  fa-question-circle-o"></i>Ask A Question</a>
-				  <a href="" class="history" ng-click="showOptionTab('history');showOption('inbox');" ng-class="{true:'selected'}[history]" ><i class="fa  fa-history"></i>Access History</a>
-				  <a href=""class="profile"  ng-click="showOptionTab('profile');" ng-class="{true:'selected'}[profile]" ><i class="fa  fa-user-o"></i>Update Profile</a>
-				</div>
-				<div class="clearfix"></div>
-				<!--top menu section-->
-				<div ng-if = "tabtype == 'home' || tabtype=='topiclist'" ng-init = "tabtype = 'home'" >
-					<h1 class="text-center mtop30">Knowledge Base</h1>
-					<div class="search-container">
-						<div class="search-container">
-							<div class="input-group knowledge-search-box">
-								<input class="form-control" placeholder="Search the support knowledge base">
-								<span class="input-group-addon" ng-click="showOption('searchresults')"><i class="fa fa-search"></i></span>
+                <div class="kb-support-tabs">
+					<uib-tabset active="active">
+						<uib-tab>
+							<uib-tab-heading ng-click="showOptionTab('home');">
+								<i class="fa  fa-home"></i> Support Home
+							</uib-tab-heading>
+
+							<!--top menu section-->
+							<div ng-if = "tabtype == 'home' || tabtype=='topiclist'" ng-init = "tabtype = 'home'" >
+								<h1 class="text-center mtop30">Knowledge Base</h1>
+								<div class="search-container">
+									<div class="search-container">
+										<div class="input-group knowledge-search-box">
+											<input class="form-control" placeholder="Search the support knowledge base">
+											<span class="input-group-addon" ng-click="showOptionTab('searchresults')"><i class="fa fa-search"></i></span>
+										</div>
+										<span class="advanced-search-option" ng-click = "openPreviewModal()"> 
+										Advanced Search
+										</span>
+									</div>
+								</div>
+								<div class="advanced-search-container" ng-show="showadvanced">
+									<div class="col-1">
+									<span class="sub-topic-option"> 
+										<input type="checkbox" checked> Include Sub Topics
+									</span>
+								</div>
+								<div class="col-2">
+										<select class="form-control select-topic-box">
+										<option>Select Topic</option>
+										<option></option>
+										</select>
+									</div>
+								</div>
 							</div>
-							<span class="advanced-search-option" ng-click = "openPreviewModal()"> 
-							Advanced Search
-							</span>
-						</div>
-					</div>
-					<div class="advanced-search-container" ng-show="showadvanced">
-						<div class="col-1">
-						<span class="sub-topic-option"> 
-							<input type="checkbox" checked> Include Sub Topics
-						</span>
-					</div>
-					<div class="col-2">
-							<select class="form-control select-topic-box">
-							<option>Select Topic</option>
-							<option></option>
-							</select>
-						</div>
-					</div>
-				</div>
+							<!--top menu section-->
+							<!--Index page custom section start-->
+								<div class="row-container-full-width mtop30" ng-if = "tabtype == 'home'" ng-init = "tabtype = 'home'">
+									<div class="row" >
+										<div class="col-md-12">
+											<div class="content-container">
+												<div class="col-md-4">
+													<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
+														<div class="icon-container">
+															<a href="" target="_blank">
+																<span class="c-icon">
+																	<i class="fa  fa-desktop"></i>
+																</span>
+															</a>   
+														</div>
+														<div class="c-heading"> 
+															Agent User Guide
+														</div>
+														<p class="p-detail" style="height: 50px;">    
+															Set up your account, configure support
+															channels, customize your portal to reflect 
+															your brand and more. 
+														</p>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
+														<div class="icon-container">
+															<a href="" target="_blank">
+																<span class="c-icon">
+																<i class="fa  fa-gears "></i>
+																</span>
+															</a>   
+														</div>
+														<div class="c-heading"> 
+															Customer Portal Setup
+														</div>
+														<p class="p-detail" style="height: 50px;">    
+															Save time and manual effort by 
+															automating mundane tasks in your 
+															helpdesk.
+														</p>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
+														<div class="icon-container">
+															<a href="" target="_blank">
+																<span class="c-icon">
+																<i class="fa  fa-comments-o"></i>
+																</span>
+															</a>   
+														</div>
+														<div class="c-heading"> 
+															Live Chat
+														</div>
+														<p class="p-detail" style="height: 50px;">    
+															Make it easy for customers to reach out
+															via instant messaging by setting up the 
+															live chat channel in Freshdesk.
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div> 
+									
+									<div class="row mtop30">
+										<div class="col-md-12">
+											<div class="content-container">
+												<h1 class="heading page-sub-heading">FAQ's Topic List</h1>		
+												<div class="col-md-4">
+													<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+														<h2 class="root-topic">iService All Topics</h2>
+														<ul class="topic-list">
+															<li>
+																<ul>
+																	<li ng-click="showOption('topiclistquestion')">_Feedback <span>(5)</span></li>
+																	<li ng-click="showOption('topiclistquestion')">iService All Topics<span>(0)</span></li>
+																	<li ng-click="showOption('topiclistquestion')">Spam <span>(4)</span></li>
+																	<li ng-click="showOption('topiclistquestion')">Undelivered <span>(4)</span></li>
+																</ul>	
+															</li>
+														</ul>
+														<span class="link-color pointer" ng-click="showOption('topiclist')">...9 More Topics</span>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+														<h2 class="root-topic">Products</h2>
+														<ul class="topic-list">
+															<li>
+																<ul>
+																	<li ng-click="showOption('topiclistquestion')">Order <span>(5)</span></li>
+																	<li ng-click="showOption('topiclistquestion')">Return<span>(0)</span></li>
+																	<li ng-click="showOption('topiclistquestion')">Refund <span>(4)</span></li>
+																	<li ng-click="showOption('topiclistquestion')">cancellation <span>(4)</span></li>
+																</ul>	
+															</li>
+														</ul>
+														<span class="link-color pointer" ng-click="showOption('topiclist')">...5 More Topics</span>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="topic-listing" ng-click="showOption('topiclistquestion')">
+														<h2 class="root-topic">Account Questions</h2>
+														<ul class="topic-list">
+															<li>
+																<ul>
+																	<li ng-click="showOption('topiclistquestion')">Open Quotes <span>(5)</span></li>
+																	<li ng-click="showOption('topiclistquestion')">Shipping<span>(0)</span></li>
+																	<li ng-click="showOption('topiclistquestion')">Technical <span>(4)</span></li>
+																</ul>	
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="content-container">
+												<button class="btn btn-primary btn-custom-lg" ng-click="showOptionTab('topiclist')">View All Category Topics</button>
+											</div>
+										</div>	
+									</div>
+									
+									<div class="row mtop30">
+										<div class="col-md-12">
+											<div class="content-container">
+												<h1 class="heading page-sub-heading">Top FAQ's</h1>		
+												<div class="col-md-6">
+													<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+														<ul class="topic-list">
+															<li>
+																<ul>
+																	<li ng-click="showOptionTab('questiondetail')">Pick up for Ship to Store</span></li>
+																	<li ng-click="showOptionTab('questiondetail')">Face detection technology</li>
+																	<li ng-click="showOptionTab('questiondetail')">Shipping for large items</span></li>
+																	<li ng-click="showOptionTab('questiondetail')">What is "Zoom? and why is it important"</li>
+																	<li ng-click="showOptionTab('questiondetail')">What browsers do you recommend for using your site?</li>
+																</ul>	
+															</li>
+														</ul>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+														<ul class="topic-list">
+															<li>
+																<ul>
+																	<li ng-click="showOptionTab('questiondetail')">Changing Billing Information</span></li>
+																	<li ng-click="showOptionTab('questiondetail')">Changing Email Address and Password</li>
+																	<li ng-click="showOptionTab('questiondetail')">Changing Shipping Information</span></li>
+																	<li ng-click="showOptionTab('questiondetail')">My item arrived damaged. What do I do now?</li>
+																	<li ng-click="showOptionTab('questiondetail')">What exceptions are there to returning my item(s)?</li>
+																</ul>	
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+									</div>
+									
+									
+									<div class="row mtop30" style="display:none;">
+										<div class="col-md-12 text-center">
+											<div class="container">
+												<h1 class="heading page-sub-heading">iService User Guides</h1>
+												<h3 class="heading-desc">User guides provide detailed inormation about the different roles for iService agents and administrator.</h3>
+											</div>
+										</div>    
+									</div>
+									<section id="services" class="section-padding mtop30" style="display:none;">
+										<div class="container">
+											<div class="body-container">
+												<div class="row">
+													<div class="col-lg-4 col-sm-6" data-aos="fade-up">
+														<div class="box-container">
+															<div class="icon-container">
+																<a href="https://www.iservice.info/guides/users/index.html" target="_blank">
+																<span class="c-icon">
+																	<img class="icon agent" src="images/icon-sprite.png">
+																</span>
+																</a>   
+															</div>    
+															<div class="c-heading"> 
+																Agent User Guide
+															</div>
+															<p class="p-detail">    
+																For agents that use or configure iService
+															</p> 
+															<a href="https://www.iservice.info/guides/users/index.html" class="read-more" target="_blank"> Read More</a> 
+															<div class="container-option">	
+																<div class="btn-option">
+																	<a class="btn-custom" href="https://www.iservice.info/guides/users/userguide.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
+																	</a>
+																	<a class="btn-custom" href="https://www.iservice.info/guides/users/userguide.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
+																	</a>
+																</div>
+																<div class="search-option">
+																	<form name="documentation_search" method="GET" action="user_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
+																		<div class="input-group input-group-sm">
+																		<input name="zoom_query" type="text" class="form-control">
+																		<span class="input-group-btn">
+																			<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+																		</span>
+																		</div>
+																	</form>	
+																</div>
+															</div>
+														</div>    
+													</div>  
+												
+													<div class="col-lg-4 col-sm-6" data-aos="fade-up">
+														<div class="box-container">
+															<div class="icon-container">
+																<a href="https://www.iservice.info/guides/developers/index.html" target="_blank">
+																<span class="c-icon">
+																	<img class="icon forms" src="images/icon-sprite.png">
+																</span>   
+																</a>
+															</div>    
+															<div class="c-heading"> 
+																Forms Developer Guide
+															</div>
+															<p class="p-detail">    
+																Primarily for developers that create custom forms within iService
+															</p> 
+															<a href="https://www.iservice.info/guides/developers/index.html" class="read-more" target="_blank"> Read More</a>
+															<div class="container-option">	
+																<div class="btn-option">
+																	<a class="btn-custom" href="https://www.iservice.info/guides/developers/developers.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
+																	</a>
+																	<a class="btn-custom" href=" https://www.iservice.info/guides/developers/developers.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
+																	</a>
+																</div>
+																<div class="search-option">
+																	<form name="documentation_search" method="GET" action="developers_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
+																		<div class="input-group input-group-sm">
+																		<input name="zoom_query" type="text" class="form-control">
+																		<span class="input-group-btn">
+																			<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+																		</span>
+																		</div>
+																	</form>	
+																</div>
+															</div>
+														</div>    
+													</div>   
+													<div class="col-lg-4 col-sm-6" data-aos="fade-up">
+														<div class="box-container">
+															<div class="icon-container">
+																<a href="http://www.iservice.info/guides/admin/index.html" target="_blank"> 
+																<span class="c-icon">
+																	<img class="icon administration" src="images/icon-sprite.png">
+																</span> 
+																</a>  
+															</div>    
+															<div class="c-heading"> 
+																Technical Guide
+															</div>
+															<p class="p-detail">    
+																For on-premise administrators that install and upgrade iService
+															</p> 
+															<a href="http://www.iservice.info/guides/admin/index.html" class="read-more" target="_blank"> Read More</a> 
+															<div class="container-option">	
+																<div class="btn-option">
+																	<a class="btn-custom" href="https://www.iservice.info/guides/technical/technicalguide.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
+																	</a>
+																	<a class="btn-custom" href="https://www.iservice.info/guides/technical/technicalguide.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
+																	</a>
+									
+																</div>
+																<div class="search-option">
+																	<form name="documentation_search" method="GET" action="technical_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
+																		<div class="input-group input-group-sm">
+																		<input name="zoom_query" type="text" class="form-control">
+																		<span class="input-group-btn">
+																			<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+																		</span>
+																		</div>
+																	</form>	
+																</div>
+															</div>
+														</div>    
+													</div>        
+												
+												</div>  
+											</div>   
+										</div>    
+									</section>
+								
+								</div>
+							<!--Index page custom section end--> 
+						</uib-tab>
+						<uib-tab>
+							<uib-tab-heading ng-click="showOptionTab('topiclist');">
+								<i class="fa  fa-book"></i> Knowledge Base
+							</uib-tab-heading>
+							 <!-- Topic Listing Start-->
+							<div class="row-container-full-width mtop30" ng-if = "tabtype == 'topiclist'"> 
+									<div class="row">
+										<div class="col-md-12">
+											<div class="container text-center">
+												<div class="breadcrumb-container">
+													<ol class="breadcrumb">
+													<li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
+													<li class="active">Topic List</li>
+													</ol>
+												</div>
+												<h1 class="heading page-sub-heading text-left">Knowledge Base Topic Listing</h1>
+												
+												<div class="segment-topic-container">
+												<div class="row">
+													<div class="col-md-12">
+														<div>
+															<h2 class="heading page-sub-heading text-color-segment-heading  text-left">Segment 1</h2>
+														</div>
+													</div>	
+													<div class="col-md-4">
+														<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+															<h2 class="root-topic">iService All Topics <span>(12)</span></h2>
+															<ul class="topic-list">
+																<li>
+																	<ul>
+																		<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(5)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">iService All Topics<span>(0)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">Spam <span>(4)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">Undelivered <span>(4)</span></li>
+																	</ul>	
+																</li>
+															</ul>
+															
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+															<h2 class="root-topic">Products <span>(12)</span></h2>
+															<ul class="topic-list">
+																<li>
+																	<ul>
+																		<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
+																	</ul>	
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+															<h2 class="root-topic">Account Questions <span>(12)</span></h2>
+															<ul class="topic-list">
+																<li>
+																	<ul>
+																		<li ng-click="showOptionTab('topiclistquestion')">Open Quotes <span>(5)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">Shipping<span>(0)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">Technical <span>(4)</span></li>
+																	</ul>	
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="clearfix"></div>
+													<div class="col-md-4">
+														<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+															<h2 class="root-topic">Products <span>(12)</span></h2>
+															<ul class="topic-list">
+																<li>
+																	<ul>
+																		<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+																		<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
+																	</ul>	
+																</li>
+															</ul>
+														</div>
+													</div>
+
+												</div>
+												</div>
+
+												<div class="segment-topic-container">
+													<div class="row">
+														<div class="col-md-12">
+															<div>
+																<h2 class="heading page-sub-heading text-color-segment-heading  text-left">Segment 2</h2>
+															</div>
+														</div>	
+														<div class="col-md-4">
+															<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+																<h2 class="root-topic">iService All Topics <span>(12)</span></h2>
+																<ul class="topic-list">
+																	<li>
+																		<ul>
+																			<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(5)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">iService All Topics<span>(0)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">Spam <span>(4)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">Undelivered <span>(4)</span></li>
+																		</ul>	
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+																<h2 class="root-topic">Products <span>(12)</span></h2>
+																<ul class="topic-list">
+																	<li>
+																		<ul>
+																			<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
+																		</ul>	
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+																<h2 class="root-topic">Account Questions <span>(12)</span></h2>
+																<ul class="topic-list">
+																	<li>
+																		<ul>
+																			<li ng-click="showOptionTab('topiclistquestion')">Open Quotes <span>(5)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">Shipping<span>(0)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">Technical <span>(4)</span></li>
+																		</ul>	
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="clearfix"></div>
+														<div class="col-md-4">
+															<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+																<h2 class="root-topic">Products <span>(12)</span></h2>
+																<ul class="topic-list">
+																	<li>
+																		<ul>
+																			<li ng-click="showOptionTab('topiclistquestion')">Order <span>(5)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">Return<span>(0)</span></li>
+																			<li ng-click="showOptionTab('topiclistquestion')">Refund <span>(4)</span></li>
+																		</ul>	
+																	</li>
+																</ul>
+															</div>
+														</div>
+
+													</div>
+												</div>					
+											</div>	
+										</div>
+									</div>	
+								
+							</div>
+							<!-- Topic Listing End-->
+						
+						</uib-tab>
+						<uib-tab>
+							<uib-tab-heading>
+								<i class="fa  fa-bell-o"></i>My Subscription
+							</uib-tab-heading>
+							<div class="inbox">
+								<div class="mailbox-controls">
+									<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 5 of 5 entries</div>
+									<div class="pull-right">
+										<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+									</div>
+									<!-- /.pull-right -->
+								</div>
+								<div class="clearfix"></div>
+								<div class="table-responsive mailbox-messages">
+									
+								<table class="table table-hover">
+									<thead>
+									<th>From</th>	
+									<th>Subject</th>
+									<th>&nbsp;</th>
+									<th>Received</th>
+									</thead>			
+									<tbody>
+									<tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"></td>
+									<td class="mailbox-date">5 mins ago</td>
+									</tr>
+									<tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">28 mins ago</td>
+									</tr>
+									
+									<tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">14 days ago</td>
+									</tr>
+									<tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">15 days ago</td>
+									</tr>
+									<tr class="" ng-click="showOption('readmessage');">
+									<td class="mailbox-name"><a href="">Alexander Pierce</a></td>
+									<td class="mailbox-subject"> Trying to find a solution to this problem...
+									</td>
+									<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+									<td class="mailbox-date">15 days ago</td>
+									</tr>
+									</tbody>
+								</table>
+								<!-- /.table -->
+								</div>
+								<!-- /.mail-box-messages -->
+								<div class="clearfix"></div>
+								<div class="mailbox-controls-bottom">
+									<div class="dataTables_info pull-left" id="example1_info" role="status" aria-live="polite">Showing 1 to 5 of 5 entries</div>
+									<div class="pull-right">
+										<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">Next</a></li></ul></div>
+									</div>
+									<!-- /.pull-right -->
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</uib-tab> 
+						<uib-tab>
+							<uib-tab-heading>
+								<i class="fa  fa-question-circle-o"></i>Ask A Question
+							</uib-tab-heading>
+						</uib-tab>
+						<uib-tab>
+							<uib-tab-heading>
+								<i class="fa  fa-history"></i>Access History
+							</uib-tab-heading>
+						</uib-tab>
+						<uib-tab>
+							<uib-tab-heading>
+								<i class="fa  fa-user-o"></i>Update Profile
+							</uib-tab-heading>
+						</uib-tab>
+					</uib-tabset>
+
+                </div>
             </div>
 		</div>
 	 </div>	
   </div>
- <!--Index page custom section start-->
-  <div class="row-container-full-width mtop30" ng-if = "type == 'home'" ng-init = "type = 'home'">
-	<div class="row" >
-        <div class="col-md-12">
-			<div class="content-container">
-				<div class="col-md-4">
-					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
-						<div class="icon-container">
-							<a href="" target="_blank">
-								<span class="c-icon">
-									<i class="fa  fa-desktop"></i>
-								</span>
-							</a>   
-						</div>
-						<div class="c-heading"> 
-							Agent User Guide
-						</div>
-						<p class="p-detail" style="height: 50px;">    
-							Set up your account, configure support
-							channels, customize your portal to reflect 
-							your brand and more. 
-						</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
-						<div class="icon-container">
-							<a href="" target="_blank">
-								<span class="c-icon">
-								<i class="fa  fa-gears "></i>
-								</span>
-							</a>   
-						</div>
-						<div class="c-heading"> 
-							Customer Portal Setup
-						</div>
-						<p class="p-detail" style="height: 50px;">    
-							Save time and manual effort by 
-							automating mundane tasks in your 
-							helpdesk.
-						</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
-						<div class="icon-container">
-							<a href="" target="_blank">
-								<span class="c-icon">
-								<i class="fa  fa-comments-o"></i>
-								</span>
-							</a>   
-						</div>
-						<div class="c-heading"> 
-							Live Chat
-						</div>
-						<p class="p-detail" style="height: 50px;">    
-							Make it easy for customers to reach out
-							via instant messaging by setting up the 
-							live chat channel in Freshdesk.
-						</p>
-					</div>
-				</div>
-            </div>
-		</div>
-	</div> 
-	
-	<div class="row mtop30">
-		<div class="col-md-12">
-			<div class="content-container">
-			    <h1 class="heading page-sub-heading">FAQ's Topic List</h1>		
-				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-						<h2 class="root-topic">All Topics <span>(5)</span></h2>
-						<ul class="topic-list">
-							<li>
-								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">_Newsletter Subscription<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">_Spam <span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">_Undeliverable <span>(0)</span></li>
-								</ul>	
-							</li>
-						</ul>
-						<span class="link-color pointer" ng-click="showOptionTab('topiclist')">...2 More Topics</span>
-					</div>
-				</div>
-				 <div class="col-md-4">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-						<h2 class="root-topic">Account Questions <span>(9)</span></h2>
-						<ul class="topic-list">
-							<li>
-								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">Orders <span>(5)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Refunds<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Returns <span>(7)</span></li>
-								</ul>	
-							</li>
-						</ul>
-						
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-						<h2 class="root-topic">Products <span>(12)</span></h2>
-						<ul class="topic-list">
-							<li>
-								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">Audio-Video <span>(5)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Cameras<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Cell Phones <span>(4)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Computers<span>(5)</span></li>
-								</ul>
-								<span class="link-color pointer" ng-click="showOptionTab('topiclist')">...1 More Topics</span>	
-							</li>
-						</ul>
-					</div>
-				</div>
-            </div>
-		</div>
-		<div class="col-md-12">
-			<div class="content-container">
-				<button class="btn btn-primary btn-custom-lg" ng-click="showOptionTab('topiclist')">View All Category Topics</button>
-			</div>
-		</div>	
-	</div>
-	
-	<div class="row mtop30">
-		<div class="col-md-12">
-			<div class="content-container">
-			    <h1 class="heading page-sub-heading">Top FAQ's</h1>		
-				<div class="col-md-6">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-						<ul class="topic-list">
-							<li>
-								<ul>
-									<li ng-click="showOptionTab('questiondetail')">Pick up for Ship to Store</span></li>
-									<li ng-click="showOptionTab('questiondetail')">Face detection technology</li>
-									<li ng-click="showOptionTab('questiondetail')">Shipping for large items</span></li>
-									<li ng-click="showOptionTab('questiondetail')">What is "Zoom? and why is it important"</li>
-									<li ng-click="showOptionTab('questiondetail')">What browsers do you recommend for using your site?</li>
-								</ul>	
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-						<ul class="topic-list">
-							<li>
-								<ul>
-									<li ng-click="showOptionTab('questiondetail')">Changing Billing Information</span></li>
-									<li ng-click="showOptionTab('questiondetail')">Changing Email Address and Password</li>
-									<li ng-click="showOptionTab('questiondetail')">Changing Shipping Information</span></li>
-									<li ng-click="showOptionTab('questiondetail')">My item arrived damaged. What do I do now?</li>
-									<li ng-click="showOptionTab('questiondetail')">What exceptions are there to returning my item(s)?</li>
-								</ul>	
-							</li>
-						</ul>
-					</div>
-				</div>
-            </div>
-		</div>
-	
-	</div>
-	
-	
-	<div class="row mtop30" style="display:none;">
-		<div class="col-md-12 text-center">
-			<div class="container">
-				<h1 class="heading page-sub-heading">iService User Guides</h1>
-				<h3 class="heading-desc">User guides provide detailed inormation about the different roles for iService agents and administrator.</h3>
-			</div>
-		</div>    
-	</div>
-	<section id="services" class="section-padding mtop30" style="display:none;">
-		<div class="container">
-			<div class="body-container">
-				<div class="row">
-					<div class="col-lg-4 col-sm-6" data-aos="fade-up">
-						<div class="box-container">
-							<div class="icon-container">
-								<a href="https://www.iservice.info/guides/users/index.html" target="_blank">
-								<span class="c-icon">
-									<img class="icon agent" src="images/icon-sprite.png">
-								</span>
-								</a>   
-							</div>    
-							<div class="c-heading"> 
-								Agent User Guide
-							</div>
-							<p class="p-detail">    
-								For agents that use or configure iService
-							</p> 
-							<a href="https://www.iservice.info/guides/users/index.html" class="read-more" target="_blank"> Read More</a> 
-							<div class="container-option">	
-								<div class="btn-option">
-									<a class="btn-custom" href="https://www.iservice.info/guides/users/userguide.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
-									</a>
-									<a class="btn-custom" href="https://www.iservice.info/guides/users/userguide.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
-									</a>
-								</div>
-								<div class="search-option">
-									<form name="documentation_search" method="GET" action="user_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
-										<div class="input-group input-group-sm">
-										<input name="zoom_query" type="text" class="form-control">
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
-										</span>
-										</div>
-									</form>	
-								</div>
-							</div>
-						</div>    
-					</div>  
-				
-					<div class="col-lg-4 col-sm-6" data-aos="fade-up">
-						<div class="box-container">
-							<div class="icon-container">
-								<a href="https://www.iservice.info/guides/developers/index.html" target="_blank">
-								<span class="c-icon">
-									<img class="icon forms" src="images/icon-sprite.png">
-								</span>   
-								</a>
-							</div>    
-							<div class="c-heading"> 
-								Forms Developer Guide
-							</div>
-							<p class="p-detail">    
-								Primarily for developers that create custom forms within iService
-							</p> 
-							<a href="https://www.iservice.info/guides/developers/index.html" class="read-more" target="_blank"> Read More</a>
-							<div class="container-option">	
-								<div class="btn-option">
-									<a class="btn-custom" href="https://www.iservice.info/guides/developers/developers.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
-									</a>
-									<a class="btn-custom" href=" https://www.iservice.info/guides/developers/developers.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
-									</a>
-								</div>
-								<div class="search-option">
-									<form name="documentation_search" method="GET" action="developers_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
-										<div class="input-group input-group-sm">
-										<input name="zoom_query" type="text" class="form-control">
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
-										</span>
-										</div>
-									</form>	
-								</div>
-							</div>
-						</div>    
-					</div>   
-					<div class="col-lg-4 col-sm-6" data-aos="fade-up">
-						<div class="box-container">
-							<div class="icon-container">
-								<a href="http://www.iservice.info/guides/admin/index.html" target="_blank"> 
-								<span class="c-icon">
-									<img class="icon administration" src="images/icon-sprite.png">
-								</span> 
-								</a>  
-							</div>    
-							<div class="c-heading"> 
-								Technical Guide
-							</div>
-							<p class="p-detail">    
-								For on-premise administrators that install and upgrade iService
-							</p> 
-							<a href="http://www.iservice.info/guides/admin/index.html" class="read-more" target="_blank"> Read More</a> 
-							<div class="container-option">	
-								<div class="btn-option">
-									<a class="btn-custom" href="https://www.iservice.info/guides/technical/technicalguide.pdf"><i class="fa fa-file-pdf-o"></i>	 PDF				
-									</a>
-									<a class="btn-custom" href="https://www.iservice.info/guides/technical/technicalguide.epub"><i class="fa fa-mobile-phone"></i>	 iPad/iBook				
-									</a>
-	
-								</div>
-								<div class="search-option">
-									<form name="documentation_search" method="GET" action="technical_guide_search/search.html?zoom_query=access&amp;zoom_per_page=10&amp;zoom_and=1&amp;zoom_sort=0">
-										<div class="input-group input-group-sm">
-										<input name="zoom_query" type="text" class="form-control">
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
-										</span>
-										</div>
-									</form>	
-								</div>
-							</div>
-						</div>    
-					</div>        
-				
-				</div>  
-			</div>   
-		 </div>    
-	 </section>
+
  
-   </div>
- <!--Index page custom section end--> 
- 
- <!-- Topic Listing Start-->
-   <div class="row-container-full-width mtop30" ng-if = "type == 'topiclist'"> 
-		<div class="row">
-			<div class="col-md-12">
-			    <div class="container text-center">
-				    <div class="breadcrumb-container">
-						<ol class="breadcrumb">
-						  <li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
-						  <li class="active">Topic List</li>
-						</ol>
-					</div>
-				    <h1 class="heading page-sub-heading text-left">Knowledge Base Topic Listing</h1>
-					
-				    <div class="segment-topic-container">
-                     <div class="row">
-						 <div class="col-md-12">
-							<!--<div>
-								<h2 class="heading page-sub-heading text-color-segment-heading  text-left">Segment 1</h2>
-							</div>--> 
-							<div class="clearfix"></div>
-							<div class="pull-left all-topic-link" ng-click="showOptionTab('topiclistquestion')">
-								View All Topic Questions
-							</div>
-						 </div>	
-						  <div class="col-md-4">
-							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-								<h2 class="root-topic">All Topics <span>(5)</span></h2>
-								<ul class="topic-list">
-									<li>
-										<ul>
-											<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">_Newsletter Subscription<span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">_Spam <span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">_Undeliverable <span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Shipping <span>(14)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Technical Support <span>(5)</span></li>
-										</ul>	
-									</li>
-								</ul>
-								
-							</div>
-						</div>
-						 <div class="col-md-4">
-							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-								<h2 class="root-topic">Account Questions <span>(9)</span></h2>
-								<ul class="topic-list">
-									<li>
-										<ul>
-											<li ng-click="showOptionTab('topiclistquestion')">Orders <span>(5)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Refunds<span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Returns <span>(7)</span></li>
-										</ul>	
-									</li>
-								</ul>
-								
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-								<h2 class="root-topic">Products <span>(12)</span></h2>
-								<ul class="topic-list">
-									<li>
-										<ul>
-											<li ng-click="showOptionTab('topiclistquestion')">Audio-Video <span>(5)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Cameras<span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Cell Phones <span>(4)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Computers<span>(5)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Televisions<span>(0)</span></li>
-										</ul>	
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="col-md-4">
-							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-								<h2 class="root-topic"> 
-									Request a Quote <span>(0)</span></h2>
-								<ul class="topic-list">
-									<li>
-										<ul>
-											<li ng-click="showOptionTab('topiclistquestion')">Open Quotes <span>(0)</span></li>
-										</ul>	
-									</li>
-								</ul>
-							</div>
-						</div>
-                      </div>
-					</div>
-	
-				</div>	
-			</div>
-		</div>	
-	
-   </div>
- <!-- Topic Listing End-->
+
 
 
   <!-- Topic Listing Start-->
@@ -659,7 +818,7 @@
 					  <li class="active">All Topic</li>
 					</ol>
 				  </div>
-				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">All Topics <span class="span-blue">(2)</span></h1>
+				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">All Topics <span class="span-blue">(18)</span></h1>
 				  <div class="segment-topic-container">
                      <div class="row">
 					    <div class="col-md-12">
@@ -737,7 +896,7 @@
 					  <li class="active">Search Results</li>
 					</ol>
 				  </div>
-				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">2 Results Found for  You Search Query</h1>
+				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">36 Results Found for  You Search Query</h1>
 				  <div class="segment-topic-container">
                      <div class="row">
                         <div class="col-md-12">
@@ -1909,7 +2068,7 @@ Why can't I add a new contact?<br><br>
 
 
   <!-- Topic Listing End-->
-  <div class="row-container-full-width" ng-if = "tabtype == 'home' && type == 'home'" ng-init = "tabtype = 'home';">
+  <div class="row-container-full-width" ng-if = "tabtype == 'home'" ng-init = "tabtype = 'home'">
 	  <div class="row">
 			<div class="col-md-12">
 				<div class="container text-center ask-question-container">

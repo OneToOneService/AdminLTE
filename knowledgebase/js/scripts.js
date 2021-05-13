@@ -2,6 +2,7 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 
  app.controller('knowledgebaseCtrl', function ($scope, $window,$uibModal, DTOptionsBuilder, DTColumnDefBuilder) {
     $scope.tabtype = 'home';
+	$scope.type = 'home';
 	$scope.openPreviewModal  = function(){
 	  $uibModal.open({
 		templateUrl : 'preview.html',
@@ -24,7 +25,9 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 		}]);
 	$scope.showOptionTab = function (segmentName)
 	{ 
+		//angular.element(document.querySelectorAll(".top-menu-section a")).removeClass("selected");
 		$scope.tabtype = segmentName;
+		$scope.type = segmentName;
 		$scope.config = {}; 
 			$scope.config.toolbarGroups = [
 			{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
@@ -34,8 +37,7 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
 			{ name: 'links', groups: [ 'links' ] }
 		];
-		angular.element(document.querySelectorAll(".top-menu-section a")).removeClass("selected");
-	
+		
 		this.addActive(segmentName);
 			// 
 	};
