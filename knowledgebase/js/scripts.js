@@ -115,8 +115,7 @@ var tabName = '';
 			$scope.history = true;
 			$scope.profile = false;
 			$scope.breadcrumbItem = "My History";
-			alert("");
- 
+
 		}
 		if(segmentName == 'profile'){
 			$scope.home = false;
