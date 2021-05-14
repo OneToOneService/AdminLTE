@@ -1,8 +1,9 @@
 var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimate','ui.select','datatables', 'datatables.bootstrap', 'datatables.buttons']);
-
+var tabName = '';
  app.controller('knowledgebaseCtrl', function ($scope, $window,$uibModal, DTOptionsBuilder, DTColumnDefBuilder) {
     $scope.tabtype = 'home';
 	$scope.type = 'home';
+	$scope.home = true;
 	$scope.openPreviewModal  = function(){
 	  $uibModal.open({
 		templateUrl : 'preview.html',
@@ -23,8 +24,9 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 				return headCell.dataset.noColVis === undefined;
 			}
 		}]);
-	$scope.showOptionTab = function (segmentName)
-	{ 
+	$scope.showOptionTab = function (segmentName,bredcrumbtext1 = '',bredcrumbtext2 = '')
+	{   
+		//alert(segmentName);
 		//angular.element(document.querySelectorAll(".top-menu-section a")).removeClass("selected");
 		$scope.tabtype = segmentName;
 		$scope.type = segmentName;
@@ -37,13 +39,14 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
 			{ name: 'links', groups: [ 'links' ] }
 		];
-		
 		this.addActive(segmentName);
-			// 
+		$scope.bsegmentName = segmentName;
+		tabName = segmentName;
 	};
-	$scope.showOption = function (segmentName)
-	{   
+	$scope.showOption = function (segmentName,bredcrumbtext1 = '',bredcrumbtext2 = '',bredcrumbtext3 = '' )
+	{  //alert(segmentName); 
 	   $scope.type = segmentName;
+	   if(bredcrumbtext1 == 'Knowledge Base'){ $scope.tabtype = 'topiclist'; this.addActive('topiclist');  }
 	   $scope.config = {}; 
             $scope.config.toolbarGroups = [
 			{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
@@ -54,6 +57,12 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			{ name: 'links', groups: [ 'links' ] }
 		];
 		 // 
+		   $scope.breadcrumbItem = bredcrumbtext1;
+		   $scope.breadcrumbItem2 = bredcrumbtext2;
+		   $scope.breadcrumbItem3 = bredcrumbtext3;
+		   $scope.bsegmentName = tabName;
+		   $scope.bsegmentName2 = segmentName;
+
 	};
 
 	$scope.addActive = function (segmentName)
@@ -66,6 +75,8 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 		  $scope.questionform = false;
 		  $scope.history = false;
 		  $scope.profile = false;
+		  $scope.breadcrumbItem = '';
+
 		}
 		if(segmentName == 'topiclist'){
 			$scope.home = false;
@@ -74,6 +85,7 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			$scope.questionform = false;
 			$scope.history = false;
 			$scope.profile = false;
+			$scope.breadcrumbItem = "Knowledge Base";
 		}
 		if(segmentName == 'subscription')
 		{
@@ -83,6 +95,7 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			$scope.questionform = false;
 			$scope.history = false;
 			$scope.profile = false;
+			$scope.breadcrumbItem = "My Subscription";
 		}
 		if(segmentName == 'questionform'){
 			$scope.home = false;
@@ -91,6 +104,7 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			$scope.questionform = true;
 			$scope.history = false;
 			$scope.profile = false;
+			$scope.breadcrumbItem = "Ask A Question";
 		}
 		if(segmentName == 'history')
 		{
@@ -100,7 +114,9 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			$scope.questionform = false;
 			$scope.history = true;
 			$scope.profile = false;
-
+			$scope.breadcrumbItem = "My History";
+			alert("");
+ 
 		}
 		if(segmentName == 'profile'){
 			$scope.home = false;
@@ -109,6 +125,8 @@ var app = angular.module('myApp', ['ui.bootstrap','iService.directive','ngAnimat
 			$scope.questionform = false;
 			$scope.history = false;
 			$scope.profile = true;
+			$scope.breadcrumbItem = "Profile";
+
 		}
 	}
 			

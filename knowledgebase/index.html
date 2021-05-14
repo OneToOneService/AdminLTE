@@ -82,6 +82,23 @@
 		<div class="col-md-12">
 			<div class="container">
 				<!--login section-->
+				<!--breadcrumb-->
+				<div class="breadcrumb-container pull-left" ng-if = "type == 'home'">
+					<ol class="breadcrumb">
+					  <li><a href="#" ng-click="showOptionTab('home')"> Home</a></li>
+					</ol>
+				</div>
+				
+				<div class="breadcrumb-container pull-left" ng-if = "type != 'home'">
+					<ol class="breadcrumb">
+					  <li><a href="#" ng-click="showOptionTab('home')"> Home</a></li>
+					  <li><a href="#" ng-bind="breadcrumbItem" ng-click="showOptionTab('{{ bsegmentName }}')"></a></li>
+					  <li><a href="#" ng-bind="breadcrumbItem2" ng-click="showOption('{{ bsegmentName2 }}')"></a></li>
+					  <li ng-if="type == 'questiondetail'"><a href="#" ng-bind="breadcrumbItem3" ></a></li>
+					</ol>
+				</div>
+                <!--breadcrumb-->
+				
 				<div class="login_container">
 				  <a href="javascript:void(0)" id="show_login" ng-click="showLogin = true; showRegister = false;showForgetPassword = false; ">Login</a>
 				  <a href="javascript:void(0)" id="show_register" ng-click="showRegister = true; showLogin = false;showForgetPassword = false;">Sign Up</a>
@@ -211,22 +228,22 @@
                 <!--top menu section-->
 				<a class="mobile-menu pull-left" ng-click = " showmenu = !showmenu;" ng-init = "showmenu = false"><i class="fa fa-bars"></i></a>
 				<div class="top-menu-section" ng-class="{true:'showmenu'}[showmenu]">
-	              <a href="" class="selected home" ng-click="showOptionTab('home');" ng-class="{true:'selected'}[home]"><i class="fa  fa-home"></i> Support Home</a>
+	              <a href="" class="home" ng-click="showOptionTab('home');" ng-class="{true:'selected'}[home]"><i class="fa  fa-home"></i> Support Home</a>
 				  <a href="" class="topiclist" ng-click="showOptionTab('topiclist');" ng-class="{true:'selected'}[topiclist]" ><i class="fa  fa-book"></i> Knowledge Base</a>
 				  <a href="" class="subscription" ng-click="showOptionTab('subscription');" ng-class="{true:'selected'}[subscription]" ><i class="fa  fa-bell-o"></i>My Subscription</a>
 				  <a href="" class="questionform" ng-click="showOptionTab('questionform');" ng-class="{true:'selected'}[questionform]" ><i class="fa  fa-question-circle-o"></i>Ask A Question</a>
-				  <a href="" class="history" ng-click="showOptionTab('history');showOption('inbox');" ng-class="{true:'selected'}[history]" ><i class="fa  fa-history"></i>Access History</a>
+				  <a href="" class="history" ng-click="showOptionTab('history');showOption('inbox','Access History');" ng-class="{true:'selected'}[history]" ><i class="fa  fa-history"></i>Access History</a>
 				  <a href=""class="profile"  ng-click="showOptionTab('profile');" ng-class="{true:'selected'}[profile]" ><i class="fa  fa-user-o"></i>Update Profile</a>
 				</div>
 				<div class="clearfix"></div>
 				<!--top menu section-->
-				<div ng-if = "tabtype == 'home' || tabtype=='topiclist'" ng-init = "tabtype = 'home'" >
+				<div ng-if = "tabtype=='topiclist'">
 					<h1 class="text-center mtop30">Knowledge Base</h1>
 					<div class="search-container">
 						<div class="search-container">
 							<div class="input-group knowledge-search-box">
 								<input class="form-control" placeholder="Search the support knowledge base">
-								<span class="input-group-addon" ng-click="showOption('searchresults')"><i class="fa fa-search"></i></span>
+								<span class="input-group-addon" ng-click="showOption('searchresults','Knowledge Base','Search Results')"><i class="fa fa-search"></i></span>
 							</div>
 							<span class="advanced-search-option" ng-click = "openPreviewModal()"> 
 							Advanced Search
@@ -257,7 +274,7 @@
         <div class="col-md-12">
 			<div class="content-container">
 				<div class="col-md-4">
-					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
+					<div class="category-box" ng-click="showOption('topiclistquestion','Knowledge Base','Search Results')">
 						<div class="icon-container">
 							<a href="" target="_blank">
 								<span class="c-icon">
@@ -276,7 +293,7 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
+					<div class="category-box" ng-click="showOption('topiclistquestion','Knowledge Base','Search Results')">
 						<div class="icon-container">
 							<a href="" target="_blank">
 								<span class="c-icon">
@@ -295,7 +312,7 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="category-box" ng-click="showOptionTab('topiclistquestion')">
+					<div class="category-box" ng-click="showOption('topiclistquestion','Knowledge Base','Search Results')">
 						<div class="icon-container">
 							<a href="" target="_blank">
 								<span class="c-icon">
@@ -322,30 +339,14 @@
 			<div class="content-container">
 			    <h1 class="heading page-sub-heading">FAQ's Topic List</h1>		
 				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-						<h2 class="root-topic">All Topics <span>(5)</span></h2>
+					<div class="topic-listing">
+						<h2 class="root-topic" ng-click="showOption('topiclistquestion','Knowledge Base','Account Questions')">Account Questions <span>(9)</span></h2>
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">_Newsletter Subscription<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">_Spam <span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">_Undeliverable <span>(0)</span></li>
-								</ul>	
-							</li>
-						</ul>
-						<span class="link-color pointer" ng-click="showOptionTab('topiclist')">...2 More Topics</span>
-					</div>
-				</div>
-				 <div class="col-md-4">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-						<h2 class="root-topic">Account Questions <span>(9)</span></h2>
-						<ul class="topic-list">
-							<li>
-								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">Orders <span>(5)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Refunds<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Returns <span>(7)</span></li>
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Orders')">Orders <span>(5)</span></li>
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Refunds')">Refunds<span>(0)</span></li>
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Returns')">Returns <span>(7)</span></li>
 								</ul>	
 							</li>
 						</ul>
@@ -353,17 +354,34 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-						<h2 class="root-topic">Products <span>(12)</span></h2>
+					<div class="topic-listing">
+						<h2 class="root-topic" ng-click="showOption('topiclistquestion','Knowledge Base','Products')">Products <span>(12)</span></h2>
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOptionTab('topiclistquestion')">Audio-Video <span>(5)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Cameras<span>(0)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Cell Phones <span>(4)</span></li>
-									<li ng-click="showOptionTab('topiclistquestion')">Computers<span>(5)</span></li>
-								</ul>
-								<span class="link-color pointer" ng-click="showOptionTab('topiclist')">...1 More Topics</span>	
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Audio-Video ')">Audio-Video <span>(6)</span></li>
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Search Results')">Cameras<span>(18)</span></li>
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Cameras')">Cell Phones <span>(8)</span></li>
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Computers')"  ng-show="view_more">Computers<span>(5)</span></li>
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Televisions')"  ng-show="view_more">Televisions<span>(0)</span></li>
+								</ul>	
+							</li>
+						</ul>
+						<div class="view-more">
+							<a class="pull-right" ng-show="!view_more" ng-click="view_more = true;">View More...</a>
+							<a class="pull-right" ng-show="view_more" ng-click="view_more = false;">View Less...</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="topic-listing">
+						<h2 class="root-topic" ng-click="showOption('topiclistquestion','Knowledge Base','Request a Quote')"> 
+							Request a Quote <span>(0)</span></h2>
+						<ul class="topic-list">
+							<li>
+								<ul>
+									<li ng-click="showOption('topiclistquestion','Knowledge Base','Request a Quote')">Request a Quotes <span>(0)</span></li>
+								</ul>	
 							</li>
 						</ul>
 					</div>
@@ -382,30 +400,30 @@
 			<div class="content-container">
 			    <h1 class="heading page-sub-heading">Top FAQ's</h1>		
 				<div class="col-md-6">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+					<div class="topic-listing">
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOptionTab('questiondetail')">Pick up for Ship to Store</span></li>
-									<li ng-click="showOptionTab('questiondetail')">Face detection technology</li>
-									<li ng-click="showOptionTab('questiondetail')">Shipping for large items</span></li>
-									<li ng-click="showOptionTab('questiondetail')">What is "Zoom? and why is it important"</li>
-									<li ng-click="showOptionTab('questiondetail')">What browsers do you recommend for using your site?</li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','Pick up..')">Pick up for Ship to Store</span></li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','Face detection..')">Face detection technology</li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','Shipping for..')">Shipping for large items</span></li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','Shipping for..')">Shipping for"Zoom? and why is it important"</li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','What browsers..')">What browsers do you recommend for using your site?</li>
 								</ul>	
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
+					<div class="topic-listing">
 						<ul class="topic-list">
 							<li>
 								<ul>
-									<li ng-click="showOptionTab('questiondetail')">Changing Billing Information</span></li>
-									<li ng-click="showOptionTab('questiondetail')">Changing Email Address and Password</li>
-									<li ng-click="showOptionTab('questiondetail')">Changing Shipping Information</span></li>
-									<li ng-click="showOptionTab('questiondetail')">My item arrived damaged. What do I do now?</li>
-									<li ng-click="showOptionTab('questiondetail')">What exceptions are there to returning my item(s)?</li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','Changing Billing..')">Changing Billing Information</span></li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','Changing Email..')">Changing Email Address and Password</li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','Changing Shipping..')">Changing Shipping Information</span></li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','My item..')">My item arrived damaged. What do I do now?</li>
+									<li ng-click="showOption('questiondetail','Knowledge Base', 'Topic','What exceptions..')">What exceptions are there to returning my item(s)?</li>
 								</ul>	
 							</li>
 						</ul>
@@ -552,88 +570,83 @@
    <div class="row-container-full-width mtop30" ng-if = "type == 'topiclist'"> 
 		<div class="row">
 			<div class="col-md-12">
-			    <div class="container text-center">
-				    <div class="breadcrumb-container">
-						<ol class="breadcrumb">
-						  <li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
-						  <li class="active">Topic List</li>
-						</ol>
-					</div>
-				    <h1 class="heading page-sub-heading text-left">Knowledge Base Topic Listing</h1>
-					
+			    <div class="container">
 				    <div class="segment-topic-container">
                      <div class="row">
 						 <div class="col-md-12">
-							<!--<div>
-								<h2 class="heading page-sub-heading text-color-segment-heading  text-left">Segment 1</h2>
-							</div>--> 
-							<div class="clearfix"></div>
-							<div class="pull-left all-topic-link" ng-click="showOptionTab('topiclistquestion')">
-								View All Topic Questions
+							<div class="pull-left all-topic-link mbottom15" ng-click="showOption('topiclistquestion','Knowledge Base','All articles')">
+								Click on a topic to browse its articles. Or <a href="">view all the articles</a> in the knowledge base.
 							</div>
-						 </div>	
-						  <div class="col-md-4">
-							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-								<h2 class="root-topic">All Topics <span>(5)</span></h2>
-								<ul class="topic-list">
-									<li>
-										<ul>
-											<li ng-click="showOptionTab('topiclistquestion')">_Feedback <span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">_Newsletter Subscription<span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">_Spam <span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">_Undeliverable <span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Shipping <span>(14)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Technical Support <span>(5)</span></li>
-										</ul>	
-									</li>
-								</ul>
-								
-							</div>
-						</div>
-						 <div class="col-md-4">
-							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-								<h2 class="root-topic">Account Questions <span>(9)</span></h2>
-								<ul class="topic-list">
-									<li>
-										<ul>
-											<li ng-click="showOptionTab('topiclistquestion')">Orders <span>(5)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Refunds<span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Returns <span>(7)</span></li>
-										</ul>	
-									</li>
-								</ul>
-								
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-								<h2 class="root-topic">Products <span>(12)</span></h2>
-								<ul class="topic-list">
-									<li>
-										<ul>
-											<li ng-click="showOptionTab('topiclistquestion')">Audio-Video <span>(5)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Cameras<span>(0)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Cell Phones <span>(4)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Computers<span>(5)</span></li>
-											<li ng-click="showOptionTab('topiclistquestion')">Televisions<span>(0)</span></li>
-										</ul>	
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="col-md-4">
-							<div class="topic-listing" ng-click="showOptionTab('topiclistquestion')">
-								<h2 class="root-topic"> 
-									Request a Quote <span>(0)</span></h2>
-								<ul class="topic-list">
-									<li>
-										<ul>
-											<li ng-click="showOptionTab('topiclistquestion')">Open Quotes <span>(0)</span></li>
-										</ul>	
-									</li>
-								</ul>
-							</div>
+						 </div>
+						<div class="col-md-12 topic-list-container">	
+                            <div class="box box-info">
+								<div class="box-header with-border">
+									<h3 class="box-title head-title-padding">All Topics (106)</h3>
+								</div>
+								<div class="box-body">
+									<div class="col-md-4">
+										<div class="topic-listing">
+											<h2 class="root-topic" ng-click="showOption('topiclistquestion','Knowledge Base','Account Questions')">Account Questions <span>(9)</span></h2>
+											<ul class="topic-list">
+												<li>
+													<ul>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Orders')">Orders <span>(5)</span></li>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Refunds')">Refunds<span>(0)</span></li>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Returns')">Returns <span>(7)</span></li>
+													</ul>	
+												</li>
+											</ul>
+											
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="topic-listing">
+											<h2 class="root-topic" ng-click="showOption('topiclistquestion','Knowledge Base','Products')">Products <span>(12)</span></h2>
+											<ul class="topic-list">
+												<li>
+													<ul>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Audio-Video ')">Audio-Video <span>(6)</span></li>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Search Results')">Cameras<span>(18)</span></li>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Cameras')">Cell Phones <span>(8)</span></li>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Computers')"  ng-show="view_more">Computers<span>(5)</span></li>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Televisions')"  ng-show="view_more">Televisions<span>(0)</span></li>
+													</ul>	
+												</li>
+											</ul>
+											<div class="view-more">
+												<a class="pull-right" ng-show="!view_more" ng-click="view_more = true;">View More...</a>
+												<a class="pull-right" ng-show="view_more" ng-click="view_more = false;">View Less...</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="topic-listing">
+											<h2 class="root-topic" ng-click="showOption('topiclistquestion','Knowledge Base','Request a Quote')"> 
+												Request a Quote <span>(0)</span></h2>
+											<ul class="topic-list">
+												<li>
+													<ul>
+														<li ng-click="showOption('topiclistquestion','Knowledge Base','Request a Quote')">Request a Quotes <span>(0)</span></li>
+													</ul>	
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+									<div class="col-md-4">
+										<div class="topic-listing">
+											<h2 class="root-topic" ng-click="showOption('topiclistquestion','Knowledge Base','Shipping')"> 
+												Shipping <span>(14)</span></h2>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="topic-listing">
+											<h2 class="root-topic" ng-click="showOption('topiclistquestion','Knowledge Base','Technical Support')"> 
+											 Technical Support <span>(0)</span></h2>
+										</div>
+									</div>
+                                </div>
+                            </div>
 						</div>
                       </div>
 					</div>
@@ -647,18 +660,10 @@
 
 
   <!-- Topic Listing Start-->
- <div class="row-container-full-width mtop30" ng-if = "tabtype == 'topiclistquestion'">
+ <div class="row-container-full-width mtop30" ng-if = "type == 'topiclistquestion'">
 	<div class="row">
 		  <div class="col-md-12">
 			  <div class="container text-center">
-				 
-				  <div class="breadcrumb-container">
-					<ol class="breadcrumb">
-					  <li><a href="#" ng-click="showOptionTab('home')"> Home</a></li>
-					  <li><a href="#" ng-click="showOptionTab('topiclist')"> Topic List</a></li>
-					  <li class="active">All Topic</li>
-					</ol>
-				  </div>
 				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">All Topics <span class="span-blue">(2)</span></h1>
 				  <div class="segment-topic-container">
                      <div class="row">
@@ -681,7 +686,7 @@
                                   </th>
 								 </thead>
 								  <tbody>
-										<tr ng-click="showOptionTab('questiondetail')">
+										<tr ng-click="showOption('questiondetail','Knowledge Base','Topic','Access rights...')")")">
 										  <td>
 											  <div class="question-list">
 												   <div class="question-title">Access rights for creating new segments</div>
@@ -697,7 +702,7 @@
 											property1
 										  </td>
 										</tr>
-										<tr ng-click="showOptionTab('questiondetail')">
+										<tr ng-click="showOption('questiondetail','Knowledge Base','Topic','Adding a file...')")")">
 										  <td>
 											  <div class="question-list">
 												   <div class="question-title">Adding a file attachment to email using iService web services</div>
@@ -730,13 +735,7 @@
 	<div class="row">
 		  <div class="col-md-12">
 			  <div class="container text-center">
-				 
-				  <div class="breadcrumb-container">
-					<ol class="breadcrumb">
-					  <li><a href="#" ng-click="showOptionTab('home')"> Home</a></li>
-					  <li class="active">Search Results</li>
-					</ol>
-				  </div>
+			
 				  <h1 class="heading page-sub-heading text-left border-bottom mbottom30">2 Results Found for  You Search Query</h1>
 				  <div class="segment-topic-container">
                      <div class="row">
@@ -759,7 +758,7 @@
                                   </th>
 								 </thead>
 								  <tbody>
-										<tr ng-click="showOptionTab('questiondetail')">
+										<tr ng-click="showOption('questiondetail','Knowledge Base','Search Results','Access rights...')")">
 										  <td>
 											  <div class="question-list">
 												   <div class="question-title">Access rights for creating new segments</div>
@@ -775,7 +774,7 @@
 											property1
 										  </td>
 										</tr>
-										<tr ng-click="showOptionTab('questiondetail')">
+										<tr ng-click="showOption('questiondetail','Knowledge Base','Search Results','Adding a file...')")">
 										  <td>
 											  <div class="question-list">
 												   <div class="question-title">Adding a file attachment to email using iService web services</div>
@@ -807,17 +806,10 @@
   
   
   <!-- Question Detail Start-->
-  <div class="row-container-full-width mtop30" ng-if = "tabtype == 'questiondetail'">
+  <div class="row-container-full-width mtop30" ng-if = "type == 'questiondetail'">
 	<div class="row">
 		  <div class="col-md-12">
 			  <div class="container">
-				 <div class="breadcrumb-container">
-						<ol class="breadcrumb">
-						  <li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
-						  <li><a href=""  ng-click="showOptionTab('topiclist')">Topic List</a></li>
-						  <li class="active">What are...</li>
-						</ol>
-				</div>
 				 <div class="row">	 
 					<div class="col-md-8">
                        <div class="question-container">
@@ -896,12 +888,6 @@ Why can't I add a new contact?<br><br>
 		<div class="row">
 				<div class="col-md-12">
 					<div class="container">
-						<div class="breadcrumb-container">
-							<ol class="breadcrumb">
-								<li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
-								<li><a href=""  ng-click="showOptionTab('topiclist')">My Subscription</a></li>
-							</ol>
-					    </div>
 					    <h2 class="heading page-sub-heading text-left text-blue">Mailing List</h2>
 						<div class="subscriptions">
 						<div class="table-row table-row-head">
@@ -992,12 +978,7 @@ Why can't I add a new contact?<br><br>
 		<div class="row">
 				<div class="col-md-12">
 					<div class="container">
-						<div class="breadcrumb-container">
-							<ol class="breadcrumb">
-								<li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
-								<li><a href=""  ng-click="showOptionTab('topiclist')">My Details</a></li>
-							</ol>
-						</div>
+
 							<h2 class="heading page-sub-heading text-left text-blue">My Details</h2>
 							<div class="heading-bar">
 								Contact Information
@@ -1207,12 +1188,7 @@ Why can't I add a new contact?<br><br>
 	<div class="row">
 		  <div class="col-md-12">
 			  <div class="container">
-			      <div class="breadcrumb-container">
-						<ol class="breadcrumb">
-						  <li><a href="#" ng-click="showOptionTab('home')">Home</a></li>
-						  <li class="active">Ask Question</li>
-						</ol>
-				  </div>
+
 				   <div class="heading-bar">
 					Ask Questions To Experts 
 				   </div>
@@ -1371,14 +1347,6 @@ Why can't I add a new contact?<br><br>
     <div class="row message-portal">
             <div class="col-md-12">
                 <div class="container">
-                
-                <div class="breadcrumb-container">
-                    <ol class="breadcrumb">
-                    <li><a href="#" ng-click="showOption('home')"> Home</a></li>
-                    <li><a href="#" ng-click="showOption('topiclist')"> Topic List</a></li>
-                    <li class="active">All Topic</li>
-                    </ol>
-                </div>
                 <div class="row">
                     <div class="mailbox-container">
     
