@@ -154,6 +154,7 @@ vm.topicselected = {selected : "Select or search for a topic in the list ..."};
 	{name: 'Technical Support',topiclevel:1, disabled: '', segment:"Segment"},
 	{name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
 ];
+
 });
 
 

@@ -1392,4 +1392,5 @@ ul.suggested-question-list li{list-style: none; width:100%; float: left;    marg
 .kb-support-tabs .nav-tabs>li.active>a i{ color: #f7941d;}
 .kb-support-tabs .nav-tabs>li a i{font-size:24px;margin-right:5px;}
 .kb-support-tabs .tab-content .tab-pane{background: none;}
+.pointer{cursor: pointer;}
 /*kb support tabls*/

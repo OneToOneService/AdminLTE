@@ -1187,7 +1187,7 @@ Why can't I add a new contact?<br><br>
   <div class="row-container-full-width mtop30" ng-if = "tabtype == 'questionform'">
 	<div class="row">
 		  <div class="col-md-12">
-			  <div class="container">
+			  <div class="container"  ng-controller="TopicCtrl as ctrl">
 
 				   <div class="heading-bar">
 					Ask Questions To Experts 
@@ -1197,18 +1197,27 @@ Why can't I add a new contact?<br><br>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label class="col-md-12 control-label text-left" for="exampleInputEmail1">Please pick the topic of your question</label>
-										<div class="col-sm-12" ng-controller="TopicCtrl as ctrl">
+										<div class="col-sm-12">
 											<ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic" ng-disabled>
 											  <ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
 											  <ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{{ item.disabled}}" >
 												<span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{{ item.topiclevel }}{{ item.disabled }}"  ng-bind-html="item.name | highlight: $select.search">{{ item.name }}</span>
 											  </ui-select-choices>
 											</ui-select>
+										
 										</div>
 									</div>
+
+									<div class="form-group" ng-show ="ctrl.topicselected.selected.name">
+										<label for="inputPassword3" class="col-sm-12 control-label text-left">Subject</label>
+										<div class="col-sm-12">
+											<input type="text" class="form-control" value="Re:Trying to find solution">
+										</div>
+									</div>
+
 								</div>
 						</div>
-						<div class="row">
+						<div class="row" ng-show="ctrl.topicselected.selected.name">
 							<div class="col-md-12">
 							   <h3 class="submit-ticket-heading f18 text-blue mtop30 mbottom30">We might have an answer to your question</h3>
 							   <ul class="suggested-question-list">
@@ -1254,22 +1263,37 @@ Why can't I add a new contact?<br><br>
 									</li>
 								</ul>
 								<div class="clearfix"></div>
-								<h3 class="submit-ticket-heading f18 text-orange mtop30">We might have an answer to your question</h3>
-								<h3 class="submit-ticket-heading f18 text-blue mtop15">Submit A Ticket</h3>
-								<div class="row form-horizontal">
+								<div class="mailbox-controls-bottom mtop30">
+									<div class="dataTables_info pull-left">Showing 1 to 3 of 3 entries</div>
+									<div class="pull-right">
+										<div class="dataTables_paginate paging_simple_numbers">
+											<ul class="pagination">
+												<li class="paginate_button previous disabled">
+													<a href="#">Previous</a>
+												</li>
+												<li class="paginate_button active">
+													<a href="#" >1</a>
+												</li>
+												<li class="paginate_button next disabled">
+													<a href="#">Next</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- /.pull-right -->
+								</div>
+								<div class="clearfix"></div>
+								<h3 class="submit-ticket-heading f18 text-blue mtop30 pointer" ng-click="submitticket = true;">Those didn't help. Submit My Ticket</h3>
+								
+							</div>
+						</div>
+
+						<div class="row mtop30" ng-show="submitticket">
+                           <div class="form-horizontal">
+									<div class="col-md-12 f16 text-orange mbottom30">Additional information for your selected topic</div>
+									<div class="clearfix"></div>
                                     <div class="col-md-6">
-                                        <div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<label for="inputPassword3" class="col-sm-12 control-label text-left">Subject</label>
-													<div class="col-sm-12">
-														<input type="text" class="form-control" value="Re:Trying to find solution">
-													</div>
-												</div>
-											</div>
-											<div class="clearfix"></div>
-											<div class="col-md-12">
-												<span class="f16 text-orange">Additional information for your selected topic</span>
+
 												<div class="form-group">
 													<label for="inputPassword3" class="col-sm-12 control-label text-left">Product Type</label>
 													<div class="col-sm-12" ng-controller="TopicCtrl as ctrl">
@@ -1278,8 +1302,7 @@ Why can't I add a new contact?<br><br>
 														</select>	
 													</div>
 												</div>
-											</div>
-                                        </div>
+
 									</div>
 									<div class="col-sm-12 col-md-6 col-lg-6 mb-15 mtop15">
 										<label class="drop-box">
@@ -1302,9 +1325,7 @@ Why can't I add a new contact?<br><br>
 									<div class="col-md-12">
 										<button class="btn btn-primary btn-custom-lg mtop30">Submit Ticket</button>
 									</div>
-								</div>
-								 
-							</div>
+							</div> 
 						</div>
 					</div>
                     <div class="row" style="display: none;">
