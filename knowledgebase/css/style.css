@@ -1394,3 +1394,63 @@ ul.suggested-question-list li{list-style: none; width:100%; float: left;    marg
 .kb-support-tabs .tab-content .tab-pane{background: none;}
 .pointer{cursor: pointer;}
 /*kb support tabls*/
+
+/*Updates*/
+.mleft15{margin-left:15px;}
+.article-other-detail{margin-bottom: 15px;}
+.article-date, .article-share {font-size: 15px;color: #666;  font-weight: normal;}
+.article-share a{border:1px solid #666; padding:6px; border-radius:6px;}
+.article-share a {
+  border: 1px solid #666;
+  padding: 1px;
+  border-radius: 6px;
+  width: 23px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 6px;
+}
+
+.rating {
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+ul.rating {
+  display: inline-block;
+}
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size:20px;
+}
+.rating .filled {
+  color: orangered;
+}
+.clear{
+margin-top:20px;
+}
+.main-title{font-size: 24px !important; font-weight: bold;}
+/*udpates*/
+.fa-star-o {
+  color: #FF7700;
+}
+.fa-star {
+  color: #FFDD00;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #FF7700;
+}
+.isReadonly {
+  .fa-star-o {
+      color: #000000;
+  }
+  .fa-star {
+      color: #DCDCDC;
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: #000000;
+  }
+}

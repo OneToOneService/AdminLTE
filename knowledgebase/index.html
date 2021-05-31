@@ -48,8 +48,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.6.2/plugins/buttons/angular-datatables.buttons.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-sanitize.min.js"></script>
 
+	<!-- rate plugin-->
+	<script src="https://code.angularjs.org/1.3.0-rc.2/angular.js"></script>
 
-
+	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
 	<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
@@ -813,9 +815,21 @@
 				 <div class="row">	 
 					<div class="col-md-8">
                        <div class="question-container">
-						    <div class="qa-title">
-								What are the important details about the setup of this QA tenant related 
+						    <div class="qa-title main-title">
+								<i class="fa fa-text"></i>What are the important details about the setup of this QA tenant related 
 to service levels?
+                            	<div class="clearfix"></div>
+								<div class="article-other-detail">
+									<span class="article-date"><span class="text-blue">Modified on - </span> 2010-06-25 11:09:01 PM <span class="mleft15 text-blue">Views - </span>6</span>
+									
+									<span class="article-share">
+										<span class="mleft15 text-blue">Share on - </span>
+										<a href=""><i class="fa fa-facebook text-blue"></i></a>
+										<a href=""><i class="fa fa-twitter text-blue"></i></a>
+										<a href=""><i class="fa fa-linkedin text-blue"></i></a>
+										
+									</span>
+								</div>
 							</div>
 							<div class="qa-title">
 								Question:		
@@ -850,18 +864,25 @@ Why can't I add a new contact?<br><br>
 
 								These messages should then be delivered in reverse order to the agent - 5, 4, 3, 2, then 1.<br>
 							</div>	
-							<div class="qa-title mtop30">
-								Article Details	
-							</div>
-							<div class="answer">
-								Article ID - 25155Date Updated -2010-07-26 3:50:34 AM#Views - 7Article Creator - Landlord Administrat
-							</div>	
-							<div class="share-link-btn-container mtop30">
-								 <button class="btn btn-primary btn-custom-lg share-link-btn"> Share Link To Article</button>
-							</div>	
+							
 					   </div>	   
 					</div>
-					<div class="col-md-4">	
+					<div class="col-md-4">
+						<h2 class="heading page-heading-related text-left">Rate This Articles</h2>
+						<div class="rate-this-article">
+							<angular-star-rating max="maxValue" value='ratingValue'  hover='changeOnHover' is-readonly='isReadonly'></angular-star-rating>
+						    <div class="clearfix"></div>
+							<span class="mtop-15">Average rating - 3</span>
+						</div>
+						
+						<div class="rate-this-article mbottom40">
+							<h2 class="heading page-heading-related text-left">Subscribe to this article</h2>
+							<!--<button class="btn btn-primary">Subscribe</button>-->
+							<div class="clearfix"></div>
+							<a href="">Login to subscribe to this article</a>
+
+						</div>
+
                         <h2 class="heading page-heading-related text-left">Related Articles</h2>
 						<ul  class="question-list">
 							<li>
