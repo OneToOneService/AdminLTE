@@ -1189,9 +1189,9 @@ Why can't I add a new contact?<br><br>
 		  <div class="col-md-12">
 			  <div class="container"  ng-controller="TopicCtrl as ctrl">
 
-				   <div class="heading-bar">
+				<!--   <div class="heading-bar">
 					Ask Questions To Experts 
-				   </div>
+				   </div>-->
 				   <div class="col-md-12 support-form">
 						<div class="row form-horizontal mtop30">
 								<div class="col-md-6">
@@ -1208,7 +1208,7 @@ Why can't I add a new contact?<br><br>
 										</div>
 									</div>
 
-									<div class="form-group" ng-show ="ctrl.topicselected.selected.name">
+									<div class="form-group" ng-show ="ctrl.topicselected.selected.name  || submitticket"  >
 										<label for="inputPassword3" class="col-sm-12 control-label text-left">Subject</label>
 										<div class="col-sm-12">
 											<input type="text" class="form-control" value="Re:Trying to find solution">
@@ -1217,7 +1217,7 @@ Why can't I add a new contact?<br><br>
 
 								</div>
 						</div>
-						<div class="row" ng-show="ctrl.topicselected.selected.name">
+						<div class="row" ng-show="ctrl.topicselected.selected.name && !submitticket">
 							<div class="col-md-12">
 							   <h3 class="submit-ticket-heading f18 text-blue mtop30 mbottom30">We might have an answer to your question</h3>
 							   <ul class="suggested-question-list">
@@ -1283,7 +1283,7 @@ Why can't I add a new contact?<br><br>
 									<!-- /.pull-right -->
 								</div>
 								<div class="clearfix"></div>
-								<h3 class="submit-ticket-heading f18 text-blue mtop30 pointer" ng-click="submitticket = true;">Those didn't help. Submit My Ticket</h3>
+								<h3 class="submit-ticket-heading f18 text-blue mtop30 pointer" ng-click="submitticket = true; ctrl.topicselected.selected.name = false;">I don't see my answer above. Let's submit my question.</h3>
 								
 							</div>
 						</div>
@@ -1295,11 +1295,10 @@ Why can't I add a new contact?<br><br>
                                     <div class="col-md-6">
 
 												<div class="form-group">
-													<label for="inputPassword3" class="col-sm-12 control-label text-left">Product Type</label>
+													<label for="inputPassword3" class="col-sm-12 control-label text-left">Enter your email address</label>
 													<div class="col-sm-12" ng-controller="TopicCtrl as ctrl">
-														<select class="form-control">
-															<option>Select...</option>
-														</select>	
+														<input type="text" class="form-control">
+															
 													</div>
 												</div>
 
