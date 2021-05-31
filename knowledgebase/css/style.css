@@ -1454,3 +1454,10 @@ margin-top:20px;
       -webkit-text-stroke-color: #000000;
   }
 }
+.question-title-icon {
+  padding: 10px 12px;
+  border-radius: 50px;
+  border: 1px solid #3c8dbc;
+  font-weight: normal !important;
+  margin-right: 8px;
+}
