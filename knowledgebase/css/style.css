@@ -1461,3 +1461,11 @@ margin-top:20px;
   font-weight: normal !important;
   margin-right: 8px;
 }
+.sharelinkcontainer {
+  padding: 3px;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  width: 100%;
+  background: #f3f2f2;
+}
