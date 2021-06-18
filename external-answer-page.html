@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html ng-app="ui.bootstrap.demo">
+<html ng-app="iService">
 
 <head>
     <!-- NAME: 1 COLUMN -->
@@ -8,19 +8,25 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css">
 	<link rel="stylesheet" href="http://styleguide.iservice.info/dist/iservice/css/webapp.css">
-	
-	
+	<!-- Select2 -->
+    <link rel="stylesheet" href="/plugins/select2/select2.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">   
 	<!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.2.0/angular-moment.js"></script>
 	<script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <title>iService External Agent Answer Page</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
 	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-sanitize.min.js"></script>
     <style type="text/css">
          body{background:#cccccc;}
 		.wrapper{max-width:1080px;margin:0 auto; background:#fff;padding:15px;height: auto; overflow: none;}
@@ -164,6 +170,27 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-md-4">
+							<p> You must enter your email address before using the change topic button.</p>
+							<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+								<button class="btn btn-primary" title="Spam" uib-dropdown-toggle>
+								  <i class="fa  fa-arrows-alt"></i>
+								  Change Topic
+								</button>
+								<ul class="dropdown-menu dropdown-menu-btn-option dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+								  <li>
+									<div class="ng-cloak" ng-controller="ChangeTopicCtrl as ctrl">
+									  <ui-select ng-model="ctrl.topicselected.selected" theme="select2" title="Choose a topic">
+										<ui-select-match placeholder="Select or search for a topic in the list ..." ng-bind="$select.selected.name || $select.selected"></ui-select-match>
+										<ui-select-choices group-by="'segment'" repeat="item in ctrl.topic | filter: $select.search" ui-disable-choice="{{ item.disabled}}" >
+										  <span ng-attr-title="{{ item.name }}"  ng-attr-class="op-level-{{ item.topiclevel }} {{ item.disabled }}"  ng-bind-html="item.name | highlight: $select.search"></span>
+										</ui-select-choices>
+									  </ui-select>
+								  </div>
+								  </li>
+								</ul>
+							  </div>
+						</div>
 					</div>   
 				</div>
 			</div>
@@ -173,25 +200,59 @@
 						<div class="col-md-8">
 							<h5>Details about the contact and their question</h5>
 							<div class="form-group">
-								<label class="col-md-3 col-xm-12 control-label text-left">To</label>
-								<div class="col-sm-9"> 
-									<select class="form-control">
-										<option>customer@1to1Service.Com</option>
-									</select>   
-								</div>
+							  <label class="col-sm-2 control-label text-left">From</label>
+							  <div class="col-sm-10" ng-controller="FromEmail as ctrl"> 
+								<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+								  <ui-select-match placeholder="Select or search for a mailbox..." ng-bind="$select.selected.name|| $select.selected"></ui-select-match>
+								  <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+								  <span ng-bind-html="agent.name | highlight: $select.search"></span>
+								  <small ng-bind-html="agent.code | highlight: $select.search"></small>
+								  </ui-select-choices>
+								</ui-select>
+							  </div>
 							</div>
 							<div class="form-group">
-								<label class="col-md-3 col-xm-12 control-label text-left">Subject</label>
-								<div class="col-sm-3">
-									<input class="form-control" type="text" value="Ref#: 123456789-123456789"  disabled>
-								</div>
-								<div class="col-sm-6">
-									<input class="form-control" type="text" value="looking for low cost tv">
-								</div>
+							  <label class="col-sm-2 control-label text-left">To</label>
+							  <div class="col-sm-10">
+								<select class="form-control select2">
+								  <option selected="selected">Jacob.Smith@1to1Service.Com</option>
+								</select>
+							  </div>
 							</div>
-						</div>
+						  
+							<div class="form-group">
+							  <label class="col-sm-2 control-label text-left">CC</label>
+							  <div class="col-sm-8 replyall">
+								<i class="fa  fa-mail-reply-all  mright-5"  uib-tooltip="This question has addresses in the CC line. Click to add them to your reply." tooltip-placement="bottom"></i>
+								<input class="form-control" type="text">
+							  </div>
+							  <div class="col-sm-2">
+								  <a class="btn-link bcc-link cp"  uib-tooltip="Click to add a BCC line to your reply." tooltip-placement="bottom" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
+							  </div>  
+							</div>
+						  
+							<div class="form-group" ng-show="showBCC">
+							  <label class="col-sm-2 control-label text-left">BCC</label>
+							  <div class="col-sm-10">
+								<input class="form-control" type="text">
+							  </div>
+							</div>
+							<div class="form-group">
+							  <label class="col-sm-2 control-label text-left">Subject</label>
+							  <div class="col-sm-4">
+								<input class="form-control" type="text" value="Ref#: 123456789-123456789" disabled>
+							  </div>
+							  <div class="col-sm-6">
+								<input class="form-control" type="text" value="looking for low cost tv">
+							  </div>
+							</div>
+						  </div>
+				
 						<div class="col-md-4">
-							<h5>Attachments sent with the question</h5>
+														
+							<div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
+							<div><b>Assigned To : </b>&nbsp;	</div>	
+							<h5 class="mtop-15">Attachments sent with the question</h5>
 							<div class="form-group">
 								<div class="col-md-12"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
 								</div>    
@@ -358,7 +419,7 @@
 		 
 </script>
 <script>
-	var app = angular.module('ui.bootstrap.demo', ['ui.bootstrap']);
+	var app = angular.module('iService', [ 'ui.select', 'ui.bootstrap','ngSanitize']);
 		app.controller('popoverCtrl', function ($rootScope, $scope) {
 		$scope.popover = {
 			templateUrl: 'myPopoverTemplate.html'
@@ -385,4 +446,131 @@
 	});
 </script>
 
+<script>
+	app.controller('ChangeTopicCtrl', function ($scope) {
+	  var vm = this;
+	  vm.topicselected = {selected : "e-shop -- All Topics"};
+		  vm.topic = [
+			  {name: 'e-shop -- All Topics',topiclevel:0, disabled: '', segment:"Segment"},
+			  {name: '_Feedback',topiclevel:1, disabled: 'false', segment:"Segment"},
+			  {name: '_Newsletter Subscription ',topiclevel:1, disabled: 'disabled', segment:"Segment"},
+			  {name: '_Spam',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: '_Undeliverable',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Account Questions',topiclevel:0, disabled: '', segment:"Segment"},
+			  {name: 'Orders',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Refunds',topiclevel:1, disabled: 'disabled', segment:"Segment"},
+			  {name: 'Returns',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Products',topiclevel:0, disabled: '', segment:"Segment"},
+			  {name: 'Audio-Video',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Cameras',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Cell Phones',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Computers',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Televisions',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Shipping',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Technical Support',topiclevel:1, disabled: '', segment:"Segment"},
+			  {name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
+		  ];
+	  });
+	
+	  angular.module('iService').controller('AgentCtrl2', function ($scope) {
+				var vm = this;
+				vm.agent = {};
+				$scope.topicLoader=true;
+				vm.agentselected = {selected : "Select or search for an agent in the list"};
+	
+				vm.agentnames =  vm.topic = [
+				{name: 'Gathering Agents',topiclevel:0, disabled: 'disabled', segment:""}];
+				setTimeout(function () {
+				  $scope.topicLoader=false;
+				vm.agentnames = [ 
+					{name: 'Alek Packard' , email:'alek.packard@example.com', code: 'AP',topiclevel:0, disabled: '' ,loggedout:'',notavailable:''},
+					{name: 'Jacob Smith', email:'jacob.smith@example.com', code: 'JS',topiclevel:0, disabled: 'disabled',loggedout:'',notavailable:'notavailable'},
+					{name: 'Jonie Hewlett', email:'jonie.hewlett@example.com', code: 'JH',topiclevel:0, disabled: '',loggedout:'loggedout',notavailable:''},
+					{name: 'Justin Time', email:'justin.time@example.com', code: 'JT',topiclevel:0, disabled: '',loggedout:'',notavailable:''},
+				];
+			}, 5000);    
+	  });
+	  app.controller('SearchFor', function ($scope) {
+	  var vm = this;
+	  vm.topicselected = {selected : "Agent Notification"};
+		  vm.topic = [
+			  {name: 'Agent Notification',segment:"System Generated Responses"},
+			  {name: 'Alert',segment:"System Generated Responses"},
+			  {name: 'Contact Creation', segment:"System Generated Responses"},
+			  {name: 'External Agent Notification',segment:"System Generated Responses"},
+			  {name: 'Find Answer Article Update',segment:"System Generated Responses"},
+			  {name: 'Mass Mailing', segment:"System Generated Responses"},
+			  {name: 'Message Acknowledgment',segment:"System Generated Responses"},
+			  {name: 'Notification',segment:"System Generated Responses"},
+			  {name: 'Password Reset', segment:"System Generated Responses"},
+			  {name: 'Private Email',segment:"System Generated Responses"},
+			  {name: 'Secure Response',segment:"System Generated Responses"},
+			  {name: 'Agent Ticket', segment:"Questions"},
+			  {name: 'Chat', segment:"Questions"},
+			  {name: 'Contact Email', segment:"Questions"},
+			  {name: 'Customer Ticket', segment:"Questions"},
+			  {name: 'Agent Email', segment:"Answers (Message Sent)"},
+			  {name: 'Agent Response', segment:"Answers (Message Sent)"},
+			  {name: 'Secure Email', segment:"Answers (Message Sent)"},
+			  {name: 'Find Answer Article', segment:"Answers (No Message Sent)"},
+			  {name: 'Public Note', segment:"Answers (No Message Sent)"},
+			  {name: 'Private Note', segment:"Answers (No Message Sent)"},
+			  {name: 'Resolve Note', segment:"Answers (No Message Sent)"},
+			  {name: 'Unsent Response', segment:"Answers (No Message Sent)"},
+		  ];
+	  });
+	
+	  app.controller('TopicCtrl', function ($scope) {
+			var vm = this;
+			vm.topicselected = {selected : "Select or search for a topic in the list ..."};
+				vm.topic = [
+				{name: 'e-shop -- All Topics',topiclevel:0, disabled: '', segment:"Segment"},
+				{name: '_Feedback',topiclevel:1, disabled: 'false', segment:"Segment"},
+				{name: '_Newsletter Subscription ',topiclevel:1, disabled: 'disabled', segment:"Segment"},
+				{name: '_Spam',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: '_Undeliverable',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Account Questions',topiclevel:0, disabled: '', segment:"Segment"},
+				{name: 'Orders',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Refunds',topiclevel:1, disabled: 'disabled', segment:"Segment"},
+				{name: 'Returns',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Products',topiclevel:0, disabled: '', segment:"Segment"},
+				{name: 'Audio-Video',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Cameras',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Cell Phones',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Computers',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Televisions',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Shipping',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Technical Support',topiclevel:1, disabled: '', segment:"Segment"},
+				{name: 'Open Quotes',topiclevel:1, disabled: '', segment:"Segment"}
+			];
+			
+	
+		  //  var vm = this;
+				vm.segmentObj = {
+					'1' : { name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
+					'2' : { name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },
+					'3' : { name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
+					'4' : { name: 'Human Resources',email:'human.resources@1to1service.com', segmentname: 'Human Resources' },
+				};
+			vm.segmentselected = {selected : "Select or search for a mailbox to use as the From address"};
+				vm.segment = [
+					{ name: 'Sales',email:'sales@1to1service.com', segmentname: 'Customer Success' },
+					{ name: 'Technical',email:'Support support@1to1service.com', segmentname: 'Customer Success' },
+					{ name: 'Benefits',email:'benefits@1to1service.com', segmentname: 'Human Resource' },
+					{ name: 'Human Resources',email:'human.resources@1to1service.com',  segmentname: 'Human Resource' },
+				];
+		});
 
+		app.controller('FromEmail', function ($scope) {
+            var vm = this;
+            vm.agent = {};
+            vm.agentselected = {selected : "--Default MailBox--"};
+            vm.agentname = [ 
+                {name: '--Default MailBox--', code: ''},
+                {name: 'Customer Support (support@example.com)', code: ''},
+                {name: 'Sales (Sales@example.com)', code: ''},
+                {name: 'Technical Support (technicalsupport@example.com)', code: ''},
+            ];
+        });
+	   
+	 </script> 
