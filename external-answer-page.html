@@ -171,6 +171,8 @@
 							</div>
 						</div>
 						<div class="col-md-4">
+							<p><b>Topic : </b>Technical Support</p>
+							<br>
 							<p> You must enter your email address before using the change topic button.</p>
 							<div class="btn-group margin-r-5" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
 								<button class="btn btn-primary" title="Spam" uib-dropdown-toggle>
@@ -194,73 +196,85 @@
 					</div>   
 				</div>
 			</div>
-			<div class="info-container">
-				<div class="data-container form-horizontal">
-					<div class="row">
-						<div class="col-md-8">
-							<h5>Details about the contact and their question</h5>
-							<div class="form-group">
-							  <label class="col-sm-2 control-label text-left">From</label>
-							  <div class="col-sm-10" ng-controller="FromEmail as ctrl"> 
-								<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
-								  <ui-select-match placeholder="Select or search for a mailbox..." ng-bind="$select.selected.name|| $select.selected"></ui-select-match>
-								  <ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
-								  <span ng-bind-html="agent.name | highlight: $select.search"></span>
-								  <small ng-bind-html="agent.code | highlight: $select.search"></small>
-								  </ui-select-choices>
-								</ui-select>
-							  </div>
-							</div>
-							<div class="form-group">
-							  <label class="col-sm-2 control-label text-left">To</label>
-							  <div class="col-sm-10">
-								<select class="form-control select2">
-								  <option selected="selected">Jacob.Smith@1to1Service.Com</option>
-								</select>
-							  </div>
-							</div>
-						  
-							<div class="form-group">
-							  <label class="col-sm-2 control-label text-left">CC</label>
-							  <div class="col-sm-8 replyall">
-								<i class="fa  fa-mail-reply-all  mright-5"  uib-tooltip="This question has addresses in the CC line. Click to add them to your reply." tooltip-placement="bottom"></i>
-								<input class="form-control" type="text">
-							  </div>
-							  <div class="col-sm-2">
-								  <a class="btn-link bcc-link cp"  uib-tooltip="Click to add a BCC line to your reply." tooltip-placement="bottom" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
-							  </div>  
-							</div>
-						  
-							<div class="form-group" ng-show="showBCC">
-							  <label class="col-sm-2 control-label text-left">BCC</label>
-							  <div class="col-sm-10">
-								<input class="form-control" type="text">
-							  </div>
-							</div>
-							<div class="form-group">
-							  <label class="col-sm-2 control-label text-left">Subject</label>
-							  <div class="col-sm-4">
-								<input class="form-control" type="text" value="Ref#: 123456789-123456789" disabled>
-							  </div>
-							  <div class="col-sm-6">
-								<input class="form-control" type="text" value="looking for low cost tv">
-							  </div>
-							</div>
-						  </div>
-				
-						<div class="col-md-4">
-														
-							<div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
-							<div><b>Assigned To : </b>&nbsp;	</div>	
-							<h5 class="mtop-15">Attachments sent with the question</h5>
-							<div class="form-group">
-								<div class="col-md-12"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
-								</div>    
+            <div class="row">
+				<div class="col-md-8">
+					<div class="info-container">
+						<div class="data-container form-horizontal">
+							<div class="row">
+								<div class="col-md-12">
+									<h5>Details about the contact and their question</h5>
+									<div class="form-group">
+									<label class="col-sm-2 control-label text-left">From</label>
+									<div class="col-sm-10" ng-controller="FromEmail as ctrl"> 
+										<ui-select ng-model="ctrl.agentselected.selected" theme="select2" ng-disabled="ctrl.disabled" style="width: 300px;" title="Choose a agent">
+										<ui-select-match placeholder="Select or search for a mailbox..." ng-bind="$select.selected.name|| $select.selected"></ui-select-match>
+										<ui-select-choices repeat="agent in ctrl.agentname | filter: $select.search">
+										<span ng-bind-html="agent.name | highlight: $select.search"></span>
+										<small ng-bind-html="agent.code | highlight: $select.search"></small>
+										</ui-select-choices>
+										</ui-select>
+									</div>
+									</div>
+									<div class="form-group">
+									<label class="col-sm-2 control-label text-left">To</label>
+									<div class="col-sm-10">
+										<select class="form-control select2">
+										<option selected="selected">Jacob.Smith@1to1Service.Com</option>
+										</select>
+									</div>
+									</div>
+								
+									<div class="form-group">
+									<label class="col-sm-2 control-label text-left">CC</label>
+									<div class="col-sm-8 replyall">
+										<i class="fa  fa-mail-reply-all  mright-5"  uib-tooltip="This question has addresses in the CC line. Click to add them to your reply." tooltip-placement="bottom"></i>
+										<input class="form-control" type="text">
+									</div>
+									<div class="col-sm-2">
+										<a class="btn-link bcc-link cp"  uib-tooltip="Click to add a BCC line to your reply." tooltip-placement="bottom" ng-hide="showBCC" ng-click="showBCC = !showBCC">Add BCC</a>
+									</div>  
+									</div>
+								
+									<div class="form-group" ng-show="showBCC">
+									<label class="col-sm-2 control-label text-left">BCC</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="text">
+									</div>
+									</div>
+									<div class="form-group">
+									<label class="col-sm-2 control-label text-left">Subject</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" value="Ref#: 123456789-123456789" disabled>
+									</div>
+									<div class="col-sm-6">
+										<input class="form-control" type="text" value="looking for low cost tv">
+									</div>
+									</div>
+								</div>
 							</div> 
-						</div> 
-				</div>   
+						</div>   
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="info-container">
+						<div class="data-container form-horizontal">
+							<div class="row">
+								<div class="col-md-12">
+																
+									<div><b> Interaction Type : </b><small class="label label-with-icon bg-blue"><i class="fa fa-envelope"></i>Customer Email</small><span class="email-download" uib-tooltip="Download Customer Email" tooltip-placement="bottom"><i class="fa fa-download"></i></span></div>
+									<div><b>Assigned To : </b>&nbsp;	</div>	
+									<hr>
+									<h5 class="mtop-15">Attachments sent with the question</h5>
+									<div class="form-group">
+										<div class="col-md-12"><b> <i class="fa fa-paperclip attachment-icon"></i></b> <a href="" class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image1.jpg (123KB)</span></a> <a href=""  class="attachments"><i class="fa fa-file-image-o"></i> <span class="filename">Image2.jpg (30kb)</span></a> <a href=""  class="attachments"><i class="fa fa-file-pdf-o"></i><span class="filename"> File1.pdf (40KB)</span></a> </div>
+										</div>    
+									</div> 
+								</div> 
+						</div>   
+					</div>
+				</div>
 			</div>
-			
+			<div class="clearfix"></div>
 			<div class="data-container form-horizontal">
 				<h5>Additional information about the question and your answer (Interaction Properties)</h5>
 				<div class="row">
