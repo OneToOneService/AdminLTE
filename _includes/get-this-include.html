@@ -161,6 +161,7 @@
             <li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
             <li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
             <li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+            <li role="menuitem" class="text-red" ng-click = "openDeleteModal()"><a href="#" class="text-red"><i class="fa  fa-trash"></i> Delete This Interaction</a></li>
           </ul>
         </div>
       </div>
@@ -228,3 +229,23 @@
     </div>
   </div>
 </div>
+
+<script type="text/ng-template" id="deleteNotice.html">
+  <div class="modal-header">
+      <h4 class="modal-title text-red"><i class="icon fa fa-warning text-yellow"></i>Do you really want to delete this interaction.</h4>
+    </div>
+  <div class="modal-body logout-notice" id="modal-body">
+      <div class="row mtop15">
+          <div class="col-md-12 form-group">
+              <p class="text text-red">Deletion is immidiate and irrecoverable upon confirmation.<br><br></p>
+              <button class="btn btn-default pull-left" type="button" ng-click="cancelNotice();">
+               Cancel
+              </button>
+            
+              <button class="btn btn-danger pull-right" type="button" ng-click="confirmDeletion();">
+                  Confirm Deletion
+              </button>
+          </div>	
+      </div> 
+  </div>
+</script>    

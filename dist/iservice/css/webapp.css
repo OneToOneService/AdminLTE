@@ -1837,7 +1837,7 @@ label .icheckbox_square-blue {
   color: #3c8dbc !important;
 }
 .dropdown-menu {
-  z-index: 99999;
+  z-index: 999;
   min-width: 400px;
   background: #fbfbfb;
   border: 1px solid #dddddd;

@@ -159,6 +159,7 @@ title: Action Mode
 									<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
 									<li role="menuitem"><iservice-switch swipritched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
 									<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+									<li role="menuitem" class="text-danger"><a href="#" class="text-danger"><i class="fa fa-print"></i> Delete This Interaction</a></li>
 								 </ul>
 							</div>
 							<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this interaction to yourself" tooltip-placement="bottom" ng-click="show('getthis')">
@@ -406,6 +407,8 @@ title: Action Mode
 					<li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
 					<li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
 					<li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+					<li role="menuitem" class="text-danger"><a href="#" class="text-danger"><i class="fa fa-print"></i> Delete This Interaction</a></li>
+								 
 				  </ul>
 				</div>
 				<button class="btn bg-info btn-info margin-r-5 pull-right" uib-tooltip="Assign this to me" tooltip-placement="bottom" ng-click="show2('getthis2')">
@@ -673,6 +676,8 @@ title: Action Mode
 					  <li role="menuitem"><iservice-switch switched="toggle.switchshowfullcase">Show Full Case</iservice-switch></li>
 					  <li role="menuitem"><iservice-switch switched="toggle.switchplainorhtml">Display Plain Text</iservice-switch></li>
 					  <li role="menuitem"><a href="#"><i class="fa fa-print"></i> Print</a></li>
+					  <li role="menuitem" class="text-danger"><a href="#" class="text-danger"><i class="fa fa-print"></i> Delete This Interaction</a></li>
+								 
 					</ul>
 				  </div>
 				</div>
@@ -901,7 +906,7 @@ title: Action Mode
 
 	<script>
 
-		angular.module('iService').controller('action-mode', function ($scope,$log,$compile) {
+		angular.module('iService').controller('action-mode', function ($scope,$log,$compile,$uibModal) {
 
 			$scope.options = {
 				language: 'en',
@@ -909,6 +914,20 @@ title: Action Mode
 				entities: false
 			};
 
+			$scope.openDeleteModal  = function(){
+				$uibModal.open({
+				templateUrl : 'deleteNotice.html',
+				controller: function ($scope, $uibModalInstance) {
+					$scope.cancelNotice = function () {
+						$uibModalInstance.close();
+					};
+					$scope.confirmDeletion = function () {
+						$uibModalInstance.close();
+					};
+			    }
+				});
+			}
+			
 			$scope.toggleRow = function (segmentName)
 			{  
 				$scope.hidetrue = true;
